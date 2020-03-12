@@ -7,7 +7,7 @@ const nonDuplicate = array => {
       inputObject[index] = 1;
     }
   });
-  let uniques = Object.keys(inputObject);
+  let uniques = Object.keys(inputObject).length;
   return uniques;
 };
 
