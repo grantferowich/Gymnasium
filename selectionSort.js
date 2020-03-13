@@ -1,3 +1,4 @@
+// helper function, takes in the array, swaps the values of the indexes;
 const swap = (a, x, y) => {
   let temp = a[x];
   a[x] = a[y];
