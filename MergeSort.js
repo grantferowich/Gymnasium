@@ -1,8 +1,8 @@
 //First, divide the list in two until there are lists of size 1;
 //then, merge together all the smaller lists until there is only 1 sorted list;
 
-const divide = unsortedArr => {
-  if (unsortedArr.length == 1) {
+const mergeSort = unsortedArr => {
+  if (unsortedArr.length < 2) {
     return unsortedArr;
   }
 
@@ -11,27 +11,23 @@ const divide = unsortedArr => {
   const left = unsortedArr.slice(0, middle);
   const right = unsortedArr.slice(middle);
 
-  return conquer(divide(left), divide(right));
+  return merge(mergeSort(left), mergeSort(right));
 };
 
-const conquer = (left, right) => {
+const merge = (left, right) => {
   let result = [];
-  let leftIndex = 0;
-  let rightIndex = 0;
 
-  while (leftIndex < left.length && rightIndex < right.length) {
-    if (left[leftIndex] < right[rightIndex]) {
-      result.push(left[leftIndex]);
-      leftIndex++;
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      result.push(left.shift());
     } else {
-      result.push(right[rightIndex]);
-      rightIndex++;
+      result.push(right.shift());
     }
   }
 
-  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  return result.concat(left.slice()).concat(right.slice());
 };
 
 console.log(
-  divide([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213])
+  mergeSort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213])
 );
