@@ -6,17 +6,19 @@ const swap = (a, x, y) => {
 };
 
 const selectionSort = a => {
-  let length = a.length;
-  for (let i = 0; i < length; i++) {
-    let min = i;
-    for (let j = i + 1; j < length; j++) {
-      if (a[min] > a[j]) {
-        min = j;
+  //start with the initial index in the unsorted array
+  let startIndex = 0;
+  while (startIndex < a.length - 1) {
+    let smallestIndex = startIndex;
+    for (let j = startIndex + 1; j < a.length; j++) {
+      if (a[smallestIndex] > a[j]) {
+        smallestIndex = j;
       }
     }
-    if (min !== i) {
-      swap(a, i, min);
+    if (startIndex !== smallestIndex) {
+      swap(a, startIndex, smallestIndex);
     }
+    startIndex++;
   }
 
   return a;
