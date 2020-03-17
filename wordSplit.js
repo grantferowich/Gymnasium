@@ -17,3 +17,6 @@ const wordSplit = strArr => {
 };
 
 console.log(wordSplit(["hellocat", "apple,bat,cat,goodbye,hello,why"]));
+console.log(
+  wordSplit(["baseball", "a,all,b,ball,bas,base,cat,code,d,e,quit,z"])
+);
