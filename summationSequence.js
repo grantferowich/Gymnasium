@@ -9,8 +9,6 @@ const summation = n => {
 
 const summationSequence = (start, length) => {
   let arr = [start];
-  let i = 0;
-  let sum = 0;
 
   while (arr.length < length) {
     let last = arr.length - 1;
