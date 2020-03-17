@@ -3,7 +3,7 @@ const firstUniqChar = s => {
 
   while (currentIdx < s.length) {
     for (let i = 1; i < s.length; i++) {
-      remainder = s.slice(i);
+      let remainder = s.slice(i);
       if (!remainder.includes(s[currentIdx])) {
         return currentIdx;
       } else currentIdx++;
