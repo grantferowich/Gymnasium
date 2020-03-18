@@ -1,5 +1,7 @@
 //First, divide the list in two until there are lists of size 1;
 //then, merge together all the smaller lists until there is only 1 sorted list;
+const { PerformanceObserver, performance } = require("perf_hooks");
+var t0 = performance.now();
 
 const mergeSort = unsortedArr => {
   if (unsortedArr.length < 2) {
@@ -31,3 +33,6 @@ const merge = (left, right) => {
 console.log(
   mergeSort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213])
 );
+
+var t1 = performance.now();
+console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
