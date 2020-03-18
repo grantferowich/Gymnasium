@@ -1,3 +1,6 @@
+const { PerformanceObserver, performance } = require("perf_hooks");
+var t0 = performance.now();
+
 const summation = n => {
   let sum = 0;
   let i = 1;
@@ -18,5 +21,8 @@ const summationSequence = (start, length) => {
   return arr;
 };
 
-console.log(summationSequence(3, 4)); // => [3, 6, 21, 231]
-console.log(summationSequence(5, 3)); // => [5, 15, 120])
+console.log(summationSequence(3, 5)); // => [3, 6, 21, 231]
+console.log(summationSequence(5, 5)); // => [5, 15, 120])
+
+var t1 = performance.now();
+console.log("Call to SummationSequence took " + (t1 - t0) + " milliseconds.");
