@@ -24,4 +24,4 @@
 # METHOD 3 - SED
 # SED (Stream EDitor) does text replacement really well
 # the -n flag with the p command prints only the material at line 10
-cat file.txt | sed -n '10p' 
+# cat file.txt | sed -n '10p' 
