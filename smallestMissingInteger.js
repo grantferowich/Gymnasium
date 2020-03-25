@@ -17,7 +17,7 @@
 //   return 1;
 // };
 
-function solution(A) {
+function smallestMissingInteger(A) {
   const len = A.length;
   const hash = {};
   for (let i = 0; i < len; i++) {
@@ -29,6 +29,6 @@ function solution(A) {
   return 1;
 }
 
-const run = solution([1, 2, 3, 4]);
+const run = smallestMissingInteger([1, 2, 3, 4]);
 console.log(run); // =>5
 //THIS DOES NOT WORK >:(

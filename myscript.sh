@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# chmode +x FILENAME to make file executable
+
 # ECHO COMMAND
 # echo Hello World!
 
@@ -15,13 +17,15 @@
 # read -p "Enter your name: " NAME
 # echo "Hello $NAME, nice to meet you"
 
-# Simple if statement
+# SIMPLE IF STATEMENT
+
 # if [ "$NAME" == "Grant" ] 
 # then 
 #     echo "your name is Grant"
 # fi
 
-# If-else
+# IF-ELSE
+
 # if [ "$NAME" == "Grant" ] 
 # then 
 #      echo "your name is Grant"
