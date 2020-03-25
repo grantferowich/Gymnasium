@@ -4,11 +4,13 @@ CRUD: CREATING, READING(QUERYING), UPDATING, DELETING RECORDS FROM A TABLE IN A 
 
 CREATE DATABASE record_company;
 USE record_company;
+
 CREATE TABLE bands (
 id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(255) NOT NULL,
 PRIMARY KEY (id)
 );
+
 CREATE TABLE albums (
 id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(255) NOT NULL,
@@ -30,6 +32,8 @@ SELECT \* FROM bands LIMIT 2;
 
 SELECT name FROM bands;
 
+<!-- ALIASES -->
+
 SELECT id AS 'ID', name AS 'Band Name'
 FROM bands;
 
@@ -41,8 +45,10 @@ VALUES ('The Number of the Beasts', 1985, 1),
 ('Nightmare', 2018, 2),
 ('Nightmare', 2010, 3),
 ('Test Album', NULL, 3);
-  
+
 SELECT \* FROM albums;
+
+<!-- read Only records with distinct names -->
 
 SELECT DISTINCT name from albums;
 
@@ -65,26 +71,22 @@ WHERE release_year BETWEEN 2000 and 2018;
 SELECT \* FROM albums
 WHERE release_year IS NULL;
 
+<!-- DELETE A RECORD  -->
+
 DELETE FROM albums
 WHERE id = 5;
 
 SELECT \* FROM albums;
 
-<!-- QUERY A DB WITH MULTIPLE OPERATORS -->
-
-<!-- DATA TYPES -->
-
-<!-- INSERT, UPDATE AND DELETE RECORDS -->
-
-Once we are in sqlite3 pets_database.db prompt, add data like this:
-
-sqlite> INSERT INTO cats (name, age, breed, owner_id) VALUES ("Maru", 3 , "Scottish Fold", 1);
-sqlite> INSERT INTO cats (name, age, breed, owner_id) VALUES ("Hana", 1 , "Tabby", 1);
-sqlite> INSERT INTO cats (name, age, breed) VALUES ("Lil\' Bub", 5, "American Shorthair");
-sqlite> INSERT INTO cats (name, age, breed) VALUES ("Moe", 10, "Tabby");
-
 <!-- JOIN TABLES TOGETHER -->
+<!-- Mostly only user inner join and left join, because right join is the the same as a left join only in reverse.  Inner join is useful when you only want matching values for a record in the left table (that we select from) and the right table (that we are adjoining with). Left join is useful when you want everything from the left table (that we are selecting from) and anything with a matching record value from the right table.  -->
 
-<!-- USE ALIASES -->
+SELECT \* FROM bands
+JOIN albums ON bands.id = albums.band_id;
 
-<!-- PRIMARY AND FOREIGN KEY CONSTRAINTS -->
+SELECT \* FROM albums
+RIGHT JOIN bands ON bands.id = albums.band_id;
+
+<!-- AGGREGATE FUNCTIONS AND GROUP BY -->
+
+AVG, SUM, COUNT are common and useful.
