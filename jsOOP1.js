@@ -1,10 +1,12 @@
+//some literature: https://www.d.umn.edu/~gshute/softeng/object-oriented.html
+
 // 4 Pillars of Object Oriented Programming
 // 	Encapsulation
 // 	Abstraction
 // 	Inheritance
 // 	Polymorphism
 
-// FROM procedural programming (spaghetti code) -> OOP
+// FROM procedural programming (spaghetti code) -> TO OOP
 
 // What is encapsulation?
 // 1 Variables - properties of an Object
@@ -26,6 +28,7 @@
 
 // Member functions of a class are methods. A property holds values, while a method defines some logic.
 
+// Primitives are copied by value || Objects are copied by reference
 // const circle = {
 //   radius: 1,
 //   location: {
@@ -35,15 +38,15 @@
 // };
 
 // FACTORY FUNCTION
-function createCircle(radius) {
-  return {
-    radius,
-    draw: function() {
-      console.log("draw");
-    }
-  };
-}
-const circle = createCircle(1);
+// function createCircle(radius) {
+//   return {
+//     radius,
+//     draw: function() {
+//       console.log("draw");
+//     }
+//   };
+// }
+// const circle = createCircle(1);
 
 //factory functions return an object
 
@@ -57,3 +60,14 @@ function Circle(radius) {
 
 const another = new Circle(1);
 // every object has a constructor function
+
+//Ruby uses class-based inheritance, JavaScript uses Protypal Inheritance
+// A subclass in Ruby can inherit the methods of another class
+
+// => Vehicle has methods A,B,C ----> Doesn't inherit anything
+// => Car has methods D,E ----> Car acquires ABCDE via inheritance
+// => Mustang has methods F ----> Mustang inherits to acquire ABCDEF
+
+//Vehicle is the superclass of Car and Mustang
+//Vehicle is the ancestor of Car and Mustang
+//Car and Mustang are subclasses of Vehicle
