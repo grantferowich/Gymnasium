@@ -7,8 +7,10 @@
 // 	Polymorphism
 
 // FROM procedural programming (spaghetti code) -> TO OOP
+// Better for larger applications with a lot of code
 
 // What is encapsulation?
+//  Fields/attributes (data) and methods (functions) are bundled together
 // 1 Variables - properties of an Object
 // 	2 Functions - methods of an Object
 // 	3 Fewer parameters in functions thanks to OOP
@@ -21,13 +23,51 @@
 
 // What is inheritance?
 // 	Kill redundant code
+//  Ruby uses class-based inheritance, JavaScript uses Protypal Inheritance
+//  A subclass in Ruby can inherit the methods of another class
+
+// => Vehicle has methods A,B,C ----> Doesn't inherit anything
+// => Car has methods D,E ----> Car acquires ABCDE via inheritance
+// => Mustang has methods F ----> Mustang inherits to acquire ABCDEF
+
+//Vehicle is the superclass of Car and Mustang
+//Vehicle is the ancestor of Car and Mustang
+//Car and Mustang are subclasses of Vehicle
+
+// What is a singleton class?
+// A class that can  only produce one object at a time. For example if you buy a license to use a software service, it will only extend one license per user.
 
 // What is polymorphism?
 // 	Poly - many; morph - form
 // 	Refactor ugly switch case statements
+// User.create and Portfolio.create both call on the "create" method, but "create" means something different in different contexts
 
 // Member functions of a class are methods. A property holds values, while a method defines some logic.
 
+// What is namespacing in JavaScript?
+// Namespacing is basically a global store for a bunch of variables and methods. One good use for a namespace is when you are rolling out different versions of an API, you can include the version number in the namespace to distinguish v1 from v2 etc.
+// Namespacing helps prevent naming collisions, thus keeping the code more logically organized.
+
+//What is a plugin?
+//A plug in is a piece of software that adds a specific piece of functionality to a web browser. I saw one programmer I follow make a plugin that erases all mentions of coronavirus from a page. There was a plugin that translated all mentions of Trump into  Drumpf.
+
+// What is responsive design?
+// A lot of people use different types of devices to access the web: iPhones, iPad, Android phone, desktop, etc. A browser like Chrome or Firefox will ask websites to be able to respond to different page sizes and orientations.
+// Responsive design the the practice of making web applications fit a range of different user preferences. Technically, this means using a technology like flex boxes in CSS.
+
+// What is W3C?
+// There are a lot of people programming who all have different styles and ways of thinking about programming. The W3C, or World Wide Web Consortium, has the responsibility for standards setting.
+// W3C will set standards on topics as responsive design, rendering web pages, XML, web architecture (uri and http).
+
+// What is version control?
+// When you are working on a piece of software and someone else is working on a piece of software, the best practice is to create a branch to work on. Then you and the person you work with will make changes to a "master" branch, and the master branch will keep track of the state of the software.
+
+// Can you explain microservices archictecture?
+// The idea behind microservices archictecture is to orgaize software processes around business use cases, and then optimize the tooling for each microservice. This can mean doing one part of your application with a node.js tech stack and another with a Ruby on Rails tech stack.
+// Microservices helps with continuous integration by separating concerns into smaller pieces.
+
+// What is a constructor?
+// A constructor is a method used for initializing the state of an object or instance.
 // Primitives are copied by value || Objects are copied by reference
 // const circle = {
 //   radius: 1,
@@ -60,14 +100,3 @@ function Circle(radius) {
 
 const another = new Circle(1);
 // every object has a constructor function
-
-//Ruby uses class-based inheritance, JavaScript uses Protypal Inheritance
-// A subclass in Ruby can inherit the methods of another class
-
-// => Vehicle has methods A,B,C ----> Doesn't inherit anything
-// => Car has methods D,E ----> Car acquires ABCDE via inheritance
-// => Mustang has methods F ----> Mustang inherits to acquire ABCDEF
-
-//Vehicle is the superclass of Car and Mustang
-//Vehicle is the ancestor of Car and Mustang
-//Car and Mustang are subclasses of Vehicle
