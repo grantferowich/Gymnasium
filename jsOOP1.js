@@ -1,17 +1,17 @@
-//some literature: https://www.d.umn.edu/~gshute/softeng/object-oriented.html
+//  some literature: https://www.d.umn.edu/~gshute/softeng/object-oriented.html
 
-// 4 Pillars of Object Oriented Programming
+//  4 Pillars of Object Oriented Programming
 // 	Encapsulation
 // 	Abstraction
 // 	Inheritance
 // 	Polymorphism
 
-// FROM procedural programming (spaghetti code) -> TO OOP
-// Better for larger applications with a lot of code
+//  FROM procedural programming (spaghetti code) -> TO OOP
+//  Better for larger applications with a lot of code
 
-// What is encapsulation?
+//  What is encapsulation?
 //  Fields/attributes (data) and methods (functions) are bundled together
-// 1 Variables - properties of an Object
+//  1 Variables - properties of an Object
 // 	2 Functions - methods of an Object
 // 	3 Fewer parameters in functions thanks to OOP
 // 	4 group relatedness together to reduce complexity
@@ -44,9 +44,15 @@
 
 // Member functions of a class are methods. A property holds values, while a method defines some logic.
 
+// What is an abstract class?
+// An abstract class is one that cannot be instantianted. A class can inherit methods from an abstract class however.
+
 // What is namespacing in JavaScript?
 // Namespacing is basically a global store for a bunch of variables and methods. One good use for a namespace is when you are rolling out different versions of an API, you can include the version number in the namespace to distinguish v1 from v2 etc.
 // Namespacing helps prevent naming collisions, thus keeping the code more logically organized.
+
+// What is the difference between an object and a class?
+// A class is a blueprint for objects, while an object is an instance of a class.
 
 //What is a plugin?
 //A plug in is a piece of software that adds a specific piece of functionality to a web browser. I saw one programmer I follow make a plugin that erases all mentions of coronavirus from a page. There was a plugin that translated all mentions of Trump into  Drumpf.
@@ -68,6 +74,17 @@
 
 // What is a constructor?
 // A constructor is a method used for initializing the state of an object or instance.
+
+// What is new in HTML5?
+// HTML5 supports new form attributes to better enable sending data from client to server.
+// HTML5 also supports the section, video and audio tags.
+
+//Why Smoothstack?
+// I have spoken with a few SE's at Smoothstack who say that it's a great way to get the foot in the door and build experience.
+// I am capable of building full-stack web applications, but I am hungry to expand my skillset and ultimately create a better life for myself.
+// I have intrinsic desire to learn Java, so the fact that Smoothstack teaches this language in the training aligns with my goals.
+// I am eager to build experience, there's nothing quite like experience.
+
 // Primitives are copied by value || Objects are copied by reference
 // const circle = {
 //   radius: 1,
