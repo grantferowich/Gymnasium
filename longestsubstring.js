@@ -41,7 +41,6 @@ const longestsubstringarray = (s) => {
         }
     }
     console.log(maxUniques);
-   
 }
 
 
