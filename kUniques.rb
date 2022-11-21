@@ -15,5 +15,5 @@ def kUniques(kstring)
     accumulator.max_by(&:length).join
 end
 
-puts kUniques("2aabbcbbbadef") #aabc
-puts kUniques("3aabacbebebe") #bebebe
+puts kUniques("2aabbcbbbadef") #aabb // 4 chars in length with 2 unique chars
+puts kUniques("3aabacbebebe") #cbebebe // 7 chars in length with 3 unique chars 
