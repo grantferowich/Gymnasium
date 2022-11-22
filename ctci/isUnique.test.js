@@ -1,7 +1,8 @@
 const isUnique = require('./isUnique')
 
 test('properly returns whether or not a string contains only unique characters', ()=>{
-  expect(isUnique('abc')).toBe(true)
+  expect(isUnique('abc')).toBe(true);
+  expect(isUnique('a')).toBe(true);
 });
 
 

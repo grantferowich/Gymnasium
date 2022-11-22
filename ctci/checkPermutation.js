@@ -24,13 +24,13 @@ const checkPermutation = (s1, s2) => {
         if (s1.includes(s2[i])) {
             isPermutation = true;
         } else {
-            isPermutation = false;
-            console.log('isPermutation false')
             return false
         }
     }
-    console.log('isPermutation', isPermutation)
+    return isPermutation;
 }
 
 checkPermutation("abcc", "cbca") // true
 checkPermutation("xyz", "xyyz") //false 
+
+module.exports = checkPermutation
