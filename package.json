@@ -1,0 +1,20 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "isUnique.test.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.20.2",
+    "babel-jest": "^29.3.1"
+  }
+}
