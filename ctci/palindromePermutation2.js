@@ -8,6 +8,9 @@
 // a set with size larger than 1 will not be a permutation of a palindrome
 //
 
+// tact coa => true: taco cat, atco cta
+// hannah => true, hannah, nahhan
+
 const palindromePermutation2 = (s) => {
     
     let str = s.replaceAll(' ','');

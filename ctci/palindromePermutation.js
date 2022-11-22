@@ -4,11 +4,8 @@
 // for the case where there are spaces the space must be removed
 // or else the hash/set will count spaces as chars with an odd value
 
-const { tsModuleBlock } = require("@babel/types");
-
 // tact coa => true: taco cat, atco cta
 // hannah => true, hannah, nahhan
-
 
 // Solution: Compare the first character with the last character
 // if the two characters are the same, then increment 
