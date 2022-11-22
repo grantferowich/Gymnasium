@@ -42,7 +42,7 @@ y = "abcabcbb" // 3
 
 const longestsubstringarray = (s) => {
     let array = [];
-    let maxUniques = 0;
+    let maxUniques = 1;
     for ( i = 0; i < s.length; i++ ){
         for ( j = i; j < s.length; j++ ){
             if (array.includes(s[j])){
@@ -59,5 +59,5 @@ const longestsubstringarray = (s) => {
 }
 
 
-y = "abcabcbb" // 3
+y = "abcabcbb" // 3 // abc // ca // bc // a // b // c // bca // cab  
 longestsubstringarray(y)

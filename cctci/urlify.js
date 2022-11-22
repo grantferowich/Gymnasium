@@ -4,7 +4,7 @@
 //solution 1: Use JavaScript's native replaceAll method.
 const urlify = (s) => {
 
-let withPercents = s.replaceAll(' ',"20%" )
+let withPercents = s.replaceAll(' ',"%20" )
 console.log(withPercents)
 }
 
@@ -13,7 +13,7 @@ console.log(withPercents)
 // Solution 2: Use JavaScript's native .replace method. 
 const urlify2 = (s) => {
 
-    let withPercents = s.replace(/ /g,"20%" )
+    let withPercents = s.replace(/ /g,"%20" )
     console.log(withPercents)
 }
 // urlify2("Mr John Doe")
