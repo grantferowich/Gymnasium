@@ -3,9 +3,7 @@
 
 //solution 1: Use JavaScript's native replaceAll method.
 const urlify = (s) => {
-
-return s.replaceAll(' ',"%20" )
-
+    return s.replaceAll(' ',"%20" )
 }
 
 module.exports = urlify

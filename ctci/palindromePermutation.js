@@ -9,8 +9,6 @@
 
 // Solution: Compare the first character with the last character
 // if the two characters are the same, then increment 
-// 
-
 
 const palindromePermutation = (s) => {
     let hash = {}
@@ -25,15 +23,11 @@ const palindromePermutation = (s) => {
     let odds = 0;
     for (let key in hash){
         if (hash[key] % 2 !== 0){
-            odds = odds + 1 || 1;
+            odds += 1;
         }
     }
 
-    if (odds > 1 ){
-        return false;
-    } else {
-        return true;
-    }
+    return (odds <= 1)
 }
 
 module.exports = palindromePermutation

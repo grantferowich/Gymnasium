@@ -10,3 +10,8 @@ test('determines if a string is a permutation of a palindrome', () => {
     expect(palindromePermutation('joe schmo')).toBe(false);
 })
 
+// test('the odds variable increments when a value is not even', () => {
+//     const palindromePermutation('joe schmo');
+//     expect(palindromePermutation.odds).toBe(6);
+// })
+

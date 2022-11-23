@@ -5,17 +5,8 @@ test('properly returns whether or not a string contains only unique characters',
   expect(isUnique('a')).toBe(true);
 });
 
+test('properly returns false when there are repeats', () => {
+  expect(isUnique('axx')).toBe(false);
+  expect(isUnique('bbccaa')).toBe(false);
+})
 
-
-// describe('isUnique', () => {
-//   it('should return true when a string contains only unique characters', 
-//   () => {
-//     expect(isUnique('abc')).toBe(true);
-//   });
-// });
-
-// expect(isUnique('a')).toBe(true);
-// it('should return false if any character is repeated'), () => {
-//   expect(isUnique('abcc')).toBe(false);
-//   expect(isUnique('axx')).toBe(false);
-// };

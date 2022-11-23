@@ -3,7 +3,6 @@
 
 // Solution 2: Use JavaScript's native .replace method. 
 const urlify2 = (s) => {
-
     return s.replace(/ /g,"%20" )
 }
 
