@@ -7,14 +7,14 @@ const militaryTimeConversion = (s) => {
     let period = (s[s.length-2]+s[s.length-1]).toLowerCase();
     let hour = s.split(":")[0];
     console.log('hour', hour)
-    let minute = parseInt(s.split(":")[1]);
+    let minute = s.split(":")[1];
     console.log('minute', minute);
     let second = s.split(":")[2].substring(0,2);
     console.log('second', second);
 
     if (period === 'am'){
-        if (hour === 12) {
-            return "00:"+minute+hour;
+        if (hour === '12') {
+            return "00:"+minute+":"+second;
         }  else {
             return hour+":"+minute+":"+second;
         }
@@ -27,5 +27,5 @@ const militaryTimeConversion = (s) => {
     };
 }
 
-// militaryTimeConversion('07:30:00AM')
+// militaryTimeConversion('12:30:00AM')
 module.exports = militaryTimeConversion
