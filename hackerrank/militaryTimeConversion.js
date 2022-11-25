@@ -6,11 +6,11 @@
 const militaryTimeConversion = (s) => {
     let period = (s[s.length-2]+s[s.length-1]).toLowerCase();
     let hour = s.split(":")[0];
-    console.log('hour', hour)
+    // console.log('hour', hour)
     let minute = s.split(":")[1];
-    console.log('minute', minute);
+    // console.log('minute', minute);
     let second = s.split(":")[2].substring(0,2);
-    console.log('second', second);
+    // console.log('second', second);
 
     if (period === 'am'){
         if (hour === '12') {
