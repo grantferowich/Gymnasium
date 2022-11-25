@@ -14,12 +14,10 @@
 
 const checkPermutation = (s1, s2) => {
     if (s1.length != s2.length) {
-        console.log("false");
+        // console.log("false"); 
         return false
     }
-
     isPermutation = false;
-
     for (let i = 0; i < s2.length; i++) {
         if (s1.includes(s2[i])) {
             isPermutation = true;

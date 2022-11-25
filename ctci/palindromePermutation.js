@@ -12,21 +12,18 @@
 
 const palindromePermutation = (s) => {
     let hash = {}
-
     for (let i = 0; i < s.length; i++){
         let k = s[i]; 
         if ( k !== " "){
             hash[k] = hash[k] + 1 || 1;
         }
     }
-
     let odds = 0;
     for (let key in hash){
         if (hash[key] % 2 !== 0){
             odds += 1;
         }
     }
-
     return (odds <= 1)
 }
 

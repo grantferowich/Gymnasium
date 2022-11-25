@@ -5,6 +5,9 @@
 // ("apple", "aple") => true [one insertion different]
 // ("pales", "pale") => true [one removal different]
 
+
+
+
 // Solution 1: Compare the two strings
 // Use a counter for number of different characters
 // increment the counter when a difference is found
@@ -12,52 +15,45 @@
 // validation 2: check for replacements
 // validation 3: check for insertions/removals
 
+// input: 2 strings
+// output: boolean
+// constraints: optimize
+// edge cases: empty string
+
+// if insert makes two strings equal, then s1's current char should be equal to s2's next char
+// if removal makes two strings equal, then s1's next char should be equal to s1's current char
+// it replace makes two strings equal, then s1's next character should be equal to s2's next char
+
+// maximum of one edit 
+// if the difference in the lengths of the two strings is greater than max edit, return false
+
+// to keep track of the two strings likeness
+// decrement max edits whenever a change is made to s1
+// if max edits is negative return false 
 const isOneAway = (s1, s2) => {
-    let numDiff = 0;
-    let isOneAway;
+    let edits = 1;
+    let maxLength = Math.max(s1.length, s2.length);
+    let diff = Math.abs(s1-s2);
 
-     //validation 1
-    if (Math.abs(s1.length-s2.length) > 1 ){
-        isOneAway = false;
-        return (console.log(isOneAway))
+    if (diff > edits ){
+        return false;
     }
 
-    const numDiffCheck = (n) => {
-        if (numDiff > 1){
-            isOneAway = false;
-            return (console.log(isOneAway))
-        } else {
-            isOneAway = true;
-            return (console.log(isOneAway))
-        }
-    }
-
-    // validation 2
-    if (s1.length == s2.length){
-        for (let i = 0; i < s1.length; i++){
-            let char1 = s1[i];
-            let char2 = s2[i];
-            if (char1 !== char2) numDiff += 1; 
-            numDiffCheck(numDiff);
-        }
-    } else {
-        for (let i=0, j=0; i < Math.max(s1.length, s2.length) && j < Math.max(s1.length, s2.length); i++, j++){
+    for (let i=0, j=0; i < maxLength || j < maxLength; i++, j++){
             let char1 = s1[i];
             let char2 = s2[j];
-            if (char1 !== char2) numDiff += 1;
-            numDiffCheck(numDiff);
-        }
+            if (char1 !== char2) {
+                edits--;
+                if ( edits < 0) return false;
+                if ( char1 === s2[j+1] ){ // inserted 
+                    j++
+                } else if ( char2 === s1[i+1]){ // removed 
+                    i++
+                }
+            }
     }
-
-
-
-
-
-   
+    return true;    
 }
 
-isOneAway("pale","ple") // true
-isOneAway("pale", "bake") // false
-isOneAway("apple", "aple") // true
-isOneAway("pales", "pale") // true 
-isOneAway("appple", "aple") // false 
+module.exports = isOneAway
+

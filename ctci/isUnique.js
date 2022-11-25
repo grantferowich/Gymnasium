@@ -14,9 +14,7 @@
 // then there is a repeated character, the string is not unique, return false
 
 const isUnique = (s) => {
-    
-    let hash = {}
-
+let hash = {}
    for (let i = 0; i < s.length; i++){
         value = s[i];
         if (hash[value]) {
