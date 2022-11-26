@@ -21,6 +21,7 @@ const kUniqueChars = (s) => {
         let char = str[i];
         hash[char] = true;
 
+        // stop increasing window length when the number of keys exceeds k
         if (hash.keys > k){
             // hash.clear();
             hash = null;

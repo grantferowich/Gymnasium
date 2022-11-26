@@ -11,18 +11,55 @@
 // Since the solution implements a Set, the relevant methods used are
 // .has, .add, and .size
 
+// use a moving window
+
+
 const longestSubstr = (s) => {
-    let accumulator = new Set
-    let maxUniques = 0;
-    for ( i = 0; i < s.length; i++ ){
-        for ( j = i; j < s.length; j++ ){
-            if (!accumulator.has(s[j])){
-                accumulator.add(s[j])  
-            } 
-        maxUniques = Math.max(accumulator.size, maxUniques)
-        }
+    let accumulator = {}
+    let maxWindowLength = 0;
+    let startOfWindow = 0;
+    for ( let j = 0; j < s.length; j++ ){
+        for ( let x = j; x < s.length; x++){
+            let char1 = s[j];
+            let char2 = s[x];
+            accumulator[char1] = true;
+            // stop increasing the window length when a repeat is found 
+            if (accumulator[char2]) { 
+                maxWindowLength = Math.max(Object.keys(accumulator).length, maxWindowLength);
+                accumulator == null;
+                break;
+            } else {
+                accumulator[char2]
+            }
+        }    
+        startOfWindow++
+        
     }
-    return maxUniques
+    console.log('maxWindowLength', maxWindowLength)
+    return maxWindowLength;
 }
 
-module.exports = longestSubstr
+longestSubstr('pwwkew') // wke => 3
+// module.exports = longestSubstr
+
+const longestSubstrX = (s) => {
+    let startOfWindow = 0;
+    let currentWindowLength = 0;
+    let hash = {};
+    let maxLength = 1;
+
+    while ( startOfWindow < s.length) {
+        let i = 0;
+        let char = s[i];
+        let char2 = s[i+1]
+        hash[char] = true;
+        if (hash[char] = true) {
+            console.log(Object.keys(hash).length)
+            return Object.keys(hash).length
+            break
+        }
+
+
+    }
+
+}

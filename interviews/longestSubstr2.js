@@ -4,7 +4,9 @@
 const longestSubstr2 = (s) => {
     let arr = [];
     for (let i = 0; i < s.length; i++){
-        let char = s[i];
+        for (let j =1; j <s.length; j++)
+        let char1 = s[i];
+
         if (!arr.includes(char)){
             arr.push(char);
         } 
