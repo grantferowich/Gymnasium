@@ -38,9 +38,9 @@
       hash[words[k]] += 1;
      }
     }
-    return console.log(hash);      
+    return console.log(hash['its']);      
 }
 
-wordCount('The cat and the hat.') // { the: 2, cat: 1, and: 1, hat: 1 }
-wordCount('As soon as possible.') // { as: 2, soon: 1, possible: 1 }
+// wordCount('The cat and the hat.') // { the: 2, cat: 1, and: 1, hat: 1 }
+// wordCount('As soon as possible.') // { as: 2, soon: 1, possible: 1 }
 wordCount("It's a man, it's a plane, it's superman!")
