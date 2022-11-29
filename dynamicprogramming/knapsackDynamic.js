@@ -10,7 +10,7 @@ const knapsack = (profits, weights, capacity) => {
 
     const recursion = ( profits, weights, capacity, currentIdx) => {
         if (capacity <= 0 || currentIdx > weights.length) return 0;
-        
+
         //recursion call incrementing a profit counter if the profit from currentIdx is included
         let profit1 = 0;
         if (weights[currentIdx] <= capacity) {

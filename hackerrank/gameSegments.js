@@ -16,7 +16,7 @@
 // input: array
 // output: an integer
 // constraints: no time constraints. no space constrains. 
-// edge: 
+// edge: assume valid input array
 
 
 function playSegments(coins) {

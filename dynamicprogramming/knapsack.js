@@ -9,7 +9,7 @@
 
 const knapsack = (profits, weights, capacity) => {
     if (capacity <= 0 ){
-        return 0
+        return 0;
     }
     let maxProfit = 1;
     let currentProfit = 0;

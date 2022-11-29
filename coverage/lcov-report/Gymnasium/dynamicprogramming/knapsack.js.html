@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Gymnasium/ctci/checkPermutation.js</title>
+    <title>Code coverage report for Gymnasium/dynamicprogramming/knapsack.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Gymnasium/ctci</a> checkPermutation.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Gymnasium/dynamicprogramming</a> knapsack.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">91.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
@@ -88,81 +88,57 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">96x</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">//given two strings decide if the second string
-// is a permutation of the first string 
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">// given two arrays, one with a list of profits and one with a list of weights
+// return the maximum possible profit while also ensuring the combined weights
+// do not exceed the capacity
+// profits = [1, 6, 10, 16]
+// weights = [1, 2, 3, 5]
+// capacity = 7
+//(knapsack(profits, weights, capacity)).toBe(22);
+// put 2 and 5 together, which is 16 and 6
 &nbsp;
-// ("abc", "cba") // true
-// ("xyz", "fgh") // false
-// ("abcc", "cbca") // true
-// ("xyz", "xyyz") //false 
-&nbsp;
-// if the strings are different length return false
-// if the strings hold identical characters return true
-&nbsp;
-// Solution 1: for each character in the second string,
-// check if the first string includes the relevant character 
-&nbsp;
-const checkPermutation = (s1, s2) =&gt; {
-    if (s1.length != s2.length) {
-        // console.log("false"); 
-        return false
+const knapsack = (profits, weights, capacity) =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (capacity &lt;= 0 ){
+<span class="cstat-no" title="statement not covered" >        return 0;</span>
     }
-    isPermutation = false;
-    for (let i = 0; i &lt; s2.length; i++) {
-        if (s1.includes(s2[i])) {
-            isPermutation = true;
-        } else {
-            return false
-        }
+    let maxProfit = 1;
+    let currentProfit = 0;
+    for (let i = 0; i &lt; weights.length; i++){
+      for( let j = 0; j &lt; weights.length; j++){
+          if ( (i !== j) &amp;&amp; (weights[i] +  weights[j] &lt;= capacity)){
+          currentProfit = profits[i] + profits[j];
+      }}
+      maxProfit = Math.max(currentProfit, maxProfit);
     }
-    return isPermutation;
-}
+    return maxProfit;
+  };
 &nbsp;
-checkPermutation("abcc", "cbca") // true
-checkPermutation("xyz", "xyyz") //false 
-&nbsp;
-module.exports = checkPermutation</pre></td></tr></table></pre>
+module.exports = knapsack</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
