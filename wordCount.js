@@ -25,6 +25,7 @@
 
  const wordCount = (sentence) => {
     let s = sentence.toLowerCase();
+    // replace everything that is NOT \w, a digit, letter, or underscore or \s, a whitespace 
     let str = s.replace(/[^\w\s]/g,"");
     let words = str.split(" ");
     let hash = {};
