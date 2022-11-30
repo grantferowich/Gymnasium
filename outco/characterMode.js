@@ -21,6 +21,7 @@
 //  * 'A walk in the park' --> 'a'
 //  * 'noon' --> 'no'
 //  */
+
 function characterMode(string) {
     
     let stringLower = string.toLowerCase();
