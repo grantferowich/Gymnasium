@@ -1,4 +1,11 @@
+// Recursion Steps
+// State variables
+// return variables
+// define and invoke helper method
+// base case(s)
+// recursive case(s)
 //NonConsecutiveOnes.js
+
 // given a number, n, return the number of bit strings
 // of n length that DO NOT contain consecutive 1's
         //  (build, depth)
@@ -43,7 +50,7 @@ const nonConsecutiveOnes = (number) => {
             return 
         }   
 
-        
+
         if (!build.includes("11")){
             if (build.length === number){
                 result.push(build)

@@ -35,9 +35,16 @@ const getDuplicates = (arr) => {
         hash[arr[i]]++
       }
     }
+
+    // {1:1, 2:2, 4:1}
+
     let duplicatesArray = [];
     for (let key in hash){
+      
+      // hash[2] = 2
       if (hash[key] > 1){
+
+        //duplicatesArray.push(2)
         duplicatesArray.push(parseInt(key));
       } 
     }
