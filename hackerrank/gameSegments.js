@@ -45,8 +45,7 @@ function playSegments(coins) {
     } 
     let p2Score = sum - p1Score;
     if (p1Score>p2Score){ return console.log('k',k + 1) }
-
- }
- 
+ } 
 }
+
 playSegments([1,1,0,1]) // => 2

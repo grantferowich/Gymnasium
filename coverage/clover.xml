@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1669586823323" clover="3.2.0">
-  <project timestamp="1669586823323" name="All files">
-    <metrics statements="161" coveredstatements="155" conditionals="60" coveredconditionals="52" methods="16" coveredmethods="16" elements="237" coveredelements="223" complexity="0" loc="161" ncloc="161" packages="5" files="15" classes="15"/>
+<coverage generated="1670095697098" clover="3.2.0">
+  <project timestamp="1670095697098" name="All files">
+    <metrics statements="155" coveredstatements="150" conditionals="50" coveredconditionals="46" methods="15" coveredmethods="15" elements="220" coveredelements="211" complexity="0" loc="155" ncloc="155" packages="6" files="15" classes="15"/>
     <package name="Gymnasium">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="sum.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/sum.js">
@@ -30,24 +30,24 @@
       </file>
       <file name="isOneAway.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/ctci/isOneAway.js">
         <metrics statements="18" coveredstatements="17" conditionals="12" coveredconditionals="11" methods="1" coveredmethods="1"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="34" count="8" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
         <line num="35" count="8" type="stmt"/>
         <line num="36" count="8" type="stmt"/>
-        <line num="38" count="8" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="42" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="33" type="stmt"/>
+        <line num="37" count="8" type="stmt"/>
+        <line num="39" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="8" type="cond" truecount="2" falsecount="0"/>
         <line num="44" count="33" type="stmt"/>
-        <line num="45" count="33" type="cond" truecount="2" falsecount="0"/>
-        <line num="46" count="11" type="stmt"/>
-        <line num="47" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="48" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="51" count="3" type="stmt"/>
-        <line num="55" count="5" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
+        <line num="45" count="33" type="stmt"/>
+        <line num="46" count="33" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="11" type="stmt"/>
+        <line num="48" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="56" count="5" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
       </file>
       <file name="isUnique.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/ctci/isUnique.js">
         <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -98,24 +98,7 @@
       </file>
     </package>
     <package name="Gymnasium.dynamicprogramming">
-      <metrics statements="31" coveredstatements="29" conditionals="20" coveredconditionals="15" methods="4" coveredmethods="4"/>
-      <file name="equalSubset.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/dynamicprogramming/equalSubset.js">
-        <metrics statements="14" coveredstatements="13" conditionals="12" coveredconditionals="8" methods="2" coveredmethods="2"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="29" count="5" type="cond" truecount="4" falsecount="0"/>
-        <line num="31" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-      </file>
+      <metrics statements="17" coveredstatements="16" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="2"/>
       <file name="fib.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/dynamicprogramming/fib.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -183,7 +166,7 @@
       </file>
     </package>
     <package name="Gymnasium.interviews">
-      <metrics statements="32" coveredstatements="30" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <metrics statements="31" coveredstatements="29" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
       <file name="kUniqueChars.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/interviews/kUniqueChars.js">
         <metrics statements="17" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="10" count="1" type="stmt"/>
@@ -205,7 +188,7 @@
         <line num="39" count="1" type="stmt"/>
       </file>
       <file name="longestSubstring.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/interviews/longestSubstring.js">
-        <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="5" type="stmt"/>
         <line num="19" count="5" type="stmt"/>
@@ -219,8 +202,22 @@
         <line num="29" count="24" type="stmt"/>
         <line num="30" count="24" type="stmt"/>
         <line num="33" count="5" type="stmt"/>
-        <line num="34" count="5" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="Gymnasium.outco.frequencyCount">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="twoSum.js" path="/Users/knightoffaith/Desktop/Code/Gymnasium/outco/frequencyCount/twoSum.js">
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="21" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
       </file>
     </package>
   </project>

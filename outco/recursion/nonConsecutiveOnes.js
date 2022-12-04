@@ -48,15 +48,12 @@ const nonConsecutiveOnes = (number) => {
         // terminate recursion
         if (depth > number){
             return 
-        }   
-
-
+        }
         if (!build.includes("11")){
             if (build.length === number){
                 result.push(build)
             }           
         }   
-      
         //right
         findCombinations(build + "1", depth + 1);
         //left

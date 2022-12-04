@@ -30,7 +30,6 @@ const longestSubstring = (s) => {
             aPointer++;
         }
     }
-    console.log('longestString', longestString)
     return longestString
 }
 

@@ -6,11 +6,11 @@ const findNumbers = function(nums) {
       count += 1;
     }
   }
-  return count;
+  return console.log(count);
 };
 /// example
-const nums = [12, 345, 2, 6, 7896];
-
+const nums = [12, 345, 2, 6, 7896]; //2
+findNumbers(nums)
 // Output: 2
 // Explanation:
 // 12 contains 2 digits (even number of digits).
