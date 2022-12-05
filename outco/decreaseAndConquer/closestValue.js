@@ -26,7 +26,7 @@
 
 //                11                => 6
 //              /   \
-//             9     10
+//             9    10
 //           /  \
 //          5    7
 //        /  \
@@ -45,35 +45,30 @@
 
 
 function closestValue(arr, target) {
+    let startIdx = 0;
+    let endIdx = arr.length;
+    let midIdx;
+    let closest = Infinity;
+    let value = null;
 
-let startIdx = 0;
-let endIdx = arr.length - 1;
-let closest;
-
-
+    
     while (startIdx < endIdx){
-    let midpt = Math.floor(endIdx - startIdx);
-
-    if (midpt < target){
-        let prev =Math.abs(target - arr[midpt -1]) 
-        let mid = Math.abs(target - arr[midpt])
-        let next = Math.abs(target - arr[midpt + 1])
-        if (prev < mid && prev < next) { closest = arr[midpt - 1]}
-        if (mid < prev && mid < next) { closest = arr[midpt]}
-        if (next < prev && next < mid) { closest = arr[midpt + 1]}
-        startIdx = midpt + 1;
-    } else {
-        let prev =Math.abs(target - arr[midpt -1]) 
-        let mid = Math.abs(target - arr[midpt])
-        let next = Math.abs(target - arr[midpt + 1])
-        if (prev < mid && prev < next) { closest = arr[midpt - 1];}
-        if (mid < prev && mid < next) { closest = arr[mid];}
-        if (next < prev && next < mid) { closest = arr[midpt + 1]}
-        endIdx = midpt - 1;
-    }}
-    return console.log('closest', closest)
+      midIdx = parseInt(startIdx + parseInt((endIdx - startIdx)/2))
+      let difference = Math.abs(target - arr[midIdx])
+      if (difference < closest){
+        closest = difference;
+        value = arr[midIdx]
+      }
+      if (arr[midIdx] < target){
+        startIdx = midIdx + 1
+      } else {
+        endIdx = midIdx -1;
+      }
+    }
+    
+    return value;
 }
+    
 
-
-
-closestValue([1, 2, 3, 5, 5, 7, 9, 10, 11], 6)
+console.log(closestValue([1, 2, 3, 5, 5, 7, 9, 10, 11], 6)) // should return 5 since 5 is the lower of 5 and 7
+console.log(closestValue([1, 2, 3], 8)) // 3 // fn works 
