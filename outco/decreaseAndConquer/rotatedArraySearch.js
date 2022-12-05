@@ -108,38 +108,38 @@ const binarySearch = (array, num1, num2, target) => {
     return false;
 }
 
-const rotatedArraySearch = (nums, target) => {
+// const rotatedArraySearch = (nums, target) => {
 
-    let startIdx = 0; 
-    let endIdx = nums.length -1;
-    let midIdx;
+//     let startIdx = 0; 
+//     let endIdx = nums.length -1;
+//     let midIdx;
 
-    const helper = () => {
-        if (target < nums[midIdx]){
-            binarySearch(nums, 0, midIdx, target)
-        } else {
-            binarySearch(nums, midIdx, nums.length - 1, target)
-        }
-    }
+//     const helper = () => {
+//         if (target < nums[midIdx]){
+//             binarySearch(nums, 0, midIdx, target)
+//         } else {
+//             binarySearch(nums, midIdx, nums.length - 1, target)
+//         }
+//     }
 
-    while (startIdx <= endIdx){
-        let midIdx = startIdx + parseInt((startIdx+endIdx)/2)
-        // console.log('midIdx: ', midIdx)
+//     while (startIdx <= endIdx){
+//         let midIdx = startIdx + parseInt((startIdx+endIdx)/2)
+//         // console.log('midIdx: ', midIdx)
         
-        if (nums[midIdx-1] <= nums[midIdx] >= nums[midIdx+1]){
-            console.log('midIdx', midIdx)
-            helper();
-        } 
+//         if (nums[midIdx-1] <= nums[midIdx] >= nums[midIdx+1]){
+//             console.log('midIdx', midIdx)
+//             helper();
+//         } 
 
-        if (nums[midIdx-1] < nums[midIdx] < nums[midIdx +1 ]){
-            endIdx = midIdx -1;
-        } else {
-            startIdx = midIdx + 1;
-        }
-    }    
+//         if (nums[midIdx-1] < nums[midIdx] < nums[midIdx +1 ]){
+//             endIdx = midIdx -1;
+//         } else {
+//             startIdx = midIdx + 1;
+//         }
+//     }    
   
-    return false;
-}
+//     return false;
+// }
 
 
 
@@ -148,7 +148,7 @@ const rotatedArraySearch = (nums, target) => {
    
 // return console.log(nums.includes(target))
 // }
-console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
+// console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
 // console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
 // console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 9)); // --> true
 
@@ -177,3 +177,39 @@ midIdx = arr[1] = 46
 
 
 */
+
+function rotatedArraySearch(nums, target) {
+
+    let startIdx = 0;
+    let endIdx = nums.length;
+    let midIdx;
+  
+    while (startIdx <= endIdx){
+  
+      midIdx = startIdx + parseInt((startIdx + endIdx)/2);
+  
+      if (target === nums[midIdx]){
+        return true;
+      }
+      //left array sorted
+      if (nums[startIdx] < nums[midIdx]){
+        if (target >= nums[startIdx] && target < nums[midIdx]){
+          endIdx = midIdx - 1;
+        } else {
+          startIdx = midIdx + 1;
+        }
+        // right array sorted
+      } else {
+        if (target > nums[midIdx] && target <= nums[endIdx]){
+          startIdx = midIdx + 1;
+        } else {
+          endIdx = midIdx - 1;
+        }
+      }
+    }
+    return false;
+}
+
+console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
+console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
+console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 9 )); // --> true
