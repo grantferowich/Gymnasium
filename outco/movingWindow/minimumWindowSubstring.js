@@ -23,12 +23,12 @@ const minimumWindowSubstring = (word, target) => {
     //     }
     // }
 
+    // build counts hash from target input
     for (let i = 0; i < target.length; i++){
         let char = target[i];
         counts[char] = counts[char] + 1 || 1;
     }
 
-    // console.log(counts)
     while ( right < word.length) {
         if (missingChars > 0) {
             // hunting phase
@@ -40,9 +40,10 @@ const minimumWindowSubstring = (word, target) => {
                 counts[rChar]--;
             }
         }
-
-            // catchup phase
-            while (missingChars === 0){
+        // catchup phase
+        while (missingChars === 0){
+                console.log('right', right)
+                console.log('left', left)
                 if ((right - left) < (result[1] - result[0])){
                     result = [left, right]
                 }

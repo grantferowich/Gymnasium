@@ -210,6 +210,7 @@ function rotatedArraySearch(nums, target) {
     return false;
 }
 
-console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
-console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
-console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 9 )); // --> true
+// console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
+// console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
+// console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 7)); // --> true
+console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 6)); // --> true
