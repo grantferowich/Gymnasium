@@ -1,4 +1,8 @@
 /*
+
+Create a method which prints the value of each node until the tail. 
+
+
 Input:
 4
 1
