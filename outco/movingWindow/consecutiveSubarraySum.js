@@ -40,5 +40,7 @@ const consecutiveSubarraySum = (nums, target) => {
     return false;
 }
 
+
+// Both test cases passed on 12/7/22.
 console.log(consecutiveSubarraySum([6,12,1,7,5,2,3], 14)) // true
 console.log(consecutiveSubarraySum([6,12,1,7,5,2,3], 900)) // false
