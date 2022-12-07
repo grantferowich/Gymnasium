@@ -35,6 +35,15 @@ const findPartition = (array, sum, idx) => {
         return findPartition(array, sum, idx+1)
 }
 
+/*
+            [2, 3, 4, 6] = sum of 15
+            7.5 => X.
+
+            [1,2,3,4] = sum of 10
+            5 => [1,4] : [2,3]
+
+            subtract elements from the array from the 1/2(sum) until the sum is 0. 
+*/
 
 
 // equalSubset([2,3,4,6]) // => false 
