@@ -40,7 +40,9 @@ const minimumWindowSubstring = (word, target) => {
                 counts[rChar]--;
             }
         }
-        // catchup phase
+        // catchup phase // the catchup phase is where the left var changes
+        // the left var changes inside the second while loop
+        
         while (missingChars === 0){
                 console.log('right', right)
                 console.log('left', left)
@@ -50,17 +52,16 @@ const minimumWindowSubstring = (word, target) => {
                 let lChar = word[left];
                 if (lChar in counts ) {
                     counts[lChar]++;
-                    if (counts[lChar] > 0);
-                    missingChars++ 
-                }
-                left++;
-            }
-
-
-
-        right++
+                    if (counts[lChar] > 0){
+                        missingChars++ 
+                    }
+                }left++;
+        }
+        // the right var changes inside the first while loop at the very end of the loop
+        right++       
     }
 
+    // return result;
     if (result[1] === Infinity) {
         return "";
     } else {
@@ -70,6 +71,13 @@ const minimumWindowSubstring = (word, target) => {
 
 
 console.log(minimumWindowSubstring('ADOBECODEBANC', 'ABC')) // BANC is the smallest substring containing the target
+
+
+
+
+
+
+
 // given an array of positive integers and a target value,
 // return true if there is a subarray of consecutive elements that
 // sum up to this target value
