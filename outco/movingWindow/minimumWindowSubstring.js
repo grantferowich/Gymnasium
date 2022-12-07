@@ -1,4 +1,5 @@
-// word = ADOBECODEBANC
+// word = A D O B E C O D E B A N C
+//        0 1 2 3 4 5 6 7 8 9 10 11 12             
 // target = ABC
 
 
@@ -65,12 +66,14 @@ const minimumWindowSubstring = (word, target) => {
     if (result[1] === Infinity) {
         return "";
     } else {
-        return word.slice(result[0], result[1])
+        // N.B. here JS's slice method from x to y is exclusive of y so 1 must be added for y to be included
+        return word.slice(result[0], result[1] +1)
     }
 }
 
 
 console.log(minimumWindowSubstring('ADOBECODEBANC', 'ABC')) // BANC is the smallest substring containing the target
+console.log(minimumWindowSubstring('DOG', 'LAKE'))
 
 
 
