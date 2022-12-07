@@ -5,9 +5,10 @@ given a node, print the value of each node backwards from the tail
 to the input node using recursion
 
 example 
-1 ===> 5 ====> 7 ====> 10s
+1 ===> 5 ====> 7 ====> 10
 head                    tail
 
+// 10 7 5 1
 
 
 */
@@ -23,3 +24,4 @@ const traverse = (current) => {
     traverse(current.next)
     console.log(current.data)
 }
+
