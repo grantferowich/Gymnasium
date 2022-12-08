@@ -14,3 +14,5 @@ const printArray = (arr) => {
 }
 
 printArray([1,2,3])
+printArray([])
+printArray([9])
