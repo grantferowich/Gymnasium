@@ -2,16 +2,15 @@
 
 const printArray = (arr) => {
 
-    const printEle = (array, depth) => {
-      if (array.length == 0){
+    const printEle = (depth) => {
+      if (depth === arr.length){
         return 
       }
-      console.log(array[depth]);
-      array.shift();
-      printEle(array, depth+1)
+      console.log(arr[depth]);
+      printEle(depth+1)
     }
-    
-    printEle(arr, 0)
+
+    printEle(0)
 }
 
 printArray([1,2,3])
