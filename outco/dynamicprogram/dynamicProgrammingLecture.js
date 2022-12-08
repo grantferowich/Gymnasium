@@ -1,5 +1,8 @@
 // Since the 1940s dynamic programming has been a term meant to impress.
 
+// The most important part of dynamic programming is the binary decision
+// spending extra time to manipulating the input arguments is a worthwhile use of time
+
 // Dynamic programming is a tool for solving problems. 
 // Objectives: 
 // Introduction to Dynamic Programming

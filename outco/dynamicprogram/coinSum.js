@@ -43,38 +43,65 @@
 // 3. Determine formula
 // 4. Create foundation; create first row
 // 5. Fill out the rest of the table
-//
+
+// Any problem that can be solved with tabulation can also be solved with memoization
+// Any problem that can be solved with memoization can also be solved with tabulation
+
+// const coinSum = (coinsInput, totalInput) => {
+//     // instantiate cache
+//     const cache = {};
+
+//     const findWays = (total, coins) => {
+//         // read cache to check if the current recursive problem has already been solved
+//         let key = total+ "_"+coins;
+//         if (key in cache){
+//             return cache[key];
+//         }
+
+//         if (total < 0){
+//             return 0;
+//         }
+//         if (coins.length === 0){
+//             // if total is greater than 0 when 
+//             // coins.length is 0 the path is invalid 
+//             if (total > 0){
+//                 return 0;
+//             } 
+//         return 1;
+//         }
+//     let left = (total - coins[coins.length - 1], coins);
+//     let popped = coins.pop();
+//     let right = (total, coins);
+//     coins.push(popped);
+//     // write to cache
+//     cache[key] = left + right;
+//     return left + right;
+//     }
+//     return findWays(coinsInput, totalInput);
+// }
+
+
+//tabulation method
+
+// Tabulation
+// 1. Identify factors
+// 2. Create table with incrementally increasing factors
+//  ==> what's the smallest version
+//  ==> whats the eventual version
+// 3. Determine formula
+// 4. Create foundation; create first row
+// 5. Fill out the rest of the table
+
 const coinSum = (coinsInput, totalInput) => {
-    // instantiate cache
-    const cache = {};
+    const table = new Array(totalInput + 1).fill(0);
+    table[0] = 1;
 
-    const findWays = (total, coins) => {
-        // read cache to check if the current recursive problem has already been solved
-        let key = total+ "_"+coins;
-        if (key in cache){
-            return cache[key];
+    for (let coin of coinsInput){
+        for (let i = coin; i < table.length; i++){
+            table[i] = table[i] + table[i - coin]
         }
-
-        if (total < 0){
-            return 0;
-        }
-        if (coins.length === 0){
-            // if total is greater than 0 when 
-            // coins.length is 0 the path is invalid 
-            if (total > 0){
-                return 0;
-            } 
-        return 1;
-        }
-    let left = (total - coins[coins.length - 1], coins);
-    let popped = coins.pop();
-    let right = (total, coins);
-    coins.push(popped);
-    // write to cache
-    cache[key] = left + right;
-    return left + right;
     }
 
+    return table[totalInput]
 
-    return findWays(coinsInput, totalInput);
 }
