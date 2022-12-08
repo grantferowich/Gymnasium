@@ -66,10 +66,6 @@ function closestValue(arr, target) {
     let closest = Infinity;
     let hash = {};
     let result = [];
-  
-    // value is the return variable
-    // value returns a specific location in the array
-    // closest, difference, and value
     
     while (startIdx < endIdx){
       midIdx = parseInt(startIdx + parseInt((endIdx - startIdx)/2));
@@ -94,7 +90,7 @@ function closestValue(arr, target) {
 }
     
 
-// console.log(closestValue([1, 2, 3, 4, 5, 7, 9, 10, 11], 6)) // should return 5 since 5 is the lower of 5 and 7
+// console.log(closestValue([1, 2, 3, 4, 5,7,7 7, 9, 10, 11], 6)) // should return 5 since 5 is the lower of 5 and 7
 // console.log(closestValue([1, 2, 3], 8)) // 3 // fn works 
 // console.log(closestValue([-1, -2, 0], -5)) // -2
 

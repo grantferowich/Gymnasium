@@ -8,6 +8,8 @@ null <= 1 <= 5 <= 7 <= 10
 
 // when current is 1, set current.next = null
 
+Space complexity: constant O(1)
+As input grows only three variables are required, whether there are 5 or 500,000 elements
 
 */
 
@@ -16,7 +18,6 @@ const reverseLinkedList = (node) => {
     let prev = null;
     let current = node;
     
-
     while ( current !== null){
         // create reference to next node
         let ref = current.next;
@@ -28,4 +29,5 @@ const reverseLinkedList = (node) => {
         current = ref;
     }
 
+    return prev;
 }
