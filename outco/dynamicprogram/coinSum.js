@@ -20,6 +20,7 @@
 // the cache uses more space than vanilla recursion
 // the cache is faster than vanilla recursion, too
 
+
 // Tools:
 
 // 1. state variables
@@ -32,7 +33,7 @@
 // 2. check if the key is in the cache at the start of the recursive call
 // 3. write to cache at the end of a recursive call
 
-
+// on optimization: writing faster algorithms generally entails using more space
 
 const coinSum = (coinsInput, totalInput) => {
     // instantiate cache

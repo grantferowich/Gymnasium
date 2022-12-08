@@ -69,6 +69,20 @@ String: immutable, so must make copy, but you could pop from an array of chars
 
 
 
+// Tools:
+
+// 1. state variables
+// 2. return variables
+// 3. define and invoke helper method
+// 4. base case(s)
+// 5. recursive case(s)
+
+// 1. instantiate cache
+// 2. check if the key is in the cache at the start of the recursive call
+// 3. write to cache at the end of a recursive call
+
+// On optimization: writing faster algorithms generally entails using more space
+
 //
 
 
