@@ -83,6 +83,16 @@ String: immutable, so must make copy, but you could pop from an array of chars
 
 // On optimization: writing faster algorithms generally entails using more space
 
+// Tabulation
+// 1. Identify factors
+// 2. Create table with incrementally increasing factors
+//  ==> what's the smallest version
+//  ==> whats the eventual version
+// 3. Determine formula
+// 4. Create foundation; create first row
+// 5. Fill out the rest of the table
+//
+
 //
 
 
