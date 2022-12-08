@@ -33,8 +33,17 @@
 // 2. check if the key is in the cache at the start of the recursive call
 // 3. write to cache at the end of a recursive call
 
-// on optimization: writing faster algorithms generally entails using more space
+// On optimization: writing faster algorithms generally entails using more space
 
+// Tabulation
+// 1. Identify factors
+// 2. Create table with incrementally increasing factors
+//  ==> what's the smallest version
+//  ==> whats the eventual version
+// 3. Determine formula
+// 4. Create foundation; create first row
+// 5. Fill out the rest of the table
+//
 const coinSum = (coinsInput, totalInput) => {
     // instantiate cache
     const cache = {};
