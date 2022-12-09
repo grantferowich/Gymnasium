@@ -128,8 +128,8 @@ const lowestCommonAncestor = (root, num1, num2) => {
             return 
         }
     }
-
     return common 
-
 };
+
+// Devised solution 12/8/22. Solution was untested as of 12/8/22.
 
