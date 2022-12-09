@@ -1,3 +1,6 @@
+// typeof [] actually returns object
+// to check if an element is an array the Array.isArray(x) method must be used
+
 function flatten(array){
     let flattened = [];
   
