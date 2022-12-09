@@ -7,6 +7,12 @@
 // there are also checks against the counts hash
 // the counts hash is one that you, the programmer, constrcuts
 
+//Given two strings s and t of lengths m and n respectively, return the minimum window 
+// substring
+// of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+
+// The testcases will be generated such that the answer is unique.
+
 
 
 const minimumWindowSubstring = (word, target) => {
@@ -82,7 +88,10 @@ console.log(minimumWindowSubstring('DOG', 'LAKE')) // ""
 
 
 
-
+//Given two strings s and t of lengths m and n respectively, return the minimum window 
+// substring
+// of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+// The testcases will be generated such that the answer is unique.
 
 
 // given an array of positive integers and a target value,
@@ -98,3 +107,16 @@ console.log(minimumWindowSubstring('DOG', 'LAKE')) // ""
 // input: [ 8,3,7,9,10,1,13 ], 50 ==> false 
 // input: [ 6,12,1,7,5,2,3 ], 14 => true 
 
+// input is a string and a target
+// suppose the string is googlehomepagedocument
+// suppose the target is 
+// return 
+const minimumWindowSubstring2 = (string, target) => {
+
+    if (!string.include(target)){ return ""}
+
+    let left = 0
+    let right = 0
+    let 
+
+}
