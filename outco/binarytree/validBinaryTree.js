@@ -72,8 +72,6 @@ const { ROOT_CONFIG_FILENAMES } = require("@babel/core/lib/config/files")
 // console.log(validateBST([5,1,4, null, null, 3,6]))
 
 const isValidBST = (node) => {
-
-
     const dfs = (root, min, max) =>{
         if (node == null){ return true};
 
