@@ -54,20 +54,26 @@ const invertTree = (node) => {
     let root = node;
   
     const invert = (node, depth) => {
-        if ((node.left === null) && (node.right === null)){
-          return 
+        if (TreeNode == null){
+          return
         }
+        // if ((node.left === null) && (node.right === null)){
+        //   return 
+        // }
   
-        let tempX = node.left;
-        let tempY = node.right;
-        node.right = tempX;
-        node.left = tempY;
-        invert(node.left, depth + 1)
-        invert(node.right, depth + 1)
+        let tempX = TreeNode.left;
+        let tempY = TreeNode.right;
+        TreeNode.right = tempX;
+        TreeNode.left = tempY;
+        invert(TreeNode.left, depth + 1)
+        invert(TreeNode.right, depth + 1)
     }
     invert(root);
     return root
   }
+
+  console.log(invertTree([4,2,7,1,3,6,9]))
+
   
   
   
