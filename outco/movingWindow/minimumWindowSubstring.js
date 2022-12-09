@@ -2,6 +2,10 @@
 //        0 1 2 3 4 5 6 7 8 9 10 11 12             
 // target = ABC
 
+// the approach here introduces the moving window with two pointers
+// as the window moves there are checks against the missingChars var
+// there are also checks against the counts hash
+// the counts hash is one that you, the programmer, constrcuts
 
 
 
@@ -51,7 +55,7 @@ const minimumWindowSubstring = (word, target) => {
                     result = [left, right]
                 }
                 let lChar = word[left];
-                if (lChar in counts ) {
+                if (lChar in counts) {
                     counts[lChar]++;
                     if (counts[lChar] > 0){
                         missingChars++ 
