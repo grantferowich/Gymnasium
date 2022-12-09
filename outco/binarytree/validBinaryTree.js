@@ -85,3 +85,6 @@ const isValidBST = (node) => {
 
 console.log(isValidBST([2,1,3]))
 console.log(isValidBST([5,1,4, null, null, 3,6]))
+
+// created logic for the function on 12/8/22.
+// The solution was not tested as of 12/8/22.
