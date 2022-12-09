@@ -53,7 +53,7 @@
 const invertTree = (node) => {
     let root = node;
   
-    const invert = (node, depth) => {
+    const invert = (TreeNode, depth) => {
         if (TreeNode == null){
           return
         }
@@ -71,8 +71,10 @@ const invertTree = (node) => {
     invert(root);
     return root
 }
+
 // Successfully tested the invertTree function 12/8/22
 console.log(invertTree([4,2,7,1,3,6,9]))  // Expected output: [4,7,2,9,6,3,1]
+console.log(invertTree([]))
 
   
   
