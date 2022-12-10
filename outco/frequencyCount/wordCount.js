@@ -30,6 +30,9 @@
     let words = str.split(" ");
     let hash = {};
     //remove all punctuation marks from words array
+    if (words.length === 0){
+        return {};
+    }
 
     for (let k = 0; k < words.length; k++){
      if (!hash[words[k]]){
@@ -38,9 +41,10 @@
       hash[words[k]] += 1;
      }
     }
-    return console.log(hash['its']);      
+    return hash    
 }
 
 // wordCount('The cat and the hat.') // { the: 2, cat: 1, and: 1, hat: 1 }
 // wordCount('As soon as possible.') // { as: 2, soon: 1, possible: 1 }
-wordCount("It's a man, it's a plane, it's superman!")
+console.log(wordCount("It's a man, it's a plane, it's superman!"))
+console.log(wordCount(""))
