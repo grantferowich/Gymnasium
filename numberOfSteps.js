@@ -1,12 +1,3 @@
-//REACTO
-
-//Repeat the question
-//Examples
-//Approach
-//Code
-//Test
-//Optimize
-
 // // Write an algorithm that accepts a number and returns a number.
 //  If the input number is even, divide it into two until reaching 0.
 //  If the number is odd, subtract 1.
@@ -44,6 +35,15 @@ function numberOfSteps(num) {
 }
 
 //Another approach is to use recursion.
+// The recursive approach was successfully tested 12/10/22.
+
+// recall the steps for recursion:
+// state variables
+// return state variables
+// define and invoke helper method
+// Base case: terminating case
+// Recursive case: case in which method calls itself
+
 function numSteps(num) {
   let steps = 0
   
@@ -69,5 +69,5 @@ function numSteps(num) {
   return steps;
 }
 
-// console.log(numberOfSteps(14))
-console.log(numSteps(14))
+// console.log(numberOfSteps(14)) // 6
+console.log(numSteps(14)) // 6
