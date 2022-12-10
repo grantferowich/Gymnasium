@@ -45,15 +45,29 @@ function numberOfSteps(num) {
 
 //Another approach is to use recursion.
 function numSteps(num) {
+  let steps = 0
+  
   if (num === 1) {
-    return 1;
+    steps = 1
   }
-  if (num % 2 === 0) {
-    return 1 + numSteps(num / 2);
-  } else {
-    return 1 + numSteps(num - 1);
+  
+  const traverse = (x) => {
+    if (x === 0) return;
+
+    if ( x % 2 !== 0){
+      steps++
+      traverse(x-1)
+    }
+
+    if ( x % 2 === 0){
+      steps++
+      traverse(x/2)
+    }
   }
+
+  traverse(num)
+  return steps;
 }
 
-console.log(numberOfSteps(14))
-// console.log(numSteps)
+// console.log(numberOfSteps(14))
+console.log(numSteps(14))
