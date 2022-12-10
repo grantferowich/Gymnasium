@@ -1,4 +1,4 @@
-const findNumbers = function(nums) {
+const findNumbers = (nums) => {
   let count = 0;
   for (let i = 0; i < nums.length; i++) {
     let n = nums[i].toString();
@@ -8,9 +8,12 @@ const findNumbers = function(nums) {
   }
   return console.log(count);
 };
-/// example
+
 const nums = [12, 345, 2, 6, 7896]; //2
 findNumbers(nums)
+
+
+
 // Output: 2
 // Explanation:
 // 12 contains 2 digits (even number of digits).
