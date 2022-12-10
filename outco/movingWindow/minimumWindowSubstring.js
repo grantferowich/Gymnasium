@@ -176,4 +176,4 @@ const minimumWindowSubstring2 = (string, target) => {
 // the second version of the solution written from 114 to 168 was successfully tested with the following 
 // test case 12/9/22. 
 console.log(minimumWindowSubstring2('ADOBECODEBANC', 'ABC')) // BANC // [9,12]
-console.log(minimumWindowSubstring2('GOOGLEHHOOMEPAGEDOCUMENT', 'OOE'))
+console.log(minimumWindowSubstring2('GOOGLEHHOOMEPAGEDOCUMENT', 'OOE')) // OOME [8,11]

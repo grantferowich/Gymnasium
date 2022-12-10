@@ -1,4 +1,4 @@
-
+//check against this version 
 
 const minimumWindowSubstring = (word, target) => {
 
@@ -25,7 +25,7 @@ const minimumWindowSubstring = (word, target) => {
         counts[char] = counts[char] + 1 || 1;
     }
 
-    while ( right < word.length) {
+    while (right < word.length) {
         if (missingChars > 0) {
             // hunting phase
             let rChar = word[right];

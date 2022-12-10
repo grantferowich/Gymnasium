@@ -20,6 +20,8 @@
 // check if the result of target minus the element exists in the hash map
 
 
+
+
 const twoSum = (numbers, target) => {
     let hash = {}
     // store each array element as a hash map key
@@ -38,3 +40,25 @@ const twoSum = (numbers, target) => {
 }
 
 module.exports = twoSum
+
+// for the sake of exposure here is the brute force solution
+// the brute force solution features two while loops 
+
+//Example:
+//Given nums = [2, 7, 11, 15], target = 9,
+
+// Because nums[0] + nums[1] = 2 + 7 = 9,
+// return [0, 1].
+
+const twoSumBruteForce = (nums, target) => {
+    for (let i = 0; i < nums.length; i++) {
+      for (let j = 0; j < nums.length; j++) {
+        if (nums[i] + nums[j] == target) return [i, j];
+      }
+    }
+  };
+  
+  //
+  
+  console.log(twoSumBruteForce([2, 7, 11, 15], 9));
+  
