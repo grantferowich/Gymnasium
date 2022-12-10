@@ -25,7 +25,10 @@
 // check if its even or odd, and then divide or subtract until
 //hitting 0, counting the steps as you go.
 
+// successfully tested numberOfSteps 12/10/22.
+
 function numberOfSteps(num) {
+  // i tracks state of the number of steps
   let i = 0;
 
   while (num) {
@@ -36,6 +39,7 @@ function numberOfSteps(num) {
       num--;
     }
   }
+  // return the number of steps
   return i;
 }
 
@@ -50,3 +54,6 @@ function numSteps(num) {
     return 1 + numSteps(num - 1);
   }
 }
+
+console.log(numberOfSteps(14))
+// console.log(numSteps)
