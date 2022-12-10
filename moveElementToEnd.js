@@ -34,6 +34,8 @@
 // use a loop with y
 // if there is a swap then increment x
 
+// Reviewed function and tested solution 12/10/122
+
 const moveElementToEnd = (array, target) => {
 
     let x = 0;
