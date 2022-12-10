@@ -53,18 +53,15 @@ function numSteps(num) {
   
   const traverse = (x) => {
     if (x === 0) return;
-
     if ( x % 2 !== 0){
       steps++
       traverse(x-1)
     }
-
     if ( x % 2 === 0){
       steps++
       traverse(x/2)
     }
   }
-
   traverse(num)
   return steps;
 }

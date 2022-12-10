@@ -1,3 +1,13 @@
+// given an array of integers
+// return the number of integers
+// in the array that have an even number of digits
+
+// Input: [1, 22, 3, 989, 4848]
+// Output: 2 
+// 22 and 4848 have an even number of digits
+// Constraints: O(N) runtime
+// Edge: 
+
 const findNumbers = (nums) => {
   let count = 0;
   for (let i = 0; i < nums.length; i++) {

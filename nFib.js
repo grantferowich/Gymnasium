@@ -5,7 +5,7 @@ const nFib = (n, prevValues = []) => {
 
   let result;
   if (n <= 2) {
-    result = 1;
+    result = n;
   } else {
     result = nFib(n - 1, prevValues) + nFib(n - 2, prevValues);
   }
