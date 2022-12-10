@@ -1,3 +1,5 @@
+// debugged solution and successfully tested solution 12/10/22
+
 const nonDuplicate = array => {
   let inputObject = {};
   array.forEach(index => {
@@ -7,8 +9,8 @@ const nonDuplicate = array => {
       inputObject[index] = 1;
     }
   });
-  let uniques = Object.keys(inputObject).length;
+  let uniques = Object.keys(inputObject);
   return uniques;
 };
 
-console.log(nonDuplicate([1, 1, 1, 3, 3, 4, 555, 5, 5, 5]));
+console.log(nonDuplicate([1, 1, 1, 3, 3, 4, 555, 5, 5, 5])); // [1, 3, 4, 5, 555]
