@@ -31,6 +31,9 @@
 // the returned hash has characters as keys and the frequency of each character as a value
 // return the assertion of equality of hash N and hash M
 
+
+// Successfully tested the function 12/10/22.
+
 function anagramPair(string1, string2) {
     if (string1.length !== string2.length){
       return false;
