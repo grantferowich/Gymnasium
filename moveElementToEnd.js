@@ -18,7 +18,7 @@
 //   array[j] = temp;
 // };
 
-//given an array and a target value move the target value to the last index in the array
+// given an array and a target value move the target value to the last index in the array
 // use multiple pointers
 // input: an array and an integer
 // output: an array 
@@ -36,12 +36,24 @@
 
 const moveElementToEnd = (array, target) => {
 
+    let x = 0;
+    let n = array.length;
+    while (x < n){
+        while (x < n && array[n] == target) {n--}
+        if (array[x] === target){
+          swap(array, x, n)
+        } 
+        x++
+    }
 
-
-
-
+ return array
 }
 
+const swap = (array, x, y) => {
+    let temp = array[x];
+    array[x] = array[y];
+    array[y] = temp;
+}
 
 console.log(moveElementToEnd([2, 1, 2, 2, 2, 3, 4, 5], 2));
 //=> [ 5, 1, 4, 3, 2, 2, 2, 2]
