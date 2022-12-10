@@ -46,3 +46,10 @@ function anagramPalindrome(string) {
     }
     return true
    }
+
+   //carrace ==> true since the word can be re-written as racecar
+   console.log(anagramPalindrome('carrace')) // true
+   console.log(anagramPalindrome('dog')) // false
+   console.log(anagramPalindrome('hannah')) // true
+   console.log(anagramPalindrome(''))
+   console.log(anagramPalindrome("hhaann")) // true

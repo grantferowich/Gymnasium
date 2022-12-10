@@ -21,6 +21,7 @@
 // init a hash
 // loop over the string
 // store the counts of each letter
+*/
 
 const rgb = (string) => {
     //input validity check
@@ -45,3 +46,4 @@ const rgb = (string) => {
 }
 
 rgb('rgbrgb') // --> 2
+rgb('rbgrbrgrgbgrrggbbbbrgrgrgrg') // --> 7
