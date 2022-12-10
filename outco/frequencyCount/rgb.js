@@ -23,6 +23,7 @@
 // store the counts of each letter
 */
 
+// Successfully tested the function on 12/10/22. 
 const rgb = (string) => {
     //input validity check
     if (!string.includes("r") || !string.includes("g") || !string.includes("b") || string.length === 0){
