@@ -35,10 +35,12 @@ EXPECTED OUTPUT: 10
 */
 
 
-// The lattice paths function was successfully tested on 12/10/22.
+// The first lattice paths function was successfully tested on 12/10/22.
+// This function has a runtime of O(2^M+N)
 
+
+// solution 1
 const latticePaths = (row, col) => {
-    
     // two base cases
     if (row < 0 || col < 0) {
         return 0;
@@ -52,4 +54,32 @@ const latticePaths = (row, col) => {
     return up + left;
 }
 
-console.log(latticePaths(2,3)) // 10
+// console.log(latticePaths(2,3)) // 10
+// console.log(latticePaths(20,20)) // function takes a really, really long time
+
+
+// solution 2
+const latticePaths2 = (m, n) => {
+    let cache = {};
+
+    const traverse = (row, col) => {
+        let key = row.toString() +"_"+col.toString();
+
+        if (row === 0 && col === 0){
+            return 1; 
+        }
+        if (row < 0 || col < 0){
+            return 0;
+        }
+        if (cache[key]) { return cache[key]}
+
+        let up = traverse(row - 1, col);
+        let left = traverse(row, col - 1);
+        cache[key] = up + left; 
+        return cache[key];
+    }
+    return traverse(m,n)
+}
+console.log('latticePaths2')
+console.log(latticePaths2(2,3))
+console.log(latticePaths2(20,20))
