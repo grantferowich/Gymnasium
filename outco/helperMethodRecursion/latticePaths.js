@@ -4,7 +4,7 @@ LATTICE PATHS
 USING PURE RECURSION COUNT THE NUMBER OF UNIQUE PATHS
 TO TRAVEL FROM THE TOP LEFT CORNER TO THE BOTTOM RIGHT CORNER
 OF A LATTICE OF M X N SQUARES VIA VERTICES. WHEN
-MOVING THROUGH THE LATTICE, ONCE CAN ONLY TRAVEL
+MOVING THROUGH THE LATTICE, ONE CAN ONLY TRAVEL
 TO THE ADJACENT CORNER ON THE RIGHT OR DOWN. 
 
 INPUT: M, INTEGER (NUMBER OF ROWS OF SQUARES) 
@@ -33,3 +33,23 @@ EXPECTED OUTPUT: 10
 
 
 */
+
+
+// The lattice paths function was successfully tested on 12/10/22.
+
+const latticePaths = (row, col) => {
+    
+    // two base cases
+    if (row < 0 || col < 0) {
+        return 0;
+    }
+    if (row === 0 && col === 0 ){
+        return 1; 
+    }
+    //recursive calls 
+    let up = latticePaths(row - 1, col);
+    let left = latticePaths(row, col - 1);
+    return up + left;
+}
+
+console.log(latticePaths(2,3)) // 10
