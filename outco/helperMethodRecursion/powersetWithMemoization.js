@@ -35,6 +35,7 @@ const powersetWithMemoization = (word) => {
 
     // define helper method
     const discoverCombos = (build, depth) => {
+
         // create the key 
         let key = build.toString() + "_"+depth.toString()
         
@@ -50,18 +51,19 @@ const powersetWithMemoization = (word) => {
             return
         }
     
-        // recursive cases
+        // recursive case 1: traverse left
         // when moving to the left, depth increases, build stays the same
         let left = discoverCombos(build, depth+1);
         
+        // recursive case 2: traverse right 
         // when moving to the right, depth increases, 
         //build adds the letter at the depth index
         let right = discoverCombos(build + word[depth], depth + 1)
         
         // write to the cache
         cache[key] = left + right;
-        return cache[key]
     }
+
     // invoke helper method
     discoverCombos("", 0)
 
