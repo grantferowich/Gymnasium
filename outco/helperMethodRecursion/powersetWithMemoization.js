@@ -1,30 +1,3 @@
-// Power set 
-
-// input: string
-// output: array of strings
-
-// When you have accumulated the powerset (array of strings), 
-// return the output array sorted.
-
-
-// input 1: "abc"
-// output 1: [ "", "a", "ab", "abc", "ac", "b", "bc", "c"]
-
-// input 2: ""
-// output 2: ""
-
-
-// using the bottom up approach to build sets starting from
-// "" has O(2^N) run time and O(2^N + N) or O(2^N)
-
-// the call stack uses O(N) auxiliary space
-// the resulting array contains 2^N elements
-// so the space complexity simplifies to O(2^N)
-
-// Helper method recursion uses a recursive call stack
-// for the powerset problem 
-// the call stack features valid paths to construct a set from ""
-
 /**
  * helper method recursion
  * 
@@ -43,15 +16,23 @@
  *                 / \   / \     / \    / \
  *              ""  "c" "b""bc""a""ac""ab" "abc" --> depth = 3
  * 
+ * 
+ * powersetWithMemoization("abc") => ["", "c", "b", "bc", "a", "ac", "ab", "abc"]
+ * 
  */
 
-const powerset = (word) => {
+
+
+const powersetWithMemoization = (word) => {
     // create state variable
     let array = []
+
+    let cache = {}
 
     // define helper method
     const discoverCombos = (build, depth) => {
 
+        let key = build.toString() + "_"+depth.toString()
         // base case
         // condition at which the tree stops making binary decisions
         if (depth === word.length){
@@ -61,11 +42,13 @@ const powerset = (word) => {
     
         // recursive cases
         // when moving to the left, depth increases, build stays the same
-        discoverCombos(build, depth+1);
+        let left = discoverCombos(build, depth+1);
         
         // when moving to the right, depth increases, 
         //build adds the letter at the depth index
-        discoverCombos(build + word[depth], depth + 1)
+        let right = discoverCombos(build + word[depth], depth + 1)
+        cache[key] = left + right;
+        return cache[key]
     }
     // invoke helper method
     discoverCombos("", 0)
@@ -74,4 +57,4 @@ const powerset = (word) => {
     return array
 }
 
-console.log(powerset("abc"))
+console.log(powersetWithMemoization("abc"))

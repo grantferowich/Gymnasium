@@ -59,7 +59,7 @@ const latticePaths = (row, col) => {
 
 
 // solution 2
-const latticePaths2 = (m, n) => {
+const latticePathsWithMemoization = (m, n) => {
     let cache = {};
     const traverse = (row, col) => {
         let key = row.toString() +"_"+col.toString();
@@ -80,5 +80,5 @@ const latticePaths2 = (m, n) => {
     return traverse(m,n)
 }
 console.log('latticePaths2')
-console.log(latticePaths2(2,3))
-console.log(latticePaths2(20,20))
+console.log(latticePathsWithMemoization(2,3))
+console.log(latticePathsWithMemoization(20,20))
