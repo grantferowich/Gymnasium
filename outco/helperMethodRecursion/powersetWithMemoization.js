@@ -22,21 +22,31 @@
  */
 
 
+// Defined and successfully tested powersetWithMemoization()
+// on 12/11/2022.
+
 
 const powersetWithMemoization = (word) => {
     // create state variable
     let array = []
 
+    // create cache
     let cache = {}
 
     // define helper method
     const discoverCombos = (build, depth) => {
-
+        // create the key 
         let key = build.toString() + "_"+depth.toString()
+        
         // base case
         // condition at which the tree stops making binary decisions
         if (depth === word.length){
             array.push(build);
+            return
+        }
+
+        // check cache to see if the subproblem was already solved
+        if (cache[key]) {
             return
         }
     
@@ -47,6 +57,8 @@ const powersetWithMemoization = (word) => {
         // when moving to the right, depth increases, 
         //build adds the letter at the depth index
         let right = discoverCombos(build + word[depth], depth + 1)
+        
+        // write to the cache
         cache[key] = left + right;
         return cache[key]
     }
