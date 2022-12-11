@@ -22,6 +22,8 @@
 // if the input array does not include i
 // append the missing value to a new array
 
+// Succesfully tested the function 12/10/22.
+
 const missingNumber = (n, arr) => {
   let missing = [];
   let array = arr.sort((a,b) => b - a) 
@@ -33,4 +35,4 @@ const missingNumber = (n, arr) => {
   return missing
 }
 
-console.log(missingNumber(4, [1,4,2]))
+console.log(missingNumber(4, [1,4,2])) // [3]

@@ -7,7 +7,7 @@
 // C: optimize
 // E: empty string.
 
-const kUniqueChars = (s) => {
+const kUniqueCharacters = (s) => {
     let k = s[0];
     let str = s.slice(1, s.length-1)
     // let str = s.substring(1, s.length-1);
@@ -35,5 +35,5 @@ const kUniqueChars = (s) => {
     return maxLength;
 }
 
-console.log(kUniqueChars("2eceba"))
+console.log(kUniqueCharacters("2eceba"))
 // module.exports = kUniqueChars

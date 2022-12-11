@@ -14,7 +14,6 @@ function flatten(array){
             flattened.push(subarray[x])
         }
       }
-  
     }  
     makeFlat(array);
     return flattened;
