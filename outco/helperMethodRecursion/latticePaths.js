@@ -61,7 +61,6 @@ const latticePaths = (row, col) => {
 // solution 2
 const latticePaths2 = (m, n) => {
     let cache = {};
-
     const traverse = (row, col) => {
         let key = row.toString() +"_"+col.toString();
 
