@@ -1,4 +1,4 @@
-
+// print all the elements in the array
 
 const printArray = (arr) => {
 

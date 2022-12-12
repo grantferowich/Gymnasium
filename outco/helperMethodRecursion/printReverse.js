@@ -1,4 +1,4 @@
-
+// start from base case and build up to the input case
 const printReverse = (arr) => {
 
     const traverse = (depth) => {
@@ -18,7 +18,7 @@ const printReverse = (arr) => {
 
 
 // here is another way to approach the solution
-
+// start from the input case and call the recursive function until the base case
 const printReverse2 = (arr) => {
 
     const traverse = (depth) => {
