@@ -45,7 +45,7 @@ const powersetWithMemoization = (word) => {
             array.push(build);
             return
         }
-
+        
         // check cache to see if the subproblem was already solved
         if (cache[key]) {
             return
@@ -63,7 +63,6 @@ const powersetWithMemoization = (word) => {
         // write to the cache
         cache[key] = left + right;
     }
-
     // invoke helper method
     discoverCombos("", 0)
 

@@ -1,3 +1,5 @@
+var t0 = performance.now();
+
 // solution 2
 const latticePathsWithMemoization = (m, n) => {
     let cache = {};
@@ -21,4 +23,7 @@ const latticePathsWithMemoization = (m, n) => {
 }
 console.log('latticePathsWithMemoization')
 console.log(latticePathsWithMemoization(2,3))
-console.log(latticePathsWithMemoization(20,20))
+console.log(latticePathsWithMemoization(30,30))
+
+var t1 = performance.now();
+console.log("Call to latticePathsWithTabulation took " + (t1 - t0) + " milliseconds.");

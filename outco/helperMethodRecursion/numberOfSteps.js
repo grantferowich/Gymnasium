@@ -50,8 +50,6 @@ function numberOfSteps(num) {
   if (num.length === 0){
     return ""
   }
-
-  let cache = {};
   //base case
   if (num === 1) {
      return steps = 1;
