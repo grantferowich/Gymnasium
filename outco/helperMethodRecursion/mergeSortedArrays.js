@@ -7,6 +7,8 @@
 // The approach below uses O(M+N) auxiliary space.
 // The approach below has a runtime of O(M+N). 
 
+// Successfully tested the solution on 12/12/22.
+
 function mergeSortedArrays(arr1, arr2){
     let merged = [];
     let arrayLength = arr1.length + arr2.length;
@@ -37,16 +39,6 @@ function mergeSortedArrays(arr1, arr2){
       if (arr2[idx2] === undefined && arr1[idx1]){
         merged.push(arr1[idx1])
       }
-
-      // if (arr1[idx1] !== null) {
-      //   merged.push(arr1[idx1])
-      // }
-
-      // if (arr2[idx2] !== null){
-      //   merged.push(arr2[idx2])
-      // }
-
-      // merged.sort();
 
       combine(idx1+1, idx2+1)
     }
