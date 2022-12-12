@@ -5,10 +5,13 @@ const latticePathsWithMemoization = (m, n) => {
     let cache = {};
     const traverse = (row, col) => {
         let key = row.toString() +"_"+col.toString();
-
+        
+        // valid path
         if (row === 0 && col === 0){
             return 1; 
         }
+
+        // invalid path
         if (row < 0 || col < 0){
             return 0;
         }
