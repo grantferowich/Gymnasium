@@ -3,6 +3,8 @@
 // 4! = 24
 
 
+// Time: O(N)
+// Space: O(1)
 const factorial = (number) => {
     let product = 1
     const multiply = (num) => {
