@@ -43,6 +43,8 @@
  *                 / \   / \     / \    / \
  *              ""  "c" "b""bc""a""ac""ab" "abc" --> depth = 3
  * 
+ * 
+ * Successfully tested solution 12/12/22.
  */
 
 const powerset = (word) => {

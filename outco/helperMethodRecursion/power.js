@@ -20,4 +20,5 @@ function power(base, exponent) {
 }
 
 console.log(power(3,4))
+console.log(power(-2,2))
   
