@@ -1,0 +1,8 @@
+// NTH FIBONACII 
+// The approach to the nth fibonacci function
+// using pure recursion is top-down. 
+// The pure recursion solution uses multiple recursion.
+
+const nthFibonacciPureRecursion = ( num ) => {
+    return n < 2 ? n : nthFibonacciPureRecursion(n - 1) + nthFibonacciPureRecursion(n - 2)
+}

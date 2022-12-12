@@ -7,12 +7,13 @@ const factorial = (number) => {
     let product = 1
     const multiply = (num) => {
         if (num > number) { return;}
-
         product *= num
         multiply(num + 1)
     }
-    multiply(1)
-    return product
+    multiply(1);
+    return product;
 }
 
 console.log(factorial(4)) // 24
+console.log(factorial(100)) //
+
