@@ -41,6 +41,8 @@ const countVowelStrings = (number) => {
             return;
         }
         // recursive case
+        // nested recursion
+        // call recursion for each vowel 
         for (let char in "aieou"){
             generateString(build+char, depth +1)
         }
