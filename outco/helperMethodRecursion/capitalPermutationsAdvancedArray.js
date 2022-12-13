@@ -1,3 +1,5 @@
+// successfully tested capitalPermutationsAdvancedArray on 12/13/22
+
 
 const capitalPermutationsAdvancedArray = (string) => {
 
