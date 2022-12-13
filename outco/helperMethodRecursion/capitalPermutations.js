@@ -35,24 +35,30 @@
  */
 
 const capitalPermutations = (string) => {
-
+    // create state variable
     let permutations = []
+
+    // define helper method
     const generatePermutations = (str, depth) => {
-        // input case 
+        // terminating case 
         if (depth === string.length) {
             permutations.push(str);
             return 
         }
-        
-            let char = string[depth]
-            let upper = char.toUpperCase()
-            let lower = char.toLowerCase()
+        // cases where the helper method is called
+        let char = string[depth]
+        let upper = char.toUpperCase()
+        let lower = char.toLowerCase()
         generatePermutations(str + upper, depth + 1);
         generatePermutations(str + lower, depth + 1);
     }
 
+
     // start from base case
+    // invoke helper method
     generatePermutations("", 0);
+
+    // return state variable
     return permutations; 
 }
 
