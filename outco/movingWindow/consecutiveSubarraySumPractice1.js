@@ -12,6 +12,8 @@ const consecutiveSubarraySumPractice1 = (nums, target) => {
             currentSum += nums[i];
         }
         for (let j = 0; j < nums.length; j++){
+
+
             if (target === currentSum){
                 return true;
             }
@@ -22,8 +24,8 @@ const consecutiveSubarraySumPractice1 = (nums, target) => {
                 currentSum+= nums[j];
             }
 
-            //catchup logic (but also still sort of aiming to fulfill 
-            // initially desired condition)
+            //catchup logic to minimize on window
+            // minimize currentSum once the elements in the subarray are greater than target
             if (currentSum > target){
                 currentSum -= nums[j]
             }

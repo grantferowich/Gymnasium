@@ -16,8 +16,6 @@
 
 
 const minimumWindowSubstring = (word, target) => {
-
-
     let left = 0;
     let right = 0;
     let result = [0,Infinity]
