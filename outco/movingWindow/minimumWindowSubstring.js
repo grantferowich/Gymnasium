@@ -135,7 +135,6 @@ const minimumWindowSubstring2 = (string, target) => {
             if (rChar in counts){
                 if (counts[rChar] > 0){
                     missingCharNum--;
-                   
                 } 
                 counts[rChar]--;
             }
