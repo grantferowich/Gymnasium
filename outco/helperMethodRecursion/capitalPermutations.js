@@ -30,6 +30,8 @@
  * 
  * 
  * 
+ * 
+ * // Completed successful testing of the solution with helper method recursion on 12/13/22.
  */
 
 const capitalPermutations = (string) => {
