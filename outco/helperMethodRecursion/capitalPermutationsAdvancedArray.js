@@ -24,11 +24,15 @@
  * "abc" "abC" "aBc" "aBC" "Abc" "AbC" "ABc" "ABC"   3
 // successfully tested capitalPermutationsAdvancedArray on 12/13/22
 
+// the solution uses isNaN() which is a function returning true if a number is a number type after being converted to number
+// e.g. isNaN("1") returns false because converting "1" to a number and checking the type returns that it is a number
+// isNaN("G3") returns true
+*/
 
 const capitalPermutationsAdvancedArray = (string) => {
 
     let permutations = [];
-    let hash = {};
+    // let hash = {};
 
     const generatePermutations = (build, depth) => {
 
@@ -37,26 +41,27 @@ const capitalPermutationsAdvancedArray = (string) => {
                 return
         }
 
-        if (typeof string[depth] === 'number'){
-            generatePermutations(build+string[depth].toString, depth+1 )
-        }
-
-        let char = string[depth];    
-        let upper = char.toUpperCase()
-        let lower = char.toLowerCase()
-
-        generatePermutations(build + upper, depth+1)
-        generatePermutations(build + lower, depth+1)
+        
+        if (!isNaN(string[depth])) {
+            generatePermutations(build+string[depth].toString(), depth+1 )
+        } else {
+            let char = string[depth];    
+            let upper = char.toUpperCase()
+            let lower = char.toLowerCase()
+            generatePermutations(build + upper, depth+1)
+            generatePermutations(build + lower, depth+1)
+        }  
     }
 
     generatePermutations("",0)
+    return permutations;
+
+    // for (let x = 0; x < permutations.length; x++){
+    //     let element = permutations[x];
+    //     !hash[element] ? hash[element] = true : 0
+    // }
     
-    for (let x = 0; x < permutations.length; x++){
-        let element = permutations[x];
-        !hash[element] ? hash[element] = true : 0
-    }
-    
-    return Object.keys(hash)
+    // return Object.keys(hash)
 }
 
 console.log(capitalPermutationsAdvancedArray("A1d3")) // Expected output:  ["A1D3", "a1D3", "A1d3", "a1d3"]
