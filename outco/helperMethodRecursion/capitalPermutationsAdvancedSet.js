@@ -54,5 +54,5 @@ const capitalPermutationsAdvancedSet = (string) => {
     return permutations;
 }
 
-console.log(capitalPermutationsAdvancedSet("A1d3"))
+console.log(capitalPermutationsAdvancedSet("A1d3")) // Expected output:  ["A1D3", "a1D3", "A1d3", "a1d3"]
 
