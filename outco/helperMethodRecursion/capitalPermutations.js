@@ -17,7 +17,18 @@
  * Time Constraints: O(2^N) (exponential)
  * Space Constraints: O(2^N) 
  * 
- *
+ * Diagram: build from bottom up 
+ * 
+ *                   ""  0   
+ *            /                  \
+ *          "a"                   "A"  1   
+ *        /     \             /           \
+ *     "ab"     "aB"       "Ab"           "AB"   2
+ *     /  \      /  \      /    \         /   \
+ * "abc" "abC" "aBc" "aBC" "Abc" "AbC" "ABc" "ABC"   3
+ * 
+ * 
+ * 
  * 
  */
 
@@ -25,11 +36,22 @@ const capitalPermutations = (string) => {
 
     let permutations = []
     const generatePermutations = (str, depth) => {
-
+        // input case 
+        if (depth === string.length) {
+            permutations.push(str);
+            return 
+        }
         
-    
+            let char = string[depth]
+            let upper = char.toUpperCase()
+            let lower = char.toLowerCase()
+        generatePermutations(str + upper, depth + 1);
+        generatePermutations(str + lower, depth + 1);
     }
 
+    // start from base case
     generatePermutations("", 0);
     return permutations; 
 }
+
+console.log(capitalPermutations("abc"))
