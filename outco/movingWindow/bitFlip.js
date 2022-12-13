@@ -30,13 +30,15 @@
 
 const bitFlip = (array) => {
 
-    // maxDifferent is the longest subarray of 1s
+    // maxDifferent is the longest sliding window of 1s
     // maxDifferent is calculated by taking the count of 1s less the
-    // count of 0s from each subarray starting from index x
+    // count of 0s
     let maxDifferent = 0;
     let original0Count = 0;
     let n = array.length;
 
+
+    // for all elements x in the array
     for (let x = 0; x < n; x++){
         if (array[x] == 0){
             original0Count++
@@ -44,6 +46,7 @@ const bitFlip = (array) => {
         let count0 = 0;
         let count1 = 0;
 
+        // for each element x consider the subarray from arr[x] to arr[y]
         // consider all subarrays initializing at index x
         for (let y = x; y < n; y++){
            

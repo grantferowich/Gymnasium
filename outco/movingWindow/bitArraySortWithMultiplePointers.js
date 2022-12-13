@@ -1,7 +1,10 @@
-// Given a bit array, return the array sorted in place using multiple pointerss
+// Given a bit array, return the array sorted in place using multiple pointers
+
 // input: array
 // output: array
+
 // constraints: O(N) space and O(N) runtime
+
 // the problem instructs us to sort the array in place 
 // this condition tells us the algorithm must not introduce new data structures
 // The input space is O(N). The auxiliary space is O(2). 
