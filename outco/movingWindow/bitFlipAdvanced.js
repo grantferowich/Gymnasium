@@ -16,8 +16,8 @@
 // Time Complexity: O(N)
 // Auxiliary Space Complexity: O(1)
 
-// passed tests 12/14/22
-function bitFlip (arr, n) {
+// One test case passed on 12/14/22.
+function bitFlipAdvanced (arr, n) {
  
     let max = 0;
     let left = 0;
@@ -36,4 +36,5 @@ function bitFlip (arr, n) {
     return max
 }
 
-console.log(bitFlip([0,1,1,1,0,1,0,1,0,0], 2))
+
+console.log(bitFlipAdvanced([0,1,1,1,0,1,0,1,0,0], 2)) // 7

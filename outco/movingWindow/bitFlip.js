@@ -63,7 +63,7 @@ const bitFlip = (array) => {
     return original0Count + maxDifferent;
 }
 
-// These test cases passed (12/7/22)
+// These test cases passed on 12/7/22
 
 console.log(bitFlip([1, 1, 1, 0, 0, 0, 0, 0, 0, 0])) // 10
 console.log(bitFlip([0, 0, 0, 1, 0, 1])) // 5
