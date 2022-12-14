@@ -1,38 +1,54 @@
-// return the longest substring of unique characters in a given string 
+// 201 - Longest Substring Without Repeating Characters
+// Given a string s, find the longest substring without repeating characters.
 
-// Solution 1: Initialize a set and a counter variable
-// Using two loops, push the j'th element into a set 
-// unless the set already has the j'th element
-// After each inner loop is completed update the 
-// counter variable's max number of unique characters 
-// The max number of unique characters employs the Math.max() 
-// method to compare the variable's existing longest string of uniques
-// with the number of unique characters from the most recent inner loop.
-// Since the solution implements a Set, the relevant methods used are
-// .has, .add, and .size
+// Input: String
+// Output: String
+// Example
+// Input: abcabcbb      =>	Output: abc
+// Input: bbbbb	 	=>	Output: b
+// Input: pwwkew		=>	Output: wke
+// Constraints
+// N ~ Length of input string
+// K ~ Number of unique characters in input string
 
-// use a moving window
+// Time Complexity: O(N)
+// Auxiliary Space Complexity: O(K)
+
+// solution logic
+// increment right and hunt if there are no repeating characters
+// incremenet left and catchup if there are repeats until there are no repeats
 
 
-const longestSubstring = (s) => {
-    let aPointer = 0;
-    let bPointer = 0;
-    let longestString = 0;
-    let charSet = new Set();
+const longestSubstring = (string) => {
+    // create state variables
+    let currentString = "";
+    let longestString = "";
 
-    while (bPointer < s.length) {
-        if (!charSet.has(s[bPointer])){
-            charSet.add(s[bPointer]);
-            bPointer++;
-            longestString = Math.max(charSet.size, longestString);
+    for (let x = 0; x < string.length; x++){
+        let char = string[x];
+        let idx = currentString.indexOf(char)
+        console.log('currentString: ', currentString);
+        console.log('char: ', char)
+        console.log('idx: ', idx);
+
+        // the idx > - 1 case being true is where the catchup logic happens
+        if (idx > -1){
+                if (currentString.length > longestString.length) { longestString = currentString; }
+                // .slice(2) will trim the first two elements from the string
+                // :. the slice logic is how the window minimizes from the left 
+                currentString = currentString.slice(idx + 1) + char;
         } else {
-            charSet.delete(s[aPointer]);
-            aPointer++;
+            // hunt and expand 
+            currentString += char;
+            console.log('currentString: ', currentString)
         }
     }
+    // update result variable
+    if (currentString.length > longestString.length) { longestString = currentString; }
+    // return state variable
     return longestString
 }
 
-
-module.exports = longestSubstring
-
+// console.log(longestSubstring("abcabcbb"))
+// console.log(longestSubstring("bbbbb"))
+console.log(longestSubstring("pwwkew"))
