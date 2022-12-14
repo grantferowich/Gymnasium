@@ -96,6 +96,10 @@ const arr = [5, 2, 7, null, null, 4, 8, null, null, null, 9];
 
 const sampleTree = deserialize(arr);
 
+
+
+//////////////
+
 const lowestCommonAncestor = (root, num1, num2) => {
     let common = null;
     let array1 = [];

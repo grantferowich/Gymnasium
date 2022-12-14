@@ -21,13 +21,11 @@ Class Node = {
  }
 }
 
-const findLongestPath = (head) {
-
- let root = new Node(head)
- while (node !== null){
-    let left = findLongestPath(node.left)
-    let right = findLongestPath(node.right)
-    let max = Math.max(left, right)
-    
+const findLongestPath = (head) => {
+    let root = new Node(head)
+    while (node !== null){
+    let left = findLongestPath(node.left);
+    let right = findLongestPath(node.right);
+    let max = Math.max(left, right);
  }
 }

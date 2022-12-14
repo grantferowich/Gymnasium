@@ -20,19 +20,19 @@
  * Time complexity: O(N)
  * input space complexity: O(N)
  * aux space: O(3) => O(1)
+ * 
+ * Successfully defined and tested a solution 
+ * to sort a bit array in place using a frequency counter. 
  */
 
 
 const bitArraySortWithFrequencyCount = (array) => {
-
     let zeroCount = 0;
-
     for ( let i = 0; i < array.length; i++){
         if (array[i] === 0){
             zeroCount++
         }
     }
-
     for (let j = 0; j < array.length; j++){
         if (j < zeroCount){
             array[j] = 0;

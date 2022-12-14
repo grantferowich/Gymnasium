@@ -5,6 +5,8 @@
 // actually this brute force solution isn't really complete... 12/13/22
 
 // come back to this problem after doing a few problems on DFS
+// testing status: incomplete | 12/13/22
+
 // findPermutations("aabc")
 
 // (12) ["aabc", "aacb", "abac", "abca", "acab", "acba", "baac", "baca", "bcaa", "caab", "caba", "cbaa"]
