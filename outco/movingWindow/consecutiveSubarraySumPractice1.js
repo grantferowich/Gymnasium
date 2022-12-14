@@ -1,8 +1,10 @@
+// Passed two test cases 12/14/22.
+
 // CONSECUTIVE SUBARRAY SUM
 
 // input: array of integers, target integer
 // output: true
-[6,12,1,7,5,2,3], 14  
+// [6,12,1,7,5,2,3], 14  
 const consecutiveSubarraySumPractice1 = (nums, target) => {
 
     let currentSum = 0;
@@ -34,5 +36,5 @@ const consecutiveSubarraySumPractice1 = (nums, target) => {
     return false;
 }
 
-console.log(consecutiveSubarraySumPractice1([6,12,1,7,5,2,3], 14))
-console.log(consecutiveSubarraySumPractice1([6,12,1,7,5,2,3], 12))
+console.log(consecutiveSubarraySumPractice1([6,12,1,7,5,2,3], 14)) // expected output: true 
+console.log(consecutiveSubarraySumPractice1([6,12,1,7,5,2,3], 12)) // expected output: true 
