@@ -18,6 +18,7 @@
  * 
  */
 
+
 const houseRobber = (array) => {
 
     let local = 0;
