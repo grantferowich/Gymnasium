@@ -1,4 +1,5 @@
  // Rainwater problem
+ // constructed and successfully tested solution 12/15/22.
 
  const trap = (height) => {
         

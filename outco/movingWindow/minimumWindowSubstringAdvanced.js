@@ -20,6 +20,7 @@ const minimumWindowSubstringAdvanced = (string, target) => {
         let targetChar = target[i];
         counts[targetChar] = 0;
     }
+   
     
     let left = 0;
     for ( let right = 0; right < string.length; right++){
@@ -34,6 +35,7 @@ const minimumWindowSubstringAdvanced = (string, target) => {
             // if targetChar is unique, increment 
             counts[string[right]] += 1;
         }
+        
 
         while (targetChars === 0){
             if ((left - right) < (result[1] -result[0])){
@@ -53,3 +55,4 @@ const minimumWindowSubstringAdvanced = (string, target) => {
 }
 
 console.log(minimumWindowSubstringAdvanced("ADOBECODEBANC", "ABC"))
+console.log(minimumWindowSubstringAdvanced("AADOBECODEBANC", "AABC"))
