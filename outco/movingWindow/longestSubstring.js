@@ -18,6 +18,8 @@
 // increment right and hunt if there are no repeating characters
 // incremenet left and catchup if there are repeats until there are no repeats
 
+// Successfully tested the solution 12/14/22
+
 
 const longestSubstring = (string) => {
     // create state variables
@@ -27,9 +29,9 @@ const longestSubstring = (string) => {
     for (let x = 0; x < string.length; x++){
         let char = string[x];
         let idx = currentString.indexOf(char)
-        console.log('currentString: ', currentString);
-        console.log('char: ', char)
-        console.log('idx: ', idx);
+        // console.log('currentString: ', currentString);
+        // console.log('char: ', char)
+        // console.log('idx: ', idx);
 
         // the idx > - 1 case being true is where the catchup logic happens
         if (idx > -1){
@@ -40,7 +42,7 @@ const longestSubstring = (string) => {
         } else {
             // hunt and expand 
             currentString += char;
-            console.log('currentString: ', currentString)
+            // console.log('currentString: ', currentString)
         }
     }
     // update result variable
@@ -49,6 +51,6 @@ const longestSubstring = (string) => {
     return longestString
 }
 
-// console.log(longestSubstring("abcabcbb"))
-// console.log(longestSubstring("bbbbb"))
+console.log(longestSubstring("abcabcbb"))
+console.log(longestSubstring("bbbbb"))
 console.log(longestSubstring("pwwkew"))

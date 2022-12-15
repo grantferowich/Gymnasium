@@ -9,6 +9,8 @@
 // Input = [6, -1, 3, 5, -10]
 // output = 13
 
+//Succesfully tested the solution 12/13/22. 
+
 const maxConsecutiveSum = (array) => {
 
     let local = 0;
