@@ -121,6 +121,7 @@ const minimumWindowSubstring2 = (string, target) => {
     let counts = {};
     let result = [0, Infinity]
 
+    // create hash map
     for (let x = 0; x < target.length; x++){
         let char = target[x];
         counts[char] = counts[char] + 1 || 1;

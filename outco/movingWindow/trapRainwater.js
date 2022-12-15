@@ -13,6 +13,9 @@ In this case, 6 units of rain water (blue section) are being trapped.
 
 Input: height = [4,2,0,3,2,5]
 Output: 9
+
+** after implementing with a moving window
+implement with a stack
  */
  
 
