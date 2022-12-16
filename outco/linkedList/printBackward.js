@@ -11,6 +11,9 @@ head                    tail
 // 10 7 5 1
 
 
+// The input node must be the tail node
+// the iteration continues
+// until the current node is null (the pointer to null before the first node in the list)
 */
 
 function printBackward(node) {
