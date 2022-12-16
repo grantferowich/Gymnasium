@@ -10,10 +10,14 @@ swap(head, 5, 10)
 (1) => (5) => (7) => (10)
 
 (1) => (10) => (7) => (5)
+
+// assume access to SinglyLinkedListNode class 
 */
 
 const swapNodes = (head, a, b) => {
 
+    // init a node at the spot before the head node
+    // init the node with value null and init a pointer from that node to the head
     let ph = new SinglyLinkedListNode(null)
     ph.next = head;
 
