@@ -24,6 +24,7 @@ const swapNodes = (head, a, b) => {
     // a,b, parent(a), parent(b)
     let currentA;
     let parentA;
+
     let currentB;
     let parentB;
 
@@ -31,19 +32,35 @@ const swapNodes = (head, a, b) => {
     let parent = ph;
 
     // move from the node to the chronologically last null
+    // current is the state value keeping track of the present value of the node
+    // during the traversal
+    // the parent will also be tracked during the traversal
+
     while (current !== null){
+
+        // hunt for a
         if (current.data === a){
             currentA = current;
             parentA = parent;
         }
+
+        // hunt for b
+        // assign currentB to current
+        // and assign parentB to current's parent
         if (current.data === b){
             currentB = current;
             parentB = parent;
         }
 
+        // move current over the linked list 
         current = current.next;
+
+        // move the parent over the linked list
         parent = parent.next;
     }
-    console.log("current A", currentA);
-    console.log("parentA ", parentA)
+
+    // console.log("current A", currentA);
+    // console.log("parentA ", parentA)
+
+    
 }
