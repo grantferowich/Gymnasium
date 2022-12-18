@@ -95,6 +95,7 @@ const isALinkedListPalindromeConstant = (node) => {
     let ref;
 
     while (curr !== null){
+        // reverse the second half of the linked list
         if (position >= midpoint){
             if (prev === undefined){
                 prev = curr;
