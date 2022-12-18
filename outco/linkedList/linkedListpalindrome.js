@@ -36,12 +36,14 @@
   head2.next = new ListNode(9)
   head2.next = new ListNode(1)
 
+  let head3 = new ListNode(12)
+  head3.next = new ListNode(14)
 
-const linkedListPalindrome = (node) =>{
+const isAlinkedListPalindrome = (node) =>{
     let current = node;
     let list = []   
     while (current !== null){
-        list.push(current.value)
+        list.push(current.val)
         current = current.next
     }
     let x = 0;
@@ -55,5 +57,6 @@ const linkedListPalindrome = (node) =>{
     }
     return true; 
 }
-console.log(linkedListPalindrome(head))
-console.log(linkedListPalindrome(head2))
+console.log(isAlinkedListPalindrome(head)) // expected output: true
+console.log(isAlinkedListPalindrome(head2)) // expected output: true
+console.log(isAlinkedListPalindrome(head3)) // expected output: false
