@@ -14,6 +14,20 @@ swap(head, 5, 10)
 // assume access to SinglyLinkedListNode class 
 */
 
+
+
+class SinglyLinkedListNode {
+    constructor(val) {
+      this.val = val;
+      this.next = null;
+    }
+  }
+  
+  let head = new SinglyLinkedListNode(1);
+  head.next = new SinglyLinkedListNode(5);
+  head.next.next = new SinglyLinkedListNode(7);
+  head.next.next.next = new SinglyLinkedListNode(10)
+
 const swapNodes = (head, a, b) => {
 
     // init a node at the spot before the head node
@@ -55,9 +69,11 @@ const swapNodes = (head, a, b) => {
     if (currentA === undefined || currentB === undefined){
         return ph.next;
     }
-    parentB.next = currentA;
     parentA.next = currentB;
+    parentB.next = currentA;
     let ref = currentA.next;
     currentA.next = currentB.next;
     currentB.next = ref;
+    return head;
 }
+console.log(swapNodes(head, 5, 7))
