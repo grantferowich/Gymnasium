@@ -22,4 +22,44 @@ Output: 5
   10: 25
 } 
 
+// first get the length of the linked list
+// pick a random number between 0 and length
+// Math.floor(Math.random() * length)
+
 */
+
+class ListNode {
+    constructor(val) {
+      this.val = val;
+      this.next = null;
+    }
+}
+  
+let head = new ListNode(1);
+head.next = new ListNode(5);
+head.next.next = new ListNode(7);
+head.next.next.next = new ListNode(5);
+head.next.next.next.next = new ListNode(9);
+
+const randomNodeValue = (node) => {
+
+    let current = node;
+    let length = 0;
+    while (current !== null){
+        length++;
+        current = current.next;
+    }
+
+    let randomIdx = Math.floor(Math.random() * length);
+    let pointer = node;
+
+
+    for (let x = 0; x <= length - 1 ; x++){
+        if (x === randomIdx && pointer.val !== undefined){
+            return pointer.val
+        }
+        pointer = pointer.next
+    }
+}
+
+console.log(randomNodeValue(head))
