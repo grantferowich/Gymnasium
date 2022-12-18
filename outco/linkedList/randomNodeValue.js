@@ -1,4 +1,6 @@
 /* 
+Solved this problem successfully and tested the function 12/18/22. 
+
 214 - Random Node Value from Linked List
 Given the head node of a singly linked list, return the value of one of the nodes at random from the linked list.
 
@@ -41,6 +43,10 @@ head.next.next = new ListNode(7);
 head.next.next.next = new ListNode(10);
 head.next.next.next.next = new ListNode(9);
 
+let head2 = new ListNode(0);
+head2.next = new ListNode(1);
+head2.next.next = new ListNode(0);
+head2.next.next.next = new ListNode(1);
 
 
 const randomNodeValue = (node) => {
@@ -69,12 +75,12 @@ const randomNodeValue = (node) => {
 const testRandomness = (node) =>{
     let occurrences = {};
 
-    for (let x = 0; x < 1000; x++){
+    for (let x = 0; x < 2000; x++){
         let num = randomNodeValue(node);
         occurrences[num] = occurrences[num] + 1 || 1;
     }
-
     return occurrences
 }
 
 console.log("frequency: ", testRandomness(head));
+console.log("frequency: ", testRandomness(head2));
