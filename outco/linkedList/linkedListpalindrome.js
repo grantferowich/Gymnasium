@@ -17,9 +17,43 @@
  * check for equality of values
  */
  
+ class ListNode {
+    constructor(val) {
+      this.val = val;
+      this.next = null;
+    }
+  }
+  
+  let head = new ListNode(1);
+  head.next = new ListNode(5);
+  head.next.next = new ListNode(7);
+  head.next.next.next = new ListNode(10);
+  head.next.next.next.next = new ListNode(7);
+  head.next.next.next.next.next = new ListNode(5);
+  head.next.next.next.next.next.next = new ListNode(1);
+
+  let head2 = new ListNode(1)
+  head2.next = new ListNode(9)
+  head2.next = new ListNode(1)
 
 
 const linkedListPalindrome = (node) =>{
-    
-
+    let current = node;
+    let list = []   
+    while (current !== null){
+        list.push(current.value)
+        current = current.next
+    }
+    let x = 0;
+    let y = list.length -1
+    while ( x < y){
+        if (list[x] !== list[y]){
+            return false
+        }   
+        x++;
+        y--;
+    }
+    return true; 
 }
+console.log(linkedListPalindrome(head))
+console.log(linkedListPalindrome(head2))
