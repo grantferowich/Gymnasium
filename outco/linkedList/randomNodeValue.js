@@ -38,7 +38,7 @@ class ListNode {
 let head = new ListNode(1);
 head.next = new ListNode(5);
 head.next.next = new ListNode(7);
-head.next.next.next = new ListNode(5);
+head.next.next.next = new ListNode(10);
 head.next.next.next.next = new ListNode(9);
 
 const randomNodeValue = (node) => {
@@ -62,4 +62,17 @@ const randomNodeValue = (node) => {
     }
 }
 
-console.log(randomNodeValue(head))
+// console.log(randomNodeValue(head))
+
+const testRandomness = (node) =>{
+    let occurrences = {};
+
+    for (let x = 0; x < 1000; x++){
+        let num = randomNodeValue(node);
+        occurrences[num] = occurrences[num] + 1 || 1;
+    }
+
+    return occurrences
+}
+
+console.log(testRandomness(head));
