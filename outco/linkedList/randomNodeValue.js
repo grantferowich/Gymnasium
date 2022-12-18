@@ -41,6 +41,8 @@ head.next.next = new ListNode(7);
 head.next.next.next = new ListNode(10);
 head.next.next.next.next = new ListNode(9);
 
+
+
 const randomNodeValue = (node) => {
 
     let current = node;
@@ -56,9 +58,9 @@ const randomNodeValue = (node) => {
 
     for (let x = 0; x <= length - 1 ; x++){
         if (x === randomIdx && pointer.val !== undefined){
-            return pointer.val
+            return pointer.val;
         }
-        pointer = pointer.next
+        pointer = pointer.next;
     }
 }
 
@@ -75,4 +77,4 @@ const testRandomness = (node) =>{
     return occurrences
 }
 
-console.log(testRandomness(head));
+console.log("frequency: ", testRandomness(head));
