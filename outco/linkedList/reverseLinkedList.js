@@ -18,10 +18,10 @@ const reverseLinkedList = (node) => {
     let prev = null;
     let current = node;
     
-    while ( current !== null){
+    while (current !== null){
         // create reference to next node
         let ref = current.next;
-        // build arrow to previous value
+        // reverse the arrow direction
         current.next = prev;
         // move the prev value over 1 spot
         prev = current;

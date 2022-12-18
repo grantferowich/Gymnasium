@@ -37,30 +37,27 @@ const swapNodes = (head, a, b) => {
     // the parent will also be tracked during the traversal
 
     while (current !== null){
-
         // hunt for a
         if (current.data === a){
             currentA = current;
             parentA = parent;
         }
-
         // hunt for b
-        // assign currentB to current
-        // and assign parentB to current's parent
         if (current.data === b){
             currentB = current;
             parentB = parent;
         }
-
         // move current over the linked list 
         current = current.next;
-
         // move the parent over the linked list
         parent = parent.next;
     }
-
-    // console.log("current A", currentA);
-    // console.log("parentA ", parentA)
-
-    
+    if (currentA === undefined || currentB === undefined){
+        return ph.next;
+    }
+    parentB.next = currentA;
+    parentA.next = currentB;
+    let ref = currentA.next;
+    currentA.next = currentB.next;
+    currentB.next = ref;
 }

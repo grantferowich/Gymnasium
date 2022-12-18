@@ -56,6 +56,30 @@ class LinkedList {
     }
     this.length++
     }
+
+    delete(index){
+        if (index < 0 || index > this.length){
+            return 
+        }
+
+        if (this.length === 1){
+            this.head = null;
+            this.tail = null;
+        } else if ( index === 0 ){
+            this.head = this.head.next;
+        } else {
+            let prev = this.head;
+            for ( let x = 0; x < index - 1; x++){
+                prev = prev.next;
+            }
+            prev.next = prev.next.next;
+            if ( index === this.length -1){
+                this.tail = prev;
+            }
+        }
+        this.length--;
+    }
+
 }
 
 
