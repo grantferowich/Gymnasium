@@ -3,7 +3,24 @@ Implement a Linked List data structure with addToTail and removeFromHead methods
 
 Then use that Linked List data structure to implement a Queue data structure with 
 enqueue and dequeue methods.
+
+
+
+
+// traverse from the start of the linked list 
+// until the end of the linked list
+// set the old tail to point at the new node
+// making the new node the tail
+// special cases for linked lists
+// first find the length of the linked list
+// 1. if the length is 0
+// then adding the node means the new node is the head and then tail\
+// 2. If the length is 1, then the head points at the new node as the tail
+// if the linked list length is equal to or greater than 2
+// traverse until reaching the tail which points to null
  */
+    
+
 
 
 class ListNode {
@@ -33,33 +50,30 @@ class LinkedList {
 
     addToTail(value){
 
-    //     //traverse from the start of the linked list 
-    //     // until the end of the linked list
-    //     // set the old tail to point at the new node
-    //     // making the new node the tail
-
-    //     // special cases for linked lists
-    //     // first find the length of the linked list
-    //     // 1. if the length is 0
-    //     // then adding the node means the new node is the head and then tail\
-    //     // 2. If the length is 1, then the head points at the new node as the tail
-    //     // if the linked list length is equal to or greater than 2
-    //     // traverse until reaching the tail which points to null
-
-        let node = new ListNode(value)
+        let node = new ListNode(value);
         if (this.length() === 0){
             this.head = node;
             this.tail = node;
             return
         }
+
         if (this.length() === 1){
             this.head.next = node;
             return
         }
+
         this.tail.next = node;
         this.tail = node;
         return this.head;
     } 
+
+    removeFromHead(){
+        let node = this.head;
+        if (node !== null){
+            node = node.next;
+            console.log(node)
+        }
+    }
 }
 
 const head1 = new ListNode(1);
@@ -71,8 +85,14 @@ head1.next.next.next = new ListNode(13);
 const ll = new LinkedList()
 ll.head = head1;
 ll.tail = head1.next.next.next
-console.log(`Before appending the linked list length: ${ll.length()}.` )
+// console.log(`Before appending the linked list length: ${ll.length()}.` )
 ll.addToTail(4)
 console.log(ll)
-console.log('After calling .addToTail the linked list length is: ', ll.length())
+// console.log('After calling .addToTail the linked list length is: ', ll.length())
 // To go the extra mile implement the .length method using recursion.
+
+const ll2 = new LinkedList();
+ll2.addToTail(2)
+console.log(ll2.length()) // expected output: 1
+
+
