@@ -34,45 +34,37 @@ class LinkedList {
     constructor(){
         this.head = null;
         this.tail = null;
+        this.length = 0;
     };
-
-    // method to take in the head as param
-    // and return the length as a property of the linked list class
-    length(){
-        let current = this.head;
-        let length = 0;
-        while (current !== null){
-            length++;
-            current = current.next;
-        }
-        return length;
-    }
 
     addToTail(value){
 
         let node = new ListNode(value);
-        if (this.length() === 0){
+        if (this.length === 0){
             this.head = node;
             this.tail = node;
             return
         }
-
-        if (this.length() === 1){
-            this.head.next = node;
-            return
-        }
-
         this.tail.next = node;
         this.tail = node;
-        return this.head;
+        this.length++;
     } 
 
-    removeFromHead(){
-        let node = this.head;
-        if (node !== null){
-            node = node.next;
-            console.log(node)
+    removeLastNode(){
+        if (this.head === null){
+            return
         }
+        let current = this.head;
+        let root = this.head
+        // hunt for the node which will become the tail
+        while (current.next.next !== null){
+            current = current.next;
+        }
+        // remove the tail by severing the reference
+        current.next = null;
+        this.length--;
+        return root;
+        
     }
 }
 
@@ -82,17 +74,46 @@ head1.next.next = new ListNode(12);
 head1.next.next.next = new ListNode(13);
 
 
-const ll = new LinkedList()
-ll.head = head1;
-ll.tail = head1.next.next.next
+// const ll = new LinkedList()
+// ll.head = head1;
+// ll.tail = head1.next.next.next
 // console.log(`Before appending the linked list length: ${ll.length()}.` )
-ll.addToTail(4)
-console.log(ll)
+// ll.addToTail(4)
+// console.log(ll)
 // console.log('After calling .addToTail the linked list length is: ', ll.length())
 // To go the extra mile implement the .length method using recursion.
 
 const ll2 = new LinkedList();
+
 ll2.addToTail(2)
-console.log(ll2.length()) // expected output: 1
+ll2.addToTail(22)
+ll2.addToTail(23)
 
 
+console.log(ll2.length)
+
+// console.log(ll2.length()) // expected output: 1
+// console.log('ll2.length: ', ll2.length)
+// console.log('ll.tail: ', ll.tail)
+// console.log("ll before: ", ll)
+
+ll2.removeLastNode()
+
+// console.log('ll.length ', ll.length())
+// console.log('ll.tail ', ll.tail)
+
+console.log('ll2 length after removal', ll2.length) 
+
+// console.log("ll after: ", ll)
+// console.log('list after removal', ll2)
+
+// ll2.addToTail(3)
+
+// ll2.addToTail(3)
+console.log('ll2', ll2)
+
+ll2.addToTail(9)
+// console.log(ll2.length)
+console.log('ll2', ll2)
+
+// console.log('ll2 length after additional changes', ll2.length())
