@@ -9,16 +9,27 @@ enqueue and dequeue methods.
 class ListNode {
     constructor(value){
         this.value = value;
-        this.next = next;
+        this.next = null;
     }
 }
 
 class LinkedList {
     constructor(){
-        this.head = head;
-        this.tail = tail;
-        this.length = length;
+        this.head = null;
+        this.tail = null;
     };
+
+    // method to take in the head as param
+    // and return the length as a property of the linked list class
+    length(){
+        let current = this.head;
+        let length = 0;
+        while (current !== null){
+            length++;
+            current = current.next;
+        }
+        return length;
+    }
 
     // addToTail(value){
 
@@ -42,10 +53,13 @@ class LinkedList {
 }
 
 let head1 = new ListNode(1);
-head1.next = new ListNode(1);
+head1.next = new ListNode(9);
 head1.next.next = new ListNode(12);
-head1.next.next.next = new ListNode(1);
+head1.next.next.next = new ListNode(13);
+
 
 let ll = new LinkedList()
 ll.head = head1;
-console.log(ll)
+ll.tail = head1.next.next.next
+console.log('linked list length', ll.length() )
+// To go the extra mile implement the .length method using recursion.
