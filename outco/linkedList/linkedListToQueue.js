@@ -46,9 +46,19 @@ class LinkedList {
     //     // if the linked list length is equal to or greater than 2
     //     // traverse until reaching the tail which points to null
 
-    //     let length = 0;
-    //     let current = head
-
+        let node = new ListNode(value)
+        if (this.length() === 0){
+            this.head = node;
+            this.tail = node;
+            return
+        }
+        if (this.length() === 1){
+            this.head.next = node;
+            return
+        }
+        this.tail.next = node;
+        this.tail = node;
+        return this.head;
     } 
 }
 
@@ -61,5 +71,8 @@ head1.next.next.next = new ListNode(13);
 const ll = new LinkedList()
 ll.head = head1;
 ll.tail = head1.next.next.next
-console.log(`The linked list length: ${ll.length()}.` )
+console.log(`Before appending the linked list length: ${ll.length()}.` )
+ll.addToTail(4)
+console.log(ll)
+console.log('After calling .addToTail the linked list length is: ', ll.length())
 // To go the extra mile implement the .length method using recursion.
