@@ -31,7 +31,7 @@ class LinkedList {
         return length;
     }
 
-    // addToTail(value){
+    addToTail(value){
 
     //     //traverse from the start of the linked list 
     //     // until the end of the linked list
@@ -49,17 +49,17 @@ class LinkedList {
     //     let length = 0;
     //     let current = head
 
-    // } 
+    } 
 }
 
-let head1 = new ListNode(1);
+const head1 = new ListNode(1);
 head1.next = new ListNode(9);
 head1.next.next = new ListNode(12);
 head1.next.next.next = new ListNode(13);
 
 
-let ll = new LinkedList()
+const ll = new LinkedList()
 ll.head = head1;
 ll.tail = head1.next.next.next
-console.log('linked list length', ll.length() )
+console.log(`The linked list length: ${ll.length()}.` )
 // To go the extra mile implement the .length method using recursion.
