@@ -38,40 +38,42 @@ class LinkedList {
     };
 
     addToTail(value){
-
         let node = new ListNode(value);
-        if (this.length === 0){
+        // if this.tail is null then the linked list must not be populated
+        if (this.tail === null){
             this.head = node;
             this.tail = node;
             return
         }
         this.tail.next = node;
-        this.tail = node;
+        this.tail = node;  
         this.length++;
+        return;
     } 
 
     removeLastNode(){
         if (this.head === null){
             return
         }
-        let current = this.head;
         let root = this.head
+        this.head = this.head.next;
         // hunt for the node which will become the tail
-        while (current.next.next !== null){
-            current = current.next;
+        if (this.head === null){
+            this.tail = null;
         }
         // remove the tail by severing the reference
-        current.next = null;
         this.length--;
         return root;
         
     }
 }
 
-const head1 = new ListNode(1);
-head1.next = new ListNode(9);
-head1.next.next = new ListNode(12);
-head1.next.next.next = new ListNode(13);
+// const head1 = new ListNode(1);
+// console.log(head1)
+// console.log(head1.tail)
+// head1.next = new ListNode(9);
+// head1.next.next = new ListNode(12);
+// head1.next.next.next = new ListNode(13);
 
 
 // const ll = new LinkedList()
@@ -86,11 +88,13 @@ head1.next.next.next = new ListNode(13);
 const ll2 = new LinkedList();
 
 ll2.addToTail(2)
-ll2.addToTail(22)
-ll2.addToTail(23)
+console.log('ll2 head', ll2.head)
+console.log('ll2 tail', ll2.tail)
+// ll2.addToTail(22)
+// ll2.addToTail(23)
 
 
-console.log(ll2.length)
+// console.log('ll2 length before removal', ll2.length)
 
 // console.log(ll2.length()) // expected output: 1
 // console.log('ll2.length: ', ll2.length)
@@ -102,7 +106,7 @@ ll2.removeLastNode()
 // console.log('ll.length ', ll.length())
 // console.log('ll.tail ', ll.tail)
 
-console.log('ll2 length after removal', ll2.length) 
+// console.log('ll2 length after removal', ll2.length) 
 
 // console.log("ll after: ", ll)
 // console.log('list after removal', ll2)
@@ -110,10 +114,10 @@ console.log('ll2 length after removal', ll2.length)
 // ll2.addToTail(3)
 
 // ll2.addToTail(3)
-console.log('ll2', ll2)
+// console.log('ll2', ll2)
 
 ll2.addToTail(9)
 // console.log(ll2.length)
-console.log('ll2', ll2)
+// console.log('ll2', ll2)
 
 // console.log('ll2 length after additional changes', ll2.length())
