@@ -10,7 +10,7 @@
 // add elements to current sum 
 // while current sum is less than or equal to target
 // add element to current sum
-// https://leetcode.com/problems/continuous-subarray-sum/
+
 // https://github.com/OutcoSF/outco-class-163/blob/main/whiteboarding/w2_d1_sliding_window/222_consecutive_subarray_sum.md
 const consecutiveSubarraySum = (nums, target) => {
 
