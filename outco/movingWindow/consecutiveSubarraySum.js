@@ -67,7 +67,9 @@ const consecutiveSubarraySum2 = (nums, target) => {
                 currentSum -= nums[j]
             } j++
 
-            
+            // if the window expands to the end of the array without returning true
+            // move the start/left of the window up one spot
+            // move the end/right of the window next to the start
             if (j === nums.length -1 && target !== currentSum){
                 currentSum -= nums[i];
                 i++
