@@ -32,6 +32,8 @@ function bitFlipAdvanced (arr, n) {
       right++;
 
     // decrease window size once n flips are used up
+    // increment the left pointer (shrink total size) until finding a 0
+    // once the zero is found on the left side the window can increase again to find 0s to the right
       while (toggles > n){
         if (arr[left] === 0) {toggles--;}
         left++
