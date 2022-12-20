@@ -43,11 +43,11 @@ class LinkedList {
         if (this.tail === null){
             this.head = node;
             this.tail = node;
-            return
+        } else {
+            this.tail.next = node;
+            this.tail = node;  
         }
-        this.tail.next = node;
-        this.tail = node;  
-        this.length++;
+        this.length++
         return;
     } 
 
@@ -55,16 +55,14 @@ class LinkedList {
         if (this.head === null){
             return
         }
-        let root = this.head
+        let root = this.head;
         this.head = this.head.next;
         // hunt for the node which will become the tail
         if (this.head === null){
             this.tail = null;
         }
-        // remove the tail by severing the reference
         this.length--;
         return root;
-        
     }
 }
 
@@ -86,10 +84,37 @@ class LinkedList {
 // To go the extra mile implement the .length method using recursion.
 
 const ll2 = new LinkedList();
+let j = new ListNode(2)
 
-ll2.addToTail(2)
-console.log('ll2 head', ll2.head)
-console.log('ll2 tail', ll2.tail)
+
+// ll2.addToTail(j)
+// console.log('ll2 head', ll2.head)
+// console.log('ll2 tail', ll2.tail)
+// console.log('ll2.length', ll2.length)
+
+let x = new LinkedList();
+let x1 = new ListNode(11);
+let x2 = new ListNode(23);
+
+x.addToTail(x1);
+x.addToTail(x2);
+console.log(x.head);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ll2.addToTail(22)
 // ll2.addToTail(23)
 

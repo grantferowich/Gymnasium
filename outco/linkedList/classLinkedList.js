@@ -91,8 +91,11 @@ class LinkedList {
 // console.log(x) // Expected Output:  LinkedList { length: 0, head: null, tail: null }
 
 let y = new LinkedList()
-y.head = 4;
-y.tail = 8
+let j = new ListNode(4)
+let k = new ListNode(9)
+y.append(j)
+y.append(k)
 console.log(y)
-y.insert(1,0);
-console.log(y)
+console.log(y.length)
+// y.insert(1,0);
+// console.log(y)
