@@ -53,16 +53,12 @@ class LinkedList {
         return;
     } 
 
-    removeLastNode(){
+    removeFirstNode(){
         if (this.head === null){
             return
         }
         let root = this.head;
         this.head = this.head.next;
-        // hunt for the node which will become the tail
-        if (this.head === null){
-            this.tail = null;
-        }
         this.length--;
         return root;
     }
@@ -100,41 +96,50 @@ let x2 = new ListNode(23);
 
 x.addToTail(x1);
 x.addToTail(x2);
-console.log(x.head);
+// console.log(x.removeLastNode())
+// console.log(x.head);
 
 // build out a queue
 // a queue uses first in first out procedure 
 
-class Queue extends LinkedList{
+class Queue {
     constructor(){
-        this.queue = {};
+        this.linkedlist = new LinkedList();
     }
 
-    enqueue(item){
-        //add element to end of array
-        this.queue.addToTail(item);
+    enqueue(value){
+        //add element to end of linked list
+        this.linkedlist.addToTail(value);
     }
 
     dequeue(){
-        // remove element from start of array
-        this.queue.removeLastNode()
-        return this.head
+        // remove element from end of linked list
+        let firstElement = this.linkedlist.removeFirstNode()
+        if (firstElement){
+            return firstElement.value;
+        } else {
+            return null;
+        }
     }
 }
 
 let k = new Queue();
-let i = new LinkedList();
 let m = new ListNode(4);
 let n = new ListNode(12);
-k.enqueue(i);
-k.addToTail(m);
-k.addToTail(n);
-k.dequeue();
+k.enqueue(m);
+k.enqueue(n);
+let removed = k.dequeue();
+
+// console.log('removed', removed)
+console.log(removed)
+console.log(k)
+
+
 
 // k.enqueue(3);
 // k.enqueue(23);
 // k.dequeue();
-console.log(k)
+// console.log(k)
 
 
 
@@ -160,7 +165,7 @@ console.log(k)
 // console.log('ll.tail: ', ll.tail)
 // console.log("ll before: ", ll)
 
-ll2.removeLastNode()
+// ll2.removeLastNode()
 
 // console.log('ll.length ', ll.length())
 // console.log('ll.tail ', ll.tail)
@@ -175,7 +180,7 @@ ll2.removeLastNode()
 // ll2.addToTail(3)
 // console.log('ll2', ll2)
 
-ll2.addToTail(9)
+// ll2.addToTail(9)
 // console.log(ll2.length)
 // console.log('ll2', ll2)
 
