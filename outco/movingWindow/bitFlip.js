@@ -49,7 +49,6 @@ const bitFlip = (array) => {
         // for each element x consider the subarray from arr[x] to arr[y]
         // consider all subarrays initializing at index x
         for (let y = x; y < n; y++){
-           
             // array[y] == 1 ? count1++ : count0++;
             if (array[y] == 1){
                 count1++;

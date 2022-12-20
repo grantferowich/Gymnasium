@@ -40,6 +40,11 @@ const consecutiveSubarraySum = (nums, target) => {
 }
 
 
+
+
+
+
+
 const consecutiveSubarraySum2 = (nums, target) => {
 
     let currentSum = 0;
@@ -47,11 +52,8 @@ const consecutiveSubarraySum2 = (nums, target) => {
     let j = 0; 
 
     while (currentSum <= target && i < nums.length -1) {
-       
-
        //hunting logic
        currentSum += nums[i];
-
        while (j < nums.length){
             if (target == currentSum){
                 return true;
