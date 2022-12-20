@@ -23,24 +23,102 @@ Output: false
 Explanation: There is no cycle in the linked list.
 
 Solution
-pos is what the tail points at
-the tail points to an element in the linked list
-return true
-
-
+Set all nodes into a hash set 
+insertion into hash set with value true
+check whether the current node has already been visited
+if the current node was already visited then there must be a cycle.
+return true.
+if the next pointer ever points to null return false. 
 */
 
-const linkedListHasACycle = (head) => {
 
-  let right = head;
+class ListNode {
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
 
-  while (right && right.next){
-    head = head.next;
-    right = head.next.next;
-    if (right === head) { return true;}
-  }
+class LinkedList {
+    constructor(){
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    };
+    addToTail(value){
+        let node = new ListNode(value);
+        // if this.tail is null then the linked list must not be populated
+        if (this.tail === null){
+            this.head = node;
+            this.tail = node;
+        } else {
+            // set the tail to be the new node 
+            this.tail.next = node;
+            this.tail = node;  
+        }
+        this.length++
+        return;
+    } 
+    removeFirstNode(){
+        if (this.head === null){
+            return
+        }
+        let root = this.head;
+        this.head = this.head.next;
+        this.length--;
+        return root;
+    }
+}
 
-  return false;
+// const linkedListHasACycle = (head) => {
+
+//   let right = head;
+
+//   while (right && right.next){
+//     head = head.next;
+//     right = head.next.next;
+//     if (right === head) { return true;}
+//   }
+
+//   return false;
+
+// }
+
+// test case
+let linkedList = new LinkedList();
+linkedList.head = new ListNode(3);
+linkedList.next = new ListNode(2);
+linkedList.next.next = new ListNode(0);
+linkedList.next.next.next = new ListNode(-4);
+linkedList.next.next.next.next = linkedList.next
+
+
+
+
+const linkedListHasACycleWithHash = (head) => {
+
+    let current = head;
+    let visitedHash = {};
+
+    while (current !== null){
+        
+        // case where there is a definitely no cycle: return false
+        if (current.next === null){
+            return false;
+        } 
+        
+        // if the current node was seen before the linked list is cyclical: return true
+        if (visitedHash[current]){
+            return true;
+        }  
+        // mark new nodes as visited in the visitedHash
+        if (!visitedHash[current]) {
+            visitedHash[current] = true;
+        }
+        //case where there is no cycle: return false
+        current = current.next;
+    }
 
 }
 
+console.log(linkedListHasACycleWithHash(linkedList)) // true
