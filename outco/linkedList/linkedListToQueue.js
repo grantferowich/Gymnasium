@@ -104,6 +104,7 @@ x.addToTail(x2);
 
 class Queue {
     constructor(){
+        // instantiate a queue as an instance of a linked list
         this.linkedlist = new LinkedList();
     }
 
@@ -114,7 +115,7 @@ class Queue {
 
     dequeue(){
         // remove element from end of linked list
-        let firstElement = this.linkedlist.removeFirstNode()
+        let firstElement = this.linkedlist.removeFirstNode();
         if (firstElement){
             return firstElement.value;
         } else {
