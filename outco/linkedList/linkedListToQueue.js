@@ -100,7 +100,39 @@ x.addToTail(x1);
 x.addToTail(x2);
 console.log(x.head);
 
+// build out a queue
+// a queue uses first in first out procedure 
 
+class Queue{
+    constructor(){
+        this.queue = [];
+    }
+
+    enqueue(item){
+        //add element to end of array
+        this.queue.push(item);
+    }
+
+    dequeue(){
+        // remove element from start of array
+        this.queue.shift()
+        return this.queue;
+    }
+}
+
+let k = new Queue();
+let i = new LinkedList();
+let m = new ListNode(4);
+let n = new ListNode(12);
+k.enqueue(i);
+i.addToTail(m);
+i.addToTail(n);
+k.dequeue
+
+// k.enqueue(3);
+// k.enqueue(23);
+// k.dequeue();
+console.log(k)
 
 
 
