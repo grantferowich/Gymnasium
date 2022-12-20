@@ -23,10 +23,15 @@ function bitFlipAdvanced (arr, n) {
     let left = 0;
     let right = 0;
     let toggles = 0;
+    
 
     while (right < arr.length){
-      if (arr[right] === 0) { toggles++;}
+      
+      // increase the window size to find 0s
+      if (arr[right] === 0) {toggles++;}
       right++;
+
+    // decrease window size once n flips are used up
       while (toggles > n){
         if (arr[left] === 0) {toggles--;}
         left++
