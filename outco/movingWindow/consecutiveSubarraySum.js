@@ -67,6 +67,7 @@ const consecutiveSubarraySum2 = (nums, target) => {
                 currentSum -= nums[j]
             } j++
 
+            
             if (j === nums.length -1 && target !== currentSum){
                 currentSum -= nums[i];
                 i++
