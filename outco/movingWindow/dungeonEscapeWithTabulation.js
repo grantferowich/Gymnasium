@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 /*
  *  Dungeon Escape (Tabulation)
  *

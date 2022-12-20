@@ -28,7 +28,6 @@ const consecutiveSubarraySum = (nums, target) => {
             if (i !== j){
                 currentSum += nums[j]
             }
-
             //catch up logic to remove element j if element j sends currentSum over target
             // catch up logic is the logic for stopping j
             if (currentSum > target){
@@ -46,30 +45,41 @@ const consecutiveSubarraySum2 = (nums, target) => {
     let currentSum = 0;
     let i = 0;
     let j = 0; 
-    while (currentSum <= target) {
 
-        //hunting logic
-        currentSum += nums[i];
-       while( j < nums.length){
+    while (currentSum <= target && i < nums.length -1) {
+       
+
+       //hunting logic
+       currentSum += nums[i];
+
+       while (j < nums.length){
             if (target == currentSum){
                 return true;
             }
             if (i !== j){
-                currentSum += nums[j]
+                console.log(nums.slice(i, j+1));
+                currentSum += nums[j];
             }
 
-            //catch up logic to remove element j if element j sends currentSum over target
+            // catch up logic to remove element j if element j sends currentSum over target
             // catch up logic is the logic for stopping j
             if (currentSum > target){
                 currentSum -= nums[j]
             } j++
+
+            if (j === nums.length -1 && target !== currentSum){
+                currentSum -= nums[i];
+                i++
+                j = i+1
+            }
         }
-        i++
+       
     }
     return false;
 }
 
 
 // Both test cases passed on 12/7/22.
-console.log(consecutiveSubarraySum2([6,12,1,7,5,2,3], 14)) // true
+console.log(consecutiveSubarraySum2([6,12,1,7,5,2,3], 14)) // true 
 console.log(consecutiveSubarraySum2([6,12,1,7,5,2,3], 900)) // false
+console.log(consecutiveSubarraySum2([6,12,1,7,5,2,3], 10)) // true with last 3 elements
