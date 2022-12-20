@@ -83,6 +83,7 @@ const consecutiveSubarraySum2 = (nums, target) => {
 
 
 // Both test cases passed on 12/7/22.
+// Third test case passed on 12/20/22.
 console.log(consecutiveSubarraySum2([6,12,1,7,5,2,3], 14)) // true 
 console.log(consecutiveSubarraySum2([6,12,1,7,5,2,3], 900)) // false
 console.log(consecutiveSubarraySum2([6,12,1,7,5,2,3], 10)) // true with last 3 elements
