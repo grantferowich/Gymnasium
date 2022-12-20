@@ -39,11 +39,13 @@ class LinkedList {
 
     addToTail(value){
         let node = new ListNode(value);
+
         // if this.tail is null then the linked list must not be populated
         if (this.tail === null){
             this.head = node;
             this.tail = node;
         } else {
+            // set the tail to be the new node 
             this.tail.next = node;
             this.tail = node;  
         }
@@ -103,20 +105,20 @@ console.log(x.head);
 // build out a queue
 // a queue uses first in first out procedure 
 
-class Queue{
+class Queue extends LinkedList{
     constructor(){
-        this.queue = [];
+        this.queue = {};
     }
 
     enqueue(item){
         //add element to end of array
-        this.queue.push(item);
+        this.queue.addToTail(item);
     }
 
     dequeue(){
         // remove element from start of array
-        this.queue.shift()
-        return this.queue;
+        this.queue.removeLastNode()
+        return this.head
     }
 }
 
@@ -125,9 +127,9 @@ let i = new LinkedList();
 let m = new ListNode(4);
 let n = new ListNode(12);
 k.enqueue(i);
-i.addToTail(m);
-i.addToTail(n);
-k.dequeue
+k.addToTail(m);
+k.addToTail(n);
+k.dequeue();
 
 // k.enqueue(3);
 // k.enqueue(23);
