@@ -8,7 +8,11 @@
 // the problem instructs us to sort the array in place 
 // this condition tells us the algorithm must not introduce new data structures
 // The input space is O(N). The auxiliary space is O(2). 
-// Therefore the space complexity of the algorithm is O(N).
+// Therefore the space complexity of the algorithm is linear, O(N).
+
+import { PerformanceObserver, performance } from "perf_hooks";
+var t0 = performance.now();
+
 
 const bitArraySort = (array) => {
     let x = 0;
@@ -17,13 +21,15 @@ const bitArraySort = (array) => {
             // use destructuring assignment to move the element at y 
             // from the y index to the y-1 index
             [array[x], array[y]] = [array[y], array[x]]
+            console.log(array)
             x++;
         }
     }
-    return console.log(array)
+    return array
 }
 
-// bitArraySort([1,0,0,1]) // => [0,0,1,1]
+console.log(bitArraySort([1,0,0,1])) // => [0,0,1,1]
+console.log(bitArraySort([1,0,0,0,0,0,0,0,0,0,0,1])) // => [0,0,0,0,0,0,0,0,0,0,0,1,1]
 
 const bitArraySortWithTwoPointers = (array) => {
 
@@ -47,4 +53,7 @@ const bitArraySortWithTwoPointers = (array) => {
 return array
 }
 
-console.log(bitArraySortWithTwoPointers([1,0,0,1]));
+// console.log(bitArraySortWithTwoPointers([1,0,0,1]));
+console.log(bitArraySortWithTwoPointers([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1]))
+var t1 = performance.now();
+console.log("Call to bitArraySortWithTwoPointers took " + (t1 - t0) + " milliseconds.");

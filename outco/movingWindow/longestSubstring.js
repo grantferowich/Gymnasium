@@ -17,6 +17,9 @@
 // solution logic
 // increment right and hunt if there are no repeating characters
 // incremenet left and catchup if there are repeats until there are no repeats
+// any major notes? 
+// you can use -1 as an index to indicate that a char is NOT present in a string
+// 
 
 // Successfully tested the solution 12/14/22
 
@@ -35,23 +38,26 @@ const longestSubstring = (string) => {
         // no: idx gives a number for where in the currentString a char is
         // x simply tells where in the input string the loop is 
 
-
-        // console.log('currentString: ', currentString);
-        // console.log('char: ', char)
-        // console.log('idx: ', idx);
-
         // the idx > - 1 case being true is where the catchup logic happens
         // if current string doesn't have the char in it idx will be -1
+        // when the current string DOES have the char in it.. 
+        // set longestString (result/ultimate) to current string (local) if currentString is longer
+        // set the currentString to the 
+
+        // when the idx is greater than 1 is when the current char IS a repeat char 
+        // since the new char at index x is on the right side of the string
+        // the left side of the currentString must move up index-wise when the newest element at x is a repeat
+
+        // repeat found --> contract to the index after the first location of the repeat
         if (idx > -1){
-                if (currentString.length > longestString.length) { longestString = currentString; }
+                if (currentString.length > longestString.length) { longestString = currentString; };
                 // .slice(2) will trim the first two elements from the string
                 // :. the slice logic is how the window minimizes from the left 
-
+            
                 currentString = currentString.slice(idx + 1) + char;
         } else {
             // hunt and expand 
             currentString += char;
-            // console.log('currentString: ', currentString)
         }
     }
     // update result variable
@@ -60,6 +66,12 @@ const longestSubstring = (string) => {
     return longestString
 }
 
-console.log(longestSubstring("abcabcbb"))
-console.log(longestSubstring("bbbbb"))
-console.log(longestSubstring("pwwkew"))
+console.log(longestSubstring("abcabcbb")) // abc
+console.log(longestSubstring("bbbbb")) // b
+console.log(longestSubstring("pwwkew")) //wke
+console.log(longestSubstring('wakeforest')) // wakefor 
+console.log(longestSubstring('wakeforestuniversity')) // forestuniv // slice 
+console.log(longestSubstring('wakeforestcollege')) // wakefor
+console.log(longestSubstring('saintcharles')) // intcharles
+
+

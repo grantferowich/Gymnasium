@@ -10,11 +10,12 @@ const consecutiveSubarraySumPractice1 = (nums, target) => {
     let currentSum = 0;
 
     for (let i = 0; i < nums.length; i++){
+        
         if (currentSum <= target){
             currentSum += nums[i];
         }
-        for (let j = 0; j < nums.length; j++){
 
+        for (let j = 0; j < nums.length; j++){
 
             if (target === currentSum){
                 return true;
