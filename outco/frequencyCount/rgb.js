@@ -35,6 +35,7 @@ const rgb = (string) => {
     //   let char = string[i];
     //   hash[char] = hash[char] + 1 || 1;   
     // }
+    
     for (let k = 0; k < string.length; k++){
         let char = string[k]
         if (!hash[char]) {
