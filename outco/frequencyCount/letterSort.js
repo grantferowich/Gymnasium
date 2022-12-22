@@ -54,3 +54,4 @@ const letterSort2 = (string) => {
 
 
 console.log(letterSort2('hello'))
+console.log(letterSort2('wakeforestuniversity'))
