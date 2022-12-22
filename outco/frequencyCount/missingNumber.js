@@ -23,6 +23,7 @@
 // append the missing value to a new array
 
 // Succesfully tested the function 12/10/22.
+// Successfully tested the function with extra scenarios 12/22/22.
 
 const missingNumber = (n, arr) => {
   let missing = [];
@@ -36,3 +37,4 @@ const missingNumber = (n, arr) => {
 }
 
 console.log(missingNumber(4, [1,4,2])) // [3]
+console.log(missingNumber(5, [1,4,2])) // [3,5]
