@@ -4,13 +4,14 @@
  * 
  * i.e. 9870 => 789
  * 
+ * Successfully tested the solution 12/22/22. 
  * 
  * 
  * 
  * 
  * 
- * 
- *  */ 
+ * */ 
+
 
 const sortDigitsLinear = (number) => {
     let hash = {};
