@@ -40,11 +40,13 @@ class ListNode {
 }
 
 class LinkedList {
+
     constructor(){
         this.head = null;
         this.tail = null;
         this.length = 0;
     };
+
     addToTail(value){
         let node = new ListNode(value);
         // if this.tail is null then the linked list must not be populated
@@ -59,6 +61,7 @@ class LinkedList {
         this.length++
         return;
     } 
+    
     removeFirstNode(){
         if (this.head === null){
             return
@@ -92,6 +95,9 @@ linkedList.next.next = new ListNode(0);
 linkedList.next.next.next = new ListNode(-4);
 linkedList.next.next.next.next = linkedList.next
 
+let linkedList2 = new LinkedList();
+linkedList2.head = new ListNode(1)
+
 
 
 
@@ -103,7 +109,7 @@ const linkedListHasACycleWithHash = (head) => {
     while (current !== null){
         
         // case where there is a definitely no cycle: return false
-        if (current.next === null){
+        if (current.next === null || current.next === undefined){
             return false;
         } 
         
@@ -122,3 +128,4 @@ const linkedListHasACycleWithHash = (head) => {
 }
 
 console.log(linkedListHasACycleWithHash(linkedList)) // true
+console.log(linkedListHasACycleWithHash(linkedList2)) // false

@@ -1,3 +1,5 @@
+// tested the class on 12/18/22
+
 export default class ListNode {
   constructor(value = null) {
    this.value = value

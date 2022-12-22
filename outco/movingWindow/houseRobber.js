@@ -38,7 +38,6 @@ const houseRobber = (array) => {
         ultimate = Math.max(local, ultimate);
         right++
     }
-
     return ultimate
 }
 

@@ -1,3 +1,5 @@
+// Tested the linked list class on 12/18/22
+
 class ListNode {
     constructor(value = null) {
      this.value = value
