@@ -61,7 +61,7 @@ class LinkedList {
         this.length++
         return;
     } 
-    
+
     removeFirstNode(){
         if (this.head === null){
             return
@@ -72,20 +72,6 @@ class LinkedList {
         return root;
     }
 }
-
-// const linkedListHasACycle = (head) => {
-
-//   let right = head;
-
-//   while (right && right.next){
-//     head = head.next;
-//     right = head.next.next;
-//     if (right === head) { return true;}
-//   }
-
-//   return false;
-
-// }
 
 // test case
 let linkedList = new LinkedList();
@@ -98,21 +84,14 @@ linkedList.next.next.next.next = linkedList.next
 let linkedList2 = new LinkedList();
 linkedList2.head = new ListNode(1)
 
-
-
-
 const linkedListHasACycleWithHash = (head) => {
-
     let current = head;
     let visitedHash = {};
-
     while (current !== null){
-        
         // case where there is a definitely no cycle: return false
         if (current.next === null || current.next === undefined){
             return false;
         } 
-        
         // if the current node was seen before the linked list is cyclical: return true
         if (visitedHash[current]){
             return true;
@@ -121,10 +100,8 @@ const linkedListHasACycleWithHash = (head) => {
         if (!visitedHash[current]) {
             visitedHash[current] = true;
         }
-        //case where there is no cycle: return false
         current = current.next;
     }
-
 }
 
 console.log(linkedListHasACycleWithHash(linkedList)) // true
