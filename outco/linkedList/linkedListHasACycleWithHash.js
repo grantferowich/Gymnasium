@@ -29,6 +29,11 @@ check whether the current node has already been visited
 if the current node was already visited then there must be a cycle.
 return true.
 if the next pointer ever points to null return false. 
+
+Constraints: 
+O(N) space complexity
+O(N) time complexity
+
 */
 
 
