@@ -44,12 +44,15 @@
 const isAlinkedListPalindrome = (node) =>{
     let current = node;
     let list = [];   
+
     while (current !== null){
         list.push(current.val);
         current = current.next;
     }
+    
     let x = 0;
     let y = list.length - 1;
+   
     while ( x < y){
         if (list[x] !== list[y]){
             return false

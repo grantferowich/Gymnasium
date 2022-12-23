@@ -40,13 +40,11 @@ class ListNode {
 }
 
 class LinkedList {
-
     constructor(){
         this.head = null;
         this.tail = null;
         this.length = 0;
     };
-
     addToTail(value){
         let node = new ListNode(value);
         // if this.tail is null then the linked list must not be populated
@@ -61,7 +59,7 @@ class LinkedList {
         this.length++
         return;
     } 
-
+    // removal of the first node is a constant time operation
     removeFirstNode(){
         if (this.head === null){
             return
@@ -70,6 +68,26 @@ class LinkedList {
         this.head = this.head.next;
         this.length--;
         return root;
+    }
+    // removal of the last node is a linear time operation
+    removeLastNode(){
+        // check if the linked list is empty
+        if (this.head === null){
+            return;
+        }
+
+        // remove the first node when there is only one node
+        if (!this.head.next){
+            this.head = null;
+            return this.head;
+        }
+
+        let node = this.head;
+        while (node.next.next){
+            node = node.next;
+        }
+        node.next = null; 
+        this.length--;
     }
 }
 
@@ -83,6 +101,8 @@ linkedList.next.next.next.next = linkedList.next
 
 let linkedList2 = new LinkedList();
 linkedList2.head = new ListNode(1)
+linkedList2.removeLastNode()
+console.log(linkedList2)
 
 const linkedListHasACycleWithHash = (head) => {
     let current = head;
@@ -102,7 +122,12 @@ const linkedListHasACycleWithHash = (head) => {
         }
         current = current.next;
     }
+    return visitedHash[head];
 }
 
 console.log(linkedListHasACycleWithHash(linkedList)) // true
 console.log(linkedListHasACycleWithHash(linkedList2)) // false
+
+// let head = {value: 1, next: {value: 2, next: {value: 3, next: null}}};
+// let result = linkedListHasACycleWithHash(head);
+// assert(result === false);
