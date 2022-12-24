@@ -3,10 +3,11 @@
 const nthFibWithMemoization = (n) =>{
     let hash = {}
     const solve = (num) => {
+
         let key = num.toString();
         // check the cache
         if (hash[key]) {return hash[key]}
-        // 4 is greater than 2...
+        // base case: set the key's value to the input num
         if (num < 2){
             return hash[key] = num;
         }
