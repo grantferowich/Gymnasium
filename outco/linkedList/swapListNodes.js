@@ -66,9 +66,16 @@ const swapNodes = (head, a, b) => {
         // move the parent over the linked list
         parent = parent.next;
     }
-    if (currentA === undefined || currentB === undefined){
-        return ph.next;
-    }
+
+    // if (currentA === undefined || currentB === undefined){
+    //     return ph.next;
+    // }
+
+    console.log('currentA', currentA);
+    console.log('currentB', currentB)
+    console.log('parentA', parentA)
+    console.log('parentB', parentB)
+
     parentA.next = currentB;
     parentB.next = currentA;
     let ref = currentA.next;
@@ -76,4 +83,5 @@ const swapNodes = (head, a, b) => {
     currentB.next = ref;
     return head;
 }
-console.log(swapNodes(head, 5, 7))
+
+console.log(swapNodes(head, 5, 7)) // 1-7-5-10

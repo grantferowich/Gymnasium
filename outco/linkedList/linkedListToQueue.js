@@ -91,11 +91,13 @@ let j = new ListNode(2)
 // console.log('ll2.length', ll2.length)
 
 let x = new LinkedList();
-let x1 = new ListNode(11);
-let x2 = new ListNode(23);
+let x1 = new ListNode(1);
+let x2 = new ListNode(3);
+let x3 = new ListNode(5);
 
 x.addToTail(x1);
 x.addToTail(x2);
+x.addToTail(x3);
 // console.log(x.removeLastNode())
 // console.log(x.head);
 
