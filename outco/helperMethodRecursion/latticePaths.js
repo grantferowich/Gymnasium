@@ -54,7 +54,7 @@ const latticePaths = (row, col) => {
     return up + left;
 }
 
-// console.log(latticePaths(2,3)) // 10
-// console.log(latticePaths(20,20)) // function takes a really, really long time
+console.log(latticePaths(2,3)) // 10
+console.log(latticePaths(20,20)) // function takes a really, really long time
 
 

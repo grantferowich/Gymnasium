@@ -1,6 +1,6 @@
 /**
  * 230 - Non-Consecutive Ones
-Given a positive integer n, return an array of all the binary strings of length n that DO NOT contain consecutive 1s.
+ * Given a positive integer n, return an array of all the binary strings of length n that DO NOT contain consecutive 1s.
  * 
  * 
  * The following function implements conditional recursion.
