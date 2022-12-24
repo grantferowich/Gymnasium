@@ -46,8 +46,8 @@ function numberOf(num) {
 
 function numberOfSteps(num) {
   let steps = 0;
-  // edge case
-  if (num.length === 0){
+  // check input validitiy
+  if (typeof num !== 'number' || num < 1 || !Number.isInteger(num) || num === undefined || num === null || !isNaN(num)){
     return ""
   }
   //base case
