@@ -116,7 +116,10 @@ class LinkedList {
 
 
 const reverseLinkedListWithRecursion = (root) => {
+    // init state var
     let prev = null;
+
+    // define helper function
     const recurse = (node, prev) => {
         // base case 
         if (node === null){return}
@@ -124,7 +127,9 @@ const reverseLinkedListWithRecursion = (root) => {
         recurse(node.next, node)
         node.next = prev;
     }
+    // invoke helper function
     recurse(root.head, prev);
+    // return state var
     return prev;
 }
 
