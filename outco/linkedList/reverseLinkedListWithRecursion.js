@@ -116,20 +116,16 @@ class LinkedList {
 
 
 const reverseLinkedListWithRecursion = (root) => {
-    
-    let prev = null
+    let prev = null;
     const recurse = (node, prev) => {
-        console.log('node', node)
-        console.log('prev', prev)
         // base case 
-        if (node === null){ return prev}
-        
+        if (node === null){return}
         //recursive case
         recurse(node.next, node)
-        node.next = prev;   
+        node.next = prev;
     }
-    recurse(root, prev)
-    // return prev
+    recurse(root.head, prev);
+    return prev;
 }
 
 let x = new LinkedList();
