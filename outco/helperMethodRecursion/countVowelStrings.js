@@ -28,18 +28,21 @@
  *                       "a"    "e"   "i"   "o"  "u"
  * 
  * 
- * Completed testing 12/13/22. 
+ * Successfully completed testing 12/13/22. 
  */
 
 
 const countVowelStrings = (number) => {
+    
     let array = []
+    
     const generateString = (build, depth) => {
         // base case
         if (depth === number){
             array.push(build)
             return;
         }
+
         // recursive case
         // nested recursion
         // call recursion for each vowel 
@@ -51,5 +54,5 @@ const countVowelStrings = (number) => {
     return array.length
 }
 
-console.log(countVowelStrings(1)) //5 
-console.log(countVowelStrings(2)) //5 
+console.log(countVowelStrings(1)) // 5 
+console.log(countVowelStrings(2)) // 25 

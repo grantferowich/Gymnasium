@@ -51,19 +51,14 @@ const climbStairs = (n, jumps) => {
         if (build < 0){ 
           return 0
         }
-
         if (build === 0){
           ways += 1
           return
         }
-
+        // recursive case
         for (let x = 0; x < jumps.length; x++){
           traverse(build - jumps[x])
         }
-        // traverse(build-jumps[0])
-        // traverse(build-jumps[1])
-        // traverse(build-jumps[2])
-
     }
   traverse(n)
   return ways
