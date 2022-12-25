@@ -14,7 +14,9 @@ head                    tail
 // The input node must be the tail node
 // the iteration continues
 // until the current node is null (the pointer to null before the first node in the list)
+Successfully tested the function 12/25/2022.
 */
+
 class ListNode {
     constructor(value = null) {
      this.value = value
@@ -39,5 +41,5 @@ x.next = new ListNode(6);
 x.next.next = new ListNode(8);
 x.next.next.next = new ListNode(10);
 
-printBackward(x);
+printBackward(x); // 10 8 6 4
 
