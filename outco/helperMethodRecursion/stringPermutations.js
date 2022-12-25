@@ -23,10 +23,10 @@
  */
 
 const stringPermutation = (string) => {
-    let array = [];
+    let set = new Set()
     const buildPermutation = (build, usedIndexes) =>{
         if (build.length  === string.length){
-            array.push(build)
+            set.add(build)
             return 
         }
         
@@ -36,10 +36,9 @@ const stringPermutation = (string) => {
                 buildPermutation(build + char, usedIndexes.concat(x))
             }
         }
-        
     }
     buildPermutation("", [])
-    return array;
+    return set;
 }
 
 console.log(stringPermutation("abc")) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
@@ -47,3 +46,13 @@ console.log(stringPermutation("abc")) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'c
 // buildPermutation function should only be called when the 
 // location of the duplicate is different from the
 console.log(stringPermutation("aabc"))
+ // [
+//     'aabc', 'aacb', 'abac',
+//     'abca', 'acab', 'acba',
+//     'aabc', 'aacb', 'abac',
+//     'abca', 'acab', 'acba',
+//     'baac', 'baca', 'baac',
+//     'baca', 'bcaa', 'bcaa',
+//     'caab', 'caba', 'caab',
+//     'caba', 'cbaa', 'cbaa'
+//   ]
