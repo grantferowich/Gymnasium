@@ -1,4 +1,6 @@
 // print all the elements in the array
+// Time complexity: 0(N)
+// Space complexity: O(1)
 
 const printArray = (arr) => {
 

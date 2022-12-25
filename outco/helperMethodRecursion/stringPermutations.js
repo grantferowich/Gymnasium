@@ -4,37 +4,42 @@
 /** 
  *      input: "aabc"
  *      
- *                                                   ""  depth 0                -> when going right, add the next letter
- *                                                                              -> when going left, only pass the most recent build 
- *                                       /                            \
- *                                      "a"                           "b"    depth 1
- *                                   /      \                      /    \
- *                                 ""      "a"                  "a"     "aa"                  
+ *                                                                ""  depth 0                -> when going right, add the next letter
+ *                                                                                           -> when going left, only pass the most recent build 
+ *                                         /                /               \     \     \
+ *   depth 1                            ""                "a"              "a"    "b"   "c"  
+ *                                   / / \ \  \    /  /  /    \   \        /      \
+ *                                 """a""a""b""c" "a""aa""aa""ab""ac"                                              
  *  
  * 
  *  input: string
  *  output: array of strings 
  *  base case: "", 0
- *  recursive case: keep only the build, or, add the next letter
+ *  recursive case: build up from base case
  *  termination case: when length of the build is equal to the input string length
+ *  nly push solutions whose length is equal to the length of the input string
  * 
  * 
  */
 
 const stringPermutation = (string) => {
     let array = [];
-    const buildPermutation = (build, depth) =>{
-        console.log('build: ', build)
-        if (depth  === string.length){
-            
+
+    const buildPermutation = (build, usedChars) =>{
+        if (build.length  === string.length){
             array.push(build)
             return 
         }
-        buildPermutation(build, depth +1)
-        buildPermutation(build + string[depth], depth + 1)
+        
+        for (let x = 0; x < string.length; x++){
+            let char = string[x];
+            if (!build.includes(char)){
+                buildPermutation(build + char)
+            }
+        }
     }
-    buildPermutation("", 0)
+    buildPermutation("")
     return array;
 }
 
-console.log(stringPermutation("aabc")) //
+console.log(stringPermutation("abc")) // 
