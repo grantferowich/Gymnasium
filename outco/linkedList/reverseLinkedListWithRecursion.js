@@ -6,8 +6,7 @@
 // Define and instantiate helper method
 // Base case 
 // Recursive case
-
-
+// Successfully tested the solution 12/25/22.
 
 class ListNode {
     constructor(value = null) {
@@ -111,29 +110,28 @@ class LinkedList {
 }
 
 const reverseLinkedListWithRecursion = (root) => {
-    
     // init state var
-    let prev = null;
-    
+    let node;
     // define helper function
-    const recurse = (node, prev) => {
+    const executeReversals = (current) => {
         // base case 
-        if (node === null){return}
+        if (current.next === null){
+            node = current;
+            return current;
+        }
         //recursive case
-        recurse(node.next, node)
-        node.next = prev;
+        let ref = executeReversals(current.next);
+        ref.next = current;
+        return current;
     }
-    
     // invoke helper function
-    recurse(root.head, prev);
-    return prev
-
+    executeReversals(root);
+    return node
 }
 
-let x = new LinkedList();
-
-x.addToTail(1);
-x.addToTail(3);
-x.addToTail(5);
+let x = new ListNode(1);
+x.next = new ListNode(3);
+x.next.next = new ListNode(5);
 
 console.log(reverseLinkedListWithRecursion(x))
+console.log(x)
