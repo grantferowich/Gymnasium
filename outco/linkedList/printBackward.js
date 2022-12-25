@@ -15,16 +15,29 @@ head                    tail
 // the iteration continues
 // until the current node is null (the pointer to null before the first node in the list)
 */
+class ListNode {
+    constructor(value = null) {
+     this.value = value
+     this.next = null;
+    }
+}
+ 
 
 function printBackward(node) {
+    const traverse = (current) => {
+        if (current == null){
+            return; 
+        }
+        traverse(current.next)
+        console.log(current.value)
+    }   
     traverse(node)
 }
 
-const traverse = (current) => {
-    if (current == null){
-        return; 
-    }
-    traverse(current.next)
-    console.log(current.data)
-}
+let x = new ListNode(4)
+x.next = new ListNode(6);
+x.next.next = new ListNode(8);
+x.next.next.next = new ListNode(10);
+
+printBackward(x);
 

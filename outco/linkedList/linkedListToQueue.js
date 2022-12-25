@@ -103,6 +103,8 @@ x.addToTail(x3);
 
 // build out a queue
 // a queue uses first in first out procedure 
+// the only way to insert to a queue is from the end
+// the only way to delete or remove an element from a queue is from the front
 
 class Queue {
     constructor(){
