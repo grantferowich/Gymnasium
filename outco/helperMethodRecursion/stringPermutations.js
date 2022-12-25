@@ -21,10 +21,16 @@
  * 
  * 
  */
+ var t0 = performance.now();
 
-const stringPermutation = (string) => {
+const stringPermutationWithMemoization = (string) => {
     let set = new Set()
+    let hash = {}
+
     const buildPermutation = (build, usedIndexes) =>{
+        
+        let key = build + "_" + usedIndexes;
+        if (hash[key]){return hash[key]}
         if (build.length  === string.length){
             set.add(build)
             return 
@@ -33,7 +39,8 @@ const stringPermutation = (string) => {
         for (let x = 0; x < string.length; x++){
             let char = string[x];
             if (!usedIndexes.includes(x)){
-                buildPermutation(build + char, usedIndexes.concat(x))
+                let subResult = buildPermutation(build + char, usedIndexes.concat(x))
+                hash[key] = subResult;
             }
         }
     }
@@ -41,18 +48,28 @@ const stringPermutation = (string) => {
     return set;
 }
 
-console.log(stringPermutation("abc")) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+console.log(stringPermutationWithMemoization("x")) // ['x']
+console.log(stringPermutationWithMemoization("xy")) // [ 'xy', 'yx']
+console.log(stringPermutationWithMemoization("abc")) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
 // what if there are duplicates? If there duplicates the 
 // buildPermutation function should only be called when the 
 // location of the duplicate is different from the
-console.log(stringPermutation("aabc"))
- // [
-//     'aabc', 'aacb', 'abac',
-//     'abca', 'acab', 'acba',
-//     'aabc', 'aacb', 'abac',
-//     'abca', 'acab', 'acba',
-//     'baac', 'baca', 'baac',
-//     'baca', 'bcaa', 'bcaa',
-//     'caab', 'caba', 'caab',
-//     'caba', 'cbaa', 'cbaa'
+console.log(stringPermutationWithMemoization("aabc"))
+// [
+//     'aabc',
+//     'aacb',
+//     'abac',
+//     'abca',
+//     'acab',
+//     'acba',
+//     'baac',
+//     'baca',
+//     'bcaa',
+//     'caab',
+//     'caba',
+//     'cbaa'
 //   ]
+
+// console.log(stringPermutation("aabcxxbj"))
+var t1 = performance.now();
+console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");

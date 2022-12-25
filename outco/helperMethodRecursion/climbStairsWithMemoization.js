@@ -5,6 +5,17 @@
 // Input: number, array
 // Output: max number of unique paths
 /**
+ *                      0          build
+ *              /       \            \
+ *             2        3             5 
+ *         /  /  /     \ \ \        /  \  \    
+ *        4 5 7        5 6 8       7   8  9
+ *   / / / /  
+ *  6 7 9
+ * 
+ * 
+ * 
+ * 
  *                              (y)
  *                      # of steps to climb
  *   (x)               0    1   2   3   4   5   6   7   8   9   10
@@ -33,26 +44,24 @@
 
 
 
-const climbStairsWithTabulation = (n, jumps) => {
-    let steps = new Array(n+1).fill(0)
-    steps[0] = 1;
-
-   // looping over the array of jump sizes [2,3,5]
-   for ( let j = 0; j < jumps.length; j++){  
-    // looping from 0 to the number of steps to climb
-        for (let i = 0; i < steps.length; i++){
-
-            let stepSum = 0;
-            for (let k = 0; k < j + 1; k++){
-                let jumpSize = jumps[k]
-                console.log('steps[i]',steps[i])
-                stepSum += steps[i - jumpSize]
-                steps[i]= stepSum;
-            }
-            
-        }
-   }
-   return steps[n]
-}
-
-console.log(climbStairsWithTabulation(10,[2,3,5]))
+const climbStairsWithMemoization = (n, jumps) => {
+    let ways = 0;
+      const traverse = (build) =>{
+        
+          if (build > n){
+              return 0;
+          }
+          if (build === n){
+              ways += 1;
+              return
+          }
+  
+          traverse(build + jumps[0])
+          traverse(build + jumps[1])
+          traverse(build + jumps[2])
+      }
+    traverse(0)
+    return ways;
+  }
+  
+  console.log(climbStairsWithMemoization(10,[2,3,5])) // 14
