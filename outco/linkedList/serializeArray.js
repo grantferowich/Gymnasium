@@ -15,9 +15,11 @@ const serializeArray = (array) =>{
         return
     }
     let value = array[0];
+    // instantiating node at position 0
     let head = new ListNode(value);
     let current = head;
     for (let x = 1; x < array.length; x++){
+        // set the node to point to the next node
         current.next = new ListNode(array[x]);
         current = current.next;
     }

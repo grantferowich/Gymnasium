@@ -11,6 +11,7 @@ null <= 1 <= 5 <= 7 <= 10
 Space complexity: constant O(1)
 As input grows only three variables are required, whether there are 5 or 500,000 elements
 
+Successfully tested the function on 12/25/22.
 */
 
 
@@ -134,10 +135,8 @@ const reverseLinkedList = (node) => {
     return prev;
 }
 
-let x = new LinkedList();
-
-x.addToTail(1);
-x.addToTail(3);
-x.addToTail(5);
+let x = new ListNode(1)
+x.next = new ListNode(3)
+x.next.next = new ListNode(5)
 
 console.log(reverseLinkedList(x))
