@@ -24,8 +24,7 @@
 
 const stringPermutation = (string) => {
     let array = [];
-
-    const buildPermutation = (build, usedChars) =>{
+    const buildPermutation = (build, usedIndexes) =>{
         if (build.length  === string.length){
             array.push(build)
             return 
@@ -33,13 +32,18 @@ const stringPermutation = (string) => {
         
         for (let x = 0; x < string.length; x++){
             let char = string[x];
-            if (!build.includes(char)){
-                buildPermutation(build + char)
+            if (!usedIndexes.includes(x)){
+                buildPermutation(build + char, usedIndexes.concat(x))
             }
         }
+        
     }
-    buildPermutation("")
+    buildPermutation("", [])
     return array;
 }
 
-console.log(stringPermutation("abc")) // 
+console.log(stringPermutation("abc")) // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+// what if there are duplicates? If there duplicates the 
+// buildPermutation function should only be called when the 
+// location of the duplicate is different from the
+console.log(stringPermutation("aabc"))
