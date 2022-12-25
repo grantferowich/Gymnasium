@@ -39,8 +39,9 @@ class ListNode {
 function printForward(node) {
     let current = node;
     while (current){
-        console.log(current.data);
+        console.log(current.value);
         current = current.next;
+        
     }
 };
 
