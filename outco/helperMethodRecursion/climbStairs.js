@@ -47,20 +47,29 @@
 const climbStairs = (n, jumps) => {
   let ways = 0;
     const traverse = (build) =>{
-        if (build > n){
-            return 0;
-        }
-        if (build === n){
-            ways += 1;
-            return
+        // case for terminating recursion
+        if (build < 0){ 
+          return 0
         }
 
-        traverse(build + jumps[0])
-        traverse(build + jumps[1])
-        traverse(build + jumps[2])
+        if (build === 0){
+          ways += 1
+          return
+        }
+
+        for (let x = 0; x < jumps.length; x++){
+          traverse(build - jumps[x])
+        }
+        // traverse(build-jumps[0])
+        // traverse(build-jumps[1])
+        // traverse(build-jumps[2])
+
     }
-  traverse(0)
-  return ways;
+  traverse(n)
+  return ways
 }
 
 console.log(climbStairs(10,[2,3,5])) // 14
+console.log(climbStairs(4,[1,2,3])) // 7 
+console.log(climbStairs(2,[1,2])) // expected output: 2 // this works 12/25/22
+console.log(climbStairs(3,[1,2])) // expected output: 3 //

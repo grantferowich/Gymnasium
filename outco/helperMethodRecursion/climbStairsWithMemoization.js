@@ -46,8 +46,12 @@
 
 const climbStairsWithMemoization = (n, jumps) => {
     let ways = 0;
+    let hash = {}
       const traverse = (build) =>{
+        let key = build.toString()
+        console.log(hash)
         
+
           if (build > n){
               return 0;
           }
@@ -55,10 +59,12 @@ const climbStairsWithMemoization = (n, jumps) => {
               ways += 1;
               return
           }
+          if (hash[key]){ return hash[key]} 
   
-          traverse(build + jumps[0])
-          traverse(build + jumps[1])
-          traverse(build + jumps[2])
+          let jump0 = traverse(build + jumps[0])
+          let jump1 = traverse(build + jumps[1])
+          let jump2 = traverse(build + jumps[2])
+          return hash[key] = jump0 + jump1 + jump2
       }
     traverse(0)
     return ways;

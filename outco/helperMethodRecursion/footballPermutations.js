@@ -25,13 +25,16 @@
 const footballPermutations = (number) => {
     let count = 0;
     const decrementScore = (score, depth) => {
+      
       if (score === 0){
         count += 1;
         return;
       } 
+      
       if (score < 0) {
         return; 
       }
+
       // left
       decrementScore(score-7, depth+1);
       // right 
