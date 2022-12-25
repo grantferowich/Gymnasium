@@ -6,13 +6,19 @@
 // Time: O(N)
 // Space: O(1)
 const factorial = (number) => {
-    let product = 1
+    // state variable
+    let product = 1;
+    // define helper function
     const multiply = (num) => {
+        // base case
         if (num > number) { return;}
-        product *= num
-        multiply(num + 1)
+        product *= num;
+        // recursive case
+        multiply(num + 1);
     }
+    // invoke helper function
     multiply(1);
+    // return state variable
     return product;
 }
 

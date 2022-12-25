@@ -33,7 +33,6 @@
 
 
 const countVowelStrings = (number) => {
-    
     let array = []
     
     const generateString = (build, depth) => {
@@ -42,7 +41,6 @@ const countVowelStrings = (number) => {
             array.push(build)
             return;
         }
-
         // recursive case
         // nested recursion
         // call recursion for each vowel 
