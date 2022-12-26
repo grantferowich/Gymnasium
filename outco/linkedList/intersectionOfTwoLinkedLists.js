@@ -82,17 +82,14 @@ head3.next.next.next = new ListNode(19);
 head3.next.next.next.next = new ListNode(100);
 
 const intersection = (a,b) => {
-
     let currentA = a;
     let currentB = b;
     let hashA = {};
     // store the node values of linked list A in a hash
-    while (currentA !== null ){
-            
+    while (currentA !== null ){    
             hashA[currentA.val] = hashA[currentA.val] + 1 || 1;
             currentA = currentA.next;
     }
-
     // scan each node in currentB to return true when there are instances of intersection
     while (currentB !== null){
         if (hashA[currentB.val] !== undefined){

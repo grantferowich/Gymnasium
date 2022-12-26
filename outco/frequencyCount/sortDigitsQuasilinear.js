@@ -28,7 +28,6 @@
 // We cannot assume the input is positive. 
 
 function sortDigitsQuasilinear(n){
-
     let string = n.toString();
     let array = string.split("");
     array.sort();

@@ -29,13 +29,7 @@ const rgb = (string) => {
     if (!string.includes("r") || !string.includes("g") || !string.includes("b") || string.length === 0){
       return 0;
     }
-    
     let hash = {};
-    // for (let i = 0; i < string.length; i++){
-    //   let char = string[i];
-    //   hash[char] = hash[char] + 1 || 1;   
-    // }
-    
     for (let k = 0; k < string.length; k++){
         let char = string[k]
         if (!hash[char]) {

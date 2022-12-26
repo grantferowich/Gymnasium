@@ -14,8 +14,10 @@
 
 
 const sortDigitsLinear = (number) => {
+    
     let hash = {};
     let final = 0;
+
     // build up hash by setting the key as the digit in 
     while (number > 0){
         // "access" integer from right to left as the remainder of

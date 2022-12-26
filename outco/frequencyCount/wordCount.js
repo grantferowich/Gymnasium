@@ -29,6 +29,7 @@
     let str = s.replace(/[^\w\s]/g,"");
     let words = str.split(" ");
     let hash = {};
+   
     //remove all punctuation marks from words array
     if (words.length === 0){
         return {};

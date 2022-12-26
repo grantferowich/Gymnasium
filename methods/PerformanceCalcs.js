@@ -1,4 +1,4 @@
-const { PerformanceObserver, performance } = require("perf_hooks");
+const { performance } = require("perf_hooks");
 
 var t0 = performance.now();
 

@@ -27,7 +27,9 @@
 // append keys from key value pairs with values greater than 1
 
 const getDuplicates = (arr) => {
+
     let hash = {};
+  
     for ( let i = 0; i<arr.length; i++){
       if (!hash[arr[i]]) {
         hash[arr[i]] = 1
