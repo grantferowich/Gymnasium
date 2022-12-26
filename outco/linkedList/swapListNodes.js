@@ -14,19 +14,18 @@ swap(head, 5, 10)
 // assume access to SinglyLinkedListNode class 
 */
 
-
-
 class SinglyLinkedListNode {
-    constructor(val) {
-      this.val = val;
+    constructor(value) {
+      this.value = value;
       this.next = null;
     }
-  }
+}
   
-  let head = new SinglyLinkedListNode(1);
-  head.next = new SinglyLinkedListNode(5);
-  head.next.next = new SinglyLinkedListNode(7);
-  head.next.next.next = new SinglyLinkedListNode(10)
+let head = new SinglyLinkedListNode(1);
+head.next = new SinglyLinkedListNode(5);
+head.next.next = new SinglyLinkedListNode(7);
+head.next.next.next = new SinglyLinkedListNode(10)
+
 
 const swapNodes = (head, a, b) => {
 
@@ -35,7 +34,6 @@ const swapNodes = (head, a, b) => {
     let ph = new SinglyLinkedListNode(null)
     ph.next = head;
 
-    // a,b, parent(a), parent(b)
     let currentA;
     let parentA;
 
@@ -44,20 +42,19 @@ const swapNodes = (head, a, b) => {
 
     let current = head; 
     let parent = ph;
-
     // move from the node to the chronologically last null
     // current is the state value keeping track of the present value of the node
     // during the traversal
     // the parent will also be tracked during the traversal
-
+    
     while (current !== null){
         // hunt for a
-        if (current.data === a){
+        if (current.value === a){
             currentA = current;
             parentA = parent;
         }
         // hunt for b
-        if (current.data === b){
+        if (current.value === b){
             currentB = current;
             parentB = parent;
         }
@@ -67,21 +64,17 @@ const swapNodes = (head, a, b) => {
         parent = parent.next;
     }
 
-    // if (currentA === undefined || currentB === undefined){
-    //     return ph.next;
-    // }
-
-    console.log('currentA', currentA);
-    console.log('currentB', currentB)
-    console.log('parentA', parentA)
-    console.log('parentB', parentB)
-
     parentA.next = currentB;
     parentB.next = currentA;
-    let ref = currentA.next;
     currentA.next = currentB.next;
-    currentB.next = ref;
+    currentB.next = currentA.next;
+    
     return head;
 }
 
 console.log(swapNodes(head, 5, 7)) // 1-7-5-10
+// 1 -> 5 -> 6 -> 7 -> 10
+// parentA: 1
+// currentA: 5
+// parentB: 6
+// currentB: 7

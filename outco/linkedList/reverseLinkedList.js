@@ -131,7 +131,6 @@ const reverseLinkedList = (node) => {
         // move the current value over 1 spot
         current = ref;
     }
-
     return prev;
 }
 
