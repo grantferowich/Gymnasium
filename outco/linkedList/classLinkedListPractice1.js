@@ -90,9 +90,16 @@ class LinkedList{
                 this.tail = prev;
             }
         }
-
-
         this.length--;
-
+    }
+    contains(value){
+        let current = this.head;
+        while (current){
+            if (current.value === value){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
 }
