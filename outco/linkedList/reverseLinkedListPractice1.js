@@ -37,4 +37,9 @@ x.next.next.next.next = new ListNode(5)
 x.next.next.next.next.next = new ListNode(8)
 x.next.next.next.next.next.next = new ListNode(13)
 
+// Function passed all test cases on Leetcode on 12/27/22
+// [1,2,3,4,5]  => [5,4,3,2,1]
+// [1,2] => [2,1]
+// [] => []
+
 console.log(reverseALinkedListPractice1(x))
