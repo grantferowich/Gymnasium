@@ -116,6 +116,17 @@ class LinkedList {
     }
 }
 
+
+//  null <- 1 -> 3 -> 5 -> 8 -> 10
+
+// current: (3)
+// current.next = (1)
+// ref: (5)
+// prev: (1)
+
+// current.next = 
+
+
 const reverseLinkedList = (node) => {
 
     let prev = null;
