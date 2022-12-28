@@ -1,5 +1,8 @@
 
 /*
+
+The solution was partially tested as of 12/28/2022.
+
  * ## Sorted and Rotated Array [Extra Credit]
  * *Given an array with distinct values that is sorted and rotated, find out if a target value exists in the array.*
  *
@@ -210,7 +213,7 @@ function rotatedArraySearch(nums, target) {
     return false;
 }
 
-// console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
-// console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
-// console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 7)); // --> true
-console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 6)); // --> true
+console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
+console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
+console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 7)); // --> true
+// console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 6)); // --> true
