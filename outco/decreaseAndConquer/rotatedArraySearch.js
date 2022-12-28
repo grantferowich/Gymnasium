@@ -185,13 +185,11 @@ midIdx = arr[1] = 46
 function rotatedArraySearch(nums, target) {
 
     let startIdx = 0;
-    let endIdx = nums.length;
+    let endIdx = nums.length - 1;
     let midIdx;
   
     while (startIdx <= endIdx){
-  
       midIdx = startIdx + parseInt((startIdx + endIdx)/2);
-  
       if (target === nums[midIdx]){
         return true;
       }
@@ -215,6 +213,21 @@ function rotatedArraySearch(nums, target) {
 }
 
 console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
+// startIdx: 0
+// endIdx: 7
+// target: 46
+// midIdx: 3
+// nums[midIdx]: 102
+// nums[startIdx]: 35
+// nums[endIdx]: 31
+
 console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
 console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 7)); // --> true
-// console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 6)); // --> true
+// startIdx: 0
+// endIdx: 0
+// target: 7
+// midIdx: 0
+// nums[midIdx]: 7
+// nums[startIdx]: 7
+// nums[endIdx]: 7
+
