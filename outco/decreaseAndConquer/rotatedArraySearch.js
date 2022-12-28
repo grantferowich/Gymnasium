@@ -95,6 +95,7 @@ The solution was partially tested as of 12/28/2022.
 // 
 
 const binarySearch = (array, num1, num2, target) => {
+    if (!array || array.length === 0){return -1}
     let startIdx = num1;
     let endIdx = num2;
     let midIdx;
