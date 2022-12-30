@@ -81,6 +81,8 @@ head3.next.next = new ListNode(43);
 head3.next.next.next = new ListNode(19);
 head3.next.next.next.next = new ListNode(100);
 
+
+// the following solution works however the solution has O(N) space complexity
 const intersection = (a,b) => {
     let currentA = a;
     let currentB = b;

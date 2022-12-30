@@ -76,16 +76,13 @@ const isAlinkedListPalindrome = (node) =>{
 // edge cases: current linked list has 0, 1, or 2 nodes
 
 const isALinkedListPalindromeConstant = (node) => {
-
     let curr = node;
     let length = 0;
-
     // get length
     while (curr !== null){
         length += 1;
         curr = curr.next;
     }
-
     // edge cases
     if (length === 0){
         return false;
@@ -99,14 +96,11 @@ const isALinkedListPalindromeConstant = (node) => {
     if (length === 2 && node.val !== node.next.val){
         return false;
     }
-    
     let midpoint = Math.floor(length/2)
     let position = 0;
-
     let prev;
-    curr = head;
+    curr = node;
     let ref;
-
     while (curr !== null){
         // reverse the second half of the linked list
         if (position >= midpoint){
@@ -128,7 +122,8 @@ const isALinkedListPalindromeConstant = (node) => {
 
 
     // the left pointer starts at the head of the linked list 
-    let left = head;
+    console.log(node)
+    let left = node;
     let right = prev;
     // the right pointer begins all the way at the end of the singly linked list
     // the right pointer starts at the tail

@@ -57,10 +57,11 @@
 
 const linkedListPalindrome = (node) => {
     // x get the length
+    let root = node
     let length = 0;
-    while (node){
-        node = node.next
+    while (root){
         length++
+        root = root.next
     }
     if (length === 0){
         return;
@@ -68,10 +69,10 @@ const linkedListPalindrome = (node) => {
     if (length === 1){
         return true;
     }
-    if (length === 2 && node.value === node.next.value){
+    if (length === 2 && node.val === node.next.val){
         return true;
     }
-    if (length === 2 && node.value !== node.next.value){
+    if (length === 2 && node.val !== node.next.val){
         return false;
     }
     // x calculate the middle index
@@ -84,24 +85,31 @@ const linkedListPalindrome = (node) => {
     while (current){
         //  x traverse to the middle index
         if (middleIndex >= presentIndex){
-            if (prev === undefined)
-            // x set a reference for the middle node
-            prev = current
-            current = current.next
-        }   
-        ref = current.next;
-        current.next = prev
-        prev = current;
-        current = ref;
+            if (prev === undefined){
+                // x set a reference for the middle node
+                prev = current
+                current = current.next
+            }
+            ref = current.next;
+            current.next = prev
+            prev = current;
+            current = ref;
+        } else {
+            presentIndex++;
+            current = current.next;
+        }
+        
     }
-
+    
     let head = node;
-    while (head.next !== prev){
+    let right = prev;
+    
+    while ( head !== right && head.next !== right){
         if (head.val !== prev.val){
             return false
         }
         head = head.next
-        prev = prev.next
+        right = right.next
     }
     return true;
 }
