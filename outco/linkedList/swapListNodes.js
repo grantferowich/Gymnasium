@@ -28,7 +28,6 @@ head.next.next.next = new SinglyLinkedListNode(10)
 
 
 const swapNodes = (head, a, b) => {
-
     // init a node at the spot before the head node
     // init the node with value null and init a pointer from that node to the head
     let ph = new SinglyLinkedListNode(null)
@@ -46,7 +45,6 @@ const swapNodes = (head, a, b) => {
     // current is the state value keeping track of the present value of the node
     // during the traversal
     // the parent will also be tracked during the traversal
-    
     while (current !== null){
         // hunt for a
         if (current.value === a){
@@ -63,15 +61,12 @@ const swapNodes = (head, a, b) => {
         // move the parent over the linked list
         parent = parent.next;
     }
-
     parentA.next = currentB;
     parentB.next = currentA;
     currentA.next = currentB.next;
     currentB.next = currentA.next;
-    
     return head;
 }
-
 console.log(swapNodes(head, 5, 7)) // 1-7-5-10
 // 1 -> 5 -> 6 -> 7 -> 10
 // parentA: 1

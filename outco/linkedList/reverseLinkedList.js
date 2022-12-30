@@ -150,3 +150,6 @@ x.next = new ListNode(3)
 x.next.next = new ListNode(5)
 
 console.log(reverseLinkedList(x))
+
+
+

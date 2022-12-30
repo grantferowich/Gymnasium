@@ -9,7 +9,6 @@ class ListNode {
     }
 }
 // [1,2,3] ==> 1 -> 2 -> 3
-
 const serializeArray = (array) =>{
     if (array.length === 0){
         return

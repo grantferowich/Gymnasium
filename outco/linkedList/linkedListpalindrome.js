@@ -68,15 +68,25 @@ const isAlinkedListPalindrome = (node) =>{
 // console.log(isAlinkedListPalindrome(head3)) // expected output: false
 
 // constant time solution
+// successfully tested the O(1) solution 12/30/2022
+// inputs: a node
+// output: boolean 
+// constraints: O(1) runtime
+// constraints: O(N) space complexity
+// edge cases: current linked list has 0, 1, or 2 nodes
+
 const isALinkedListPalindromeConstant = (node) => {
 
     let curr = node;
     let length = 0;
+
+    // get length
     while (curr !== null){
         length += 1;
         curr = curr.next;
     }
 
+    // edge cases
     if (length === 0){
         return false;
     }
@@ -133,6 +143,8 @@ const isALinkedListPalindromeConstant = (node) => {
     return true;
 }
 
+
+// All of these test cases passed as of 12/30/2022
 console.log(isALinkedListPalindromeConstant(head));  // 1-5-7-5-9 // expected output: false
-// console.log(isALinkedListPalindromeConstant(head2)); // 1-9-1 // expected output: true
-// console.log(isALinkedListPalindromeConstant(head3)); // 12-14 // expected output: false
+console.log(isALinkedListPalindromeConstant(head2)); // 1-9-1 // expected output: true
+console.log(isALinkedListPalindromeConstant(head3)); // 12-14 // expected output: false
