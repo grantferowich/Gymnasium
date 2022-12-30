@@ -110,6 +110,7 @@ const isALinkedListPalindromeConstant = (node) => {
     while (curr !== null){
         // reverse the second half of the linked list
         if (position >= midpoint){
+            // set the prev at the middle node 
             if (prev === undefined){
                 prev = curr;
                 curr = curr.next;
