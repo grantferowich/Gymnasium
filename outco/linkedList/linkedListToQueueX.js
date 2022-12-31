@@ -1,3 +1,39 @@
+/**
+ * No input or output cases. Instead, upon implementation of the Linked List, and
+then Queue class, you should be able to run the following commands.
+
+
+ll = instance of Linked List class.
+
+ll.addToTail(1)
+ll.addToTail(5)
+ll.addToTail(7)
+ll.addToTail(10)
+
+print out ll.removeFromhead() => 1
+print out ll.removeFromhead() => 5
+print out ll.removeFromhead() => 7
+print out ll.removeFromhead() => 10
+
+Same thing should be accomplished with the Queue as well
+
+
+q = instance of Queue class.
+
+q.enqueue(1)
+q.enqueue(5)
+q.enqueue(7)
+q.enqueue(10)
+
+print out q.dequeue() => 1
+print out q.dequeue() => 5
+print out q.dequeue() => 7
+print out q.dequeue() => 10
+ * 
+ * 
+ * 
+ *  */
+
 class SinglyLinkedListNode{
     constructor(value){
         this.value = value === undefined ? null : value;
@@ -55,7 +91,7 @@ class SinglyLinkedList{
 }
 
 class Queue{
-    
+
     constructor(){
         this.linkedList = new SinglyLinkedList();
     }
@@ -63,6 +99,17 @@ class Queue{
         this.linkedList.addToTail(value)
     }
     dequeue(){
-        this.linkedList.removeFromHead()
-    }
+        let node = this.linkedList.removeFromHead()
+        return node
+    }   
 }
+
+let q = new Queue
+q.enqueue(1)
+q.enqueue(5)
+q.enqueue(7)
+q.enqueue(10)
+// console.log(q)
+
+console.log(q.dequeue()); // 1 
+console.log(q)
