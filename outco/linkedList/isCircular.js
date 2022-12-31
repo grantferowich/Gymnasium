@@ -6,6 +6,7 @@ class ListNode {
 }
 
 
+
 const isCircular = (node) => {
     let fast = node;
     let slow = node;
