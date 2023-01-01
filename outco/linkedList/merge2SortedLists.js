@@ -65,6 +65,7 @@ const merge2SortedLists = (list1, list2) =>{
     }
     return dummy.next
 }
+
 console.log("list1 and list2:")
 console.log(merge2SortedLists(list1, list2)) // [1,1,2,3,4,4]
 console.log("list3 and list4:")

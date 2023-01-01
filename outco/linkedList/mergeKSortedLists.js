@@ -34,7 +34,7 @@ Output: []
 
 class SinglyLinkedListNode{
     constructor(value){
-        this.value = this.value === undefined ? null : value;
+        this.value = value === undefined ? null : value;
         this.next = null;
     }
 }
@@ -45,35 +45,48 @@ class SinglyLinkedListNode{
 // keep merging lists until there are no lists left to merge
 // return the merged list
 
-const mergeKSortedLists = (lists) => {
-    
-    let dummy = new SinglyLinkedListNode()
-    let tail = dummy;
+let list1 = new SinglyLinkedListNode(1)
+list1.next = new SinglyLinkedListNode(4)
+list1.next.next = new SinglyLinkedListNode(5)
 
+let list2 = new SinglyLinkedListNode(1)
+list2.next = new SinglyLinkedListNode(3)
+list2.next.next = new SinglyLinkedListNode(4)
+
+let list3 = new SinglyLinkedListNode(2)
+list3.next = new SinglyLinkedListNode(6)
+
+let list4 = new SinglyLinkedListNode(11)
+let list5 = new SinglyLinkedListNode(23)
+
+
+const mergeKSortedLists = (lists) => {
     const merge2Lists = (list1, list2) => {
+        let node = new SinglyLinkedListNode()
+        const root = node;
+        if (!list1 || !list2){return list1 || list2};
         while (list1 && list2){
-            if (list1.value < list2.value){
-                tail.next = list1;
+            if (list1.value <= list2.value){
+                node.next = list1;
                 list1 = list1.next;
             } else {
-                tail.next = list2;
+                node.next = list2;
                 list2 = list2.next;
             }
-            tail = tail.next;
+            node = node.next;
         }
-
-        if (list1 === null && list2){
-            tail.next = list2;
-        }
-        if (list2 === null && list1){
-            tail.next = list1;
-        }
-        for (let x = 1; x < lists.length; x++){
-            merge2Lists(tail, lists[x])
-        }
+        node.next = list1 || list2;
+        return root.next
     }
     
-    return dummy.next
+    root = lists[0]
+    for (let x = 1; x < lists.length; x++){
+        root = merge2Lists(root, lists[x])
+    }
+    return root || null
 }
 
-console.log(mergeKSortedLists([[1,4,5],[1,3,4],[2,6]]))
+console.log(mergeKSortedLists([list4, list5])) // 11->23
+console.log(mergeKSortedLists([list1,list2,list3])) // [1,1,2,3,4,4,5,6]
+
+// [1,1,3,4,4,5] + [2,6]
