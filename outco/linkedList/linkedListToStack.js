@@ -40,18 +40,21 @@ class SinglyLinkedList{
             let deleted = this.head;
             this.head = null;
             this.tail = null;
+            this.length--;
             return deleted; 
         }
         if (this.length > 1){
             let prev = this.head;
             let deleted = this.tail;
-            for (let x = 0; x < this.length - 1; x++){
+            for (let x = 0; x < this.length - 2; x++){
                 prev = prev.next;
             }
             this.tail = prev;
             prev.next = null;
+            this.length--;
             return deleted;
         }
+        
     }
 }
 
@@ -78,3 +81,4 @@ s.push(8)
 s.push(13)
 s.push(21)
 console.log(s.pop()) // 21
+console.log(s)
