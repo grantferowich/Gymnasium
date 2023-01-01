@@ -58,33 +58,40 @@ list3.next = new SinglyLinkedListNode(6)
 
 let list4 = new SinglyLinkedListNode(11)
 let list5 = new SinglyLinkedListNode(23)
-
+// Time complexity: n*k log(k)
+// Space complexity: O(1)
 
 const mergeKSortedLists = (lists) => {
+    if (lists.length === 0) return null;
+
     const merge2Lists = (list1, list2) => {
-        let node = new SinglyLinkedListNode()
-        const root = node;
-        if (!list1 || !list2){return list1 || list2};
-        while (list1 && list2){
-            if (list1.value <= list2.value){
-                node.next = list1;
+        let dummy = new SinglyLinkedListNode();
+        let tail = dummy;
+
+        while (list1 && list2) {
+            if (list1.value <= list2.value) {
+                tail.next = list1;
                 list1 = list1.next;
             } else {
-                node.next = list2;
+                tail.next = list2;
                 list2 = list2.next;
             }
-            node = node.next;
+            tail = tail.next;
         }
-        node.next = list1 || list2;
-        return root.next
+        // if one of the lists is null append the elements from the other list
+        tail.next = list1 || list2;
+        // dummy.next is the head basically
+        return dummy.next;
     }
-    
-    root = lists[0]
-    for (let x = 1; x < lists.length; x++){
-        root = merge2Lists(root, lists[x])
+
+    let merged = lists[0];
+    for (let i = 1; i < lists.length; i++) {
+        merged = merge2Lists(merged, lists[i]);
     }
-    return root || null
+
+    return merged;
 }
+
 
 console.log(mergeKSortedLists([list4, list5])) // 11->23
 console.log(mergeKSortedLists([list1,list2,list3])) // [1,1,2,3,4,4,5,6]
