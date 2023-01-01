@@ -101,7 +101,7 @@ const intersection = (a,b) => {
         currentB = currentB.next
     }   
     console.log('the function did not find any instersecting nodes')
-    return false
+    return null
 }
 
 console.log(intersection(head, head2)) // expected output: true
