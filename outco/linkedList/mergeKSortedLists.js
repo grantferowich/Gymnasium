@@ -41,38 +41,39 @@ class SinglyLinkedListNode{
 // value comparison is neccesary for inserting the first node in the merged linked list
 // you may assume the three lists are already sorted
 // the smallest value of each of the linked lists will be the first node / head of return linked list 
+// set up helper function to merge lists
+// keep merging lists until there are no lists left to merge
+// return the merged list
 
 const mergeKSortedLists = (lists) => {
-    let sortedList = [];
+    
+    let dummy = new SinglyLinkedListNode()
+    let tail = dummy;
 
-
-    const mergeLists = (list1, list2) => {
-        let mergedList = [];
-        let right = 0;
-        let left = 0;
-        while (left < list1.length && right < list2.length){
-            if (list1[left] < list2[right]){
-                mergedList.push(list1[left])
-                left++
+    const merge2Lists = (list1, list2) => {
+        while (list1 && list2){
+            if (list1.value < list2.value){
+                tail.next = list1;
+                list1 = list1.next;
             } else {
-                mergedList.push(list2[right])
-                right++
+                tail.next = list2;
+                list2 = list2.next;
             }
+            tail = tail.next;
         }
-        while (left < list1.length){
-            mergedList.push(list1[left])
-            left++
+
+        if (list1 === null && list2){
+            tail.next = list2;
         }
-        while (right < list2.length){
-            mergedList.push(list2[right])
-            right++
+        if (list2 === null && list1){
+            tail.next = list1;
         }
-        sortedList.concat(mergedList);
+        for (let x = 1; x < lists.length; x++){
+            merge2Lists(tail, lists[x])
+        }
     }
-    for (let x = 0;x <lists.length -1; x++){
-        sortedList = mergeLists(sortedList, lists[x])
-    }
-    return sortedList
+    
+    return dummy.next
 }
 
 console.log(mergeKSortedLists([[1,4,5],[1,3,4],[2,6]]))
