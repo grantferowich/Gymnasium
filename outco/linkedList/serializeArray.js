@@ -1,5 +1,9 @@
 // Write a function which takes in an array and returns a linked list
 
+// input: an array
+// output: a linked list 
+// constraints: 
+
 // Successfully tested the function on 12/25/2022.
 
 class ListNode {
