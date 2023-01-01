@@ -83,12 +83,10 @@ const mergeKSortedLists = (lists) => {
         // dummy.next is the head basically
         return dummy.next;
     }
-
     let merged = lists[0];
     for (let x = 1; i < lists.length; x++) {
         merged = merge2Lists(merged, lists[x]);
     }
-
     return merged;
 }
 
