@@ -85,8 +85,8 @@ const mergeKSortedLists = (lists) => {
     }
 
     let merged = lists[0];
-    for (let i = 1; i < lists.length; i++) {
-        merged = merge2Lists(merged, lists[i]);
+    for (let x = 1; i < lists.length; x++) {
+        merged = merge2Lists(merged, lists[x]);
     }
 
     return merged;
