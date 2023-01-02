@@ -32,6 +32,7 @@ class SinglyLinkedList{
         }
         this.length++;
     }
+
     removeFromTail(){
         if (this.length === 0){
             return
@@ -54,7 +55,6 @@ class SinglyLinkedList{
             this.length--;
             return deleted;
         }
-        
     }
 }
 
