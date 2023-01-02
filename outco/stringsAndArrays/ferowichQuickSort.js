@@ -33,7 +33,7 @@
  * 
  * 
  * 
- * space complexity: O(N)
+ * space complexity: 1/2 O(N)
  */
 
 const ferowichQuickSort = (array, index) => {
