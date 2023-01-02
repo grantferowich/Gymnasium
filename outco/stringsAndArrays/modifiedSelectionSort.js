@@ -15,7 +15,10 @@
  * The next steps are to implement the algorithm and test the runtimes. 
  * Then, compare the runtimes with mergesort on large inputs.  
  *      
- * 
+ * input: array
+ * output: 3 sub-lists
+ * runtime: O(N)
+ * space complexity: O(N)
  */
 
 const ferowichSelectionSort = (array) => {
