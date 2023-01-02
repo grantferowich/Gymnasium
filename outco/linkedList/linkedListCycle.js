@@ -64,6 +64,7 @@ linkedList2.next.next = linkedList2
 let linkedList3 = new ListNode(1)
 
 let linkedList4 = new ListNode()
+
 const isCyclical = (node) => {
     let fast = node.next
     let slow = node
