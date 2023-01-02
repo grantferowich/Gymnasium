@@ -61,10 +61,12 @@ let linkedList2 = new ListNode(1)
 linkedList2.next = new ListNode(2)
 linkedList2.next.next = linkedList2
 
+let linkedList3 = new ListNode(1)
+
 
 
 const isCyclical = (node) => {
-    let fast = node
+    let fast = node.next
     let slow = node
     while (fast){
         if (fast === slow){
@@ -76,5 +78,6 @@ const isCyclical = (node) => {
     return false
 }
 
-console.log(isCyclical(linkedList1)) // expected output: true | actual output: true
-console.log(isCyclical(linkedList2)) // expected output: true | actual output: true 
+console.log(isCyclical(linkedList1)) // expected output: true  | actual output: true
+console.log(isCyclical(linkedList2)) // expected output: true  | actual output: true 
+console.log(isCyclical(linkedList3)) // expected output: false | actual output: 
