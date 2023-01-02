@@ -23,11 +23,12 @@ class SkipList{
     
     // search takes in a value and returns a boolean 
     search(value){
-        while (this.linkedList){
-            if (this.linkedList.value === value){
+        let current = this.head
+        while (current){
+            if (current.value === value){
                 return true;
             }
-        this.linkedList = this.linkedList.next;
+        current = current.next;
         }
         return false
     }
@@ -89,33 +90,42 @@ class SkipList{
     // after removing the value return false
     // if there are multiple values equal to the specified value
     // remove the first node with an equal value
+
+    //** */ update erase for special cases where erased node is the head/tail node
     erase(value){
         let existence = this.search(value)
+        console.log('existence')
+        console.log(existence)
+        let current = this.head
         if (existence === false){
             return false 
         }
-        while (existence){
+        while (current && existence){
             if (current.next = value){
-                current.next = current.next.next
+                current.next = current.next.next;
+                this.length--;
                 return true; 
             }
+            current = current.next
         }
     }
 }
 
 let skipList = new SkipList()
 skipList.add(1)
+skipList.add(1)
 skipList.add(2)
-skipList.add(3)
-skipList.add(5)
-skipList.add(8)
-skipList.add(13)
-skipList.add(21)
-skipList.add(34)
-skipList.add(55)
-console.log(skipList.search(0)) // expected output: false
-console.log(skipList.search(89)) // expected output: false
-console.log(skipList.search(-1)) // expected output: false
-// skipList.erase(1) 
+// skipList.add(3)
+// skipList.add(5)
+// skipList.add(8)
+// skipList.add(13)
+// skipList.add(21)
+// skipList.add(34)
+// skipList.add(55)
+// console.log(skipList.search(0)) // expected output: false
+// console.log(skipList.search(89)) // expected output: false
+// console.log(skipList.search(-1)) // expected output: false
+
+skipList.erase(1) // 
 
 console.log(skipList)
