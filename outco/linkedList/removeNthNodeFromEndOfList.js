@@ -22,7 +22,6 @@ Output: [1]
 target = length[6] - n[1]
 
  *  */  
-
 class ListNode {
     constructor(val) {
       this.val = val;
@@ -31,8 +30,6 @@ class ListNode {
 }
 
 const removeNthNodeFromEndOfList = (node, n) => {
-
-
     let dummy = new ListNode()
     dummy.next = node;
     let length = 0;
@@ -52,6 +49,5 @@ const removeNthNodeFromEndOfList = (node, n) => {
         }
         current = current.next;
     }
-
     return dummy.next
 }
