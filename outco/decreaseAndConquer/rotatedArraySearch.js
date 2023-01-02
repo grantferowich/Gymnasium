@@ -195,6 +195,7 @@ function rotatedArraySearch(nums, target) {
       }
       //left array sorted
       if (nums[startIdx] < nums[midIdx]){
+
         // target index is on the left side of the midIdx
         if (target >= nums[startIdx] && target < nums[midIdx]){
           endIdx = midIdx - 1;
@@ -204,6 +205,7 @@ function rotatedArraySearch(nums, target) {
         }
         // right array sorted
       } else {
+        
         // target index is on the right of the midIdx
         if (target > nums[midIdx] && target <= nums[endIdx]){
           startIdx = midIdx + 1;

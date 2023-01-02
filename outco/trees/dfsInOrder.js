@@ -16,5 +16,5 @@ const inOrderDFS = (treeNode) => {
         // right traversal
         traverse(current.right)
     }
-
+    return result;
 }

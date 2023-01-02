@@ -17,7 +17,7 @@
  *      
  * input: array, target
  * output: location of the target or else null 
- * runtime: O(N). The algorithm takes O(N) time to find a "lucky" v, that is, a v within the 25th and 75th percentile of the array range.
+ * runtime: 1/2 O(N). The algorithm takes O(N) time to find a "lucky" v, that is, a v within the 25th and 75th percentile of the array range.
  * After finding the lucky v, the algorithm partitions the list into three sublists in linear time.
  * Finally, the array uses either merge sort which takes quasilinear time or, the function
  * could recursively produce a new lucky v in the target partition and continuously find new v's
@@ -30,10 +30,20 @@
  * Recursively call f quick sort until the target element is the first element in the sublist.
  * When the element at the 0th index of the sublist is the target element, return. 
  * Another idea is to call a merge function on the singleton sublists, but, at this point, you are basically doing the nlogn runtime algorithm.
+ * The f quick sort algorithm as is works when the values between the min and the max are all filled in.
+ * In order to account for unsorted arrays where the v may be "lucky" but is not extant 
+ * then the function should recursively generate new lucky v's until a lucky v which exists in the 
+ * unsorted array is found. Supppose the unsorted array is [1,10,3,3,3,5,5,6].
+ * The min is 1. The max is 10. The lower bound is 3. The upper bound is 7. 
+ * The only acceptably lucky v's are 3, 5, and 6. 
+ * The function must throw out 4 as a lucky v since 4 is not included in the unsorted array.
+ * The odds of finding a non-existent lucky v here are 1/5 or 20%. 
+ * The algorithm accounts for a lucky-but-non-existent v by recursively calling 
+ * findV(lowestAcceptable, highestAcceptable) until the lucky v is one which the array actually includes as a member.
  * 
+ *
  * 
- * 
- * space complexity: 1/2 O(N)
+ * space complexity: O(N)
  */
 
 const ferowichQuickSort = (array, index) => {
@@ -78,7 +88,7 @@ const ferowichQuickSort = (array, index) => {
             rightSublist.push(num)
         }
     }
-    if (leftSublist.length+equalSublist.length < )
+    // if (leftSublist.length+equalSublist.length < )
 
 
 }

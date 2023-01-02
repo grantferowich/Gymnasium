@@ -30,5 +30,5 @@ const preDFS = (treeNode) => {
         // right traversal
         traverse(current.right)
     }
-
+    return result;
 }
