@@ -17,7 +17,17 @@
  *      
  * input: array, target
  * output: location of the target or else null 
- * runtime: 1/2(Nlog(N)). The algorithm takes O(N) time to find a "lucky" v, that is, a v within the 25th and 75th percentile of the array range.
+ * runtime: O(N). The algorithm takes O(N) time to find a "lucky" v, that is, a v within the 25th and 75th percentile of the array range.
+ * After finding the lucky v, the algorithm partitions the list into three sublists in linear time.
+ * Finally, the array uses either merge sort which takes quasilinear time or, the function
+ * could recursively produce a new lucky v in the target partition and continuously find new v's
+ * until the target is found. By continuously using the Ferowich qucik sort on one of the partitions the function can basically
+ * gaurantee the function will take O(N) time to find a given element in an unsorted array.
+ * The O(N) is faster than normal linear search through an unsorted array, 
+ * because partitioning means arrays of size roughly n/2 on average are searched.
+ * Since the function continuously chops the array in half, on average, according to the lucky v
+ * the runtime is expected to be logN, which is much faster than linear time on large inputs. 
+ * 
  * 
  * space complexity: O(N)
  */
