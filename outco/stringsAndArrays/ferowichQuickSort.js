@@ -17,7 +17,8 @@
  *      
  * input: array, target
  * output: location of the target or else null 
- * runtime: O(N)
+ * runtime: 1/2(Nlog(N)). The algorithm takes O(N) time to find a "lucky" v, that is, a v within the 25th and 75th percentile of the array range.
+ * 
  * space complexity: O(N)
  */
 
