@@ -26,12 +26,12 @@ Example 2:
 Input: head = [1,2], pos = 0
 Output: true
 Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+
 Example 3:
-
-
 Input: head = [1], pos = -1
 Output: false
 Explanation: There is no cycle in the linked list.
+ *
  * 
  * instantiate two pointers, fast and slow
  * while the fast pointer is not null
@@ -57,6 +57,12 @@ linkedList1.next.next = new ListNode(0)
 linkedList1.next.next.next = new ListNode(-4)
 linkedList1.next.next.next.next = linkedList1
 
+let linkedList2 = new ListNode(1)
+linkedList2.next = new ListNode(2)
+linkedList2.next.next = linkedList2
+
+
+
 const isCyclical = (node) => {
     let fast = node
     let slow = node
@@ -70,4 +76,5 @@ const isCyclical = (node) => {
     return false
 }
 
-console.log(isCyclical(linkedList1))
+console.log(isCyclical(linkedList1)) // expected output: true | actual output: true
+console.log(isCyclical(linkedList2)) // expected output: true | actual output: true 
