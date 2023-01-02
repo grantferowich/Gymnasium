@@ -15,13 +15,13 @@
  * The next steps are to implement the algorithm and test the runtimes. 
  * Then, compare the runtimes with mergesort on large inputs.  
  *      
- * input: array
- * output: 3 sub-lists
+ * input: array, target
+ * output: location of the target or else null 
  * runtime: O(N)
  * space complexity: O(N)
  */
 
-const ferowichSelectionSort = (array) => {
+const ferowichQuickSort = (array, index) => {
     let min = Infinity;
     let max = 0;
 
@@ -38,9 +38,7 @@ const ferowichSelectionSort = (array) => {
     let highestAcceptable = parseInt((3*(max))/4)    
 
     const findV = (highestAcceptable, lowestAcceptable) => {
-        let check = 0
        let v = parseInt(Math.random() * highestAcceptable)
-       check++
        if (v < lowestAcceptable){
             return findV(highestAcceptable, lowestAcceptable)
        } else {
@@ -49,9 +47,6 @@ const ferowichSelectionSort = (array) => {
     }
    
     let val = findV(highestAcceptable, lowestAcceptable)
-    if (val === undefined){
-        findV(highestAcceptable, lowestAcceptable)
-    } 
 
     let leftSublist = [];
     let equalSublist = [];
@@ -68,15 +63,11 @@ const ferowichSelectionSort = (array) => {
             rightSublist.push(num)
         }
     }
-    console.log('rightSublist: ')
-    console.log(rightSublist)
-    console.log('equalSublist: ')
-    console.log(equalSublist)
-    console.log('leftSublist: ')
-    console.log(leftSublist)
+    if (leftSublist.length+equalSublist.length < )
+
 
 }
-ferowichSelectionSort([1,2,3,4,5,6,7,8,9,10])
+ferowichQuickSort([1,2,3,4,5,6,7,8,9,10], 10)
 
 // const testRandomness = (array) =>{
 //     let occurrences = {};
