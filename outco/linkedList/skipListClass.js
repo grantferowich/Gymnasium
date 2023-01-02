@@ -14,8 +14,8 @@ class SinglyLinkedListNode{
 }
 class SkipList{
     
-    constructor(){
-        this.linkedList = new SinglyLinkedListNode()
+    constructor(value){
+        this.linkedList = new SinglyLinkedListNode(value)
         this.length = 0;
         this.head = null;
         this.tail = null;
@@ -43,31 +43,45 @@ class SkipList{
         if (this.length === 0){
             this.head = xNode;
             this.tail = xNode;
+            this.length++
+            return
         }
-        if (this.length === 1 && xNode.value < this.head.value){
-            xNode.next = this.head;
-            this.head = xNode.next
-        } 
-        if (this.length === 1 && xNode.value > this.head.value){
-            this.head.next = xNode;
-            this.tail = xNode;
+        if (this.length === 1){
+            if (xNode.value < this.head.value){
+                xNode.next = this.head;
+                this.head = xNode.next;
+                this.length++
+                return 
+            } else {
+                this.head.next = xNode;
+                this.tail = xNode;
+                this.length++;
+                return 
+            }
         }
+        // case where length is 2 or more
+        // linkedList: 1-1
+        // current = 1
+        // current.next = 1
         if (this.length > 1){
             let current = this.head;
             while (current){
                 if (current.value < xNode.value && xNode.value < current.next.value){
                     xNode.next = current.next;
                     current.next = xNode;
+                    this.length++
+                    return
                 }
                 if (xNode.value > this.tail.value){
                     this.tail.next = xNode;
                     this.tail = xNode;
+                    this.length++
+                    return
                 }
             
                 current = current.next;
             }
         }
-        this.length++;
     }
 
     // erase takes in a value and returns a boolean 
@@ -80,6 +94,23 @@ class SkipList{
         if (existence === false){
             return false 
         }
-        
+        while (existence){
+            if (current.next = value){
+                current.next = current.next.next
+                return true; 
+            }
+        }
     }
 }
+
+let skipList = new SkipList()
+skipList.add(1)
+skipList.add(2)
+// skipList.add(3)
+// skipList.add(5)
+// skipList.add(8)
+// skipList.add(13)
+// skipList.add(21)
+// skipList.add(34)
+// skipList.add(55)
+console.log(skipList)
