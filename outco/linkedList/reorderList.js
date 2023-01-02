@@ -16,5 +16,28 @@
  * Output: [1,5,2,4,3]
  * * 
  * 
+ * Example 3: 
+ * input: [1,2,3]
+ * output: [1,3,2]
+ * 
+ *  current = 1
+ *  length = 3
+ *  toMove = 3
+ * 
+ *  starting from the last node 
+ *  move the head's next to the last node
+ *  move the last node's to the head's next property
+ * 
  * 
  *  */ 
+
+const reorderList = (head) => {
+
+    let current = head;
+    let length = 0;
+    while (current){
+        length++
+        current = current.next
+    }
+
+}
