@@ -100,10 +100,8 @@ const linkedListPalindrome = (node) => {
         }
         
     }
-    
     let head = node;
     let right = prev;
-    
     while ( head !== right && head.next !== right){
         if (head.val !== prev.val){
             return false
