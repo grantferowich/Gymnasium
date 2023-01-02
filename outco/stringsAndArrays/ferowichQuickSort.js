@@ -27,6 +27,10 @@
  * because partitioning means arrays of size roughly n/2 on average are searched.
  * Since the function continuously chops the array in half, on average, according to the lucky v
  * the runtime is expected to be logN, which is much faster than linear time on large inputs. 
+ * Recursively call f quick sort until the target element is the first element in the sublist.
+ * When the element at the 0th index of the sublist is the target element, return. 
+ * Another idea is to call a merge function on the singleton sublists, but, at this point, you are basically doing the nlogn runtime algorithm.
+ * 
  * 
  * 
  * space complexity: O(N)
