@@ -106,11 +106,16 @@ class SkipList{
 let skipList = new SkipList()
 skipList.add(1)
 skipList.add(2)
-// skipList.add(3)
-// skipList.add(5)
-// skipList.add(8)
-// skipList.add(13)
-// skipList.add(21)
-// skipList.add(34)
-// skipList.add(55)
+skipList.add(3)
+skipList.add(5)
+skipList.add(8)
+skipList.add(13)
+skipList.add(21)
+skipList.add(34)
+skipList.add(55)
+console.log(skipList.search(0)) // expected output: false
+console.log(skipList.search(89)) // expected output: false
+console.log(skipList.search(-1)) // expected output: false
+// skipList.erase(1) 
+
 console.log(skipList)
