@@ -16,13 +16,37 @@ capacity: 2
 
 
 // LRU Cache is a least recently used cache.
+The LRU cache has two main methods: 
+- get(key)
+- put(key, value)
+
 The LRU Cache interface must support get and put operations in O(1) time.
 To support the get and put methods 
 implement: 
-- remove
-- moveToHead
+- remove(node)
+    - this method relies on the map interface's delete operation
+- moveToHead(node)
 - addToHead(node)
 - removeTail() 
+
+- Put method: has a node as an input parameter, doesn't return anything
+    - relies on the map interface's set operation
+    - addToHead
+- Get method: has a key as an input parameter, returns a value
+    - relies on the map interface's get method
+    - relies on the moveToHead method
+
+- in LRU Cache the implementation requires a doubly-linked list node class
+    - the DLL must have key and value properties
+    - the DLL is instantiated with input parameters of a key and a value
+- the LRU Cache class has five primary properties:
+    - this.capacity
+    - this.size
+    - this.map
+    - this.head
+    - this.tail
+- also note the LRU class object's head points to the tail pointer
+- and the tail pointer points to the head node
 */
 class DoublyLinkedListNode{
     constructor(key, value){
@@ -43,7 +67,6 @@ class LRUCache{
         this.tail = new DoublyLinkedListNode(null, null);
         this.head.next = this.tail;
         this.tail.prev = this.head;
-
     }
 
     get(key){

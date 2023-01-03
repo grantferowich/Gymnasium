@@ -8,9 +8,28 @@ Design a Skiplist without using any built-in libraries.
 A skiplist is a data structure that takes O(log(n)) time to add, erase and search. Comparing with treap and red-black tree which has the same function and performance, the code length of Skiplist can be comparatively short and the idea behind Skiplists is just simple linked lists.
 
 For example, we have a Skiplist containing [30,40,50,60,70,90] and we want to add 80 and 45 into it. The Skiplist works this way:
+
+Describe a skip list to your fake student in your own words.
+The skip list basically uses randomness to make searching for nodes in a linked list faster.
+The skip list makes use of the concept of levels. At each level, there is some number of nodes, which may make the overall search time happen much faster on average.
+To insert a node into a skip list, there is a comparison between the new node's value and the skip list's next value.
+All the new nodes are inserted in orderly fashion.
+If the new node is smaller than the elements at the current level,
+then the new node moves down a level.
+If a new node's value is smaller than all of the nodes at every level, i.e., 
+the new node is the new minimum, then the node will be inserted at the bottom left part of the skip list.
+Every new node must at least be inserted into the base level, which functions as a source of truth.
+After the insertion at the base level there is a coinflip, which happens repeatedly until the flip result is a tails.
+For every heads result, the number most recently added to the base level is appended to the next level above the current level. 
+When adding a new key, compare first with the next key at the "highest" level.
+    - if the new key is less than the next key, traverse down one level
+    - if the new key is greater than the next key, traverse right
+    - after traversing right one position, again compare the new key to the next key to the right
+    
  */
-class SinglyLinkedListNode{
-    constructor(value){
+class SkipListNode{
+    constructor(key, value, level){
+        this.key = key === undefined ? null : key;
         this.value = value === undefined ? null : value;
         this.next = null;
     }
