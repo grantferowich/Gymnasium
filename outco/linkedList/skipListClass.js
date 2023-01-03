@@ -1,4 +1,7 @@
 /* 1206. Design Skiplist
+
+// Successfully tested the solution 01/02/2023.
+
 Hard
 Design a Skiplist without using any built-in libraries.
 

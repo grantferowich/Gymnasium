@@ -14,50 +14,39 @@ key: 1
 value: 3
 capacity: 2 
 
+
+// LRU Cache is a least recently used cache.
+The LRU Cache interface must support get and put operations in O(1) time.
  */
-class ListNode{
-    constructor(value){
-        this.key = key === undefined ? null : key
-        this.value = value === undefined ? null : value
-        this.next = null
+class DoublyLinkedListNode{
+    constructor(key, value){
+        this.key = key === undefined ? null : key;
+        this.value = value === undefined ? null : valu;
+        this.next = null;
+        this.prev = null;
     }
 }
+
 
 class LRUCache{
     constructor(capacity){
-        this.capacity = capacity
-        this.linkedList = new ListNode()
+        this.capacity = capacity;
+        this.size = 0;
+        this.map = new Map();
+        this.head = new DoublyLinkedListNode(null, null);
+        this.tail = new DoublyLinkedListNode(null, null);
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+
     }
 
-    addToCapacity(capacity)
+    get(key){
+        if (!this.map.has(key)){
+            return -1; 
+        }
+        const node = this.map.get(key);
+        // tell the interface this key WAS recently used
+        this.moveToHead(node)
+        return node.value;
+    }
 }
-let lRUCache = new LRUCache(2)
-lRUCache.put(1,1)
-
-
-/** 
- * @param {number} key
- * @return {number}
-
- // input: key
- // output: value 
- */
-LRUCache.prototype.get = function(key) {
-    
-};
-
-/** 
- * @param {number} key 
- * @param {number} value
- * @return {void}
- */
-LRUCache.prototype.put = function(key, value) {
-    
-};
-
-/** 
- * Your LRUCache object will be instantiated and called as such:
- * var obj = new LRUCache(capacity)
- * var param_1 = obj.get(key)
- * obj.put(key,value)
- */
