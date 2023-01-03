@@ -1,5 +1,5 @@
 /**
- * @param {number} capacity
+ * Successfully tested the solution 1/3/23
 
  capacity = 10 
  head at position 1
@@ -119,3 +119,9 @@ class LRUCache{
         this.remove(tail)
     }
 }
+
+let xCache = new LRUCache(2);
+xCache.put(1,1)
+xCache.put(2,2) 
+console.log(xCache.get(1))  // this works
+// console.log(xCache)
