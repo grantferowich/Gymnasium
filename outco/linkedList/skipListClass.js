@@ -121,10 +121,10 @@ class SkipList{
     }
 }
 
-let skipList = new SkipList()
-skipList.add(1)
-skipList.add(1)
-skipList.add(2)
+// let skipList = new SkipList()
+// skipList.add(1)
+// skipList.add(1)
+// skipList.add(2)
 // skipList.add(3)
 // skipList.add(5)
 // skipList.add(8)
@@ -136,6 +136,18 @@ skipList.add(2)
 // console.log(skipList.search(89)) // expected output: false
 // console.log(skipList.search(-1)) // expected output: false
 
-console.log(skipList.erase(1)) // expected output: true
+// console.log(skipList.erase(1)) // expected output: true
 
 // console.log(skipList)
+
+let skipList = new SkipList();
+skipList.add(1);
+skipList.add(2);
+skipList.add(3);
+console.log(skipList.search(0)) // expected output: false
+skipList.add(4);
+console.log(skipList.search(1)) // expected output: true 
+console.log(skipList.erase(0)) // expected output: false 
+console.log(skipList.erase(1)) // expected output: true
+console.log(skipList.search(1)) // expected output: false
+
