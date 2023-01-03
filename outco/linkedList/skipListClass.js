@@ -98,7 +98,7 @@ class SkipList{
             }
             update[x] = current;
         }
-        current = current.forward[x];
+        current = current.forward[0];
         if (current && current.key === key){
             for (let x = 0; x <= this.level; x++){
                 if (update[x].forward[x] !== current){
@@ -145,13 +145,14 @@ class SkipList{
 // console.log(skipList)
 
 let skipList = new SkipList();
-skipList.add(1);
-skipList.add(2);
+skipList.add(1,1);
+skipList.add(2,1);
+// console.log(skipList)
 skipList.add(3);
 console.log(skipList.search(0)) // expected output: false
 skipList.add(4);
 console.log(skipList.search(1)) // expected output: true 
-console.log(skipList.erase(0)) // expected output: false 
-console.log(skipList.erase(1)) // expected output: true
-console.log(skipList.search(1)) // expected output: false
+console.log(skipList.delete(0)) // expected output: false 
+console.log(skipList.delete(1)) // expected output: true
+console.log(skipList.delete(1)) // expected output: false
 
