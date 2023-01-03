@@ -79,17 +79,29 @@ class LRUCache{
         return node.value;
     }
 
+    // put has two cases: one where the input key already exists in the map
+    // a second where the key is not in the map and a node must be instantiated
     put(key, value){
+        // case: input key is not a new key
         if (this.map.has(key)){
             // retrieve key already extant in the map
             const node = this.map.get(key);
             node.value = value;
+            // send the updated node to the most recently used spot
+            this.moveToHead(node);
+            return;
         }
+
+        //case: input key is a new key
         const xNode = new DoublyLinkedListNode(key, value);
         this.map.set(key, xNode);
+        // a class method touched xNode, 
         this.addToHead(xNode);
+        
+        // update cache size
         this.size++;
-
+        // remove the least recently used node
+        // the least recently removed node by definition is the tail node
         if (this.size > this.capacity){
             this.removeTail();
         }
@@ -123,5 +135,9 @@ class LRUCache{
 let xCache = new LRUCache(2);
 xCache.put(1,1)
 xCache.put(2,2) 
-console.log(xCache.get(1))  // this works
+console.log(xCache)
+// xCache.get(1)  // this works
+
+
+// xCache.put(3,3) // the cache is expected to be {1:1, 3:3} after this method but the cache has {2:2, 3:3}
 // console.log(xCache)
