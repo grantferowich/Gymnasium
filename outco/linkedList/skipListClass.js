@@ -42,7 +42,8 @@ class SkipList{
         this.head = new SkipListNode(null, null, 0);
         this.level = 0;
     }
-    // search takes in a key and returns a boolean 
+    // search input: a key
+    // search output: a boolean
     search(key){
         let current = this.head
         for (let x = this.level; x >= 0; x--){
@@ -56,7 +57,8 @@ class SkipList{
         }
         return false
     }
-
+    // add inputs: a key and a value
+    // add outputs: nothing
     add(key, value){
         const update = new Array(this.level + 1).fill(null);
         let current = this.head;
@@ -85,7 +87,8 @@ class SkipList{
             update[x].forward[x] = xNode;
         }
     }
-
+    // delete input: a key
+    // delete output: a boolean
     delete(key){
         const update = new Array(this.level + 1).fill(null);
         let current = this.head;
@@ -106,9 +109,12 @@ class SkipList{
             while (this.level > 0 && this.head.forward[this.level] === null){
                 this.level--;
             }
+            return true;
         }
+        return false; 
     }
-
+    // random level's inputs: none
+    // random level's outputs: returns a value
     randomLevel(){
         let level = 0;
         while (Math.random() < 0.5){
@@ -116,45 +122,6 @@ class SkipList{
         }
         // maxLevel is a constant declared at the top of the file 
         return Math.min(level, MAX_LEVEL)
-    }
-
-
-    // erase takes in a value and returns a boolean 
-    // if the skip list does not contain the specified value return false
-    // after removing the value return false
-    // if there are multiple values equal to the specified value
-    // remove the first node with an equal value
-
-    //** */ update erase for special cases where erased node is the head/tail node
-    erase(value){
-        let existence = this.search(value);
-        let current = this.head;
-        let prev = new SinglyLinkedListNode()
-        prev.next = current;
-       
-        if (existence === false){
-            return false; 
-        }
-        // special case: deletion node is head node
-        // special case: deletion node is tail node
-        while (current && existence){
-            if (value === this.head.value){
-                this.head = this.head.next
-                return true;
-            }
-
-            if (current.value === value){
-                if (value === this.tail.value){
-                    this.tail = prev;
-                    this.tail.next = null;
-                }
-                prev.next = current.next;
-                this.length--;
-                return true; 
-            }
-            prev = current;
-            current = current.next
-        }
     }
 }
 
