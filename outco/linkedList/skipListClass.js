@@ -25,84 +25,99 @@ When adding a new key, compare first with the next key at the "highest" level.
     - if the new key is less than the next key, traverse down one level
     - if the new key is greater than the next key, traverse right
     - after traversing right one position, again compare the new key to the next key to the right
-    
+
  */
+
+const MAX_LEVEL = 15;
+
 class SkipListNode{
     constructor(key, value, level){
         this.key = key === undefined ? null : key;
         this.value = value === undefined ? null : value;
-        this.next = null;
+        this.forward = new Array(level + 1).fill(null)
     }
 }
 class SkipList{
     constructor(){
-        this.length = 0;
-        this.head = null;
-        this.tail = null;
+        this.head = new SkipListNode(null, null, 0);
+        this.level = 0;
     }
-    // search takes in a value and returns a boolean 
-    search(value){
+    // search takes in a key and returns a boolean 
+    search(key){
         let current = this.head
-        while (current){
-            if (current.value === value){
-                return true;
+        for (let x = this.level; x >= 0; x--){
+            while (current.forward[x] && current.forward[x].key < key){
+                current = current.forward[x];
             }
-        current = current.next;
+        }
+        current = current.forward[0];
+        if (current && current.key === key){
+            return true
         }
         return false
     }
 
-    // the add function must add the value at the location 
-    // where the prev element is smaller, the next elment is greater
-    // if the new val is less than the value at index 0 => re-set the head
-    // if the new val is greater than the node value at index n-1 => reset the head
-    // if the length is 0 => reset the head and tail
-    // returns nothing
-    add(value){
-        let xNode = new SinglyLinkedListNode(value);
-        if (this.length === 0){
-            this.head = xNode;
-            this.tail = xNode;
-            this.length++;
+    add(key, value){
+        const update = new Array(this.level + 1).fill(null);
+        let current = this.head;
+        for (let x = this.level; x >= 0; x--){
+            while (current.forward[x] && current.forward[x].key < key){
+                current = current.forward[x];
+            }
+            update[x] = current;
+        }
+        current = current.forward[0];
+        if (current && current.key === key){
+            current.value = value
             return;
         }
-        if (this.length === 1){
-            if (xNode.value < this.head.value){
-                xNode.next = this.head;
-                this.head = xNode.next;
-                this.length++;
-                return;
-            } else {
-                this.head.next = xNode;
-                this.tail = xNode;
-                this.length++;
-                return;
+
+        const randomLevel = this.randomLevel();
+        if (randomLevel > this.level){
+            for (let x = this.level + 1; x <= randomLevel; x++){
+                update[x] = this.head
             }
+            this.level = randomLevel;
         }
-        // case where length is 2 or more
-        // linkedList: 1-1
-        // current = 1
-        // current.next = 1
-        if (this.length > 1){
-            let current = this.head;
-            while (current){
-                if (current.value < xNode.value && xNode.value < current.next.value){
-                    xNode.next = current.next;
-                    current.next = xNode;
-                    this.length++
-                    return
+        const xNode = new SkipListNode(key, value, randomLevel)
+        for (let x = 0; x <= randomLevel; x++){
+            xNode.forward[x] = update[x].forward[x];
+            update[x].forward[x] = xNode;
+        }
+    }
+
+    delete(key){
+        const update = new Array(this.level + 1).fill(null);
+        let current = this.head;
+        for (let x = this.level; x >= 0; x--){
+            while (current.forward[x] && current.forward[x].key < key){
+                current = current.forward[x]
+            }
+            update[x] = current;
+        }
+        current = current.forward[x];
+        if (current && current.key === key){
+            for (let x = 0; x <= this.level; x++){
+                if (update[x].forward[x] !== current){
+                    break;
                 }
-                if (xNode.value > this.tail.value){
-                    this.tail.next = xNode;
-                    this.tail = xNode;
-                    this.length++
-                    return
-                }
-            
-                current = current.next;
+                update[x].forward[x] = current.forward[x];
+            }
+            while (this.level > 0 && this.head.forward[this.level] === null){
+                this.level--;
             }
         }
     }
+
+    randomLevel(){
+        let level = 0;
+        while (Math.random() < 0.5){
+            level++
+        }
+        // maxLevel is a constant declared at the top of the file 
+        return Math.min(level, MAX_LEVEL)
+    }
+
 
     // erase takes in a value and returns a boolean 
     // if the skip list does not contain the specified value return false
