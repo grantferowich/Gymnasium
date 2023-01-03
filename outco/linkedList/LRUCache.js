@@ -14,8 +14,6 @@ key: 1
 value: 3
 capacity: 2 
 
-
-// first in first out 
  */
 class ListNode{
     constructor(value){

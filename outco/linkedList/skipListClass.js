@@ -13,14 +13,11 @@ class SinglyLinkedListNode{
     }
 }
 class SkipList{
-    
-    constructor(value){
-        this.linkedList = new SinglyLinkedListNode(value)
+    constructor(){
         this.length = 0;
         this.head = null;
         this.tail = null;
     }
-    
     // search takes in a value and returns a boolean 
     search(value){
         let current = this.head
@@ -44,20 +41,20 @@ class SkipList{
         if (this.length === 0){
             this.head = xNode;
             this.tail = xNode;
-            this.length++
-            return
+            this.length++;
+            return;
         }
         if (this.length === 1){
             if (xNode.value < this.head.value){
                 xNode.next = this.head;
                 this.head = xNode.next;
-                this.length++
-                return 
+                this.length++;
+                return;
             } else {
                 this.head.next = xNode;
                 this.tail = xNode;
                 this.length++;
-                return 
+                return;
             }
         }
         // case where length is 2 or more
@@ -93,19 +90,32 @@ class SkipList{
 
     //** */ update erase for special cases where erased node is the head/tail node
     erase(value){
-        let existence = this.search(value)
-        console.log('existence')
-        console.log(existence)
-        let current = this.head
+        let existence = this.search(value);
+        let current = this.head;
+        let prev = new SinglyLinkedListNode()
+        prev.next = current;
+       
         if (existence === false){
-            return false 
+            return false; 
         }
+        // special case: deletion node is head node
+        // special case: deletion node is tail node
         while (current && existence){
-            if (current.next = value){
-                current.next = current.next.next;
+            if (value === this.head.value){
+                this.head = this.head.next
+                return true;
+            }
+
+            if (current.value === value){
+                if (value === this.tail.value){
+                    this.tail = prev;
+                    this.tail.next = null;
+                }
+                prev.next = current.next;
                 this.length--;
                 return true; 
             }
+            prev = current;
             current = current.next
         }
     }
@@ -126,6 +136,6 @@ skipList.add(2)
 // console.log(skipList.search(89)) // expected output: false
 // console.log(skipList.search(-1)) // expected output: false
 
-skipList.erase(1) // 
+console.log(skipList.erase(1)) // expected output: true
 
-console.log(skipList)
+// console.log(skipList)
