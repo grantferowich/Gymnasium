@@ -43,8 +43,6 @@ const findLongestPath = (head) => {
     const leftPath = findLongestPath(head.left);
     const rightPath = findLongestPath(head.right);
     return Math.max(leftPath, rightPath) + 1;
-    
-
 }
 
 
