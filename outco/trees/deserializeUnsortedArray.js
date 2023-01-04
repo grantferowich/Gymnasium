@@ -1,4 +1,5 @@
 // Convert Array Into Binary Tree
+// note this function does NOT convert arrays into BSTs, only BTs
 
 // Input: unsorted array
 // output: a binary tree
