@@ -1,4 +1,4 @@
-
+/* 
 
 
 // while node !== null
@@ -13,9 +13,19 @@
 // return the largest of the two counts 
 
 
+    Suppose the binary tree is:
+                            
+                1
+               / \
+             2    3
+                   \ 
+                   4
+
+The longest path in this tree is 3. 
+ */
 class BinaryTreeNode{
     constructor(value) {
-    this.value = value,
+    this.value = value === undefined ? null : value
     this.left = null,
     this.right = null
   }
@@ -25,21 +35,20 @@ class BinaryTreeNode{
 // output: number
 
 const findLongestPath = (head) => {
-    let node = head;
-    
-    while (node){
-    const left = findLongestPath(node.left);
-    const right = findLongestPath(node.right);
-    return max = Math.max(left, right);
+    if (head === null){
+        return 0
     }
+    const leftPath = findLongestPath(head.left);
+    const rightPath = findLongestPath(head.right);
+    return Math.max(leftPath, rightPath) + 1;
     
+
 }
 
-const tree = new BinarySearchTree();
-tree.insert(10);
-tree.insert(5);
-tree.insert(15);
-tree.insert(2);
-tree.insert(7);
-tree.insert(12);
-tree.insert(17);
+
+const root = new BinaryTreeNode(1)
+root.left = new BinaryTreeNode(2)
+root.right = new BinaryTreeNode(3)
+root.right.right = new BinaryTreeNode(4) 
+console.log(findLongestPath(root))
+
