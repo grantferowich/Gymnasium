@@ -13,7 +13,7 @@
 // return the largest of the two counts 
 
 
-Class Node = {
+class Node{
  constructor(value) {
    this.value = value,
    this.left = null,

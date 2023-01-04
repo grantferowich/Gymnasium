@@ -1,3 +1,5 @@
+// Successfully tested the insertion and search methods 1/3/23
+
 class TreeNode{
     constructor(value){
         this.value = value === undefined ? null : value;
