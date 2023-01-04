@@ -60,8 +60,16 @@ class BinarySearchTree{
             if (examinedNode.value === value){
                 return true
             }
-            examinedNode = examinedNode.value > value ? parent.left : parent.right 
+            examinedNode = examinedNode.value > value ? examinedNode.left : examinedNode.right 
         }
         return false
     }
 }
+
+let bst = new BinarySearchTree()
+bst.insert(1)
+bst.insert(1)
+bst.insert(2)
+bst.insert(3)
+console.log(bst.search(99)) // this works! the function returns false when the expected output is false
+console.log(bst)
