@@ -98,8 +98,6 @@ class LRUCache{
         // a class method touched xNode, 
         this.addToHead(xNode);
         
-        // update cache size
-        this.size++;
         // remove the least recently used node
         // the least recently removed node by definition is the tail node
         if (this.size > this.capacity){
@@ -124,6 +122,7 @@ class LRUCache{
         node.next = this.head.next;
         this.head.next.prev = node;
         this.head.next = node;
+        this.size++;
     }
 
     removeTail(){
@@ -134,9 +133,16 @@ class LRUCache{
 
 let xCache = new LRUCache(2);
 xCache.put(1,1)
-xCache.put(2,2) 
+xCache.put(2,2) // 2,2 is the most recently used and 2,2 is at head - checks out 
+console.log('xCache state 1: ')
 console.log(xCache)
-// xCache.get(1)  // this works
+xCache.get(1)  // this works
+console.log('xCache state 2:')
+console.log(xCache) // 1,1 is the most recently used at 1,1 is at the head - checks out, however, the size was incorrectly decremented
+// somehow calling the get method decremented the size without a corresponding increase in the size 
+// get calls the moveToHead function -> moveToHead function calls the remove function  + addToHead function
+//                                          --> remove function decrements the size 
+//                                          --> addToHead function must increment the size 
 
 
 // xCache.put(3,3) // the cache is expected to be {1:1, 3:3} after this method but the cache has {2:2, 3:3}
