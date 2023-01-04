@@ -50,12 +50,17 @@ class TreeNode{
     }
 }
 
+
+
 // basically push tree values into an array via a pre-order depth first traversal.
 // Loop over the array to ensure array[x] < array[x+1]
 // if not return false 
+
+// Time complexity: O(N)
+// Space complexity: O(N) since the array will increase linearly as the input size increases
 const validateBST = (treeRoot) => {
     const array = [];
-    
+
     const inOrderTraversal = (node) => {
         //base case
         if (node === null){ return }
