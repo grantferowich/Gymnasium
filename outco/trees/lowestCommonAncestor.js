@@ -29,9 +29,7 @@ Diagram
                 9 start, depth = 3
 
   base case: return the root node
-  if sharedParentNode !== rootNode 
-    return sharedParentNode
-  
+
   input: 5, 4, 9 
   
   input: 5, 2, 8
@@ -49,11 +47,20 @@ Diagram
 
   1. traverse from root to value 1, storing values in an array
   2. traverse from root to value 2, storing values in an array
-  for loop over path1Array
-    if (!(path1Array[i] === path2Array[i])){
-      return path1Array[i];
-    }
-    
+  3. Loop through both arrays, store array[x] as common
+  if list1[x] !== list2[x] return common
+
+    236. Lowest Common Ancestor of a Binary Tree
+Medium
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+Example 1:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
   
 */
 
@@ -93,47 +100,40 @@ function deserialize(arr) {
 
 // DO NOT EDIT
 const arr = [5, 2, 7, null, null, 4, 8, null, null, null, 9];
-
+const arr2 = [3,5,1,6,2,0,8,null,null,7,4]
 const sampleTree = deserialize(arr);
+const sampleTree2 = deserialize(arr2); 
 
-
-
-//////////////
-
+// sampletree2, 5, 1 => 3
+// inputs: array, num1, num2
+// output: num 
 const lowestCommonAncestor = (root, num1, num2) => {
-    let common = null;
-    let array1 = [];
-    let array2 = [];
-    let path = []
+    let path1 = [];
+    let path2 = [];
+    let path = [];
+    let common = 0;
 
     const findAncestor = (node) => {
-        if (node == null){ return }
+        if (!node){ return; }
         path.push(node.value)
-
-        if ( node.value === num1){
-            array1 = path.slice()
+        if (node.value === num1){
+            path1 = [...path]
         }
-
         if (node.value === num2){
-            array2 = path.slice()
+            path2 = [...path]
         }
-
-        findAncestor(node.left);
         findAncestor(node.right);
-        path.pop()
+        findAncestor(node.left);
+        path.pop();
     }
-
     findAncestor(root);
-
-    for (let i = 0; i < array1.length; i++){
-        if (array1[i] == array2[i]){
-            common = array[i];  
-        } else {
-            return 
-        }
+    let x = 0;
+    while (path1[x] === path2[x]){
+        common = path1[x];
+        x++;
     }
-    return common 
-};
-
-// Devised solution 12/8/22. Solution was untested as of 12/8/22.
+    return common;
+}
+console.log(lowestCommonAncestor(sampleTree2, 5, 1))
+// Successfully tested the solution 1/4/23. 
 

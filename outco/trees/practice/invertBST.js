@@ -20,14 +20,11 @@ Output: []
  * helper method recursion
  * if node has left leaf, set left leaf as right leaf
  * if node has right lead, set right leaf as left leaf
- * 
- * 
- * 
- * 
+ *
  * 
  *  */ 
 
-const invertBST = (root) => {
+const invertBT = (root) => {
 
     const invertNodeLeaves = (node) => {
         if (!node){
