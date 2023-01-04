@@ -55,6 +55,7 @@ class TreeNode{
 // if not return false 
 const validateBST = (treeRoot) => {
     const array = [];
+    
     const inOrderTraversal = (node) => {
         //base case
         if (node === null){ return }
@@ -63,7 +64,7 @@ const validateBST = (treeRoot) => {
         array.push(node.value);
         inOrderTraversal(node.right);
     }
-    preOrderTraversal(treeRoot);
+    inOrderTraversal(treeRoot);
     let x = 0;
     while (x < array.length){
         if (array[x] > array[x+1]){

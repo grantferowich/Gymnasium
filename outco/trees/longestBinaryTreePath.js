@@ -34,6 +34,8 @@ class BinaryTreeNode{
 // input: head of bst
 // output: number
 
+// time complexity: O(N) in the worst case
+// space complexity: O(N) since there may be N calls on the call stack at a given point in time
 const findLongestPath = (head) => {
     if (head === null){
         return 0
