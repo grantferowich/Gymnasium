@@ -20,6 +20,9 @@ class BinarySearchTree{
         this.size = 0;
     }
 
+
+    // Time complexity: O(N) where N is the number of nodes if the tree is assumed to be imbalanced
+    // Space Complexity: O(1)
     // input: value
     // output: no return value
     insert(value){
@@ -45,5 +48,20 @@ class BinarySearchTree{
             parent.right = xNode;
         }
         this.size++;
+    }
+
+    // Time Complexity:  O(N) in the worst case when the tree is imbalanced
+    // Space Complexity: O(1)
+    // input: value
+    // output: boolean
+    search(value){
+        let examinedNode = this.root;
+        while (examinedNode){
+            if (examinedNode.value === value){
+                return true
+            }
+            examinedNode = examinedNode.value > value ? parent.left : parent.right 
+        }
+        return false
     }
 }
