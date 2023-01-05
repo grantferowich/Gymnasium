@@ -70,6 +70,7 @@ const validateBST = (treeRoot) => {
         inOrderTraversal(node.right);
     }
     inOrderTraversal(treeRoot);
+    
     let x = 0;
     while (x < array.length){
         if (array[x] > array[x+1]){

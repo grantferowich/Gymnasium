@@ -28,6 +28,7 @@ class BinarySearchTree{
     // input: value
     // output: no return value
     insert(value){
+        
         let xNode = new TreeNode(value)
         if (this.root === null){
             this.root = xNode;
@@ -37,11 +38,13 @@ class BinarySearchTree{
 
         let parent = null;
         let child = this.root;
+
         // traverse subtree
         while (child){
             parent = child;
             child = parent.value > value ? parent.left : parent.right;
         }
+
         // insert leaf
         if (value < parent.value){
             parent.left = xNode;
