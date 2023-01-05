@@ -1,6 +1,10 @@
 /**
+ * passed tests 1/3/23
+ * 
  * 143. Reorder List
  * Medium
+ * 
+ * 
  * You are given the head of a singly linked-list. The list can be represented as:
  * L0 → L1 → … → Ln - 1 → Ln
  * Reorder the list to be on the following form:
@@ -20,24 +24,68 @@
  * input: [1,2,3]
  * output: [1,3,2]
  * 
+ *  initial: 
  *  current = 1
  *  length = 3
  *  toMove = 3
  * 
- *  starting from the last node 
- *  move the head's next to the last node
- *  move the last node's to the head's next property
+ * 
+ *  
+ * The general idea here is to find the middle point of the linked list.
+ * After finding the middle point of the linked list 
+ * reverse the second half of the linked list. 
+ * 
  * 
  * 
  *  */ 
 
+class ListNode {
+    constructor(value = null) {
+     this.value = value
+     this.next = null;
+    }
+}
+
+let list1 = new ListNode(1)
+list1.next = new ListNode(2)
+list1.next.next = new ListNode(3)
+list1.next.next.next = new ListNode(4)
+
 const reorderList = (head) => {
 
-    let current = head;
-    let length = 0;
-    while (current){
-        length++
-        current = current.next
+    let slow = head;
+    let fast = head.next;
+    // use two pointers to find the midpoint of the list 
+    while (fast && fast.next){
+        slow = slow.next;
+        fast = fast.next.next
+    }
+    // init reference to second half of the list
+    let secondHalf = slow.next;
+    // split the list up
+    let prev = slow.next = null;
+
+    // reverse the second half 
+    while (secondHalf){
+        // init ref 
+        let ref = secondHalf.next;
+        // reverse the arrow
+        secondHalf.next = prev;
+        prev = secondHalf
+        secondHalf = ref;
     }
 
+    //merge two lists
+    let firstHalf = head;
+    secondHalf = prev;
+    while(secondHalf){
+        let ref1 = firstHalf.next
+        let ref2 = secondHalf.next
+        firstHalf.next = secondHalf
+        secondHalf.next = ref1
+        firstHalf = ref1;
+        secondHalf = ref2
+    }
 }
+
+console.log(reorderList(list1)); // tests passed 1/3/23
