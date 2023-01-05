@@ -12,7 +12,8 @@
 // let the value for each key be true
 // if checking the value of a key reads a true value
 // then there is a repeated character, the string is not unique, return false
-
+//Time complexity: O(N)
+// Space complexity: O(N)
 const isUnique = (s) => {
 let hash = {}
    for (let i = 0; i < s.length; i++){
