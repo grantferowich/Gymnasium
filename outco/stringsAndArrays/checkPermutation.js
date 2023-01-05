@@ -1,3 +1,5 @@
+// Successfully tested the solution 1/4/23
+
 //given two strings decide if the second string
 // is a permutation of the first string 
 
@@ -13,21 +15,20 @@
 // check if the first string includes the relevant character 
 
 const checkPermutation = (s1, s2) => {
-    if (s1.length != s2.length) {
-        return false
+    if (s1.length !== s2.length) { return false }
+
+    let string1CharMap = {};
+    for (let char in s1){
+        string1CharMap[char] = string1CharMap[char] + 1 || 1;
     }
-    isPermutation = false;
-    for (let i = 0; i < s2.length; i++) {
-        if (s1.includes(s2[i])) {
-            isPermutation = true;
-        } else {
-            return false
-        }
+
+    for (let char in s2){
+        if (!string1CharMap[char]) { return false;}
+        string1CharMap[char]--;
     }
-    return isPermutation;
+    return true;
+
 }
 
 console.log(checkPermutation("abcc", "cbca")) // true
 console.log(checkPermutation("xyz", "xyyz")) //false 
-
-// module.exports = checkPermutation

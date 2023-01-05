@@ -1,3 +1,5 @@
+// successfully tested the function 1/4/23
+// Given a string, determine if a permutation of the string could form a palindrome.
 // Given a string write a function to determine if the string
 // is a permutation of a palindrom
 // clarify whether or not there are spaces in the given string
@@ -9,8 +11,10 @@
 
 // Solution: Compare the first character with the last character
 // if the two characters are the same, then increment 
-
+// input: a string
+// output: boolean
 const palindromePermutation = (s) => {
+    s = s.toLowerCase().replace(/\s/g, "")
     let hash = {}
     for (let i = 0; i < s.length; i++){
         let k = s[i]; 
@@ -27,4 +31,6 @@ const palindromePermutation = (s) => {
     return (odds <= 1)
 }
 
-module.exports = palindromePermutation
+console.log(palindromePermutation('carerac')) // expected output: true
+console.log(palindromePermutation('aab')) // expected output: true
+console.log(palindromePermutation('code')) // expcted output: false
