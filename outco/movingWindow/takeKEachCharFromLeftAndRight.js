@@ -38,15 +38,60 @@ map
 
 k = 2  -- must have a, b and c each appear 2 times 
 
-window 
+window  
 window size:  4
 s.length() = 12
-result = s.legnth - windowSize
+result = s.length - windowSize
 minResult = 8
 
-whenever moving the left pointer
+- when moving right, decrease values in dictionary
+- when moving left, increase values in dictionary
 
-
-
-
+Steps: 
+1) count characters and store in dict/map
+2) check for invalid input : if the value for any key is less than k 
+3) apply the sliding window technique for finding the max window size 
+where characters outside the window each have a minimum of k occurrences
+    4) init left, right pointers to 0
+       update the dictionary to exclude value at right ptr
+    5) while current character count < k 
+       update left pointer + 1 
+       update dictionary to increase count at left ptr
+    6) calculate the window size
+        window = right - left + 1
+    7) update min result = s.length - window size 
 */
+
+const takeKCharacters = (string, k) => {
+    let left = 0;
+    let right = 0;
+    let result = string.length;
+    let counts = {};
+
+    // count characters
+    for (let x = 0; x < string.length; x++){
+        let char = string[x];
+        counts[char] = counts[char] + 1 || 1;
+    }
+
+    // check valid inputs
+    for (let key in counts){
+        if (counts[key] < k){
+            return -1;
+        }
+    }
+
+    //sliding window
+    for ( right = 0; right < string.length; right++){
+        let char = string.charAt(right);
+        counts[char]--
+        while (counts[char] < k){
+            counts[char]++
+            left++
+        }
+        let windowSize = right - left - 1;
+        result = Math.min(result, string.length - windowSize)
+    }
+    return result;
+}
+console.log(takeKCharacters("aabaaaacaabc",2))
