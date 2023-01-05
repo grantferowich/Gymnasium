@@ -15,23 +15,21 @@ bst.right.right = new TreeNode(34)
 
 
 const searchBST = (root, value) => {
-
-    const traverse = (root, value) => {
-        
-        if (root.value === value){
+    const traverse = (node, value) => {
+        if (node.value === value){
             return true;
         } 
         
-        if (root.value === null){
+        if (node.value === null){
             return;
         }
 
-        if (value < root.value){
-            traverse(root.left)
+        if (value < node.value){
+            traverse(node.left)
         }
 
-        if (value > root.value){
-            traverse(root.right)
+        if (value > node.value){
+            traverse(node.right)
         }
         return false;
     }
