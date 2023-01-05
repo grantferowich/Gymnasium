@@ -1,4 +1,4 @@
-const urlify = require("./urlify")
+const urlify = require("../../outco/stringsAndArrays/urlify")
 
 test('replaces spaces in a string with %20', () => {
     expect(urlify('Mr John Doe')).toBe('Mr%20John%20Doe');

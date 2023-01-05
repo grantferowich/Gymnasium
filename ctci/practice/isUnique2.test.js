@@ -1,4 +1,4 @@
-const isUnique2 = require('./isUnique');
+const isUnique2 = require('../isUnique');
 
 test('returns true when a string is composed of unique characters', () => {
     expect(isUnique2('abcdefghij')).toBe(true)

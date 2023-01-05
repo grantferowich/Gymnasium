@@ -1,4 +1,4 @@
-const isUnique = require('./isUnique')
+const isUnique = require('../../outco/stringsAndArrays/isUnique')
 
 test('properly returns whether or not a string contains only unique characters', ()=>{
   expect(isUnique('abc')).toBe(true);

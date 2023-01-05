@@ -1,4 +1,4 @@
-const isOneAway = require('./isOneAway');
+const isOneAway = require('../../outco/stringsAndArrays/isOneAway');
 
 test('returns a boolean after determining whether two strings are one or zero char edits different from each other', ()=>{
     expect(isOneAway("pale", "ple")).toBe(true);

@@ -1,4 +1,4 @@
-const palindromePermutation = require('./palindromePermutation');
+const palindromePermutation = require('../../outco/stringsAndArrays/palindromePermutation');
 
 test('determines if a string is a permutation of a palindrome', () => {
     expect(palindromePermutation('hannah')).toBe(true);

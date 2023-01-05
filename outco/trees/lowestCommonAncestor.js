@@ -126,6 +126,7 @@ const lowestCommonAncestor = (root, num1, num2) => {
         findAncestor(node.left);
         path.pop();
     }
+    
     findAncestor(root);
     let x = 0;
     while (path1[x] === path2[x]){

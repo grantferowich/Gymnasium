@@ -1,5 +1,5 @@
 
-const checkPermutation = require('./checkPermutation')
+const checkPermutation = require('../../outco/stringsAndArrays/checkPermutation')
 
 test('decides if the second string is a permutation of the first string', ()=>{
     expect(checkPermutation('abc', 'bca')).toBe(true);
