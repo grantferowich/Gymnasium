@@ -1,5 +1,7 @@
 /**
  * Successfully tested the solution 1/4/23.
+ * Time complexity: O(N)
+ * Space complexity: O(N)
  * 226. Invert Binary Tree
 Easy
 Given the root of a binary tree, invert the tree, and return its root.
@@ -38,6 +40,6 @@ const invertBT = (root) => {
         invertNodeLeaves(node.left)
         invertNodeLeaves(node.right)
     }
-    invertNodeLeaves(node)
+    invertNodeLeaves(root)
     return root
 }

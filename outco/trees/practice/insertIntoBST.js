@@ -1,3 +1,6 @@
+// Successfully tested the solution 1/5/23.
+// time complexity: O(N) in the worst case
+// space complexity: O(N)
 class TreeNode{
     constructor(value){
         this.value = value === undefined ? null : value;
