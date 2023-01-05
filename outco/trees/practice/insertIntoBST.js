@@ -20,14 +20,11 @@ const insert = (root, value) => {
         root = xNode
         return;
     }
-    
-    
     const traverse = (node, insertionNode) => {
         if (insertionNode.value < node.value && node.left === null){
             node.left = insertionNode;
             return 
         }
-        
         if (insertionNode.value > node.value && node.right === null){
             node.right = insertionNode;
             return
@@ -37,10 +34,7 @@ const insert = (root, value) => {
         } else {
             traverse(node.left, insertionNode)
         }
-
-
     }
-
     traverse(root, xNode)
     return
 }

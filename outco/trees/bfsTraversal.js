@@ -38,6 +38,5 @@ const treeBFS = (root) => {
             queue.push(current.right)
         }   
     }
-    
     return result;
 }
