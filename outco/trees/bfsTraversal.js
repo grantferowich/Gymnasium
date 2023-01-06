@@ -16,6 +16,22 @@
  *  */  
 
 
+class TreeNode{
+    constructor(value){
+        this.value = value === undefined ? null : value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+let tree = new TreeNode(8);
+tree.left = new TreeNode(5);
+tree.right = new TreeNode(13);
+tree.left.left = new TreeNode(1);
+tree.left.right = new TreeNode(3);
+tree.right.left = new TreeNode(21);
+tree.right.right = new TreeNode(34);
+
 const treeBFS = (root) => {
     const queue = [];
     const result = [];
@@ -40,3 +56,5 @@ const treeBFS = (root) => {
     }
     return result;
 }
+
+console.log(treeBFS(tree))
