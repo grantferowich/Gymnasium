@@ -9,13 +9,24 @@
  * Input: node
  * output: array
  * 
+ *              8
+ *            /    \
+ *          5      13
+ *        /  \     / \
+ *      1    3   21   34
+ * 
+ * bfs: [8, 5, 13, 1, 3, 21, 34]
+ * 
  * Steps
  * set current to queue.dequeue
  * push current children to queue (enqueue node.left and node.right)
  * push current value to result array
- *  */  
-
-
+ *  
+ * 
+ * 
+ * BFS uses queue to temporarily store nodes. 
+ * From queue, the function acts on the values. 
+ * */  
 class TreeNode{
     constructor(value){
         this.value = value === undefined ? null : value;
