@@ -17,15 +17,25 @@ class Graph {
     // Auxiliary Space Complexity:
     // remove vertex is basically remove a key from a hash map
     removeVertex(id) {
-      // YOUR WORK HERE
+      this.storage[id].remove()
     }
    
     // Time Complexity:
     // Auxiliary Space Complexity:
     // add edge is basically add a value to the hash map
     addEdge(id1, id2) {
-      // YOUR WORK HERE
-    }
+        let vertexList = [];
+        for (let vertex in this.storage){
+          vertexList.push(vertex);
+        } 
+        let index1 = vertexList.indexOf(id1) // 5
+        let index2 = vertexList.indexOf(id2) //-1
+        if (index1 === -1 || index2 === -1){
+          return false;
+        }
+        this.storage[id1].push(id2)
+        return true;
+     }
    
     // Time Complexity:
     // Auxiliary Space Complexity:
