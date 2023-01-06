@@ -28,8 +28,8 @@ class Graph {
         for (let vertex in this.storage){
           vertexList.push(vertex);
         } 
-        let index1 = vertexList.indexOf(id1) // 5
-        let index2 = vertexList.indexOf(id2) //-1
+        let index1 = vertexList.indexOf(id1.toString()); // 5
+        let index2 = vertexList.indexOf(id2.toString()); 
         if (index1 === -1 || index2 === -1){
           return false;
         }
@@ -61,4 +61,6 @@ class Graph {
    
 let graph1 = new Graph()
 graph1.addVertex(1);
+graph1.addVertex(5);
+graph1.addEdge(1,5)
 console.log(graph1.storage)
