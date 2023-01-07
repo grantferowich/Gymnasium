@@ -29,8 +29,8 @@ const deserialize = (array) => {
 }
 
 let tree = deserialize([1,1,2,3,5,8,13,21]);
-console.log(tree)
-const inOrderDFS = (treeNode) => {
+// console.log(tree)
+const postOrderDFS = (treeNode) => {
     let result = []
     const traverse = (current) => {
         // base case
@@ -49,4 +49,4 @@ const inOrderDFS = (treeNode) => {
     return result;
 }
 
-console.log(inOrderDFS(array))
+console.log(postOrderDFS(tree))
