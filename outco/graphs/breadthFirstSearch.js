@@ -5,6 +5,6 @@ class Node{
     }
 }
 
-const breadthFirstSearch = () +> {
+const breadthFirstSearch = () => {
 
 }
