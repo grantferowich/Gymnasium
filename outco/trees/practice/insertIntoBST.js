@@ -17,8 +17,12 @@ bst.left = new TreeNode(8)
 // bst.right.right = new TreeNode(34)
 let bst2 = new TreeNode()
 
+//
+
 const insert = (root, value) => {
     let xNode = new TreeNode(value)
+    // special case
+    // root is null
     if (root === null || root === undefined){
         root = xNode
         return;

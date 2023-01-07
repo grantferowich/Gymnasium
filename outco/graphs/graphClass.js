@@ -6,7 +6,6 @@ class Graph {
    
     // Time Complexity: O(1)
     // Auxiliary Space Complexity: O(1)
-   
     // add vertex is basically add a key to a hash map
     addVertex(id) {
         if (this.storage[id]) { return false; }
@@ -17,7 +16,6 @@ class Graph {
     // Time Complexity: O(V+E)
     // Auxiliary Space Complexity: O(1)
     // remove vertex is basically remove a key from a hash map
-
     removeVertex(id) {
           // vertex already exists
      if (!this.storage[id]){ return false; }
@@ -32,8 +30,8 @@ class Graph {
      return true;
     }
    
-    // Time Complexity: O(V)
-    // Auxiliary Space Complexity: O(V)
+    // Time Complexity: O(E)
+    // Auxiliary Space Complexity: O(1)
     // add edge is basically add a value to the hash map
     addEdge(id1, id2) {
         let vertexList = [];
@@ -60,8 +58,8 @@ class Graph {
           return false;
     }
    
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity: O(1)
+    // Auxiliary Space Complexity: O(1)
     // access to return boolean if key exists
     isVertex(id) {
       if (this.storage[id]){
@@ -71,7 +69,7 @@ class Graph {
     }
    
     // Time Complexity: O(1)
-    // Auxiliary Space Complexity: O(1)
+    // Auxiliary Space Complexity: O(E)
     // access to return the values given a key
     neighbors(id) {
         if (!this.storage[id]){return null;}

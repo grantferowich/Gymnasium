@@ -118,10 +118,10 @@ class SkipList{
     randomLevel(){
         let level = 0;
         while (Math.random() < 0.5){
-            level++
+            this.level++;
         }
         // maxLevel is a constant declared at the top of the file 
-        return Math.min(level, MAX_LEVEL)
+        return Math.min(this.level, MAX_LEVEL)
     }
 }
 
