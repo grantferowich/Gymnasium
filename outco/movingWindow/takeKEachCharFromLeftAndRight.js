@@ -58,7 +58,7 @@ where characters outside the window each have a minimum of k occurrences
        update left pointer + 1 
        update dictionary to increase count at left ptr
     6) calculate the window size
-        window = right - left + 1
+       window = right - left + 1
     7) update min result = s.length - window size 
 */
 
@@ -94,4 +94,4 @@ const takeKCharacters = (string, k) => {
     }
     return result;
 }
-console.log(takeKCharacters("aabaaaacaabc",2))
+console.log(takeKCharacters("aabaaaacaabc",2)) // expected output: 8

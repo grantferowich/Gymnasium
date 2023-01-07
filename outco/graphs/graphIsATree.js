@@ -68,7 +68,6 @@ const graphIsATree = (graph) => {
     let root = graph[0];
     let queue = [root];
     let visited = {};
-
    
     // breadth-first search on the root
     while (queue.length > 0){ 
