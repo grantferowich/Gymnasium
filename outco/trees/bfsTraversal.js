@@ -68,4 +68,4 @@ const treeBFS = (root) => {
     return result;
 }
 
-console.log(treeBFS(tree))
+console.log(treeBFS(tree));

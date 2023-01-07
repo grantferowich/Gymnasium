@@ -1,4 +1,6 @@
-
+// Linearization
+// dfs has a tree root as an input parameter
+// dfs returns an array
 
 const inOrderDFS = (treeNode) => {
     let result = []
@@ -10,10 +12,12 @@ const inOrderDFS = (treeNode) => {
 
         // left traversal
         traverse(current.left)
+
+        // action
+        result.push(current.value)
+        
         // right traversal
         traverse(current.right)
-         // action
-         result.push(current.value)
     }
     traverse(treeNode)
     return result;

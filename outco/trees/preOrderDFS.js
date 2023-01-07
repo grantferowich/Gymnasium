@@ -21,7 +21,7 @@
     }
 }
 
-const deserializeUnsortedArray = (array) => {
+const deserialize = (array) => {
     if (array.length == 0){
         return null;
     }
@@ -45,7 +45,7 @@ const deserializeUnsortedArray = (array) => {
 
 let array = deserialize([1,1,2,3,5,8,13,21]);
 
-const preDFS = (treeNode) => {
+const preOrderDFS = (treeNode) => {
     let result = []
     const traverse = (current) => {
         // base case
