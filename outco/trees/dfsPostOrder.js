@@ -1,4 +1,5 @@
 
+
 const inOrderDFS = (treeNode) => {
     let result = []
     const traverse = (current) => {
@@ -14,5 +15,6 @@ const inOrderDFS = (treeNode) => {
          // action
          result.push(current.value)
     }
-
+    traverse(treeNode)
+    return result;
 }

@@ -22,7 +22,7 @@ class TreeNode{
     }
 }
 
-const deserializeUnsortedArray = (array) => {
+const deserialize = (array) => {
     if (array.length == 0){
         return null;
     }
