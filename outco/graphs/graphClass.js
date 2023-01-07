@@ -70,8 +70,8 @@ class Graph {
       return false;
     }
    
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity: O(1)
+    // Auxiliary Space Complexity: O(1)
     // access to return the values given a key
     neighbors(id) {
         if (!this.storage[id]){return null;}
