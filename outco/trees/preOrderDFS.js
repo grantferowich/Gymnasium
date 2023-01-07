@@ -43,7 +43,7 @@ const deserialize = (array) => {
     return root;
 }
 
-let array = deserialize([1,1,2,3,5,8,13,21]);
+let array = deserialize([1,1,2,3,5,8,13,21,34,55,89]);
 
 const preOrderDFS = (treeNode) => {
     let result = []
@@ -66,4 +66,4 @@ const preOrderDFS = (treeNode) => {
     return result;
 }
 
-console.log(preDFS(array))
+console.log(preOrderDFS(array))
