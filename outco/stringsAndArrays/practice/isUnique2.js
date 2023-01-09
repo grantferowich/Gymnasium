@@ -16,5 +16,3 @@ const isUnique2 = (s) => {
 
     return true
 }
-
-module.exports = isUnique2
