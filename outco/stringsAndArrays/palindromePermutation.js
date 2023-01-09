@@ -13,6 +13,7 @@
 // if the two characters are the same, then increment 
 // input: a string
 // output: boolean
+
 const palindromePermutation = (s) => {
     //remove spaces
     s = s.toLowerCase().replace(/\s/g, "")
