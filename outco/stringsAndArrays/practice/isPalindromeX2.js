@@ -1,3 +1,5 @@
+/* successfully tested the function 1/9/23 */
+
 const isPalindromeX2 = (s) => {
     let status = false;
     for (let i = 0; i < s.length; i++){

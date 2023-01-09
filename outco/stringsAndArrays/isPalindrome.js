@@ -1,3 +1,5 @@
+//Successfully tested the function 1/9/23
+
 const isPalindrome = (s) => {
     let status = false;
     for (let i = 0; i < s.length; i++){
@@ -10,3 +12,5 @@ const isPalindrome = (s) => {
     console.log('status', status);
     return status; 
 }
+
+console.log(isPalindrome('hannah')) // expected output: true

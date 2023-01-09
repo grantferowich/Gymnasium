@@ -1,3 +1,4 @@
+/* successfully tested the function 1/9/23 */
 // input: string
 // output: boolean returning the status of whether a word is a palindrome
 // test 1: hannah - true
