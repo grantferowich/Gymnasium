@@ -18,11 +18,14 @@ const checkPermutation = (s1, s2) => {
     if (s1.length !== s2.length) { return false }
 
     let string1CharMap = {};
-    for (let char in s1){
+    for ( let x = 0; x < s1.length; x++){
+        let char = s1[x];
         string1CharMap[char] = string1CharMap[char] + 1 || 1;
     }
 
-    for (let char in s2){
+    console.log(string1CharMap)
+    for (let x = 0; x < s2.length; x++){
+        let char = s2[x];
         if (!string1CharMap[char]) { return false;}
         string1CharMap[char]--;
     }
