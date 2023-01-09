@@ -1,3 +1,4 @@
+// Successfully tested the function 1/9/23. 
 // given an array and a target number 
 // return a boolean for whether or not
 // two integers in the array sum together
@@ -38,27 +39,5 @@ const twoSum = (numbers, target) => {
     }
     return false;
 }
+console.log(twoSum([2, 7, 11, 15], 9)); // true
 
-module.exports = twoSum
-
-// for the sake of exposure here is the brute force solution
-// the brute force solution features two while loops 
-
-//Example:
-//Given nums = [2, 7, 11, 15], target = 9,
-
-// Because nums[0] + nums[1] = 2 + 7 = 9,
-// return [0, 1].
-
-const twoSumBruteForce = (nums, target) => {
-    for (let i = 0; i < nums.length; i++) {
-      for (let j = 0; j < nums.length; j++) {
-        if (nums[i] + nums[j] == target) return [i, j];
-      }
-    }
-  };
-  
-  //
-  
-  console.log(twoSumBruteForce([2, 7, 11, 15], 9));
-  
