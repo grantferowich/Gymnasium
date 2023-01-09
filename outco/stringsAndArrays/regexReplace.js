@@ -1,4 +1,6 @@
 /* 
+Successfully tested the following three methods on 1/9/23.
+
 1) Remove Spaces
 input: a string
 output: a version of the string without spaces
