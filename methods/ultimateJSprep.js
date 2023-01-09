@@ -1,6 +1,6 @@
-/**
- * variables
- * */ 
+// *************
+// VARIABLES
+// *************
 
 // var x = 4;
 // var x = 5;
@@ -24,6 +24,9 @@
 // console.log(d == e); // expected : true
 // console.log(d === e); // expected : false 
 
+// **********
+// ARRAYS
+// **********
 
 // arrays store vars
 // let a = 1;
@@ -37,9 +40,30 @@
 // const x = [1, 1, 2, 3, 5, 8, 13, 21, 34];
 
 // const y = x.map(function(element){ return element})
-// console.log(y)
+// console.log(y)  // [1, 1, 2, 3, 5, 8, 13, 21, 34]
 
-const x = [1, 1, 2, 3, 5, 8, 13, 21, 34];
+// const x = [1, 1, 2, 3, 5, 8, 13, 21, 34];
 
-const y = x.map(function(element){ return element*element})
-console.log(y)
+// const y = x.map(function(element){ return element*element})
+// console.log(y) // [
+//     1,  1,   4,   9,
+//    25, 64, 169, 441,
+//  1156
+// ]
+
+
+// filter out words shorter than 6 chars
+// const words = ['wake', 'forest', 'saint charles']
+// const longs = words.filter((word) => word.length > 6)
+// console.log(longs) // 'saint charles'
+
+// let array = [];
+
+// for (let x = 0; x < words.length; x++){
+//     let word = words[x]
+//     if (word.length > 6) {
+//         array.push(word)
+//     }
+// }
+// console.log(array)
+
