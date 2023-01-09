@@ -5,7 +5,7 @@
 // clarify whether or not there are spaces in the given string
 // for the case where there are spaces the space must be removed
 // or else the hash/set will count spaces as chars with an odd value
-
+//
 // tact coa => true: taco cat, atco cta
 // hannah => true, hannah, nahhan
 
@@ -36,3 +36,8 @@ const palindromePermutation = (s) => {
 console.log(palindromePermutation('carerac')) // expected output: true
 console.log(palindromePermutation('aab')) // expected output: true
 console.log(palindromePermutation('code')) // expcted output: false
+
+//Complexity Analysis: 
+// Time complexity: O(N). The replace method iterates over the string in linear time. There is a for loop which 
+// takes up linear time. There is a second for loop over the hash which takes up linear time.
+// Space Complexity: O(1). The hash uses a linear amount of space. The function declares i, k, odds, and key as variables, which use constant space.
