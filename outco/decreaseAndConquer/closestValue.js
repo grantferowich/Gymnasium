@@ -89,7 +89,7 @@ function closestValue(arr, target) {
       if (arr[midIdx] < target){
         startIdx = midIdx + 1;
       } else {
-        endIdx = midIdx - 1;
+        endIdx = midIdx;
       }
     }
 
