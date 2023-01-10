@@ -10,6 +10,9 @@
 
 // if a is not larger than b
 // swap A and B
+// Complexity Analysis
+// Time Complexity: O(logN)
+// Space Complexity: O(1)
 
 const gcd = (a,b) => {
     // ensure inputs are positive
