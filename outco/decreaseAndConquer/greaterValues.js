@@ -33,33 +33,10 @@
  * terminate loop at midpt = 1 + 1 
  * return array.length - 1  (7 - 1 )
  * 
+ * Complexity Analysis
+ * Time complexity: O(log(N)). The function cuts the array in half to search for the target.
+ * Aux Space analysis: O(1). There are a few state variables declared yet there are no extra linear data structures. 
  */ 
-
-// check for the stop condition
-// stop loop condition == if the midIdx < target and target < mid + 1
-// stop when array[midIdx] <= target <= array[midIdx + 1]
-// and return length of array from array[midIdx + 1] to the end of the array with slice
-
-// if the stop condition is not satisfied and the value at midIdx is less than the target 
-// increment startIdx to midIdx + 1
-
-// if the stop condition is not satisfied and the value at midIdx is greater than the target value
-// decrement endIdx to midIdx - 1
-
-// if the stop condition is not satisfied and the value at midIdx is equal to the target value
-// the 
-
-// loop while the following is true: the value at startIdx is less than the target value
-// if midIdx is less than target increment startIdx to midIdx + 1  
-// if midIdx is greater than target decrement endIdx to midIdx - 1
-// if midIdx is equal to the target return the array length from midIdx to the index at the end of the array
-// if the pointer at i is less than the target and the value at i+1 is greater than the target
-// stop the loop with the pointer set to i + 1
-
-// Complexity Analysis
-// Time complexity: O(log(N)). The function cuts the array in half to search for the target.
-// Aux Space analysis: O(1). There are a few state variables declared yet there are no extra linear data structures. 
-
 
 function greaterValues(arr, target) {
     if (target > arr[arr.length-1]){return 0}
@@ -78,7 +55,6 @@ function greaterValues(arr, target) {
         endIdx = midIdx - 1;
       }
     }
-  
     return arr.length - midIdx
   }
 

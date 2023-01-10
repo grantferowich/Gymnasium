@@ -60,6 +60,7 @@
 
 
 function closestValue(arr, target) {
+  if (target > arr[arr.length-1]){return arr[arr.length -1]}
     let startIdx = 0;
     let endIdx = arr.length;
     let midIdx;
