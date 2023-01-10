@@ -14,9 +14,10 @@ Successfully tested the function 1/10/23.
  *
  * **Constraints**
  * Assume a <= b, and the value of a is N.
- *
- * Time: O(logN)
- * Space: O(1)
+ * 
+ * Complexity Analysis
+ * Time Complexity: O(logN): The function cuts the letter A in half over and over. 
+ * Space Complexity: O(1): The function instantiates one state variable and returns it. 
  *
  * **Examples**
  * `487, 734 --> 357458`
@@ -40,5 +41,5 @@ const  multiplicationRussianPeasant = (a, b) => {
 
 console.log(multiplicationRussianPeasant(487, 734)) // 357,458
 console.log(multiplicationRussianPeasant(2, 23)) // 46
-console.log(multiplicationRussianPeasant(8, 21)) 
-console.log(multiplicationRussianPeasant(13, 238))
+console.log(multiplicationRussianPeasant(8, 21)) // 168
+console.log(multiplicationRussianPeasant(13, 238)) // 3094
