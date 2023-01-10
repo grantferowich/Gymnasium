@@ -1,4 +1,4 @@
-~// successfully tested the function 1/4/23
+// successfully tested the function 1/4/23
 // Given a string, determine if a permutation of the string could form a palindrome.
 // Given a string write a function to determine if the string
 // is a permutation of a palindrom
@@ -13,11 +13,12 @@
 // if the two characters are the same, then increment 
 // input: a string
 // output: boolean
+// 
 
 const palindromePermutation = (s) => {
     //remove spaces
-    s = s.toLowerCase().replace(/\s/g, "")
-    let hash = {}
+    s = s.toLowerCase().replace(/\s/g, "");
+    let hash = {};
     for (let i = 0; i < s.length; i++){
         let k = s[i]; 
         if ( k !== " "){

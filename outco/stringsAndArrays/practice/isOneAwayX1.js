@@ -5,9 +5,6 @@
 // ("apple", "aple") => true [one insertion different]
 // ("pales", "pale") => true [one removal different]
 
-
-
-
 const isOneAwayX1 = (string1, string2) => {
     if (string1.length === string2.length){
         return isOneEditAwayX1(string1, string2);
@@ -38,7 +35,6 @@ const isOneEditAwayX1 = (string1, string2) => {
         return false
     }
     return true;
-
 }
 
 const isOneInsertionOrDeletionAwayX1 = (string1, string2) => {

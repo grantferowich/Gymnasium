@@ -23,6 +23,7 @@ console.log(removeSpaces('saint charles')) // expected output: saintcharles | ac
 
 // \w is word, so, ^\w is not word
 // replace all things which are not words (i.e. punctuation) with empty chars
+// ^\w also removes whitespace
 const removePunctuation = (string) => {
     string = string.replace(/[^\w]/g, "");
     return string;

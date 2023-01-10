@@ -11,14 +11,14 @@
 
 const caesarCipher = (string, k) => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let newWord = "";
+  let encryptedWord = "";
   for (let i = 0; i < string.length; i++) {
     let oldIndex = alphabet.indexOf(string[i]);
     let newIndex = (oldIndex + k) % 26;
     let newLetter = alphabet[newIndex];
-    newWord += newLetter;
+    encryptedWord += newLetter;
   }
-  return newWord;
+  return encryptedWord;
 };
 console.log(caesarCipher("apple", 2)); // => "crrng" :D
 console.log(caesarCipher("bootcamp", 2)); // => "dqqvecor" :D

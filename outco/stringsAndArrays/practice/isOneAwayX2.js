@@ -1,14 +1,11 @@
 
 const isOneAwayX2 = (string1, string2) => {
-    
     if (Math.abs(string1.length - string2.length) > 1){
         return false;
     }
-
     let edits = 0;
     let x = 0;
     let y = 0;
-
     while (x < string1.length && y < string2.length){
         let char1 = string1[x];
         let char2 = string2[y];
