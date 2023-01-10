@@ -64,7 +64,7 @@ const squareRoot = (N) => {
     }
 
     while (startIdx <= endIdx){
-        midIdx = (startIdx+endIdx)/2
+        midIdx = ((startIdx+endIdx)/2)
         if ((result * result) == N) { return result.toFixed(6)}
         square = midIdx * midIdx;
         if (square < N){

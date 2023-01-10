@@ -68,10 +68,18 @@ function closestValue(arr, target) {
     let result = [];
     
     while (startIdx < endIdx){
+      // find middle
       midIdx = parseInt(startIdx + parseInt((endIdx - startIdx)/2));
+      // process middle element relative to input target 
       let difference = Math.abs(target - arr[midIdx]);
+      
+      // process the result 
       if (difference <= closest){
+        // hash storage steps: 
+        // store the middle element as a key
+        // store the processing result as the value
         hash[arr[midIdx]] = difference;
+        // update the state variable to be returned, called closest
         closest = difference;
       }
       if (arr[midIdx] < target){
