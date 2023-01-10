@@ -79,9 +79,13 @@ function closestValue(arr, target) {
         // store the middle element as a key
         // store the processing result as the value
         hash[arr[midIdx]] = difference;
+       
         // update the state variable to be returned, called closest
         closest = difference;
       }
+
+      // decide where to keep processing, the left half of the array
+      // or the right half of the array
       if (arr[midIdx] < target){
         startIdx = midIdx + 1;
       } else {
@@ -89,12 +93,15 @@ function closestValue(arr, target) {
       }
     }
 
+
+    // store all the keys from the hash which are characterized by having a value which is equal to the closest value to the target
     for (let key in hash){
       if (hash[key] === closest){
           result.push(key)
       }
     }
-    return console.log(result[0])
+    // only return the smallest element which is the closest to the target 
+    return result[0]
 }
     
 
@@ -103,6 +110,6 @@ function closestValue(arr, target) {
 // console.log(closestValue([-1, -2, 0], -5)) // -2
 
 
-closestValue([1, 2, 3, 4, 5, 7, 9, 10, 11], 6) // should return 5 since 5 is the lower of 5 and 7
-closestValue([1, 2, 3], 8) // 3 // fn works 
-closestValue([-1, -2, 0], -5) // -2
+console.log(closestValue([1, 2, 3, 4, 5, 7, 9, 10, 11], 6)) // should return 5 since 5 is the lower of 5 and 7
+console.log(closestValue([1, 2, 3], 8)) // 3 // fn works 
+console.log(closestValue([-1, -2, 0], -5)) // -2
