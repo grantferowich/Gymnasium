@@ -33,6 +33,8 @@ class SinglyLinkedList{
         this.length++;
     }
 
+    // 1-2-3
+    // 1->2
     removeFromTail(){
         if (this.length === 0){
             return
