@@ -1,5 +1,5 @@
 // Character Mode
-//  *
+//  * Successfully tested the function 1/11/23.
 //  * Given a string, find the most frequent occurring letter(s) in the string
 //  *
 //  * Parameters

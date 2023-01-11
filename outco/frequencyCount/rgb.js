@@ -38,8 +38,8 @@ const rgb = (string) => {
             hash[char] += 1;
         }
     }
-    return console.log(Math.min(hash['r'], hash['g'], hash['b']))
+    return Math.min(hash['r'], hash['g'], hash['b'])
 }
 
-rgb('rgbrgb') // --> 2
-rgb('rbgrbrgrgbgrrggbbbbrgrgrgrg') // --> 7
+console.log(rgb('rgbrgb')) // --> 2
+console.log(rgb('rbgrbrgrgbgrrggbbbbrgrgrgrg')) // --> 7
