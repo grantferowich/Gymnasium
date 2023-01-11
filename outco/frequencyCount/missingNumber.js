@@ -30,8 +30,8 @@ const missingNumber = (n, arr) => {
     let x = 1;
     while (x < n){
         let element = arr[x];
-        hash[element] = hash[element] + 1 || 1
-        x++
+        hash[element] = hash[element] + 1 || 1;
+        x++;
     }
 
     let y = 1;
@@ -43,7 +43,7 @@ const missingNumber = (n, arr) => {
     }
   
     return result;
-  }
+}
 
 //   4, [1, 4, 2] --> [3]
 //   8, [4, 7, 1, 6] --> [2, 3, 5, 8]

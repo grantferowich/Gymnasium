@@ -31,19 +31,14 @@ class TreeNode{
 let fibArray = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
 
 const sortedArrayToBST = (array) => {
-
     let middleIndex = parseInt(array.length/2);
     let left = array.slice(0, middleIndex);
     let right = array.slice(middleIndex, array.length-1);
-    
     let rootValue = array[middleIndex];
     let root = new TreeNode(rootValue);
-
     let x = left.length-1;
-
     // while traversing left, if value is less and left is null, insert
                         //  , if value is greater and right is null, insert 
-    
     const traverse = (node) => {
         if (node.value === null){
             return

@@ -10,6 +10,13 @@
 // e becomes g
 // for the input apple the expected output is crrng
 
+// Complexity Analysis
+// Time Complexity: O(N).
+// The amount of time the function will take to 
+// encrypt a word increases linearly as the input size grows.
+// Space Complexity: O(N). As the size of the input grows the length of the encrypted word
+// which must be returned grows.
+
 const caesarCipher = (string, k) => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   let encryptedWord = "";

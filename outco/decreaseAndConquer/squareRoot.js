@@ -49,60 +49,37 @@
  */
 
 const squareRoot = (N) => {
-
+    if (N === 1 || N ===0){ return N};
     let startIdx = 0;
     let endIdx = N;
     let midIdx = 0;
     let result = 0;
     let square = 0;
 
-    if (typeof N !== 'number'){
-        return false;
-    }
-    if (N.toString.length === 0){
-        return false;
-    }
+    // if (typeof N !== 'number'){
+    //     return false;
+    // }
+    // if (N.toString.length === 0){
+    //     return false;
+    // }
 
     while (startIdx <= endIdx){
-        midIdx = ((startIdx+endIdx)/2)
-        if ((result * result) == N) { return result.toFixed(6)}
+        midIdx = startIdx+ (endIdx - startIdx)/2;
+        // if ((result * result) === N) { return result.toFixed(6)}
+        
         square = midIdx * midIdx;
+        if (square == N){
+            return mid;
+        }
         if (square < N){
             startIdx = midIdx + 0.000001;
             result = midIdx;
         } else {
-            endIdx = midIdx - 0.000001;  
-            result = midIdx;
+            endIdx = midIdx - 0.000001; 
         }
     }
-
     return result.toFixed(6)
 }
-
-
-// function squareRoot(n) {
-//     if (n === 1 || n === 0) {
-//       return n;
-//     }
-//     let low = 0;
-//     let high = n;
-//     let result = 0;
-//     let sq = 0;
-//     let mid = 0;
-//     while (low <= high) {
-//       mid = (low + high) / 2;
-//       sq = mid * mid;
-//       if (sq == n) {
-//         return mid;
-//       } else if (sq < n) {
-//         low = mid + .0000001;
-//         result = mid;
-//       } else {
-//         high = mid - .0000001;
-//       }
-//     }
-//     return result.toFixed(6);
-//   }
 
 console.log(squareRoot(81.000000)) // 9
 console.log(squareRoot(14856)) // 121.885192 // outputting 121.885191
