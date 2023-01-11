@@ -25,9 +25,11 @@
 
  const wordCount = (sentence) => {
     let s = sentence.toLowerCase();
-    // replace everything that is NOT \w, a digit, letter, or underscore or \s, a whitespace 
+    // replace everything that is NOT \w, a digit, letter, or underscore 
     let str = s.replace(/[^\w\s]/g,"");
+    console.log('str: ', str)
     let words = str.split(" ");
+    console.log('words: ', words)
     let hash = {};
    
     //remove all punctuation marks from words array
@@ -45,7 +47,7 @@
     return hash    
 }
 
-// wordCount('The cat and the hat.') // { the: 2, cat: 1, and: 1, hat: 1 }
-// wordCount('As soon as possible.') // { as: 2, soon: 1, possible: 1 }
+console.log(wordCount('The cat and the hat.')) // { the: 2, cat: 1, and: 1, hat: 1 }
+console.log(wordCount('As soon as possible.')) // { as: 2, soon: 1, possible: 1 }
 console.log(wordCount("It's a man, it's a plane, it's superman!"))
 console.log(wordCount(""))

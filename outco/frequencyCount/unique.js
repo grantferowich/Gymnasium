@@ -35,7 +35,6 @@
 // Successfully tested the solution on 12/10/22.
 
 function unique(arr) {
-
   let array = [];
   for (let i = 0; i < arr.length; i++){
     if (!array.includes(arr[i])){

@@ -22,20 +22,15 @@
 // store k-v pairs with occurrences as values
    
 const letterSortLinearTime = (string) => {
-       let stringChars = string.toLowerCase();
-       let characters = new Array(26).fill(0);
-       let returnWord = "";
-       //generate hash with char code value as key and visits as value in k-v pair 
-       
-       for (let i = 0; i < stringChars.length; i++){
-           characters[string[i].charCodeAt() - 97] += 1;
-       } 
-
-       for (let x = 0; x < characters.length ; x++){
-           returnWord += String.fromCharCode(x+97).repeat((characters[x]));
-       }
-
-       return returnWord;
+    let inputChars = string.toLowerCase();
+    let sortedChars = "";
+    for (let x = 0; x < inputChars.length ; x++){
+        // char to num
+        let char = string[x].CharCodeAt()
+        if (sortedChars.length = )
+        returnWord += String.fromCharCode(x+97).repeat((characters[x]));
+    }
+    return returnWord;
 }
 
 console.log(letterSortLinearTime('hello'))
