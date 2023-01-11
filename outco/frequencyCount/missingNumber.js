@@ -22,7 +22,7 @@
 // if the input array does not include i
 // append the missing value to a new array
 
-// Succesfully tested the function 12/10/22.
+// Succesfully tested the function 1/11/23.
 
 const missingNumber = (n, arr) => {
     let result = [];
