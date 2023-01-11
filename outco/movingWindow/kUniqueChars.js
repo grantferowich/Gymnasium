@@ -1,17 +1,30 @@
 // for a string with a number, k, and a series of letters
 // return the longest substring with k unique chars
 // kUniqueChars("2eceba") => 3
-
+// "3aabbcc" => 6
+// 3aaabbb  => return invalid input
 // I: 1 string
 // O: 1 integer
 // C: optimize
 // E: empty string.
 
 const kUniqueChars = (s) => {
-    let k = s[0];
+    let k = parseInt(s[0]);
     let str = s.slice(1, s.length-1)
     // let str = s.substring(1, s.length-1);
-   
+   let uniquesSet = new Set()
+   let x = 0;
+
+   while (x < str.length){
+    uniquesSet.add(str[x])
+    x++
+   }
+
+   let uniques = uniquesSet.size 
+   if (uniques < k){
+    return "invalid input"
+   }
+
     let startOfWindow = 0;
     let currentWindowLength = 0;
     let hash = {};
@@ -35,5 +48,6 @@ const kUniqueChars = (s) => {
     return maxLength;
 }
 
-console.log(kUniqueChars("2eceba"))
-// module.exports = kUniqueChars
+console.log(kUniqueChars("2eceba")) // 3 // OK 
+console.log(kUniqueChars("3aaabbb")) // return error
+console.log(kUniqueChars("3aabbxxyyy")) // 7
