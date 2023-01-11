@@ -14,10 +14,8 @@
 
 
 const sortDigitsLinear = (number) => {
-    
     let hash = {};
     let final = 0;
-
     // build up hash by setting the key as the digit in 
     while (number > 0){
         // "access" integer from right to left as the remainder of
@@ -31,10 +29,10 @@ const sortDigitsLinear = (number) => {
         number = parseInt(number/10);
     }
     let power = 0;
-    for (let x = 10; x >= 0; x--){
+    for (let x = 9; x >= 0; x--){
         if (hash[x] !== undefined){
             while (hash[x] >=1){
-                (console.log(Math.pow(10,power)))
+                // (console.log(Math.pow(10,power)))
                 final += x * Math.pow(10, power);
                 power += 1;
                 hash[x] -= 1;
