@@ -22,7 +22,7 @@ const kUniqueChars = (s) => {
 
    let uniques = uniquesSet.size 
    if (uniques < k){
-    return "invalid input"
+    return -1;
    }
 
     let startOfWindow = 0;
@@ -49,5 +49,5 @@ const kUniqueChars = (s) => {
 }
 
 console.log(kUniqueChars("2eceba")) // 3 // OK 
-console.log(kUniqueChars("3aaabbb")) // return error
+console.log(kUniqueChars("3aaabbb")) // -1
 console.log(kUniqueChars("3aabbxxyyy")) // 7
