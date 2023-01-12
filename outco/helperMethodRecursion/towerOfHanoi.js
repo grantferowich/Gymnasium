@@ -20,18 +20,19 @@
  * Disk 2 moved from B to C
  * Disk 1 moved from A to C
  * 
- *  */ 
+ * 
+ *  *  */ 
+
 
 const towerOfHanoi = (num, source, auxiliary, target) => {
-
     moveDiscs = (num, source, auxiliary, target) => {
         if (num > 0){
-
+            moveDiscs(num - 1, source, auxiliary, target)
+            console.log(`moving disk ${num} from ${source} to ${target}`)
+            moveDiscs(num -1, auxiliary, target, source )
         }
-
     }
-
-    moveDiscs(num, source, auxiliary, target)
+    return moveDiscs(num, source, auxiliary, target)
 }
 
-towerOfHanoi(3, 'x', 'y', 'z')
+towerOfHanoi(2, 'x', 'y', 'z')
