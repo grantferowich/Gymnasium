@@ -10,18 +10,18 @@
 
 const kUniqueChars = (s) => {
     let k = parseInt(s[0]);
-    let str = s.slice(1, s.length-1)
-    // let str = s.substring(1, s.length-1);
-   let uniquesSet = new Set()
+    let str = s.slice(1)
+ 
+   let counts = {}
+   
+
    let x = 0;
-
    while (x < str.length){
-    uniquesSet.add(str[x])
-    x++
+    let char = str[x];
+    counts[char] = counts[char] + 1 || 1;
+    x++;
    }
-
-   let uniques = uniquesSet.size 
-   if (uniques < k){
+   if (Object.keys(counts).length < k){
     return -1;
    }
 
@@ -30,21 +30,21 @@ const kUniqueChars = (s) => {
     let hash = {};
     let maxLength = 1
 
-    for (let i = 0; i < str.length; i++){
-        let char = str[i];
-        hash[char] = true;
-
+    for (let endOfWindow = 0; endOfWindow < str.length; endOfWindow++){
+        let char = str[endOfWindow];
+        if (!hash[char]){
+            hash[char] = true;
+            currentWindowLength++;
+        }
         // stop increasing window length when the number of keys exceeds k
-        if (hash.keys > k){
+        if (currentWindowLength > k){
             // hash.clear();
-            hash = null;
+            delete hash[str[startOfWindow]];
+            currentWindowLength--
             startOfWindow++;
         }
-
-        currentWindowLength = i - startOfWindow;
-        maxLength = Math.max(currentWindowLength, maxLength)
+        maxLength = Math.max(maxLength, endOfWindow - startOfWindow + 1);
     }
-    // console.log(maxLength)
     return maxLength;
 }
 
