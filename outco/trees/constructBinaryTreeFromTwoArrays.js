@@ -5,6 +5,8 @@
 // we know preorder traversal goes, current, left, right 
 // we know inorder traversal goes, left, current, right
 
+// working solution with some bugs 1/13/23
+
 class TreeNode{
     constructor(value){
         this.value = value === undefined ? null : value;
@@ -14,9 +16,16 @@ class TreeNode{
 }
 
 const generateTree = (preArr, inArr) => {
-    if (!preArr.length === 0){return null}
+    if (!preArr.length === 0){return null};
+
+    if (preArr.length === 1){
+        return new TreeNode(preArr[0]);
+    }
     let root = new TreeNode(preArr[0]);
     const append = (node, depth) => {
+        if (depth > preArr.length){
+            return 
+        }
         node.left = new TreeNode(preArr[depth+1])
         node.right = new TreeNode(preArr[depth+2])
         append(node.left, depth + 1);
