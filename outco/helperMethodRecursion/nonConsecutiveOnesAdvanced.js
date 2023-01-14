@@ -1,4 +1,5 @@
 /**
+ * Successfully tested the function 1/14/23.
  * 230 - Non-Consecutive Ones
  * Given a positive integer n, return an array of all the binary strings of length n that DO NOT contain consecutive 1s.
  * 
@@ -25,19 +26,20 @@ Output: ["000", "001", "010", "100", "101"]
 const nonConsecutiveOnesAdvanced = (n) => {
     let array = [];
 
-    const recurse = (substring) => {
+    const buildStrings = (substring) => {
         if (substring.length === n){
             array.push(substring);
             return
         }
-        recurse(substring + "0")
+        buildStrings(substring + "0")
         if (substring[substring.length - 1] !== "1"){
-            recurse(substring + "1")
+            buildStrings(substring + "1")
         }
     }
 
-    recurse("");
+    buildStrings("");
     return array
 }
 
 console.log(nonConsecutiveOnesAdvanced(4))
+console.log(nonConsecutiveOnesAdvanced(2))
