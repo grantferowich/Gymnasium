@@ -83,15 +83,23 @@ const mergeKSortedLists = (lists) => {
             // open up tail's next property
             tail = tail.next;
         }
+
         // if one of the lists is null append the elements from the other list
         tail.next = list1 || list2;
         // dummy.next is the head basically
         return dummy.next;
     }
+    // init the result list as the first list 
     let merged = lists[0];
     for (let x = 1; i < lists.length; x++) {
+        // assign the result list to the output of calling merge2Lists on the result list itself
+        // and the list being processed at location x in k lists
+        // do subproblem of merging the result list with the first list
+        // then, return the built up result 
+        // then keep calling merge2Lists until k lists have been merged into the result list
         merged = merge2Lists(merged, lists[x]);
     }
+    // finally return result
     return merged;
 }
 
