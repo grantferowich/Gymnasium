@@ -45,6 +45,9 @@ const merge2SortedLists = (list1, list2) =>{
     let tail = dummy;
 
     while (list1 && list2){
+        // iterate through both lists 
+        // append the lowest value to the tail
+        // whichever list you appended the tail from, iterate to next node
         if (list1.value <= list2.value){
             tail.next = list1;
             list1 = list1.next;
