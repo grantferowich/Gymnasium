@@ -55,14 +55,17 @@ const merge2SortedLists = (list1, list2) =>{
             tail.next = list2;
             list2 = list2.next;
         }    
+        // iterate to the null spot of the tail
         tail = tail.next;
     }
 
-    // list 1 is longer
+    // when list 2 is longer
+    // set the tail's next property to remainder of list2
     if (list1 === null && list2){
         tail.next = list2;
     }
-    // list 2 is longer 
+    // when list 1 is longer
+    // set the tail's next property to remainder of list1
     if (list2 === null && list1){
         tail.next = list1;
     }
