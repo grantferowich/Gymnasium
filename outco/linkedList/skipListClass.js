@@ -46,7 +46,9 @@ class SkipList{
     // search output: a boolean
     search(key){
         let current = this.head
+        // start from the top level 
         for (let x = this.level; x >= 0; x--){
+            // once the key to the right is found is greater than the key
             while (current.forward[x] && current.forward[x].key < key){
                 current = current.forward[x];
             }
