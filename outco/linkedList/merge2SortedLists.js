@@ -69,6 +69,10 @@ const merge2SortedLists = (list1, list2) =>{
     if (list2 === null && list1){
         tail.next = list1;
     }
+
+    // tail will be pointing at the last node of the sorted list
+    // therefore
+    // return the head of the sorted list, which is dummy points at
     return dummy.next
 }
 
