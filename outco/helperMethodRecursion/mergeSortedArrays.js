@@ -7,49 +7,40 @@
 // The approach below uses O(M+N) auxiliary space.
 // The approach below has a runtime of O(M+N). 
 
-// Successfully tested the solution on 12/12/22.
 
-function mergeSortedArrays(arr1, arr2){
-    let merged = [];
-    let arrayLength = arr1.length + arr2.length;
-  
-    const combine = (idx1, idx2) => {
-     
-      if (merged.length === arrayLength) { return; }
 
-      if (arr1[idx1] < arr2[idx2]){
-        merged.push(arr1[idx1]);
-        merged.push(arr2[idx2]);
+function mergeSortedArrays(arr1, arr2) {
+  let merged = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < arr1.length && j < arr2.length) {
+      if (arr1[i] <= arr2[j]) {
+          merged.push(arr1[i]);
+          i++;
+      } else {
+          merged.push(arr2[j]);
+          j++;
       }
+  }
 
-      if (arr1[idx1] > arr2[idx2]){
-        merged.push(arr2[idx2]);
-        merged.push(arr1[idx1]);
-      }
+  while (i < arr1.length) {
+      merged.push(arr1[i]);
+      i++;
+  }
 
-      if (arr1[idx1] === arr2[idx2]){
-        merged.push(arr2[idx2]);
-        merged.push(arr1[idx1]);
-      }
+  while (j < arr2.length) {
+      merged.push(arr2[j]);
+      j++;
+  }
 
-      if (arr1[idx1] === undefined && arr2[idx2]){
-        merged.push(arr2[idx2])
-      }
-
-      if (arr2[idx2] === undefined && arr1[idx1]){
-        merged.push(arr1[idx1])
-      }
-
-      combine(idx1+1, idx2+1)
-    }
-  
-    combine(0,0,0)
-    return merged;
+  return merged;
 }
 
 
+
 // merge([1, 4, 7], [2, 3, 6, 9]) => [1, 2, 3, 4, 6, 7, 9]
-console.log(mergeSortedArrays([1,3,5], [2,4,6,8,10]))
+console.log(mergeSortedArrays([1,2,3,4,5], [6,8,10]))
 console.log(mergeSortedArrays([1,4,5,7], [2, 3,5,6,9])) 
 
 

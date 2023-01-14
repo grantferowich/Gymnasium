@@ -60,7 +60,6 @@ const nonConsecutiveOnes = (number) => {
         //left
         findCombinations(build + "0", depth + 1);
     }
-    
     findCombinations("", 0);
     return result;
 }
