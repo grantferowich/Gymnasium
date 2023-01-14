@@ -65,10 +65,14 @@ const mergeKSortedLists = (lists) => {
     if (lists.length === 0) return null;
 
     const merge2Lists = (list1, list2) => {
+
+        // sentinel node
         let dummy = new SinglyLinkedListNode();
         let tail = dummy;
 
         while (list1 && list2) {
+            // append lowest value to tail
+            // iterate over two input lists
             if (list1.value <= list2.value) {
                 tail.next = list1;
                 list1 = list1.next;
@@ -76,6 +80,7 @@ const mergeKSortedLists = (lists) => {
                 tail.next = list2;
                 list2 = list2.next;
             }
+            // open up tail's next property
             tail = tail.next;
         }
         // if one of the lists is null append the elements from the other list

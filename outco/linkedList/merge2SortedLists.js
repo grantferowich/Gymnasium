@@ -41,6 +41,7 @@ let list5 = new SinglyLinkedListNode(0)
 
 const merge2SortedLists = (list1, list2) =>{
 
+    // sentinel node
     let dummy = new SinglyLinkedListNode();
     let tail = dummy;
 
@@ -61,14 +62,15 @@ const merge2SortedLists = (list1, list2) =>{
 
     // when list 2 is longer
     // set the tail's next property to remainder of list2
-    if (list1 === null && list2){
-        tail.next = list2;
-    }
-    // when list 1 is longer
-    // set the tail's next property to remainder of list1
-    if (list2 === null && list1){
-        tail.next = list1;
-    }
+    // if (list1 === null && list2){
+    //     tail.next = list2;
+    // }
+    // // when list 1 is longer
+    // // set the tail's next property to remainder of list1
+    // if (list2 === null && list1){
+    //     tail.next = list1;
+    // }
+    tail.next = list1 || list2;
 
     // tail will be pointing at the last node of the sorted list
     // therefore
