@@ -41,7 +41,6 @@ function printForward(node) {
     while (current){
         console.log(current.value);
         current = current.next;
-        
     }
 };
 

@@ -1,9 +1,7 @@
 /**
  * passed tests 1/3/23
- * 
  * 143. Reorder List
  * Medium
- * 
  * 
  * You are given the head of a singly linked-list. The list can be represented as:
  * L0 → L1 → … → Ln - 1 → Ln
@@ -28,15 +26,10 @@
  *  current = 1
  *  length = 3
  *  toMove = 3
- * 
- * 
  *  
  * The general idea here is to find the middle point of the linked list.
- * After finding the middle point of the linked list 
+ * After finding the middle point of the linkedz list 
  * reverse the second half of the linked list. 
- * 
- * 
- * 
  *  */ 
 
 class ListNode {
@@ -52,7 +45,6 @@ list1.next.next = new ListNode(3)
 list1.next.next.next = new ListNode(4)
 
 const reorderList = (head) => {
-
     let slow = head;
     let fast = head.next;
     // use two pointers to find the midpoint of the list 
@@ -64,7 +56,6 @@ const reorderList = (head) => {
     let secondHalf = slow.next;
     // split the list up
     let prev = slow.next = null;
-
     // reverse the second half 
     while (secondHalf){
         // init ref 

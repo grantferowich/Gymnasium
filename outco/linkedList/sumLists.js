@@ -31,7 +31,7 @@ Output: [8,9,9,9,0,0,0,1]
 
 */
 
-const { traverse } = require("@babel/core");
+
 
 class ListNode {
     constructor(value = null) {

@@ -1,3 +1,4 @@
+// Successfully tested the function 1/14/23. 
 // for a string with a number, k, and a series of letters
 // return the longest substring with k unique chars
 // kUniqueChars("2eceba") => 3
