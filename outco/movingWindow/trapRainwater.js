@@ -39,14 +39,11 @@ const trapRainwater = (array) => {
     for (let k = array.length - 2; k >= 0; k--){
         rightMax = Math.max(rightMax, array[k]);
         rightArr[k] = rightMax;
-
     }
-
     for (let j = 0; j < array.length; j++){
         result = result + (Math.min(leftArr[j], rightArr[j]) - array[j])
     }
     return result;
-
 }
 
 console.log(trapRainwater([0,1,0,2,1,0,1,3,2,1,2,1])) // 6

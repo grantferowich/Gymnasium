@@ -43,7 +43,7 @@ const kUniqueChars = (s) => {
             currentWindowLength--
             startOfWindow++;
         }
-        maxLength = Math.max(maxLength, endOfWindow - startOfWindow + 1);
+        maxLength = Math.max(maxLength, endOfWindow - startOfWindow);
     }
     return maxLength;
 }

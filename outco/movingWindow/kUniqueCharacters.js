@@ -15,7 +15,21 @@ const kUniqueCharacters = (s) => {
     let startOfWindow = 0;
     let currentWindowLength = 0;
     let hash = {};
-    let maxLength = 1
+    let maxLength = 1;
+
+
+    let counts = {}
+   
+
+   let x = 0;
+   while (x < str.length){
+    let char = str[x];
+    counts[char] = counts[char] + 1 || 1;
+    x++;
+   }
+   if (Object.keys(counts).length < k){
+    return -1;
+   }
 
     for (let i = 0; i < str.length; i++){
         let char = str[i];
@@ -35,5 +49,7 @@ const kUniqueCharacters = (s) => {
     return maxLength;
 }
 
-console.log(kUniqueCharacters("2eceba"))
+console.log(kUniqueCharacters("2eceba")) // 3
+console.log(kUniqueCharacters("3aaabbb")) // -1
+console.log(kUniqueCharacters("3aabbxxyyy")) // 7
 // module.exports = kUniqueChars
