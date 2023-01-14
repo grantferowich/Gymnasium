@@ -18,23 +18,23 @@
 
 // successfully tested numberOf 12/10/22.
 
-function numberOf(num) {
-  // i tracks state of the number of 
-  let i = 0;
+// function numberOf(num) {
+//   // i tracks state of the number of 
+//   let i = 0;
 
-  while (num) {
-    i++;
-    if (num % 2 === 0) {
-      num = num / 2;
-    } else {
-      num--;
-    }
-  }
-  // return the number of 
-  return i;
-}
+//   while (num) {
+//     i++;
+//     if (num % 2 === 0) {
+//       num = num / 2;
+//     } else {
+//       num--;
+//     }
+//   }
+//   // return the number of 
+//   return i;
+// }
 
-//Another approach is to use recursion.
+// Another approach is to use recursion.
 // The recursive approach was successfully tested 12/10/22.
 
 // recall the  for recursion:
@@ -47,12 +47,8 @@ function numberOf(num) {
 function numberOfSteps(num) {
   let steps = 0;
   // check input validitiy
-  if (typeof num !== 'number' || num < 1 || !Number.isInteger(num) || num === undefined || num === null || !isNaN(num)){
-    return ""
-  }
-  //base case
-  if (num === 1) {
-     return steps = 1;
+  if (!Number.isSafeInteger(num) || num < 1){
+    return "";
   }
   
   const traverse = (x) => {
