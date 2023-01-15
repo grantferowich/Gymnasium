@@ -36,7 +36,7 @@ const powersetWithMemoization = (word) => {
     // define helper method
     const discoverCombos = (build, depth) => {
 
-        // create the key 
+        // create the key: use the recursive call's inputs to formulate a string key
         let key = build.toString() + "_"+depth.toString()
         
         // base case
