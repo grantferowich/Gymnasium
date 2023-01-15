@@ -28,28 +28,21 @@
  */
 
 const capitalPermutationsAdvancedSet = (string) => {
-
     let permutations = new Set();
-
     const generatePermutations = (build, depth) => {
-
         if (depth === string.length){
             permutations.add(build);
             return
         }
-
         if (typeof string[depth] === 'number'){
             generatePermutations(build+string[depth].toString, depth+1 )
         }
-
         let char = string[depth];
         let upper = char.toUpperCase();
         let lower = char.toLowerCase();
-
         generatePermutations(build+upper, depth+1)
         generatePermutations(build+lower, depth+1)
     }
-
     generatePermutations("",0)
     return permutations;
 }

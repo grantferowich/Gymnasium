@@ -35,13 +35,10 @@ const capitalPermutationsAdvancedArray = (string) => {
     // let hash = {};
 
     const generatePermutations = (build, depth) => {
-
         if (depth === string.length){
                 permutations.push(build);
                 return
         }
-
-        
         if (!isNaN(string[depth])) {
             generatePermutations(build+string[depth].toString(), depth+1 )
         } else {
@@ -52,7 +49,6 @@ const capitalPermutationsAdvancedArray = (string) => {
             generatePermutations(build + lower, depth+1)
         }  
     }
-
     generatePermutations("",0)
     return permutations;
 }

@@ -24,10 +24,10 @@ const trapRainwater = (array) => {
     let length = array.length;
     let leftMax = array[0];
     let rightMax = array[length - 1];
-    // let leftArr = new Array(length);
+   
     let leftArr = []
     leftArr[0] = array[0];
-    // let rightArr = new Array(length);
+   
     let rightArr = []
     rightArr[length - 1] = array[length - 1];
     // i points to front

@@ -43,7 +43,7 @@ tree.left.right = new TreeNode(3);
 tree.right.left = new TreeNode(21);
 tree.right.right = new TreeNode(34);
 
-const treeBFS = (root) => {
+const treeBFSTraversal = (root) => {
     const queue = [];
     const result = [];
     queue.push(root);
@@ -68,4 +68,4 @@ const treeBFS = (root) => {
     return result;
 }
 
-console.log(treeBFS(tree));
+console.log(treeBFSTraversal(tree));
