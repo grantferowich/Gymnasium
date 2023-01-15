@@ -39,6 +39,9 @@ Example 3:
 
  Output: 7110272
 
+ Complexity Analysis 
+Time Complexity: O(4^N*M)
+Space Complexity: O(1)
  */
 
 
