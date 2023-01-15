@@ -1,4 +1,7 @@
 /* 
+*Robot Paths With A Visited Set*
+
+Successfully tested the function 1/15/23.
 
 The main differences between RobotPathsToggle.js and RobotPathsVisitedSet.js
 consists in how the function tracks whether or not a position in the matrix has been visited.
