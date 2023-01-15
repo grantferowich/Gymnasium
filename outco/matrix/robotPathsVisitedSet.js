@@ -1,3 +1,25 @@
+/* 
+
+The main differences between RobotPathsToggle.js and RobotPathsVisitedSet.js
+consists in how the function tracks whether or not a position in the matrix has been visited.
+RobotPathsVisitedSet(x) instantiates a set data structure and inserts values into the data structure.
+RobotPathsToggle(x) manipulates the values of the matrix passed as a parameter into the function. 
+RobotPathsVisitedSet(x) and RobotPathsToggle(x) had runtimes of 31,264.89 milliseconds and 3,979.51 milliseconds, respectively,
+running the same three inputs.
+
+The implementation of backtracking utilizing a set checks checks whether the set has the key to determine a position in the matrix 
+that has already been visited. 
+The implementation inserts the key into the set and then deletes the key from the set when the recursive calls have completed.
+
+--> the visited check calls the set's has function.
+--> instead of toggling a value to 1, call the set's add function to insert the key.
+--> insert of toggling a value back to 0, call the set's delete function with the key passed in as an input parameter.
+
+*/
+const { performance } = require("perf_hooks");
+
+var t0 = performance.now();
+
 const robotPathsVisitedSet = (matrix) => {
     let result = 0;
     let visited = new Set();
@@ -38,3 +60,9 @@ const robotPathsVisitedSet = (matrix) => {
 console.log(robotPathsVisitedSet([[ 0, 0, 0],[ 0, 0, 0]]));
 
 console.log(robotPathsVisitedSet( [[ 0, 0, 0, 0], [ 0, 0, 0, 0], [ 0, 0, 0, 0]]))
+
+console.log(robotPathsVisitedSet([[ 0, 0, 0, 0, 0, 0, 0, 0], [ 0, 0, 0, 0, 0, 0, 0, 0], [ 0, 0, 0, 0, 0, 0, 0, 0], [ 0, 0, 0, 0, 0, 0, 0, 0], [ 0, 0, 0, 0, 0, 0, 0, 0]]))
+
+
+var t1 = performance.now();
+console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");

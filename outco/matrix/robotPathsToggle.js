@@ -41,16 +41,18 @@ Example 3:
 
  */
 
-    
 
+ const { performance } = require("perf_hooks");
+
+var t0 = performance.now();
     const robotPathsToggle = (matrix) => {
         let result = 0;
         //base cases: 
             // oob
             // already visited
             // reach destination
-        let totalColumns = matrix[0].length -1
-        let totalRows = matrix.length  -1
+        let totalColumns = matrix[0].length -1;
+        let totalRows = matrix.length  -1;
         const traverse = (row, col) => {
             if (row < 0 || col < 0 || col > matrix[0].length - 1 || row > matrix.length - 1){
                 // out of bounds
@@ -77,16 +79,20 @@ Example 3:
         return result;
     }
 
-console.log(robotPaths( [[ 0, 0, 0, 0],
+console.log(robotPathsToggle( [[ 0, 0, 0, 0],
     [ 0, 0, 0, 0],
     [ 0, 0, 0, 0]]
   )) // 38
 
-console.log(robotPaths( [[ 0, 0, 0],
-    [ 0, 0, 0]])) // 4
+console.log(robotPathsToggle( [[ 0, 0, 0],
+    [ 0, 0, 0]]) ) // 4
 
-console.log(robotPaths([[ 0, 0, 0, 0, 0, 0, 0, 0],
+console.log(robotPathsToggle([[ 0, 0, 0, 0, 0, 0, 0, 0],
     [ 0, 0, 0, 0, 0, 0, 0, 0],
     [ 0, 0, 0, 0, 0, 0, 0, 0],
     [ 0, 0, 0, 0, 0, 0, 0, 0],
     [ 0, 0, 0, 0, 0, 0, 0, 0]])) // 7110272
+
+
+    var t1 = performance.now();
+    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
