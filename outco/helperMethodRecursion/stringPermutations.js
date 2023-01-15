@@ -27,9 +27,8 @@ const stringPermutationWithMemoization = (string) => {
     let set = new Set()
     let hash = {}
     let usedIndexes = []
-    
+
     const buildPermutation = (build, usedIndexes) =>{
-        
         let key = build + "_" + usedIndexes;
         if (hash[key]){return hash[key]}
         if (build.length  === string.length){

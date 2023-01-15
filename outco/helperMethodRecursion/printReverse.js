@@ -4,8 +4,8 @@
 // input: [1,1,2,3]
 // output: 3 2 1 1
 // start from base case and build up to the input case
-const printReverse = (arr) => {
 
+const printReverse = (arr) => {
     const traverse = (depth) => {
         if (depth === arr.length){
             return 

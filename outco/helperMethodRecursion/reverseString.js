@@ -10,7 +10,6 @@ function reverseString(str){
       printChar(str, depth - 1)
     }
     printChar(str, str.length - 1);
-  
 }
 
 reverseString('hello')
