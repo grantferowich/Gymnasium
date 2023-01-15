@@ -1,4 +1,7 @@
 /* 
+
+Successfully tested the function 1/15/23.
+Robot Paths: track the total paths from 0,0 to the bottom right corner of the input matrix
         col
 row    [[0,0],  
         [0,0]] 
