@@ -43,7 +43,7 @@ Example 3:
 
     
 
-    const robotPaths = (matrix) => {
+    const robotPathsToggle = (matrix) => {
         let result = 0;
         //base cases: 
             // oob
