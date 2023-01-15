@@ -69,4 +69,4 @@ const treeBFSTraversal = (root) => {
     return result;
 }
 
-console.log(treeBFSTraversal(tree));
+console.log(treeBFSTraversal(tree)); // [8, 5, 13, 1, 3, 21, 34]

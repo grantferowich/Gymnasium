@@ -1,4 +1,5 @@
 // Successfully tested the insertion and search methods 1/3/23
+// Implementing the BST class is the Outco week 2 day 2 homework assignment. 
 // instructions: insert 5
 //              insert 3
 //              
