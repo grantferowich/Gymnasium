@@ -55,13 +55,6 @@ const capitalPermutationsAdvancedArray = (string) => {
 
     generatePermutations("",0)
     return permutations;
-
-    // for (let x = 0; x < permutations.length; x++){
-    //     let element = permutations[x];
-    //     !hash[element] ? hash[element] = true : 0
-    // }
-    
-    // return Object.keys(hash)
 }
 
 console.log(capitalPermutationsAdvancedArray("A1d3")) // Expected output:  ["A1D3", "a1D3", "A1d3", "a1d3"]
