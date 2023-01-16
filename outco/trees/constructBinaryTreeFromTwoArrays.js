@@ -17,7 +17,6 @@ class TreeNode{
 
 const generateTree = (preArr, inArr) => {
     if (!preArr.length === 0){return null};
-
     if (preArr.length === 1){
         return new TreeNode(preArr[0]);
     }

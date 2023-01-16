@@ -17,12 +17,10 @@ Output: [] */
 
 const invertTree = (node) => {
     let root = node;
-  
     const invert = (TreeNode, depth) => {
         if (TreeNode == null){
           return
         }
-  
         let tempX = TreeNode.left;
         let tempY = TreeNode.right;
         TreeNode.right = tempX;
