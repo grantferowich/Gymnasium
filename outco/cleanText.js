@@ -12,7 +12,7 @@ const cleanText = (text) => {
     // Replace multiple spaces between lines with single space
     text = text.replace(/\n\s+/g, '\n');
     // Trim leading and trailing whitespace
-    text = text.trim();
+    text = text.trim()
     return text;
 }
 
