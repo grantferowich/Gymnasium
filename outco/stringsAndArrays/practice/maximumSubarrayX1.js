@@ -1,3 +1,4 @@
+// Successfully tested max sub array sum.
 const maxSubArray = (nums) => {
     let local = 0;
     let ultimate = 0;
