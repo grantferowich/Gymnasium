@@ -83,3 +83,13 @@ let treeNode = new TreeNode(2);
 treeNode.left = new TreeNode(1);
 treeNode.right = new TreeNode(3)
 console.log(validateBST(treeNode)); // true
+
+// [5,1,4,null,null,3,6]
+let treeNode2 = new TreeNode(5); 
+treeNode2.left = new TreeNode(1);
+treeNode2.right = new TreeNode(4);
+treeNode2.left.left = null;
+treeNode2.left.right = null;
+treeNode2.right.left = new TreeNode(3);
+treeNode2.right.right = new TreeNode(6);
+console.log(validateBST(treeNode2)) // false
