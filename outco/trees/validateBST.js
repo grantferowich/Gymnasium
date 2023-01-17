@@ -44,33 +44,31 @@ Explanation: The root node's value is 5 but its right child's value is 4.
 // * Definition for a binary tree node.
 class TreeNode{
     constructor(value, left, right){
-        this.value = (value===undefined ? 0 : val)
-        this.left = (left===undefined ? null : left)
-        this.right = (right===undefined ? null : right)
+        this.value = (value===undefined ? 0 : value);
+        this.left = (left===undefined ? null : left);
+        this.right = (right===undefined ? null : right);
     }
 }
-
-
 
 // basically push tree values into an array via a pre-order depth first traversal.
 // Loop over the array to ensure array[x] < array[x+1]
 // if not return false 
-
 // Time complexity: O(N)
 // Space complexity: O(N) since the array will increase linearly as the input size increases
+
 const validateBST = (treeRoot) => {
     const array = [];
-
+    // in order traversal is left-current-right
     const inOrderTraversal = (node) => {
         //base case
         if (node === null){ return }
         // recursive case
         inOrderTraversal(node.left);
+        // push tree node values to array 
         array.push(node.value);
         inOrderTraversal(node.right);
     }
     inOrderTraversal(treeRoot);
-    
     let x = 0;
     while (x < array.length){
         if (array[x] > array[x+1]){
@@ -81,3 +79,7 @@ const validateBST = (treeRoot) => {
     return true;
 }
 
+let treeNode = new TreeNode(2);
+treeNode.left = new TreeNode(1);
+treeNode.right = new TreeNode(3)
+console.log(validateBST(treeNode)); // true
