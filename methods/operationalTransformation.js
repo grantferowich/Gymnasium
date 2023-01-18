@@ -20,14 +20,17 @@ const isValid = (stale, latest, otjson) => {
     let count = 0
 
     for (let x = 0; x < otjson.length; x++){
+            
             if (arr[x]['insert']){
                 let chars = arr[x]['chars'];
                 instructions.push(['insert', chars])
             } 
+
             if (arr[x]['skip']){
                 let count = arr[x]['count']
                 instructions.push(['skip', count])
             }
+            
             if (arr[x]['delete']){
                 let count = arr[x]['count']
                 instructions.push('delete', count)
