@@ -70,3 +70,7 @@ const minimumWindowSubstring = (word, target) => {
         return word.slice(result[0], result[1] +1)
     }
 }
+
+console.log(minimumWindowSubstring('ADOBECODEBANC', 'ABC')) // BANC
+console.log(minimumWindowSubstring('DOG', 'LAKE')) // ""
+console.log(minimumWindowSubstring('AADOBECODEBAANC', 'AABC')) //  BAANC
