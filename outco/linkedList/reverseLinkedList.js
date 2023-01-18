@@ -1,4 +1,5 @@
 /*
+Successfully tested the function on 12/25/22.
 initial:
 1 => 5 => 7 => 10 => null
 
@@ -10,8 +11,6 @@ null <= 1 <= 5 <= 7 <= 10
 
 Space complexity: constant O(1)
 As input grows only three variables are required, whether there are 5 or 500,000 elements
-
-Successfully tested the function on 12/25/22.
 */
 
 
@@ -123,9 +122,6 @@ class LinkedList {
 // current.next = (1)
 // ref: (5)
 // prev: (1)
-
-// current.next = 
-
 
 const reverseLinkedList = (node) => {
 

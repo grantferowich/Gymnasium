@@ -1,5 +1,5 @@
 /**
- * 
+ * // Completed successful testing of the solution with helper method recursion on 12/13/22.
  * Capital Permutations
  * 
  * Given a string str of lowercase alphabetical characters, return the set of all permutations of those characters in upper AND lowercase.
@@ -31,13 +31,12 @@
  * 
  * 
  * 
- * // Completed successful testing of the solution with helper method recursion on 12/13/22.
+ * 
  */
 
 const capitalPermutations = (string) => {
     // create state variable
     let permutations = []
-
     // define helper method
     const generatePermutations = (str, depth) => {
         // terminating case 
@@ -52,8 +51,6 @@ const capitalPermutations = (string) => {
         generatePermutations(str + upper, depth + 1);
         generatePermutations(str + lower, depth + 1);
     }
-
-
     // start from base case
     // invoke helper method
     generatePermutations("", 0);

@@ -32,8 +32,8 @@ const robotPathsVisitedSet = (matrix) => {
         // oob
         // already visited
         // reach destination
-    let totalColumns = matrix[0].length -1;
-    let totalRows = matrix.length  -1;
+    let totalColumns = matrix[0].length - 1;
+    let totalRows = matrix.length  - 1;
     const traverse = (row, col) => {
         let key = row.toString() + "_" + col.toString();
         if (row < 0 || col < 0 || col > matrix[0].length - 1 || row > matrix.length - 1){

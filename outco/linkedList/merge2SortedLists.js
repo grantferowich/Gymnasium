@@ -70,6 +70,7 @@ const merge2SortedLists = (list1, list2) =>{
     // if (list2 === null && list1){
     //     tail.next = list1;
     // }
+    
     tail.next = list1 || list2;
 
     // tail will be pointing at the last node of the sorted list
