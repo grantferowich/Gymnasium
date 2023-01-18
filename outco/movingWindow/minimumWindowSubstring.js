@@ -1,4 +1,5 @@
 // Successfully tested the function 1/18/23.
+
 // word = A D O B E C O D E B A N C
 //        0 1 2 3 4 5 6 7 8 9 10 11 12             
 // target = ABC
@@ -80,24 +81,5 @@ const minimumWindowSubstring = (word, target) => {
 console.log(minimumWindowSubstring('ADOBECODEBANC', 'ABC')) // BANC is the smallest substring containing the target
 console.log(minimumWindowSubstring('DOG', 'LAKE')) // ""
 console.log(minimumWindowSubstring('AADOBECODEBAANC', 'AABC')) //  BAANC
-
-
-
-
-//Given two strings s and t of lengths m and n respectively, return the minimum window 
-// substring
-// of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
-// The testcases will be generated such that the answer is unique.
-
-
-
-
-// input is a string and a target
-// suppose the string is g o o g l e h h o o m  e  p  a  g  e  d  o  c  u  m  e  n  t
-//                       0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-// suppose the target is ooe
-//  the array of chars from 8 to 11 is the shortest window with all the target chars
-
-
 
 
