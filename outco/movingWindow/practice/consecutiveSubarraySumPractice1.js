@@ -1,4 +1,4 @@
-// Passed two test cases 12/14/22.
+// Successfully tested the function 1/18/23.
 
 // CONSECUTIVE SUBARRAY SUM
 
@@ -39,3 +39,5 @@ const consecutiveSubarraySumPractice1 = (nums, target) => {
 
 console.log(consecutiveSubarraySumPractice1([6,12,1,7,5,2,3], 14)) // expected output: true 
 console.log(consecutiveSubarraySumPractice1([6,12,1,7,5,2,3], 12)) // expected output: true 
+console.log(consecutiveSubarraySumPractice1([1,2,3], 6)) // true
+console.log(consecutiveSubarraySumPractice1([1,2,3], 10)) // false 
