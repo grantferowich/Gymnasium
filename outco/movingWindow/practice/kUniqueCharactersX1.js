@@ -1,4 +1,4 @@
-
+// Successfully tested the function 1/18/23.
 
 const kUniqueChars = (s) => {
     let k = parseInt(s[0]);
