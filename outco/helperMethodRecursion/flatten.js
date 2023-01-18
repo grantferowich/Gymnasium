@@ -1,3 +1,4 @@
+// Successfully tested the function 1/18/23 
 // typeof [] actually returns object
 // to check if an element is an array the Array.isArray(x) method must be used
 
@@ -19,8 +20,9 @@ function flatten(array){
     return flattened;
 }
 
-console.log(flatten([1,[2,3,[4]]])) // [1,2,3,4]
-
+console.log(flatten([1,[2,3,[4]]])) // [1, 2, 3, 4]
+console.log(flatten([])) // []
+console.log(flatten([1,[2,3,[4],[23]]])) // [1, 2, 3, 4, 23]
 
 // let x = [1,2,3]
 // let y = {name: "Grant"}

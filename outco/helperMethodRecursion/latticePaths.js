@@ -1,4 +1,5 @@
 /*
+// Successfully tested the function 1/18/23.
 LATTICE PATHS
 
 USING PURE RECURSION COUNT THE NUMBER OF UNIQUE PATHS
@@ -40,6 +41,10 @@ EXPECTED OUTPUT: 10
 
 
 // solution 1
+const { performance } = require("perf_hooks");
+
+var t0 = performance.now();
+
 const latticePaths = (row, col) => {
     // two base cases
     if (row < 0 || col < 0) {
@@ -55,6 +60,9 @@ const latticePaths = (row, col) => {
 }
 
 console.log(latticePaths(2,3)) // 10
-console.log(latticePaths(20,20)) // function takes a really, really long time
+console.log(latticePaths(10,10)) // 184756 
+console.log(latticePaths(15,15)) // 155117520 
+// calling these three functions takes 4475.27 milliseconds. 
 
-
+var t1 = performance.now();
+console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");

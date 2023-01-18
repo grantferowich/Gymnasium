@@ -1,5 +1,7 @@
 // Football permutations
 
+// Successfully tested the function 1/18/23.
+
 // input: integer
 // output: integer
 // Constraints: Time complexity - 2^N

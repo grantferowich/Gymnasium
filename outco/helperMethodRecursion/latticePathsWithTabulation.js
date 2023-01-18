@@ -1,5 +1,5 @@
 var t0 = performance.now();
-
+// Successfully tested the function 1/18/23.
 // given an x,y matrix size return the number of unique paths from the top 
 // left of the matrix at 0,0 to x,y.
 
@@ -38,7 +38,7 @@ var t0 = performance.now();
 function latticePathsWithTabulation(x, y) {
     // create foundation
     let table = new Array(x+1).fill(1);
-    console.log('table', table)
+    // console.log('table', table)
     // i is tracking the state of the y-axis (cols) or "table length"
     for (let i = 0; i < y; i++){
       // j is tracking the state of the x-axis (rows) or "height"
@@ -51,7 +51,8 @@ function latticePathsWithTabulation(x, y) {
 }
 
 console.log(latticePathsWithTabulation(2,3)) // 10
-console.log(latticePathsWithTabulation(30,30)) // something really, really big
-
+console.log(latticePathsWithTabulation(10,10)) // 184756
+console.log(latticePathsWithTabulation(15,15)) // 155117520 // this takes a really, really long time w/o tabulation or memoization
+// Call to latticePathsWithTabulation took 3.0778751373291016 milliseconds.
 var t1 = performance.now();
 console.log("Call to latticePathsWithTabulation took " + (t1 - t0) + " milliseconds.");

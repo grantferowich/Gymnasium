@@ -1,5 +1,5 @@
 /**
- * 
+ * Successfully completed testing 12/13/22. 
  * Count Vowel Strings
  * 
  * Given an integer n, return the number of strings of length n that consist only of vowels (a, e, i, o, u).
@@ -28,7 +28,6 @@
  *                       "a"    "e"   "i"   "o"  "u"
  * 
  * 
- * Successfully completed testing 12/13/22. 
  */
 
 

@@ -1,3 +1,4 @@
+// Successfully tested the function 1/18/23.
 // given a number return the factorial of that number
 // 4! = 1 * 2 * 3 * 4 
 // 4! = 24
@@ -23,5 +24,5 @@ const factorial = (number) => {
 }
 
 console.log(factorial(4)) // 24
-console.log(factorial(100)) //
+console.log(factorial(60)) // 8.320987112741392e+81
 
