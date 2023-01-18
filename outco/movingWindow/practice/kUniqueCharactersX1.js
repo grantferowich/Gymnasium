@@ -35,6 +35,6 @@ const kUniqueChars = (s) => {
 
 
 const input = "3aabbxxyyy";
-console.log(kUniqueChars(input));
+console.log(kUniqueChars(input)); // 7
 const input2 = "2eceba";
-console.log(kUniqueChars(input2))
+console.log(kUniqueChars(input2)) // 3
