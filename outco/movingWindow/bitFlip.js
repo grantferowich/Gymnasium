@@ -1,3 +1,4 @@
+// Successfully tested the function 1/18/23.
 // Given a bit array of 0's and 1's 
 // return the longest string of 0's 
 // given the condition one flip of one subarray is within bounds
@@ -21,8 +22,10 @@
 *       input = [0, 0, 0, 1, 0, 1]\
 *       output: 5
 *
-*
-*
+*       input = [0,0,0,0]
+*        output: 4
+*       
+*       input = []
 *
 */
 
@@ -62,7 +65,9 @@ const bitFlip = (array) => {
     return original0Count + maxDifferent;
 }
 
-// These test cases passed on 12/7/22
+
 
 console.log(bitFlip([1, 1, 1, 0, 0, 0, 0, 0, 0, 0])) // 10
 console.log(bitFlip([0, 0, 0, 1, 0, 1])) // 5
+console.log(bitFlip([0,0,0,0])) // 4
+console.log(bitFlip([1, 0, 0, 0, 1, 1])) // 5

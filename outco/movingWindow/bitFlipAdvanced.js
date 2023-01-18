@@ -46,3 +46,4 @@ function bitFlipAdvanced (arr, n) {
 console.log(bitFlipAdvanced([0,1,1,1,0,1,0,1,0,0], 2)) // 7
 console.log(bitFlipAdvanced([1,1,1,0,0,0,1,1,1,1,0], 2)) // 6
 console.log(bitFlipAdvanced([0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], 3))  // 10
+console.log(bitFlipAdvanced([1,1,1,1,0], 1)) // 5
