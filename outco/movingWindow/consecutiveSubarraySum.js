@@ -12,34 +12,9 @@
 // add element to current sum
 
 // https://github.com/OutcoSF/outco-class-163/blob/main/whiteboarding/w2_d1_sliding_window/222_consecutive_subarray_sum.md
+
+
 const consecutiveSubarraySum = (nums, target) => {
-
-    let currentSum = 0;
-    let i = 0;
-    let j = 0; 
-    while (currentSum <= target) {
-
-        //hunting logic
-        currentSum += nums[i];
-       while( j < nums.length){
-            if (target == currentSum){
-                return true;
-            }
-            if (i !== j){
-                currentSum += nums[j]
-            }
-            //catch up logic to remove element j if element j sends currentSum over target
-            // catch up logic is the logic for stopping j
-            if (currentSum > target){
-                currentSum -= nums[j]
-            } j++
-        }
-        i++
-    }
-    return false;
-}
-
-const consecutiveSubarraySum2 = (nums, target) => {
 
     let currentSum = 0;
     let i = 0;
@@ -55,7 +30,7 @@ const consecutiveSubarraySum2 = (nums, target) => {
             }
 
             if (i !== j){
-                console.log(nums.slice(i, j+1));
+                // console.log(nums.slice(i, j+1));
                 currentSum += nums[j];
             }
 
