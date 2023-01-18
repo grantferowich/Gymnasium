@@ -10,7 +10,7 @@
 // The input space is O(N). The auxiliary space is O(2). 
 // Therefore the space complexity of the algorithm is linear, O(N).
 
-import { PerformanceObserver, performance } from "perf_hooks";
+
 var t0 = performance.now();
 
 
@@ -28,8 +28,8 @@ const bitArraySort = (array) => {
     return array
 }
 
-console.log(bitArraySort([1,0,0,1])) // => [0,0,1,1]
-console.log(bitArraySort([1,0,0,0,0,0,0,0,0,0,0,1])) // => [0,0,0,0,0,0,0,0,0,0,0,1,1]
+// console.log(bitArraySort([1,0,0,1])) // => [0,0,1,1]
+// console.log(bitArraySort([1,0,0,0,0,0,0,0,0,0,0,1])) // => [0,0,0,0,0,0,0,0,0,0,0,1,1]
 
 const bitArraySortWithTwoPointers = (array) => {
 
@@ -53,7 +53,7 @@ const bitArraySortWithTwoPointers = (array) => {
 return array
 }
 
-// console.log(bitArraySortWithTwoPointers([1,0,0,1]));
+console.log(bitArraySortWithTwoPointers([1,0,0,1])); // [0, 0, 1, 1]
 console.log(bitArraySortWithTwoPointers([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1]))
 var t1 = performance.now();
 console.log("Call to bitArraySortWithTwoPointers took " + (t1 - t0) + " milliseconds.");
