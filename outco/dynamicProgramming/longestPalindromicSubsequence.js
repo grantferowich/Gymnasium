@@ -1,6 +1,7 @@
 /* 
 // Successfully tested the function 1/19/23.
-
+// Time complexity: O(N^2)
+// Space complexity: O(N^2)
 Input:  "vtvvv"
 Output: 4
 
@@ -59,7 +60,6 @@ const longestPalindromicSubsequence = (string) => {
             cache[key] = 2 + find(left + 1, right -1 )
             return cache[key];
         }
-
 
         cache[key] = Math.max(find(left + 1, right), find(left, right - 1));
         return cache[key];
