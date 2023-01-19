@@ -27,8 +27,8 @@ input: "g"
 output: 1
 number is a thing being maximized 
 */
-const longestPalindromicSubsequence = (string) => {
 
+const longestPalindromicSubsequence = (string) => {
     let cache = {}
     let left = 0;
     let right = string.length - 1;
