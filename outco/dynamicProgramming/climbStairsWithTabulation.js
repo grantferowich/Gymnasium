@@ -1,3 +1,4 @@
+// successfully tested the function 1/20/23
 // Suppose a fox moves 2, 3, or 5 steps every time the fox jumps.
 // Solve for the number of ways the fox can reach the Nth step, where N
 // is an input parameter.
@@ -25,34 +26,20 @@
  * 
  */
 
-// The function with tabulation was not successfully tested as of 12/12/22. 
-// A technical coaching session with Outco was requested 12/12/22 to cover this problem. 
-
-// questions: How do you ascertain stepSum += steps[i-jumpSize] from the above table? 
-
-
-
-
 const climbStairsWithTabulation = (n, jumps) => {
     let steps = new Array(n+1).fill(0)
     steps[0] = 1;
 
    // looping over the array of jump sizes [2,3,5]
-   for ( let j = 0; j < jumps.length; j++){  
+   for ( let x = 0; x < steps.length; x++){  
     // looping from 0 to the number of steps to climb
-        for (let i = 0; i < steps.length; i++){
-
-            let stepSum = 0;
-            for (let k = 0; k < j + 1; k++){
-                let jumpSize = jumps[k]
-                console.log('steps[i]',steps[i])
-                stepSum += steps[i - jumpSize]
-                steps[i]= stepSum;
+        for (let y = 0; y < steps.length; y++){
+            if (x - jumps[y] >= 0){
+                steps[x] += steps[x-jumps[y]]
             }
-            
         }
    }
    return steps[n]
 }
 
-console.log(climbStairsWithTabulation(10,[2,3,5]))
+console.log(climbStairsWithTabulation(10,[2,3,5])) //14

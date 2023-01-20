@@ -92,16 +92,14 @@
 // 4. Create foundation; create first row
 // 5. Fill out the rest of the table
 
-const coinSum = (coinsInput, totalInput) => {
+const coinSumTabulation = (coinsInput, totalInput) => {
     const table = new Array(totalInput + 1).fill(0);
     table[0] = 1;
-
     for (let coin of coinsInput){
         for (let i = coin; i < table.length; i++){
             table[i] = table[i] + table[i - coin]
         }
     }
-
     return table[totalInput]
-
 }
+console.log(coinSumTabulation([2,5,3,6], 10)) // 5
