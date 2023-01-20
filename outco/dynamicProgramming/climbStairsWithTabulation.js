@@ -21,7 +21,6 @@
  * climbStairs(10) = 14 = climbStairs(9) + climbStairs(8) // climbStairs(1,10) + 
  * climbStarits(9) = 8 = 
  * 
- * to solve for ()
  * 
  * 
  */

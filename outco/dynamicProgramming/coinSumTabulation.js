@@ -96,8 +96,8 @@ const coinSumTabulation = (coinsInput, totalInput) => {
     const table = new Array(totalInput + 1).fill(0);
     table[0] = 1;
     for (let coin of coinsInput){
-        for (let i = coin; i < table.length; i++){
-            table[i] = table[i] + table[i - coin]
+        for (let x = coin; x < table.length; x++){
+            table[x] = table[x] + table[x - coin]
         }
     }
     return table[totalInput]
