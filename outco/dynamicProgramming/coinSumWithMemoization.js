@@ -49,26 +49,26 @@ subtract       /            \       pop
   *            coin array will be unique.
   *            Order does not matter. Ex: One penny and one nickel to create six
   *            cents is equivalent to one nickel and one penny
+  * 
+  * // base cases: total is negative
+  * all the coins are used up and total is 0
+  * all the coins are used up
  */
+
 const coinChangeWithMemoization = (coins, target) =>{
-    
     // create a cache
     let cache = {};
-    
     const findWays = (total, coins) => {
-    
         // create a key
         let key = total.toString() + "_" + coins.toString();
         // check the cache for the key
         if (cache[key]){
             return cache[key];
         }
-        
         // destination: coins have been used up to bring total to 0
         if (total === 0 && coins.length === 0){
             return 1; 
         }
-
         // base case
         if (total < 0){
             return 0
@@ -91,4 +91,6 @@ const coinChangeWithMemoization = (coins, target) =>{
     return findWays(coins, target)
 }
 
-console.log(coinChangeWithMemoization[1,2,3])
+console.log(coinChangeWithMemoization[1,2,3], 4) // 4
+console.log(coinChangeWithMemoization[2,5,3,6], 10) // 5 
+

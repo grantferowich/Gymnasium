@@ -1,5 +1,7 @@
 // COIN SUM
 
+// Successfully tested the function 1/20/23.
+
 // Understanding
 // Input: integer array and integer
 // Output: integer
