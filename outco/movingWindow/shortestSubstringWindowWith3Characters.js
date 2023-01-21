@@ -19,40 +19,6 @@ s consists of English letters
  */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // py sol
 /* def shortest_with_3_unique(s):
   l, r = 0, 0

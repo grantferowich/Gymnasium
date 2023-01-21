@@ -21,7 +21,7 @@ const parseCSV = (csv) => {
         parsedData.push(fields)
     }
 
-    // return the state variable
+    // return the state variable`
     return parsedData
 }
 

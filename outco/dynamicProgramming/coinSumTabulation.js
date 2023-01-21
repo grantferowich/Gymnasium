@@ -104,4 +104,5 @@ const coinSumTabulation = (coinsInput, totalInput) => {
     }
     return table[totalInput]
 }
+
 console.log(coinSumTabulation([2,5,3,6], 10)) // 5
