@@ -37,8 +37,10 @@ const minimumWindowSubstring = (word, target) => {
             let rChar = word[right];
             if (rChar in counts) {
                 if (counts[rChar] > 0){
+                    // decrement chars
                     missingChars--;
                 }
+                // decrement counts
                 counts[rChar]--;
             }
         }
@@ -58,7 +60,9 @@ const minimumWindowSubstring = (word, target) => {
                 // if lChar is one of the targets, then reset the count of lChar
                 // and also incremenet missingCharNum to reset the missingCharnum
                 if (lChar in counts) {
+                    // increment chars
                     counts[lChar]++;
+                    // increment counts
                     if (counts[lChar] > 0){
                         missingChars++ 
                     }
