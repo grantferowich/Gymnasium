@@ -67,13 +67,13 @@ class Matrix {
     }
   
     flatten() {
-      let flattened = [];
+      let output = [];
       for (let row = 0; row < this.m; row++){
         for (let element = 0; element < this.n; element++){
-            flattened.push(this.storage[row][element])
+            output.push(this.storage[row][element])
           }
       }
-      return flattened;
+      return output;
     }
   
     slice(rowRange, colRange) {    
