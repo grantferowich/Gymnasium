@@ -63,18 +63,22 @@ var t0 = performance.now();
         let totalColumns = matrix[0].length -1;
         let totalRows = matrix.length  -1;
         const traverse = (row, col) => {
+
             if (row < 0 || col < 0 || col > matrix[0].length - 1 || row > matrix.length - 1){
                 // out of bounds
                 return;
             }
+
             if (matrix[row][col] === 1){
                 //already visitedd
                 return;
             }
+
             if (row === totalRows && col === totalColumns){
                 result++
                 return;
             }
+
             //toggle for tracking visited 
             matrix[row][col] = 1;
             traverse(row+1,col)
