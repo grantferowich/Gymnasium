@@ -64,4 +64,5 @@ const longestPalindromicSubsequence = (string) => {
 console.log(longestPalindromicSubsequence('hannah')) // 6
 console.log(longestPalindromicSubsequence('vtvvv')) // 4
 console.log(longestPalindromicSubsequence('g')) // 1
+console.log(longestPalindromicSubsequence('gg')) // 2
 console.log(longestPalindromicSubsequence("tbtctbt")) // 7
