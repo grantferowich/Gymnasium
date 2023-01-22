@@ -7,15 +7,18 @@ const latticePathsWithMemoization = (m, n) => {
     const traverse = (row, col) => {
         let key = row.toString() +"_"+col.toString();
         
+        // Base case 1
         // valid path
         if (row === 0 && col === 0){
             return 1; 
         }
 
-        // invalid path
+        // base case 2
+        // invalid path + oob
         if (row < 0 || col < 0){
             return 0;
         }
+        // read cache during each recursive call
         if (cache[key]) { return cache[key]}
 
         let up = traverse(row - 1, col);

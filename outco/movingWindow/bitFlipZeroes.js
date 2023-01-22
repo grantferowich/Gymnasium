@@ -41,7 +41,6 @@ const bitFlip = (array) => {
     let original0Count = 0;
     let n = array.length;
 
-
     // for all elements x in the array
     for (let x = 0; x < n; x++){
         if (array[x] == 0){
@@ -49,7 +48,7 @@ const bitFlip = (array) => {
         } 
         let count0 = 0;
         let count1 = 0;
-
+        
         // for each element x consider the subarray from arr[x] to arr[y]
         // consider all subarrays initializing at index x
         for (let y = x; y < n; y++){

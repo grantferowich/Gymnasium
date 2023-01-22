@@ -47,10 +47,12 @@ function latticePathsWithTabulation(x, y) {
           table[j] = table[j] + table[j-1];
       }
     }
+    console.log('table[x]: ', table[x])
     return table[x]
 }
 
 console.log(latticePathsWithTabulation(2,3)) // 10
+console.log(latticePathsWithTabulation(3,2))
 console.log(latticePathsWithTabulation(10,10)) // 184756
 console.log(latticePathsWithTabulation(15,15)) // 155117520 // this takes a really, really long time w/o tabulation or memoization
 // Call to latticePathsWithTabulation took 3.0778751373291016 milliseconds.
