@@ -1,4 +1,7 @@
 /* 
+// Successfully tested the function 1/22/23.
+Time complexity: O(MN)
+Space complexity: O(1)
 FIND THE NUMBER OF 1s IN A MATRIX OF 1s and 0s
 
 input: m by n matrix
