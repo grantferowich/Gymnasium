@@ -1,5 +1,10 @@
 /* 
 314 - Word Search
+Complexity Analysis:
+Where M = matrix height, N = matrix width, L = length of word
+Time Complexity: O(MN * 4^L)
+Auxiliary Space Complexity: O(MN)
+
 Given a matrix of characters a-z and a word,
 return a boolean as to whether the word can be found within the matrix. 
 Words can only be built from adjacent letters (up, down, left, right), but not diagonals.
