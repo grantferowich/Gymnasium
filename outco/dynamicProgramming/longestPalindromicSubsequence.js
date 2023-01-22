@@ -28,18 +28,32 @@ output: 6
 input: "g"
 output: 1
 number is a thing being maximized 
+
+the general technique is to use to pointers 
+the pointers start at the right and left ends of the string
+when the chars at the pointers are equal,
+let the number of chars in the longest palindromic subsequence increase by 1
+then move both pointers toward each other
+
+in the recursive case when the chars are NOT equal
+make one function call on find(left - 1, right) and find(left, right + 1)
 */
 
 const longestPalindromicSubsequence = (string) => {
+    // create cache
     let cache = {}
     let left = 0;
     let right = string.length - 1;
 
     const find = (left, right) => {
+        // create key
         let key = left.toString() + "_" + right.toString()
+
+        // check if the key is in the cache
         if (key in cache){
             return cache[key];
         }
+        
         // base case: 
         // there is one char
         if (left === right){
