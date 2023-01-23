@@ -11,31 +11,72 @@ You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is
 //         [ 3 , 5 , 8 ]]
 // output: 5
 
+//base cases: 
+    // - oob
+    // - already traversed 
+
+    // init directions array (possible moves)
+    // for each possible move
+    // add the x coord to the current x coord
+    // add the y coord to the current y cord
+    
+
 const longestIncreasingPath = (matrix) => {
-    let height = matrix.length;
-    let width = matrix[0].length;
-    let flat = []
-    let local = 1;
-    let ultimate = 1;
-    for (let x = 0; x < height; x++){
-        if (Array.isArray(matrix[x])){
-            for (let k = 0; k < matrix[x].length; k++){
-                flat.push(matrix[x][k])
-            }
-        }
+    let directions = [[ 0 , 1 ], [ 1 , 0 ], [ 0 , -1 ], [ -1 , 0]];
+    
+    if ( matrix.length === 0 ){
+        return 0;
     }
 
-    for (x = 0; x < flat.length; x++){
-        if (flat[x+1] > flat[x]){
-            local++;
-        } else {
-            local = 1
+    let height = matrix.length;
+    let width = matrix[0].length;
+    let cache = {};
+    let output = 0;
+    
+    const dfs = (matrix, x , y ) =>{
+        let key = x + ',' + y;
+        if (cache[key]){
+            return cache[key]
         }
-        ultimate = Math.max(ultimate, local)
-        
+        cache[key] = 0;
+        for (let d of directions){
+            let nextRow = x + d[0];
+            let nextCol = y + d[1];
+
+            if (nextRow >= 0 && nextRow < height && nextCol >= 0 && nextCol < width){
+                if (matrix[nextRow][nextCol] > matrix[x][y]){
+                    cache[key] = Math.max(cache[key], dfs(matrix, nextRow, nextCol))
+                }
+            }
+        }
+        return cache[key] += 1
     }
-    return ultimate;
+
+  for (let r = 0; r < height; r++){
+    for (let l = 0; l < width; l++){
+        output = Math.max(output, dfs(matrix, r, l))
+    }
+  }
+  return output;
 }
 
 console.log(longestIncreasingPath([[ 13 , 1 , 2 ],
                                    [ 3 , 5 , 8 ]])) // 5
+
+
+nums2 = [
+[9, 9, 4],
+[6, 6, 8],
+[2, 1, 1]
+]
+
+console.log(longestIncreasingPath(nums2)) // 4
+
+nums3 = [
+    [3, 4, 5],
+    [3, 2, 6],
+    [2, 2, 1]
+    ]
+
+
+console.log(longestIncreasingPath(nums3)) 
