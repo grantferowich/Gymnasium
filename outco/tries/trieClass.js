@@ -57,7 +57,7 @@
 
 
 class TrieNode {
-  constructor(value = null){
+  constructor(value){
     this.value = value;
     this.next = {};
     this.end = false;
@@ -67,7 +67,7 @@ class TrieNode {
 
 class Trie {
   constructor(){
-    this.root = new TrieNode(null)
+    this.root = new TrieNode('')
   }
 
   insert(word) {
@@ -87,6 +87,8 @@ class Trie {
     if (word.length === 0){
       return false;
     }
+    const output = this.search(word)
+    return !output;
   }
 
   isPrefix(word) {
@@ -101,18 +103,27 @@ class Trie {
     // YOUR WORK HERE
   }
   search(word){
+  
+    // start at the root
     let current = this.root;
+    
+    // traverse through trie
     for (let x = 0; x < word.length; x++){
+      
       let letter = word[x];
-      if (current.value === letter && letter === word[word.length-1]){
-        return true
-      }
-      if (current.value === letter){
-        current = current.next[letter];
-      }
+      if (current.next[letter] === undefined) {return null}
+      current = current.next[letter];
     } 
-    return false;
+    return current
   }
 
 }
 
+
+let trie = new Trie()
+trie.next = new TrieNode('w')
+trie.next.next = new TrieNode('a')
+trie.next.next.next = new TrieNode('k')
+trie.next.next.next.next = new TrieNode('e')
+console.log(trie)
+console.log(trie.isWord('wake')) // true
