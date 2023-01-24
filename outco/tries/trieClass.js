@@ -1,5 +1,5 @@
 /**
- *  Homework - Trie
+ *  Sucessfully tested constructor, insert, and isWord methods 1/24/23
  *
  *  TrieNode class
  *
@@ -72,13 +72,23 @@ class Trie {
 
   insert(word) {
     let current = this.root;
-    
-    for (let x = 0; x < word.length; x++){
-      let letter = word[x];
-      if (current.next[letter] === undefined){
-        current.next[letter] = new TrieNode(letter)
+    let index = 0;
+    while (index < word.length) {
+
+      let letter = word[index];
+
+      // case where letter exists in the descendents
+      // of the current node
+      if (letter in current.next){
+        current = current.next[letter]
+      } else {
+        // case where letter does 
+        // not exist in the trie
+        let xNode = new TrieNode(letter)
+        current.next[letter] = xNode;
+        current = xNode
       }
-      current = current.next[letter];
+      index++
     }
     current.end = true;
   }
@@ -87,12 +97,23 @@ class Trie {
     if (word.length === 0){
       return false;
     }
-    const output = this.search(word)
-    return !output;
+    let current = this.root;
+    let index = 0;
+    while (index < word.length){
+        let letter = word[index];
+        if (!(letter in current.next)) {
+            return false;
+        } else {
+            current = current.next[letter];
+        }
+        index++;
+    }
+    return current.end
   }
 
   isPrefix(word) {
-    // YOUR WORK HERE
+    // const 
+
   }
 
   startsWith(word) {
@@ -102,28 +123,11 @@ class Trie {
   remove(word) {
     // YOUR WORK HERE
   }
-  search(word){
-  
-    // start at the root
-    let current = this.root;
-    
-    // traverse through trie
-    for (let x = 0; x < word.length; x++){
-      
-      let letter = word[x];
-      if (current.next[letter] === undefined) {return null}
-      current = current.next[letter];
-    } 
-    return current
-  }
-
 }
 
 
 let trie = new Trie()
-trie.next = new TrieNode('w')
-trie.next.next = new TrieNode('a')
-trie.next.next.next = new TrieNode('k')
-trie.next.next.next.next = new TrieNode('e')
+trie.insert('wake')
 console.log(trie)
 console.log(trie.isWord('wake')) // true
+console.log(trie.isWord('forest')) // false
