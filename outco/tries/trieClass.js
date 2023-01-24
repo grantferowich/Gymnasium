@@ -1,5 +1,5 @@
 /**
- *  Sucessfully tested constructor, insert, and isWord methods 1/24/23
+ *  Sucessfully tested constructor, insert, isWord, isPrefix methods 1/24/23
  *
  *  TrieNode class
  *
@@ -112,12 +112,36 @@ class Trie {
   }
 
   isPrefix(word) {
-    // const 
+    let current = this.root;
+    let index = 0;
 
+    while (index < word.length){
+      let letter = word[index];
+      if (!(letter in current.next)){
+        return false;
+      } else {
+        current = current.next[letter];
+      }
+      index++
+    }
+    return !current.end
   }
 
   startsWith(word) {
-    // YOUR WORK HERE
+    let output = [];
+    let current = this.root;
+    let index = 0;
+
+    // validate the trie contains the word
+    while (index < word.length){
+      let letter = word[index];
+      if (!(letter in current.next)){
+        return []
+      } 
+      index++
+    }
+    
+    return output;
   }
 
   remove(word) {
@@ -131,3 +155,15 @@ trie.insert('wake')
 console.log(trie)
 console.log(trie.isWord('wake')) // true
 console.log(trie.isWord('forest')) // false
+console.log(trie.isPrefix('wa')) // true
+console.log(trie.isPrefix('ba')) // false
+
+let trieX = new Trie()
+trieX.insert('cat')
+trieX.insert('cow')
+trieX.insert('dog')
+trieX.insert('bird')
+// trieX.insert('bear')
+
+// trieX.startsWith('c') // ['cat', 'cow']
+console.log(trieX.startsWith('x')) // []
