@@ -134,7 +134,6 @@ class Trie {
     let path = []
     const dfs = (node, prefix, depth) => {
         //backtracking with path
-        
         if (node.end){
             let word = path.join('')
             output.push(word)
@@ -143,7 +142,6 @@ class Trie {
         if (depth === prefix.length){
             return;
         }
-
         // recursive call and backtracking
         for (let letter in node.next){
             path.push(letter)
@@ -166,12 +164,22 @@ class Trie {
     // in the trie, traverse to the end of that branch 
     // until finding a leaf, and push that branch 
     // into the output array
-    dfs(current, word, path.lenth)
+    dfs(current, word, 0)
     return output;
   }
 
   remove(word) {
-    // YOUR WORK HERE
+    let index = 0;
+    while (index < word.length){
+        let letter = word[index];
+        if (!(letter in current.next)){
+          return []
+        } 
+          current = current.next[letter];
+          path.push(letter);
+          index++;
+      }
+    
   }
 }
 
