@@ -80,13 +80,13 @@ class Trie {
       // case where letter exists in the descendents
       // of the current node
       if (letter in current.next){
-        current = current.next[letter]
+        current = current.next[letter];
       } else {
         // case where letter does 
         // not exist in the trie
-        let xNode = new TrieNode(letter)
+        let xNode = new TrieNode(letter);
         current.next[letter] = xNode;
-        current = xNode
+        current = xNode;
       }
       index++
     }
@@ -131,6 +131,26 @@ class Trie {
     let output = [];
     let current = this.root;
     let index = 0;
+    let path = []
+    const dfs = (node, prefix, depth) => {
+        //backtracking with path
+        
+        if (node.end){
+            let word = path.join('')
+            output.push(word)
+        }
+        // base case is reaching a leaf
+        if (depth === prefix.length){
+            return;
+        }
+
+        // recursive call and backtracking
+        for (let letter in node.next){
+            path.push(letter)
+            dfs(node.next[letter], letter, prefix, depth + 1)
+            path.pop()
+        }
+    }
 
     // validate the trie contains the word
     while (index < word.length){
@@ -138,9 +158,15 @@ class Trie {
       if (!(letter in current.next)){
         return []
       } 
-      index++
+        current = current.next[letter];
+        path.push(letter);
+        index++;
     }
-    
+    // once there is an occurrence of the letter(s)
+    // in the trie, traverse to the end of that branch 
+    // until finding a leaf, and push that branch 
+    // into the output array
+    dfs(current, word, path.lenth)
     return output;
   }
 
@@ -165,5 +191,8 @@ trieX.insert('dog')
 trieX.insert('bird')
 // trieX.insert('bear')
 
-// trieX.startsWith('c') // ['cat', 'cow']
+console.log(trieX.startsWith('c')) // ['cat', 'cow']
+console.log(trieX.startsWith('ci')) // []
+console.log(trieX.startsWith('d')) // ['dog']
+console.log(trieX.startsWith('b')) // ['bird']
 console.log(trieX.startsWith('x')) // []
