@@ -128,32 +128,33 @@ class Trie {
   }
 
   startsWith(word) {
-   
-
     let output = [];
     let current = this.root;
     let index = 0;
-    let path = []
-    const dfs = (node, prefix, depth) => {
-        console.log(path)
+    let path = [];
+
+    const dfs = (node, path) => {
+        
         //backtracking with path
         if (node.end){
             let word = path.join('')
             output.push(word)
         }
         // base case is reaching a leaf
-        if (depth === prefix.length){
+        if (node === undefined){
             return;
         }
         // recursive call and backtracking
         for (let letter in node.next){
             path.push(letter)
-            dfs(node.next[letter], letter, prefix, depth + 1)
+            dfs(node.next[letter], path)
             path.pop()
         }
     }
-    // push all trie words into the output array 
-    // when the input is an empty string
+    if (!word){
+        dfs(this.root, path);
+        return output
+    }
 
     // validate the trie contains the word
     while (index < word.length){
@@ -165,13 +166,11 @@ class Trie {
         path.push(letter);
         index++;
     }
-
     // once there is an occurrence of the letter(s)
     // in the trie, traverse to the end of that branch 
     // until finding a leaf, and push that branch 
     // into the output array
-    console.log(current)
-    dfs(current, word, 0)
+    dfs(current, path)
     return output;
   }
 
@@ -186,10 +185,8 @@ class Trie {
           path.push(letter);
           index++;
       }
-    
   }
 }
-
 
 let trie = new Trie()
 trie.insert('wake')
@@ -206,10 +203,10 @@ trieX.insert('dog')
 trieX.insert('bird')
 // trieX.insert('bear')
 
-// console.log(trieX.startsWith('c')) // [ 'cat' , 'cow' ]
-// console.log(trieX.startsWith('ci')) // []
-// console.log(trieX.startsWith('d')) // [ 'dog' ]
-// console.log(trieX.startsWith('b')) // [ 'bird' ]
+console.log(trieX.startsWith('c')) // [ 'cat' , 'cow' ]
+console.log(trieX.startsWith('ci')) // []
+console.log(trieX.startsWith('d')) // [ 'dog' ]
+console.log(trieX.startsWith('b')) // [ 'bird' ]
 // console.log(trieX.startsWith('x')) // []
 console.log(trieX.startsWith('')) // [ 'cat', 'cow', 'dog', 'bird' ]
 
