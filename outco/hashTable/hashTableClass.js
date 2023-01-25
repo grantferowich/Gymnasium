@@ -43,8 +43,7 @@
  *                   Output:     {Undefined}
  *
  *         resize:   If the load factor reaches a critical 0.75 or higher,
- *                   double the number of buckets. If the load factor is 0.25
- *                   or less, half the number of buckets. Make sure the number
+ *                   double the number of buckets. Make sure the number
  *                   of buckets do not fall below 8 and re-index all key-value
  *                   pairs if bucket size is changed.
  *
@@ -134,8 +133,8 @@ class HashTable {
  }
 
 
- // Time Complexity:
- // Auxiliary Space Complexity:
+ // Time Complexity: O(N)
+ // Auxiliary Space Complexity: O(N)
  resize() {
     const loadFactor = this.size / this.buckets;
     if (loadFactor <= 0.25 && this.buckets >= 16){
@@ -144,18 +143,21 @@ class HashTable {
     }
     
     let newBucketsX;
-    console.log(loadFactor >= 0.75)
     if (loadFactor >= 0.75){
       newBucketsX = this.buckets * 2;
       this.buckets = newBucketsX
+      console.log('doubling buckets..')
     }
     
     let pairs = this.storage;
     this.storage = [];
     for (let x = 0; x < pairs.length; x++) {
       let bucket = pairs[x];
-      for (let j = 0; j < bucket.length; j++) {
-        this.insert(...bucket[j]);
+      console.log('bucket',bucket )
+      if (bucket !== undefined){
+        for (let j = 0; j < bucket.length; j++) {
+            this.insert(...bucket[j]);
+          }
       }
     }
  }
@@ -164,5 +166,16 @@ class HashTable {
 let hashTable = new HashTable()
 hashTable.insert('college', 'wake forest university')
 hashTable.insert('nickname', 'mother, so dear')
-console.log(hashTable.get('college')) // 'wake forest university'
-console.log(hashTable.get('nickname')) // 'mother, so dear'
+hashTable.insert('degrees offered', ['b.a.', 'b.s.', 'j.d.', 'm.b.a.', 'm.d.', 'm.a.', 'ph.d.'])
+hashTable.insert('season', 'fall')
+hashTable.insert('season2', 'winter')
+hashTable.insert('season3', 'spring')
+hashTable.insert('locations', ['winston-salem', 'charlotte'])
+
+// console.log(hashTable.get('college')) // 'wake forest university'
+// console.log(hashTable.get('nickname')) // 'mother, so dear'
+// console.log(hashTable.get('degrees offered'))
+// console.log(hashTable.remove('season'))
+// console.log(hashTable.storage)
+console.log(hashTable.size)
+console.log(hashTable.buckets)
