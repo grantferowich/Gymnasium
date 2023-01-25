@@ -1,5 +1,6 @@
 /* 
 314 - Word Search
+/Successfully tested the function 1/22/23.
 Complexity Analysis:
 Where M = matrix height, N = matrix width, L = length of word
 Time Complexity: O(MN * 4^L)
@@ -93,7 +94,7 @@ console.log(wordSearch([['a', 'b', 'c', 'd'],
                         ['i', 'd', 'o', 'j'],
                         ['k', 'l', 'm', 'n']], 'dog')) 
 
-// 'dog'
+// true
 
 console.log(wordSearch([['t', 'a', 'c', 'd'],
  ['e', 'f', 'g', 'h'],
@@ -105,4 +106,4 @@ console.log(wordSearch([['t', 'a', 'c', 'd'],
  console.log(wordSearch([['t', 'a', 'c', 'd'],
  ['e', 'f', 'g', 'h'],
  ['i', 'd', 'o', 'j'],
- ['k', 'l', 'm', 'n']], '1123132134')) // 
+ ['k', 'l', 'm', 'n']], '1123132134')) //  false
