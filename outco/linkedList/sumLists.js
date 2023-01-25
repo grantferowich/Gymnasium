@@ -42,12 +42,44 @@ class ListNode {
 
 const sumLists = (list1, list2) => {
 
-    const traverse = (current1, current2) => {
-        if (current1 === null || current2 === null){
-            return;
-        }
-        traverse(current.next)
-        
+    let current1 = list1;
+    let current2 = list2;
+    
+    let num1 = []
+    let num2 = []
+    let result = []
+    while (current1){
+        // console.log('prev1value: ', current1.value)
+        num1.push(current1.value);
+        current1 = current1.next
     }
-    traverse(list1, list2)
+
+    while (current2){
+        // console.log('prev2value: ', current2.value)
+        num2.push(current2.value);
+        current2 = current2.next
+    }
+    let subresult = parseInt(num1.join('')) + parseInt(num2.join(''))
+    subresult = subresult.toString().split('')
+    for (let x = 0; x < subresult.length; x++){
+        console.log(subresult[x])
+        result.push(parseInt(subresult[x]))
+    }
+    return result;
 }
+
+
+let listX = new ListNode(1)
+listX.next = new ListNode(1)
+listX.next.next = new ListNode(2)
+// 112
+let listY = new ListNode(3)
+listY.next = new ListNode(5)
+listY.next.next = new ListNode(8)
+// 358
+
+// 470
+// [4,7,0]
+
+
+console.log(sumLists(listX, listY))
