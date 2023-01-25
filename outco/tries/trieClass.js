@@ -132,9 +132,7 @@ class Trie {
     let current = this.root;
     let index = 0;
     let path = [];
-
     const dfs = (node, path) => {
-        
         //backtracking with path
         if (node.end){
             let word = path.join('')
@@ -155,7 +153,6 @@ class Trie {
         dfs(this.root, path);
         return output
     }
-
     // validate the trie contains the word
     while (index < word.length){
       let letter = word[index];
