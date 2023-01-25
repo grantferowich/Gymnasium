@@ -128,11 +128,14 @@ class Trie {
   }
 
   startsWith(word) {
+   
+
     let output = [];
     let current = this.root;
     let index = 0;
     let path = []
     const dfs = (node, prefix, depth) => {
+        console.log(path)
         //backtracking with path
         if (node.end){
             let word = path.join('')
@@ -149,6 +152,8 @@ class Trie {
             path.pop()
         }
     }
+    // push all trie words into the output array 
+    // when the input is an empty string
 
     // validate the trie contains the word
     while (index < word.length){
@@ -160,10 +165,12 @@ class Trie {
         path.push(letter);
         index++;
     }
+
     // once there is an occurrence of the letter(s)
     // in the trie, traverse to the end of that branch 
     // until finding a leaf, and push that branch 
     // into the output array
+    console.log(current)
     dfs(current, word, 0)
     return output;
   }
@@ -199,8 +206,10 @@ trieX.insert('dog')
 trieX.insert('bird')
 // trieX.insert('bear')
 
-console.log(trieX.startsWith('c')) // ['cat', 'cow']
-console.log(trieX.startsWith('ci')) // []
-console.log(trieX.startsWith('d')) // ['dog']
-console.log(trieX.startsWith('b')) // ['bird']
-console.log(trieX.startsWith('x')) // []
+// console.log(trieX.startsWith('c')) // [ 'cat' , 'cow' ]
+// console.log(trieX.startsWith('ci')) // []
+// console.log(trieX.startsWith('d')) // [ 'dog' ]
+// console.log(trieX.startsWith('b')) // [ 'bird' ]
+// console.log(trieX.startsWith('x')) // []
+console.log(trieX.startsWith('')) // [ 'cat', 'cow', 'dog', 'bird' ]
+
