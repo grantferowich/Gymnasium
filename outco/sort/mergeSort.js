@@ -21,7 +21,13 @@ function mergeSort(input) {
     }
     return merge(mergeSort(left), mergeSort(right));
 }
-
+let input = [12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]
 console.log(
-  mergeSort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213])
+  mergeSort(input)
 );
+
+// [
+//     1,   4,   9,  12,   23,
+//    64,  84,  98, 122,  213,
+//   234, 345, 455, 546, 3223
+// ]
