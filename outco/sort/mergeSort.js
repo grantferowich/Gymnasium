@@ -1,3 +1,5 @@
+// Successfully tested the function 1/25/23
+
 function mergeSort(input) {
     if (input.length < 2){
       return input;
