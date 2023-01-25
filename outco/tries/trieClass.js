@@ -53,7 +53,7 @@
  *                          Output:    {undefined}
  */
 
-'use strict';
+
 
 
 class TrieNode {
@@ -171,17 +171,41 @@ class Trie {
     return output;
   }
 
+
+
+  /* 
+           
+                  ''    // remove('dog')      
+          /     /     \  
+        'd'          'c'
+         |           |
+        'o'         'a'
+         |           |
+        'g'         't'  
+  */
   remove(word) {
-    let index = 0;
-    while (index < word.length){
-        let letter = word[index];
-        if (!(letter in current.next)){
-          return []
-        } 
-          current = current.next[letter];
-          path.push(letter);
-          index++;
-      }
+    if (word.length === 0){
+        return
+    }
+
+    let current = this.root;
+    let stack = [];
+    
+    for (let x = 0; x < word.length; x++){
+        stack.push(current);
+        current = current.next[word[x]];
+        if (current === undefined) {return;}
+    }
+
+    current.end = false;
+    if (Object.keys(current.next).length > 0){ return; }
+
+    let previousLetter;
+    while (!current.end && stack.length > 0){
+        previousLetter = current.value;
+        current = stack.pop();
+        delete current.next[previousLetter];
+    }
   }
 }
 
@@ -206,4 +230,7 @@ console.log(trieX.startsWith('d')) // [ 'dog' ]
 console.log(trieX.startsWith('b')) // [ 'bird' ]
 // console.log(trieX.startsWith('x')) // []
 console.log(trieX.startsWith('')) // [ 'cat', 'cow', 'dog', 'bird' ]
+
+console.log(trieX.remove('dog')); 
+console.log(trieX.startsWith(''))
 
