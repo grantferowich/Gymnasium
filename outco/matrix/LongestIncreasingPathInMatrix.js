@@ -1,4 +1,5 @@
 /* 
+
 315 - Longest Increasing Path
 Given an integer matrix, find the length of the longest increasing path.
 
@@ -19,7 +20,7 @@ You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is
     // for each possible move
     // add the x coord to the current x coord
     // add the y coord to the current y cord
-    
+
 
 const longestIncreasingPath = (matrix) => {
     let directions = [[ 0 , 1 ], [ 1 , 0 ], [ 0 , -1 ], [ -1 , 0]];

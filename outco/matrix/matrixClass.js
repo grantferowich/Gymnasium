@@ -95,8 +95,8 @@ class Matrix {
   
     transpose() {
       let newMatrix = new Matrix(this.n, this.m);
-      for (let x = 0; x < this.n; x++){
-        for (let y = 0; y < this.m; y++){
+      for (let x = 0; x < this.m; x++){
+        for (let y = 0; y < this.n; y++){
             let element = this.retrieve(x,y);
             newMatrix.insert(y, x, element);
         }

@@ -133,7 +133,6 @@ class Trie {
     let index = 0;
     let path = [];
     const dfs = (node, path) => {
-        //backtracking with path
         if (node.end){
             let word = path.join('')
             output.push(word)
@@ -183,6 +182,8 @@ class Trie {
          |           |
         'g'         't'  
   */
+
+
   remove(word) {
     if (word.length === 0){
         return
