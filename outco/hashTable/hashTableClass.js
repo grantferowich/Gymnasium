@@ -160,3 +160,9 @@ class HashTable {
     }
  }
 }
+
+let hashTable = new HashTable()
+hashTable.insert('college', 'wake forest university')
+hashTable.insert('nickname', 'mother, so dear')
+console.log(hashTable.get('college')) // 'wake forest university'
+console.log(hashTable.get('nickname')) // 'mother, so dear'
