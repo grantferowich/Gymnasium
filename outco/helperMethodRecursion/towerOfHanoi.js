@@ -23,7 +23,6 @@
  * 
  *  *  */ 
 
-
 const towerOfHanoi = (num, source, auxiliary, target) => {
     moveDiscs = (num, source, auxiliary, target) => {
         if (num > 0){
@@ -36,3 +35,6 @@ const towerOfHanoi = (num, source, auxiliary, target) => {
 }
 
 towerOfHanoi(2, 'x', 'y', 'z')
+// moving disk 1 from x to z
+// moving disk 2 from x to z
+// moving disk 1 from y to x
