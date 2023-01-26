@@ -1,5 +1,7 @@
 // Successfully tested the solution 1/19/23.
 // Solution takes in two arrays and a value.
+//Take the max of the two recursive calls: one where the present value is subtracted from capacity
+// and one where the parameters are passed unchanged
 
 const knapsackX3 = (weights, values, capacity) => {
     let cache = {};
