@@ -111,6 +111,3 @@ String: immutable, so must make copy, but you could pop from an array of chars
 
 
 
-const coinSum = (coins, total) => {
-
-}

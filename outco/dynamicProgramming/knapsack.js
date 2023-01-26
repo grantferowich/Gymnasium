@@ -3,7 +3,7 @@
 //Take the max of the two recursive calls: one where the present value is subtracted from capacity
 // and one where the parameters are passed unchanged
 
-const knapsackX3 = (weights, values, capacity) => {
+const knapsack = (weights, values, capacity) => {
     let cache = {};
 
     function recursive(cache, weights, values, capacity, index) {
@@ -37,6 +37,6 @@ const knapsackX3 = (weights, values, capacity) => {
 }
 
 // knapsack(weights, values, capacity)
-console.log(knapsackX3([6,6,6,6], [3,5,8,13], 12)) // 21
-console.log(knapsackX3([3,5,8,13], [6,6,6,6], 13)) // 12
-console.log(knapsackX3([3,5,8,13], [6,6,6,6], 2)) // 0
+console.log(knapsack([6,6,6,6], [3,5,8,13], 12)) // 21
+console.log(knapsack([3,5,8,13], [6,6,6,6], 13)) // 12
+console.log(knapsack([3,5,8,13], [6,6,6,6], 2)) // 0
