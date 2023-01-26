@@ -10,6 +10,7 @@
 // input: [4, 15, 16, 50, 8, 23, 42, 108]
 
 const getChildIndex = (arr, parentIndex, boundary) => {
+   
     // pass in array, index of parent node, array length
     // create child node indices
     let childIndex1 = 2 * parentIndex + 1;
