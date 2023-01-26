@@ -97,7 +97,7 @@ class Heap {
   return Math.floor(( child - 1 ) / 2 );
  }
 
- getChildIndex(){
+ getChildIndex(parent){
   let left = parent * 2 + 1;
   if (left >= this.storage.length - 1 || this.compare(left, left + 1)){
     return left
@@ -132,3 +132,5 @@ heap.storage.push(4 , 8 , 16 , 23 , 34 , 55 , 89)
 console.log(heap.peek()) // 4
 heap.insert(2);
 console.log(heap.storage) // [  2,  4, 16,  8, 34, 55, 89, 23 ]
+heap.removePeak()
+console.log(heap.storage) // [ 4,  8, 16, 23, 34, 55, 89 ]
