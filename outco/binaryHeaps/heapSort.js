@@ -1,5 +1,5 @@
 /*
- * Complete the 'heapsort' function below.
+ * Complete the 'max heapify' function below.
  *
  * The function is expected to return an INTEGER_ARRAY.
  * The function accepts INTEGER_ARRAY arr as parameter.
@@ -8,6 +8,7 @@
  * In a max heap, buble down when the current node is less than the child node
  */
 // input: [4, 15, 16, 50, 8, 23, 42, 108]
+// [108, 50, 42, 15, 8, 23, 16, 4]
 
 const getChildIndex = (arr, parentIndex, boundary) => {
    
@@ -68,7 +69,4 @@ the numbers in order from largest to smallest
 
 let input = [4, 15, 16, 50, 8, 23, 42, 108];
 console.log(heapsort(input)) 
-// [
-//   108,  4, 42, 15,
-//   8, 23, 16, 50
-// ]
+// [108, 50, 42, 15, 8, 23, 16, 4]
