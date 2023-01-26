@@ -92,8 +92,21 @@ Heap:
   * add()     O(log(N))
   * remove()  O(log(N))
   * heapify() O(N)
+  *
+
+input: [4,3,2,6]
+*/
+const connectRopes = (arr) => {
+  let output = [];
+  arr.sort();
+  for (let x = 0; x < arr.length; x++){
+    let ele1 = arr[x]
+    let ele2 = arr[x+1]
+    output.push(ele1+ele2);
+    arr.pop()
+  }
   
 
+}
 
-*/
-
+console.log(connectRopes([4,3,2,6]))

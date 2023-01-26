@@ -55,7 +55,7 @@ const bubbleDown = (arr, parentIndex, boundary) => {
 
 // iterate backwards through input array
 // call bubble down at each index
-function heapsort(arr) {
+function maxHeapSort(arr) {
     for (let x = arr.length - 1; x > -1; x--){
         bubbleDown(arr, x, arr.length)
     }
