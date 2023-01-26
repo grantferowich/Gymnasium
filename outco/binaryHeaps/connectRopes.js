@@ -96,17 +96,148 @@ Heap:
 
 input: [4,3,2,6]
 */
-const connectRopes = (arr) => {
-  let output = [];
-  arr.sort();
-  for (let x = 0; x < arr.length; x++){
-    let ele1 = arr[x]
-    let ele2 = arr[x+1]
-    output.push(ele1+ele2);
-    arr.pop()
-  }
-  
 
+class Heap{
+  constructor(type = 'min') {
+    this.type = type || null;
+    this.storage =  [];
+  }
+ 
+  // Time Complexity: O(1)
+  // Auxiliary Space Complexity: O(1)
+  compare(parent, child) {
+   if (this.type === 'min' && this.storage[parent] < this.storage[child]){
+     return true;
+   }
+   if (this.type === 'max' && this.storage[parent] > this.storage[child]){
+     return true;
+   }
+   return false;
+  }
+ 
+ 
+  // Time Complexity: O(logN)
+  // Auxiliary Space Complexity: O(1)
+  insert(value) {
+   this.storage.push(value);
+   // when inserting, the value must be bubbled up from the end of the array
+   // to satisfy the heap condition
+   this.bubbleUp()
+  }
+ 
+ 
+  // Time Complexity: O(1)
+  // Auxiliary Space Complexity: O(1)
+  peek() {
+     console.log(this.storage)
+    return this.storage[0]
+  }
+ 
+ 
+  // Time Complexity: O(log(N))
+  // Auxiliary Space Complexity: O(1)
+  removePeak() {
+   this.swapValues(0, this.storage.length -1)
+   const node = this.storage.pop()
+   this.bubbleDown()
+   return node
+  }
+
+  swapValues(a,b){
+    let arr = this.storage;
+   [arr[a], arr[b]] = [arr[b], arr[a]];
+  }
+
+  getParentIndex(child){
+    return Math.floor(( child - 1 ) / 2 );
+   }
+
+  getChildIndex(parentIndex){
+    let arr = this.storage;
+    let boundary = arr.length -1; 
+    // pass in array, index of parent node, array length
+    // create child node indices
+    let childIndex1 = 2 * parentIndex + 1;
+    let childIndex2 = 2 * parentIndex + 2;
+    // decide which child node to swap with 
+    // case where child 1 is oob
+    if (childIndex1 >= boundary){
+        // handle in bubble down
+        return childIndex1;
+        // case where child 2 is oob
+    } else if (childIndex2 >= boundary) {
+        // handle in bubble down
+        return childIndex1;
+        // case where child 1 is larger in a max heap
+        // swap with whichever child index is larger
+    } else if (arr[childIndex1] < arr[childIndex2]){
+        return childIndex1;
+    } else {
+        return childIndex2;
+    }
+  }
+
+ 
+ 
+  bubbleUp(){
+   let child = this.storage.length - 1;
+   let parent = this.getParentIndex(child);
+   while (child > 0 && !this.compare(parent,child)){
+     this.swapValues( parent, child );
+     child = parent;
+     parent = this.getParentIndex(child)
+   }
+  }
+
+  bubbleDown(parentIndex, boundary){
+    let childIndex = this.getChildIndex(parentIndex);
+    let arr = this.storage;
+    while (childIndex < boundary && arr[parentIndex] > arr[childIndex]){
+      this.swapValues(parentIndex, childIndex);
+      parentIndex = childIndex;
+      childIndex = this.getChildIndex(childIndex);
+    }
+  }
+
+  minHeapSort(){ 
+    let arr = this.storage;
+    for (let x = arr.length - 1; x > -1; x--){
+        this.bubbleDown(x, arr.length - 1)
+    }
+    return this.storage;
+  }
+}
+ 
+// pass in a heap, not an array
+const connectRopes = (heap) => {
+  heap.minHeapSort();
+  let totalCost = 0;
+  while (heap.storage.length > 1){
+    let firstMin = heap.storage.shift();
+    let secondMin = heap.storage.shift();
+    totalCost += firstMin + secondMin;
+    console.log('firstMin', firstMin);
+    console.log('secondMin', secondMin);
+    heap.storage.unshift(firstMin + secondMin);
+    heap.minHeapSort()
+  }
+  return totalCost;
 }
 
-console.log(connectRopes([4,3,2,6]))
+
+const heap = new Heap('min')
+heap.storage=[4,3,2,6];
+console.log(heap.storage)
+console.log(heap.minHeapSort())
+console.log(heap.storage)
+/* 
+[2,3,4,6]
+[5,3,4,6]
+
+
+totalCost += 5
+totalCost += 5
+*/
+
+console.log(connectRopes(heap)) // 29
+

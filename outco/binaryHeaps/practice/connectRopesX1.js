@@ -44,7 +44,7 @@ const bubbleDown = (arr, parentIndex, boundary) => {
 // call bubble down at each index
 function minHeapSort(arr) {
     for (let x = arr.length - 1; x > -1; x--){
-        bubbleDown(arr, x, arr.length - 1)
+        this.bubbleDown(arr, x, arr.length - 1)
     }
     return arr;
 }
@@ -53,7 +53,6 @@ function minHeapSort(arr) {
 The heap sort function should sort 
 the numbers in order from largest to smallest
  */
-
 
 
 
