@@ -34,16 +34,29 @@
  * 
  */
 
-const stringRotation = (string, k) =>{ 
-    let array = string.split('')
+const stringRotation = (string1, string2) =>{ 
+    let array = string1.split('')
     let x = 0;
-    while (x < k){
-        let element = array.pop()
-        array.unshift(element)
+    while (x < string1.length){
+        let element = array.pop();
+        array.unshift(element);
+        let word = array.join('')
+        if (word === string2){
+            return true
+        }
         x++
     }
-    return array.join('')
+    return false
 }
 
-input = 'wake forest'
-console.log(stringRotation(input, 2)) // 'stwake fore'
+const input1 = 'wake forest';
+const input2 = 'stwake fore';
+console.log(stringRotation(input1, input2)) // true
+
+const input3 = 'waterbottle';
+const input4 = 'erbottlewat';
+console.log(stringRotation(input3, input4)) // true
+
+const input5 = 'waterbeetle';
+const input6 = 'erbottlewat';
+console.log(stringRotation(input5, input6)) // false
