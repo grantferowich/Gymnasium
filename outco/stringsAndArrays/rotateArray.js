@@ -6,6 +6,9 @@
 const rotateArray = (arr, k) => {
   let i = 0;
   while (i < k) {
+    // you have to move the element from the end of the array 
+    // (as in the .pop section) to the front of the array (using .unshift)
+    // do this k times  
     arr.unshift(arr.pop());
     i++;
   }

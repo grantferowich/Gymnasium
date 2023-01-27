@@ -34,3 +34,16 @@
  * 
  */
 
+const stringRotation = (string, k) =>{ 
+    let array = string.split('')
+    let x = 0;
+    while (x < k){
+        let element = array.pop()
+        array.unshift(element)
+        x++
+    }
+    return array.join('')
+}
+
+input = 'wake forest'
+console.log(stringRotation(input, 2)) // 'stwake fore'
