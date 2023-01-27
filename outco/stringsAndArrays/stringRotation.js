@@ -1,5 +1,6 @@
 /**
  * 
+ * Successfully tested the function 1/26/23
  * String Rotation
  * 
  * Assume you have a method isSubstring() which checks if
@@ -30,8 +31,6 @@
  * what shows s1 is NOT a rotation of s2:
  * 'abcde' is not a rotation of 'abced'
  * because abc is not rotated. 
- * 
- * 
  */
 
 const stringRotation = (string1, string2) =>{ 
