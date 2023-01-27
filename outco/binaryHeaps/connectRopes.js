@@ -1,6 +1,12 @@
 /**
 Connect N Ropes with Minimum Cost
 
+Successfully tested the function 1/26/23
+
+Complexity Analysis
+Time complexity: O(N)
+Space complexity: O(1)
+
 Given n ropes of different lengths represented by an array of integers, connect them all into a single rope in a way that minimizes the cost of connecting them.
 
 The cost of connecting two ropes is equal to sum of their lengths. We want to minimize the cost of connecting all the ropes.
@@ -216,8 +222,6 @@ const connectRopes = (heap) => {
     let firstMin = heap.storage.shift();
     let secondMin = heap.storage.shift();
     totalCost += firstMin + secondMin;
-    console.log('firstMin', firstMin);
-    console.log('secondMin', secondMin);
     heap.storage.unshift(firstMin + secondMin);
     heap.minHeapSort()
   }
