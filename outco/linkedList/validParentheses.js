@@ -1,5 +1,8 @@
 /**
  * Successfully tested this O(N) function 1/29/23.
+ * Complexity analysis: 
+ * Time: O(N)
+ * Space: O(N)
  * 20. Valid Parentheses
 Easy
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
