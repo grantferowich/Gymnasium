@@ -1,3 +1,4 @@
+
 class Node{
     constructor(value){
         this.value = value === undefined ? null : value;
@@ -27,11 +28,13 @@ const breadthFirstSearch = (graph, startNode, targetNode) => {
 
         // keep track of visited nodes
         visited.add(currentNode);
-        for (let neighbor of graph[currentNode]){
-            // if the neighbor has not been processed
-            // push the neighbor vertex into the queue for processing
-            if (!visited.has(neighbor)){
-                queue.push(neighbor)
+        if (graph[currentNode]){
+            for (let neighbor of graph[currentNode]){
+                // if the neighbor has not been processed
+                // push the neighbor vertex into the queue for processing
+                if (!visited.has(neighbor)){
+                    queue.push(neighbor)
+                }
             }
         }
     }
@@ -47,5 +50,8 @@ let graph = {
     'F': []
 };
 console.log(breadthFirstSearch(graph, 'A', 'C'));  // Output: true
+console.log(breadthFirstSearch(graph, 'A', 'E'));  // Output: true
+console.log(breadthFirstSearch(graph, 'X', 'G'));  // Output: false
 console.log(breadthFirstSearch(graph, 'A', 'G'));  // Output: false
+
 
