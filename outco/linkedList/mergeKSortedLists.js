@@ -91,7 +91,7 @@ const mergeKSortedLists = (lists) => {
     }
     // init the result list as the first list 
     let merged = lists[0];
-    for (let x = 1; i < lists.length; x++) {
+    for (let x = 1; x < lists.length; x++) {
         // assign the result list to the output of calling merge2Lists on the result list itself
         // and the list being processed at location x in k lists
         // do subproblem of merging the result list with the first list

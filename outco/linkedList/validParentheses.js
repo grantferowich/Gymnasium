@@ -1,4 +1,5 @@
 /**
+ * Successfully tested this O(N) function 1/29/23.
  * 20. Valid Parentheses
 Easy
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -40,6 +41,7 @@ Output: false
  * 
  * 
  *  */ 
+
 const validParentheses = (string) => {
     
     let stack = [];
@@ -50,15 +52,16 @@ const validParentheses = (string) => {
         // then remove the instance of the symbol from the stack       
         if (symbol === "(" || symbol === "[" || symbol === "{"){
             stack.push(symbol)
-        } else if  (symbol === ")" && stack.length !== 0 && stack[stack.length - 1] === "("){
+        } 
+        if  (symbol === ")" && stack.length !== 0 && stack[stack.length - 1] === "("){
             stack.pop();
-        } else if (symbol === "]" && stack.length !== 0 && stack[stack.length - 1]=== "["){
-            stack.pop();
-        } else if (symbol === "}" && stack.length !== 0 && stack[stack.length - 1]=== "{"){
-            stack.pop();
-        } else {
-            return false;
         }
+        if (symbol === "]" && stack.length !== 0 && stack[stack.length - 1]=== "["){
+            stack.pop();
+        }
+        if (symbol === "}" && stack.length !== 0 && stack[stack.length - 1]=== "{"){
+            stack.pop();
+        } 
     }
     return stack.length === 0
 }
