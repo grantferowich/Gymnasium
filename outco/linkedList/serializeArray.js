@@ -14,13 +14,16 @@ class ListNode {
 }
 // [1,2,3] ==> 1 -> 2 -> 3
 const serializeArray = (array) =>{
+    // validity check
     if (array.length === 0){
         return
     }
-    let value = array[0];
+
     // instantiating node at position 0
+    let value = array[0];
     let head = new ListNode(value);
     let current = head;
+
     for (let x = 1; x < array.length; x++){
         // set the node to point to the next node
         current.next = new ListNode(array[x]);

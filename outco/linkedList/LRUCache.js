@@ -48,7 +48,7 @@ implement:
 - also note the LRU class object's head points to the tail pointer
 - and the tail pointer points to the head node
 */
-class DoublyLinkedListNode{
+class Node{
     constructor(key, value){
         this.key = key === undefined ? null : key;
         this.value = value === undefined ? null : value;
@@ -63,46 +63,10 @@ class LRUCache{
         this.capacity = capacity;
         this.size = 0;
         this.map = new Map();
-        this.head = new DoublyLinkedListNode(null, null);
-        this.tail = new DoublyLinkedListNode(null, null);
+        this.head = new Node(null, null);
+        this.tail = new Node(null, null);
         this.head.next = this.tail;
         this.tail.prev = this.head;
-    }
-
-    get(key){
-        if (!this.map.has(key)){
-            return -1; 
-        }
-        const node = this.map.get(key);
-        // tell the interface this key WAS recently used
-        this.moveToHead(key, node)
-        return node.value;
-    }
-
-    // put has two cases: one where the input key already exists in the map
-    // a second where the key is not in the map and a node must be instantiated
-    put(key, value){
-       
-        // case: input key is not a new key
-        if (this.map.has(key)){
-            // retrieve key already extant in the map
-            const node = this.map.get(key);
-            node.value = value;
-            // send the updated node to the most recently used spot
-            this.moveToHead(key, node);
-            return;
-        }
-
-        //case: input key is a new key
-        const xNode = new DoublyLinkedListNode(key, value);
-        this.map.set(key, xNode);
-        // a class method touched xNode, 
-        this.addToHead(key, xNode);
-        // remove the least recently used node
-        // the least recently removed node by definition is the tail node
-        if (this.size > this.capacity){
-            this.removeTail();
-        }
     }
 
     remove(node){
@@ -130,14 +94,50 @@ class LRUCache{
         const tail = this.tail.prev;
         this.remove(tail)
     }
+    get(key){
+        if (!this.map.has(key)){
+            return -1; 
+        }
+        const node = this.map.get(key);
+        // tell the interface this key WAS recently used
+        this.moveToHead(key, node)
+        return node.value;
+    }
+
+    // put has two cases: one where the input key already exists in the map
+    // a second where the key is not in the map and a node must be instantiated
+    set(key, value){
+       
+        // case: input key is not a new key
+        if (this.map.has(key)){
+            // retrieve key already extant in the map
+            const node = this.map.get(key);
+            node.value = value;
+            // send the updated node to the most recently used spot
+            this.moveToHead(key, node);
+            return;
+        }
+
+        //case: input key is a new key
+        const xNode = new Node(key, value);
+        this.map.set(key, xNode);
+        // a class method touched xNode, 
+        this.addToHead(key, xNode);
+        // remove the least recently used node
+        // the least recently removed node by definition is the tail node
+        if (this.size > this.capacity){
+            this.removeTail();
+        }
+    }
+
 }
 
 let xCache = new LRUCache(2);
-xCache.put(1,1)
-xCache.put(2,2) // 2,2 is the most recently used and 2,2 is at head - checks out 
+xCache.set(1,1)
+xCache.set(2,2) // 2,2 is the most recently used and 2,2 is at head - checks out 
 console.log('xCache state 1: ')
 console.log(xCache)
-xCache.get(1)  // this works
+xCache.set(1)  // this works
 console.log('xCache state 2:')
 console.log(xCache) // 1,1 is the most recently used at 1,1 is at the head - checks out, however, the size was incorrectly decremented
 // somehow calling the get method decremented the size without a corresponding increase in the size 
@@ -150,5 +150,5 @@ console.log(xCache) // 1,1 is the most recently used at 1,1 is at the head - che
         // moveToHead calls the remove method, and the remove method deletes a map object
         // moveToHead calls the add to head method, 
 
-xCache.put(3,3) // the cache is expected to be {1:1, 3:3} after this method but the cache has {2:2, 3:3}
+xCache.set(3,3) // the cache is expected to be {1:1, 3:3} after this method but the cache has {2:2, 3:3}
 console.log(xCache)

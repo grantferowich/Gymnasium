@@ -21,19 +21,7 @@
 // you can use -1 as an index to indicate that a char is NOT present in a string
 // 
 
-// Successfully tested the solution 12/14/22
-
-
-const longestSubstring = (string) => {
-    // create state variables
-    let currentString = "";
-    let longestString = "";
-
-    for (let x = 0; x < string.length; x++){
-        let char = string[x];
-        let idx = currentString.indexOf(char)
-
-        // question: x and idx are ALWAYs the same right?
+  // question: x and idx are ALWAYs the same right?
         // So if x and idx are always the same, why not just use X and skip the idx state? 
         // no: idx gives a number for where in the currentString a char is
         // x simply tells where in the input string the loop is 
@@ -49,11 +37,25 @@ const longestSubstring = (string) => {
         // the left side of the currentString must move up index-wise when the newest element at x is a repeat
 
         // repeat found --> contract to the index after the first location of the repeat
+
+// Successfully tested the solution 12/14/22
+// check char existence in currentstring
+// if char exists in the current string, then no dice! slice up the string and start over
+    // re-start the current string from the next index, appending the char
+// if the char does not exist in the current string, simply append to current string
+// some logic for updating longest string variable using the current, local string
+
+const longestSubstring = (string) => {
+    // create state variables
+    let currentString = "";
+    let longestString = "";
+    for (let x = 0; x < string.length; x++){
+        let char = string[x];
+        let idx = currentString.indexOf(char);
+        // case 1: array[x] is a repeat as evidenced by idx > -1 
+        // when the element is unique, idx evaluates to -1
         if (idx > -1){
                 if (currentString.length > longestString.length) { longestString = currentString; };
-                // .slice(2) will trim the first two elements from the string
-                // :. the slice logic is how the window minimizes from the left 
-            
                 currentString = currentString.slice(idx + 1) + char;
         } else {
             // hunt and expand 

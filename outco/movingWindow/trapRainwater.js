@@ -30,16 +30,23 @@ const trapRainwater = (array) => {
    
     let rightArr = []
     rightArr[length - 1] = array[length - 1];
+    
+    
     // i points to front
     for (let i=1; i<array.length; i++){
         leftMax = Math.max(leftMax, array[i]);
         leftArr[i] = leftMax;
     }
+
+
     // k points to back 
     for (let k = array.length - 2; k >= 0; k--){
         rightMax = Math.max(rightMax, array[k]);
         rightArr[k] = rightMax;
     }
+
+    
+
     for (let j = 0; j < array.length; j++){
         result = result + (Math.min(leftArr[j], rightArr[j]) - array[j])
     }

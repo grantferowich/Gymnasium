@@ -153,7 +153,6 @@ class HashTable {
     this.storage = [];
     for (let x = 0; x < pairs.length; x++) {
       let bucket = pairs[x];
-      console.log('bucket',bucket )
       if (bucket !== undefined){
         for (let j = 0; j < bucket.length; j++) {
             this.insert(...bucket[j]);

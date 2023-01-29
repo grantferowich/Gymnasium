@@ -70,6 +70,8 @@ const graphIsATree = (graph) => {
     let visited = {};
    
     // breadth-first search on the root
+    // the bfs will tell whether or not the graph is cyclic
+    // ( a graph which is cyclic is not a tree)
     while (queue.length > 0){ 
         let currentNode = queue.shift();
         let edges = currentNode;

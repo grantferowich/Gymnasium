@@ -17,10 +17,7 @@ const kUniqueCharacters = (s) => {
     let currentWindowLength = 0;
     let hash = {};
     let maxLength = 1;
-
-
-    let counts = {}
-   
+    let counts = {};
 
    let x = 0;
    while (x < str.length){

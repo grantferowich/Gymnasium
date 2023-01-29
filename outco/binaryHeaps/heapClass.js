@@ -1,6 +1,7 @@
 /*
  *  Homework - Binary Heap
- *
+ *  Successfully tested 1/26/23.
+ *  
  *  Prompt: Create a Binary Heap class
  *
  *  The Heap will take in the following input:

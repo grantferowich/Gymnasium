@@ -84,7 +84,7 @@ const takeKCharacters = (string, k) => {
     //sliding window
     for ( right = 0; right < string.length; right++){
         let char = string.charAt(right);
-        counts[char]--
+        counts[char]--;
         while (counts[char] < k){
             counts[char]++
             left++

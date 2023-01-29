@@ -20,7 +20,7 @@
 const minimumWindowSubstring = (word, target) => {
     let left = 0;
     let right = 0;
-    let result = [0, Infinity]
+    let result = [0, Infinity];
 
     const counts = {};
     let missingChars = target.length;
@@ -31,7 +31,7 @@ const minimumWindowSubstring = (word, target) => {
         counts[char] = counts[char] + 1 || 1;
     }
 
-    while ( right < word.length) {
+    while (right < word.length) {
         if (missingChars > 0) {
             // hunting phase
             let rChar = word[right];
@@ -72,6 +72,7 @@ const minimumWindowSubstring = (word, target) => {
         right++       
     }
 
+    
     // return result;
     if (result[1] === Infinity) {
         return "";

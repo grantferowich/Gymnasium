@@ -2,7 +2,7 @@
 *Robot Paths With Value Toggling*
 
 Successfully tested the function 1/15/23.
-Robot Paths: track the total paths from 0,0 to the bottom right corner of the input matrix
+Robot Paths: track the total paths from 0,0 to the bottom right corner of the input matrix.
 
 Note: Matrix diagrams could be implemented with the example row and column diagram here.
         col ->

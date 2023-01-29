@@ -1,12 +1,13 @@
 // helper function, takes in the array, swaps the values of the indexes;
-const swap = (a, x, y) => {
-  let temp = a[x];
-  a[x] = a[y];
-  a[y] = temp;
-};
+
 
 const selectionSort = a => {
   //start with the initial index in the unsorted array
+  const swap = (a, x, y) => {
+    let temp = a[x];
+    a[x] = a[y];
+    a[y] = temp;
+  };
   let startIndex = 0;
   while (startIndex < a.length - 1) {
     let smallestIndex = startIndex;
@@ -20,7 +21,6 @@ const selectionSort = a => {
     }
     startIndex++;
   }
-
   return a;
 };
 

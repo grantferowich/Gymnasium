@@ -49,18 +49,18 @@ const ratPath = (matrix) => {
         }
         
         if (row === xTarget - 1 && col === yTarget - 1){
-            path.push([row, col])
-            output = [...path]
+            path.push([row, col]);
+            output = [...path];
             return;
         }
 
         if (matrix[row][col] === 0){
-            path.push([row,col])
+            path.push([row,col]);
             matrix[row][col] = 1;
             // output.push([row, col]);
             travel(row + 1, col);
             travel(row, col + 1);
-            path.pop()
+            path.pop();
         }
     }
     travel(0,0)
@@ -71,10 +71,6 @@ console.log(ratPath([[0, 0, 0, 1],
                      [0, 1, 0, 1],
                      [0, 1, 0, 0],
                      [0, 0, 1, 0]]))
-
-
-
-
 
 // expected output: Output:  [[0, 0],
         //   [0, 1],
