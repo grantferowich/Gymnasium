@@ -78,7 +78,13 @@ const graphIsATree = (graph) => {
         for (let x = 0; x < edges.length; x++){
             let node = edges[x];
             queue.push(node);
-            visited[node] ? false : visited[node] = true;
+            //visited[node] ? false : visited[node] = true;
+            if (visited[node]){
+                return false
+            } 
+            if (!visited[node]){
+                visited[node] = true
+            }
         }
     }
     return true
