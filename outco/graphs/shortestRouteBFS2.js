@@ -1,4 +1,6 @@
 // Successfully tested the function 1/30/23.
+// Time complexity: O(V+E)
+// Aux space complexity: O(N)
 
 class Graph {
     constructor() {
