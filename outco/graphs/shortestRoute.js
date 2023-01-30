@@ -1,5 +1,8 @@
 /* 
 Successfully tested the function.
+Complexity analysis: 
+Time complexity: O(V + E).
+Space complexity: O(N)
 
 320 - Shortest Route
 Find the shortest route from one vertex to another in a given graph.
