@@ -207,7 +207,6 @@ const shortestRouteBFS = (edges, start, destination) => {
             }
         }
     }
-    console.log(distance)
     return distance[destination] ? distance[destination] : -1
 }
 
