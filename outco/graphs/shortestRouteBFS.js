@@ -171,7 +171,7 @@ const edges3 = [
 
 // Can we assume the graph will be a valid graph? I.e. connected? 
 
-const shortestRoute = (edges, start, destination) => {
+const shortestRouteBFS = (edges, start, destination) => {
     const graph = generateAdjacencyList(edges)
     console.log(graph)
     let visited = {};
