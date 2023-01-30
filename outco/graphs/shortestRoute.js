@@ -59,8 +59,6 @@ class Graph {
     // Auxiliary Space Complexity: O(1)
     // add edge is basically add a value to the hash map
     addEdge(id1, id2) {
-        console.log('id1', id1)
-        console.log('id2', id2)
         let vertexList = [];
         for (let vertex in this.vertices){
           vertexList.push(vertex);
@@ -69,7 +67,6 @@ class Graph {
         let index2 = vertexList.indexOf(id2.toString()); 
         if (index1 === -1 || index2 === -1){ return false; }
         this.vertices[id1].push(id2);
-        console.log(this.vertices)
         return true;
      }
    
@@ -107,9 +104,6 @@ class Graph {
 
 const generateAdjacencyList = (edges) => {
     let graphX = new Graph();
-    console.log(graphX)
-    let f;
-    let g;
     let x = 0;
     while (x < edges.length){
         let edge = edges[x];
@@ -126,7 +120,7 @@ const generateAdjacencyList = (edges) => {
     return graphX.vertices
 }
 
-const edgesX = [
+const edges = [
     ['i', 'j'],
     ['k', 'i'],
     ['m', 'k'],
@@ -134,8 +128,9 @@ const edgesX = [
     ['o', 'n']
 ];
 
-console.log(generateAdjacencyList(edgesX))
+const edgesX = generateAdjacencyList(edges)
 
+// (edgesX, 'i', 'l')
 // let input = { 
 //     i: [ 'j', 'k' ], 
 //     j: [ 'i' ], 
@@ -145,3 +140,53 @@ console.log(generateAdjacencyList(edgesX))
 //     o: [ 'n' ], 
 //     n: [ 'o' ] 
 //   } 
+
+// ideas
+// start at given starting node
+// pass each neighbor to the queue
+// increment a step counter each 
+// time an item is passed to the queue
+// if the current edge is the final destination
+// return the count
+
+const shortestRoute = (edges, start, destination) => {
+    const graph = generateAdjacencyList(edges)
+    
+    let count = 0;
+    let visited = {};
+    let distance = {};
+
+    // init visited hashtable with vertices as keys
+    // and values set to false
+    for ( let x = 0; x < graph.length; x++){
+        let vertex = graph[0]
+        if (!visited.has(vertex)){
+            visited[vertex] = false;
+        }
+        if (!distance[vertex]){
+            distance[vertex] = Infinity
+        }
+    }
+    distance[start] = 0;
+    let queue = [start];
+
+    while (queue.length > 0){
+        // dequeue a vertex and set visited value to true
+        let vertex = queue.shift()
+        visited[vertex] = true;
+      
+        let neighbors = graph[vertex]
+    
+        for (let x = 0; x < neighbors.length; x++){
+            let neighbor = neighbors[x];
+            if (!visited[neighbor]){
+                distance[neighbor] = distance[vertex] + 1
+                queue.push(neighbor)
+            }
+        }
+    }
+    console.log(distance)
+    return distance[destination]
+}
+
+console.log(shortestRoute(edges, 'i', 'l')) // 2 [i to k, k to l]
