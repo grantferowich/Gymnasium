@@ -1,4 +1,6 @@
 /* 
+Successfully tested the file 1/29/23.
+
 Generate Adjacency List
 
 This function will take in an array of tuples as an input.
@@ -41,8 +43,6 @@ class Graph {
     // Auxiliary Space Complexity: O(1)
     // add edge is basically add a value to the hash map
     addEdge(id1, id2) {
-        console.log('id1', id1)
-        console.log('id2', id2)
         let vertexList = [];
         for (let vertex in this.vertices){
           vertexList.push(vertex);
@@ -51,7 +51,6 @@ class Graph {
         let index2 = vertexList.indexOf(id2.toString()); 
         if (index1 === -1 || index2 === -1){ return false; }
         this.vertices[id1].push(id2);
-        console.log(this.vertices)
         return true;
      }
    
@@ -89,7 +88,6 @@ class Graph {
 
 const generateAdjacencyList = (edges) => {
     let graphX = new Graph();
-    console.log(graphX)
     let f;
     let g;
     let x = 0;
@@ -118,7 +116,7 @@ const edgesX = [
 
 console.log(generateAdjacencyList(edgesX))
 
-// let input = { 
+// expected output = { 
 //     i: [ 'j', 'k' ], 
 //     j: [ 'i' ], 
 //     k: [ 'i', 'm', 'l' ], 
@@ -126,4 +124,4 @@ console.log(generateAdjacencyList(edgesX))
 //     l: [ 'k' ], 
 //     o: [ 'n' ], 
 //     n: [ 'o' ] 
-//   } 
+//   }  // the function returns the correct output (1/29/23)
