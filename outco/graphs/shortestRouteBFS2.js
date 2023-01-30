@@ -93,8 +93,8 @@ class Graph {
 const generateAdjacencyList = (edges) => {
     let graphX = new Graph();
     let x = 0;
-    while (x < edges.length){
-        let edge = edges[x];
+    while (x < graphX.length){
+        let edge = graphX[x];
         if (!graphX.vertices[edge[0]]){
             graphX.addVertex(edge[0])
         }
@@ -108,9 +108,12 @@ const generateAdjacencyList = (edges) => {
     return graphX.vertices
 }
 
-const shortestRouteBFS2 = (graph, start, destination) => {
+const shortestRouteBFS2 = (edges, start, destination) => {
+    const graph = generateAdjacencyList(edges)
+    const visited = new Set();
+    visited.add([start, 0])
 
-    let visited = new Set()
+    
 
 }
 
