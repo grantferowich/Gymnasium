@@ -1,3 +1,5 @@
+// Successfully tested the function 1/30/23.
+
 class Graph {
     constructor() {
      this.vertices = {};
@@ -129,9 +131,6 @@ const edges3 = [
     [6]
 ];
 
-// console.log(x)
-// console.log(x.contains(3)) // true
-
 const shortestRouteBFS2 = (edges, start, destination) => {
 
     const graph = generateAdjacencyList(edges);
@@ -163,9 +162,6 @@ const shortestRouteBFS2 = (edges, start, destination) => {
     }
     return -1
 }
-
-
-
 
 console.log(shortestRouteBFS2(edges, 'i', 'l')) // 2
 console.log(shortestRouteBFS2(edges2, 1, 4)) // 2
