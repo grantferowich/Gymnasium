@@ -151,10 +151,12 @@ const shortestRouteBFS2 = (edges, start, destination) => {
         let key = node[0]
         let neighbors = graph[key];        
         let x = 0;
+        if (!neighbors || neighbors.length === 0){ continue}
         while (x < neighbors.length){
             let neighbor = neighbors[x]
             if (!visited.has(neighbor)){
                 queue.push([neighbor, distance + 1])
+                visited.add(neighbor)
             }
             x++
         }
@@ -167,4 +169,4 @@ const shortestRouteBFS2 = (edges, start, destination) => {
 
 console.log(shortestRouteBFS2(edges, 'i', 'l')) // 2
 console.log(shortestRouteBFS2(edges2, 1, 4)) // 2
-console.log(shortestRouteBFS2)
+console.log(shortestRouteBFS2(edges3, 1, 6)) // -2
