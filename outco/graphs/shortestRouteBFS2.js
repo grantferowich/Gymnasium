@@ -93,8 +93,8 @@ class Graph {
 const generateAdjacencyList = (edges) => {
     let graphX = new Graph();
     let x = 0;
-    while (x < graphX.length){
-        let edge = graphX[x];
+    while (x < edges.length){
+        let edge = edges[x];
         if (!graphX.vertices[edge[0]]){
             graphX.addVertex(edge[0])
         }
@@ -107,139 +107,6 @@ const generateAdjacencyList = (edges) => {
     }
     return graphX.vertices
 }
-
-
-
-class ListNode {
-    constructor(value){
-        this.value = value;
-        this.next = null;
-    }
-}
-
-class LinkedList {
-    constructor(){
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
-    };
-
-    addToTail(value){
-        let node = new ListNode(value);
-
-        // if this.tail is null then the linked list must not be populated
-        if (this.tail === null){
-            this.head = node;
-            this.tail = node;
-        } else {
-            // set the tail to be the new node 
-            this.tail.next = node;
-            this.tail = node;  
-        }
-        this.length++
-        return;
-    } 
-
-    removeFirstNode(){
-        if (this.head === null){
-            return
-        }
-        let root = this.head;
-        this.head = this.head.next;
-        this.length--;
-        return root;
-    }
-}
-
-const ll2 = new LinkedList();
-let j = new ListNode(2)
-
-
-
-
-class Queue {
-    constructor(){
-        // instantiate a queue as an instance of a linked list
-        this.linkedlist = new LinkedList();
-    }
-
-    enqueue(value){
-        //add element to end of linked list
-        this.linkedlist.addToTail(value);
-    }
-
-    dequeue(){
-        // remove element from end of linked list
-        let firstElement = this.linkedlist.removeFirstNode();
-        this.length--;
-        if (firstElement){
-            return firstElement.value;
-        } else {
-            return null;
-        }
-    }
-    contains(x){
-        let current = this.linkedlist.head
-        while (current){
-            if (current.value === x){
-                return true
-            }
-            current = current.next
-        }
-        return false
-    }
-}
-
-let x = new Queue()
-x.enqueue(1)
-x.enqueue(1)
-x.enqueue(2)
-x.enqueue(3)
-console.log(x)
-console.log(x.contains(3)) // true
-
-// const shortestRouteBFS2 = (edges, start, destination) => {
-//     const graph = generateAdjacencyList(edges)
-    
-//     const visited = new Queue()
-//     visited.enqueue([start, 0])
-
-    
-//     while (visited.length > 0){
-//         let node = visited.dequeue();
-//         if (node.value[0] === destination){
-//             return node.value[1]
-//         }
-//         let neighbors = graph[node.value];
-//         let x = 0;
-//         while (x < neighbors.length){
-//             if (visited)
-//         }
-        
-
-//     }
-    
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const edges = [
     ['i', 'j'],
@@ -260,4 +127,39 @@ const edges3 = [
     [1,3],
     [3,4],
     [6]
-]
+];
+
+// console.log(x)
+// console.log(x.contains(3)) // true
+
+const shortestRouteBFS2 = (edges, start, destination) => {
+
+    const graph = generateAdjacencyList(edges)
+    let distance = 0;
+    const visited = []
+    visited.push([start, distance])
+
+    
+    while (visited.length > 0){
+        let node = visited.shift()
+        if (node[0] === destination){
+            return node.value[1]
+        }
+        let key = node[0]
+        let neighbors = graph[key];        
+        let x = 0;
+        while (x < neighbors.length){
+            let neighbor = neighbors[x]
+            if (!visited.includes(neighbor)){
+                visited.push([neighbor, distance+1])
+            }
+            x++
+        }
+    }
+    return -1
+}
+
+
+
+
+console.log(shortestRouteBFS2(edges, 'i', 'l')) // 2

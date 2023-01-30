@@ -173,6 +173,7 @@ const edges3 = [
 
 const shortestRouteBFS = (edges, start, destination) => {
     const graph = generateAdjacencyList(edges)
+    console.log('graph: ', graph)
     const visited = {};
     const distance = {};
 
