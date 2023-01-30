@@ -108,14 +108,119 @@ const generateAdjacencyList = (edges) => {
     return graphX.vertices
 }
 
-const shortestRouteBFS2 = (edges, start, destination) => {
-    const graph = generateAdjacencyList(edges)
-    const visited = new Set();
-    visited.add([start, 0])
+
+
+class ListNode {
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    constructor(){
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    };
+
+    addToTail(value){
+        let node = new ListNode(value);
+
+        // if this.tail is null then the linked list must not be populated
+        if (this.tail === null){
+            this.head = node;
+            this.tail = node;
+        } else {
+            // set the tail to be the new node 
+            this.tail.next = node;
+            this.tail = node;  
+        }
+        this.length++
+        return;
+    } 
+
+    removeFirstNode(){
+        if (this.head === null){
+            return
+        }
+        let root = this.head;
+        this.head = this.head.next;
+        this.length--;
+        return root;
+    }
+}
+
+const ll2 = new LinkedList();
+let j = new ListNode(2)
+
+
+
+
+class Queue {
+    constructor(){
+        // instantiate a queue as an instance of a linked list
+        this.linkedlist = new LinkedList();
+    }
+
+    enqueue(value){
+        //add element to end of linked list
+        this.linkedlist.addToTail(value);
+    }
+
+    dequeue(){
+        // remove element from end of linked list
+        let firstElement = this.linkedlist.removeFirstNode();
+        this.length--;
+        if (firstElement){
+            return firstElement.value;
+        } else {
+            return null;
+        }
+    }
+    contains(x){
+        let current = this.linkedlist.head
+        while (current){
+            if (current.value === x){
+                return true
+            }
+            current = current.next
+        }
+        return false
+    }
+}
+
+let x = new Queue()
+x.enqueue(1)
+x.enqueue(1)
+x.enqueue(2)
+x.enqueue(3)
+console.log(x)
+console.log(x.contains(3)) // true
+
+// const shortestRouteBFS2 = (edges, start, destination) => {
+//     const graph = generateAdjacencyList(edges)
+    
+//     const visited = new Queue()
+//     visited.enqueue([start, 0])
 
     
+//     while (visited.length > 0){
+//         let node = visited.dequeue();
+//         if (node.value[0] === destination){
+//             return node.value[1]
+//         }
+//         let neighbors = graph[node.value];
+//         let x = 0;
+//         while (x < neighbors.length){
+//             if (visited)
+//         }
+        
 
-}
+//     }
+    
+
+// }
 
 
 
