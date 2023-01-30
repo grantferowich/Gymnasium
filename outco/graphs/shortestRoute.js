@@ -65,12 +65,23 @@ class Graph {
     // add edge is basically add a value to the hash map
     addEdge(id1, id2) {
         let vertexList = [];
+        let index1;
+        let index2;
         for (let vertex in this.vertices){
           vertexList.push(vertex);
         }
-        let index1 = vertexList.indexOf(id1.toString()); // 5
-        let index2 = vertexList.indexOf(id2.toString()); 
-        if (index1 === -1 || index2 === -1){ return false; }
+        if (id1){
+            index1 = vertexList.indexOf(id1.toString());
+        } else {
+            return -1
+        }
+        if (id2){
+            index2 = vertexList.indexOf(id2.toString()); 
+        } else {
+            return -2
+        }
+        
+        if (parseInt(index1) === -1 || parseInt(index2) === -1){ return false; }
         this.vertices[id1].push(id2);
         return true;
      }
@@ -139,6 +150,12 @@ const edges2 = [
   [3,4]
 ];
 
+const edges3 = [
+    [1,2],
+    [1,3],
+    [3,4],
+    [6]
+]
 // const edgesX = generateAdjacencyList(edges)
 
 // (edgesX, 'i', 'l')
@@ -156,6 +173,7 @@ const edges2 = [
 
 const shortestRoute = (edges, start, destination) => {
     const graph = generateAdjacencyList(edges)
+    console.log(graph)
     let visited = {};
     let distance = {};
 
@@ -195,3 +213,4 @@ const shortestRoute = (edges, start, destination) => {
 
 console.log(shortestRoute(edges, 'i', 'l')) // 2 [i to k, k to l]
 console.log(shortestRoute(edges2, 1, 2)) // 1
+console.log(shortestRoute(edges3, 1, 6)) // -1
