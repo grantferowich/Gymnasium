@@ -75,10 +75,13 @@ class Graph {
         if (!this.storage[id]){return null;}
         return this.storage[id]
     }
-   }
+}
    
 let graph1 = new Graph()
-graph1.addVertex(1);
-graph1.addVertex(5);
-graph1.addEdge(1,5);
+// graph1.addVertex(1);
+// graph1.addVertex(5);
+// graph1.addEdge(1,5);
+graph1.addVertex('w')
+graph1.addVertex('f')
+graph1.addEdge('w', 'f')
 console.log(graph1.storage)

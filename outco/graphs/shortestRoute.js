@@ -59,6 +59,8 @@ class Graph {
     // Auxiliary Space Complexity: O(1)
     // add edge is basically add a value to the hash map
     addEdge(id1, id2) {
+        console.log('id1', id1)
+        console.log('id2', id2)
         let vertexList = [];
         for (let vertex in this.vertices){
           vertexList.push(vertex);
@@ -67,6 +69,7 @@ class Graph {
         let index2 = vertexList.indexOf(id2.toString()); 
         if (index1 === -1 || index2 === -1){ return false; }
         this.vertices[id1].push(id2);
+        console.log(this.vertices)
         return true;
      }
    
@@ -104,18 +107,34 @@ class Graph {
 
 const generateAdjacencyList = (edges) => {
     let graphX = new Graph();
-
+    console.log(graphX)
     let f;
     let g;
     let x = 0;
     while (x < edges.length){
         let edge = edges[x];
-        [ f , g ] = edge;
-        graph.addEdge( f , g );
+        if (!graphX.vertices[edge[0]]){
+            graphX.addVertex(edge[0])
+        }
+        if (!graphX.vertices[edge[1]]){
+            graphX.addVertex(edge[1])
+        }  
+        graphX.addEdge(edge[0] ,edge[1]);
+        graphX.addEdge(edge[1], edge[0])
         x++
     }
-    return graphX
+    return graphX.vertices
 }
+
+const edgesX = [
+    ['i', 'j'],
+    ['k', 'i'],
+    ['m', 'k'],
+    ['k', 'l'],
+    ['o', 'n']
+];
+
+console.log(generateAdjacencyList(edgesX))
 
 // let input = { 
 //     i: [ 'j', 'k' ], 
