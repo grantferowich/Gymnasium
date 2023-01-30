@@ -62,7 +62,7 @@ class Graph {
         let vertexList = [];
         for (let vertex in this.vertices){
           vertexList.push(vertex);
-        } 
+        }
         let index1 = vertexList.indexOf(id1.toString()); // 5
         let index2 = vertexList.indexOf(id2.toString()); 
         if (index1 === -1 || index2 === -1){ return false; }
@@ -128,7 +128,13 @@ const edges = [
     ['o', 'n']
 ];
 
-const edgesX = generateAdjacencyList(edges)
+const edges2 = [
+  [1,2],
+  [1,3],
+  [3,4]
+];
+
+// const edgesX = generateAdjacencyList(edges)
 
 // (edgesX, 'i', 'l')
 // let input = { 
@@ -141,13 +147,7 @@ const edgesX = generateAdjacencyList(edges)
 //     n: [ 'o' ] 
 //   } 
 
-// ideas
-// start at given starting node
-// pass each neighbor to the queue
-// increment a step counter each 
-// time an item is passed to the queue
-// if the current edge is the final destination
-// return the count
+// Can we assume the graph will be a valid graph? I.e. connected? 
 
 const shortestRoute = (edges, start, destination) => {
     const graph = generateAdjacencyList(edges)
@@ -178,13 +178,15 @@ const shortestRoute = (edges, start, destination) => {
         for (let x = 0; x < neighbors.length; x++){
             let neighbor = neighbors[x];
             if (!visited[neighbor]){
+
                 distance[neighbor] = distance[vertex] + 1
                 queue.push(neighbor)
             }
         }
     }
     console.log(distance)
-    return distance[destination]
+    return distance[destination] ? distance[destination] : -1
 }
 
 console.log(shortestRoute(edges, 'i', 'l')) // 2 [i to k, k to l]
+console.log(shortestRoute(edges2, 1, 2)) // 1
