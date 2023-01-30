@@ -108,6 +108,11 @@ const generateAdjacencyList = (edges) => {
     return graphX.vertices
 }
 
+const shortestRouteBFS2 = (graph, start, destination) => {
+
+    let visited = new Set()
+
+}
 
 
 

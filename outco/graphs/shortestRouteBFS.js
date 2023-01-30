@@ -173,9 +173,8 @@ const edges3 = [
 
 const shortestRouteBFS = (edges, start, destination) => {
     const graph = generateAdjacencyList(edges)
-    console.log(graph)
-    let visited = {};
-    let distance = {};
+    const visited = {};
+    const distance = {};
 
     // init visited hashtable with vertices as keys
     // and values set to false
@@ -211,6 +210,6 @@ const shortestRouteBFS = (edges, start, destination) => {
     return distance[destination] ? distance[destination] : -1
 }
 
-console.log(shortestRoute(edges, 'i', 'l')) // 2 [i to k, k to l]
-console.log(shortestRoute(edges2, 1, 2)) // 1
-console.log(shortestRoute(edges3, 1, 6)) // -1
+console.log(shortestRouteBFS(edges, 'i', 'l')) // 2 [i to k, k to l]
+console.log(shortestRouteBFS(edges2, 1, 2)) // 1
+console.log(shortestRouteBFS(edges3, 1, 6)) // -1
