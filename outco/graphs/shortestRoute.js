@@ -151,8 +151,6 @@ const edgesX = generateAdjacencyList(edges)
 
 const shortestRoute = (edges, start, destination) => {
     const graph = generateAdjacencyList(edges)
-    
-    let count = 0;
     let visited = {};
     let distance = {};
 
