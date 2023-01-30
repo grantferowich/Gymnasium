@@ -126,6 +126,16 @@ class Queue {
             return null;
         }
     }
+    contains(x){
+        let current = this.linkedlist.head
+        while (current){
+            if (current.value === x){
+                return true
+            }
+            current = current.next
+        }
+        return false
+    }
 }
 
 let k = new Queue();

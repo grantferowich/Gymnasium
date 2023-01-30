@@ -34,7 +34,7 @@ class SinglyLinkedList{
     }
 
     // 1-2-3
-    // 1->2
+    // 1-> xx2
     removeFromTail(){
         if (this.length === 0){
             return
