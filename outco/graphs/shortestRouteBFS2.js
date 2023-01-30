@@ -134,24 +134,27 @@ const edges3 = [
 
 const shortestRouteBFS2 = (edges, start, destination) => {
 
-    const graph = generateAdjacencyList(edges)
+    const graph = generateAdjacencyList(edges);
+    if (!graph[start] || !graph[destination]){return -1}
     let distance = 0;
-    const visited = []
-    visited.push([start, distance])
-
+    let queue = [];
+    const visited = new Set()
+    queue.push([start, distance])
+    visited.add(start)
     
-    while (visited.length > 0){
-        let node = visited.shift()
+    while (queue.length > 0){
+        let node = queue.shift()
+        distance = node[1]
         if (node[0] === destination){
-            return node.value[1]
+            return distance
         }
         let key = node[0]
         let neighbors = graph[key];        
         let x = 0;
         while (x < neighbors.length){
             let neighbor = neighbors[x]
-            if (!visited.includes(neighbor)){
-                visited.push([neighbor, distance+1])
+            if (!visited.has(neighbor)){
+                queue.push([neighbor, distance + 1])
             }
             x++
         }
@@ -163,3 +166,5 @@ const shortestRouteBFS2 = (edges, start, destination) => {
 
 
 console.log(shortestRouteBFS2(edges, 'i', 'l')) // 2
+console.log(shortestRouteBFS2(edges2, 1, 4)) // 2
+console.log(shortestRouteBFS2)
