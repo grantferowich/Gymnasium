@@ -45,11 +45,11 @@ const rectangleIslands = (matrix) => {
         for (let y = 0; y < matrix[0].length; y++){
             if (matrix[x][y] === 1){
                 // left check
-                if ((x - 1) < 0 || matrix[x-1][y] === 0){
+                if (((x - 1) < 0 || matrix[x-1][y] === 0) && ((y - 1) < 0 || matrix[x][y-1] === 0)){
                     // top check
-                    if ((y - 1) < 0 || matrix[x][y-1] === 0){
+
                         rectangleIslands++
-                    } 
+                   
                 }
             }
         }

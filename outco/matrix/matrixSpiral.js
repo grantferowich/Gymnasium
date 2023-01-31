@@ -22,11 +22,13 @@ const matrixSpiral = (matrix) => {
         for (let x = xMin; x <= xMax; x++){
             result.push(matrix[yMin][x]);
         }
+        //turn 
         yMin++;
         // traverse from ymin to ymax
         for (let x = yMin; x <= yMax; x++){
             result.push(matrix[x][xMax]);
         }
+        //turn 
         xMax--;
         
         if (yMin <= yMax){
@@ -34,6 +36,7 @@ const matrixSpiral = (matrix) => {
             for (x = xMax; x >= xMin; x--){
                 result.push(matrix[yMax][x])
             }
+            //turn
             yMax--;
         }
 
@@ -42,6 +45,7 @@ const matrixSpiral = (matrix) => {
             for (x = yMax; x >= yMin; x--){
                 result.push(matrix[x][xMin])
             }
+            //turn
             xMin++;
         }
     }
