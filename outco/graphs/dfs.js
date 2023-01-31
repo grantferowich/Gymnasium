@@ -13,7 +13,7 @@
  *    of the HackerRank challenge that was provided in class. How would you
  *    handle things differently if each path returned needed to be a list?
  *
- * 
+ *              Test case 1: 
  *              A -> B -> C
  *              |
  *              v
@@ -31,8 +31,28 @@
  *                W: [ F ],
  *                F: [ U ]}
  *              
+ *                      
+ *                      C
+ *                    /^  \
+ *              A -> B     W -> F -> U
+ *                    \   /
+ *                    v  /
+ *                     K 
+ *              Array of Tuples: [[ 'A', 'B' ], [ 'B', 'C' ], [ 'C', 'W' ], 
+ *                                [ 'B', 'K' ], [ 'K', 'W' ], [ 'W', 'F' ],
+ *                                [ 'F', 'U' ]]
+ *              Adjacency List: {
+ *                                A: [ B ],
+ *                                B: [ C , K],
+ *                                C: [ W ],
+ *                                K: [ W ],
+ *                                W: [ F ],
+ *                                U: []   
+ *                                  }
+ *                              
+ * 
  *  
- */
+ */                    
 
 class Vertex{
     constructor(id){
@@ -59,6 +79,10 @@ const generateAdjacencyList = (arrayOfTuples) => {
 const arrayOfTuples =[[ 'A', 'B' ], [ 'B', 'C' ], [ 'A', 'K' ],
                       [ 'K', 'W' ], [ 'W', 'F' ], [ 'F', 'U' ]]
 
+const arrayOfTuples2 = [[ 'A', 'B' ], [ 'B', 'C' ], [ 'C', 'W' ], 
+                        [ 'B', 'K' ], [ 'K', 'W' ], [ 'W', 'F' ],
+                        [ 'F', 'U' ]]
+
 // const list = generateAdjacencyList(arrayOfTuples)
 // console.log(list)
 
@@ -73,16 +97,18 @@ function dfs(arrayOfTuples, vertex, destination){
     visited[vertex] = true;
 
     const traverse = (vertex) => {
+        path.push(vertex)
         //base case: reached destination
         if (vertex === destination){
-            path.push(vertex)
-            output = [...path]
-            return
+            output.push([...path])
+            path.pop();
+            return;
         }
         let edges = graph[vertex];
         
         // base case: bottomed out
         if (!edges){
+            path.pop();
             return
         }
         
@@ -92,15 +118,11 @@ function dfs(arrayOfTuples, vertex, destination){
             if (visited.has(edge)){
                 continue
             }
-
             // case 2: first time seeing this edge
-            path.push(vertex)
-            traverse(edge)
-            if (output.length){
-                return
-            }
-            path.pop()   
+            traverse(edge);
         }
+        path.pop();  
+        visited.delete(vertex);
 
     }
     traverse(vertex)
@@ -108,4 +130,6 @@ function dfs(arrayOfTuples, vertex, destination){
 }
 
 const output = dfs(arrayOfTuples, 'A', 'U')
+const output2 = dfs(arrayOfTuples2, 'A', 'U')
 console.log(output);
+console.log(output2)
