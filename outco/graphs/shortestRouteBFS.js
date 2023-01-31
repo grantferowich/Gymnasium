@@ -195,13 +195,11 @@ const shortestRouteBFS = (edges, start, destination) => {
         // dequeue a vertex and set visited value to true
         let vertex = queue.shift()
         visited[vertex] = true;
-      
         let neighbors = graph[vertex]
     
         for (let x = 0; x < neighbors.length; x++){
             let neighbor = neighbors[x];
             if (!visited[neighbor]){
-
                 distance[neighbor] = distance[vertex] + 1
                 queue.push(neighbor)
             }
