@@ -39,7 +39,6 @@ const minimumHeightTree = (n, edges) => {
         for (let x = 0; x < leaves.length; x++){
             let leaf = leaves[x];
             degrees[leaf]--;
-
             for (let k = 0; k < adjacenct[leaf].length; k++){
                 let neighbor = adjacenct[leaf][k];
                 degrees[neighbor]--;
@@ -47,7 +46,6 @@ const minimumHeightTree = (n, edges) => {
                     newLeaves.push(neighbor);
                 }
             }
-
         }
         leaves = newLeaves;
     }
