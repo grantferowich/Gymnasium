@@ -19,8 +19,12 @@
  *              v
  *              K -> W -> F -> U
  *              
+ *              Array of Tuples: [[ A, B ], [ B, C ], [ A, K],
+ *                               [ K, W ], [ W, F ], [ F, U ]]
+ * 
  *              DFS(A,U): [A, K, W, F, U]
- *              { A: [ B , K ],
+ *              
+ *              Adjacency List: { A: [ B , K ],
  *                B: [ C ],
  *                C: [ ],
  *                K: [ W ],
@@ -30,18 +34,78 @@
  *  
  */
 
+class Vertex{
+    constructor(id){
+        this.id = id !== undefined ? id : null;
+        this.edges = [];
+    }
+}
 
-function dfs(vertex, destination){
+const generateAdjacencyList = (arrayOfTuples) => {
+    const list = {};
+    for (let x = 0; x < arrayOfTuples.length; x++){
+        const id1 = arrayOfTuples[x][0];
+        const id2 = arrayOfTuples[x][1];
+        if (!list[id1]){
+            list[id1] = [];
+        }
+        if (list[id1]){
+            list[id1].push(id2);
+        }
+    }
+    return list;
+}
+
+const arrayOfTuples =[[ 'A', 'B' ], [ 'B', 'C' ], [ 'A', 'K' ],
+                      [ 'K', 'W' ], [ 'W', 'F' ], [ 'F', 'U' ]]
+
+// const list = generateAdjacencyList(arrayOfTuples)
+// console.log(list)
+
+
+function dfs(arrayOfTuples, vertex, destination){
+   
+    const graph = generateAdjacencyList(arrayOfTuples);
+    let output = [];
+    const path = []
+    const visited = new Set()
     
-    const output = []
-    const visited = {}
-    const stack = [vertex];
     visited[vertex] = true;
 
-    while (stack.length > 0){
+    const traverse = (vertex) => {
+        //base case: reached destination
+        if (vertex === destination){
+            path.push(vertex)
+            output = [...path]
+            return
+        }
+        let edges = graph[vertex];
         
+        // base case: bottomed out
+        if (!edges){
+            return
+        }
+        
+        visited.add(vertex);
+        for (const edge of edges){
+            // case 1: edge was already visited
+            if (visited.has(edge)){
+                continue
+            }
+
+            // case 2: first time seeing this edge
+            path.push(vertex)
+            traverse(edge)
+            if (output.length){
+                return
+            }
+            path.pop()   
+        }
 
     }
-
+    traverse(vertex)
     return output;
 }
+
+const output = dfs(arrayOfTuples, 'A', 'U')
+console.log(output);
