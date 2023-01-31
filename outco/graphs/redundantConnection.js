@@ -49,11 +49,23 @@
 
  
  function redundantConnection(edgeList) {
-   
-    dfs ()
+    let root = edgeList[0][0];
+    let queue = [root];
+    let visited = new Set();
+    visited.add(root)
+    while (queue.length > 0){
+        let node = queue.shift();
+        visited.add(node);
 
+
+
+    }
+
+ 
     return -1;
  }
   
 //   Input: edges = [[1,2],[1,3],[2,3]]
 //   Output: [2,3]
+const edges = [[1,2],[1,3],[2,3]];
+console.log(redundantConnection(edges))

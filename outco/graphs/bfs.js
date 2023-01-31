@@ -22,15 +22,12 @@ const breadthFirstSearch = (graph, startNode, targetNode) => {
     
     // process the queue
     while (queue.length > 0){
-        
         // examine the first node in the queue
         let currentNode = queue.shift();
-        
         // found the target
         if (currentNode === targetNode){
             return true;
         }
-
         // keep track of visited nodes
         visited.add(currentNode);
         if (graph[currentNode]){
@@ -39,6 +36,7 @@ const breadthFirstSearch = (graph, startNode, targetNode) => {
                 // push the neighbor vertex into the queue for processing
                 if (!visited.has(neighbor)){
                     queue.push(neighbor)
+                    visited.add(neighbor)
                 }
             }
         }
