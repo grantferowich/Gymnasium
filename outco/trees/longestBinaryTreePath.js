@@ -52,3 +52,5 @@ root.right = new BinaryTreeNode(3)
 root.right.right = new BinaryTreeNode(4) 
 console.log(findLongestPath(root))
 
+// suppose you had an input like this:
+// [ 1, 2, 3, 4, -1, -1, -1 ]

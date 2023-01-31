@@ -92,7 +92,6 @@ function dfs(arrayOfTuples, vertex, destination){
     let output = [];
     const path = []
     const visited = new Set()
-    
     visited[vertex] = true;
 
     const traverse = (vertex) => {
@@ -104,13 +103,11 @@ function dfs(arrayOfTuples, vertex, destination){
             return;
         }
         let edges = graph[vertex];
-        
         // base case: bottomed out
         if (!edges){
             path.pop();
             return
         }
-        
         visited.add(vertex);
         for (const edge of edges){
             // case 1: edge was already visited
@@ -122,7 +119,6 @@ function dfs(arrayOfTuples, vertex, destination){
         }
         path.pop();  
         visited.delete(vertex);
-
     }
     traverse(vertex)
     return output;
