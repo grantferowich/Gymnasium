@@ -1,5 +1,7 @@
 /*
- *
+ * Successfully tested the function 1/30/23.
+ * DFS: Return arrays of all paths from the starting vertex to the destination
+
  *  2. Given a starting vertex, and an integer destination, return all valid
  *     paths for a given source and destination.
  *
@@ -49,9 +51,6 @@
  *                                W: [ F ],
  *                                U: []   
  *                                  }
- *                              
- * 
- *  
  */                    
 
 class Vertex{
