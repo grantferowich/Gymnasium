@@ -1,6 +1,6 @@
 /* // Successfully tested the function 1/29/23
 Complexity Analysis
-Time complexity: O(V)
+Time complexity: O(V+E)
 Space analysis: O(V)
 
 */
