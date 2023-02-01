@@ -39,7 +39,6 @@ class LinkedList {
 
     addToTail(value){
         let node = new ListNode(value);
-
         // if this.tail is null then the linked list must not be populated
         if (this.tail === null){
             this.head = node;
