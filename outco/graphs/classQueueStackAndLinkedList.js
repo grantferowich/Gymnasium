@@ -125,4 +125,5 @@ list.enqueue(1)
 list.enqueue(1)
 list.enqueue(2)
 list.enqueue(3)
-console.log(list)
+console.log(list.dequeue()) // 1
+// console.log(list)
