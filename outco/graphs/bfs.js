@@ -15,11 +15,9 @@ class Node{
 // this BFS implementation starts at a node and searches for another node 
 // BFS describes the traversal style 
 const breadthFirstSearch = (graph, startNode, targetNode) => {
-    
     // instantiate the queue
     let queue = [startNode];
     let visited = new Set();
-    
     // process the queue
     while (queue.length > 0){
         // examine the first node in the queue
@@ -52,6 +50,7 @@ let graph = {
     'E': ['F'],
     'F': []
 };
+
 console.log(breadthFirstSearch(graph, 'A', 'C'));  // Output: true
 console.log(breadthFirstSearch(graph, 'A', 'E'));  // Output: true
 console.log(breadthFirstSearch(graph, 'X', 'G'));  // Output: false

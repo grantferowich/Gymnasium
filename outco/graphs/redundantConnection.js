@@ -49,19 +49,35 @@
 
  
  function redundantConnection(edgeList) {
-    let root = edgeList[0][0];
+    let root = edgeList[0];
     let queue = [root];
     let visited = new Set();
-    visited.add(root)
+    
+
     while (queue.length > 0){
+        
+        // grab the current first item
         let node = queue.shift();
+
+        // mark the current node as visited
         visited.add(node);
+        
+        let vertex = node[0];
+        let neighbor = node[1];
 
-
-
+        // if the current vertex, edge pair 
+        // leads to a cycle
+        // then return the current vertex, edge pair 
+        if (!visited.has(neighbor)){
+            queue.push(neighbor);
+            visited.add(neighbor)
+        }
+        
+        if (visited.has(neighbor)){
+            // console.log(node)
+            return [vertex, neighbor]
+        }
     }
-
- 
     return -1;
  }
   

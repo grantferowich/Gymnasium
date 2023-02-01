@@ -90,15 +90,15 @@ function dfs(arrayOfTuples, vertex, destination){
    
     const graph = generateAdjacencyList(arrayOfTuples);
     let output = [];
-    const path = []
-    const visited = new Set()
+    const path = [];
+    const visited = new Set();
     visited[vertex] = true;
 
     const traverse = (vertex) => {
-        path.push(vertex)
+        path.push(vertex);
         //base case: reached destination
         if (vertex === destination){
-            output.push([...path])
+            output.push([...path]);
             path.pop();
             return;
         }
@@ -112,7 +112,7 @@ function dfs(arrayOfTuples, vertex, destination){
         for (const edge of edges){
             // case 1: edge was already visited
             if (visited.has(edge)){
-                continue
+                continue;
             }
             // case 2: first time seeing this edge
             traverse(edge);
@@ -120,7 +120,7 @@ function dfs(arrayOfTuples, vertex, destination){
         path.pop();  
         visited.delete(vertex);
     }
-    traverse(vertex)
+    traverse(vertex);
     return output;
 }
 

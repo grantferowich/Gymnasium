@@ -39,21 +39,18 @@ const ratPath = (matrix) => {
 
     let xTarget = matrix.length;
     let yTarget = matrix[0].length;
-    let path = []
+    let path = [];
     let output;
 
     const travel = (row, col) => {
-    
         if (row < 0 || col < 0 || row >= xTarget || col >= yTarget){
             return;
         }
-        
         if (row === xTarget - 1 && col === yTarget - 1){
             path.push([row, col]);
             output = [...path];
             return;
         }
-
         if (matrix[row][col] === 0){
             path.push([row,col]);
             matrix[row][col] = 1;
