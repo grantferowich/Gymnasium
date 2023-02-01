@@ -79,14 +79,20 @@ class Queue {
     constructor(){
         // instantiate a queue as an instance of a linked list
         this.linkedlist = new LinkedList();
+        this.length = 0;
     }
 
     enqueue(value){
         //add element to end of linked list
         this.linkedlist.addToTail(value);
+        this.length++;
     }
 
     dequeue(){
+        if (this.length === 0){
+            return
+        }
+        this.length--;
         // remove element from end of linked list
         let firstElement = this.linkedlist.removeFirstNode();
         if (firstElement){
@@ -94,16 +100,10 @@ class Queue {
         } else {
             return null;
         }
+        
     }
-    contains(x){
-        let current = this.linkedlist.head
-        while (current){
-            if (current.value === x){
-                return true
-            }
-            current = current.next
-        }
-        return false
+    peek(){
+        return this.linkedlist.head.value;
     }
 }
 
@@ -119,3 +119,10 @@ class Stack{
         return node;
     }
 }
+
+let list = new Queue()
+list.enqueue(1)
+list.enqueue(1)
+list.enqueue(2)
+list.enqueue(3)
+console.log(list)
