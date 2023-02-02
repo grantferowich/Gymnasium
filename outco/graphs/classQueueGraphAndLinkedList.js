@@ -217,7 +217,7 @@ const generateAdjacencyListUndirectedUnweighted = (edges) => {
     return graphX.storage
 }
 
-const generateAdjacencyList = (arrayOfTuples) => {
+const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
     const list = {};
     for (let x = 0; x < arrayOfTuples.length; x++){
         const id1 = arrayOfTuples[x][0];
