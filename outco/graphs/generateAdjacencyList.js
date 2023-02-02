@@ -88,8 +88,6 @@ class Graph {
 
 const generateAdjacencyList = (edges) => {
     let graphX = new Graph();
-    let f;
-    let g;
     let x = 0;
     while (x < edges.length){
         let edge = edges[x];
@@ -114,8 +112,14 @@ const edgesX = [
     ['o', 'n']
 ];
 
-console.log(generateAdjacencyList(edgesX))
+const edgesX2 = [
+    [1, 2],
+    [1, 3],
+];
 
+
+console.log(generateAdjacencyList(edgesX))
+console.log(generateAdjacencyList(edgesX2))
 // expected output = { 
 //     i: [ 'j', 'k' ], 
 //     j: [ 'i' ], 
