@@ -241,6 +241,21 @@ const printBFS = (graph, start) => {
     }
 }
 
+const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
+    const list = {};
+    for (let x = 0; x < arrayOfTuples.length; x++){
+        const id1 = arrayOfTuples[x][0];
+        const id2 = arrayOfTuples[x][1];
+        if (!list[id1]){
+            list[id1] = [];
+        }
+        if (list[id1]){
+            list[id1].push(id2);
+        }
+    }
+    return list;
+}
+
 const nthDegreeNeighbors = (graph, start, n) => {
     let queue = new Queue();
     let visited = new Set();
@@ -255,14 +270,19 @@ const nthDegreeNeighbors = (graph, start, n) => {
         if (degree === n){
             result.push(current);
         }
-        for (let neighbor of neighbors){
-            if (!visited.has[neighbor]){
-                queue.enqueue([neighbor, degree + 1]);
-                visited.add(neighbor);
+        if (neighbors !== undefined){
+            for (let neighbor of neighbors){
+                if (!visited.has[neighbor]){
+                    queue.enqueue([neighbor, degree + 1]);
+                    visited.add(neighbor);
+                }
             }
-        }
+        } 
     }
     return result;
 }
 
 const edges = [[1,2], [1,3], [2,3]]
+const graph = generateAdjacencyListDirectedUnweighted(edges)
+const output = nthDegreeNeighbors(graph,1,1) // [2,3]
+console.log(output)
