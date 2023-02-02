@@ -275,7 +275,7 @@ const graphX = generateAdjacencyList(edgesX);
 const graphY = generateAdjacencyList(edgesY);
 
 
-// printDFS(graphX, 1) // 1 2 3 4 8 5 9 6 7
+printDFSWithAStack(graphX, 1) // 1 3 4 5 7 6 8 9 2
 
-printDFS(graphY, 1) // 1 2 3 
+// printDFSWithAStack(graphY, 1) // 1 2 3 
 
