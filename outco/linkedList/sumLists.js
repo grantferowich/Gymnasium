@@ -81,5 +81,14 @@ listY.next.next = new ListNode(8)
 // 470
 // [4,7,0]
 
+let list1 = new ListNode(2)
+list1.next = new ListNode(4)
+list1.next.next = new ListNode(3)
+
+let list2 = new ListNode(5)
+list2.next = new ListNode(6)
+list2.next.next = new ListNode(4)
+
 
 console.log(sumLists(listX, listY))
+console.log(sumLists(list1, list2))

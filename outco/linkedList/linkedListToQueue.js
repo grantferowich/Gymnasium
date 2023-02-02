@@ -4,9 +4,6 @@ Implement a Linked List data structure with addToTail and removeFromHead methods
 Then use that Linked List data structure to implement a Queue data structure with 
 enqueue and dequeue methods.
 
-
-
-
 // traverse from the start of the linked list 
 // until the end of the linked list
 // set the old tail to point at the new node
@@ -20,9 +17,6 @@ enqueue and dequeue methods.
 // traverse until reaching the tail which points to null
  */
     
-
-
-
 class ListNode {
     constructor(value){
         this.value = value;
