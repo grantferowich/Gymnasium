@@ -95,8 +95,9 @@ class Graph {
     // Auxiliary Space Complexity: O(E)
     // access to return the values given a key
     neighbors(id) {
+        console.log('hi')
         if (!this.storage[id]){return null;}
-        return this.storage[id]
+        return this.storage[id];
     }
 }
 
@@ -207,7 +208,7 @@ class Queue {
         // remove element from end of linked list
         let firstElement = this.linkedlist.remove(0).value;
         if (firstElement){
-            return firstElement.value;
+            return firstElement;
         } else {
             return null;
         }
@@ -219,20 +220,12 @@ class Queue {
     }
 }
 
-let q = new Queue();
-q.enqueue(1)
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-// console.log('q: ', q)
-// the problem is dequeue is not returning the deleted node...
-console.log('dequeued-',q.dequeue())
-
+// this adjcacency list generator creates 
+// an undirected adjacecny list
 const generateAdjacencyList = (edges) => {
     
     let graphX = new Graph();
     let x = 0;
-   
     while (x < edges.length){
         let edge = edges[x];
         if (!graphX.storage[edge[0]]){
@@ -242,10 +235,9 @@ const generateAdjacencyList = (edges) => {
             graphX.addVertex(edge[1])
         }  
         graphX.addEdge(edge[0] ,edge[1]);
-        graphX.addEdge(edge[1], edge[0])
         x++
     }
-    return graphX
+    return graphX.storage
 }
 
 
@@ -257,26 +249,20 @@ const printBFS = (graph, start) => {
     
     queue.enqueue(start);
     visited.add(start);
-
     while (queue.length > 0){
-        console.log('queue', queue)
-        console.log('queue.length', queue.length)
         current = queue.dequeue();
-        console.log('current', current)
-        neighbors = graph.neighbors(current);
-        
+        neighbors = graph[current]
         for (let x = 0; x < neighbors.length; x++){
             if (!visited.has(neighbors[x])){
                 queue.enqueue(neighbors[x]);
                 visited.add(neighbors[x]);
             }
-        }
+        } 
         console.log(current)
     }
 }
 
-// const edges = [[ 1 , 2 ], [ 1, 3 ], [ 2, 4], [ 3, 4], [ 4, 8], [ 4, 5 ], [ 5, 6 ], [ 5, 7], [ 7 , 8 ], [ 8, 9 ] ];
-// const graphX = generateAdjacencyList(edges) 
-// // console.log('graphX.neighbors,',graphX.neighbors(1))
-
-// printBFS(graphX, 1) // 1 2 3
+const edges = [[ 1 , 2 ], [ 1, 3 ], [ 2, 4], [ 3, 4], [ 4, 8], [ 4, 5 ], [ 5, 6 ], [ 5, 7], [ 7 , 8 ], [ 8, 9 ] ];
+// const edges = [[1,2], [1,3], [2,3]]
+const graphX = generateAdjacencyList(edges) 
+printBFS(graphX, 1) // 1 2 3
