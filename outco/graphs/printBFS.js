@@ -1,6 +1,7 @@
 /* 
 PRINT BFS
 Print the vertices of a graph in breadth-first search order 
+Successfully tested the function 02/02/2023.
 
 Input: graph, start vertex
 output: print the vertices to the console
