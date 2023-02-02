@@ -247,7 +247,7 @@ const generateAdjacencyList = (edges) => {
     return graphX.storage
 }
 
-const printDFS = ( graph, start) => {
+const printDFSWithAStack = ( graph, start) => {
     let stack = new Stack();
     let visited = new Set();
     let current, neighbors;
