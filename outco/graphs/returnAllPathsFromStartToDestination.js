@@ -86,7 +86,7 @@ const arrayOfTuples2 = [[ 'A', 'B' ], [ 'B', 'C' ], [ 'C', 'W' ],
 // console.log(list)
 
 
-function dfs(arrayOfTuples, vertex, destination){
+function returnAllPaths(arrayOfTuples, vertex, destination){
    
     const graph = generateAdjacencyList(arrayOfTuples);
     let output = [];
@@ -124,7 +124,7 @@ function dfs(arrayOfTuples, vertex, destination){
     return output;
 }
 
-const output = dfs(arrayOfTuples, 'A', 'U')
-const output2 = dfs(arrayOfTuples2, 'A', 'U')
+const output = returnAllPaths(arrayOfTuples, 'A', 'U') // [ [ 'A', 'K', 'W', 'F', 'U' ] ]
+const output2 = returnAllPaths(arrayOfTuples2, 'A', 'U') // [ [ 'A', 'B', 'C', 'W', 'F', 'U' ], [ 'A', 'B', 'K', 'W', 'F', 'U' ] ]
 console.log(output);
 console.log(output2)
