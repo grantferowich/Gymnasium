@@ -1,7 +1,7 @@
 /* 
 Successfully tested the file 1/29/23.
 
-Generate Adjacency List
+Generate Undirected, Unweighted Adjacency List
 
 This function will take in an array of tuples as an input.
 This function will return an object of vertices and edges.
@@ -116,6 +116,8 @@ const edgesX2 = [
     [1, 2],
     [1, 3],
 ];
+
+// { '1': [ 2, 3 ], '2': [ 1 ], '3': [ 1 ] }
 
 
 console.log(generateAdjacencyList(edgesX))

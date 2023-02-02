@@ -1,6 +1,6 @@
-// Graph, Linked List, and Queue Classes
-// Successfully tested all queue methods 2/1/23
-
+// assumptions:
+// graph is directed, unweighted, 
+// and represented by an adjacency list
 class Graph {
     constructor() {
      this.storage = {};
@@ -199,7 +199,9 @@ class Queue {
     }
 }
 
-const generateAdjacencyListUndirectedUnweighted = (edges) => {
+// this adjcacency list generator creates 
+// an undirected, un adjacecny list
+const generateAdjacencyList = (edges) => {
     
     let graphX = new Graph();
     let x = 0;
@@ -217,17 +219,28 @@ const generateAdjacencyListUndirectedUnweighted = (edges) => {
     return graphX.storage
 }
 
-const generateAdjacencyList = (arrayOfTuples) => {
-    const list = {};
-    for (let x = 0; x < arrayOfTuples.length; x++){
-        const id1 = arrayOfTuples[x][0];
-        const id2 = arrayOfTuples[x][1];
-        if (!list[id1]){
-            list[id1] = [];
-        }
-        if (list[id1]){
-            list[id1].push(id2);
-        }
+
+const printBFS = (graph, start) => {
+    let queue = new Queue();
+    let visited = new Set();
+    let current;
+    let neighbors;
+    
+    queue.enqueue(start);
+    visited.add(start);
+    while (queue.length > 0){
+        current = queue.dequeue();
+        neighbors = graph[current]
+        for (let x = 0; x < neighbors.length; x++){
+            if (!visited.has(neighbors[x])){
+                queue.enqueue(neighbors[x]);
+                visited.add(neighbors[x]);
+            }
+        } 
+        console.log(current)
     }
-    return list;
+}
+
+const nthDegreeNeighbors = (graph, start, n) => {
+
 }
