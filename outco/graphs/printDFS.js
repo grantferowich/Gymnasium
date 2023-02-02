@@ -77,7 +77,6 @@ class Graph {
     // Auxiliary Space Complexity: O(E)
     // access to return the values given a key
     neighbors(id) {
-        console.log('hi')
         if (!this.storage[id]){return null;}
         return this.storage[id];
     }
@@ -249,8 +248,24 @@ const generateAdjacencyList = (edges) => {
 }
 
 const printDFS = ( graph, start) => {
-
     let stack = new Stack();
+    let visited = new Set();
+    let current, neighbors;
+
+    stack.push(start);
+    visited.add(start);
+    
+    while (stack.length > 0){
+        current = stack.pop();
+        neighbors = graph[current];
+        console.log(current);
+        for (let x = 0; x < neighbors.length; x++){
+            if (!visited.has(neighbors[x])){
+                stack.push(neighbors[x]);
+                visited.add(neighbors[x])
+            }
+        }
+    }
 }
 
 const edgesX = [[ 1 , 2 ], [ 1, 3 ], [ 2, 4], [ 3, 4], [ 4, 8], [ 4, 5 ], [ 5, 6 ], [ 5, 7], [ 7 , 8 ], [ 8, 9 ] ];
@@ -258,14 +273,8 @@ const edgesY = [[1,2], [1,3], [2,3]]
 const graphX = generateAdjacencyList(edgesX) 
 const graphY = generateAdjacencyList(edgesY) 
 
-// console.log(graphX)
-// printBFS(graphX, 1) // 1 2 3 4 8 5 9 6 7
 
-// printBFS(graphY, 1) // 1 2 3 
-let s = new Stack()
-s.push(1)
-s.push(1)
-s.push(2)
-s.push(3)
-let k = s.pop()
-console.log(k)
+// printDFS(graphX, 1) // 1 2 3 4 8 5 9 6 7
+
+printDFS(graphY, 1) // 1 2 3 
+
