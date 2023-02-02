@@ -268,10 +268,11 @@ const printDFSWithAStack = ( graph, start) => {
     }
 }
 
+
 const edgesX = [[ 1 , 2 ], [ 1, 3 ], [ 2, 4], [ 3, 4], [ 4, 8], [ 4, 5 ], [ 5, 6 ], [ 5, 7], [ 7 , 8 ], [ 8, 9 ] ];
-const edgesY = [[1,2], [1,3], [2,3]]
-const graphX = generateAdjacencyList(edgesX) 
-const graphY = generateAdjacencyList(edgesY) 
+const edgesY = [[1,2], [1,3], [2,3]];
+const graphX = generateAdjacencyList(edgesX);
+const graphY = generateAdjacencyList(edgesY);
 
 
 // printDFS(graphX, 1) // 1 2 3 4 8 5 9 6 7
