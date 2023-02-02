@@ -242,5 +242,27 @@ const printBFS = (graph, start) => {
 }
 
 const nthDegreeNeighbors = (graph, start, n) => {
-
+    let queue = new Queue();
+    let visited = new Set();
+    let current, degree, neighbors;
+    let result = [];
+    // two item array of the vertex and degrees from start
+    queue.enqueue([start, 0])
+    visited.add(start)
+    while (queue.length > 0){
+        [current, degree] = queue.dequeue();
+        neighbors = graph[current];
+        if (degree === n){
+            result.push(current);
+        }
+        for (let neighbor of neighbors){
+            if (!visited.has[neighbor]){
+                queue.enqueue([neighbor, degree + 1]);
+                visited.add(neighbor);
+            }
+        }
+    }
+    return result;
 }
+
+const edges = [[1,2], [1,3], [2,3]]
