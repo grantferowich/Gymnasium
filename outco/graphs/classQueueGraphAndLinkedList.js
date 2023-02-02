@@ -35,6 +35,7 @@ class Graph {
     // Time Complexity: O(E)
     // Auxiliary Space Complexity: O(1)
     // add edge is basically add a value to the hash map
+
     addEdge(id1, id2) {
         let vertexList = [];
         for (let vertex in this.storage){
@@ -45,8 +46,7 @@ class Graph {
         if (index1 === -1 || index2 === -1){ return false; }
         this.storage[id1].push(id2);
         return true;
-     }
-   
+    }
     // Time Complexity: O(1)
     // Auxiliary Space Complexity: O(1)
     // remove edge is basically delete values from the hash map
@@ -74,8 +74,9 @@ class Graph {
     // Auxiliary Space Complexity: O(E)
     // access to return the values given a key
     neighbors(id) {
+        console.log('hi')
         if (!this.storage[id]){return null;}
-        return this.storage[id]
+        return this.storage[id];
     }
 }
 
@@ -87,62 +88,71 @@ class ListNode {
 }
 
 class LinkedList {
+
     constructor(){
         this.head = null;
         this.tail = null;
         this.length = 0;
     };
 
-    addToTail(value){
-        let node = new ListNode(value);
-        // if this.tail is null then the linked list must not be populated
-        if (this.tail === null){
-            this.head = node;
-            this.tail = node;
-        } else {
-            // set the tail to be the new node 
-            this.tail.next = node;
-            this.tail = node;  
-        }
-        this.length++
-        return;
-    } 
-
-    removeFirstNode(){
-        if (this.head === null){
-            return
-        }
-        let root = this.head;
-        this.head = this.head.next;
-        this.length--;
-        return root;
+    append(value){
+        this.insert(value, this.length)
     }
 
-    removeFromTail(){
-        if (this.length === 0){
-            return 'stack underflow'
-        }
-        if (this.length === 1){
-            let deleted = this.head
-            this.tail = null;
-            this.head = null
-            this.length--;
-            return deleted;
+    prepend(value){
+        this.insert(value, 0)
+    }
 
+    insert(value, index){
+        if (index < 0 || index > this.length){
+            return;
         }
-        if (this.length > 1){
+        let xNode = new ListNode(value);
+        if (this.length === 0){
+            this.head = xNode;
+            this.tail = xNode;
+        } else if (index === 0){
+            xNode.next = this.head;
+            this.head = xNode;
+        } else if (index === this.length){
+            this.tail.next = xNode;
+            this.tail = xNode;
+        } else {
             let prev = this.head;
-            let deleted = this.tail;
-            for (let x = 0; x < this.length - 2; x++){
+            for (let x = 0; x < index - 1; x++){
                 prev = prev.next;
             }
-            this.tail = prev;
-            prev.next = null;
-            this.length--;
-            return deleted;
+            xNode.next = prev.next;
+            prev.next = xNode;
+        }
+        this.length++
+    }
+   
+    remove(index){
+        if (index < 0 || index >= this.length) { return; }
+        let result;
+        if (this.length === 1){
+            result = this.head;
+            this.head = null;
+            this.tail = null;
+        } else if ( index === 0){
+            result = this.head;
+            this.head = this.head.next;
+        } else {
+            let prev = this.head;
+            for (let x = 0; x < index - 1; x++){
+                prev = prev.next;
+            }
+            result = prev.next;
+            prev.next = prev.next.next;
+            if (index === this.length - 1){
+                this.tail = prev;
+            }
         }
         this.length--;
+        return result;
     }
+
 
     contains(value){
         let current = this.head;
@@ -164,9 +174,9 @@ class Queue {
     }
 
     enqueue(value){
-        //add element to end of linked list
-        this.linkedlist.addToTail(value);
         this.length++;
+        //add element to end of linked list
+        this.linkedlist.append(value);
     }
 
     dequeue(){
@@ -175,15 +185,34 @@ class Queue {
         }
         this.length--;
         // remove element from end of linked list
-        let firstElement = this.linkedlist.removeFirstNode();
+        let firstElement = this.linkedlist.remove(0).value;
         if (firstElement){
-            return firstElement.value;
+            return firstElement;
         } else {
             return null;
         }
         
     }
+
     peek(){
         return this.linkedlist.head.value;
     }
+}
+
+const generateAdjacencyList = (edges) => {
+    
+    let graphX = new Graph();
+    let x = 0;
+    while (x < edges.length){
+        let edge = edges[x];
+        if (!graphX.storage[edge[0]]){
+            graphX.addVertex(edge[0])
+        }
+        if (!graphX.storage[edge[1]]){
+            graphX.addVertex(edge[1])
+        }  
+        graphX.addEdge(edge[0] ,edge[1]);
+        x++
+    }
+    return graphX.storage
 }
