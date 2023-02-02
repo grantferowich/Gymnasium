@@ -1,13 +1,9 @@
 /* 
-NTH DEGREE NEIGHBORS
-
-
-
-
+PRINT DFS
+given a graph
+return each value from the graph from a depth-first traversal
 */
-// assumptions:
-// graph is directed, unweighted, 
-// and represented by an adjacency list
+
 class Graph {
     constructor() {
      this.storage = {};
@@ -206,8 +202,34 @@ class Queue {
     }
 }
 
+class Stack {
+    constructor(){
+        this.list = new LinkedList();
+        this.length = 0;
+    }
+    push(x){
+        this.length++
+        this.list.append(x)
+    }
+    pop(){
+        if (this.length === 0){
+            return 
+        }
+        let value = this.list.remove(this.length-1).value
+        this.length--;
+        if (value){
+            return value
+        } else {
+            return null
+        }
+    }
+    peek(){
+        return this.list.head.value;
+    }
+}
+
 // this adjcacency list generator creates 
-// an undirected, un adjacecny list
+// an undirected adjacecny list
 const generateAdjacencyList = (edges) => {
     
     let graphX = new Graph();
@@ -226,70 +248,24 @@ const generateAdjacencyList = (edges) => {
     return graphX.storage
 }
 
+const printDFS = ( graph, start) => {
 
-const printBFS = (graph, start) => {
-    let queue = new Queue();
-    let visited = new Set();
-    let current;
-    let neighbors;
-    
-    queue.enqueue(start);
-    visited.add(start);
-    while (queue.length > 0){
-        current = queue.dequeue();
-        neighbors = graph[current]
-        for (let x = 0; x < neighbors.length; x++){
-            if (!visited.has(neighbors[x])){
-                queue.enqueue(neighbors[x]);
-                visited.add(neighbors[x]);
-            }
-        } 
-        console.log(current)
-    }
+    let stack = new Stack();
 }
 
-const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
-    const list = {};
-    for (let x = 0; x < arrayOfTuples.length; x++){
-        const id1 = arrayOfTuples[x][0];
-        const id2 = arrayOfTuples[x][1];
-        if (!list[id1]){
-            list[id1] = [];
-        }
-        if (list[id1]){
-            list[id1].push(id2);
-        }
-    }
-    return list;
-}
+const edgesX = [[ 1 , 2 ], [ 1, 3 ], [ 2, 4], [ 3, 4], [ 4, 8], [ 4, 5 ], [ 5, 6 ], [ 5, 7], [ 7 , 8 ], [ 8, 9 ] ];
+const edgesY = [[1,2], [1,3], [2,3]]
+const graphX = generateAdjacencyList(edgesX) 
+const graphY = generateAdjacencyList(edgesY) 
 
-const nthDegreeNeighbors = (graph, start, n) => {
-    let queue = new Queue();
-    let visited = new Set();
-    let current, degree, neighbors;
-    let result = [];
-    // two item array of the vertex and degrees from start
-    queue.enqueue([start, 0])
-    visited.add(start)
-    while (queue.length > 0){
-        [current, degree] = queue.dequeue();
-        neighbors = graph[current];
-        if (degree === n){
-            result.push(current);
-        }
-        if (neighbors !== undefined){
-            for (let neighbor of neighbors){
-                if (!visited.has[neighbor]){
-                    queue.enqueue([neighbor, degree + 1]);
-                    visited.add(neighbor);
-                }
-            }
-        } 
-    }
-    return result;
-}
+// console.log(graphX)
+// printBFS(graphX, 1) // 1 2 3 4 8 5 9 6 7
 
-const edges = [[1,2], [1,3], [2,3]]
-const graph = generateAdjacencyListDirectedUnweighted(edges)
-const output = nthDegreeNeighbors(graph,1,1) // [2,3]
-console.log(output)
+// printBFS(graphY, 1) // 1 2 3 
+let s = new Stack()
+s.push(1)
+s.push(1)
+s.push(2)
+s.push(3)
+let k = s.pop()
+console.log(k)
