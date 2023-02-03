@@ -57,3 +57,8 @@ const isOneAway = (s1, s2) => {
 }
 
 
+console.log(isOneAway("pale","ple")) // => true | one insertion different
+console.log(isOneAway("pale", "bake")) // => false | two replacements different
+console.log(isOneAway("apple","aple")) // => true | one insertion/deletion different
+console.log(isOneAway("pales","pale")) // true | one insertion/deletion different
+
