@@ -1,4 +1,6 @@
 /* 
+Partially successfully tested the function 2/3/23.
+The function has an exponential runtime O(2^M+N).
 Suppose a robot may only move right or down in a matrix from 
 0,0 to m,n.
 
@@ -9,7 +11,6 @@ Suppose a robot may only move right or down in a matrix from
 
 
 const uniquePaths = (m,n) => {
-    let visited = new Set();
     let result = 0;
     //base cases: 
         // oob
@@ -43,4 +44,4 @@ const uniquePaths = (m,n) => {
 
 console.log(uniquePaths( 3, 7)) // 28
 console.log(uniquePaths( 3, 2)) // 3
-console.log(uniquePaths(23, 15))
+console.log(uniquePaths(23, 15)) //  function takes too long 
