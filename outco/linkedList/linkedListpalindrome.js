@@ -102,9 +102,7 @@ const isALinkedListPalindromeConstant = (node) => {
     curr = node;
     let ref;
     while (curr !== null){
-        // reverse the second half of the linked list
         if (position >= midpoint){
-            // set the prev at the middle node 
             if (prev === undefined){
                 prev = curr;
                 curr = curr.next;
@@ -120,13 +118,8 @@ const isALinkedListPalindromeConstant = (node) => {
         }
     }
 
-
-    // the left pointer starts at the head of the linked list 
-    console.log(node)
     let left = node;
     let right = prev;
-    // the right pointer begins all the way at the end of the singly linked list
-    // the right pointer starts at the tail
 
     while (left !== right && right.next !== left){
         if (left.val !== right.val){
@@ -138,7 +131,6 @@ const isALinkedListPalindromeConstant = (node) => {
     }
     return true;
 }
-
 
 // All of these test cases passed as of 12/30/2022
 console.log(isALinkedListPalindromeConstant(head));  // 1-5-7-5-9 // expected output: false

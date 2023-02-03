@@ -10,8 +10,7 @@
 
 const kUniqueCharacters = (s) => {
     let k = s[0];
-    let str = s.slice(1, s.length-1)
-    // let str = s.substring(1, s.length-1);
+    let str = s.slice(1, s.length -1)
    
     let startOfWindow = 0;
     let currentWindowLength = 0;
@@ -20,11 +19,8 @@ const kUniqueCharacters = (s) => {
     let counts = {};
 
    let x = 0;
-   while (x < str.length){
-    let char = str[x];
-    counts[char] = counts[char] + 1 || 1;
-    x++;
-   }
+   
+   
    if (Object.keys(counts).length < k){
     return -1;
    }

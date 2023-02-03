@@ -2,8 +2,10 @@
  * 
  * Successfully tested the function 1/26/23
  * String Rotation
- * 
- * Complexity analysis: 
+
+* CTCI 1.9
+ 
+* Complexity analysis: 
  * time complexity: O(N)
  * space complexity: O(1)
  * 

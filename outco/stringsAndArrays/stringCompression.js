@@ -34,4 +34,8 @@ const stringCompression = (string) => {
     return newString;
 }
 
-console.log(stringCompression('abcccccaaa')) // a1b1c5a3.
+let input = 'abcccccaaa'
+console.log(stringCompression(input)) // a1b1c5a3.
+let input2 = 'bmwxxxxx' 
+console.log(stringCompression(input2)) // b1m1w1x5
+let input3 = 'a'
