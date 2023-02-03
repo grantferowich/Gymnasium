@@ -30,11 +30,17 @@ const firstNonRepeat = (string) => {
     // loop over each char in the string
     // if the char's count is 1
     // return the char
+    let numKeys = Object.keys(counts).length
+    console.log(numKeys)
+    if (numKeys === 1){return Object.keys(counts)[0]}
+
     for (let x = 0; x < string.length; x++){
         let char = string[x];
         if (counts[char] === 1){
             return char
         }
     }
+    
 }
 console.log(firstNonRepeat('aaaabcdebcdfg')) // 'e'
+console.log(firstNonRepeat('aaaa')) // 'e'
