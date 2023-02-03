@@ -1,4 +1,9 @@
+/* 
+CYCLE DETECTION
 
+Given a graph, determine wheter the input graph has a cycle or not. 
+
+*/
 class Graph {
     constructor() {
      this.storage = {};
@@ -222,6 +227,69 @@ class Stack {
     }
 }
 
+const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
+    const list = {};
+    for (let x = 0; x < arrayOfTuples.length; x++){
+        const id1 = arrayOfTuples[x][0];
+        const id2 = arrayOfTuples[x][1];
+        if (!list[id1]){
+            list[id1] = [];
+        }
+        if (list[id1]){
+            list[id1].push(id2);
+        }
+    }
+    return list;
+}
+
+const cycleDetection = (graph) => {
+    let visited = new Set();
+    let ancestors = new Set();
+    // build vertices list
+    let vertices = Object.keys(graph)
+    console.log('vertices: ', vertices)
+
+    const dfs = (current) => {
+        if (ancestors.has(current)){
+            return true;
+        }
+
+        if (visited.has(current)){
+            return false;
+        }
+
+        visited.add(current);
+        ancestors.add(current);
+        let neighbors = graph[current];
+        if (neighbors !== undefined){
+            for (let x = 0; x < neighbors.length; x++){
+                if (dfs(neighbors[x])){
+                    return true;
+                }
+            }
+        }
+        ancestors.delete(current);
+        return false;
+    }
+    for (let x = 0; x < vertices.length; x++){
+        if ( dfs(vertices[x])){
+            return true;
+        }
+    }
+    return false;
+}
+
+const edges1 = [[1,2], [2,4], [4,1], [1,3], [3,4]]; // true | [4,1] is a back edge
+const edges2 = [[1,2], [2,4], [1,3], [3,4]]; // false 
+
+const graph1 = generateAdjacencyListDirectedUnweighted(edges1);
+const graph2 = generateAdjacencyListDirectedUnweighted(edges2);
+
+const output1 = cycleDetection(graph1); // expected: true | actual: true
+const output2 = cycleDetection(graph2); // expected: false | actual: false
+
+console.log(output1)
+console.log(output2)
 
 
-const edges = [[1,2], [2,4], [4,1], [1,3], [3,4]] // [4,1] is a back edge so return true
+
