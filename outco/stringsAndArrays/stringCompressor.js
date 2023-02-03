@@ -1,3 +1,6 @@
+// STRING COMPRESSION
+// CTCI 1.6
+// Successfully tested the function 12/26/2023.
 // string compression
 // implement a method to perform basic string compression 
 // using the counts of repeated characters. For example, the string 
