@@ -53,7 +53,7 @@ Space Complexity: O(1)
 
 var t0 = performance.now();
 
-    const robotPathsToggle = (matrix) => {
+const robotPathsToggle = (matrix) => {
         let result = 0;
         //base cases: 
             // oob
@@ -70,7 +70,6 @@ var t0 = performance.now();
             }
 
             if (matrix[row][col] === 1){
-                //already visitedd
                 return;
             }
 
@@ -90,21 +89,27 @@ var t0 = performance.now();
         }
         traverse(0,0)
         return result;
-    }
+}
 
-console.log(robotPathsToggle( [[ 0, 0, 0, 0],
-    [ 0, 0, 0, 0],
-    [ 0, 0, 0, 0]]
-  )) // 38
+console.log(robotPathsToggle( [[ 0, 0, 0, 0, 0, 0, 0],
+    [ 0, 0, 0, 0, 0, 0, 0],
+    [ 0, 0, 0, 0, 0, 0, 0]]
+  )) // 28
 
 console.log(robotPathsToggle( [[ 0, 0, 0],
     [ 0, 0, 0]]) ) // 4
 
-console.log(robotPathsToggle([[ 0, 0, 0, 0, 0, 0, 0, 0],
-    [ 0, 0, 0, 0, 0, 0, 0, 0],
-    [ 0, 0, 0, 0, 0, 0, 0, 0],
-    [ 0, 0, 0, 0, 0, 0, 0, 0],
-    [ 0, 0, 0, 0, 0, 0, 0, 0]])) // 7110272
+console.log(robotPathsToggle( [[ 0, 0],
+                               [ 0, 0],
+                               [ 0, 0]])) // 3 
+
+console.log(robotPathsToggle([[0,0,0,0,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0]]))  // 28                         
+
+// console.log(robotPathsToggle([[ 0, 0, 0, 0, 0, 0, 0, 0],
+//     [ 0, 0, 0, 0, 0, 0, 0, 0],
+//     [ 0, 0, 0, 0, 0, 0, 0, 0],
+//     [ 0, 0, 0, 0, 0, 0, 0, 0],
+//     [ 0, 0, 0, 0, 0, 0, 0, 0]])) // 7110272
 
 
     var t1 = performance.now();
