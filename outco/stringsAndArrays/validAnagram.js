@@ -1,3 +1,4 @@
+// Successfully tested the function 2/2/23.
 const isAnagram = function(s, t) {
     let counts1 = {}
     let counts2 = {}
