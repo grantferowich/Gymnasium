@@ -43,8 +43,9 @@ console.log(removePunctuation('wake forest university')) // expected output: wak
 // so, this following statement says, "replace the stuff that is not a word with
 // empty chars then convert the whole thing to lowercase"
 const removeAllStuffExceptLowerCaseWords = (string) => {
-    string = string.replace(/[^\w]/g, "").toLowerCase()
+    string = string.replace(/[^a-zA-Z]/g, "").toLowerCase()
     return string;
 }
 
 console.log(removeAllStuffExceptLowerCaseWords('Wake Forest University')) // expected output: wakeforestuniversity | actual output: wakeforestuniversity
+console.log(removeAllStuffExceptLowerCaseWords('ab_a')) // expected output: aba | actual output: wakeforestuniversity
