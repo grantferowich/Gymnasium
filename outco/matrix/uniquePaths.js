@@ -15,32 +15,27 @@ const uniquePaths = (m,n) => {
         // oob
         // already visited
         // reach destination
-        
     let totalColumns = n - 1;
     let totalRows = m -1;
 
     const traverse = (row, col) => {
-        let key = row.toString() + '_' + col.toString()
+      
         if (row < 0 || col < 0 || col > totalColumns || row > totalRows){
             // out of bounds
             return;
         }
 
-        if (visited.has(key)){
-            return;
-        }
-        let destination = totalRows.toString() + '_' + totalColumns.toString();
-        if (key === destination){
+        if (row === totalRows && col === totalColumns){
             result++
             return;
         }
 
         //toggle for tracking visited 
-        visited.add(key);
+       
         traverse(row+1,col)
         traverse(row, col+1)
         // toggle back
-        visited.delete(key)
+        
     }
     traverse(0,0)
     return result;
@@ -48,3 +43,4 @@ const uniquePaths = (m,n) => {
 
 console.log(uniquePaths( 3, 7)) // 28
 console.log(uniquePaths( 3, 2)) // 3
+console.log(uniquePaths(23, 15))
