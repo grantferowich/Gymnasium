@@ -98,3 +98,10 @@ multiStack.push(1, 2)
 console.log('state 4', multiStack)
 multiStack.pop(1)
 console.log('state 5', multiStack)
+multiStack.push(1,2)
+multiStack.push(1,3)
+multiStack.push(1,5)
+multiStack.push(2,8)
+console.log('state 6', multiStack)
+console.log('stack 2 is empty?', multiStack.isEmpty(2)) // false
+console.log('stack 2 is the right value?', 8 === multiStack.peek(2)) // true
