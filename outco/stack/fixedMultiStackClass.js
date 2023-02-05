@@ -78,7 +78,7 @@ class FixedMultiStack{
             throw new Error('Error: stack underflow');
         }
         let value = this.indexOfTop(stackNum);
-        this.values[this.indexOfTop] = 0; 
+        this.values[value] = 0; 
         this.sizes[stackNum]--;
         return value;
     }
@@ -96,3 +96,5 @@ multiStack.push(0, 1)
 console.log('state 3', multiStack)
 multiStack.push(1, 2)
 console.log('state 4', multiStack)
+multiStack.pop(1)
+console.log('state 5', multiStack)
