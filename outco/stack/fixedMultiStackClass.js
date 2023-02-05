@@ -24,9 +24,6 @@
 
 */
 
-
-
-
 class FixedMultiStack{
     constructor(stackCapacity, numberOfStacks){
         // maintain the invariant (or, enforce the policy) a fixed multi stack object 
@@ -104,5 +101,6 @@ multiStack.push(1,3)
 multiStack.push(1,5)
 multiStack.push(2,8)
 console.log('state 6', multiStack)
-console.log('stack 2 is empty?', multiStack.isEmpty(2)) // false
-console.log('stack 2 is the right value?', 8 === multiStack.peek(2)) // true
+console.log('stack 2 is empty?', multiStack.isEmpty(2)) // expect : false | actual : false 
+console.log('stack 2 is the right value?', 8 === multiStack.peek(2)) // expect : true | actual : true
+console.log('stack 0 is full?', multiStack.isFull(0)) // expect : true | actual : true  
