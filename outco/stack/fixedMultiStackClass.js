@@ -1,22 +1,24 @@
 /* 
-
+    Successfully tested the class 2/5/23
     date created: 2/4/23
 
-    --------------------------|
-    | FixedMultiStack         |
-    --------------------------|
-    |- stackCapacity          |
-    |- numberOfStacks         |
-    |- values                 |
-    |- sizes                  |
-    |-------------------------|
-    |- isFull(stackNum)       |
-    |- indexOfTop(stackNum)   |   
-    |- push(stackNum, value)  |
-    |- isEmpty(stackNum)      |
-    |- peek(stackNum)         |
-    |- pop(stackNum)          |
-    --------------------------
+    |--------------------------|
+    | FixedMultiStack          |
+    |--------------------------|
+    |* numberOfProperties === 4|
+    |- stackCapacity           |
+    |- numberOfStacks          |
+    |- values                  |
+    |- sizes                   |
+    |--------------------------|
+    |* numberOfMethods === 6   |
+    |- isFull(stackNum)        |
+    |- indexOfTop(stackNum)    |   
+    |- push(stackNum, value)   |
+    |- isEmpty(stackNum)       |
+    |- peek(stackNum)          |
+    |- pop(stackNum)           |
+    |--------------------------|
 
 
 
