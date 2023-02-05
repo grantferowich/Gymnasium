@@ -277,6 +277,11 @@ const nthDegreeNeighbors = (graph, start, n) => {
         if (degree === n){
             result.push(current);
         }
+
+        if (degree > n){
+            break
+        }
+        
         if (neighbors !== undefined){
             for (let neighbor of neighbors){
                 if (!visited.has[neighbor]){
@@ -289,7 +294,7 @@ const nthDegreeNeighbors = (graph, start, n) => {
     return result;
 }
 
-const edges = [[1,2], [1,3], [2,3]]
+const edges = [[1,2], [1,3], [2,3], [3,4], [3,9],[4,8], [4, 7], [7,12], [8,13], [13,21]]
 const graph = generateAdjacencyListDirectedUnweighted(edges)
 const output = nthDegreeNeighbors(graph,1,1) // [2,3]
 console.log(output)
