@@ -11,35 +11,21 @@ Suppose a robot may only move right or down in a matrix from
 
 
 const uniquePaths = (m,n) => {
-    let result = 0;
-    //base cases: 
-        // oob
-        // already visited
-        // reach destination
+    let table = Array(m).fill().map(() => Array(n).fill(0))
+    table[0][0] = 1;
     let totalColumns = n - 1;
-    let totalRows = m -1;
-
-    const traverse = (row, col) => {
-      
-        if (row < 0 || col < 0 || col > totalColumns || row > totalRows){
-            // out of bounds
-            return;
+    let totalRows = m - 1;
+    for (let x = 0; x <= totalRows; x++){
+        for (let y = 0; y <= totalColumns; y++){
+           if (x > 0){
+            table[x][y] += table[x-1][y];
+           }
+           if (y > 0){ 
+            table[x][y] += table[x][y-1];
+           }
         }
-
-        if (row === totalRows && col === totalColumns){
-            result++
-            return;
-        }
-
-        //toggle for tracking visited 
-       
-        traverse(row+1,col)
-        traverse(row, col+1)
-        // toggle back
-        
     }
-    traverse(0,0)
-    return result;
+    return table[totalRows][totalColumns];
 }
 
 console.log(uniquePaths( 3, 7)) // 28

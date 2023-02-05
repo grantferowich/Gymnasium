@@ -148,3 +148,9 @@ class Queue {
         return this.linkedlist.head.value;
     }
 }
+
+class MovingAverage { 
+    constructor(capacity){
+        
+    }
+}

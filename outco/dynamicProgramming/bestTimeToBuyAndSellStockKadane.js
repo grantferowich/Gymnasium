@@ -1,3 +1,7 @@
+/* 
+Assume you may only buy stock in an early period and sell stock later on. 
+
+*/
 const buyAndSellStock = (arr) => {
 
     let minPrice = Infinity;
