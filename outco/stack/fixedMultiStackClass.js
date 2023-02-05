@@ -13,12 +13,12 @@
     |- sizes                   |
     |--------------------------|
     |* numberOfMethods === 6   |
-    |- isFull(stackNum)        |
-    |- indexOfTop(stackNum)    |   
-    |- push(stackNum, value)   |
-    |- isEmpty(stackNum)       |
-    |- peek(stackNum)          |
-    |- pop(stackNum)           |
+    |- isFull(stackNum)        | x
+    |- indexOfTop(stackNum)    | x
+    |- push(stackNum, value)   | x
+    |- isEmpty(stackNum)       | x
+    |- peek(stackNum)          | x
+    |- pop(stackNum)           | x
     |--------------------------|
 
 
@@ -104,3 +104,7 @@ console.log('state 6', multiStack)
 console.log('stack 2 is empty?', multiStack.isEmpty(2)) // expect : false | actual : false 
 console.log('stack 2 is the right value?', 8 === multiStack.peek(2)) // expect : true | actual : true
 console.log('stack 0 is full?', multiStack.isFull(0)) // expect : true | actual : true  
+console.log('state 7', multiStack )
+console.log('top of stack 0 is 1?', multiStack.peek(0) === 1) // expect : true | actual :  true:
+// multiStack.push(0,21)
+// console.log(multiStack)
