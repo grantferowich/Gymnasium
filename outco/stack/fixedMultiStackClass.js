@@ -1,4 +1,5 @@
 /* 
+
     Successfully tested the class 2/5/23
     date created: 2/4/23
 
@@ -21,8 +22,6 @@
     |--------------------------|
 
 
-
-
 */
 
 
@@ -38,8 +37,8 @@ class FixedMultiStack{
         }
         // total array size is defined by the number of stacks and the number of elements in each stack 
         const size = stackCapacity * numberOfStacks;
-        this.stackCapacity = stackCapacity === undefined ? null : stackCapacity;
-        this.numberOfStacks = numberOfStacks === undefined ? null : numberOfStacks;
+        this.stackCapacity = stackCapacity
+        this.numberOfStacks = numberOfStacks
         
         this.values = new Array(size).fill(0)
         // sizes keeps track of the number of elements in a given stack
