@@ -29,12 +29,16 @@ Auxiliary Space Complexity: O(k)
 
 Ideas: 
 
-Expand the window one by one using a for loop and a pointer named x,
+1. Expand the window one by one using a for loop and a pointer named x,
 which moves slowly, and a pointer y, which moves out to expand the window. 
 The y pointer expands inside a for loop as well. 
-Keep a hash of the letters in the window
-Use k as a state variable. If the letter in the string being operated on is unique,
-i.e. the hash does not have the letter.
+2. Keep a hash of the letters in the window. Each character being operated on is added to the hash
+along with the number of times the character has been seen.
+3. Let k be a state variable. If the letter in the string being operated on is unique,
+i.e. the hash does not have the letter. When a new, unique character is added to the window, 
+then decrement k. 
+4. If k ever becomes negative, then we have run out of modifications we can use to change the string so that all
+characters are the same. The window must be updated. If the character evicted from the start of the window 
 
 */
 
