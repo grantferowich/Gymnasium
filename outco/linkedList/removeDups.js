@@ -23,7 +23,7 @@ class ListNode{
 
 const removeDups = (list) => {
     // return out when the input is invalid
-    if (list1 === undefined){ throw new Error('The input is invalid.')}
+    if (list === undefined || list === null){ throw new Error('The input is invalid.')}
     let counts = {};
     let current = list;
     
@@ -61,5 +61,7 @@ const list2 = new ListNode()
 
 console.log(removeDups(list1)) //  1 - 2 - 3 - 5
 console.log(list1.next)
+console.log(removeDups())
+
 
 
