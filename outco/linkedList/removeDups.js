@@ -1,6 +1,7 @@
 /* 
 REMOVE DUPS
 CTCI 2.1
+Successfully tested the function 2/5/23.
 
 Write code to remove duplicates from an unsorted linked list.
 
