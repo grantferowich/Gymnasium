@@ -247,17 +247,14 @@ const cycleDetection = (graph) => {
     let ancestors = new Set();
     // build vertices list
     let vertices = Object.keys(graph)
-    console.log('vertices: ', vertices)
 
     const dfs = (current) => {
         if (ancestors.has(current)){
             return true;
         }
-
         if (visited.has(current)){
             return false;
         }
-
         visited.add(current);
         ancestors.add(current);
         let neighbors = graph[current];

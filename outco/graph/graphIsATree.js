@@ -56,7 +56,6 @@ let graph2 =
 
 
 const graphIsATree = (graph) => {
-
     // island check
     for (let vertex in graph){
         let edges = graph[vertex];
@@ -64,11 +63,9 @@ const graphIsATree = (graph) => {
             return false
         }
     }
-    
     let root = graph[0];
     let queue = [root];
     let visited = {};
-   
     // breadth-first search on the root
     // the bfs will tell whether or not the graph is cyclic
     // ( a graph which is cyclic is not a tree)

@@ -223,20 +223,21 @@ const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
 }
 
 const validPath = (graph, origin, destination) => {
-
     let visited = new Set();
+
     const dfs = (current) =>{
         if (current === destination){
             return [current]
         }
+        
         visited.add(current);
         let neighbors = graph[current];
+
         if (neighbors !== undefined){
             for (let x = 0; x < neighbors.length; x++){
                 if (visited.has(neighbors[x])){
                     continue;
                 }
-    
                 let path = dfs(neighbors[x])
                 if (path.length > 0){
                     path.push(current);
@@ -246,6 +247,7 @@ const validPath = (graph, origin, destination) => {
         }
         return [];
     }
+
     return dfs(origin).reverse()
 }
 
