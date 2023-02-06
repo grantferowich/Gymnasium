@@ -18,34 +18,53 @@ s consists of English letters
 
  */
 
+const shortestWith3UniqueChars = (s) => {
+  let left = 0;
+  let right = 0;
+  let bestLeft = 0;
+  let bestRight = Infinity;
+  let characters = {};
+  let numberOfUniques = 0;
 
-// py sol
-/* def shortest_with_3_unique(s):
-  l, r = 0, 0
-  best_l, best_r = 0, float('inf')
-  characters = {}
-  num_unique = 0
+  while (right < s.length){
+    // hunt phase
+    // if the invariant is true..
+    if (numberOfUniques < 3){
+      let charCount = characters[s[right]] || 0;
+      if (charCount === 0){
+        numberOfUniques++
+      }
+      characters[s[right]] = charCount + 1;
+      right += 1;
+    }
 
-  while r < len(s):
-    # hunt phase
-    if num_unique < 3:
-      char_count = characters.get(s[r], 0)
-      if char_count == 0: # this is a new character
-        num_unique += 1
-      characters[s[r]] = char_count + 1
-      r += 1
+    // catchup phase
+    // while the invariant is broken..
+    while (numberOfUniques >= 3){
+      if (right - left < bestRight - bestLeft){
+        bestLeft = left;
+        bestRight = right;
+      }
+      let charCount = characters[s[left]] || 0;
+      // this char is unique within the current substring
+      if (charCount === 1){
+        numberOfUniques--;
+      }
+      characters[s[left]] = charCount - 1;
+      left += 1;
+    }
+  }
 
-    # catchup phase
-    while (num_unique >= 3):
-      if r - l < best_r - best_l:
-        best_l, best_r = l, r
-      char_count = characters.get(s[l], 0)
-      if char_count == 1: # this character is unique within the current substring
-        num_unique -= 1
-      characters[s[l]] = char_count - 1
-      l += 1
+  console.log('bestLeft' ,bestLeft)
+  console.log('bestRight', bestRight)
+  if (bestRight !== Infinity){
+    return s.slice(bestLeft, bestRight);
+  } else { 
+    return false;
+  }
+}
 
-  if best_r != float('inf'):
-    return s[best_l:best_r]
-  else:
-    return False */
+// Input: aabaca => Output: bac
+// Input: abaacc => Output: baac
+
+console.log(shortestWith3UniqueChars('aabaca')) // 'bac'
