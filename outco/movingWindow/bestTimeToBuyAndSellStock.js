@@ -13,15 +13,21 @@ const buyAndSellStock = (arr) => {
     let x = 0;
     let y = arr.length -1
     let max = 0;
+    let result = [0,0]
     while (x < arr.length && y > x){
         while (y > x){
             let current = arr[y] - arr[x];
-            max = Math.max(max, current)
+            if (current > max){
+                result[0] = arr[x]
+                result[1] = arr[y]
+                max = Math.max(max, current)
+            }
             y--;
             x++;
         }
-        
     }
+    console.log('buy price:', result[0])
+    console.log('sell price:', result[1])
     return max
 }
 
