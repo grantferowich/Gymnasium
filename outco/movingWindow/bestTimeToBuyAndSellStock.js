@@ -8,7 +8,6 @@
 // let max be current
 // Math.max(current, max)
 
-
 const buyAndSellStock = (arr) => {
     let x = 0;
     let y = arr.length -1

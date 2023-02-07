@@ -1,5 +1,6 @@
 /*
- *  BitFlip
+ * Successfully tested function across four test cases 2/7/23. 
+ * BitFlip
  *
  *  Given an array of binary values (0 and 1) and N number of flips that
  *  can convert a 0 to a 1, determine the maximum number of consecutive 1's
@@ -22,7 +23,6 @@
 // Time Complexity: O(N)
 // Auxiliary Space Complexity: O(1)
 
-// One test case passed on 12/14/22.
 function bitFlipAdvanced (arr, n) {
     let max = 0;
     let left = 0;
