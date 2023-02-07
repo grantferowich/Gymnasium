@@ -42,3 +42,32 @@ characters are the same. The window must be updated. If the character evicted fr
 
 */
 
+const characterReplacement = (s, k) => {
+        let left = 0;
+        let right = 0;
+        // init count of most frequent char in the window
+        let maxCharCount = 0;
+        const visited = {};
+
+        while ( right < s.length){
+                const char = s[right];
+                // when encountering a char
+                // add the char to a map and increment its count 
+                visited[char] = visited[char] ? visited[char] + 1 : 1;
+                // if the frequency of the char is greater than the current maxCharCount
+                if (visited[char] > maxCharCount) {
+                        maxCharCount = visited[char];
+                }
+                if ( right - left + 1 - maxCharCount > k){
+                        visited[s[left]]--
+                        left++
+                }
+                right++
+        }
+        return right - left;
+}
+
+console.log(characterReplacement("ABAB", 2)) // 4
+console.log(characterReplacement("AABABBA", 1)) // 4
+console.log(characterReplacement("google", 1)) // 3
+console.log(characterReplacement('wakeforestuniversity', 1)) // 2
