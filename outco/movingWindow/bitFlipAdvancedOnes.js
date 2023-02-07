@@ -11,6 +11,12 @@
  *
  *  Example: bitFlip([0,1,1,1,0,1,0,1,0,0], 2)
  *  Result: 7
+ * 
+ * increase the window size to find 0s
+ * 
+    // decrease window size once n flips are used up
+    // increment the left pointer (shrink total size) until finding a 0
+    // once the zero is found on the left side the window can increase again to find 0s to the right
  */
 
 // Time Complexity: O(N)
@@ -18,26 +24,22 @@
 
 // One test case passed on 12/14/22.
 function bitFlipAdvanced (arr, n) {
- 
     let max = 0;
     let left = 0;
     let right = 0;
     let toggles = 0;
     
-
     while (right < arr.length){
+      if (arr[right] === 0) {
+        toggles++;
+      }
       
-      // increase the window size to find 0s
-      if (arr[right] === 0) {toggles++;}
-      right++;
-
-    // decrease window size once n flips are used up
-    // increment the left pointer (shrink total size) until finding a 0
-    // once the zero is found on the left side the window can increase again to find 0s to the right
       while (toggles > n){
         if (arr[left] === 0) {toggles--;}
         left++
       }
+      
+      right++;
       max = Math.max(max, right -left )
     }
     return max

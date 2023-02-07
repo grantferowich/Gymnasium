@@ -20,19 +20,24 @@ const bitArraySortWithTwoPointers = (array) => {
     let left = 0; 
     let right = array.length - 1;
     while (left < right){
+       
         if (array[left] === 0){
             left++;
         } 
+
         if (array[right] === 1){
             right--;
         }
+
         if (array[left] === 1){
            [array[left], array[right]] = [array[right], array[left]]
         }
+
         if (array[right] === 0){
            [array[left], array[right]] = [array[right], array[left]]
         }
     }
+
 return array
 }
 

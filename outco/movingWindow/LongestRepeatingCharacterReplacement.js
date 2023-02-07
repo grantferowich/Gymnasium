@@ -48,7 +48,6 @@ const characterReplacement = (s, k) => {
         // init count of most frequent char in the window
         let maxCharCount = 0;
         const visited = {};
-
         while ( right < s.length){
                 const char = s[right];
                 // when encountering a char
