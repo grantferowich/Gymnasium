@@ -19,7 +19,7 @@ const wordSearchX1 = (board, word) => {
     let directions = [ [-1,0], [1,0], [0,-1], [0,1] ];
     let visited = Array(m).fill().map(() => Array(m).fill(false));
     
-    const dfs = (x, y, position) =>{
+    const dfs = (x, y, position, visited) =>{
         let key = x.toString() + '_' + y.toString();
         //mark true
         visited[x][y] = true;
@@ -32,15 +32,14 @@ const wordSearchX1 = (board, word) => {
         for (let dir of directions){
             let newX = x + dir[0];
             let newY = y + dir[1];
-            let k = newX.toString() + "_" + newY.toString()
             // 1. within boundary
             // 2. not visited
             // 3. not in word
             if ( newX >= 0 && newX < m && newY >= 0 && newY < n && !visited[key] && board[newX][newY] === word.charAt(position)){
                 
-                visited[k] = true;
+                visited[newX][newY] = true;
                 let result = dfs(newX, newY, position+1)
-                visited[k] = false;
+                visited[newX][newY] = false;
 
                 if (result){
                     return true;
@@ -53,20 +52,14 @@ const wordSearchX1 = (board, word) => {
 
     for (let x = 0; x < m; x++){
         for (let y = 0; y < n; y++){
-            // let key = x.toString() + "_" + y.toString()
             // visited[key] = true;
             // starting point 
             // visited variable should be associated to the starting point 
-            
             console.log(visited)
             if (board[x][y] === word.charAt(0)) {
                 // start DFS
                 // do we need to update visited here
-                console.log('x', x)
-                console.log('y', y)
                 let result = dfs( x, y, 1, visited)
-                console.log('hi')
-                console.log('result', result)
                 if (result){
                     return true;
                 }
