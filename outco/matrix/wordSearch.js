@@ -61,7 +61,7 @@ const wordSearch = (matrix, word) => {
 // - if the letter is the last letter in the word (return true)                    
 
     const traverse = (m, n, word, index) => {
-
+      
         if ( m < 0 || n < 0 || m > height || n > width){
             return;
         }
@@ -69,11 +69,11 @@ const wordSearch = (matrix, word) => {
         if (matrix[m][n] === null){
             return;
         }
-
         if (index === word.length - 1 && matrix[m][n] === word[word.length -1]){
             output = true;
             return;
         }
+        
         if (matrix[m][n] === word[index]){
             let temp = matrix[m][n]
             matrix[m][n] = null;

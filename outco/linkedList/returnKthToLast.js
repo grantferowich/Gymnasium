@@ -31,7 +31,7 @@ const returnKthToLast = (list, k) => {
         count++;
         current = current.next;
     }
-    let target = count - (k-1)
+    let target = count - (k - 1);
     current = list;
     count = 0;
     while (current !== null){
