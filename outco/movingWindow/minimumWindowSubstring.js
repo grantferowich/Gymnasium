@@ -47,15 +47,12 @@ const minimumWindowSubstring = (word, target) => {
         // catchup phase // the catchup phase is where the left var changes
         // catchup phase is where the result is update 
         // the left var changes inside the second while loop
-        
         while (missingChars === 0){
-
                 // update result
                 if ((right - left) < (result[1] - result[0])){
                     result = [left, right]
                 }
                 let lChar = word[left];
-
                 // this step is a tiny bit fuzzy (12/8/22): I don't know | je nais se quois "I know not what"
                 // if lChar is one of the targets, then reset the count of lChar
                 // and also incremenet missingCharNum to reset the missingCharnum
@@ -71,8 +68,6 @@ const minimumWindowSubstring = (word, target) => {
         // the right var changes inside the first while loop at the very end of the loop
         right++       
     }
-
-    
     // return result;
     if (result[1] === Infinity) {
         return "";

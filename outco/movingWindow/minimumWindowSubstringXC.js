@@ -5,18 +5,15 @@ const minimumWindowSubstring = (word, target) => {
     let right = 0;
     // Initialize the result with [0, Infinity]
     let result = [0, Infinity];
-
     // Create an object to store the count of characters in the target
     const counts = {};
     // Initialize the number of missing characters
     let missingChars = target.length;
-
     // Loop through the target to create the counts object
     for (let i = 0; i < target.length; i++){
         let char = target[i];
         counts[char] = counts[char] + 1 || 1;
     }
-
     // Loop through the word with the right pointer
     while (right < word.length) {
         // If there are still missing characters
@@ -32,7 +29,6 @@ const minimumWindowSubstring = (word, target) => {
                 counts[rChar]--;
             }
         }
-
         // If all the target characters have been found
         while (missingChars === 0){
             // If the current substring is smaller than the current result
