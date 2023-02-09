@@ -28,6 +28,7 @@ Window position                Max
  once rightPtr - leftPtr exceeds k:
                     -> evict the first element 
                     -> from the array and increment leftPtr
+ 
 
 */
 
@@ -50,8 +51,11 @@ const slidingWindowMaximum = (nums, k) => {
             leftPtr++
             if (nums.indexOf(maxVal) < leftPtr){
                 maxVal = -Infinity
+                for (let x = leftPtr; x < rightPtr; x++){
+                    let num = nums[x];
+                    maxVal = Math.max(maxVal, num)
+                }
             }
-
         }
     }
     return output;
@@ -72,4 +76,14 @@ let k4 = 3
 console.log(slidingWindowMaximum(nums1, k1)) // [3,3,5,5,6,7]
 console.log(slidingWindowMaximum(nums2, k2)) // [1]
 console.log(slidingWindowMaximum(nums3, k3)) // [1, -1] 
-console.log(slidingWindowMaximum(nums4, k4)) // 
+console.log(slidingWindowMaximum(nums4, k4)) // [3,3,2,5] // [3,3,0,5]
+
+/*
+Explanation: 
+Window position          Max
+---------------         -----
+ [1   3   1]  2   0   5     3
+  1  [3   1   2]  0   5     3
+  1   3  [1   2   0]  5     2
+  1   3   1  [2   0   5]    5
+  */
