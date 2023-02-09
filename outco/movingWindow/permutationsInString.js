@@ -75,7 +75,8 @@ const permutationExists = (s1, s2) => {
     let permutations = stringPermutationWithMemoization(s1)
     let leftPtr = 0;
     let rightPtr = 0;
-    let currentWindow = ''
+    let currentWindow = '';
+
     while (rightPtr < s2.length){      
         if (currentWindow.length === s1.length){
             if (permutations.has(currentWindow)){
