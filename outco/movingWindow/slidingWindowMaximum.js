@@ -40,12 +40,18 @@ const slidingWindowMaximum = (nums, k) => {
     while (rightPtr < nums.length){
         let num = nums[rightPtr];
         maxVal = Math.max(maxVal, num);
-        rightPtr++
+        rightPtr++;
+        
         if (rightPtr - leftPtr === k){
             output.push(maxVal)
         }
+        
         if (rightPtr - leftPtr >= k){
             leftPtr++
+            if (nums.indexOf(maxVal) < leftPtr){
+                maxVal = -Infinity
+            }
+
         }
     }
     return output;
@@ -56,5 +62,14 @@ let k1 = 3
 
 let nums2 = [1]
 let k2 = 1
+
+let nums3 = [1, -1]
+let k3 = 1
+
+let nums4 = [1,3,1,2,0,5]
+let k4 = 3
+
 console.log(slidingWindowMaximum(nums1, k1)) // [3,3,5,5,6,7]
 console.log(slidingWindowMaximum(nums2, k2)) // [1]
+console.log(slidingWindowMaximum(nums3, k3)) // [1, -1] 
+console.log(slidingWindowMaximum(nums4, k4)) // 
