@@ -35,6 +35,8 @@ const minimumWindowSubstring = (word, target) => {
         if (missingChars > 0) {
             // hunting phase
             let rChar = word[right];
+            // for each char
+            // check whether the char exists in the hash
             if (rChar in counts) {
                 if (counts[rChar] > 0){
                     // decrement chars
