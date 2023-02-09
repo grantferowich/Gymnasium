@@ -1,6 +1,11 @@
 /* 11. Container With Most Water
 Successfully tested the function 2/9/23
 Medium
+
+Complexity analysis: 
+Time: O(N)
+Space: O(1)
+
 You are given an integer array height of length n. 
 There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 
