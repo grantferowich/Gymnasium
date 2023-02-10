@@ -1,4 +1,6 @@
-
+/* 
+Successfully tested the function 2/10/23.
+*/
 class ListNode {
     constructor(value){
         this.value = value;
