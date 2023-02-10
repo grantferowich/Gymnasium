@@ -1,87 +1,153 @@
 
- /*
-  *  Redundant Connection
-  *
-  *  Given a directed graph (list of edges), where if one of the edges is
-  *  removed, the graph will become a tree.  Return that edge.
-  *
-  *  Parameters:
-  *
-  *  Input: edges: [[Integer]]
-  *  Output: [Integer]
-  *
-  *  Examples:
-  *
-  * `{{1, 2}, {1, 3}, {2, 3}} --> {2, 3}`
-  * `{{1, 2}, {2, 3}, {2, 4}, {4, 5}, {5, 2}} --> {5, 2}`
-  * 
-  * start:
-  *      1
-  *    /  \ 
-  *   2 - 3
-  * => remove 2 - 3
-  * end: 
-  * =>    1 
-  *    /    \
-  *   2     3
-  *  
-  * idea: 
-  * // traverse in a depth first way
-  * // if a node was already visited, 
-  * // and now you are visiting that node 
-  * // a second time,
-  * // the edge leading up to that node may be removed 
-  *  and the graph will become a tree
-  *   
-  * // if (visited.has(node)){
-  *   return [edge pair]
-  * }
-  * 
-  *  Note:
-  *  - For some inputs, there coule be multiple
-  *    correct solutions
-  *
-  *  Resources:
-  *  - https://leetcode.com/problems/redundant-connection-ii/description/
-  *
-  *
-  */
-
- 
- function redundantConnection(edgeList) {
-    let root = edgeList[0];
-    let queue = [root];
-    let visited = new Set();
-    
-
-    while (queue.length > 0){
-        
-        // grab the current first item
-        let node = queue.shift();
-
-        // mark the current node as visited
-        visited.add(node);
-        
-        let vertex = node[0];
-        let neighbor = node[1];
-
-        // if the current vertex, edge pair 
-        // leads to a cycle
-        // then return the current vertex, edge pair 
-        if (!visited.has(neighbor)){
-            queue.push(neighbor);
-            visited.add(neighbor)
+class ListNode {
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+  }
+  
+class LinkedList {
+  
+    constructor(){
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    };
+  
+    append(value){
+        this.insert(value, this.length)
+    }
+  
+    prepend(value){
+        this.insert(value, 0)
+    }
+  
+    insert(value, index){
+        if (index < 0 || index > this.length){
+            return;
+        }
+        let xNode = new ListNode(value);
+        if (this.length === 0){
+            this.head = xNode;
+            this.tail = xNode;
+        } else if (index === 0){
+            xNode.next = this.head;
+            this.head = xNode;
+        } else if (index === this.length){
+            this.tail.next = xNode;
+            this.tail = xNode;
+        } else {
+            let prev = this.head;
+            for (let x = 0; x < index - 1; x++){
+                prev = prev.next;
+            }
+            xNode.next = prev.next;
+            prev.next = xNode;
+        }
+        this.length++
+    }
+   
+    remove(index){
+        if (index < 0 || index >= this.length) { return; }
+        let result;
+        if (this.length === 1){
+            result = this.head;
+            this.head = null;
+            this.tail = null;
+        } else if ( index === 0){
+            result = this.head;
+            this.head = this.head.next;
+        } else {
+            let prev = this.head;
+            for (let x = 0; x < index - 1; x++){
+                prev = prev.next;
+            }
+            result = prev.next;
+            prev.next = prev.next.next;
+            if (index === this.length - 1){
+                this.tail = prev;
+            }
+        }
+        this.length--;
+        return result;
+    }
+  
+  
+    contains(value){
+        let current = this.head;
+        while (current){
+            if (current.value === value){
+                return true
+            }
+            current = current.next
+        }
+        return false;
+    }
+  }
+  
+class Queue {
+    constructor(){
+        // instantiate a queue as an instance of a linked list
+        this.linkedlist = new LinkedList();
+        this.length = 0;
+    }
+  
+    enqueue(value){
+        this.length++;
+        //add element to end of linked list
+        this.linkedlist.append(value);
+    }
+  
+    dequeue(){
+        if (this.length === 0){
+            return
+        }
+        this.length--;
+        // remove element from end of linked list
+        let firstElement = this.linkedlist.remove(0).value;
+        if (firstElement){
+            return firstElement;
+        } else {
+            return null;
         }
         
-        if (visited.has(neighbor)){
-            // console.log(node)
-            return [vertex, neighbor]
+    }
+  
+    peek(){
+        return this.linkedlist.head.value;
+    }
+  }
+
+function redundantConnection(edgeList) {
+    let q  = new Queue();
+    let start = edgeList[0][0]
+    let visited = {}
+    q.enqueue(start)
+    visited[start] = true
+  
+    const getNeigbhors = (element, edgeList) => {
+      let neighbors = []
+      for (let x = 0; x < edgeList.length; x++){
+        if (edgeList[x][0] === element){
+          neighbors.push(edgeList[x][1])
         }
+      }
+      return neighbors
+    }
+  
+    while (q.length > 0){
+      let current = q.dequeue()
+      let neighbors = getNeigbhors(current, edgeList)
+      
+      for (let x = 0; x < neighbors.length; x++){
+        if (visited[neighbors[x]]){
+          return [current, neighbors[x]]
+        }
+        if (!visited[neighbors[x]]){
+          q.enqueue(neighbors[x]);
+          visited[neighbors[x]] = true;
+        }
+      }
     }
     return -1;
- }
-  
-//   Input: edges = [[1,2],[1,3],[2,3]]
-//   Output: [2,3]
-const edges = [[1,2],[1,3],[2,3]];
-console.log(redundantConnection(edges))
+  }
