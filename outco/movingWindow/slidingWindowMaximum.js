@@ -1,4 +1,8 @@
 /* 
+Sliding Window Maximum 
+Hard
+Successfully passed all test cases on Leetcode 02/09/23
+
 
 input: an array, and k
 output: an array 
@@ -36,27 +40,44 @@ const slidingWindowMaximum = (nums, k) => {
     let rightPtr = 0;
     let leftPtr = 0;
     let maxVal = -Infinity
+    let maxValIndex = -1
     let output = []
 
     while (rightPtr < nums.length){
         let num = nums[rightPtr];
-        maxVal = Math.max(maxVal, num);
+        // maxVal = Math.max(maxVal, num);
+        if (num >= maxVal){
+            maxVal = num;
+            maxValIndex = rightPtr;
+        }
         rightPtr++;
         
         if (rightPtr - leftPtr === k){
             output.push(maxVal)
-        }
-        
-        if (rightPtr - leftPtr >= k){
-            leftPtr++
-            if (nums.indexOf(maxVal) < leftPtr){
-                maxVal = -Infinity
-                for (let x = leftPtr; x < rightPtr; x++){
+            // handle the case where the maxVal leaves when leftPtr moves
+            if (maxValIndex === leftPtr){
+                maxVal = -Infinity;
+                for (let x = leftPtr+1; x < rightPtr; x++){
                     let num = nums[x];
-                    maxVal = Math.max(maxVal, num)
+                    if (num >= maxVal){
+                        maxVal = num;
+                        maxValIndex = x
+                    }
                 }
             }
+            leftPtr++
         }
+        
+        // if (rightPtr - leftPtr >= k){
+        //     leftPtr++
+        //     if (nums.indexOf(maxVal) < leftPtr){
+        //         maxVal = -Infinity
+        //         for (let x = leftPtr; x < rightPtr; x++){
+        //             let num = nums[x];
+        //             maxVal = Math.max(maxVal, num)
+        //         }
+        //     }
+        // }
     }
     return output;
 }
