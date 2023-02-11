@@ -1,10 +1,5 @@
-/* 
 
-
-*/
-
-
-class ListNode {
+  class ListNode {
     constructor(value){
         this.value = value;
         this.next = null;
@@ -122,17 +117,38 @@ class ListNode {
         return this.linkedlist.head.value;
     }
   }
+  
+  class Stack{
+    constructor(){
+        this.linkedList = new LinkedList()
+        this.length = 0
+    }
+    push(value){
+        this.length++
+        this.linkedList.append(value)
+    }
+    pop(){
+        if (this.length === 0){
+            return
+        }
+        this.length--
+        let node = this.linkedList.remove(this.length).value
+        return node;
+    }
+  }
 
 function detectCycleInGraph(edgeList) {
     if (edgeList.length < 3){
         return false;
     }
-    let q = new Queue();
-    let visited = {}
-    let ancestors = {}
+    
+    let s = new Stack();
+    let start = edgeList[0][0];
+    let visited = {};
 
-    q.enqueue(edgeList[0][0])
-    ancestors[edgeList[0][0]] = true;
+    s.push(start);
+    visited[start] = 'pre';
+    // ancestors[start] = true;
 
     const getNeighbors = (element, edgeList) => {
       let neighbors = [];
@@ -144,30 +160,28 @@ function detectCycleInGraph(edgeList) {
       return neighbors
     }
 
-    while (q.length > 0){
-      let current = q.dequeue()
-      let neighbors = getNeighbors(current, edgeList);
-      if (neighbors.length > 0){
-        ancestors[current] = true;
-      }
-      
-      if (neighbors.length !== undefined){
-        for (let x = 0; x < neighbors.length; x++){
-          let u = neighbors[x];
-          if (ancestors[u]){
-            return true;
-          }
-        //   if (visited[u] && ancestors[u]){
-        //     return true
-        //   }
-          if (!visited[u]){
-            q.enqueue(u)
-            visited[u] = true;
-          }
+    while (s.length > 0){
+        let top = s.pop();
+        if (visited[top] === 'pre'){
+            // get neighbors 
+            let neighbors = getNeighbors(top, edgeList)
+            for (let x = 0; x < neighbors.length; x++){
+                if (visited[neighbors[x]] === 'pre'){
+                    return true
+                }
+                if (!visited[neighbors[x]]){
+                    // add unvisited neighbors to stack
+                    s.push(neighbors[x])
+                    // set visisted status of neighbors to 'pre'
+                    visited[neighbors[x]] = 'pre'
+                }
+            }
+            // if neighbors exceeds one add to ancestors   
         }
-      }
+        visited[top] = 'post'
+        
     }
-  return false;
+    return false;
 }
 
 

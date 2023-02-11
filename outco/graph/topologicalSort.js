@@ -230,7 +230,7 @@ const topologicalSort = (graph) => {
     let visited = new Set();
     let output = [];
 
-    const dfs(current) => {
+    const dfs = (current) => {
         // base case 1: the current node
         // has already been visited
         if (visited.has(current)){
