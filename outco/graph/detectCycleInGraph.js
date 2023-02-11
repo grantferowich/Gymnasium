@@ -1,9 +1,9 @@
 /* 
-Third degree neighbor
-Successfully tested the function 02/10/23.
 
 
 */
+
+
 class ListNode {
     constructor(value){
         this.value = value;
@@ -11,7 +11,7 @@ class ListNode {
     }
   }
   
-class LinkedList {
+  class LinkedList {
   
     constructor(){
         this.head = null;
@@ -90,7 +90,7 @@ class LinkedList {
     }
   }
   
-class Queue {
+  class Queue {
     constructor(){
         // instantiate a queue as an instance of a linked list
         this.linkedlist = new LinkedList();
@@ -123,15 +123,19 @@ class Queue {
     }
   }
 
-function thirdDegreeNeighbors(edgeList, start) {
-    let q  = new Queue();
+function detectCycleInGraph(edgeList) {
+    if (edgeList.length < 3){
+        return false;
+    }
+    let q = new Queue();
     let visited = {}
-    let output = []
-    q.enqueue([start, 0])
-    visited[start] = true
-  
+    let ancestors = {}
+
+    q.enqueue(edgeList[0][0])
+    ancestors[edgeList[0][0]] = true;
+
     const getNeighbors = (element, edgeList) => {
-      let neighbors = []
+      let neighbors = [];
       for (let x = 0; x < edgeList.length; x++){
         if (edgeList[x][0] === element){
           neighbors.push(edgeList[x][1])
@@ -139,29 +143,40 @@ function thirdDegreeNeighbors(edgeList, start) {
       }
       return neighbors
     }
-  
+
     while (q.length > 0){
-      let current = q.dequeue();
-      let v = current[0]
-      let degree = current[1];
-      if (degree === 3){
-        output.push(v)
+      let current = q.dequeue()
+      let neighbors = getNeighbors(current, edgeList);
+      if (neighbors.length > 0){
+        ancestors[current] = true;
       }
-      let neighbors = getNeighbors(v, edgeList)
+      
       if (neighbors.length !== undefined){
         for (let x = 0; x < neighbors.length; x++){
-          if (!visited[neighbors[x]] && degree !== 3){
-            q.enqueue([neighbors[x], degree+1]);
-            visited[neighbors[x]] = true;
+          let u = neighbors[x];
+          if (ancestors[u]){
+            return true;
+          }
+        //   if (visited[u] && ancestors[u]){
+        //     return true
+        //   }
+          if (!visited[u]){
+            q.enqueue(u)
+            visited[u] = true;
           }
         }
       }
     }
-    // console.log(output)
-    return output.length > 0 ? output : []
-  }
+  return false;
+}
 
-let input = [[1,2],[2,1],[1,3],[3,1],[2,4],[4,2],[3,4],[4,3],
-             [4,8],[8,4],[4,5],[5,4],[5,6],[6,5],[5,7],[7,5],
-             [6,7],[7,6],[8,7],[7,8],[8,9],[9,8]]
-console.log(thirdDegreeNeighbors(input, 1)) // [5,8] or [8,5]
+
+let input1 = [[1, 2], [2, 1], [2, 3], [3, 2], [3, 1], [1, 3]]
+console.log(detectCycleInGraph(input1)) // true
+
+let input2 = [[1, 2], [2, 1], [1, 3], 
+              [3, 1], [3, 4], [4, 3],
+              [4, 5], [5, 4], [5, 6], 
+              [6, 5], [4, 7], [7, 4]]
+
+console.log(detectCycleInGraph(input2)) // false

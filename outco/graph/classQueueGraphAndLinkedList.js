@@ -181,7 +181,7 @@ class Queue {
 
     dequeue(){
         if (this.length === 0){
-            return
+            return 
         }
         this.length--;
         // remove element from end of linked list
@@ -198,6 +198,26 @@ class Queue {
         return this.linkedlist.head.value;
     }
 }
+
+class Stack{
+    constructor(){
+        this.linkedList = new LinkedList()
+        this.length = 0
+    }
+    push(value){
+        this.length++
+        this.linkedList.append(value)
+    }
+    pop(){
+        if (this.length === 0){
+            return
+        }
+        this.length--
+        let node = this.linkedList.remove(this.length).value
+        return node;
+    }
+}
+
 
 const generateAdjacencyListUndirectedUnweighted = (edges) => {
     
@@ -231,3 +251,12 @@ const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
     }
     return list;
 }
+
+let s = new Stack()
+s.push(1)
+s.push(1)
+s.push(2)
+s.push(3)
+// console.log(s)
+console.log(s.pop()) // 3
+console.log(s)
