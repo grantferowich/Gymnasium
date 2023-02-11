@@ -259,4 +259,4 @@ s.push(2)
 s.push(3)
 // console.log(s)
 console.log(s.pop()) // 3
-console.log(s)
+console.log(s) 
