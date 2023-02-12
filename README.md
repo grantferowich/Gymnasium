@@ -2,18 +2,50 @@ The gymnasium repository is a place for practicing algorithms!
 As of 12/01/2023 I began to trek through the following algorithm types: 
 1. Frequency Count
 2. Array and String
-3. Decrease and Conquer
-4. Dynamic Programming
-5. Recursion
-6. Linked List
-7. Graph and Tree
-8. Hash Table
-9. Matrix
-10. Moving Window
-11. Trie
-12. Heap
-13. Sort
-    
+3. Stack
+4. Queue
+5. Decrease and Conquer, which includes binary search
+6. Dynamic Programming
+7. Recursion
+8. Linked List
+9. Graph
+10. Binary Tree
+11. Binary Search Tree
+12. Hash Table
+13. Matrix
+14. Moving Window, which includes two-pointer functions
+15. Trie
+16. Binary Heap
+17. Sorting Algorithms
+18. System Design
+19. Math and Logic
+20. Interval
+21. Backtracking
+
+By comparison, the algorithm techniques discussed by Hash Goel, a former software engineer at Google and Pinteret who received offers from Google, Yahoo!, Amazon, and Microsoft are enumerated here:
+
+1. Array and String
+2. Binary Search
+3. Recursion
+4. Backtracking
+5. Linked List
+6. Stack 
+7. Queue
+8. Dynamic Programming
+9. Binary Tree
+10. Binary Search Tree
+11. Hash Table
+12. Hash Functions
+13. Graph
+14. Heap
+15. Sorting Algorithms
+16. Bit Manipulation
+17. Selection Algorithm
+18. Trie 
+19. Approaching Problems
+20. Execution in Memory
+21. Common Myths
+
 My journey was stored on Google Sheets here: 
 
 https://docs.google.com/spreadsheets/d/15zHGNvYy0-NMx6YYduk3UVvPFTXsam7YO1OQzeq2c7s/edit?usp=sharing
