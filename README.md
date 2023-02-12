@@ -22,7 +22,7 @@ As of 12/01/2023 I began to trek through the following algorithm types:
 20. Interval
 21. Backtracking
 
-By comparison, the algorithm techniques discussed by Hash Goel, a former software engineer at Google and Pinteret who received offers from Google, Yahoo!, Amazon, and Microsoft are enumerated here:
+By comparison, the algorithm techniques discussed by Harsh Goel, a former software engineer at Google and Pinteret who received offers from Google, Yahoo!, Amazon, and Microsoft, are enumerated here:
 
 1. Array and String
 2. Binary Search
