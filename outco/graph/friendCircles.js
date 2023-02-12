@@ -1,3 +1,9 @@
+/* 
+
+Successfully tested the function 2/12/23.
+
+*/
+
 class ListNode {
     constructor(value){
         this.value = value;
@@ -138,11 +144,53 @@ class Stack{
 
 
 
+
 function friendCircles(matrix) {
+    if (matrix.length < 2) {return matrix.length}
+    const rows = matrix.length
+    const cols = matrix[0].length
+    // for backtracking init visited set
+    let visited = new Set()
+    let output = 0;
   
-}
+    const dfs = (i,j) => {
+        let key = `${i},${j}`
+        
+        if ( i < 0 || j < 0 || i >= rows || j >= cols || matrix[i][j] === 0 || visited.has(key)){
+        return 
+        }
+        
+        visited.add(key)
+        dfs(i+1,j)
+        dfs(i-1,j)
+        dfs(i,j+1)
+        dfs(i,j-1)
+    }
+  
+    for (let x = 0; x < rows; x++){
+      for (let y = 0; y < cols; y++){
+        let key = `${x},${y}`
+        if (matrix[x][y] === 1 && !visited.has(key)){
+          dfs(x, y)
+          output++;
+        }
+      }
+    }
+    console.log('matrix', matrix)
+    return output > 0 ? output : 0
+  }
+  
 
 
-let input1 = [[1, 1, 0], [1, 1, 0], [0, 0, 1]];
+let input1 = [[1, 1, 0], 
+              [1, 1, 0], 
+              [0, 0, 1]];
+let input2 = [[1, 1, 0], 
+              [1, 1, 1], 
+              [0, 1, 1]];
+// [ [ null, null, 0 ], 
+//   [ null, null, 1 ], 
+//   [ 0,     1,   1 ] ]
 
 console.log(friendCircles(input1)) // 2 
+console.log(friendCircles(input2)) // 1
