@@ -1,18 +1,19 @@
-// Graph, Linked List, and Queue Classes
-// Successfully tested all queue methods 2/1/23
+/* 
+Input: a graph represented by an adjacency list 
+Output: an integer
+*/
 
 class Graph {
     constructor() {
-     this.storage = new Map()
+     this.storage = {};
     }
    
     // Time Complexity: O(1)
     // Auxiliary Space Complexity: O(1)
     // add vertex is basically add a key to a hash map
     addVertex(id) {
-        console.log(this.storage)
-        if (this.storage.has(id)) { return false; }
-        this.storage.set(id, [])
+        if (this.storage[id]) { return false; }
+        this.storage[id] = [];
         return true;
     }
    
@@ -78,6 +79,16 @@ class Graph {
         console.log('hi')
         if (!this.storage[id]){return null;}
         return this.storage[id];
+    }
+
+    vertices() {
+        let keys = []
+        this.storage.forEach((value, key) => {
+            keys.push(key)
+        })
+        console.log(keys)
+        return keys;
+
     }
 }
 
@@ -167,77 +178,6 @@ class LinkedList {
     }
 }
 
-class Queue {
-    constructor(){
-        // instantiate a queue as an instance of a linked list
-        this.linkedlist = new LinkedList();
-        this.length = 0;
-    }
-
-    enqueue(value){
-        this.length++;
-        //add element to end of linked list
-        this.linkedlist.append(value);
-    }
-
-    dequeue(){
-        if (this.length === 0){
-            return 
-        }
-        this.length--;
-        // remove element from end of linked list
-        let firstElement = this.linkedlist.remove(0).value;
-        if (firstElement){
-            return firstElement;
-        } else {
-            return null;
-        }
-        
-    }
-
-    peek(){
-        return this.linkedlist.head.value;
-    }
-}
-
-class Stack{
-    constructor(){
-        this.linkedList = new LinkedList()
-        this.length = 0
-    }
-    push(value){
-        this.length++
-        this.linkedList.append(value)
-    }
-    pop(){
-        if (this.length === 0){
-            return
-        }
-        this.length--
-        let node = this.linkedList.remove(this.length).value
-        return node;
-    }
-}
-
-
-const generateAdjacencyListUndirectedUnweighted = (edges) => {
-    
-    let graphX = new Graph();
-    let x = 0;
-    while (x < edges.length){
-        let edge = edges[x];
-        if (!graphX.storage[edge[0]]){
-            graphX.addVertex(edge[0])
-        }
-        if (!graphX.storage[edge[1]]){
-            graphX.addVertex(edge[1])
-        }  
-        graphX.addEdge(edge[0] ,edge[1]);
-        x++
-    }
-    return graphX.storage
-}
-
 const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
     const list = {};
     for (let x = 0; x < arrayOfTuples.length; x++){
@@ -253,18 +193,35 @@ const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
     return list;
 }
 
+function longestPath(graph) {
+    let result = 0
+    let visited = new Set();
+    // console.log('graph', graph)
+    let vertices = graph.vertices
+    console.log(vertices);
+    
+  
 
+    const dfs = (v, depth) => {
+      if (visited.has(v)){ return }
+      const neighbors = graph.neighbors(v)
+      let result = Math.max(depth, result)
+      visited.add(v)
+      if (neighbors !== undefined){
+        for (let x = 0; x < neighbors.length; x++){
+            dfs(neighbors[x], depth+1)
+          }
+      }
+    }
+    console.log(vertices)
+    for (let v = 0; v < vertices.length; v++){
+        dfs(v, 1)
+    }
+    
+    return result
+  }
+  
 
-let g = new Graph();
-g.addVertex('w')
-g.addVertex('f')
-g.addVertex('u')
-console.log(g)
-// let s = new Stack()
-// s.push(1)
-// s.push(1)
-// s.push(2)
-// s.push(3)
-// // console.log(s)
-// console.log(s.pop()) // 3
-// console.log(s) 
+const input1 = [[1,2],[2,3],[1,3]]
+const graph1 = generateAdjacencyListDirectedUnweighted(input1)
+console.log(longestPath(graph1));

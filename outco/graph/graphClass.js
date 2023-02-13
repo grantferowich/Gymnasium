@@ -1,7 +1,7 @@
 
 class Graph {
     constructor() {
-     this.storage = {};
+     this.storage = new Map()
     }
    
     // Time Complexity: O(1)
@@ -75,6 +75,15 @@ class Graph {
         if (!this.storage[id]){return null;}
         return this.storage[id]
     }
+
+    vertices() {
+      let keys = []
+      this.storage.forEach((key,value) => {
+        console.log('key', key)
+        keys.push(key)
+      })
+      return keys
+    }
 }
    
 let graph1 = new Graph()
@@ -85,3 +94,4 @@ graph1.addVertex('w')
 graph1.addVertex('f')
 graph1.addEdge('w', 'f')
 console.log(graph1.storage)
+console.log(graph1.vertices()) // [ 'w', 'f' ]
