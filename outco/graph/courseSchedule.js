@@ -231,7 +231,6 @@ function courseSchedule(courseList) {
   
     while (q.length > 0){
       let current = q.dequeue();
-      console.log('current', current)
       let nextCourses = courseList.neighbors(current);
       schedule.push(current)
       if (nextCourses !== undefined && nextCourses !== null){
@@ -246,14 +245,15 @@ function courseSchedule(courseList) {
     }
   
   
-    return schedule.length > 1 ? schedule :[]
+    return schedule[0] !== null ? schedule :[]
   }
 
-  let input1 = [['a','b'],['a','c'],['b','d'],['c','d']]
-  let input2 = []
+  let input1 = [['a','b'],['a','c'],['b','d'],['c','d']];
+  let input2 = [];
   let input4 = [["a","b"],["a","c"],["b","d"],["d","e"],
   ["d","c"],["c","e"],["e","f"],["f","h"],
-  ["e","h"],["e","g"],["h","g"]]
+  ["e","h"],["e","g"],["h","g"]];
+
   console.log(courseSchedule(input1)) // ['a', 'b', 'c', 'd']
   console.log(courseSchedule(input2)) // []
   console.log(courseSchedule(input4)) // ["a","b","d","c","e","f","h","g"]
