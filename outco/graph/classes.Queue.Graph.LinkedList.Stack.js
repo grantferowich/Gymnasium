@@ -288,8 +288,8 @@ console.log(g)
 console.log(g.hasVertex('w')) // expected: true | actual: true
 console.log(g.hasVertex('f')) // expected: true | actual: true
 console.log(g.neighbors('w')) // { 'f', 'u'}
-console.log(g.vertices()) // {'w', 'f', 'u'}
-g.printVertices()
+// console.log(g.vertices()) // {'w', 'f', 'u'}
+// g.printVertices()
 // let s = new Stack()
 // s.push(1)
 // s.push(1)
