@@ -201,6 +201,7 @@ class Graph {
         return node;
     }
   }
+
 const generateAdjacencyList = ( edges ) => {
     let g = new Graph()
     let x = 0;
@@ -219,33 +220,40 @@ const generateAdjacencyList = ( edges ) => {
     return g;
   }
 
-function courseSchedule(courseList) {
-    let q = new Queue()
-    courseList = generateAdjacencyList(courseList)
+const topologicalSort = (graph) => {
     let visited = new Set();
-    let schedule = []
-    let courses = courseList.vertices()
-    let a = courses[0]
-    q.enqueue(a)
-    visited.add(a)
-  
-    while (q.length > 0){
-      let current = q.dequeue();
-      let nextCourses = courseList.neighbors(current);
-      schedule.push(current)
-      if (nextCourses !== undefined && nextCourses !== null){
-        for (let x = 0; x < nextCourses.length; x++){
-          if (visited.has(nextCourses[x])){
-            continue
-          }
-          q.enqueue(nextCourses[x])
-          visited.add(nextCourses[x])
+    let output = [];
+    
+
+    const dfs = (current) => {
+        if (visited.has(current)){
+            return;
         }
-      }
+        visited.add(current);
+        let neighbors = graph.neighbors(current)
+        let x = 0;
+        while (neighbors && x < neighbors.length){
+            dfs(neighbors[x])
+            x++
+        }
+        output.push(current);
     }
-  
-  
-    return schedule[0] !== null ? schedule :[]
+    let vertices = graph.vertices()
+    
+    let v = 0
+    while (v < vertices.length){
+        dfs(vertices[v])
+        v++
+    }
+    
+    return output.reverse()
+}
+
+function courseSchedule(courseList) {
+
+    let g = generateAdjacencyList(courseList);
+    let output = topologicalSort(g)
+    return output
   }
 
   let input1 = [['a','b'],['a','c'],['b','d'],['c','d']];
