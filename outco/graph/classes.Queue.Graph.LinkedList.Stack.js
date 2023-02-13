@@ -39,16 +39,11 @@ class Graph {
     // add edge is basically add a value to the hash map
 
     addEdge(id1, id2) {
-        let vertexList = [];
-        for (let key of this.storage){
-          vertexList.push(key[0]);
-        } 
-        let index1 = vertexList.indexOf(id1); 
-        let index2 = vertexList.indexOf(id2); 
-        if (index1 === -1){
+
+        if (!this.storage.has(id1)){
             this.storage.addVertex(id1)
         }
-        if (index2 === -1){
+        if (!this.storage.has(id2)){
             this.storage.addVertex(id2)
         }
         //this.storage.get(x) returns a set
@@ -73,8 +68,8 @@ class Graph {
     // Time Complexity: O(1)
     // Auxiliary Space Complexity: O(1)
     // access to return boolean if key exists
-    isVertex(id) {
-      if (this.storage[id]){
+    hasVertex(id) {
+      if (this.storage.has(id)){
         return true;
       }
       return false;
@@ -85,8 +80,8 @@ class Graph {
     // access to return the values given a key
     neighbors(id) {
         console.log('hi')
-        if (!this.storage[id]){return null;}
-        return this.storage[id];
+        if (!this.storage.has(id)){return null;}
+        return this.storage.get(id)
     }
 }
 
@@ -276,9 +271,11 @@ g.addEdge('f','u')
 g.addEdge('w', 'f')
 g.addEdge('w', 'u')
 console.log(g)
-console.log('remove edge..')
-g.removeEdge('w', 'u') // the 'u' is successfully removed from w's values list
-console.log(g)
+// console.log('remove edge..')
+// g.removeEdge('w', 'u') // the 'u' is successfully removed from w's values list
+// console.log(g)
+console.log(g.hasVertex('w')) // expected: true | actual: true
+console.log(g.hasVertex('f')) // expected: true | actual: true
 // let s = new Stack()
 // s.push(1)
 // s.push(1)
