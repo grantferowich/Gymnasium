@@ -46,12 +46,15 @@ class Graph {
         console.log('vertex list', vertexList)
         let index1 = vertexList.indexOf(id1); 
         let index2 = vertexList.indexOf(id2); 
-        console.log(index1)
-        console.log(index2)
-        if (index1 === -1 || index2 === -1){ return false; }
-        console.log('hi')
-        console.log(this.storage.get(id1))
-        this.storage.get(id1).set(id2)
+        if (index1 === -1){
+            this.storage.addVertex(id1)
+        }
+        if (index2 === -1){
+            this.storage.addVertex(id2)
+        }
+        //this.storage.get(x) returns a set
+        // this.add(x) generates a union between the set and the element
+        this.storage.get(id1).add(id2)
         return true;
     }
     // Time Complexity: O(1)
@@ -266,11 +269,11 @@ g.addVertex('w')
 g.addVertex('f')
 g.addVertex('u')
 // console.log(g)
-g.removeVertex('w')
+// g.removeVertex('w')
 // console.log(g)
 console.log('add egde...')
-g.addEdge('f', 'k')
-// console.log(g)
+g.addEdge('w', 'f')
+console.log(g)
 // let s = new Stack()
 // s.push(1)
 // s.push(1)
