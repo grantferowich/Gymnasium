@@ -12,7 +12,7 @@ class Graph {
     addVertex(id) {
         console.log(this.storage)
         if (this.storage.has(id)) { return false; }
-        this.storage.set(id, [])
+        this.storage.set(id, new Set())
         return true;
     }
    
@@ -25,8 +25,9 @@ class Graph {
      for (let vertex in this.storage){
         let edges = this.storage.get(vertex);
         let index = edges.indexOf(id);
+        // if the vertex being passed is an edge
         if (index >= 0){
-            edges.splice(index, 1)
+            edges.delete(value)
         }
      }
      this.storage.delete(id);
@@ -39,13 +40,18 @@ class Graph {
 
     addEdge(id1, id2) {
         let vertexList = [];
-        for (let vertex in this.storage){
-          vertexList.push(vertex);
+        for (let key of this.storage){
+          vertexList.push(key[0]);
         } 
-        let index1 = vertexList.indexOf(id1.toString()); // 5
-        let index2 = vertexList.indexOf(id2.toString()); 
+        console.log('vertex list', vertexList)
+        let index1 = vertexList.indexOf(id1); 
+        let index2 = vertexList.indexOf(id2); 
+        console.log(index1)
+        console.log(index2)
         if (index1 === -1 || index2 === -1){ return false; }
-        this.storage[id1].push(id2);
+        console.log('hi')
+        console.log(this.storage.get(id1))
+        this.storage.get(id1).set(id2)
         return true;
     }
     // Time Complexity: O(1)
@@ -261,7 +267,10 @@ g.addVertex('f')
 g.addVertex('u')
 // console.log(g)
 g.removeVertex('w')
-console.log(g)
+// console.log(g)
+console.log('add egde...')
+g.addEdge('f', 'k')
+// console.log(g)
 // let s = new Stack()
 // s.push(1)
 // s.push(1)
