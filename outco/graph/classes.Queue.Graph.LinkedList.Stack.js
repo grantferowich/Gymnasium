@@ -43,7 +43,6 @@ class Graph {
         for (let key of this.storage){
           vertexList.push(key[0]);
         } 
-        console.log('vertex list', vertexList)
         let index1 = vertexList.indexOf(id1); 
         let index2 = vertexList.indexOf(id2); 
         if (index1 === -1){
@@ -61,10 +60,11 @@ class Graph {
     // Auxiliary Space Complexity: O(1)
     // remove edge is basically delete values from the hash map
     removeEdge(id1, id2) {
-        if (this.storage[id1]){
-            let edges = this.storage[id1];
-            let index = edges.indexOf(id2);
-            edges.splice(index,1)
+        if (this.storage.has(id1)){
+            if (this.storage.get(id1).has(id2)){
+                this.storage.get(id1).delete(id2)
+            }
+            // edges.splice(index,1)
             return true;
           }
           return false;
@@ -268,11 +268,16 @@ let g = new Graph();
 g.addVertex('w')
 g.addVertex('f')
 g.addVertex('u')
+g.addEdge('f','u')
 // console.log(g)
 // g.removeVertex('w')
 // console.log(g)
-console.log('add egde...')
+// console.log('add egde...')
 g.addEdge('w', 'f')
+g.addEdge('w', 'u')
+console.log(g)
+console.log('remove edge..')
+g.removeEdge('w', 'u') // the 'u' is successfully removed from w's values list
 console.log(g)
 // let s = new Stack()
 // s.push(1)
