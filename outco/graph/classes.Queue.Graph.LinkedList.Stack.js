@@ -21,15 +21,15 @@ class Graph {
     // remove vertex is basically remove a key from a hash map
     removeVertex(id) {
           // vertex already exists
-     if (!this.storage[id]){ return false; }
+     if (!this.storage.has(id)){ return false;}
      for (let vertex in this.storage){
-        let edges = this.storage[vertex];
+        let edges = this.storage.get(vertex);
         let index = edges.indexOf(id);
         if (index >= 0){
             edges.splice(index, 1)
         }
      }
-     delete this.storage[id];
+     this.storage.delete(id);
      return true;
     }
    
@@ -259,6 +259,8 @@ let g = new Graph();
 g.addVertex('w')
 g.addVertex('f')
 g.addVertex('u')
+// console.log(g)
+g.removeVertex('w')
 console.log(g)
 // let s = new Stack()
 // s.push(1)
