@@ -12,7 +12,6 @@ class Graph {
     // Auxiliary Space Complexity: O(1)
     // add vertex is basically add a key to a hash map
     addVertex(id) {
-        console.log(this.storage)
         if (this.storage.has(id)) { return false; }
         this.storage.set(id, new Set())
         return true;
@@ -81,14 +80,12 @@ class Graph {
     // Auxiliary Space Complexity: O(E)
     // access to return the values given a key
     neighbors(id) {
-        console.log('hi')
         if (!this.storage.has(id)){return null;}
-        return this.storage.get(id)
+        return Array.from(this.storage.get(id))
     }
   
     vertices(){
-        console.log('hi')
-        return this.storage.keys()
+        return Array.from(this.storage.keys())
     }
   
     printVertices(){
@@ -185,52 +182,52 @@ class LinkedList {
     }
 }
 
-const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
-    const list = {};
-    for (let x = 0; x < arrayOfTuples.length; x++){
-        const id1 = arrayOfTuples[x][0];
-        const id2 = arrayOfTuples[x][1];
-        if (!list[id1]){
-            list[id1] = [];
+const generateAdjacencyList = ( edges ) => {
+    let g = new Graph()
+    let x = 0;
+    while (x < edges.length){
+        let v = edges[x][0]
+        let e = edges[x][1]
+        if (!g.storage.has(v)){
+            g.addVertex(v)
         }
-        if (list[id1]){
-            list[id1].push(id2);
-        }
+        if (!g.storage.has(e)){
+            g.addVertex(e)
+        }  
+        g.addEdge( v, e );
+        x++
     }
-    return list;
+    return g;
 }
 
 function longestPath(graph) {
-    let result = 0
+    let result = 0;
     let visited = new Set();
-    console.log('graph0', graph)
-    graph = generateAdjacencyListDirectedUnweighted(graph)
-    console.log('graph1', graph)
+    graph = generateAdjacencyList(graph)
     const vertices = graph.vertices()
-    console.log(vertices);
-    
-  
 
     const dfs = (v, depth) => {
       if (visited.has(v)){ return }
       const neighbors = graph.neighbors(v)
-      let result = Math.max(depth, result)
+      result = Math.max(depth, result)
       visited.add(v)
-      if (neighbors !== undefined){
+      if (neighbors !== undefined && neighbors !== null){
         for (let x = 0; x < neighbors.length; x++){
             dfs(neighbors[x], depth+1)
           }
       }
+      visited.delete(v)
     }
-    console.log(vertices)
+
     for (let v = 0; v < vertices.length; v++){
-        dfs(v, 1)
-    }
-    
+        dfs(vertices[v], 1)
+    } 
     return result
-  }
-  
+}
 
 const input1 = [[1,2],[2,3],[1,3]]
-// const graph1 = generateAdjacencyListDirectedUnweighted(input1)
-console.log(longestPath(input1));
+const input2 = [[6,5],[6,4],[5,4],[4,3],[2,3],[1,2],[4,1]]
+const graph1 = generateAdjacencyList(input1)
+const graph2 = generateAdjacencyList(input2)
+console.log(longestPath(input1)); // 3 
+console.log(longestPath(input2)); // 6
