@@ -1,4 +1,5 @@
 /* 
+Successfully tested the function 2/13/23.
 Input: a graph represented by an adjacency list 
 Output: an integer
 */
