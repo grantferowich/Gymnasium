@@ -246,10 +246,14 @@ function courseSchedule(courseList) {
     }
   
   
-    return schedule.length > 1 ? schedule : []
+    return schedule.length > 1 ? schedule :[]
   }
 
   let input1 = [['a','b'],['a','c'],['b','d'],['c','d']]
   let input2 = []
+  let input4 = [["a","b"],["a","c"],["b","d"],["d","e"],
+  ["d","c"],["c","e"],["e","f"],["f","h"],
+  ["e","h"],["e","g"],["h","g"]]
   console.log(courseSchedule(input1)) // ['a', 'b', 'c', 'd']
-  console.log(courseSchedule(input2)) 
+  console.log(courseSchedule(input2)) // []
+  console.log(courseSchedule(input4)) // ["a","b","d","c","e","f","h","g"]
