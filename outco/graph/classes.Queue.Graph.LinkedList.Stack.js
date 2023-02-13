@@ -276,6 +276,7 @@ console.log(g)
 // console.log(g)
 console.log(g.hasVertex('w')) // expected: true | actual: true
 console.log(g.hasVertex('f')) // expected: true | actual: true
+console.log(g.neighbors('w')) // { 'f', 'u'}
 // let s = new Stack()
 // s.push(1)
 // s.push(1)
