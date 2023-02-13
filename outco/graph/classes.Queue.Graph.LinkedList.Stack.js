@@ -83,6 +83,17 @@ class Graph {
         if (!this.storage.has(id)){return null;}
         return this.storage.get(id)
     }
+
+    vertices(){
+        return this.storage.keys()
+    }
+
+    printVertices(){
+        let vertices = Array.from(this.storage.keys())
+        for (let x = 0; x < vertices.length; x++){
+            console.log(vertices[x])
+        }
+    }
 }
 
 class ListNode {
@@ -277,6 +288,8 @@ console.log(g)
 console.log(g.hasVertex('w')) // expected: true | actual: true
 console.log(g.hasVertex('f')) // expected: true | actual: true
 console.log(g.neighbors('w')) // { 'f', 'u'}
+console.log(g.vertices()) // {'w', 'f', 'u'}
+g.printVertices()
 // let s = new Stack()
 // s.push(1)
 // s.push(1)
