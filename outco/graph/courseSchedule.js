@@ -220,32 +220,36 @@ const generateAdjacencyList = ( edges ) => {
   }
 
 function courseSchedule(courseList) {
-    let s = new Stack();
+    let q = new Queue()
     courseList = generateAdjacencyList(courseList)
     let visited = new Set();
     let schedule = []
     let courses = courseList.vertices()
     let a = courses[0]
-    s.push(a)
+    q.enqueue(a)
     visited.add(a)
   
-    while (s.length > 0){
-      let current = s.pop();
+    while (q.length > 0){
+      let current = q.dequeue();
+      console.log('current', current)
       let nextCourses = courseList.neighbors(current);
       schedule.push(current)
-      if (nextCourses !== undefined){
+      if (nextCourses !== undefined && nextCourses !== null){
         for (let x = 0; x < nextCourses.length; x++){
-          if (!visited.has(nextCourses[x])){
-            s.push(nextCourses[x])
-            visited.add(nextCourses[x])
+          if (visited.has(nextCourses[x])){
+            continue
           }
+          q.enqueue(nextCourses[x])
+          visited.add(nextCourses[x])
         }
       }
     }
   
   
-    return schedule.length > 0 ? schedule : []
+    return schedule.length > 1 ? schedule : []
   }
 
   let input1 = [['a','b'],['a','c'],['b','d'],['c','d']]
-  console.log(courseSchedule(input1))
+  let input2 = []
+  console.log(courseSchedule(input1)) // ['a', 'b', 'c', 'd']
+  console.log(courseSchedule(input2)) 
