@@ -1,4 +1,6 @@
 /* 
+Successfully tested the function 2/13/23.
+
 CYCLE DETECTION
 
 Given a graph, determine wheter the input graph has a cycle or not. 
