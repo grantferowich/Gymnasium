@@ -98,7 +98,7 @@ class Graph {
     }
   }
 
-const generateAdjacencyListDirectedUnweighted = ( edges ) => {
+const generateAdjacencyList = ( edges ) => {
     let g = new Graph()
     
     let x = 0;
@@ -119,6 +119,6 @@ const generateAdjacencyListDirectedUnweighted = ( edges ) => {
 
 const edges = [[1,2], [1,3], [2,3]]
 // const graph = generateAdjacencyListDirectedUnweighted(edges)
-const g = generateAdjacencyListDirectedUnweighted(edges) // { '1': [ 2, 3 ], '2': [ 3 ] }
+const g = generateAdjacencyList(edges) // { '1': [ 2, 3 ], '2': [ 3 ] }
 console.log(g)
 console.log(typeof g)
