@@ -8,7 +8,6 @@ class Graph {
   // Auxiliary Space Complexity: O(1)
   // add vertex is basically add a key to a hash map
   addVertex(id) {
-      console.log(this.storage)
       if (this.storage.has(id)) { return false; }
       this.storage.set(id, new Set())
       return true;
@@ -37,7 +36,6 @@ class Graph {
   // add edge is basically add a value to the hash map
 
   addEdge(id1, id2) {
-
       if (!this.storage.has(id1)){
           this.storage.addVertex(id1)
       }
@@ -77,16 +75,15 @@ class Graph {
   // Auxiliary Space Complexity: O(E)
   // access to return the values given a key
   neighbors(id) {
-      console.log('hi')
       if (!this.storage.has(id)){return null;}
       return this.storage.get(id)
   }
 
-  vertices(){
+  vertices() {
       return this.storage.keys()
   }
 
-  printVertices(){
+  printVertices() {
       let vertices = Array.from(this.storage.keys())
       for (let x = 0; x < vertices.length; x++){
           console.log(vertices[x])
