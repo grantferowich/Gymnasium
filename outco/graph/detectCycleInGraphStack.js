@@ -1,3 +1,4 @@
+// Successfully tested the function 02/10/23.
 
   class ListNode {
     constructor(value){
@@ -148,7 +149,7 @@ function detectCycleInGraph(edgeList) {
 
     s.push(start);
     visited[start] = 'pre';
-    // ancestors[start] = true;
+
 
     const getNeighbors = (element, edgeList) => {
       let neighbors = [];
