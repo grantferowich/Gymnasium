@@ -24,7 +24,9 @@ Input:
   move the top to the right, move the right to the bottom,
   move the bottom to the left.
 
+  suppose 4x4 matrix
 */
+
 
 const rotateMatrix = (matrix) => {
   
@@ -36,15 +38,22 @@ const rotateMatrix = (matrix) => {
 
     // starts at 0, goes until midway through a row / col
     for (let x = first; x < last; x++){
+      // offset starts at 0
+      // top starts at [0,0]
       let offset = x - first;
       let top = matrix[first][x] // save top
-      // top
+      // left -> top
+      // matrix[first][x] starts at 0,0
+      // set 0,0 to 2,0
       matrix[first][x] = matrix[last - offset][first];
-      // left
+      // bottom -> left
+      // set 2,0 to 2,2
       matrix[last-offset][first] = matrix[last][last-offset];
-      // bottom
+      // right -> bottom
+      // set 2,2 to 0,2
       matrix[last][last - offset] = matrix[x][last];
-      // right 
+      // top -> right 
+      // set 0,2 to 0,0
       matrix[x][last] = top;
     }
   }
