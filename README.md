@@ -61,6 +61,6 @@ On the Google Sheet I kept track of:
 7. The date a function was successfully tested
 8. The number of days which have transpired since I last practiced the algorithm
 9. The number of times the algorithm has been practiced overall
-10. The time and space complexity of the algorithm
-11. Detailed notes stating how the algorithm solution works. 
+10. The time and space complexities of the algorithm
+11. Detailed notes stating how the algorithm works. 
 12. Additional functions to see. 
