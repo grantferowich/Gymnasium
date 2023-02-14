@@ -13,18 +13,14 @@ var t0 = performance.now();
 
 // Succesfully tested the solution on 12/10/22.
 const pigLatin = (word) => {
-
   if (word.length === 0) {
     return ""
   }
-
   let arr = word.split('')
-
   // if the array at index 0 is a vowel
   if (arr[0] == "a" || arr[0] =="e"|| arr[0] == "i" || arr[0] == "o" || arr[0] == "u"){
     return word + "yay"
   }
-
   // loop until a vowel is found at index i
   for (let i = 0; i < arr.length; i++) {
         if (arr[i] == "a" || arr[i] =="e"|| arr[i] == "i" || arr[i] == "o" || arr[i] == "u") {
