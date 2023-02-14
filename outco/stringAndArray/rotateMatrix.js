@@ -33,6 +33,8 @@ const rotateMatrix = (matrix) => {
   for (let layer = 0; layer < n / 2; layer++){
     let first = layer;
     let last = n - 1 - layer;
+
+    // starts at 0, goes until midway through a row / col
     for (let x = first; x < last; x++){
       let offset = x - first;
       let top = matrix[first][x] // save top
