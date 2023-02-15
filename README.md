@@ -24,6 +24,7 @@ As of 12/01/2023 I began to trek through the following algorithm types:
 19. Math and Logic
 20. Interval
 21. Backtracking
+22. Regular Expressions
 
 ## Benchmark 
 The above list is inspired by two resources. The Outco curriculum and the sections from "Cracking the Coding Interview" by Gayle Laakmann McDowell. McDowell previously interviewed software engineers while she worked at Google. Additionally, numerous Outco alumni went on to work at Google. By comparison, Harsh Goel, a former software engineer at Google and Pinteret who received offers from Google, Yahoo!, Amazon, and Microsoft, enumerates the following techniques for interview preparation.
