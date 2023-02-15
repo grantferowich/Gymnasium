@@ -1,3 +1,4 @@
+/* Successfully tested the class methods 2/15/23. */
 require('colors')
 // stack follows last in first out
 // insertion occurs at the tail
@@ -64,7 +65,7 @@ class SinglyLinkedList{
             result = this.head;
             this.head = null;
             this.tail = null;
-        } else if ( index === 0){
+        } else if ( index === 0 ){
             result = this.head;
             this.head = this.head.next;
         } else {
@@ -84,7 +85,7 @@ class SinglyLinkedList{
 
     contains(value){
         let current = this.head;
-        while (current){
+        while (current !== null ){
             if (current.value === value){
                 return true
             }
@@ -113,6 +114,10 @@ class Stack{
     }
 }
 
+let l = new SinglyLinkedList()
+l.append(1)
+console.log(l.contains(1)) // true
+
 let s = new Stack()
 s.push(1)
 s.push(1)
@@ -125,5 +130,5 @@ s.push(21)
 console.log('This is a success message'.green, s.pop()) // 21
 console.log('This is a success message'.green, s)
 
-let s1 = new Stack();
-console.log(s1.pop()) // This log should be an error message. It is!
+// let s1 = new Stack();
+// console.log(s1.pop()) // This log should be an error message. It is!
