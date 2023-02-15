@@ -1,4 +1,7 @@
+## Gymnasium 
 The gymnasium repository is a place for practicing algorithms!
+
+## Defining the universe of techniques
 As of 12/01/2023 I began to trek through the following algorithm types: 
 1. Frequency Count
 2. Array and String
