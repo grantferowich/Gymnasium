@@ -16,14 +16,6 @@ class SinglyLinkedList{
         this.tail = null;
         this.length = 0; 
     }
-    
-    append(value){
-        this.insert(value, this.length)
-    }
-
-    prepend(value){
-        this.insert(value, 0)
-    }
 
     insert(value, index){
         if (index < 0 || index > this.length){
@@ -49,6 +41,16 @@ class SinglyLinkedList{
         }
         this.length++
     }
+    
+    append(value){
+        this.insert(value, this.length)
+    }
+
+    prepend(value){
+        this.insert(value, 0)
+    }
+
+
 
     // 1-2-3
     // 1-> xx2
