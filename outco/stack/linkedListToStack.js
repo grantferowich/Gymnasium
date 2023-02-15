@@ -57,6 +57,9 @@ class SinglyLinkedList{
     remove(index){
         if (index < 0 || index >= this.length) { return; }
         let result;
+        if (this.length === 0){
+            return 'Already empty.'
+        }
         if (this.length === 1){
             result = this.head;
             this.head = null;

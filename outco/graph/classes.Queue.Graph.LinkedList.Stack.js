@@ -234,7 +234,6 @@ class Stack{
     }
 }
 
-
 const generateAdjacencyListUndirectedUnweighted = (edges) => {
     
     let graphX = new Graph();
@@ -267,8 +266,6 @@ const generateAdjacencyListDirectedUnweighted = (arrayOfTuples) => {
     }
     return list;
 }
-
-
 
 let g = new Graph();
 g.addVertex('w')
