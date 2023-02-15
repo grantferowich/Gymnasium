@@ -17,47 +17,75 @@ class SinglyLinkedList{
         this.length = 0; 
     }
     
-    addToTail(value){
-        let xNode = new SinglyLinkedListNode(value);
+    append(value){
+        this.insert(value, this.length)
+    }
+
+    prepend(value){
+        this.insert(value, 0)
+    }
+    
+    insert(value, index){
+        if (index < 0 || index > this.length){
+            return;
+        }
+        let xNode = new ListNode(value);
         if (this.length === 0){
             this.head = xNode;
             this.tail = xNode;
-        } 
-        if (this.length === 1){
-            this.head.next = xNode;
-            this.tail = xNode;
-        }
-        if (this.length > 1){
+        } else if (index === 0){
+            xNode.next = this.head;
+            this.head = xNode;
+        } else if (index === this.length){
             this.tail.next = xNode;
             this.tail = xNode;
+        } else {
+            let prev = this.head;
+            for (let x = 0; x < index - 1; x++){
+                prev = prev.next;
+            }
+            xNode.next = prev.next;
+            prev.next = xNode;
         }
-        this.length++;
+        this.length++
     }
 
     // 1-2-3
     // 1-> xx2
-    removeFromTail(){
-        if (this.length === 0){
-            return
-        }
+    remove(index){
+        if (index < 0 || index >= this.length) { return; }
+        let result;
         if (this.length === 1){
-            let deleted = this.head;
+            result = this.head;
             this.head = null;
             this.tail = null;
-            this.length--;
-            return deleted; 
-        }
-        if (this.length > 1){
+        } else if ( index === 0){
+            result = this.head;
+            this.head = this.head.next;
+        } else {
             let prev = this.head;
-            let deleted = this.tail;
-            for (let x = 0; x < this.length - 2; x++){
+            for (let x = 0; x < index - 1; x++){
                 prev = prev.next;
             }
-            this.tail = prev;
-            prev.next = null;
-            this.length--;
-            return deleted;
+            result = prev.next;
+            prev.next = prev.next.next;
+            if (index === this.length - 1){
+                this.tail = prev;
+            }
         }
+        this.length--;
+        return result;
+    }
+
+    contains(value){
+        let current = this.head;
+        while (current){
+            if (current.value === value){
+                return true
+            }
+            current = current.next
+        }
+        return false;
     }
 }
 
