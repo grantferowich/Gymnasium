@@ -1,3 +1,4 @@
+require('colors')
 // stack follows last in first out
 // insertion occurs at the tail
 // deletion occurs at the tail
@@ -82,5 +83,5 @@ s.push(5)
 s.push(8)
 s.push(13)
 s.push(21)
-console.log(s.pop()) // 21
-console.log(s)
+console.log('This is a success message'.green, s.pop()) // 21
+console.log('This is a success message'.green, s)
