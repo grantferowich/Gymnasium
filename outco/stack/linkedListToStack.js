@@ -24,12 +24,12 @@ class SinglyLinkedList{
     prepend(value){
         this.insert(value, 0)
     }
-    
+
     insert(value, index){
         if (index < 0 || index > this.length){
             return;
         }
-        let xNode = new ListNode(value);
+        let xNode = new SinglyLinkedListNode(value);
         if (this.length === 0){
             this.head = xNode;
             this.tail = xNode;
@@ -92,12 +92,18 @@ class SinglyLinkedList{
 class Stack{
     constructor(){
         this.linkedList = new SinglyLinkedList()
+        this.length = 0
     }
     push(value){
-        this.linkedList.addToTail(value)
+        this.length++
+        this.linkedList.append(value)
     }
     pop(){
-        let node = this.linkedList.removeFromTail();
+        if (this.length === 0){
+            throw new Error('\nError: Stack underflow.'.red)
+        }
+        this.length--;
+        let node = this.linkedList.remove(this.length).value
         return node;
     }
 }
@@ -113,3 +119,6 @@ s.push(13)
 s.push(21)
 console.log('This is a success message'.green, s.pop()) // 21
 console.log('This is a success message'.green, s)
+
+let s1 = new Stack();
+console.log(s1.pop()) // This log should be an error message. It is!
