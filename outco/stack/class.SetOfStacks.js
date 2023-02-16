@@ -1,5 +1,6 @@
 /* 
     class SetOfStacks
+
         - d.s. should support several stacks (-numberOfStacks)
         - d.s. should create a stack when a previous stack exceeds capacity (ExpandStacks)
         - d.s. should support push(x) and pop() s.t. SetOfStacks.pop() returns the
@@ -26,10 +27,6 @@
     |- expandNumberOFStacks()  |
     |- popAt(stackNum)         |
     |--------------------------|
-
-
-
-
 
 
 */

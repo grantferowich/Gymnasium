@@ -77,3 +77,6 @@ class MultiStack{
 
 
 /* TESTS */
+
+let s = new MultiStack(3,3)
+console.log(s)
