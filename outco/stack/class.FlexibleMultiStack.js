@@ -70,7 +70,16 @@ class MultiStack{
         for (let x = 0; x < numberOfStacks; x++){
             this.info[x] = new StackInfo(stackCapacity * x, stackCapacity)
         }
-        this.values =  new Array(numberOfStacks * stackCapacity)
+        this.values =  new Array(numberOfStacks * stackCapacity);
+        this.sizes = new Array(numberOfStacks).fill(0)
+    }
+
+    numberOfElements(){
+        let elements = 0;
+        for (let x = 0; x < this.info.length; x++){
+            elements += this.sizes[x]
+        }
+        return elements
     }
 
 }
@@ -80,3 +89,4 @@ class MultiStack{
 
 let s = new MultiStack(3,3)
 console.log(s)
+console.log(s.numberOfElements())
