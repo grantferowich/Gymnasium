@@ -72,6 +72,7 @@ class MultiStack{
         }
         this.values =  new Array(numberOfStacks * stackCapacity);
         this.sizes = new Array(numberOfStacks).fill(0)
+        this.totalCapacity = stackCapacity*numberOfStacks
     }
 
     numberOfElements(){
@@ -82,6 +83,10 @@ class MultiStack{
         return elements
     }
 
+    allStacksAreFull(){
+        return this.numberOfElements() === this.totalCapacity;
+    }
+
 }
 
 
@@ -90,3 +95,6 @@ class MultiStack{
 let s = new MultiStack(3,3)
 console.log(s)
 console.log(s.numberOfElements())
+console.log(s.allStacksAreFull()) // false
+
+
