@@ -18,9 +18,9 @@
     |- sizes                   |    - max number of elements per stack
     |--------------------------|
     |* numberOfMethods === 6   |
-    |- isFull(stackNum)        | 
-    |- indexOfTop(stackNum)    | 
-    |- push(stackNum, value)   | 
+    |- isFull(stackNum)        | x
+    |- indexOfTop(stackNum)    | x
+    |- push(stackNum, value)   | x
     |- isEmpty(stackNum)       | 
     |- peek(stackNum)          | 
     |- pop(stackNum)           | 
@@ -35,7 +35,7 @@ class SetOfStacks{
         this.stackCapacity = stackCapacity;
         this.numberOfStacks = numberOfStacks;
         this.values = new Array(this.stackCapacity*this.numberOfStacks).fill(0);
-        this.sizes = new Array(numberOfStacks).fill
+        this.sizes = new Array(numberOfStacks).fill(0)
     }
 
 
@@ -48,12 +48,17 @@ class SetOfStacks{
         return this.sizes[stackNum] === this.stackCapacity
     }
 
+    isEmpty(stackNum){
+        return this.sizes[stackNum] === 0;
+    }
+
     push(stackNum, value){
         if (this.isFull(stackNum)) { return 'Stack is full: push operation would result in stack overflow'}
         this.sizes[stackNum]++
         this.values[this.indexOfTop(stackNum)] = value
 
     }
-
+}
 
 let sos = new SetOfStacks(1,3)
+console.log(sos)
