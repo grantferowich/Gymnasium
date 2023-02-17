@@ -40,22 +40,26 @@ class SetOfStacks{
     constructor(stackCapacity, numberOfStacks){
 
         if (stackCapacity === undefined || numberOfStacks === undefined){ throw new Error('Error: Stack capacity and number of stacks must be defined.'.red) }
+        // info about the SetOfStacks class itself
         this.stackCapacity = stackCapacity;
         this.numberOfStacks = numberOfStacks;
+        // info about about the values in the stack
         this.values = new Array(this.stackCapacity * this.numberOfStacks).fill(0);
         this.sizes = new Array(this.numberOfStacks).fill(0)
     }
 
 
-
+    // info about the values in a specific stack
     indexOfTop(stackNum){
         return stackNum * this.stackCapacity + this.sizes[stackNum] - 1
     }
 
+    // info about the values in the stack
     isFull(stackNum){
         return this.sizes[stackNum] === this.stackCapacity
     }
 
+    // info about the values in the stack
     isEmpty(stackNum){
         return this.sizes[stackNum] === 0;
     }
@@ -69,15 +73,17 @@ class SetOfStacks{
         this.values.concat(new Array(this.stackCapacity).fill(0))
     }
 
-    pop(stackNum){
+    // pop as if there is only one stack
+    pop(stackNum=this.sizes.length-1){
         this.sizes[stackNum]--
         this.values[this.indexOfTop(stackNum)] = 0;
     }
 
+    // push as if there is only one stack
     // either the stack is already full or it can handle more elements
     // if the stack is already full and the stack is the last stack
         // -> invoke expandNumberOfStacks
-    push(stackNum, value){
+    push(, value){
         //handle
         if (this.isFull(stackNum) && 
         this.sizes[stackNum]++;
