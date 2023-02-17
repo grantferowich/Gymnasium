@@ -42,7 +42,26 @@ class DoublyLinkedList{
     constructor(){
         this.head = null,
         this.tail = null,
-        this.head.next = this.tail
-        this.tail.prev = this.head
+        this.head.next = this.tail,
+        this.tail.prev = this.head,
+        this.size = 0
     }
+
+    append(node){
+        let prev = this.head
+        let next = this.head.next
+        node.prev = prev 
+        node.next = next
+        this.head.next = node
+        next.prev = node
+        this.size++
+    }
+
+    pop(node = null){
+        if (node === null){
+            node = this.tail.prev
+        }
+        
+    }
+
 }
