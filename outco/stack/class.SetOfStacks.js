@@ -1,3 +1,9 @@
+
+require('colors');
+
+// console.log(('\nThis is a success message.'.green))
+// console.log(('\nThis is an error message.'.red))
+// console.log('\nThis is a yellow warning message.'.yellow)
 /* 
     class SetOfStacks
 
@@ -31,11 +37,12 @@
 
 class SetOfStacks{
     constructor(stackCapacity, numberOfStacks){
-        if (stackCapacity === undefined || numberOfStacks === undefined){ return }
+
+        if (stackCapacity === undefined || numberOfStacks === undefined){ throw new Error('Error: Stack capacity and number of stacks must be defined.'.red) }
         this.stackCapacity = stackCapacity;
         this.numberOfStacks = numberOfStacks;
-        this.values = new Array(this.stackCapacity*this.numberOfStacks).fill(0);
-        this.sizes = new Array(numberOfStacks).fill(0)
+        this.values = new Array(this.stackCapacity * this.numberOfStacks).fill(0);
+        this.sizes = new Array(this.numberOfStacks).fill(0)
     }
 
 
@@ -59,7 +66,9 @@ class SetOfStacks{
     }
 }
 
-let sos = new SetOfStacks(1,3)
+// let sos = new SetOfStacks(1,3)
+let sos = new SetOfStacks(1,undefined)
 // console.log(sos)
 console.log(sos.isEmpty(1)) // true
 console.log(sos.isFull(1)) // true
+console.log(sos)
