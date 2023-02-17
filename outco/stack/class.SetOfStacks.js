@@ -24,9 +24,36 @@
     |- isEmpty(stackNum)       | 
     |- peek(stackNum)          | 
     |- pop(stackNum)           | 
-    |- expandNumberOFStacks()  |
+    |- expandNumberOfStacks()  |
     |- popAt(stackNum)         |
     |--------------------------|
-
-
 */
+
+class SetOfStacks{
+    constructor(stackCapacity, numberOfStacks){
+        if (stackCapacity === undefined || numberOfStacks === undefined){ return }
+        this.stackCapacity = stackCapacity;
+        this.numberOfStacks = numberOfStacks;
+        this.values = new Array(this.stackCapacity*this.numberOfStacks).fill(0);
+        this.sizes = new Array(numberOfStacks).fill
+    }
+
+
+
+    indexOfTop(stackNum){
+        return stackNum * this.stackCapacity + this.sizes[stackNum] - 1
+    }
+
+    isFull(stackNum){
+        return this.sizes[stackNum] === this.stackCapacity
+    }
+
+    push(stackNum, value){
+        if (this.isFull(stackNum)) { return 'Stack is full: push operation would result in stack overflow'}
+        this.sizes[stackNum]++
+        this.values[this.indexOfTop(stackNum)] = value
+
+    }
+
+
+let sos = new SetOfStacks(1,3)
