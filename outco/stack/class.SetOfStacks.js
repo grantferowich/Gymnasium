@@ -11,6 +11,8 @@ require('colors');
         - d.s. should create a stack when a previous stack exceeds capacity (ExpandStacks)
         - d.s. should support push(x) and pop() s.t. SetOfStacks.pop() returns the
         same value as if all the values were in one stack (.pop())
+
+        /// follow up
         - d.s. should support .popAt(stackNum) which performs a pop on the specified
         stack number
 
@@ -26,12 +28,11 @@ require('colors');
     |* numberOfMethods === 6   |
     |- isFull(stackNum)        | x
     |- indexOfTop(stackNum)    | x
-    |- push(stackNum, value)   | x
-    |- isEmpty(stackNum)       | 
+    |- push(value)             | x
+    |- isEmpty(stackNum)       | x
     |- peek(stackNum)          | 
-    |- pop(stackNum)           | 
+    |- pop()                   | 
     |- expandNumberOfStacks()  |
-    |- popAt(stackNum)         |
     |--------------------------|
 */
 
@@ -59,9 +60,30 @@ class SetOfStacks{
         return this.sizes[stackNum] === 0;
     }
 
+    expandNumberOfStacks(){
+        // handle increase in number of stacks
+        this.numberOfStacks++
+        // handle data about how many elements are in the stack
+        this.sizes.push(0);
+        // handle increase in values capacity
+        this.values.concat(new Array(this.stackCapacity).fill(0))
+    }
+
+    pop(stackNum){
+        this.sizes[stackNum]--
+        this.values[this.indexOfTop(stackNum)] = 0;
+    }
+
+    // either the stack is already full or it can handle more elements
+    // if the stack is already full and the stack is the last stack
+        // -> invoke expandNumberOfStacks
     push(stackNum, value){
-        if (this.isFull(stackNum)) { return 'Stack is full: push operation would result in stack overflow'};
+        //handle
+        if (this.isFull(stackNum) && 
         this.sizes[stackNum]++;
+        if (this.sizes[stackNum] > this.stackCapacity){
+
+        }
         this.values[this.indexOfTop(stackNum)] = value;
     }
 }
