@@ -1,4 +1,7 @@
 /* 
+MIN STACK
+CTCI 3.2
+Successfully tested the function 2/14/23.
 Describe a stack implementation supporting push(x), pop(), peek(), and min(). 
 Each operation must run in O(1) time.
 */

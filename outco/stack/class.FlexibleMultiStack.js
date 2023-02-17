@@ -39,10 +39,11 @@ class StackInfo{
     }
 
     isWithinStackCapacity(index){
+
         if (index < 0 || index >= values.length){
             return false;
         }
-        // if index 
+        // find the index within the various stacks 
         let contiguousIndex = index < start ? index + values.length : index;
         let end = this.start + this.capacity;
         return start <= contiguousIndex && contiguousIndex < end
@@ -84,7 +85,71 @@ class MultiStack{
     }
 
     allStacksAreFull(){
+        console.log('this.totalCapacity'+this.totalCapacity)
         return this.numberOfElements() === this.totalCapacity;
+    }
+
+    adjustIndex(index){
+        if (index >= this.values.length){
+            return index % this.length - 1;
+        }
+        return index
+    }
+
+    nextIndex(index){
+        return this.adjustIndex(index+1);
+    }
+    
+    previousIndex(index){
+        return this.adjustIndex(index - 1);
+    }
+
+    /* Shift items in stack over by one element. If we have 
+	 * available capacity, then we'll end up shrinking the stack 
+	 * by one element. If we don't have available capacity, then
+	 * we'll need to shift the next stack over too. */
+    shift(stackNum){
+        
+        console.log('//Shifting + '+stackNum)
+        let stack = info[stackNum];
+        if (stack.size >= stack.capacity){
+            let nextStack = (stackNum + 1) % this.info.length;
+            this.shift(nextStack);
+            stack.capacity++;
+        }
+
+        let index = stack.lastCapacityIndex();
+        while (stack.isWithinStackCapacity(index)){
+            // shift ele at index 2 to index 1..
+            values[index] = values[this.previousIndex(index)]
+            index = this.previousIndex(index)
+        }
+
+        values[stack.start] = 0
+        stack.start = this.nextIndex(stack.start)
+        stack.capacity--
+    }
+
+    expand(stackNum){
+        this.shift((stackNum + 1) % this.info.length)
+        this.info[stackNum].capacity++
+    }
+    // push inserts value onto the relevant stuck num
+    // push relies on shift
+    push(stackNum, value){
+        console.log('/// Pushing stack' + stackNum + ":" + value);
+        if (this.allStacksAreFull){ throw new Error('Error: Stack overflow.')}
+        const s = this.info[stackNum];
+        if (s.isFull){
+            this.expand(stackNum)
+        }
+        stack.size++;
+        values[stack.lastElementIndex()] = value;
+    }
+
+    pop(stackNum){
+        console.log('/// popping stack ' + stackNum)
+        let s = this.info[stackNum]
     }
 
 }
@@ -93,8 +158,8 @@ class MultiStack{
 /* TESTS */
 
 let s = new MultiStack(3,3)
-console.log(s)
-console.log(s.numberOfElements())
-console.log(s.allStacksAreFull()) // false
-
+// console.log(s)
+// console.log(s.numberOfElements())
+// console.log(s.allStacksAreFull()) // false
+console.log(s.push(0, 1))
 
