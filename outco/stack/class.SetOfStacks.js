@@ -53,13 +53,13 @@ class SetOfStacks{
     }
 
     push(stackNum, value){
-        if (this.isFull(stackNum)) { return 'Stack is full: push operation would result in stack overflow'}
-        this.sizes[stackNum]++
-        this.values[this.indexOfTop(stackNum)] = value
-
+        if (this.isFull(stackNum)) { return 'Stack is full: push operation would result in stack overflow'};
+        this.sizes[stackNum]++;
+        this.values[this.indexOfTop(stackNum)] = value;
     }
 }
 
 let sos = new SetOfStacks(1,3)
-
-console.log(sos.isEmpty(1))
+// console.log(sos)
+console.log(sos.isEmpty(1)) // true
+console.log(sos.isFull(1)) // true
