@@ -61,4 +61,5 @@ class SetOfStacks{
 }
 
 let sos = new SetOfStacks(1,3)
-console.log(sos)
+
+console.log(sos.isEmpty(1))
