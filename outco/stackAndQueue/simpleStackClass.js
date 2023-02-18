@@ -1,5 +1,6 @@
 /* 
-
+    Successfully tested the simple stack class 2/18/23.
+    
     |--------------------------|
     | simple Stack             |
     |--------------------------|
@@ -39,7 +40,7 @@ class Stack{
     }
 
     pop(){
-        if (this.top === null){ return 'empty stack exception'}
+        if (this.top === null){ throw new Error('The stack is empty.')}
         let value = this.top
         this.top = this.top.next
         return value
@@ -48,7 +49,6 @@ class Stack{
     peek(){
         return this.top !== null ? this.top : 'The stack is empty.'
     }
-
     push(value){
         let xNode = new StackNode(value)
         // connect the new stack node to the current top
@@ -86,4 +86,4 @@ let stack0 = new Stack()
 // console.log(stack)
 // console.log(stack.isEmpty())
 // stack.push(23)
-console.log(stack.peek())
+// console.log(stack.peek())
