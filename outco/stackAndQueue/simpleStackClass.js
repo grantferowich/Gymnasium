@@ -1,11 +1,11 @@
 /* 
     Successfully tested the simple stack class 2/18/23.
-    
+
     |--------------------------|
     | simple Stack             |
     |--------------------------|
-    |* numberOfProperties === 4|
-    |- stackCapacity           |
+    |* numberOfProperties === 1|
+    |- top                     |
     |--------------------------|
     |* numberOfMethods === 4   |
     |- push(value)             | 
