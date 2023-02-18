@@ -14,7 +14,7 @@ return the max number of vowel letters
 in any substring of s with length k
 */
 
-const maxVowel = (s, k) =>{
+const maxVowel = (s, k) => {
 
     let right = 0;
     let left = 0;
@@ -22,7 +22,6 @@ const maxVowel = (s, k) =>{
     let ultimate = -Infinity
 
     while (right < s.length){
-        
         if (right - left >= k){
             if (s[left] === 'a' || s[left] === 'e' || s[left] === 'i' || s[left] === 'o' || s[left] === 'u'){
                 local--
@@ -35,6 +34,8 @@ const maxVowel = (s, k) =>{
                     local++
             }
         }
+
+
         ultimate = Math.max(local, ultimate)
         right++
     }    
