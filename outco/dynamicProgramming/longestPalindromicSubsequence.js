@@ -58,12 +58,14 @@ const longestPalindromicSubsequence = (string) => {
         if (left === right){
             return 1; 
         }
+
         // base case:
         // there are two chars
         if (left === right - 1 && string[left] === string[right]){
             return 2;
         }
-        // recursive case: chars indicate palindrome
+
+        // recursive case: chars are equal (& :. palindromic )
         // set cache[key] to 2 plus the result of the recursive call on left+1, right-1
         if (string[left] === string[right]){
             cache[key] = 2 + find(left + 1, right -1 )
