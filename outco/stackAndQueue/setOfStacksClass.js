@@ -74,10 +74,10 @@ class SetOfStacks{
     push(value){
         console.log('pushing val', value)
         if (this.isFull()){
-            console.log('isFull = true')
+            console.log('/// isFull = true')
             // expand number of stacks
             this.stacksInSet++
-            console.log('this.stacksInSet increased to', this.stacksInSet)
+            console.log('/// this.stacksInSet increased to', this.stacksInSet)
             let newStack = new Array(this.stackCapacity).fill(0)
             this.elementsInSetOfStacks.concat(newStack)
         }
@@ -91,6 +91,8 @@ let sos = new SetOfStacks()
 // console.log(sos)
 console.log(sos.isEmpty()) // true
 console.log(sos.isFull()) // false
+console.log('/// total capacity...', sos.totalCapacity())
+console.log('/// actual number of elements...', sos.actualNumberOfElements())
 // console.log(sos)
 // console.log(sos.isEmpty(1)) // true
 // console.log(sos.isFull(1)) // true
