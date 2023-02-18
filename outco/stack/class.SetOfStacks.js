@@ -43,14 +43,19 @@ class SetOfStacks{
         // info about the SetOfStacks class itself
         this.stackCapacity = stackCapacity;
         this.numberOfStacks = numberOfStacks;
+        const size = this.stackCapacity * this.numberOfStacks;
         // info about about the values in the stack
-        this.values = new Array(this.stackCapacity * this.numberOfStacks).fill(0);
-        this.sizes = new Array(this.numberOfStacks).fill(0)
+        this.values = new Array(size).fill(0);
+        this.sizes = new Array(numberOfStacks).fill(0)
     }
-
 
     // info about the values in a specific stack
     indexOfTop(stackNum){
+        console.log(this.sizes)
+        let offset = stackNum * this.stackCapacity 
+        let size = this.sizes[stackNum]
+        console.log('this.sizes', this.sizes)
+        console.log('size',  size)
         return stackNum * this.stackCapacity + this.sizes[stackNum] - 1
     }
 
@@ -70,7 +75,9 @@ class SetOfStacks{
         // handle data about how many elements are in the stack
         this.sizes.push(0);
         // handle increase in values capacity
-        this.values.concat(new Array(this.stackCapacity).fill(0))
+        let newStack = new Array(this.stackCapacity)
+        console.log('new stack', newStack)
+        this.values.concat(newStack)
     }
 
     // pop as if there is only one stack
@@ -83,20 +90,30 @@ class SetOfStacks{
     // either the stack is already full or it can handle more elements
     // if the stack is already full and the stack is the last stack
         // -> invoke expandNumberOfStacks
-    push(, value){
-        //handle
-        if (this.isFull(stackNum) && 
-        this.sizes[stackNum]++;
-        if (this.sizes[stackNum] > this.stackCapacity){
+    push(value){
+        console.log('value', value)
 
+        // push into the last stack
+        let stackNum = this.numberOfStacks
+        console.log('stackNum', stackNum)
+        
+        if (this.isFull(stackNum)){
+        // expand number of stacks if the stack is already full
+            console.log('isFull...')
+            this.expandNumberOfStacks()
+            stackNum++
         }
+        this.sizes[stackNum]++
         this.values[this.indexOfTop(stackNum)] = value;
     }
 }
 
 // let sos = new SetOfStacks(1,3)
-let sos = new SetOfStacks(1,undefined)
-// console.log(sos)
-console.log(sos.isEmpty(1)) // true
-console.log(sos.isFull(1)) // true
+let sos = new SetOfStacks(1,3)
 console.log(sos)
+// console.log(sos)
+// console.log(sos.isEmpty(1)) // true
+// console.log(sos.isFull(1)) // true
+// console.log(sos)
+sos.push(1)
+// console.log(sos)

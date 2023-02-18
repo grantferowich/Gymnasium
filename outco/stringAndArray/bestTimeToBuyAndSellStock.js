@@ -22,8 +22,6 @@
 
 const buyAndSellStock = (prices) => {
 
-    let local = 0;
-    let ultimate = 0;
 
 
 }

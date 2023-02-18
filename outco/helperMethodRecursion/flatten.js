@@ -1,7 +1,14 @@
 // Successfully tested the function 1/18/23 
 // typeof [] actually returns object
 // to check if an element is an array the Array.isArray(x) method must be used
+/* 
 
+
+1. state the return var
+2. 
+
+
+*/
 function flatten(array){
     let flattened = [];
   
