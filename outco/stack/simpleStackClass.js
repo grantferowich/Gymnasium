@@ -29,11 +29,16 @@ class Stack{
         this.top = xNode
 
     }
+
+    isEmpty(){
+        return this.top.data === null
+    }
 }
 
 // let stack = new StackNode(1)
 // stack.next = new StackNode(2)
 let stack = new Stack()
+let stack0 = new Stack()
 // console.log(stack)
 // console.log(stack.pop()) // empty stack exception 
 stack.push(11)
@@ -43,4 +48,6 @@ stack.push(23)
 // console.log('popping...',stack.pop())
 // console.log(stack.top)
 // console.log(stack)
-console.log(stack.peek())
+// console.log(stack.peek())
+console.log(stack.isEmpty())
+console.log(stack0.isEmpty())
