@@ -1,6 +1,9 @@
 /* 
 // Successfully tested the function 1/19/23.
 
+// The solution considers base cases, and also, the solution moves right and left pointers closer to the center
+of the string at each recursive call. 
+
 // Time complexity: O(N^2)
 // Space complexity: O(N^2)
 Input:  "vtvvv"
