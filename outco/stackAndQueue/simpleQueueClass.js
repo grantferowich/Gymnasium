@@ -1,7 +1,7 @@
 /*  
     QUEUE CLASS
     CTCI Chapter 3 Warm Up
-
+    Successfully tested the class 2/18/23.
     |--------------------------|
     | simple Queue             |
     |--------------------------|
