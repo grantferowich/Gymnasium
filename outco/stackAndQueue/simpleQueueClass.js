@@ -25,6 +25,12 @@
     |--------------------------|
 */
 
+require('colors');
+
+console.log(('\nThis is a success message.'.green))
+console.log(('\nThis is an error message.'.red))
+console.log('\nThis is a yellow warning message.'.yellow)
+
 class QueueNode{
     constructor(data = null){
         this.data = data;
@@ -46,10 +52,12 @@ class Queue{
         if (this.first){
             return this.first.data
         }
-        return 'Error: When attempting to peek, the queue was in fact empty.'
+        throw new Error('\nThe stack is empty.'.red)
     }
     enqueue(value){
-        if (value === undefined || value === null){ return 'input value undefined'}
+        
+        if (value === undefined || value === null){throw new Error('\nInvalid input'.red)}
+        
         let qNode = new QueueNode(value);
         if (this.first === null){
             console.log('enqueue case1..')
@@ -88,7 +96,11 @@ q.enqueue(23)
 // console.log(q.isEmpty()) // false
 // console.log(q.isEmpty()) 
 
-console.log(q)
+// console.log(q)
 console.log(q.dequeue()) // 11
 q.enqueue(34)
-console.log(q)
+// q.enqueue(null)
+// console.log(q)
+
+let q2 = new Queue()
+console.log(q2.peek())
