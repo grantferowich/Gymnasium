@@ -1,3 +1,29 @@
+/* 
+
+    |--------------------------|
+    | simple Stack             |
+    |--------------------------|
+    |* numberOfProperties === 4|
+    |- stackCapacity           |
+    |--------------------------|
+    |* numberOfMethods === 4   |
+    |- push(value)             | 
+    |- isEmpty()               | 
+    |- peek()                  | 
+    |- pop()                   | 
+    ----------------------------
+
+    |--------------------------|
+    |   Stack Node             |
+    |--------------------------|
+    |* numberOfProperties === 2|
+    |- data                    |
+    |- next                    |
+    |--------------------------|
+
+*/
+
+
 class StackNode{
     constructor(data=null){
         this.data = data;
