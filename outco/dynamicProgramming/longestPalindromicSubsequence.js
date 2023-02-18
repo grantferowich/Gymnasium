@@ -47,9 +47,7 @@ const longestPalindromicSubsequence = (string) => {
 
     const find = (left, right) => {
         // create key
-        // let key = left.toString() + "_" + right.toString()
         let key = `${left},${right}`
-
         // check if the key is in the cache
         if (key in cache){
             return cache[key];
