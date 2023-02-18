@@ -90,6 +90,7 @@ class SetOfStacks{
 let sos = new SetOfStacks()
 // console.log(sos)
 console.log(sos.isEmpty()) // true
+console.log(sos.isFull()) // false
 // console.log(sos)
 // console.log(sos.isEmpty(1)) // true
 // console.log(sos.isFull(1)) // true
