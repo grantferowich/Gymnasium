@@ -54,6 +54,7 @@ class SetOfStacks{
         let x = 0;
         while (x < this.elementsPerSubStack.length){
             actualNumberOfElements += this.elementsPerSubStack[x];
+            x++
         }
         return actualNumberOfElements;
     }
@@ -66,11 +67,12 @@ class SetOfStacks{
     }
 
     // info about the values in the stack
-    isEmpty(stackNum){
-        return this.getActualNumberOfElements() === 0;
+    isEmpty(){
+        return this.actualNumberOfElements() === 0;
     }
 
     push(value){
+        console.log('pushing val', value)
         if (this.isFull()){
             console.log('isFull = true')
             // expand number of stacks
@@ -86,7 +88,8 @@ class SetOfStacks{
 
 // let sos = new SetOfStacks(1,3)
 let sos = new SetOfStacks()
-console.log(sos)
+// console.log(sos)
+console.log(sos.isEmpty()) // true
 // console.log(sos)
 // console.log(sos.isEmpty(1)) // true
 // console.log(sos.isFull(1)) // true
