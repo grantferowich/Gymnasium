@@ -1,6 +1,8 @@
 /* 
-    Successfully tested the simple stack class 2/18/23.
 
+    Stack CLASS
+    CTCI Chapter 3 Warm Up
+    Successfully tested the simple stack class 2/18/23.
     |--------------------------|
     | simple Stack             |
     |--------------------------|
