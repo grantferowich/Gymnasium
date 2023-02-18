@@ -1,6 +1,7 @@
 /*  
+    QUEUE CLASS
+    CTCI Chapter 3 Warm Up
 
-    
     |--------------------------|
     | simple Queue             |
     |--------------------------|
