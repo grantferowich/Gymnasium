@@ -46,7 +46,7 @@ class Stack{
     }
 
     peek(){
-        return this.top
+        return this.top !== null ? this.top : 'The stack is empty.'
     }
 
     push(value){
@@ -69,7 +69,7 @@ let stack = new Stack()
 let stack0 = new Stack()
 // console.log(stack)
 // console.log(stack.pop()) // empty stack exception 
-stack.push(11)
+// stack.push(11)
 // stack.push(23)
 // console.log(stack)
 // console.log(stack.top.data)
@@ -85,5 +85,5 @@ stack.push(11)
 // stack.pop()
 // console.log(stack)
 // console.log(stack.isEmpty())
-stack.push(23)
-console.log(stack)
+// stack.push(23)
+console.log(stack.peek())
