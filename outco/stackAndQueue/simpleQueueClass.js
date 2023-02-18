@@ -71,17 +71,24 @@ class Queue{
 
     }
     dequeue(){
-
+        const data = this.first.data 
+        this.first = this.first.next
+        return data
     }
 
 }
 /* TESTS */
 let q = new Queue()
 // console.log(q.enqueue(undefined))
-console.log(q)
-// q.enqueue(11)
-// q.enqueue(23)
+// console.log(q)
+q.enqueue(11)
+q.enqueue(23)
 // console.log(q)
 // console.log(q.peek()) // 11
 // console.log(q.isEmpty()) // false
 // console.log(q.isEmpty()) 
+
+console.log(q)
+console.log(q.dequeue()) // 11
+q.enqueue(34)
+console.log(q)
