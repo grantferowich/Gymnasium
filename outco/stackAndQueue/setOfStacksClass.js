@@ -7,7 +7,7 @@ require('colors');
 /* 
     Grant Ferowich
     Successfully tested the class 2/19/23.
-    
+
     CTCI 3.3
     class SetOfStacks
 
@@ -50,7 +50,9 @@ class SetOfStacks{
         this.stacksInSet = 1;
         this.elementsPerSubStack = new Array(this.stacksInSet).fill(0);
     }
-
+   
+    // Time complexity: O(1)
+    // Space complexity: (1)
     actualNumberOfElements(){
 
         return this.elementsInSetOfStacks.length
@@ -62,35 +64,47 @@ class SetOfStacks{
         // }
         // return actualNumberOfElements;
     }
-
+    // Time complexity: O(1)
+    // Space complexity: (1)
     totalCapacity(){
         return this.stacksInSet * this.stackCapacity
     }
 
     // info about the values in the stack
-    
+    // Time complexity: O(1)
+    // Space complexity: (1)
     isFull(stackNum){
         return this.elementsPerSubStack[stackNum] === this.stackCapacity
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     // info about the values in the stack
     isEmpty(){
         return this.actualNumberOfElements() === 0;
     }
     
+    // Time complexity: O(1)
+    // Space complexity: (1)
     getLastStack(){
         return this.stacksInSet - 1
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     getTopElement(){
         return this.elementsInSetOfStacks[this.elementsInSetOfStacks.length - 1]
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     getStackOffset(stackNum){
         let offset = (stackNum * this.stackCapacity) + this.elementsPerSubStack[stackNum]
         return offset;
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     createNewStack(value){
         this.stacksInSet++;
         let newStack = [value];
@@ -98,12 +112,16 @@ class SetOfStacks{
         this.elementsPerSubStack.push(1)
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     pushToStack(stackNum, value){
         let offset = this.getStackOffset(stackNum);
         this.elementsInSetOfStacks[offset] = value;
         this.elementsPerSubStack[stackNum]++
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     push(value){
         if (value === null){ throw new Error('Cannot push a null value to the stack.')}
         let lastStack = this.getLastStack()
@@ -116,6 +134,8 @@ class SetOfStacks{
         }
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     pop(){
         if (this.isEmpty()){ throw new Error('Error: The stack is empty and therefore the pop operation implies stack underflow.')}
         // let value = this.getTopElement()
