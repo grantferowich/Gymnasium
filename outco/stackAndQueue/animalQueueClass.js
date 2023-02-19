@@ -2,6 +2,7 @@
 
 ANIMAL SHELTER (QUEUE)
 CTCI 3.6 
+Successfully tested the class 2/19/23.
 
 Reusable components: List Node and Linked List. 
 
@@ -181,7 +182,6 @@ class Queue {
 
 let q = new Queue()
 q.enqueue('cat')
-
 // let c = q.dequeueCat()
 let d = q.dequeueDog()
 console.log(d)
