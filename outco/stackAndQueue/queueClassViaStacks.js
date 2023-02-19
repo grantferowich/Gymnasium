@@ -99,14 +99,26 @@ class QueueII{
         this.stack2 = new Stack()
     }
 
+    /* 
+    Time complexity: O(1)
+    Space complexity: O(1)
+    */
     size(){
         return this.stack1.size + this.stack2.size
     }
 
+    /* 
+    Time complexity: O(1)
+    Space complexity: O(1)
+    */
     isEmpty(){
         return this.size() === 0
     }
 
+    /* 
+    Time complexity: O(N)
+    Space complexity: O(N)
+    */
     shiftStacks(){
         if (this.stack2.size === 0){
             while (this.stack1.size !== 0){
@@ -116,16 +128,29 @@ class QueueII{
         }
     }
 
+    /* 
+    Time complexity: O(N)
+    Space complexity: O(N)
+    */
     peek(){
         if (this.isEmpty()) { return 'Cannot peek when the stack is empty'.red}
         this.shiftStacks()
         let peekValue = this.stack2.top.data.data
         return peekValue
     }
+    
+    /* 
+    Time complexity: O(1)
+    Space complexity: O(1)
+    */
     enqueue(value){
         this.stack1.push(value)
     }
-
+    
+    /* 
+    Time complexity: O(N)
+    Space complexity: O(N)
+    */
     dequeue(){
         this.shiftStacks();
         let lastElement = this.stack2.pop().data
