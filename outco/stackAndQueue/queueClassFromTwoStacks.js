@@ -90,7 +90,10 @@ class QueueII{
     }
 
     isEmpty(){
-        return this.stack1.top === null
+        return this.first === null
+    }
+    peeK(){
+        return
     }
 }
 
