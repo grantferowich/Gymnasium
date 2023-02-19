@@ -92,7 +92,6 @@ class Queue{
         this.first = this.first.next
         return data
     }
-
 }
 /* TESTS */
 let q = new Queue()
