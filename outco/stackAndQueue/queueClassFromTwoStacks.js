@@ -92,11 +92,15 @@ class QueueII{
     isEmpty(){
         return this.first === null
     }
-    peeK(){
+    peek(){
+        if (this.isEmpty()) { return 'Cannot peek when the stack is empty'}
         return
+        // return this.first.data
     }
 }
 
 let q2 = new QueueII()
-const result = q2.isEmpty()
-console.log(result)
+const isEmptyResult = q2.isEmpty()
+const peekResult = q2.peek()
+// console.log(isEmptyResult) // true
+// console.log(peekResult) // 'cannot peek when the stack is empty'
