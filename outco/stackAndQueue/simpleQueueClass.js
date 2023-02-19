@@ -45,15 +45,21 @@ class Queue{
         this.last = null
     }
 
+    // Time complexity: O(1)
+    // Space complexity: (1)
     isEmpty(){
         return this.first === null;
     }
+    // Time complexity: O(1)
+    // Space complexity: (1)
     peek(){
         if (this.first){
             return this.first.data
         }
         throw new Error('\nThe stack is empty.'.red)
     }
+    // Time complexity: O(1)
+    // Space complexity: (1)
     enqueue(value){
         
         if (value === undefined || value === null){throw new Error('\nInvalid input'.red)}
@@ -78,6 +84,8 @@ class Queue{
         }
 
     }
+    // Time complexity: O(1)
+    // Space complexity: (1)
     dequeue(){
         const data = this.first.data 
         this.first = this.first.next

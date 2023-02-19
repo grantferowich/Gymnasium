@@ -5,6 +5,10 @@ require('colors');
 // console.log(('\nThis is an error message.'.red))
 // console.log('\nThis is a yellow warning message.'.yellow)
 /* 
+    Grant Ferowich
+    Successfully tested the class 2/19/23.
+    
+    CTCI 3.3
     class SetOfStacks
 
         - d.s. should support several stacks (-numberOfStacks)
