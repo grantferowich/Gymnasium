@@ -48,8 +48,8 @@ class FixedMultiStack{
     }
 
     indexOfTop(stackNum){
-        let offset = stackNum * this.stackCapacity;
-        let size = this.sizes[stackNum];
+        const offset = stackNum * this.stackCapacity;
+        const size = this.sizes[stackNum];
         return offset + size - 1;
     }
 
