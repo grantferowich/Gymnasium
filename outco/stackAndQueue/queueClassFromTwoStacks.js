@@ -119,7 +119,8 @@ class QueueII{
     peek(){
         if (this.isEmpty()) { return 'Cannot peek when the stack is empty'.red}
         this.shiftStacks()
-        return this.stack2.top.data.data
+        let peekValue = this.stack2.top.data.data
+        return peekValue
     }
     enqueue(value){
         this.stack1.push(value)
