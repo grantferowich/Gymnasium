@@ -31,6 +31,7 @@ require('colors');
 // console.log(('\nThis is an error message.'.red))
 // console.log('\nThis is a yellow warning message.'.yellow)
 
+
 class QueueNode{
     constructor(data = null){
         this.data = data;
