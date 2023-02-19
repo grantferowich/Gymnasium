@@ -9,6 +9,7 @@
     |--------------------------|
     |* numberOfProperties === 1|
     |- top                     |
+    |- size                    |
     |--------------------------|
     |* numberOfMethods === 4   |
     |- push(value)             | 
@@ -35,6 +36,7 @@
     |- stack2                  |
     |--------------------------|
     |* numberOfMethods === 4   |
+    |- size
     |- enqueue(value)          | 
     |- isEmpty()               | 
     |- peek()                  | 
@@ -61,12 +63,14 @@ class Stack{
     constructor(){
         // top will be a node
         this.top = null
+        this.size = 0
     }
 
     pop(){
         if (this.top === null){ throw new Error('The stack is empty.')}
         let value = this.top
         this.top = this.top.next
+        this.size--
         return value
     }
 
@@ -79,6 +83,7 @@ class Stack{
         xNode.next = this.top
         // set the top node as a new node 
         this.top = xNode
+        this.size++
 
     }
 
@@ -91,11 +96,16 @@ class QueueII{
     constructor(){
         this.stack1 = new Stack()
         this.stack2 = new Stack()
-        this.first = this.stack1.top
-        this.last = this.stack2.top
+        this.first = null;
+        this.last = null;
+    }
+
+    size(){
+        return this.stack1.size + this.stack2.size
     }
 
     isEmpty(){
+        console.log('isEmpty', this.first === null)
         return this.first === null
     }
     peek(){
@@ -104,30 +114,27 @@ class QueueII{
         // return this.first.data
     }
     enqueue(value){
+        if (!this.isEmpty()){
+            this.stack2.push(value)
+            this.last = this.stack2.top.data
+        }
         // if the queue is empty, push to stack 1
         if (this.isEmpty()){
             this.stack1.push(value)
             this.first = this.stack1.top.data
         }
-        // otherwise push to stack2
-        if (!this.isEmpty()){
-            this.stack2.push(value)
-            this.last = this.stack2.top.data
-        }
     }
     dequeue(){
-        if (this.isEmpty){ return 'Cannot dequeue from an empty queue'.red}
+        if (this.isEmpty()){ return 'Cannot dequeue from an empty queue'.red}
+        if (!this.isEmpty()){
+            let element = this.stack1.pop().data
+            let newTop = this.stack2.pop().data
+            this.first = newTop
+            this.stack1.push(newTop)
+            return element
+        }
     }
 }
 
 let q2 = new QueueII()
-// const isEmptyResult = q2.isEmpty()
-// const peekResult = q2.peek()
-// console.log(isEmptyResult) // true
-// console.log(peekResult) // 'cannot peek when the stack is empty'
-// q2.enqueue(11)
-// q2.enqueue(23)
-
-// console.log(q2)
-// console.log(q2)
-console.log(q2.dequeue())
+console.log(q2.size())
