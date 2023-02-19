@@ -1,7 +1,7 @@
 /*  
     SORTED STACK CLASS
     CTCI Chapter 3.5
-    Successfully tested the class ______.
+    Successfully tested the class 2/19/23
     
     |--------------------------|
     |   Stack Node             |
@@ -81,6 +81,10 @@ class SortedStack{
         return this.top !== null ? this.top : 'The stack is empty.'
     }
 
+    /* 
+    Time complexity: O(N^2)
+    Space complexity: O(N)
+    */
     push(value){
         // connect the new stack node to the current top
         if (this.mainStack.size === 0){
