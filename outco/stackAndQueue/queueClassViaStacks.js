@@ -1,9 +1,9 @@
 /* 
 
-    CTCI 3.4 : Queue Via Stacks
-    Successfully tested the simple stack class 2/18/23.
+    CTCI 3.4 : Queue via Stacks
+    Successfully tested Queue via Stacks 2/19/23.
 
-    Reusable components: class Stack Node, class simple Stack 
+    Reusable components: class Stack Node and class simple Stack.
     |--------------------------|
     | simple Stack             |
     |--------------------------|
