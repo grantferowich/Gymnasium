@@ -114,6 +114,7 @@ class SortedStack{
         return this.mainStack.top.data === null
     }
 }
+
 /* TESTS */
 let s = new SortedStack()
 // s.push(5)
