@@ -72,7 +72,7 @@ class SortedStack{
     }
 
     pop(){
-        if (this.top === null){ throw new Error('The stack is empty.')}
+        if (this.mainStack.top === null){ throw new Error('The stack is empty.')}
         let value = this.mainStack.pop().data
         return value
     }
@@ -88,36 +88,38 @@ class SortedStack{
             return
         }
 
-        if (value <= this.stack1.top.data){
+        if (value <= this.mainStack.top.data){
             this.stack1.push(value)
             return
         }
-        if (value > this.stack1.top.data){
-            while (value > this.stack1.peek() && !this.stack1.isEmpty()){
-                let popped = this.stack1.pop()
-                this.temp.push(popped.data)
+        if (value > this.mainStack.top.data){
+            while (value > this.mainStack.peek() && !this.mainStack.isEmpty()){
+                let popped = this.mainStack.pop()
+                this.tempStack.push(popped.data)
             }
-            this.stack1.push(value)
-            while (!this.temp.isEmpty()){
-                let temp = this.temp.pop().data
-                this.stack1.push(temp)
+            this.mainStack.push(value)
+            while (!this.tempStack.isEmpty()){
+                let temp = this.tempStack.pop().data
+                this.mainStack.push(temp)
             }
             return
         }
     }
 
     isEmpty(){
-        return this.stack1.top.data === null
+        return this.mainStack.top.data === null
     }
 }
 /* TESTS */
 let s = new SortedStack()
-s.push(5)
+// s.push(5)
 // let popped = s.pop()
 // console.log(popped)
 s.push(11)
-// s.push(23)
+s.push(23)
+console.log(s.pop())
 console.log(s)
+
 // s.push(3)
 // s.push(11)
 // console.log(s)
