@@ -36,7 +36,8 @@
     |- stack2                  |
     |--------------------------|
     |* numberOfMethods === 4   |
-    |- size
+    |- size                    |
+    |- shiftStacks()           |
     |- enqueue(value)          | 
     |- isEmpty()               | 
     |- peek()                  | 
@@ -96,8 +97,6 @@ class QueueII{
     constructor(){
         this.stack1 = new Stack()
         this.stack2 = new Stack()
-        this.first = null;
-        this.last = null;
     }
 
     size(){
@@ -105,36 +104,39 @@ class QueueII{
     }
 
     isEmpty(){
-        console.log('isEmpty', this.first === null)
-        return this.first === null
+        return this.size() === 0
     }
+
+    shiftStacks(){
+        if (this.stack2.size === 0){
+            while (this.stack1.size !== 0){
+                let popped = this.stack1.pop()
+                this.stack2.push(popped)
+            }
+        }
+    }
+
     peek(){
         if (this.isEmpty()) { return 'Cannot peek when the stack is empty'.red}
-        return
-        // return this.first.data
+        this.shiftStacks()
+        return this.stack2.top.data.data
     }
     enqueue(value){
-        if (!this.isEmpty()){
-            this.stack2.push(value)
-            this.last = this.stack2.top.data
-        }
-        // if the queue is empty, push to stack 1
-        if (this.isEmpty()){
-            this.stack1.push(value)
-            this.first = this.stack1.top.data
-        }
+        this.stack1.push(value)
     }
+
     dequeue(){
-        if (this.isEmpty()){ return 'Cannot dequeue from an empty queue'.red}
-        if (!this.isEmpty()){
-            let element = this.stack1.pop().data
-            let newTop = this.stack2.pop().data
-            this.first = newTop
-            this.stack1.push(newTop)
-            return element
-        }
+        this.shiftStacks();
+        let lastElement = this.stack2.pop().data
+        return lastElement.data
     }
 }
 
 let q2 = new QueueII()
-console.log(q2.size())
+// console.log(q2.size()) // ok
+q2.enqueue(11)
+q2.enqueue(23)
+q2.enqueue(34)
+// let last = q2.dequeue()
+// console.log(last)
+console.log(q2.peek()) // 11 
