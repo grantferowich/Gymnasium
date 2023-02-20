@@ -38,26 +38,20 @@ const rotateMatrix = (matrix) => {
 
     // starts at 0, goes until midway through a row / col
     for (let x = first; x < last; x++){
-      
       // offset starts at 0
       let offset = x - first;
-      
       // top starts at [0,0]
       let top = matrix[first][x] // save top
-     
       // left -> top
       // matrix[first][x] starts at 0,0
       // set 0,0 to 2,0
       matrix[first][x] = matrix[last - offset][first];
-      
       // bottom -> left
       // set 2,0 to 2,2
       matrix[last-offset][first] = matrix[last][last-offset];
-      
       // right -> bottom
       // set 2,2 to 0,2
       matrix[last][last - offset] = matrix[x][last];
-     
       // top -> right 
       // set 0,2 to 0,0
       matrix[x][last] = top;

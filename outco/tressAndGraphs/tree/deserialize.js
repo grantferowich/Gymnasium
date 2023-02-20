@@ -46,3 +46,6 @@ const deserialize = (array) => {
 
 const arr = [1,1,2,3,5,8,13,21,34,55,89];
 console.log(deserialize(arr))
+
+const input1 = [0,1,1,2,3,5,8,13,21,34,55]
+console.log(deserialize(input1))

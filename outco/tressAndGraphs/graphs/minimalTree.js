@@ -7,6 +7,8 @@ CTCI 4.2
 Input: sorted array
 Output: a BST with minimal height
 
+Successfully tested the function 2/20/23.
+
 */
 
 class TreeNode{
