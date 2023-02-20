@@ -1,6 +1,7 @@
 /* 
 ROUTES BETWEEN NODES
 
+
 input: list of edges
 output: true/false
 */
@@ -26,13 +27,14 @@ const routeBetweenNodes = (edges, start, destination) => {
     let visited = new Set()
     visited.add(start)
     let output;
+    
     const dfs = (v) =>{
         if (v === destination){
             output = true
         }
-        
         visited.add(v)
         const neighbors = graph.get(v)
+        
         if (neighbors !== undefined){
             for (let x = 0; x < neighbors.length; x++){
                 if (!visited.has(neighbors[x]))
