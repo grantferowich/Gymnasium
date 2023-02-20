@@ -1,6 +1,7 @@
 /* 
 CHECK BALANCED
 CTCI 4.4
+Successfully tested the function 2/20/23. 
 
 Implement a function to check if a binary tree is balanced. A tree is balanced if subtree heights 
 differ by no more than 1. If subtree heights differ by more than 1, the tree is not balanced.
