@@ -4,7 +4,8 @@ NUMBER OF ISLANDS
 Medium
 Successfully tested the function 2/20/23.
 
-
+Time complexity: O(MN)
+Space complexity: O(MN)
 */
 
 // input:
@@ -27,7 +28,7 @@ Successfully tested the function 2/20/23.
 
 
 const numberOfIslands = (grid) => {
-    if (grid.length === 0) {return 0}
+    if (grid === undefined || grid === null || grid.length === 0) {return 0}
     let m = grid.length;
     let n = grid[0].length;
     let count = 0;
@@ -52,7 +53,7 @@ const numberOfIslands = (grid) => {
             let newY = j + dir[1];
             if (newX >= 0 && newX < m && newY >= 0 && newY < n && !visited[newX][newY] && grid[newX][newY] === '1'){
                 // console.log('hi')
-                visited[newX][newY]
+                visited[newX][newY] = true
                 return dfs(grid, newX, newY, visited);
             }
         }
@@ -74,6 +75,7 @@ const numberOfIslands = (grid) => {
     return count;
 }
 
+const input = undefined
 const input0 = []
 
 const input1 = [['1','1','1','0'],
@@ -85,6 +87,9 @@ const input2 = [['1','0','0','1'],
                 ['0','0','0','0'],
                 ['0','0','0','0'],
                 ['1','0','0','1']]
+                
+const result = numberOfIslands(input)
+console.log(result) // 0
 
 const result0 = numberOfIslands(input0)
 console.log(result0) // 0
