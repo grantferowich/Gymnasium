@@ -1,3 +1,12 @@
+/* 
+
+NUMBER OF ISLANDS
+Medium
+Successfully tested the function 2/20/23.
+
+
+*/
+
 // input:
 
 [['1','1','1','0'],
