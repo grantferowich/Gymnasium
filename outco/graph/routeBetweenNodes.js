@@ -1,5 +1,6 @@
 /* 
 ROUTES BETWEEN NODES
+CTCI 4.1
 
 
 input: list of edges
@@ -17,12 +18,16 @@ const adjList = (edges) => {
         if (!graph.has(v)){
             graph.set(v,[u])
         }
+        if (!graph.has(u)){
+            graph.set(u, [])
+        }
     }
     return graph
 }
 
 const routeBetweenNodes = (edges, start, destination) => {
-    if (edges === null || edges === undefined || edges.length === 0){return false}
+    if (edges === null || edges === undefined){return false}
+    if (edges.length === 0) {return true}
     const graph = adjList(edges)
     let visited = new Set()
     visited.add(start)
@@ -34,7 +39,7 @@ const routeBetweenNodes = (edges, start, destination) => {
         }
         visited.add(v)
         const neighbors = graph.get(v)
-        
+
         if (neighbors !== undefined){
             for (let x = 0; x < neighbors.length; x++){
                 if (!visited.has(neighbors[x]))
