@@ -2,6 +2,7 @@
 
 LIST OF DEPTHS
 CTCI 4.3 
+Successfully tested the function 2/20/23 at 2:35pm.
 
 */
 class ListNode {
@@ -127,18 +128,15 @@ const deserialize = (array) => {
 const listOfDepths = (treeRoot) => {
     if (treeRoot === undefined || treeRoot === null){return }
     let output = [];
-
     const traverse = (node, depth) =>{
         // initialize a linked list for each depth
         if (output[depth] === undefined || output[depth] === null){
             let newList = new LinkedList()
             output.push(newList)
         }
-
         // append values to each list in array of lists
         let currentList = output[depth];
         currentList.append(node.value)
-
         // stop at leaves
         if (node.left === null || node.right === null){
             return
