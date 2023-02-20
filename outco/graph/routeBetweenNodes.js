@@ -23,13 +23,27 @@ const adjList = (edges) => {
 const routeBetweenNodes = (edges, start, destination) => {
     if (edges === null || edges === undefined || edges.length === 0){return false}
     const graph = adjList(edges)
-    // console.log(graph)
-    // const dfs = (start) =>{
-
-    // } 
-
-    // dfs(start)
-    // return false
+    let visited = new Set()
+    visited.add(start)
+    let output;
+    const dfs = (v) =>{
+        if (v === destination){
+            output = true
+        }
+        
+        visited.add(v)
+        const neighbors = graph.get(v)
+        if (neighbors !== undefined){
+            for (let x = 0; x < neighbors.length; x++){
+                if (!visited.has(neighbors[x]))
+                dfs(neighbors[x])
+            }
+        }
+        visited.delete(v)
+    }
+    
+    dfs(start)
+    return output ? output : false
 }
 
 
@@ -41,8 +55,8 @@ console.log(result) // false
 
 const input0 = [[1,2], [1,3], [3,11]]
 const result0 = routeBetweenNodes(input0,1,11) 
-console.log(result) // true
+console.log(result0) // true
 
 const input1 = [[1,2], [1,3], [3,11]]
-const result1 = routeBetweenNodes(input0,11, 1) 
-console.log(result) // false
+const result1 = routeBetweenNodes(input1,11, 1) 
+console.log(result1) // false
