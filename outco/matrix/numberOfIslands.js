@@ -9,11 +9,11 @@ Successfully tested the function 2/20/23.
 
 // input:
 
-[['1','1','1','0'],
- ['1','1','1','0']
- ['0','0','0','0']
- ['0','1','1','0']
-]
+// [['1','1','1','0'],
+//  ['1','1','1','0']
+//  ['0','0','0','0']
+//  ['0','1','1','0']
+// ]
 
 // output: 2
 
@@ -27,7 +27,7 @@ Successfully tested the function 2/20/23.
 
 
 const numberOfIslands = (grid) => {
-
+    if (grid.length === 0) {return 0}
     let m = grid.length;
     let n = grid[0].length;
     let count = 0;
@@ -50,9 +50,9 @@ const numberOfIslands = (grid) => {
             let dir = directions[k];
             let newX = i + dir[0];
             let newY = j + dir[1];
-
             if (newX >= 0 && newX < m && newY >= 0 && newY < n && !visited[newX][newY] && grid[newX][newY] === '1'){
                 // console.log('hi')
+                visited[newX][newY]
                 return dfs(grid, newX, newY, visited);
             }
         }
@@ -66,7 +66,6 @@ const numberOfIslands = (grid) => {
                 // start the traversal
                 // get all the connected islands 
                 count++
-                console.log(`hi ...${x}, ${y}`)
                 dfs(grid, x, y, visited)
             }
         }
@@ -75,9 +74,26 @@ const numberOfIslands = (grid) => {
     return count;
 }
 
-const input0 = [['1','1','1','0'],
-                ['1','1','1','0']
-                ['0','0','0','0']
+const input0 = []
+
+const input1 = [['1','1','1','0'],
+                ['1','1','1','0'],
+                ['0','0','0','0'],
                 ['0','1','1','0']]
+                
+const input2 = [['1','0','0','1'],
+                ['0','0','0','0'],
+                ['0','0','0','0'],
+                ['1','0','0','1']]
+
 const result0 = numberOfIslands(input0)
-console.log(result0)
+console.log(result0) // 0
+
+const result1 = numberOfIslands(input1)
+console.log(result1) // 2 
+
+const result2 = numberOfIslands(input2)
+console.log(result2) // 4
+
+
+
