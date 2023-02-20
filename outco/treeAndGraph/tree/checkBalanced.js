@@ -44,7 +44,7 @@ const deserialize = (array) => {
 
 
 const checkBalanced = (root) => {
-    
+    if (root === null || root === undefined || root.length === 0){ return false}
     
     const getHeight = (node) => {
         if (node === null){return -1};
@@ -61,9 +61,9 @@ const checkBalanced = (root) => {
 
 /* TESTS */
 
-// const input0 = deserialize([])
-// const result0 = checkBalanced(input0)
-// console.log('result 0 is', result0) // undefined  // passed 
+const input0 = deserialize([])
+const result0 = checkBalanced(input0)
+console.log('result 0 is', result0) // false
 
 const input1 = deserialize([1,2,3])
 const result1 = checkBalanced(input1)
@@ -78,6 +78,6 @@ input2.left.left.left = new TreeNode(3)
 const result2 = checkBalanced(input2)
 console.log('result 2 is', result2) // false
 
-// const input3 = deserialize([0,1,2,3,5,8,13,21,34,55,89, 123, 155, 189])
-// const result3 = checkBalanced(input3)
-// console.log('result 3 is', result3)
+const input3 = deserialize([0,1,2,3,5,8,13,21,34,55,89, 123, 155, 189])
+const result3 = checkBalanced(input3)
+console.log('result 3 is', result3) // true
