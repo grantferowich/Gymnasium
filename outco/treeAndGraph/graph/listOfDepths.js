@@ -90,10 +90,55 @@ class LinkedList {
     }
 }
 
+class TreeNode{
+    constructor(value){
+        this.value = value === undefined ? null : value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+const deserialize = (array) => {
+    if (array.length == 0){
+        return null;
+    }
+    // instantiate tree from the 0th element
+    // 0th array element becomes the root of the tree
+    let root = new TreeNode(array[0]);
+    let queue = [root];
+    for (let x = 1; x < array.length; x += 2){
+        let current = queue.shift()
+        if (array[x] !== null){
+            current.left = new TreeNode(array[x]);
+            queue.push(current.left)
+        }
+        if (array[x + 1] !== null && array[x+1] !== undefined){
+            current.right = new TreeNode(array[x+1]);
+            queue.push(current.right)
+        }
+    }
+    return root;
+}
+
 const listOfDepths = (tree) => {
     let output = []
 
 
     return output
 }
+/* TESTS */
+const input0 = deserialize([])
+const result0 = listOfDepths(input0)
+console.log(result0)
 
+const input1 = deserialize([1,2,3])
+const result1 = listOfDepths(input1)
+console.log(result1)
+
+const input2 = deserialize([0,1,2,3,4,5])
+const result2 = listOfDepths(input2)
+console.log(result2)
+
+const input3 = deserialize([0,1,2,3,5,8,13,21,34])
+const result3 = listOfDepths(input3)
+console.log(result3)
