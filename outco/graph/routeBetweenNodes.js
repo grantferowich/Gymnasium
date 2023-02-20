@@ -2,6 +2,10 @@
 ROUTES BETWEEN NODES
 CTCI 4.1
 
+Complexity Analysis
+
+Time: O(V+E)
+Space: O(V+E)
 
 input: list of edges
 output: true/false
