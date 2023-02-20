@@ -102,8 +102,9 @@ class TreeNode{
 }
 
 const deserialize = (array) => {
+    if (array === null || array === undefined){ return }
     if (array.length == 0){
-        return null;
+        return;
     }
     // instantiate tree from the 0th element
     // 0th array element becomes the root of the tree
@@ -124,6 +125,7 @@ const deserialize = (array) => {
 }
 
 const listOfDepths = (treeRoot) => {
+    if (treeRoot === undefined || treeRoot === null){return }
     let output = [];
 
     const traverse = (node, depth) =>{
@@ -152,16 +154,17 @@ const listOfDepths = (treeRoot) => {
 
 const input0 = deserialize([])
 const result0 = listOfDepths(input0)
-console.log(result0)
+console.log('result 0 is', result0) // undefined  // passed 
 
 const input1 = deserialize([1,2,3])
 const result1 = listOfDepths(input1)
-console.log(result1)
+console.log('result 1 is', result1) // first linked list: 1
+                     // second linked list: 2 -> 3 // passed
 
-// const input2 = deserialize([0,1,2,3,4,5])
-// const result2 = listOfDepths(input2)
-// console.log(result2)
+const input2 = deserialize([0,1,2,3,4,5])
+const result2 = listOfDepths(input2)
+console.log('result 2 is', result2)
 
-// const input3 = deserialize([0,1,2,3,5,8,13,21,34])
-// const result3 = listOfDepths(input3)
-// console.log(result3)
+const input3 = deserialize([0,1,2,3,5,8,13,21,34,55,89, 123, 155, 189])
+const result3 = listOfDepths(input3)
+console.log('result 3 is', result3)
