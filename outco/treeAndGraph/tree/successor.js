@@ -92,22 +92,24 @@ const result0 = successor(null)
 console.log('result 0 is', result0) // null  // passed 
 
 const result1 = successor(undefined)
-console.log('result 0 is', result1) // null  // passed 
+console.log('result 1 is', result1) // null  // passed 
 
-// const i1 = new TreeNode(8)
-// let i2 = new TreeNode(5)
-// i2.parent = i1
-// i1.left = i2
-// let i3 = new TreeNode(34)
-// i3.parent = i1
-// i1.right = i3
-// let i4 = new TreeNode(23)
-// i4.parent = i3
-// i3.left = i4;
-// let i5 = new TreeNode(57)
-// i5.parent = i3
-// i5.right = i5
+const i1 = new TreeNode(8)
+let i2 = new TreeNode(5)
+i2.parent = i1
+i1.left = i2
+let i3 = new TreeNode(34)
+i3.parent = i1
+i1.right = i3
+let i4 = new TreeNode(23)
+i4.parent = i3
+i3.left = i4;
+let i5 = new TreeNode(57)
+i5.parent = i3
+i5.right = i5
 
+const result2 = successor(i1)
+console.log('result 2 is', result2.value)
 
 
 
