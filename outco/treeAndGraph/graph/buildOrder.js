@@ -299,9 +299,8 @@ const buildOrder = (projects, dependencies) => {
         }
         x++
     }
-    console.log('// debug order', order)
 
-    if (dependencies === null || projects === null || dependencies === undefined || projects === undefined){
+    if (dependencies === null || projects === null || dependencies === undefined || projects === undefined || dependencies.length === 0 || projects.length === 0){
         return 'invalid input'
     }
 
@@ -310,6 +309,13 @@ const buildOrder = (projects, dependencies) => {
 }
 
 /* TESTS */
+let dependencies0 = []
+let projects0 = []
+let graph0 = generateAdjacencyList(dependencies0)
+let result0 = buildOrder(projects0,graph0)
+console.log(result0) // invalid input
+
+
 
 let dependencies1 = [['a','d'], ['f','b'], ['b','d'], ['f','a'], ['d','c']]
 let projects1 = ['a','b','c','d','e','f']
