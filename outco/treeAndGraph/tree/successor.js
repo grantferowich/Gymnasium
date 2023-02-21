@@ -3,6 +3,8 @@
 SUCCESSOR
 CTCI 4.6
 
+Successfully tested the function 2/21/23. 
+
 Input: a bst node
 Output: the left most element of the right subtree
 Constraints: O(V) runtime
