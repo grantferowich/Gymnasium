@@ -1,5 +1,5 @@
 /* 
-UNTESTED!!
+Tested the topological sort function across two test cases.
 */
 // Given a graph, return the graph sorted by 
 // topological ordering.
@@ -218,6 +218,7 @@ class Queue {
 }
 
 const generateAdjacencyList = ( edges ) => {
+    if (edges.length === 0) {return  [] }
     let g = new Graph()
     
     let x = 0;
@@ -233,7 +234,8 @@ const generateAdjacencyList = ( edges ) => {
         g.addEdge( v, e );
         x++
     }
-    return g;
+
+    return g
 }
 
 
@@ -245,21 +247,29 @@ Topological Sort Psuedocode:
 3. Reverse the post-order traversal.  
 */
 const topologicalSort = (graph) => {
+    if (graph.length === 0){ return true}
     let visited = new Set();
     let output = [];
+    let temporary = new Set()
+    let valid = true
     
 
     const dfs = (current) => {
+        if (temporary.has(current)){
+            valid = false
+        }
         if (visited.has(current)){
             return;
         }
         visited.add(current);
+        temporary.add(current)
         let neighbors = graph.neighbors(current)
         let x = 0;
         while (neighbors && x < neighbors.length){
             dfs(neighbors[x])
             x++
         }
+        temporary.delete(current)
         output.push(current);
     }
     let vertices = graph.vertices()
@@ -269,10 +279,20 @@ const topologicalSort = (graph) => {
         dfs(vertices[v])
         v++
     }
-    
-    return output.reverse()
+    return !valid ? false : output.reverse()
+    // return output.reverse()
 }
+/* TESTS */
+let i0 = []
+let g0 = generateAdjacencyList(i0)
+// console.log('//debug g0',g0)
+console.log(topologicalSort(g0)) // true
 
 let i1 = [[1,2], [1,3], [2,3]]
 let g1 = generateAdjacencyList(i1)
-console.log(topologicalSort(g1))
+console.log('//debug g1',g1)
+console.log(topologicalSort(g1)) // [1,2,3]
+
+let i2 = [[1,0], [0,1]]
+let g2 = generateAdjacencyList(i2)
+console.log(topologicalSort(g2)) // output false
