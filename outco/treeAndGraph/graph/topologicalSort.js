@@ -280,7 +280,6 @@ const topologicalSort = (graph) => {
         v++
     }
     return !valid ? false : output.reverse()
-    // return output.reverse()
 }
 /* TESTS */
 let i0 = []

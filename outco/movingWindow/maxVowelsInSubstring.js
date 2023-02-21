@@ -1,4 +1,5 @@
 /* 
+Successfully tested the function 2/17/23.
 
 1, initialize left most window
 2, move the window
