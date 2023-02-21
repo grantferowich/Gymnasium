@@ -2,6 +2,10 @@
 LOWEST COMMON ANCESTOR 
 CTCI 4.8
 
+Successfully tested the function 2/21/23.
+Time complexity: O(V)
+Space complexity: O(N)
+
 
 
 */
@@ -35,6 +39,12 @@ function deserialize(arr) {
 }
 
 const lowestCommonAncestor = (root, value1, value2) => {
+    if (root === undefined || value1 === undefined || value2 === undefined){
+        return
+    }
+    if (root === null || value1 === null || value2 === null){
+        return
+    }
     let path1 = []
     let path2 = []
     let visited = new Set();
@@ -103,3 +113,6 @@ t.right.right.right = new TreeNode(100)
 
 const result3 = lowestCommonAncestor(t, 23, 100) // 57
 console.log('result3', result3)
+
+const result4 = lowestCommonAncestor(undefined, undefined, undefined)
+console.log('result4', result4)
