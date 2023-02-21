@@ -1,5 +1,5 @@
 /* 
-Tested the topological sort function across two test cases.
+Tested the topological sort function across two test cases on 2/21/23.
 */
 // Given a graph, return the graph sorted by 
 // topological ordering.
