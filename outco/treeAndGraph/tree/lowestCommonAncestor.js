@@ -1,73 +1,11 @@
-// https://camo.githubusercontent.com/1053d5594686b4bb44fda5229cac6e619cdc3e4d08a55032d99a122e62aee416/687474703a2f2f7265732e636c6f7564696e6172792e636f6d2f6f7574636f2d696f2f696d6167652f75706c6f61642f76313532313234383032362f4c6f77657374436f6d6d6f6e416e636573746f722e706e67
-// Input: a root, int value1, int, value2, int
-// output: value, int
-// Initial
-//      
-// Example: 5, 4, 9 
-//
-/*
-
-216 - Lowest Common Ancestor
-Given the root node of a binary tree and two distinct values, find the lowest common ancestor.
-
-Input: Root Node, Two Integer Values
-Output: Integer Value of Lowest Common Ancestor
-
-Example
-Input: root, 4, 9 => Output: 7
-
-Image:
-https://camo.githubusercontent.com/1053d5594686b4bb44fda5229cac6e619cdc3e4d08a55032d99a122e62aee416/687474703a2f2f7265732e636c6f7564696e6172792e636f6d2f6f7574636f2d696f2f696d6167652f75706c6f61642f76313532313234383032362f4c6f77657374436f6d6d6f6e416e636573746f722e706e67
-
-Diagram 
-          5  depth = 0 
-         / \
-        2   7 yes // step 2: return true since node is common depth= 1
-           / \
-          4   8 no // step 1 depth = 2 
-               \ 
-                9 start, depth = 3
-
-  base case: return the root node
-
-  input: 5, 4, 9 
-  
-  input: 5, 2, 8
-  expect: 5 
-
-  state variables
-  return variables
-  helper method
-  recursive case
-  base case 
-
-  the path from the root to 4: 5, 7, 4
-  the path from the root to 9: 5, 7, 8, 9 
+/* 
+LOWEST COMMON ANCESTOR 
+CTCI 4.8
 
 
-  1. traverse from root to value 1, storing values in an array
-  2. traverse from root to value 2, storing values in an array
-  3. Loop through both arrays, store array[x] as common
-  if list1[x] !== list2[x] return common
 
-    236. Lowest Common Ancestor of a Binary Tree
-Medium
-Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
-
-According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
-
-Example 1:
-
-Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
-Output: 3
-Explanation: The LCA of nodes 5 and 1 is 3.
-  
 */
 
-// JavaScript
-
-// DO NOT EDIT
-// Node class for a binary tree node
 class TreeNode {
 	constructor(value) {
 		this.value = value;
@@ -76,8 +14,6 @@ class TreeNode {
 	}
 }
 
-// DO NOT EDIT
-// generate tree from array
 function deserialize(arr) {
 	if (arr.length === 0) {
 		return null;
@@ -98,43 +34,72 @@ function deserialize(arr) {
 	return root;
 }
 
-// DO NOT EDIT
-const arr = [5, 2, 7, null, null, 4, 8, null, null, null, 9];
-const arr2 = [3,5,1,6,2,0,8,null,null,7,4]
-const sampleTree = deserialize(arr);
-const sampleTree2 = deserialize(arr2); 
+const lowestCommonAncestor = (root, value1, value2) => {
+    let path1 = []
+    let path2 = []
+    let visited = new Set();
+    let value = 0
 
-// sampletree2, 5, 1 => 3
-// inputs: array, num1, num2
-// output: num 
-const lowestCommonAncestor = (root, num1, num2) => {
-    let path1 = [];
-    let path2 = [];
-    let path = [];
-    let common = 0;
-
-    const findAncestor = (node) => {
-        if (!node){ return; }
+    const dfs = (node, path) => {
+        if (node === null || node.value === undefined){
+            return
+        }
+        if (node.value === value1){
+            path.push(value1)
+            return
+        }
+        if (node.value === value2){
+            path.push(value2)
+            return
+        }
+        if (node.left === null && node.right === null){
+            return
+        }
         path.push(node.value)
-        if (node.value === num1){
-            path1 = [...path]
-        }
-        if (node.value === num2){
-            path2 = [...path]
-        }
-        findAncestor(node.right);
-        findAncestor(node.left);
-        path.pop();
+        visited.add(node.value)
+        dfs(node.left, path)
+        dfs(node.right, path)
+        visited.delete(node.value)
+        path.pop()
     }
-    
-    findAncestor(root);
-    let x = 0;
-    while (path1[x] === path2[x]){
-        common = path1[x];
-        x++;
-    }
-    return common;
-}
-console.log(lowestCommonAncestor(sampleTree2, 5, 1))
-// Successfully tested the solution 1/4/23. 
 
+    dfs(root, path1)
+    dfs(root, path2)
+
+    let x = 0
+    while ( x < path1.length && x < path2.length){
+        if (path1[x] === path2[x]){
+            value = path1[x]
+        }
+        x++
+    }
+    return value
+}
+
+/* TESTS */
+
+// const arr = [5, 2, 7, null, null, 4, 8, null, null, null, 9];
+// const sampleTree = deserialize(arr);
+// const result = lowestCommonAncestor(sampleTree)
+// console.log(result)
+
+// const arr2 = [3,5,1,6,2,0,8,null,null,7,4]
+// const sampleTree2 = deserialize(arr2); 
+// const result2 = lowestCommonAncestor(sampleTree2)
+// console.log(result2)
+
+
+// const arr2 = [3,5,1,6,2,0,8,null,null,7,4]
+// const sampleTree2 = deserialize(arr2); 
+// const result2 = lowestCommonAncestor(sampleTree2)
+// console.log(result2)
+
+let t = new TreeNode(13)
+t.left = new TreeNode(8)
+t.right = new TreeNode(57)
+t.right.left = new TreeNode(23)
+t.right.right = new TreeNode(76)
+t.right.right.right = new TreeNode(100)
+
+const result3 = lowestCommonAncestor(t, 23, 100) // 57
+console.log('result3', result3)
