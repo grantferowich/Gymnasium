@@ -1,9 +1,13 @@
 /**
  * Successfully tested the function 1/4/23.
  * 98. VALIDATE BINARY SEARCH TREE 
+ * Medium
  * CTCI 4.5
  * 
- * Medium
+ * Time complexity: O(N)
+ * Space complexity: O(N)
+ * 
+ * 
  * Given the root of a binary tree, determine if it is a 
  * valid binary search tree (BST).
  * A valid BST is defined as follows:
