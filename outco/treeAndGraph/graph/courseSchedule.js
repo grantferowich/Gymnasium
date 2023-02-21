@@ -1,3 +1,6 @@
+/* 
+Successfully tested the function 2/13/23.
+*/
 class Graph {
     constructor() {
         this.storage = new Map();
