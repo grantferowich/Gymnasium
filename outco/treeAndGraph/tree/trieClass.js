@@ -211,7 +211,7 @@ class Trie {
 }
 
 let trie = new Trie()
-trie.insert('wake')
+trie.insert('wake') 
 console.log(trie)
 console.log(trie.isWord('wake')) // true
 console.log(trie.isWord('forest')) // false

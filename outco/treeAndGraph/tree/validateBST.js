@@ -1,13 +1,18 @@
 /**
- * Successfully tested the function 1/4/23.
+ * 
  * 98. VALIDATE BINARY SEARCH TREE 
- * Medium
  * CTCI 4.5
  * 
+ * Successfully tested the function 2/21/23.
+ * 
  * Time complexity: O(N)
- * Space complexity: O(N)
+ * Space complexity: O(1)
  * 
+ * The other function completes the check with O(N) space. 
+ * Can we do better?
+ * Yes! With an O(N) runtime function having O(log(N)) space complexity.
  * 
+ * Medium
  * Given the root of a binary tree, determine if it is a 
  * valid binary search tree (BST).
  * A valid BST is defined as follows:
@@ -34,46 +39,48 @@ class TreeNode{
     }
 }
 
-// basically push tree values into an array via a pre-order depth first traversal.
-// Loop over the array to ensure array[x] < array[x+1]
-// if not return false 
-// Time complexity: O(N)
-// Space complexity: O(N) since the array will increase linearly as the input size increases
+const validateBST = (root) => {
+    if (root === null || root === undefined){return false}
 
-const validateBST = (treeRoot) => {
-    const array = [];
-    // in order traversal is left-current-right
-    const inOrderTraversal = (node) => {
-        //base case
-        if (node === null){ return }
-        // recursive case
-        inOrderTraversal(node.left);
-        // push tree node values to array 
-        array.push(node.value);
-        inOrderTraversal(node.right);
-    }
-    inOrderTraversal(treeRoot);
-    let x = 0;
-    while (x < array.length){
-        if (array[x] > array[x+1]){
-            return false;
+    const traverse = (node, min, max) => {
+        // reached destination
+        if (node === null){
+            return true
         }
-        x++
+        // every value in right subtree must be greater than min
+        
+        if (min !== null && node.value < min){
+            return false
+        }
+        if (max !== null && node.value > max){
+            return false
+        }
+        // when traversing right, min is updated
+        let right = traverse(node.right, node.value, max)
+        // when traversing left, max is updated
+        let left = traverse(node.left, min, node.value)
+        return right && left
     }
-    return true;
+
+    return traverse(root, null, null)
+
 }
 
-let treeNode = new TreeNode(2);
-treeNode.left = new TreeNode(1);
-treeNode.right = new TreeNode(3)
-console.log(validateBST(treeNode)); // true
+/* TESTS */
 
-// [5,1,4,null,null,3,6]
-let treeNode2 = new TreeNode(5); 
-treeNode2.left = new TreeNode(1);
-treeNode2.right = new TreeNode(4);
-treeNode2.left.left = null;
-treeNode2.left.right = null;
-treeNode2.right.left = new TreeNode(3);
-treeNode2.right.right = new TreeNode(6);
-console.log(validateBST(treeNode2)) // false
+let root = undefined
+let result = validateBST(root)
+console.log(result) // false
+
+let root1 = new TreeNode(8)
+root1.left = new TreeNode(5)
+root1.right = new TreeNode(13)
+let result1 = validateBST(root1)
+console.log(result1) // true
+
+let root2 = new TreeNode(8)
+root2.left = new TreeNode(5)
+root2.right = new TreeNode(13)
+root2.right.left = new TreeNode(4)
+let result2 = validateBST(root2)
+console.log(result2) // false // 4 is placed incorrectly
