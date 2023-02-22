@@ -43,4 +43,4 @@ const firstNonRepeat = (string) => {
     
 }
 console.log(firstNonRepeat('aaaabcdebcdfg')) // 'e'
-console.log(firstNonRepeat('aaaa')) // 'e'
+console.log(firstNonRepeat('aaaa')) // ''
