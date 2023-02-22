@@ -2,6 +2,8 @@
 PRINT DFS
 given a graph
 return each value from the graph from a depth-first traversal
+
+Successfully tested the function 02/02/23.
 */
 
 class Graph {
