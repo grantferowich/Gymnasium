@@ -1,7 +1,7 @@
 /* 
 392. Is Subsequence
 Easy
-** untested
+Successfully tested the function 2/22/23.
 
 Given two strings s and t, return true if s is a 
 subsequence of t, or false otherwise.
@@ -54,3 +54,8 @@ let s2 = 'axc'
 let t2 = 'axb'
 let result2 = isSubsequence(s2,t2);
 console.log('result2', result2) // false
+
+let s3 = 'axc'
+let t3 = 'ahbgdc'
+let result3 = isSubsequence(s3,t3);
+console.log('result3', result3) // false
