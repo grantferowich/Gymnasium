@@ -55,10 +55,13 @@ const validateBST = (root) => {
         if (max !== null && node.value > max){
             return false
         }
-        // when traversing right, min is updated
+
+        // when traversing right, min is updated, max stays the same
         let right = traverse(node.right, node.value, max)
-        // when traversing left, max is updated
+
+        // when traversing left, max is updated, min stays the same
         let left = traverse(node.left, min, node.value)
+        
         return right && left
     }
 

@@ -1,6 +1,6 @@
 /* 
 REDUNDANT CONNECTION
-Successfully tested the function 2/10/23.
+Successfully tested the function 2/22/23.
 
 */
 class ListNode {
