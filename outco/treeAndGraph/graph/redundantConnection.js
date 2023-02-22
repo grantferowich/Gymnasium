@@ -1,4 +1,5 @@
 /* 
+REDUNDANT CONNECTION
 Successfully tested the function 2/10/23.
 
 */
@@ -154,3 +155,11 @@ function redundantConnection(edgeList) {
     }
     return -1;
   }
+
+const input = [[1, 2], [1, 3], [2, 3]]
+const result = redundantConnection(input)
+console.log(result) // expect [ 2 , 3 ] or [ 1 , 3]
+
+const input2 = [[1, 2], [2, 3], [2, 4], [4, 5], [5, 2]]
+const result2 = redundantConnection(input2)
+console.log(result2) // expect [ 5, 2]
