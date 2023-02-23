@@ -1,6 +1,9 @@
 /* 
 
-NEXT GREATER ELEMENT
+NEXT GREATER ELEMENT I
+a.k.a. Next Greater Element with Brute Force
+This solution is the quadratic solution.
+
 Successfully tested the function 2/23/23.
 Complexity analysis: 
 Time: O(N^2)
