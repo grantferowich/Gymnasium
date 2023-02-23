@@ -45,18 +45,18 @@ Function requirements
 */
 
 const numberOfUniqueEmails = (emailList = []) =>{
-    let emails = new Set()
-    let x = 0;
-    while (x < emailList.length){
-        let email = emailList[x];
-        let atIndex = email.indexOf("@")
-        let localName = email.slice(0, atIndex+1)
-        let domainName = email.slice(atIndex)
-        localName = localName.replaceAll('.','')
-        let plusIndex = localName.indexOf('+')
-        localName = localName.slice(0, plusIndex)
-        email = localName + domainName
-        emails.add(email)
+    let emails = new Set() // O(N) space
+    let x = 0; // O(1) space
+    while (x < emailList.length){  // O(N) time
+        let email = emailList[x];  // O(1) space
+        let atIndex = email.indexOf("@")  // O(N) time
+        let localName = email.slice(0, atIndex+1) // O(M)
+        let domainName = email.slice(atIndex) // O(M)
+        localName = localName.replaceAll('.','') // O(N)
+        let plusIndex = localName.indexOf('+') // O(N)
+        localName = localName.slice(0, plusIndex) // O(M)
+        email = localName + domainName // O(1)
+        emails.add(email) // O(N)
         x++
     }
     return emails.size
