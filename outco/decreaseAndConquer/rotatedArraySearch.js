@@ -170,16 +170,6 @@ arr[midIdx] < target, so look left
 startIdx = arr[0] = 35
 endIdx = arr[3] = 102
 midIdx = arr[1] = 46
-
-
-
-
-
-
-
-
-
-
 */
 
 function rotatedArraySearch(nums, target) {
@@ -195,7 +185,6 @@ function rotatedArraySearch(nums, target) {
       }
       //left array sorted
       if (nums[startIdx] < nums[midIdx]){
-
         // target index is on the left side of the midIdx
         if (target >= nums[startIdx] && target < nums[midIdx]){
           endIdx = midIdx - 1;
@@ -205,7 +194,6 @@ function rotatedArraySearch(nums, target) {
         }
         // right array sorted
       } else {
-        
         // target index is on the right of the midIdx
         if (target > nums[midIdx] && target <= nums[endIdx]){
           startIdx = midIdx + 1;
@@ -219,21 +207,6 @@ function rotatedArraySearch(nums, target) {
 }
 
 console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 46)); // --> true
-// startIdx: 0
-// endIdx: 7
-// target: 46
-// midIdx: 3
-// nums[midIdx]: 102
-// nums[startIdx]: 35
-// nums[endIdx]: 31
-
 console.log(rotatedArraySearch([35, 46, 79, 102, 1, 14, 29, 31], 47)); // --> false
 console.log(rotatedArraySearch([7, 8, 9, 10, 1, 2, 3, 4, 5, 6], 7)); // --> true
-// startIdx: 0
-// endIdx: 0
-// target: 7
-// midIdx: 0
-// nums[midIdx]: 7
-// nums[startIdx]: 7
-// nums[endIdx]: 7
 

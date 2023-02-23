@@ -56,17 +56,8 @@ const squareRoot = (N) => {
     let result = 0;
     let square = 0;
 
-    // if (typeof N !== 'number'){
-    //     return false;
-    // }
-    // if (N.toString.length === 0){
-    //     return false;
-    // }
-
     while (startIdx <= endIdx){
         midIdx = startIdx+ (endIdx - startIdx)/2;
-        // if ((result * result) === N) { return result.toFixed(6)}
-        
         square = midIdx * midIdx;
         if (square == N){
             return mid;
