@@ -1,16 +1,21 @@
 /* 
 PASCAL'S TRIANGLE
 
+Successfully tested the function 2/23/23.
+
 */
 
 const pascalsTriangle = (k) => {
     let output = []
     for ( let i = 0; i < k; i++){
         let row = [];
+        // build sub arrays
         for (let j = 0; j <= i; j++){
+            // 1's as bookends
             if (j === 0 || j === i){
                 row.push(1)
             } else {
+                // each element value given by [x - 1] + [x] 
                 row.push(output[i-1][j-1] + output[i-1][j])
             }
         }
