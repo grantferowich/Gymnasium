@@ -59,7 +59,7 @@ const numberOfUniqueEmails = (emailList = []) =>{
         emails.add(email) // O(N)
         x++
     }
-    return emails.size
+    return emails.size // O(1)
 }
 
 
