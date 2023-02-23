@@ -1,4 +1,6 @@
 /* 
+Successfully tested the function 2/22/23.
+
 27. REMOVE ELEMENT
 Easy
 
