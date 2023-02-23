@@ -40,6 +40,18 @@ Function requirements
 
 */
 
+const numberOfUniqueEmails = (emailList = []) =>{
+    let emails = new Set()
+    return emails.size
+}
 
 
 
+/* TESTS */
+
+// const input = ['gfero@gmail.com', 'kayfero@gmail.com', 'kay.fero@gmail.com', 'gfero+23@gmail.com'] // 2
+// const result = numberOfUniqueEmails(input) // 2
+
+const input2 = [] 
+const result2 = numberOfUniqueEmails(input2) // 0
+console.log('result2:', result2)
