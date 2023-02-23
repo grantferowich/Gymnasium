@@ -48,7 +48,7 @@ const numberOfUniqueEmails = (emailList = []) =>{
         let atIndex = email.indexOf("@")
         let localName = email.slice(0, atIndex+1)
         let domainName = email.slice(atIndex)
-        localName = localName.replace('.','')
+        localName = localName.replaceAll('.','')
         let plusIndex = localName.indexOf('+')
         localName = localName.slice(0, plusIndex)
         email = localName + domainName
@@ -66,6 +66,14 @@ const input = ['gfero@gmail.com', 'kayfero@gmail.com', 'kay.fero@gmail.com', 'gf
 const result = numberOfUniqueEmails(input) // 2
 console.log('result',result)
 
-// const input2 = [] 
-// const result2 = numberOfUniqueEmails(input2) // 0
-// console.log('result2:', result2)
+const input2 = [] 
+const result2 = numberOfUniqueEmails(input2) // 0
+console.log('result2:', result2)
+
+const input3 = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
+const result3 = numberOfUniqueEmails(input3)
+console.log('result3:',result3) // 2
+
+const input4 = ['a@gmail.com', 'g@wfu.edu', 'f@wfu.edu'] 
+const result4 = numberOfUniqueEmails(input4)
+console.log('result4:',result4) // 3
