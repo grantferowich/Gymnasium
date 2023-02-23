@@ -35,14 +35,10 @@ At the second to last index, the element at the last index is greater than
 
 // O(N) space, O(N) time
 
-const replaceElements = (arr) => {
-    let output = [-1]
-    if ( arr === undefined || arr === null || arr.length === 0 ){
-        return output
-    }
+const replaceElements = (arr = []) => {
+    const output = [-1]
     let x = arr.length - 2;
     let localMax = -Infinity;
-    
     while ( x >= 0 ){
         localMax = Math.max(localMax, arr[x+1])
         output.unshift(localMax)
@@ -50,6 +46,10 @@ const replaceElements = (arr) => {
     }
     return output;
 }
+
+let arrU = undefined
+let resultU = replaceElements(arrU)
+console.log('result with undefined input', resultU)
 
 let arr = [17,18,5,4,6,1]
 let result = replaceElements(arr)
