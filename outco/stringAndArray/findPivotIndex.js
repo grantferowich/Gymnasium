@@ -61,4 +61,4 @@ console.log('result3', result3) // 0
 
 const input4 = []
 const result4 = pivotIndex(input4)
-console.log('result4', result4) // 0 
+console.log('result4', result4) // -1
