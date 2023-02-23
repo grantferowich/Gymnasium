@@ -77,3 +77,4 @@ const dateObj3 = new Date(result3)
 console.log(dateObj3)
 // date object: year-month-day
 // console.log('get full year', result1.getFullYear())
+
