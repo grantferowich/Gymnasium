@@ -15,10 +15,8 @@ Suppose you have the binary tree:
 
 
 input: a tree node as an input
-output: an array of arrays
-          
+output: an array of arrays   
 */
-
 
 class TreeNode{
     constructor(value=null){
@@ -33,7 +31,7 @@ const bstSequences = (bst) =>{
     let outputSet = new Set()
     let traveled = new Map()
     traveled.set(bst.value, true)
-    
+
     const recurse = (nodes) => {
         let noChildFlag = true;
         let x = 0
@@ -61,7 +59,7 @@ const bstSequences = (bst) =>{
             x++
         }
     }
-    
+
     recurse([bst])
     return output;
 }
@@ -72,7 +70,6 @@ let t = new TreeNode(2)
 t.left = new TreeNode(1)
 t.right = new TreeNode(3)
 
-// console.log(t.getChildren())
 let result = bstSequences(t)
 console.log(result) // [[2,1,3], [2,3,1]]
 
