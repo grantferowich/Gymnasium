@@ -15,6 +15,9 @@ The additional spacing below indicates the partition.
 Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1, x = 5
 Output: 3 -> 1 -> 2   ->   10 -> 5 -> 5 -> 2
 
+Complexity Analysis: 
+Time complexity: O(N)
+Space complexity: O(1)
 */
 
 class ListNode{
