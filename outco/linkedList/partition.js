@@ -3,6 +3,7 @@ PARTITION
 CTCI 2.4
 
 Successfully tested the function 2/24/23.
+Successfully passed the Leetcode testing suite 2/24/23.
 
 Write code to partition a linked list around a value x,
 such that all nodes less than x come before all nodes greater
@@ -60,7 +61,10 @@ const partition = (list, x) => {
         }
         current = current.next  
     }
-    
+
+    if (lessThanXListHead === null){
+        return greaterThanXListHead
+    }
     lessThanXListTail.next = greaterThanXListHead
     return lessThanXListHead;
 }
@@ -70,7 +74,7 @@ const partition = (list, x) => {
 let list0 = new ListNode(5)
 list0.next = new ListNode(3)
 list0.next.next = new ListNode(2)
-let result0 = partition(list0, 3) // 2 -> 3 -> 5
+const result0 = partition(list0, 3) // 2 -> 3 -> 5
 console.log('result0', result0)
 
 let list = new ListNode(3)
@@ -80,5 +84,10 @@ list.next.next.next = new ListNode(5)
 list.next.next.next.next = new ListNode(10)
 list.next.next.next.next.next = new ListNode(2)
 list.next.next.next.next.next.next = new ListNode(1)
-let result = partition(list, 5); // 3 -> 1 -> 2   ->   10 -> 5 -> 5 -> 2
+const result = partition(list, 5); // 3 -> 1 -> 2   ->   10 -> 5 -> 5 -> 2
 console.log('result1', result);
+
+let list2 = new ListNode(1)
+list2.next = new ListNode(1)
+const result2 = partition(list2, 1)
+console.log('result2', result2)
