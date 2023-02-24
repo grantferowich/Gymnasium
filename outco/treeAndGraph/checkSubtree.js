@@ -13,8 +13,51 @@ class TreeNode{
     }   
 }
 
+/* T1 is longer
+first, find the node in t1 which matches t2's root
+second, call function to match each node in t2 with t1
+
+*/
+
 const checkSubtree = (t1, t2) => {
-    console.log('function ran')
+    if (t2 === null){
+        return true;
+    }
+    let visited = new Set()
+    const dfs = (node) => {
+        
+        if (node.value === t2.value){
+            return node
+        }
+
+        if (!node.left && !node.right){
+            return 
+        }
+
+        visited.add(node)
+        dfs(node.right)
+        dfs(node.left)
+        visited.delete(node)
+    }
+    
+    let subRoot = dfs(t1)
+    if (!subRoot){
+        return false
+    }
+    const traverse = (node1, node2) => {
+        // termination case
+        if (node1.value !== node2.value){
+            return false
+        }
+
+        // destination case 
+        if (node2.left === null && node2.right === null){
+            return true
+        }
+        return traverse(node1.right, node2.right) && traverse(node1.left, node2.left)
+        
+    }    
+    return traverse(t1, t2)
 }
 
 /* TESTS */
@@ -27,9 +70,13 @@ tree1.left.right = new TreeNode(3);
 tree1.right.left = new TreeNode(21);
 tree1.right.right = new TreeNode(34);
 
-const tree2 = new TreeNode(5)
-tree2.left = new TreeNode(1)
-tree2.right = new TreeNode(3)
+const tree2 = new TreeNode(8)
+tree2.left = new TreeNode(5)
+tree2.right = new TreeNode(13)
 
-const result = checkSubtree(tree1,tree2)
-console.log(result)
+const tree3 = new TreeNode(55)
+
+const result1 = checkSubtree(tree1, tree2)
+const result2 = checkSubtree(tree1, tree3)
+console.log('result1', result1)
+console.log('result2', result2)
