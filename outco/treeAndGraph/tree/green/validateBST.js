@@ -48,20 +48,16 @@ const validateBST = (root) => {
             return true
         }
         // every value in right subtree must be greater than min
-        
         if (min !== null && node.value < min){
             return false
         }
         if (max !== null && node.value > max){
             return false
         }
-
         // when traversing right, min is updated, max stays the same
         let right = traverse(node.right, node.value, max)
-
         // when traversing left, max is updated, min stays the same
         let left = traverse(node.left, min, node.value)
-        
         return right && left
     }
 

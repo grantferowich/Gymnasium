@@ -20,29 +20,32 @@ let bst2 = new TreeNode()
 //
 
 const insert = (root, value) => {
-    let xNode = new TreeNode(value)
+    let xNode = new TreeNode(value);
     // special case
     // root is null
     if (root === null || root === undefined){
-        root = xNode
+        root = xNode;
         return;
     }
+
     const traverse = (node, insertionNode) => {
+        // destination case
         if (insertionNode.value < node.value && node.left === null){
             node.left = insertionNode;
-            return 
+            return;
         }
+        // destination case
         if (insertionNode.value > node.value && node.right === null){
             node.right = insertionNode;
-            return
+            return;
         }
         if (insertionNode.value > node.value){
-            traverse(node.right, insertionNode)
+            traverse(node.right, insertionNode);
         } else {
-            traverse(node.left, insertionNode)
+            traverse(node.left, insertionNode);
         }
     }
-    traverse(root, xNode)
+    traverse(root, xNode);
     return
 }
 

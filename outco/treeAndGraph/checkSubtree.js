@@ -20,11 +20,16 @@ second, call function to match each node in t2 with t1
 */
 
 const checkSubtree = (t1, t2) => {
+   
     if (t2 === null){
         return true;
     }
-    let visited = new Set()
+
     const dfs = (node) => {
+        
+        if (!node){
+            return null;
+        }
         
         if (node.value === t2.value){
             return node
@@ -33,31 +38,30 @@ const checkSubtree = (t1, t2) => {
         if (!node.left && !node.right){
             return 
         }
-
-        visited.add(node)
+        
         dfs(node.right)
         dfs(node.left)
-        visited.delete(node)
+    
     }
     
     let subRoot = dfs(t1)
     if (!subRoot){
         return false
     }
-    const traverse = (node1, node2) => {
-        // termination case
-        if (node1.value !== node2.value){
-            return false
-        }
 
-        // destination case 
-        if (node2.left === null && node2.right === null){
+    const traverse = (node1, node2) => {
+        if (node2 === null && node2 === null){
             return true
         }
+        if (node1 === null || node2 === null){
+            return false;
+        }
+        if (node1.value !== node2.value){
+            return false;
+        }
         return traverse(node1.right, node2.right) && traverse(node1.left, node2.left)
-        
     }    
-    return traverse(t1, t2)
+    return traverse(subRoot, t2)
 }
 
 /* TESTS */
