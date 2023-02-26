@@ -1,12 +1,9 @@
-// Successfully tested the insertion and search methods 1/3/23
-// Implementing the BST class is the Outco week 2 day 2 homework assignment. 
-// instructions: insert 5
-//              insert 3
-//              
-//              1 - root
-//             / \ 
-//               5
-//
+/* 
+
+TREE NODE
+CTCI 4.11
+
+*/
 
 class TreeNode{
     constructor(value){
@@ -17,10 +14,14 @@ class TreeNode{
 }
 
 
+
+
+
 class BinarySearchTree{
-    constructor(root=null){
-        this.root = root
+    constructor(){
+        this.root = null;
         this.size = 0;
+        this.values = [];
     }
     // Time complexity: O(N) where N is the number of nodes if the tree is assumed to be imbalanced
     // Space Complexity: O(1)
@@ -64,12 +65,38 @@ class BinarySearchTree{
         }
         return false
     }
+
+    remove(value){
+        if (!this.search(value)){
+            return 'value does not exist'
+        }
+        let x = 0
+        while (x < this.values.length){
+            if (this.values[x] === value){
+                this.values.splice(x,1)
+            }
+            x++
+        }
+
+        let node = this.root;
+        while (node){
+            if (node.value === value){
+                this.sizes--;
+                node.value = null;
+                return `Node value ${value} set to null.`
+            }
+            if (value < node.value){
+                node = node.left
+            }
+            if (value > node.value){
+                node = node.right
+            }
+        }
+    }
 }
 
 let bst = new BinarySearchTree()
+bst.insert(8)
 bst.insert(1)
-bst.insert(1)
-bst.insert(2)
-bst.insert(3)
-console.log(bst.search(99)) // this works! the function returns false when the expected output is false
-console.log(bst)
+bst.insert(23)
+console.log(bst.remove(1)) 
