@@ -97,15 +97,36 @@ class BinarySearchTree{
 
     getRandomNode(){
         let random = Math.floor(Math.random() * this.size)
-        // console.log(this.values)
         return this.values[random]
     }
 }
 
-let bst = new BinarySearchTree()
-bst.insert(8)
-bst.insert(1)
-bst.insert(23)
-console.log(bst.getRandomNode())
 
-// console.log(bst.remove(1)) 
+
+
+const testRandomness = (array) =>{
+    let occurrences = {};
+    let bst = new BinarySearchTree()
+    let x = 0
+    while ( x < array.length){
+        bst.insert(array[x])
+        x++
+    }
+    for (x = 0; x < 2000; x++){   
+        let randomNodeValue = bst.getRandomNode()
+        occurrences[randomNodeValue] = occurrences[randomNodeValue] + 1 || 1;
+    }
+    return occurrences
+}
+
+
+const array1 = [15,23,55]
+console.log("frequency: ", testRandomness(array1));
+// console.log("frequency: ", testRandomness(array2));
+
+// let bst = new BinarySearchTree()
+// bst.insert(8)
+// bst.insert(1)
+// bst.insert(23)
+// console.log(bst.getRandomNode())
+
