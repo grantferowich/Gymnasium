@@ -34,7 +34,7 @@
 const isOneAway = (s1, s2) => {
     let edits = 1;
     let maxLength = Math.max(s1.length, s2.length);
-    let diff = Math.abs(s1-s2);
+    let diff = Math.abs(s1.length-s2.length);
 
     if (diff > edits ){
         return false;
@@ -53,6 +53,7 @@ const isOneAway = (s1, s2) => {
                 }
             }
     }
+
     return true;    
 }
 

@@ -41,7 +41,6 @@ class TreeNode{
 
 const validateBST = (root) => {
     if (root === null || root === undefined){return false}
-
     const traverse = (node, min, max) => {
         // reached destination
         if (node === null){
