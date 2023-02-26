@@ -26,22 +26,17 @@ const checkSubtree = (t1, t2) => {
     }
 
     const dfs = (node) => {
-        
         if (!node){
             return null;
         }
-        
         if (node.value === t2.value){
             return node
         }
-
         if (!node.left && !node.right){
             return 
-        }
-        
+        } 
         dfs(node.right)
         dfs(node.left)
-    
     }
     
     let subRoot = dfs(t1)
