@@ -25,13 +25,13 @@ smallTree1:
   1   2
 
 
-  Test: 
+  LargeTree2:
      1
     /
    1
+SmallTree
    
-   
-   
+
 */
 
 
@@ -70,13 +70,14 @@ const checkSubtree = (t1, t2) => {
     if (t2 === null){
         return true;
     }
-
+    let nodeList = []
+    let output;
     const dfs = (node) => {
         if (!node){
             return null;
         }
         if (node.value === t2.value){
-            return node
+            nodeList.push(node)
         }
         if (!node.left && !node.right){
             return 
@@ -84,22 +85,37 @@ const checkSubtree = (t1, t2) => {
         return dfs(node.right) || dfs(node.left)
     }
     
-    let subRoot = dfs(t1)
-    if (!subRoot){
+    dfs(t1)
+    if (nodeList.length === 0){
         return false
     }
 
-    const traverse = (node1, node2) => {
-        if (!node1 || !node2){
+    const isSubtree = (node1, node2) => {
+
+        if (!node2){
             return node1 === node2
         }
-        
+
+        if (!node1){
+            return false
+        }
+
         if (node1.value !== node2.value){
             return false;
         }
-        return traverse(node1.right, node2.right) && traverse(node1.left, node2.left)
-    }    
-    return traverse(subRoot, t2)
+
+        let right = isSubtree(node1.right, node2.right)
+        let left = isSubtree(node1.left, node2.left)
+        return right && left ? output = true : output = false
+    }   
+
+    for (let x = 0; x < nodeList.length; x++){
+        let node = nodeList[x]
+        if (isSubtree(node, t2)){
+            break
+        }
+    }
+    return output
 }
 
 /* TESTS */
@@ -120,13 +136,23 @@ const smallTree4 = deserialize([4,1,2])
 const largeTree5 = deserialize([3,4,5,1,2])
 const smallTree5 = deserialize([4,1,2])
 
+const largeTree6 = deserialize([1,1])
+const smallTree6 = deserialize([1])
+
+const largeTree7 = deserialize([-1,-4,8,-6,-2,3,9,null,-5,null,null,0,7])
+const smallTree7 = deserialize([3,0,5848])
+
 
 
 const result1 = checkSubtree(tree1, tree2) // true
 const result2 = checkSubtree(tree1, tree3)  // false
 const result3 = checkSubtree(largeTree4, smallTree4) // false 
 const result4 = checkSubtree(largeTree5, smallTree5) // true
+const result5 = checkSubtree(largeTree6, smallTree6) // true
+const result6 = checkSubtree(largeTree7, smallTree7) // false
 console.log('result1', result1)
 console.log('result2', result2)
 console.log('result3', result3)
 console.log('result4', result4) 
+console.log('result5', result5)  
+console.log('result6', result6)  
