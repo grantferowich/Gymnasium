@@ -54,7 +54,6 @@ const ratPath = (matrix) => {
         if (matrix[row][col] === 0){
             path.push([row,col]);
             matrix[row][col] = 1;
-            // output.push([row, col]);
             travel(row + 1, col);
             travel(row, col + 1);
             path.pop();
