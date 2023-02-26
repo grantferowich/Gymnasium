@@ -28,6 +28,7 @@ class BinarySearchTree{
     // input: value
     // output: no return value
     insert(value){
+        this.values.push(value)
         let xNode = new TreeNode(value)
         if (this.root === null){
             this.root = xNode;
@@ -93,10 +94,18 @@ class BinarySearchTree{
             }
         }
     }
+
+    getRandomNode(){
+        let random = Math.floor(Math.random() * this.size)
+        // console.log(this.values)
+        return this.values[random]
+    }
 }
 
 let bst = new BinarySearchTree()
 bst.insert(8)
 bst.insert(1)
 bst.insert(23)
-console.log(bst.remove(1)) 
+console.log(bst.getRandomNode())
+
+// console.log(bst.remove(1)) 
