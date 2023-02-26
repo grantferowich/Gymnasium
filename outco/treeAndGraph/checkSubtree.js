@@ -5,7 +5,22 @@ CHECK SUBTREE
 4.10
 Successfully tested the function 2/26/23.
 
+
+/* T1 is longer
+first, find the node in t1 which matches t2's root
+second, call function to match each node in t2 with t1
+
+// [3,4,5,1,2,null,null,null,null,0]
+            3
+          /  \ 
+         4    5
+        / \  
+       1  2
+         /
+        0
 */
+
+
 class TreeNode{
     constructor(value=null){
         this.value = value;
@@ -35,12 +50,6 @@ const deserialize = (array) => {
     }
     return root;
 }
-
-/* T1 is longer
-first, find the node in t1 which matches t2's root
-second, call function to match each node in t2 with t1
-
-*/
 
 const checkSubtree = (t1, t2) => {
    
@@ -97,16 +106,6 @@ const smallTree4 = deserialize([4,1,2])
 const largeTree5 = deserialize([3,4,5,1,2])
 const smallTree5 = deserialize([4,1,2])
 
-// [3,4,5,1,2,null,null,null,null,0]
-/* 
-            3
-          /  \ 
-         4    5
-        / \  
-       1  2
-         /
-        0
-*/
 
 
 const result1 = checkSubtree(tree1, tree2) // true
