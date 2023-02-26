@@ -10,6 +10,7 @@ Successfully tested the function 2/26/23.
 first, find the node in t1 which matches t2's root
 second, call function to match each node in t2 with t1
 
+largeTree1:
 // [3,4,5,1,2,null,null,null,null,0]
             3
           /  \ 
@@ -18,6 +19,19 @@ second, call function to match each node in t2 with t1
        1  2
          /
         0
+smallTree1: 
+    4
+   / \
+  1   2
+
+
+  Test: 
+     1
+    /
+   1
+   
+   
+   
 */
 
 
