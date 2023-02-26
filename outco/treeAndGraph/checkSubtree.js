@@ -66,19 +66,13 @@ const checkSubtree = (t1, t2) => {
     }
 
     const traverse = (node1, node2) => {
-        // if (node1 === null && node2 === null){
-        //     return true
-        // }
         if (!node1 || !node2){
             return node1 === node2
         }
+        
         if (node1.value !== node2.value){
             return false;
         }
-        // if (node1 === null || node2 === null){
-        //     return false;
-        // }
-
         return traverse(node1.right, node2.right) && traverse(node1.left, node2.left)
     }    
     return traverse(subRoot, t2)
@@ -96,7 +90,6 @@ tree2.right = new TreeNode(13);
 
 const tree3 = new TreeNode(55)
 
-
 const largeTree4 = deserialize([3,4,5,1,2,null,null,null,null,0])
 const smallTree4 = deserialize([4,1,2])
 
@@ -112,13 +105,7 @@ const smallTree5 = deserialize([4,1,2])
        1  2
          /
         0
-        
-        
-
 */
-
-
-
 
 
 const result1 = checkSubtree(tree1, tree2) // true
