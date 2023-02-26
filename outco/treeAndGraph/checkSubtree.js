@@ -3,6 +3,7 @@
 CHECK SUBTREE
 
 4.10
+Successfully tested the function 2/26/23.
 
 */
 class TreeNode{
