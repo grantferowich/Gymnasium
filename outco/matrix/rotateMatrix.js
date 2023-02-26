@@ -38,7 +38,7 @@ const rotateMatrix = (matrix) => {
       for (let x = first; x < last; x++){
 
         let offset = x - first;
-        let top = matrix[first][x] // save top
+        let topLeft = matrix[first][x] // save top
 
         matrix[first][x] = matrix[last - offset][first];
 
@@ -46,7 +46,7 @@ const rotateMatrix = (matrix) => {
 
         matrix[last][last - offset] = matrix[x][last];
 
-        matrix[x][last] = top;
+        matrix[x][last] = topLeft;
       }
     }
     return matrix
