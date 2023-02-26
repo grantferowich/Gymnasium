@@ -20,7 +20,10 @@ class TreeNode{
     }   
 }
 
-const checkSubtree = () => {
+const checkSubtree = (t1, t2) => {
+    if (t2 === null) { return true;}
+
+    
     
 }
 
