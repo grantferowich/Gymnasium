@@ -30,6 +30,8 @@ const data = fs.readFileSync(fileX, 'utf8', (err) => {
 console.log(data) // this works
 // readerX.readAsTest('.jsMethods')
 
+// this will write to the file 
+fs.appendFile(fileX, "'Hello World!!!'") // this works. also note use of single quotes inside the double quotation marks
 
 // 2. How to read input from the console
 
