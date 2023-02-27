@@ -101,9 +101,6 @@ class BinarySearchTree{
     }
 }
 
-
-
-
 const testRandomness = (array) =>{
     let occurrences = {};
     let bst = new BinarySearchTree()
@@ -118,7 +115,6 @@ const testRandomness = (array) =>{
     }
     return occurrences
 }
-
 
 const array1 = [15,23,55]
 console.log("frequency: ", testRandomness(array1));
