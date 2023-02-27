@@ -34,6 +34,14 @@
 
 // Successfully tested the function 12/10/22.
 
+const charMapMaker = (string) => {
+  let hash = {};
+  for (let i = 0; i < string.length; i++){
+    hash[string[i]] = hash[string[i]] + 1 || 1; 
+  }
+  return hash
+}
+
 function anagramPair(string1, string2) {
     if (string1.length !== string2.length){
       return false;
@@ -49,13 +57,6 @@ function anagramPair(string1, string2) {
     return true;
 }
   
-const charMapMaker = (string) => {
-    let hash = {};
-    for (let i = 0; i < string.length; i++){
-      hash[string[i]] = hash[string[i]] + 1 || 1; 
-    }
-    return hash
-}
 
 // cat and act are anagrams of each other
 // dog and cat are not anagrams of each other

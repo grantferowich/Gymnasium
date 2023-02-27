@@ -1,3 +1,13 @@
+/* 
+
+Remove Node From DLL
+
+Hacking the Google Interview 
+
+
+Successfully tested the function 2/27/23.
+*/
+
 class DoublyLinkedListNode{
     constructor(value){
         this.value = value;
