@@ -1,6 +1,8 @@
 /* 
 COIN FLIPPING AND DIE ROLLS
 
+Successfully tested the function 2/27/23.
+
 Describe an algorithm to output a die roll (a random number from 1 to 6), given a
 function that outputs a coin toss (a random number from 1 to 2). Each possible
 outcome should be equally likely.
