@@ -27,13 +27,28 @@ const data = fs.readFileSync(fileX, 'utf8', (err) => {
     console.log('error occurred')
 })
 
-console.log(data) // this works
+// console.log(data) // this works
 // readerX.readAsTest('.jsMethods')
 
 // this will write to the file 
-fs.appendFile(fileX, "'Hello World!!!'") // this works. also note use of single quotes inside the double quotation marks
+// this works. also note use of single quotes
+// inside the double quotation marks
+// fs.appendFile(fileX, "'Hello World!!!'") 
 
 // 2. How to read input from the console
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('What is your name? ', (name) => {
+  console.log(`Hello ${name}!`);
+  rl.close();
+});
+
 
 // 3. How to split strings 
 let string = "wake forest"
