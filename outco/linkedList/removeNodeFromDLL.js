@@ -71,6 +71,5 @@ class DoublyLinkedList{
 let dll = new DoublyLinkedList()
 dll.append(3)
 dll.append(5)
-// dll.append(8)
 dll.remove(3)
 console.log(dll)
