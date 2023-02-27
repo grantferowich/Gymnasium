@@ -50,18 +50,14 @@ head2.next.next.next = new ListNode(1);
 
 
 const randomNodeValue = (node) => {
-
     let current = node;
     let length = 0;
     while (current !== null){
         length++;
         current = current.next;
     }
-
     let randomIdx = Math.floor(Math.random() * length);
     let pointer = node;
-
-
     for (let x = 0; x <= length - 1 ; x++){
         if (x === randomIdx && pointer.val !== undefined){
             return pointer.val;
@@ -70,11 +66,8 @@ const randomNodeValue = (node) => {
     }
 }
 
-// console.log(randomNodeValue(head))
-
 const testRandomness = (node) =>{
     let occurrences = {};
-
     for (let x = 0; x < 2000; x++){
         let num = randomNodeValue(node);
         occurrences[num] = occurrences[num] + 1 || 1;
