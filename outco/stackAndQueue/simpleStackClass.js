@@ -65,6 +65,7 @@ class Stack{
     }
 }
 
+
 // let stack = new StackNode(1)
 // stack.next = new StackNode(2)
 let stack = new Stack()

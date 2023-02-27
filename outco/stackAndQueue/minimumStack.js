@@ -44,5 +44,39 @@ class Stack{
 }
 
 class MinimumStack{
-    constructor()
+    constructor(){
+        this.minimumsStack = new Stack()
+        this.allStack = new Stack()
+    }
+    
+    minimumStackPeek(){
+        return this.minimumsStack.top.data
+    }
+    push(value){
+        this.allStack.push(value)
+        let currentMinimum = this.minimumStackPeek()
+        if (value < currentMinimum){
+            this.minimumsStack.push
+        }
+  
+    }
+    pop(){
+        let value = this.allStack.pop();
+        let currentMinimum = this.minimumStackPeek()
+        if (value === currentMinimum){
+            this.minimumsStack.pop()
+        }
+        return value
+    }
+    findMinimum(){
+        return this.minimumsStack.top.data
+    }
+
 }
+
+const m = new MinimumStack()
+m.push(3)
+m.push(23)
+m.push(2)
+// console.log('// m', m)
+console.log(m.findMinimum())
