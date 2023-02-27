@@ -5,6 +5,9 @@ Describe a stack data structure that supports "push", "pop", and "findminimum"
 operations. "Findminimum" returns the smallest element in the stack.
 
 This implementation supports push(x) and pop() in O(1) time.
+
+Successfully tested the function 2/27/23.
+
 */
 
 class StackNode{
