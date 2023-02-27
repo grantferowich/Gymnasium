@@ -27,7 +27,6 @@ const leaderElection = (serverList) => {
 
     for (let s = 0; s < serverList.length; s++){
         let r = random()
-        // console.log(r)
         randomScores.set(serverList[s], r)
     }
 
