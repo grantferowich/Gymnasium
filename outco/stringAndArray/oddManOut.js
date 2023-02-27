@@ -1,6 +1,12 @@
 /* 
 ODD MAN OUT
 
+Successfully tested the function 2/27/23.
+
+Complexity Analysis:
+Time complexity: O(N)
+Space complexity: O(1)
+
 You're given an unsorted array of integers where every integer appears exactly
 twice,except for one integer which appears only once. Write an algorithm (in a
 language of your choice) that finds the integer that appears only once.
