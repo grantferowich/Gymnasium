@@ -14,29 +14,29 @@ class TreeNode{
 }
 
 const pathsWithSum = (root, x) => {
+    if (!root){ 
+        return 0
+    }
     let count = 0;
 
-    const dfs = (node, tempSum) => {
+    const countPaths = (node, tempSum) => {
+        // base case
+        if (!node){
+            return
+        }
+        tempSum += node.value
         // destination
         if (tempSum === x){
             count++
             return
         }
-        // base case 
-        if (node === null){
-            return
-        }
-        // early terminate
-        if (tempSum > x){
-            return 
-        }
-        // recursive calls 
-        dfs(node.left, tempSum)
-        tempSum += node.value
-        dfs(node.right, tempSum) 
+        // recursive calls
+        
+        countPaths(node.left, tempSum)
+        countPaths(node.right, tempSum) 
     }
 
-    dfs(root, root.value)
+    countPaths(root, 0)
     return count
 }
 
