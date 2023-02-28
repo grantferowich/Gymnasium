@@ -15,4 +15,12 @@ The following exercises demonstrate bit manipulation by hand.
 10. 0100 * 0011 = 1100
 11. 1101 ^ (~1101) = 1111
 12. 1001 & 100 = 1000
-13. 
+
+## Bitwise notation
+1. >> == shift right
+2. << == shift left
+3. ^ == XOR
+4. ~ == NOT
+5. & == and 
+6. | == or
+   
