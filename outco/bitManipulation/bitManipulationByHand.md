@@ -68,3 +68,17 @@ Trick #4: Applying the shift left operator twice on 1111 returns 1100. Completin
     The two's complement of 4 in a 4-bit number is 16-4 = 12, which is 1100. 
 
     The two's complement of 4 in a 3-bit number is 8 - 4= 4, which is 100. To write negative four with a signed 4-bit integer, the negative is written as a 1 by convention. Then to write negative four as a signed 4-bit integer, with the sign taking up the 4th spot, write 2^3 - 4, which is 100. Therefore, -4 is written as 1100. 
+
+    The general formula for writing -X is 1+(2^N -1 -X). 
+    E.g. -4 is 1+(2^3 - 4) == 1100.
+    There are 4 bits, so N is 4, and 2^N-1 is 2^3. 
+
+Num  | Bin
+1. 0   0000
+2. -1  1111
+3. -2  1110
+4. -3  1101
+5. -4  1100
+6. -5  1011
+7. -6  1010
+8. -7  1001  
