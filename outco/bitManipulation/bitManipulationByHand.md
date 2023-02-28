@@ -16,6 +16,14 @@ The following exercises demonstrate bit manipulation by hand.
 11. 1101 ^ (~1101) = 1111
 12. 1001 & 100 = 1000
 
+## Tricks 
+On #9, 0110 + 0110 is the same as 0110 * 2, which is the same as << by 1. So, shifting 0110 left by one results in 1100. 
+
+Trick 1: The shortcut for doubling a bit number is to shift the bits left by 1 position.
+
+On #10, multiplying by 0100 is the same as multiply by 4, which is the same as << 2. 
+
+Trick #2: Multiplying by 0100 is the same as shifting the bits left by 2 spots. 
 ## Bitwise notation
 1. >> == shift right
 2. << == shift left
