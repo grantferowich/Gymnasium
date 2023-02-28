@@ -35,11 +35,12 @@ Trick #4: Applying the shift left operator twice on 1111 returns 1100. Completin
 
 ## Bitwise notation
 1. >> == shift right
-2. << == shift left
-3. ^ == XOR
-4. ~ == NOT
-5. & == AND
-6. | == or
+2. >>> === logical right shift 
+3. << == shift left
+4. ^ == XOR
+5. ~ == NOT
+6. & == AND
+7. | == or
    
 ## Binary representations
     Notice for an N-bit number the highest value which can be represented by 
@@ -72,6 +73,8 @@ Trick #4: Applying the shift left operator twice on 1111 returns 1100. Completin
     The general formula for writing -X is 1+(2^N -1 -X). 
     E.g. -4 is 1+(2^3 - 4) == 1100.
     There are 4 bits, so N is 4, and 2^N-1 is 2^3. 
+    
+    The following list of numbers is the written representation of negative numbers as four-bit, signed integers.
 
 Num  | Bin
 1. 0   0000
@@ -82,3 +85,23 @@ Num  | Bin
 6. -5  1011
 7. -6  1010
 8. -7  1001  
+
+Arithmetic Right Shift vs. Logical Right Shift
+
+    The logical right shift operator (>>>) literally shifts the bits over 1 spot. The difference between the logical right shift operator and the arithmetic right shift operator consists in the treatment of the signed bit. 
+
+    Logical right shift operations write a 0 to the signed bit, effectively converting negative numbers into positive numbers. 
+
+    Arithmetic right shift operations similarly move the bits over. However, arithmetic right shift operations keep the same sign value when shifting. Arithmetic right shift operators divide a number by 2. Similarly, arithmetic left shift operators basically double a bit number. 
+
+    Scenario 1. Applying Logical Right Shift Operator 
+    
+    8-bit integer.
+    10110101 >>>  [-75]
+    => 01011010  [90]
+
+    Scenario 2. Applying the Arithmetic Right Shift Operator. 
+    10110101 >> [-75]
+    => 11011010 [-38]
+
+    
