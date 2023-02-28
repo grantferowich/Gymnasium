@@ -25,6 +25,9 @@ The following exercises demonstrate bit manipulation by hand.
 6. | == or
    
 ## Binary representations
+    Notice for an N-bit number the highest value which can be represented by 
+    the binary represenation is 2^N-1. For a 4-bit number, the highest number
+    which can be represented is 15.
 - Bin  | Num
 - 0000 = 0
 - 0001 = 1
