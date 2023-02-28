@@ -86,7 +86,7 @@ Num  | Bin
 7. -6  1010
 8. -7  1001  
 
-Arithmetic Right Shift vs. Logical Right Shift
+## Arithmetic Right Shift vs. Logical Right Shift
 
     The logical right shift operator (>>>) literally shifts the bits over 1 spot. The difference between the logical right shift operator and the arithmetic right shift operator consists in the treatment of the signed bit. 
 
@@ -104,4 +104,3 @@ Arithmetic Right Shift vs. Logical Right Shift
     10110101 >> [-75]
     => 11011010 [-38]
 
-    
