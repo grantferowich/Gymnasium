@@ -14,9 +14,11 @@ output: [ -1 , 3, -1 ]
 */
 
 const nextGreaterElement = (nums1 = [], nums2 = []) => {
+    
     if (nums1.length === 0 || nums2.length === 0){
         return [];
     }
+
     let output = [] 
     let index1 = 0;
 

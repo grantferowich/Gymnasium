@@ -48,19 +48,20 @@ const sumLists = (list1, list2) => {
     let num1 = []
     let num2 = []
     let result = []
+
     while (current1){
-        // console.log('prev1value: ', current1.value)
         num1.push(current1.value);
         current1 = current1.next
     }
 
     while (current2){
-        // console.log('prev2value: ', current2.value)
         num2.push(current2.value);
         current2 = current2.next
     }
+
     let subresult = parseInt(num1.join('')) + parseInt(num2.join(''))
     subresult = subresult.toString().split('')
+    
     for (let x = 0; x < subresult.length; x++){
         console.log(subresult[x])
         result.push(parseInt(subresult[x]))

@@ -18,6 +18,7 @@ const removeSpaces = (string) => {
     string = string.replace(/[\s]/g, "");
     return string;
 }
+
 console.log(removeSpaces("Wake Forest University")) // expected output: WakeForestUniversity | actual output: WakeForestUniversity
 console.log(removeSpaces('saint charles')) // expected output: saintcharles | actual output: saintcharles
 
@@ -25,7 +26,7 @@ console.log(removeSpaces('saint charles')) // expected output: saintcharles | ac
 // replace all things which are not words (i.e. punctuation) with empty chars
 // ^\w also removes whitespace
 const removePunctuation = (string) => {
-    string = string.replace(/[^\w]/g, "");
+    string = string.replace(/[^\w]/g, ""); 
     return string;
 }
 console.log(removePunctuation('Winston-Salem')) // expected output: WinstonSalem | actual: WinstonSalem

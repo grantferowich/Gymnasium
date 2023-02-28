@@ -141,13 +141,11 @@ class Stack{
     }
 }
 
-
-
-
 function friendCircles(matrix) {
     if (matrix.length < 2) {return matrix.length}
     const rows = matrix.length
     const cols = matrix[0].length
+
     // for backtracking init visited set
     let visited = new Set()
     let output = 0;
