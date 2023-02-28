@@ -1,4 +1,9 @@
-// Successfully tested the function 02/10/23.
+/* 
+DETECT CYCLE 
+
+/// Successfully tested the function 02/10/23.
+
+*
 
   class ListNode {
     constructor(value){
