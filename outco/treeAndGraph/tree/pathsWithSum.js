@@ -18,9 +18,7 @@ const pathsWithSum = (root, x) => {
     if (!root){ 
         return 0
     }
-
     let count = 0;
-    
     const countPaths = (node, tempSum) => {
         // base case
         if (!node){
@@ -36,7 +34,6 @@ const pathsWithSum = (root, x) => {
         countPaths(node.left, tempSum)
         countPaths(node.right, tempSum) 
     }
-    
     countPaths(root, 0)
     return count
 }
