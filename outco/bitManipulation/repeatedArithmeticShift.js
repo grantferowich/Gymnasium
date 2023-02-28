@@ -1,5 +1,6 @@
 /* 
 REPEATED ARITHMETIC SHIFT
+Successfully tested the function 2/28/23.
 */
 
 const repeatedArithmeticShift = (x , count) => {
