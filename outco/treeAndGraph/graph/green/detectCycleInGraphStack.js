@@ -180,10 +180,8 @@ function detectCycleInGraph(edgeList) {
                     visited[neighbors[x]] = 'pre'
                 }
             }
-            // if neighbors exceeds one add to ancestors   
         }
         visited[top] = 'post'
-        
     }
     return false;
 }
