@@ -1,7 +1,10 @@
 /* 
 Decimal to Binary
+
 input: a decimal integer
 output: a bit integer
+
+Successfully tested the function. 
 */
 
 const decimalToBinary = (decimal, length) => {
