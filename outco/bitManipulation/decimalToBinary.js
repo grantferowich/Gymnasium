@@ -9,11 +9,9 @@ Successfully tested the function 2/28/23.
 
 const decimalToBinary = (decimal, length) => {
     let binaryStr = (decimal >>> 0).toString(2)
-
     while (binaryStr.length < length){
         binaryStr = '0' + binaryStr
     }
-
     return binaryStr
 }
 
