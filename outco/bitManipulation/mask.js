@@ -22,11 +22,13 @@ const decimalToBinary = (decimal, length) => {
     return binaryStr
 }
 
-
-
 const maskA = decimalToBinary(1, 32)
 console.log('maskA:', maskA)
 // maskA: 00000001
+
+const negateMaskA = decimalToBinary(~maskA, 32)
+console.log('negateMaskA:', negateMaskA)
+// negateMaskA: 11111111111111111111111111111110
 
 const maskB = decimalToBinary(3,32)
 console.log('maskB:', maskB)
@@ -38,7 +40,7 @@ console.log('maskC:', maskC)
 
 const maskD = decimalToBinary(-4,32)
 console.log('maskD:', maskD)
-console.log(maskD.length)
+console.log('maskD.length:', maskD.length)
 
 const x = maskA << 3
 // console.log('mask', mask)
