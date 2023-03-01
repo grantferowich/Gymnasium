@@ -1,6 +1,9 @@
 /* 
 Get Bit
 
+Successfully tested the function 3/1/23.
+Get Bit returns whether or not the value at the xth index of the num is a 1 (true) or 0 (false)
+
 input: a binary number, x
 output: true if the bit value at the xth index is 1
         false if the bit value at the xth index is 0
@@ -8,7 +11,7 @@ output: true if the bit value at the xth index is 1
 */
 
 
-//get bit returns whether or not the value at the xth index of the num is a 1 (true) or 0 (false)
+
 const getBit = (num, x) => {
     let mask = 1 << x
     console.log(`Num is ${num} while mask is ${mask}`)    

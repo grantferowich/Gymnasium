@@ -4,7 +4,7 @@ Decimal to Binary
 input: a decimal integer
 output: a bit integer
 
-Successfully tested the function. 
+Successfully tested the function 2/28/23.
 */
 
 const decimalToBinary = (decimal, length) => {
