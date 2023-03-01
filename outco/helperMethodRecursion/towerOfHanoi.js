@@ -3,11 +3,11 @@
  * 
  * Successfully tested the function 1/26/23.
  * 
- * The tower of hanoi problem gives a number and expects
+ * The tower of hanoi question gives a number and expects
  * a series of statements about the movement of the discs. 
  * 
- * This problem is a recursion problem 
- * and also this problem is a nested recursion problem.
+ * This question is a recursion question
+ * and also this problem is a nested recursion question.
  * 
  * 
  * Input: 2
