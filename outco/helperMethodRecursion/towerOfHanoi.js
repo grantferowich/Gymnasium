@@ -1,4 +1,8 @@
 /**
+ * Tower of Hanoi
+ * 
+ * Successfully tested the function 1/26/23.
+ * 
  * The tower of hanoi problem gives a number and expects
  * a series of statements about the movement of the discs. 
  * 
