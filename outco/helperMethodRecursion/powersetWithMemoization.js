@@ -7,6 +7,7 @@
  * 4, Base case(s): recursion termination condition
  * 5, Recursive case(s): cases for the method to call itself
  * 
+ * Defined and successfully tested powersetWithMemoization() on 12/11/2022.
  * 
  *                            ""        --> build = "", depth = 0
  *                       /          \ 
@@ -16,14 +17,11 @@
  *                 / \   / \     / \    / \
  *              ""  "c" "b""bc""a""ac""ab" "abc" --> depth = 3
  * 
- * 
  * powersetWithMemoization("abc") => ["", "c", "b", "bc", "a", "ac", "ab", "abc"]
- * 
  */
 
 
-// Defined and successfully tested powersetWithMemoization()
-// on 12/11/2022.
+
 
 
 const powersetWithMemoization = (word) => {
