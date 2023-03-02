@@ -1,13 +1,14 @@
-// Successfully tested the function 1/18/23 
-// typeof [] actually returns object
-// to check if an element is an array the Array.isArray(x) method must be used
 /* 
+Flatten Array
 
+Successfully tested the function 1/18/23 
+Notes: In JavaScript, typeof [] actually returns object instead of an array.
+To check if a thing is an array the Array.isArray(x) method must be implemented.
 
-1. state the return var
-2. 
-
-
+Complexity analysis: 
+Time: O(N)
+Auxiliary: O(N)
+Total Space: O(N)
 */
 function flatten(array){
     let flattened = [];

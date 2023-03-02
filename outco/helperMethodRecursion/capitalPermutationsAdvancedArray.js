@@ -32,7 +32,6 @@
 const capitalPermutationsAdvancedArray = (string) => {
 
     let permutations = [];
-    // let hash = {};
 
     const generatePermutations = (build, depth) => {
         if (depth === string.length){

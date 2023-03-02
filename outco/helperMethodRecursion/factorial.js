@@ -6,6 +6,7 @@
 
 // Time: O(N)
 // Space: O(1)
+ 
 const factorial = (number) => {
     // state variable
     let product = 1;

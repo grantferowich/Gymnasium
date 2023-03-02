@@ -9,7 +9,6 @@
  * This question is a recursion question
  * and also this problem is a nested recursion question.
  * 
- * 
  * Input: 2
  * Output: Disk 1 moved from A to B
  * Disk 2 moved from A to C
