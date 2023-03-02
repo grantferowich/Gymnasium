@@ -15,7 +15,6 @@ const decimalToBinary = (decimal, length) => {
     return binaryStr
 }
 
-
 /*  TESTS */
 
 const data = decimalToBinary(63, 8) 
