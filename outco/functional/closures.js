@@ -1,5 +1,7 @@
 /* 
 Closures
+
+Successfully tested the function 
 In JavaScript, a closure is a feature that allows a function 
 to access and remember variables from its outer scope even
 after the outer function has returned. Essentially, a closure
@@ -22,13 +24,13 @@ avoiding the creation of unnecessary variables and functions.
 (h/t ChatGPT)
 */
 const summation = arr => {
-  let sum = 1;
+  let sum = 0;
 
   //the sumFun closure captures the array even though the array is not passed as an argument
   //the closure captures a free variable - arr - that was defined at the time the function was defined
   const sumFun = () => {
     for (let i = 0; i < arr.length; i++) {
-      sum *= arr[i];
+      sum += arr[i];
     }
   };
 
@@ -36,5 +38,5 @@ const summation = arr => {
   return sum;
 };
 
-console.log(summation([1, 2, 3, 4])); // ==> 24
+console.log(summation([1, 2, 3, 4])); // ==> 10
 //works
