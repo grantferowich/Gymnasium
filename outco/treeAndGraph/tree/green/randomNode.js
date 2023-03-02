@@ -4,6 +4,13 @@ TREE NODE
 CTCI 4.11
 
 Successfully tested the function 2/26/23.
+
+Input: A tree
+Output: a random node from the tree
+
+Complexity analyis
+Time: O(k*N) where k is less than 1
+Space: O(N)
 */
 
 class TreeNode{
