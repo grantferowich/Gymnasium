@@ -22,9 +22,7 @@
  * Disk 1 moved from B to A
  * Disk 2 moved from B to C
  * Disk 1 moved from A to C
- * 
- * 
- *  *  */ 
+ */ 
 
 const towerOfHanoi = (num, source, auxiliary, target) => {
     moveDiscs = (num, source, auxiliary, target) => {
