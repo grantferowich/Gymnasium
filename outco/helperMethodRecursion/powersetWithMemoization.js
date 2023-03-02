@@ -1,5 +1,9 @@
 /**
- * helper method recursion
+ * Power Set With Memoization
+ * 
+ * Successfully tested powersetWithMemoization() on 12/11/2022.
+ * 
+ * Reviwing the 5 steps for implementing helper method recursion
  * 
  * 1, create state variable(s)
  * 2, return state variable(s)
@@ -7,7 +11,7 @@
  * 4, Base case(s): recursion termination condition
  * 5, Recursive case(s): cases for the method to call itself
  * 
- * Defined and successfully tested powersetWithMemoization() on 12/11/2022.
+ * 
  * 
  *                            ""        --> build = "", depth = 0
  *                       /          \ 

@@ -6,12 +6,8 @@ power(3,4) => 81
 
 */
 
-
-
-
-
 function power(base, exponent) {
-  
+    
     let product = 1;
     
     const multiply = (depth) => {
