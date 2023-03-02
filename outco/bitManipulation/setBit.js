@@ -30,5 +30,6 @@ console.log('binaryNum:', binaryNum1)
 const binaryNum2 = setBit(0,1)
 console.log('binaryNum2:', binaryNum2)
 
-const binaryNum3 = setBit(5,1)
+const binaryNum3 = setBit(5,1) // 5 is 101, 1 is 10, the result is 111
 console.log('binaryNum3:', binaryNum3)
+console.log('binary number',decimalToBinary(binaryNum3))
