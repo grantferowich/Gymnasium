@@ -10,31 +10,47 @@ output: true if the bit value at the xth index is 1
 
 */
 
-
+const decimalToBinary = (decimal) => {
+    let binaryStr = (decimal >>> 0).toString(2)
+    while (binaryStr.length < 64){
+        binaryStr = '0' + binaryStr
+    }
+    // return `${decimal} as a binary number: ${binaryStr}`
+    return binaryStr
+}
 
 const getBit = (num, x) => {
-    let mask = 1 << x
+    
+    let mask = decimalToBinary(1 << x)
+    num = decimalToBinary(num)
     console.log(`Num is ${num} while mask is ${mask}`)    
-    return ((num && mask) !== 0)
+    return ((parseInt(num,2) & parseInt(mask,2)) !== 0)
 }
 
 const data = getBit(0, 0) 
 console.log('data 1:', data) 
 
-// Num is 0 while mask is 1
+// Num is 0000000000000000000000000000000000000000000000000000000000000000 
+// while mask is 0000000000000000000000000000000000000000000000000000000000000001
 // data 1: false
 
-const data2 = getBit(1,1)
+const data2 = getBit(1,4)
 console.log('data 2:', data2) 
 
-// Num is 1 while mask is 2
-// data 2: true
+// Num is 0000000000000000000000000000000000000000000000000000000000000001 
+//while mask is 0000000000000000000000000000000000000000000000000000000000010000
+// data 2: false
 
 const data3 = getBit(1,3)
 console.log('data 3:', data3) 
 
-// Num is 1 while mask is 8
-// data 3: true
+// Num is 0000000000000000000000000000000000000000000000000000000000000001 
+// while mask is 0000000000000000000000000000000000000000000000000000000000001000
+// data 3: false
 
 const data4 = getBit(16,0)
 console.log('data 4:', data4) 
+
+// Num is 0000000000000000000000000000000000000000000000000000000000010000 
+// while mask is 0000000000000000000000000000000000000000000000000000000000000001
+// data 4: false
