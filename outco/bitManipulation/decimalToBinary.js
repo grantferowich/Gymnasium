@@ -9,7 +9,7 @@ Successfully tested the function 2/28/23.
 
 const decimalToBinary = (decimal) => {
     let binaryStr = (decimal >>> 0).toString(2)
-    while (binaryStr.length < 32){
+    while (binaryStr.length < 64){
         binaryStr = '0' + binaryStr
     }
     return `${decimal} as a binary number: ${binaryStr}`
