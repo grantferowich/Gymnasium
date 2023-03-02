@@ -1,7 +1,8 @@
 /* 
 Closures
 
-Successfully tested the function 
+Successfully tested the function 03/02/2023.
+
 In JavaScript, a closure is a feature that allows a function 
 to access and remember variables from its outer scope even
 after the outer function has returned. Essentially, a closure
