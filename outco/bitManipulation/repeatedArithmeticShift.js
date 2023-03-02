@@ -4,6 +4,7 @@ REPEATED ARITHMETIC SHIFT
 
 Successfully tested the function 2/28/23.
 
+/* The arithmetic shift carries the signed 1 over every bit slot in the 64-bit word. */
 */
 
 const repeatedArithmeticShift = (x , count) => {
@@ -18,4 +19,3 @@ const repeatedArithmeticShift = (x , count) => {
 const data = repeatedArithmeticShift(-932424444444, 800)
 console.log('data', data) // data -1
 
-/* The arithmetic shift carries the signed 1 over every bit slot in the 64-bit word. */
