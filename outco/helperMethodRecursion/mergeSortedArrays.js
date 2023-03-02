@@ -1,5 +1,7 @@
 /* 
-Merge Two Sorted Arrays'
+Merge Two Sorted Arrays
+
+Successfully tested the function 03/02/2023.
 
 Perform the merge sort of the two arrays in O(M+N) time
 The brute force solution is to concatenate the arrays and then perform a sort.
@@ -48,6 +50,6 @@ function mergeSortedArrays(arr1, arr2) {
 }
 
 console.log(mergeSortedArrays([1,2,3,4,5], [6,8,10])) // [ 1, 2, 3, 4, 5, 6, 8, 10]
-console.log(mergeSortedArrays([1,4,5,7], [2, 3,5,6,9])) // [ 1, 2, 3, 4, 5, 5, 6, 7, 9]
+console.log(mergeSortedArrays([1,4,5,7], [2,3,5,6,9])) // [ 1, 2, 3, 4, 5, 5, 6, 7, 9]
 
 
