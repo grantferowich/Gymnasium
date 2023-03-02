@@ -1,12 +1,16 @@
-// Successfully tested the function 1/18/23.
-// given a number return the factorial of that number
-// 4! = 1 * 2 * 3 * 4 
-// 4! = 24
+/* 
+Factorial
 
+Successfully tested the function 1/18/23.
 
-// Time: O(N)
-// Space: O(1)
- 
+Given a number return the factorial of that number
+4! = 1 * 2 * 3 * 4 
+4! = 24
+
+Complexity analysis
+Time: O(N)
+Space: O(1)
+  */
 const factorial = (number) => {
     // state variable
     let product = 1;

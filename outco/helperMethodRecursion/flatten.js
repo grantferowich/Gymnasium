@@ -24,6 +24,7 @@ function flatten(array){
         }
       }
     }  
+    
     makeFlat(array);
     return flattened;
 }

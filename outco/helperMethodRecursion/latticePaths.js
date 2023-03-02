@@ -1,6 +1,7 @@
 /*
-// Successfully tested the function 1/18/23.
-LATTICE PATHS
+Lattic Paths
+
+Successfully tested the function 1/18/23.
 
 USING PURE RECURSION COUNT THE NUMBER OF UNIQUE PATHS
 TO TRAVEL FROM THE TOP LEFT CORNER TO THE BOTTOM RIGHT CORNER
@@ -12,12 +13,11 @@ INPUT: M, INTEGER (NUMBER OF ROWS OF SQUARES)
 INPUT: N, INTEGER (NUMBER OF COLUMNS)
 OUTPUT: INTEGER, NUMBER OF UNIQUE PATHS FROM 0,0 TO M, N
 
-CONSTRAINTS:
-
+Constraints
+Runtime: O(2^M+N)
+Aux: O(2^M+N) because the calls must be pushed to a function call stack. 
 
 EDGE CASES: 
-
-
 
 TEST CASES: 
 
@@ -28,8 +28,6 @@ TEST CASES:
 2|__|__|__|
 
 EXPECTED OUTPUT: 10
-
-
 
 
 

@@ -6,7 +6,7 @@
  * Input: n (Integer)
  * Output: Integer
  * 
- * sExample:
+ * Example:
  * Input: n = 1
  * Output: 5
  * Explanation: The strings that consist of vowels only are ["a","e","i","o","u"].
@@ -26,12 +26,11 @@
  *                                  ""
  *                          /     /   \     \   \
  *                       "a"    "e"   "i"   "o"  "u"
- * 
- * 
  */
 
 
 const countVowelStrings = (number) => {
+    
     let array = []
     
     const generateString = (build, depth) => {
