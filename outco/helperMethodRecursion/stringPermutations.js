@@ -1,7 +1,9 @@
-// findPermutations("aabc")
+/* 
+String Permutations 
 
-// (12) ["aabc", "aacb", "abac", "abca", "acab", "acba", "baac", "baca", "bcaa", "caab", "caba", "cbaa"]
-/** 
+Find Permutations("aabc")
+(12) ["aabc", "aacb", "abac", "abca", "acab", "acba", "baac", "baca", "bcaa", "caab", "caba", "cbaa"]
+* 
  *      input: "aabc"
  *      
  *                                                                ""  depth 0                -> when going right, add the next letter
