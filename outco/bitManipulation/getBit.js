@@ -15,7 +15,6 @@ const decimalToBinary = (decimal) => {
     while (binaryStr.length < 64){
         binaryStr = '0' + binaryStr
     }
-    // return `${decimal} as a binary number: ${binaryStr}`
     return binaryStr
 }
 
