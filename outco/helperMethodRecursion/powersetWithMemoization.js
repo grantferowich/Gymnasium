@@ -20,10 +20,6 @@
  * powersetWithMemoization("abc") => ["", "c", "b", "bc", "a", "ac", "ab", "abc"]
  */
 
-
-
-
-
 const powersetWithMemoization = (word) => {
     // create state variable
     let array = []
