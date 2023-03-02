@@ -14,8 +14,8 @@ function flatten(array){
     let flattened = [];
   
     const makeFlat = (subarray) => {
-        // if the type of the element is an array itself
-        // make recursive call
+        // If the type of the element is an array itself
+        // the makeFlat(x) function must call itself recursively
       for (let x = 0; x < subarray.length; x++){
         if (Array.isArray(subarray[x])){
             makeFlat(subarray[x]);
