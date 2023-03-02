@@ -1,13 +1,14 @@
-// Merge two sorted arrays
-// Perform the merge sort of the two arrays in O(M+N) time
-// The brute force solution is to concatenate the arrays and then perform a sort.
-// The time complexity of this approach is quasilinear.
-// Sorting the combined array has a runtime of O(N+M)log(N+M).
+/* 
+Merge Two Sorted Arrays'
 
-// The approach below uses O(M+N) auxiliary space.
-// The approach below has a runtime of O(M+N). 
+Perform the merge sort of the two arrays in O(M+N) time
+The brute force solution is to concatenate the arrays and then perform a sort.
+The time complexity of this approach is quasilinear.
+Sorting the combined array has a runtime of O(N+M)log(N+M).
 
-
+The approach below uses O(M+N) auxiliary space.
+The approach below has a runtime of O(M+N). 
+*/
 
 function mergeSortedArrays(arr1, arr2) {
   let merged = [];
