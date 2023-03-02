@@ -1,5 +1,5 @@
 /*
-Lattic Paths
+Lattice Paths
 
 Successfully tested the function 1/18/23.
 
@@ -27,20 +27,13 @@ TEST CASES:
 1|__|__|__|
 2|__|__|__|
 
-EXPECTED OUTPUT: 10
+Expected Output: 10
 
-
-
+The first lattice paths function was successfully tested on 12/10/22.
+This function has a runtime of O(2^M+N)
 */
 
-
-// The first lattice paths function was successfully tested on 12/10/22.
-// This function has a runtime of O(2^M+N)
-
-
-// solution 1
 const { performance } = require("perf_hooks");
-
 var t0 = performance.now();
 
 const latticePaths = (row, col) => {
