@@ -1,6 +1,9 @@
 /* 
 Binary to Decimal
 
+Input: Bit number
+Output: Decimal number
+
 Successfully tested the function 3/1/23.
 */
 

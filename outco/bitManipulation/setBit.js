@@ -16,8 +16,13 @@ const decimalToBinary = (decimal) => {
     return binaryStr
 }
 
+
+const decimalToBinaryX = (decimal) => {
+    return parseInt(decimal.toString(2))
+}
 const setBit = (num, x) => {
     let mask = 1 << x
+    console.log('mask:', parseInt(mask.toString(2)))
     let output = num | mask
     return output
 }
