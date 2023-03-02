@@ -20,11 +20,9 @@ const decimalToBinary = (decimal) => {
 }
 
 const getBit = (num, x) => {
-    
-    let mask = decimalToBinary(1 << x)
-    num = decimalToBinary(num)
-    console.log(`Num is ${num} while mask is ${mask}`)    
-    return ((parseInt(num,2) & parseInt(mask,2)) !== 0)
+    let mask = 1 << x
+    console.log(`Num is ${decimalToBinary(num)} while mask is ${decimalToBinary(mask)}`)    
+    return (parseInt(num,2) & parseInt(mask,2)) !== 0
 }
 
 const data = getBit(0, 0) 
@@ -41,16 +39,23 @@ console.log('data 2:', data2)
 //while mask is 0000000000000000000000000000000000000000000000000000000000010000
 // data 2: false
 
-const data3 = getBit(1,3)
+const data3 = getBit(8,3)
 console.log('data 3:', data3) 
 
 // Num is 0000000000000000000000000000000000000000000000000000000000000001 
 // while mask is 0000000000000000000000000000000000000000000000000000000000001000
 // data 3: false
 
-const data4 = getBit(16,0)
+const data4 = getBit(16,1)
 console.log('data 4:', data4) 
 
 // Num is 0000000000000000000000000000000000000000000000000000000000010000 
 // while mask is 0000000000000000000000000000000000000000000000000000000000000001
 // data 4: false
+
+const data5 = getBit(16,4)
+console.log('data 5:', data5) 
+
+// Num is 0000000000000000000000000000000000000000000000000000000000010000 
+// while mask is 0000000000000000000000000000000000000000000000000000000000010000
+// data 5: true
