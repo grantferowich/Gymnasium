@@ -4,6 +4,7 @@ Clear Bit
 Clear bit's function is to set the bit at the x'th position to 0.
 
 Successfully tested Clear Bit 3/2/23.
+
 Input 1
 Suppose the input is 5, a.k.a. 101 in binary.
 101 = 5
@@ -31,5 +32,8 @@ const clearBit = (num, x) => {
 const data1 = clearBit(5,2)
 console.log('data1:', data1) // 1
 
-const data2 = clearBit(21,2) // 17
-console.log('data2:', data2)
+const data2 = clearBit(21,2) 
+console.log('data2:', data2) // 17
+
+const data3 = clearBit(5,0)
+console.log('data3:', data3) // 1

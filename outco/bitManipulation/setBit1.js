@@ -1,8 +1,8 @@
 /* 
 
-Set Bit
+Set Bit 1
 
-Set Bit updates the value at the xth index. 
+Set Bit updates the value at the xth index to 1. 
 
 input: a binary number, x.
 output: updated binary number with a 1 at the xth location.
@@ -22,7 +22,7 @@ const decimalToBinaryX = (decimal) => {
     return parseInt(decimal.toString(2))
 }
 
-const setBit = (num, x) => {
+const setBit1 = (num, x) => {
     let mask = 1 << x
     // console.log('mask', mask)
     // console.log('mask binary:', parseInt(mask.toString(2)))
