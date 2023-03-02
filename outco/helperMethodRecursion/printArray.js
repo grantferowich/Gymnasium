@@ -1,7 +1,17 @@
-// print all the elements in the array
-// Time complexity: 0(N)
-// Space complexity: O(1)
+/* 
+Print Array
 
+Successfully tested the function 12/10/22.
+
+Print all the elements in the array to the console.
+
+Input: an array
+Outuput: values to the console
+
+Complexity analysis 
+Time complexity: 0(N)
+Space complexity: O(1)
+ */
 const printArray = (arr) => {
 
     const printEle = (depth) => {
