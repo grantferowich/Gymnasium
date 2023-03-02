@@ -26,5 +26,3 @@ console.log(data3)
 // note we see 32 even though the length passed in is 32
 const data4 = decimalToBinary(-500)
 console.log(data4)
-
-
