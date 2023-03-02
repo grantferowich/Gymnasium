@@ -12,4 +12,4 @@ const decimalToBitNumber = (decimal) => {
     return parseInt(decimal.toString(2))
 }
 
-console.log(decimalToBitNumber(5))
+console.log(decimalToBitNumber(5)) // 101
