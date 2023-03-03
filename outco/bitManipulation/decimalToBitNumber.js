@@ -13,3 +13,5 @@ const decimalToBitNumber = (decimal) => {
 }
 
 console.log(decimalToBitNumber(5)) // 101
+console.log(decimalToBitNumber(0)) // 0
+console.log(decimalToBitNumber(-1)) // 0

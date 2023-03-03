@@ -25,3 +25,6 @@ const binaryStr3 = '00011101';
 const result3 = binaryToDecimal(binaryStr3)
 console.log('result 3:', result3) // result 2 29
 
+const binaryStr4 = '11111111111111111111111111111011'
+const result4 = binaryToDecimal(binaryStr4)
+console.log('result 4:', result4)
