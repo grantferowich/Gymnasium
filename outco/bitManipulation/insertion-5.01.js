@@ -38,18 +38,7 @@ const decimalToBitNumber = (decimal) => {
 const insertion = (M, N, i, j) => {
     if ( i < 0 || i > 64) { return 0 }
     let mShifted = M << i
-    console.log('m', decimalToBitNumber(M))
-    // M = 10011
-    // mShifted = 1001100
-    console.log('mShifted:', decimalToBitNumber(mShifted))
-    let allOnes = ~0
-    console.log('allOnes', allOnes)
-    // create mask to clear bits from i to j  
-    let left = j < 63 ? (allOnes << (j + 1)) : 0
-    let right = ((1 << i) - 1)
-    let mask = left | right 
-    let nCleared = N & mask
-    return nCleared | mShifted;
+    return N | mShifted;
 }
 
 /* TESTS */
@@ -57,4 +46,3 @@ const insertion = (M, N, i, j) => {
 const data = insertion(0b10011, 0b10000000000, 2, 6)
 console.log('output:', parseInt(data.toString(2))) 
 // output = 10001001100
-//  output: 10001001100
