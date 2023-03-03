@@ -31,3 +31,6 @@ const insertion = (M, N, i, j) => {
 }
 
 /* TESTS */
+
+const data = insertion(10011, 10000000000, 2, 6)
+console.log('data:', data)
