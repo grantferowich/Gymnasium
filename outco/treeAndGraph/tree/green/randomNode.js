@@ -1,5 +1,4 @@
 /* 
-
 TREE NODE
 CTCI 4.11
 
@@ -11,6 +10,7 @@ Output: a random node from the tree
 Complexity analyis
 Time: O(k*N) where k is less than 1
 Space: O(N)
+
 */
 
 class TreeNode{
