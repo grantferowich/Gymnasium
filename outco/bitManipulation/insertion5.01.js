@@ -25,3 +25,9 @@ the bits from i to j. After the clearing procedure, McDowell agrees with
 my approach to shift M i times, then merge the N binary number with the 
 M binary number implementing the OR operator.
 */
+
+const insertion = (M, N, i, j) => {
+
+}
+
+/* TESTS */
