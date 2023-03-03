@@ -3,6 +3,13 @@ Binary to String
 
 CTCI 5.02
 
+Successfully tested the function 03/03/2023.
+
+Question: Given a real number between 0 and 1 (e.g., 0.72) that is passed in as a 
+doulbe, print the binary representation. If the number cannot be 
+represented accurately in binary with at most 32 characters,
+print "ERROR."
+
 Input: 0.04, a decimalNumber
 Output: 0.100
 
