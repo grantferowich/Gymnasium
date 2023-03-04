@@ -4,22 +4,25 @@
 Hard
 Successfully tested the function 03/02/2023.
 
-Question: You are given an array of integers nums, 
+## Question
+You are given an array of integers nums, 
 there is a sliding window of size k which 
 is moving from the very left of the array to the 
 very right. You can only see the k numbers in 
 the window. Each time the sliding window moves 
 right by one position. Return the max sliding window.
 
+
 Input: an array, integer k
 Output: an array
 
-Psuedocode
+## Psuedocode
 initialize the fixed size window from 0 to window size
     -> for loop i = 0 to k-1
 move the window 
     -> for loop i = k to end
 
+## Approach
 Maintain a queue which pushes elements and which evicts 
 elements as the window slides over the input array.
 
