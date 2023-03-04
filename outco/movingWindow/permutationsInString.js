@@ -1,107 +1,60 @@
 /* 
-
-567. PERMUTATIONS IN STRING
-Medium
-
-* untested
-* The function passed certain test cases as of 2/21/23.
-* The function did not pass a comprehensive suite of test cases as of 2/21/23.
-Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
-
-In other words, return true if one of s1's permutations is the substring of s2.
-
-function 1: generatePermutations(x) => takes in a string,
- returns a set of permutations of x
-    -> uses helper method recursion
-    -> builds up from "" and 0 depth
-    -> recursive tree diagram for (ab)
-
-                 ""  depth = 0
-               /     \
-              ''     'a'  depth = 1
-           /   \     /  \
-         ''   'b'  'a'  'ab' depth = 2  
+Permutations In String
 
 
-function 2: permutationExists(s1, s2)
- returns true if s2 contains a permutation of s1    
- // put permutations from helper method into a hash map
- //   -- key: permutation, value = 1
- // expand window until window size equals s1.length
- // once the window size eqals s1.length
- // check if the stuff in the window exists 
- as a key in the hashmap of permutations
- // return true if the stuff inside the window 
- // is a key of the hashmap
+Given two strings s1 and s2, return true 
+if s2 contains a permutation of s1, or 
+false otherwise.
 
- // contract when the window size exceeds s2.length
- // evict the char at the left window edge,
- // by implementing shift to kick the char out
+In other words, return true if one of s1's 
+permutations is the substring of s2.
+
+
+- create a map with str1's letters as the keys
+and the frequency of each letter as the values
+    - create idealMap
+- initialize the window from 0 to str1.length - 1
+- initialize tempWindowMap 
+    -> each window will have a tempWindowMap
+    -> at each iteration, check if the value of 
+    each key in tempWindowMap equals the value of
+    the same key in idealMap
+- slide the window from str1.length - 1 to str2.length - 1
 
 */
 
-const stringPermutationWithMemoization = (string) => {
-    let set = new Set()
-    let hash = {}
-    let usedIndexes = []
+const containsPermutation = (str1, str2) =>{
 
-    const buildPermutation = (build, usedIndexes) =>{
-        let key = build + "_" + usedIndexes;
-        if (hash[key]){return hash[key]}
-        if (build.length  === string.length){
-            set.add(build)
-            return 
+    let idealMap = new Map()
+    for (let x = 0; x < str1.length; x++){
+        let key = str1[x]
+        if (idealMap.has(key)){
+            let frequency = idealMap.get(key)
+            idealMap.set(key, frequency+1)
         }
-        
-        for (let x = 0; x < string.length; x++){
-            let char = string[x];
-            if (!usedIndexes.includes(x)){
-                hash[key] = buildPermutation(build + char, usedIndexes.concat(x))
-            }
+        if (!idealMap.has(key)){
+            idealMap.set(key, 1)
         }
     }
-    buildPermutation("", usedIndexes)
-    return set;
+
+    
+
+
+    // return false;
 }
 
-let s1 = 'ab'
-let s2 = 'eidbaooo'
-// let permuations = stringPermutationWithMemoization(s1)
 
-let s3 = 'wake'
-let s4 = 'ekawforest'
+/* TESTS */
 
-let s5 = 'wake'
-let s6 = 'forest'
+const input1Str = 'ab'
+const input2Str = 'eidbaooo'
+const test1 = containsPermutation(input1Str, input2Str) 
+console.log('Test 1:', test1)
+// Test 1: true
 
-let s7 = 'adc'
-let s8 = 'dcda'
-
-const permutationExists = (s1, s2) => {
-    // returns a set
-    let permutations = stringPermutationWithMemoization(s1)
-    let leftPtr = 0;
-    let rightPtr = 0;
-    let currentWindow = '';
-
-    while (rightPtr < s2.length){      
-        if (currentWindow.length === s1.length){
-            if (permutations.has(currentWindow)){
-                return true;
-            }
-        }
-        let char = s2[rightPtr];
-        currentWindow += char;
-        if (currentWindow.length > s1.length){
-            currentWindow = currentWindow.slice(1)
-            leftPtr++
-        }
-        rightPtr++
-    }
-    return false;
-}
-
-console.log(permutationExists(s1, s2)) // true
-console.log(permutationExists(s3, s4)) // true
-console.log(permutationExists(s5, s6)) // false
+const input3Str = 'ab'
+const input4Str = 'eidboaoo'
+const test2 = containsPermutation(input3Str, input4Str);
+console.log('Test 2:', test2)
+// Test 2: false
 
