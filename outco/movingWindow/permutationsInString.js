@@ -1,6 +1,7 @@
 /* 
 Permutations In String
 
+Successfully tested the function 03/04/23.
 
 Given two strings s1 and s2, return true 
 if s2 contains a permutation of s1, or 
@@ -10,6 +11,7 @@ In other words, return true if one of s1's
 permutations is the substring of s2.
 
 
+ ## Brute force 
 - create a map with str1's letters as the keys
 and the frequency of each letter as the values
     - create idealMap
