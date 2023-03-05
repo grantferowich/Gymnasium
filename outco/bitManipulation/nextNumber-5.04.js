@@ -18,7 +18,6 @@ Output: 1001, 11
 */
 
 const nextNumber = (binaryNumber) => {
-
     let binaryStr = binaryNumber.toString(2)
     let nextLargest = binaryNumber << 1
     nextLargest = nextLargest.toString(2)
