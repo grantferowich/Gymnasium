@@ -26,6 +26,9 @@ and the frequency of each letter as the values
 const containsPermutation = (str1, str2) =>{
 
     let idealMap = new Map()
+    let window = []
+    let permutationsInt = str1.length
+
     for (let x = 0; x < str1.length; x++){
         let key = str1[x]
         if (idealMap.has(key)){
@@ -37,10 +40,42 @@ const containsPermutation = (str1, str2) =>{
         }
     }
 
+    // initialize fixed-size window from 0 to str1.length-1
+    for (let x = 0; x < str1.length; x++){
+        let rChar = str2[x]
+        window.push(rChar)
+        if (idealMap.has(rChar) && idealMap.get(rChar) > 0){
+            let value = idealMap.get(rChar);
+            idealMap.set(rChar, value - 1)
+            permutationsInt--
+        }
+    }
     
+    if (permutationsInt === 0){
+        return true
+    }
 
+    // move the window
+    for (let x = str1.length; x < str2.length; x++){
+        let char = str2[x]
+        if (idealMap.has(char) && idealMap.get(char) > 0){
+            let frequency = idealMap.get(char);
+            idealMap.set(char, frequency - 1)
+            permutationsInt--
+        }
+        window.push(char)
+        let evictedValue = window.shift()
+        if (idealMap.has(evictedValue)){
+            let frequency = idealMap.get(char)
+            idealMap.set(char, frequency + 1)
+            permutationsInt++
+        }
+        if (permutationsInt === 0){
+            return true
+        }
+    }
 
-    // return false;
+    return false;
 }
 
 
@@ -57,4 +92,10 @@ const input4Str = 'eidboaoo'
 const test2 = containsPermutation(input3Str, input4Str);
 console.log('Test 2:', test2)
 // Test 2: false
+
+const input5Str = 'ab'
+const input6Str = 'ba'
+const test3 = containsPermutation(input5Str, input6Str);
+console.log('Test 3:', test3)
+// Test 3: true
 
