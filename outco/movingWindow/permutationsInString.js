@@ -74,7 +74,6 @@ const containsPermutation = (str1, str2) =>{
             return true
         }
     }
-
     return false;
 }
 
