@@ -51,14 +51,13 @@ const { expect } = require('chai')
  * Inputs: Month number, subscription object, users array
  */
 function monthlyCharge(month, subscription, users = []) {
-    // if the user's start date is less than the chargeMonth, and the user's deactivation date is null,
+    // if the user's start date is less than the chargeMonth, 
+    // and the user's deactivation date is null,
     // then for each user, increment total charge
     let totalChargeInt = 0;
     let chargeMonthInt = month.split('-')[1]
     let chargeYearInt = month.split('-')[0]
 
-    // console.log(`chargeMonth ${chargeMonthInt} and chargeYear ${chargeYearInt}`)
-    
     for (let x = 0; x < users.length; x++){
       let user = users[x];
       let currentCustomerIdInt = user['customerId'];
@@ -77,16 +76,7 @@ function monthlyCharge(month, subscription, users = []) {
         totalChargeInt += chargeInt
       }
     }
-    
     return totalChargeInt
-    
-      
-      
-
-
-  
-
-        
   }
   
   /*******************
