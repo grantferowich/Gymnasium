@@ -105,10 +105,28 @@ class TicTacToe{
         process.stdout.write(`It's ${this.currentPlayer}'s turn \n\n`)
     }
 
+    printCurrentMove(row,col){
+        process.stdout.write(`An ${this.currentPlayer} was placed at row ${row}, column ${col}.`)
+    }
+
+    declareWinner(player){
+        process.stdout.write(`\n${player} is the winner! \n`);
+        process.exit();
+    }
+
     playRound(row, col){
+        // validate data
         if (this.board.canPlacePiece(row,col)){
+            // update data
             this.board.placePiece(row, col, this.currentPlayer);
-            this.board.printBoard()
+            // view
+            this.board.printBoard();
+            // view
+            this.printCurrentMove(row, col)
+            let detectWinner = this.board.checkWinCondition(row,col,this.currentPlayer)
+            if (detectWinner){
+                this.declareWinner(this.currentPlayer)
+            }
         }
     }
 
@@ -127,6 +145,7 @@ class TicTacToe{
             process.stdout.write('\n');
             // new method
         })
+        this.playRound(row, col)
     }
 
     
