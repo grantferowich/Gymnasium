@@ -34,7 +34,31 @@ class Board{
         process.stdout.write(' _ _ _\n')
         this.storage.forEach((line, row) => {
             process.stdout.write(`${row}`)
+            line.forEach((square) => {
+                process.stdout.write(`|${square}`)
+            })
+            process.stdout.write('|')
+            process.stdout.write(" - - -\n")
         })
+        process.stdout.write('\n');
+    }
+
+    canPlacePiece(row, col){
+        if (isNaN(row) || isNaN(col) || row > 2 || row < 0
+        || col > 2 || col < 0
+        || this.storage[row][col] === "X"
+        || this.storage[row][col] === "O"){
+            return false;
+        }
+        return true;
+    }
+
+    placePiece(row, col, player){
+        this.storage[row][col] = player;
+    }
+
+    checkRows(player){
+        
     }
 }
 class TicTacToe{
@@ -51,6 +75,7 @@ class TicTacToe{
         process.stdout.write("To play Tic Tac Toe, input two numbers: row column \n ")
         process.stdout.write("For example: 0 0 \n\n")
         // new method
+        this.board.printBoard()
 
     }
 }
