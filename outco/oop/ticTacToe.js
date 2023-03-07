@@ -18,9 +18,9 @@ Class TicTacToe
     |- canPlacePiece(row,col)     |
     |- placePiece(row,col,player) |
     |- checkWinCondition(player)  |
-    |- checkDiagonals(player)     |
-    |- checkRows(player)          |
-    |- checkColumns(player)       |
+    |- checkDiagonals(player)     | x
+    |- checkRows(player)          | x
+    |- checkColumns(player)       | x
     |-----------------------------|
 */
 
@@ -76,6 +76,12 @@ class TicTacToe{
         this.board.printBoard()
     }
 
+    checkWinCondition(player){
+        if (this.checkColumns || this.checkDiagonals || this.checkRows){
+            return true
+        }
+        return false
+    }
     
     checkRows(player){
         for (let row = 0; row < this.board.length; row++){
@@ -83,6 +89,7 @@ class TicTacToe{
                 return true
             }
         }
+        return false;
     }
     
     checkColumns(player){
@@ -91,6 +98,19 @@ class TicTacToe{
                 return true
             }
        }
+       return false;
+    }
+
+    checkDiagonals(player){
+        // top left to bottom right
+        if (this.board[0][0] === player && this.board[1][1] === player && this.board[2][2]){
+            return true;
+        }
+        // bottom left to top right
+        if (this.board[0][2] === player && this.board[1][1] === player && this.board[2][0]){
+            return true;
+        }
+        return false;
     }
 }
 
