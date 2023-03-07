@@ -16,9 +16,8 @@ const maxConsecutiveSum = (array) => {
     let ultimate = 0;
     for (let x = 0; x < array.length; x++){
         local = Math.max(local + array[x], array[x]);
-        ultimate = Math.max(local, ultimate)
+        ultimate = Math.max(local, ultimate);
     }
-
     return ultimate;
 }
 

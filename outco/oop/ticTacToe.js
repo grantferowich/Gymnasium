@@ -58,7 +58,7 @@ class Board{
     }
 
     checkRows(player){
-        
+
     }
 }
 class TicTacToe{
@@ -68,15 +68,29 @@ class TicTacToe{
         this.board = new Board()
     }
 
-
-
     runGame(){
         process.stdout.write("Let's play Tic Tac Toe \n\n")
         process.stdout.write("To play Tic Tac Toe, input two numbers: row column \n ")
         process.stdout.write("For example: 0 0 \n\n")
         // new method
         this.board.printBoard()
+    }
 
+    
+    checkRows(player){
+        for (let row = 0; row < this.board.length; row++){
+            if (this.board[row][0] === player && this.board[row][1] === player && this.board[row][2] === player){
+                return true
+            }
+        }
+    }
+    
+    checkColumns(player){
+       for (let col = 0; col < this.board.length; col++){
+            if (this.board[0][col] === player && this.board[1][col] === player && this.board[2][col] === player){
+                return true
+            }
+       }
     }
 }
 

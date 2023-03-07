@@ -18,7 +18,7 @@
     |   - lastCapacityIndex()
     |   - lastElementIndex()
     |   - isFull()
-        - isEmpty
+     - isEmpty
     | 
     |- isFull(stackNum)        | x
     |- indexOfTop(stackNum)    | x
