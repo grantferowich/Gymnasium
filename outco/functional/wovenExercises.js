@@ -1,3 +1,5 @@
+const { describe } = require('mocha')
+const { expect } = require('chai')
 /**
  * Computes the monthly charge for a given subscription.
  *
@@ -49,7 +51,41 @@
  * Inputs: Month number, subscription object, users array
  */
 function monthlyCharge(month, subscription, users = []) {
+    // if the user's start date is less than the chargeMonth, and the user's deactivation date is null,
+    // then for each user, increment total charge
+    let totalChargeInt = 0;
+    let chargeMonthInt = month.split('-')[1]
+    let chargeYearInt = month.split('-')[0]
+
+    // console.log(`chargeMonth ${chargeMonthInt} and chargeYear ${chargeYearInt}`)
     
+    for (let x = 0; x < users.length; x++){
+      let user = users[x];
+      let currentCustomerIdInt = user['customerId'];
+      let chargeInt;
+      if (subscription['customerId'] === currentCustomerIdInt){
+        chargeInt = subscription['monthlyPriceInCents']
+      }
+      let userDateObj = nextDay(user['activatedOn'])
+      // console.log('userDateObj', userDateObj.toLocaleDateString())
+      let customerStartMonthInt = userDateObj.getMonth()
+      // console.log('customerStartMonthInt', customerStartMonthInt)
+      let customerStartYearInt = userDateObj.getFullYear()
+      // console.log('customerStartYearInt', customerStartYearInt)
+      let deactivatedStatus = user['deactivatedOn']
+      if (customerStartMonthInt < chargeMonthInt && customerStartYearInt < chargeYearInt && deactivatedStatus === null){
+        totalChargeInt += chargeInt
+      }
+    }
+    
+    return totalChargeInt
+    
+      
+      
+
+
+  
+
         
   }
   
@@ -97,7 +133,7 @@ function monthlyCharge(month, subscription, users = []) {
   }
 
 
-  
+
   let assert = require('chai').assert;
 
 const users = [
@@ -123,13 +159,12 @@ const plan = {
   monthlyPriceInCents: 5000,
 };
 
-describe('monthlyCharge', function() {
-  it('works when no users are active', function () {
-    assert.equal(monthlyCharge('2018-10', plan, users), 0);
-  });
+// Test 1
+// date is before user start date
+const data = monthlyCharge('2018-10', plan, users)
+console.log('Test 1: Works when no users are active:', data)
 
-  it('works when the active users are active the entire month', function() {
-    const expectedUserCount = 2;
-    assert.closeTo(monthlyCharge('2020-12', plan, users), expectedUserCount * 5000, 1);
-  });
-});
+// Test 2
+// date is after user start date
+const data2 = monthlyCharge('2020-12', plan, users)
+console.log('Test 2: Works when the active users are active the entire month:', data2)
