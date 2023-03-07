@@ -57,25 +57,6 @@ class Board{
         this.storage[row][col] = player;
     }
 
-    checkRows(player){
-
-    }
-}
-class TicTacToe{
-    constructor(){
-        this.currentPlayer = 'X';
-        this.numberOfRounds = 9;
-        this.board = new Board()
-    }
-
-    runGame(){
-        process.stdout.write("Let's play Tic Tac Toe \n\n")
-        process.stdout.write("To play Tic Tac Toe, input two numbers: row column \n ")
-        process.stdout.write("For example: 0 0 \n\n")
-        // new method
-        this.board.printBoard()
-    }
-
     checkWinCondition(player){
         if (this.checkColumns || this.checkDiagonals || this.checkRows){
             return true
@@ -112,6 +93,44 @@ class TicTacToe{
         }
         return false;
     }
+}
+class TicTacToe{
+    constructor(){
+        this.currentPlayer = 'X';
+        this.numberOfRounds = 9;
+        this.board = new Board()
+    }
+
+    printCurrentPlayersTurn(){
+        process.stdout.write(`It's ${this.currentPlayer}'s turn \n\n`)
+    }
+
+    playRound(row, col){
+        if (this.board.canPlacePiece(row,col)){
+            this.board.placePiece(row, col, this.currentPlayer);
+            this.board.printBoard()
+        }
+    }
+
+    runGame(){
+        process.stdout.write("Let's play Tic Tac Toe \n\n")
+        process.stdout.write("To play Tic Tac Toe, input two numbers: row column \n ")
+        process.stdout.write("For example: 0 0 \n\n")
+        // new method
+        this.board.printBoard()
+        this.printCurrentPlayersTurn()
+
+        process.stdin.on("data", (data) => {
+            let moves = data.toString().trim().split(" ")
+            let row = parseInt(moves[0])
+            let col = parseInt(moves[1])
+            process.stdout.write('\n');
+            // new method
+        })
+    }
+
+    
+
 }
 
 // Instantiate class 
