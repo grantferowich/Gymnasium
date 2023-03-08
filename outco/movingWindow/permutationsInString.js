@@ -26,7 +26,6 @@ and the frequency of each letter as the values
 */
 
 const containsPermutation = (str1, str2) =>{
-
     let idealMap = new Map()
     let window = []
     let permutationsInt = str1.length
@@ -46,13 +45,15 @@ const containsPermutation = (str1, str2) =>{
     for (let x = 0; x < str1.length; x++){
         let rChar = str2[x]
         window.push(rChar)
-        if (idealMap.has(rChar) && idealMap.get(rChar) > 0){
+        if (idealMap.has(rChar)){
             let value = idealMap.get(rChar);
             idealMap.set(rChar, value - 1)
-            permutationsInt--
+            if (value > 0){
+                permutationsInt--
+            }
         }
     }
-    
+
     if (permutationsInt === 0){
         return true
     }
@@ -60,17 +61,21 @@ const containsPermutation = (str1, str2) =>{
     // move the window
     for (let x = str1.length; x < str2.length; x++){
         let char = str2[x]
-        if (idealMap.has(char) && idealMap.get(char) > 0){
-            let frequency = idealMap.get(char);
-            idealMap.set(char, frequency - 1)
-            permutationsInt--
-        }
         window.push(char)
         let evictedValue = window.shift()
+        if (idealMap.has(char)){
+            let frequency = idealMap.get(char);
+            idealMap.set(char, frequency - 1)
+            if (frequency > 0){
+                permutationsInt--;
+            }
+        }
         if (idealMap.has(evictedValue)){
-            let frequency = idealMap.get(char)
-            idealMap.set(char, frequency + 1)
-            permutationsInt++
+            let frequency = idealMap.get(evictedValue)
+            idealMap.set(evictedValue, frequency + 1)
+            if (frequency >= 0){
+                permutationsInt++;
+            }
         }
         if (permutationsInt === 0){
             return true
@@ -86,17 +91,34 @@ const input1Str = 'ab'
 const input2Str = 'eidbaooo'
 const test1 = containsPermutation(input1Str, input2Str) 
 console.log('Test 1:', test1)
-// Test 1: true
+// Test 1: true // expect true
 
 const input3Str = 'ab'
 const input4Str = 'eidboaoo'
 const test2 = containsPermutation(input3Str, input4Str);
 console.log('Test 2:', test2)
-// Test 2: false
+// Test 2: false // expect false
 
 const input5Str = 'ab'
 const input6Str = 'ba'
 const test3 = containsPermutation(input5Str, input6Str);
 console.log('Test 3:', test3)
-// Test 3: true
+// Test 3: true // expect true
 
+const input7Str = 'adc'
+const input8Str = 'dcda'
+const test4 = containsPermutation(input7Str, input8Str)
+console.log('Test 4:', test4)
+// Test 4: true // expect true
+
+const input9Str = 'hello'
+const input10Str = 'ooolleoooleh'
+const test5 = containsPermutation(input9Str, input10Str)
+console.log('Test 5:', test5)
+// Test 5: false // expect false
+
+const inputStr11 = 'abc'
+const inputStr12 = 'cccccbabbbaaaa'
+const test6 = containsPermutation(inputStr11, inputStr12)
+console.log('Test 6:', test6)
+// Test 6: true 
