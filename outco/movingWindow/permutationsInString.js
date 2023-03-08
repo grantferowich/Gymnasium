@@ -26,18 +26,18 @@ and the frequency of each letter as the values
 */
 
 const containsPermutation = (str1, str2) =>{
-    let idealMap = new Map()
-    let window = []
-    let permutationsInt = str1.length
+    let idealMap = new Map();
+    let window = [];
+    let permutationsInt = str1.length;
 
     for (let x = 0; x < str1.length; x++){
-        let key = str1[x]
+        let key = str1[x];
         if (idealMap.has(key)){
-            let frequency = idealMap.get(key)
-            idealMap.set(key, frequency+1)
+            let frequency = idealMap.get(key);
+            idealMap.set(key, frequency+1);
         }
         if (!idealMap.has(key)){
-            idealMap.set(key, 1)
+            idealMap.set(key, 1);
         }
     }
 
@@ -46,9 +46,9 @@ const containsPermutation = (str1, str2) =>{
         let rChar = str2[x]
         window.push(rChar)
         if (idealMap.has(rChar)){
-            let value = idealMap.get(rChar);
-            idealMap.set(rChar, value - 1)
-            if (value > 0){
+            let frequency = idealMap.get(rChar);
+            idealMap.set(rChar, frequency - 1)
+            if (frequency > 0){
                 permutationsInt--
             }
         }
@@ -66,6 +66,7 @@ const containsPermutation = (str1, str2) =>{
         if (idealMap.has(char)){
             let frequency = idealMap.get(char);
             idealMap.set(char, frequency - 1)
+            // 
             if (frequency > 0){
                 permutationsInt--;
             }
