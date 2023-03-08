@@ -103,8 +103,6 @@ class Game{
         this.board = new Board()
     }
 
-
-    
     printCurrentPlayersTurn(){
         process.stdout.write(`It's ${this.currentPlayer}'s turn \n\n`)
     }
