@@ -26,12 +26,13 @@ Class TicTacToe
 
 class Board{
     constructor(){
-        this.storage =[[' ', ' ', ' '],[' ', ' ', ' '],[' ', ' ', ' ']]
+        this.storage = [[' ', ' ', ' '],[' ', ' ', ' '],[' ', ' ', ' ']]
     }
 
     printBoard(){
+        
         process.stdout.write(' 0 1 2\n')
-        process.stdout.write(' _ _ _\n')
+        process.stdout.write('  _ _ _\n')
         this.storage.forEach((line, row) => {
             process.stdout.write(`${row}`)
             line.forEach((square) => {
@@ -58,15 +59,15 @@ class Board{
     }
 
     checkWinCondition(player){
-        if (this.checkColumns || this.checkDiagonals || this.checkRows){
+        if (this.checkColumns(player) || this.checkDiagonals(player) || this.checkRows(player)){
             return true
         }
         return false
     }
     
     checkRows(player){
-        for (let row = 0; row < this.board.length; row++){
-            if (this.board[row][0] === player && this.board[row][1] === player && this.board[row][2] === player){
+        for (let row = 0; row < this.storage.length; row++){
+            if (this.storage[row][0] === player && this.storage[row][1] === player && this.storage[row][2] === player){
                 return true
             }
         }
@@ -74,8 +75,8 @@ class Board{
     }
     
     checkColumns(player){
-       for (let col = 0; col < this.board.length; col++){
-            if (this.board[0][col] === player && this.board[1][col] === player && this.board[2][col] === player){
+       for (let col = 0; col < this.storage[0].length; col++){
+            if (this.storage[0][col] === player && this.storage[1][col] === player && this.storage[2][col] === player){
                 return true
             }
        }
@@ -84,16 +85,17 @@ class Board{
 
     checkDiagonals(player){
         // top left to bottom right
-        if (this.board[0][0] === player && this.board[1][1] === player && this.board[2][2]){
+        if (this.storage[0][0] === player && this.storage[1][1] === player && this.storage[2][2] === player){
             return true;
         }
         // bottom left to top right
-        if (this.board[0][2] === player && this.board[1][1] === player && this.board[2][0]){
+        if (this.storage[0][2] === player && this.storage[1][1] === player && this.storage[2][0] === player){
             return true;
         }
         return false;
     }
 }
+
 class TicTacToe{
     constructor(){
         this.currentPlayer = 'X';
@@ -106,12 +108,37 @@ class TicTacToe{
     }
 
     printCurrentMove(row,col){
-        process.stdout.write(`An ${this.currentPlayer} was placed at row ${row}, column ${col}.`)
+        process.stdout.write(`\nAn ${this.currentPlayer} was placed at row ${row}, column ${col}.`)
     }
 
     declareWinner(player){
         process.stdout.write(`\n${player} is the winner! \n`);
         process.exit();
+    }
+
+    decrementRounds(){
+        this.numberOfRounds--;
+    }
+
+    declareTie(){
+        process.stdout.write(`\nCat's game!`);
+        process.exit();
+    }
+
+    switchPlayer(){
+        if (this.currentPlayer === 'X'){
+            this.currentPlayer = 'O';
+        } else {
+            this.currentPlayer = 'X';
+        }
+    }
+
+    printCurrentPlayersTurn(){
+        process.stdout.write(`It is now ${this.currentPlayer}'s turn.`)
+    }
+
+    printInvalidMove(){
+        process.stdout.write('Invalid move. Give it another shot.')
     }
 
     playRound(row, col){
@@ -123,10 +150,23 @@ class TicTacToe{
             this.board.printBoard();
             // view
             this.printCurrentMove(row, col)
-            let detectWinner = this.board.checkWinCondition(row,col,this.currentPlayer)
+            // check termination status
+            let detectWinner = this.board.checkWinCondition(this.currentPlayer)
+           
             if (detectWinner){
                 this.declareWinner(this.currentPlayer)
             }
+            // update state
+            this.decrementRounds()
+            if (!detectWinner && this.numberOfRounds <= 0){
+                this.declareTie();
+            }
+            // change state again
+            this.switchPlayer();
+            // view stuff about state
+            this.printCurrentPlayersTurn();
+        } else {
+            this.printInvalidMove();
         }
     }
 
@@ -134,22 +174,20 @@ class TicTacToe{
         process.stdout.write("Let's play Tic Tac Toe \n\n")
         process.stdout.write("To play Tic Tac Toe, input two numbers: row column \n ")
         process.stdout.write("For example: 0 0 \n\n")
-        // new method
         this.board.printBoard()
         this.printCurrentPlayersTurn()
 
         process.stdin.on("data", (data) => {
             let moves = data.toString().trim().split(" ")
+            // ensure the data passed in from console is machine-readable
             let row = parseInt(moves[0])
             let col = parseInt(moves[1])
+
             process.stdout.write('\n');
-            // new method
-        })
-        this.playRound(row, col)
+            // call the gameplay function
+            this.playRound(row, col)
+        }) 
     }
-
-    
-
 }
 
 // Instantiate class 
