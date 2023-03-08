@@ -96,13 +96,15 @@ class Board{
     }
 }
 
-class TicTacToe{
+class Game{
     constructor(){
         this.currentPlayer = 'X';
         this.numberOfRounds = 9;
         this.board = new Board()
     }
 
+
+    
     printCurrentPlayersTurn(){
         process.stdout.write(`It's ${this.currentPlayer}'s turn \n\n`)
     }
@@ -191,7 +193,7 @@ class TicTacToe{
 }
 
 // Instantiate class 
-let game = new TicTacToe()
+let game = new Game()
 
 // Run the game
 game.runGame()
