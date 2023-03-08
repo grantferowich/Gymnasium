@@ -1,7 +1,8 @@
 /* 
 Permutations In String
 
-Successfully tested the function 03/04/23.
+Successfully tested the function 03/08/23.
+Passed all leetcode tests 03/08/23.
 
 Given two strings s1 and s2, return true 
 if s2 contains a permutation of s1, or 
@@ -25,7 +26,7 @@ and the frequency of each letter as the values
 
 */
 
-const containsPermutation = (str1, str2) =>{
+const containsPermutation = (str1, str2) => {
     let idealMap = new Map();
     let window = [];
     let permutationsInt = str1.length;
@@ -84,7 +85,6 @@ const containsPermutation = (str1, str2) =>{
     }
     return false;
 }
-
 
 /* TESTS */
 
