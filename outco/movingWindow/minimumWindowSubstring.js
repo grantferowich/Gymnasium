@@ -83,5 +83,7 @@ const minimumWindowSubstring = (word, target) => {
 console.log(minimumWindowSubstring('ADOBECODEBANC', 'ABC')) // BANC is the smallest substring containing the target
 console.log(minimumWindowSubstring('DOG', 'LAKE')) // ""
 console.log(minimumWindowSubstring('AADOBECODEBAANC', 'AABC')) //  BAANC
+console.log(minimumWindowSubstring('ab', 'A')) //  ""
+console.log(minimumWindowSubstring('abc', 'cba')) // abc
 
 
