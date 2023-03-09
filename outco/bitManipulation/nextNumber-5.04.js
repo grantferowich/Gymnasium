@@ -23,21 +23,58 @@ const getNextNumber = (binaryNumber) => {
     let x1 = 0;
     while (((x & 1) === 0) && (x !== 0)){
         x0++;
-        x >>= 1
+        x >>= 1;
     }
 
     while ((x & 1) === 1){
         x1++;
-        x >>= 1
+        x >>= 1;
     }
+
+    if (x0 + x1 === 31 || x0 + x1 === 0){
+        return -1; 
+    }
+
+    return (binaryNumber + (1 << x0) + (1 << (x1 - 1)) - 1).toString(2)
+}
+
+
+getPreviousNumber = (binaryNumber) => {
+    let z = binaryNumber;
+    let z0 = 0;
+    let z1 = 0;
+    while (((z & 1) === 0) && ( z !== 0)){
+        z0++;
+        z >>= 1;
+    }
+
+    while ((z & 1) === 1){
+        z1++;
+        z >>= 1;
+    }
+
+    if (z0 + z1 === 31 || z0 + z1 === 0){
+        return -1
+    }
+
+    return (binaryNumber - (1 << z1) - (1 << (z0 -1)) + 1).toString(2)
 }
 
 /* TESTS */
-let data1 = nextNumber(0b100)
+let data1 = getNextNumber(0b100)
 console.log('Test 1:', data1)
 
-let data2 = nextNumber(0b101)
+let data2 = getNextNumber(0b101)
 console.log('Test 2:', data2)
 
-let data3 = nextNumber(0b1011111)
+let data3 = getNextNumber(0b1011111)
 console.log('Test 3:', data3)
+
+let data4 = getPreviousNumber(0b100)
+console.log('Test 4:', data4)
+
+let data5 = getPreviousNumber(0b101)
+console.log('Test 5:', data5)
+
+let data6 = getPreviousNumber(0b1011111)
+console.log('Test 6:', data6)
