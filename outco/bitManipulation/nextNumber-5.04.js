@@ -17,15 +17,19 @@ Output: 1001, 11
 
 */
 
-const nextNumber = (binaryNumber) => {
-    let binaryStr = binaryNumber.toString(2)
-    let nextLargest = binaryNumber << 1
-    nextLargest = nextLargest.toString(2)
-    let nextSmallest = binaryNumber >> 1
-    nextSmallest = nextSmallest.toString(2)
-    
-    let result = `For ${binaryStr}, the next largest number is ${nextLargest} and the next smallest number is ${nextSmallest}.`
-    return result
+const getNextNumber = (binaryNumber) => {
+    let x = binaryNumber;
+    let x0 = 0;
+    let x1 = 0;
+    while (((x & 1) === 0) && (x !== 0)){
+        x0++;
+        x >>= 1
+    }
+
+    while ((x & 1) === 1){
+        x1++;
+        x >>= 1
+    }
 }
 
 /* TESTS */
