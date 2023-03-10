@@ -32,4 +32,42 @@ By XOR'ing the bits at x and x+1, and checking if the XOR'ed value is 1,
 the function will use a bitwise operator to determine whether or not to 
 complete the swap.
 
+Input: A binary number
+Output: A binary number
+
+Constraints:  
+Edge case: The binary number is greater than 0.
+
 */
+
+const pairwiseSwap = (binaryNumber) => {
+    let binaryNumberStr = binaryNumber.toString(2)
+    let binaryNumberArr = binaryNumberStr.split('')
+    let x = binaryNumberArr.length - 1;
+
+    while (x - 1 > 0){
+        if (binaryNumberArr[x] !== binaryNumberArr[x-1]){
+            let tempX = binaryNumberArr[x]
+            let tempXminus1 = binaryNumberArr[x-1]
+            binaryNumberArr[x] = tempXminus1
+            binaryNumberArr[x-1] = tempX
+        }
+        x -= 2;
+    }
+    console.log('binaryNumberStr', binaryNumberStr)
+    return binaryNumberArr.join('')
+}
+
+/* TESTS */
+
+let data1 = pairwiseSwap(0b101)
+console.log('Test 1:', data1)
+// Expect 110 ✓
+
+let data2 = pairwiseSwap(0b100110110)
+console.log('Test 2:', data2)
+// Expect 100110101 ✓
+
+let data3 = pairwiseSwap(0b1110110)
+console.log('Test 3:', data3)
+// Expect 1111001 ✓
