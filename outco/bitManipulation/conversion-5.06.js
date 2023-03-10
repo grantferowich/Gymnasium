@@ -4,22 +4,19 @@ Conversion
 
 CTCI 5.06
 
+Successfully tested the function 03/09/2023.
+
 */
 
 const conversion = ( a, b ) => {
-    
     let count = 0;
     let x = a ^ b;
     x = x.toString(2);
-    
-    for (let i = 0; i <= x.length; i++){
-        
+    for (let i = 0; i <= x.length; i++){  
         if (x[i] === '1'){
             count++;
         }
-        
     }
-
     return count;
 }
 
