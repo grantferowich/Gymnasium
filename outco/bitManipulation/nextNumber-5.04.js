@@ -3,6 +3,8 @@ Next Number
 
 CTCI 5.04
 
+Successfully tested the function 03/09/2023.
+
 Given a positive integer, print the next smallest and 
 the next largest number that have the same number of 
 1 bits in their binary representation.
