@@ -29,9 +29,13 @@ loop over the input and swap the bits, one by one. However,
 the function will execute fewer instructions by only swapping 
 the bits in cases where the bit values at bit x and bit x + 1 are different.
 If the bits at x and x + 1 are the same, then continue to
-the new pair of bits. The function will loop in O(N) time. 
+the new pair of bits. 
+
+The function will loop in O(N) time. 
+
 The check will happen in O(1) time. The step where the bits are 
 swapped will only occur in cases where the two bits are 0 and 1.
+
 By XOR'ing the bits at x and x+1, and checking if the XOR'ed value is 1, 
 the function will use a bitwise operator to determine whether or not to 
 complete the swap.
@@ -41,6 +45,10 @@ Output: A binary number
 
 Constraints:  
 Edge case: The binary number is greater than 0.
+
+Complexity analysis:
+Time: O(N)
+Space: O(N)
 
 */
 
