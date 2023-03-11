@@ -2,15 +2,14 @@
 Single Number 
 
 Given a non-empty array of integers nums,
- every element appears twice except for one.
-  Find that single one.
+every element appears twice except for one.
+Find that single one.
 
 You must implement a solution with a linear
 runtime complexity and use only constant extra space.
 
 Input: nums = [2,2,1]
 Output: 1
-
 
 ## Ideas
 What if you put an array of bits from 0 up to the max value of the array in an array called 
@@ -22,12 +21,10 @@ Loop over the storageArr.
 If the array at index x equals 0, then return the index as the number with a single value.
 The proposed function uses linear extra space. 
 
-
 Store the first element in the variable singleFrequencyInt.
 Loop over the array. 
 If the array at position x equals singleFrequencyInt,
 set singleFrequencyInt to the number at x+1. Increment x by 2.
-
 
 The optimal solution is to XOR each value. 
 "The basic idea is that XORing two equal numbers 
