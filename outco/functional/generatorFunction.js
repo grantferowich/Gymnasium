@@ -14,6 +14,8 @@ function* increment() {
     }
 }
 
+/* TESTS */
+
 const generator = increment()
 console.log(generator.next().value); // 0
 console.log(generator.next().value); // 1
