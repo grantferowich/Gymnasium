@@ -99,7 +99,6 @@ const longestSubstringWithoutRepeatingChars = (s) => {
             len = rightPtr - leftPtr
         }
     }
-
     return len
 }
 
