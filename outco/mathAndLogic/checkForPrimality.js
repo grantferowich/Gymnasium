@@ -2,7 +2,8 @@
 Check For Primality
 
 Successfully tested the function 03/13/23.
-
+Input: an integer
+Output: true if the number is prime, false if the number is not prime
 */
 
 const checkForPrimality = (integer) => {
