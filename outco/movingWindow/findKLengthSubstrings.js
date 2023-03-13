@@ -41,9 +41,10 @@ const findKLengthSubstrings = (inputStr, kInt) => {
         return 0
     }
 
-    let windowArr = []
-    let uniqueSubstringArr = []
+    let windowArr = [];
+    let uniqueSubstringArr = [];
     // initialize window from 0 to k
+    
     for (let x = 0; x < kInt; x++){
         windowArr.push(inputStr[x])
     }
