@@ -30,7 +30,7 @@ output = 3
 
 Analysis 
 longest substring: max
-withour repeating letters: track letters
+without repeating letters: track letters
 Map<Letter, Count>: count of each letter <= 1
 
 final result: substring of s, leftPosition, rightPosition
