@@ -1,6 +1,8 @@
 /* 
 Minimum Size Subarray
 
+Successfully tested the function 03/14/23.
+
 Medium
 
 Given an array of positive integers nums and a positive 
