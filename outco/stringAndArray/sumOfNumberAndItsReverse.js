@@ -1,6 +1,8 @@
 /* 
 Sum of Number and Its Reverse
 
+Successfully tested the function locally and on Leetcode 03/15/2023.
+
 Medium 
 
 Given a non-negative integer num, return true if 
