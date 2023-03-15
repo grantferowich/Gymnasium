@@ -19,12 +19,15 @@ Explanation: 172 + 271 = 443 so we return true.
 Count up from 1 to num
 if num + num.reversed == num
 
+Complexity analysis
+Time: O(N)
+Space: O(1)
+
+
 */
 
 
 // takes in a number, returns the number reversed
-
-
 const reverseNumber = (numberInt) =>{
     let numberArr = numberInt.toString().split('');
     return parseInt(numberArr.reverse().join(''));
