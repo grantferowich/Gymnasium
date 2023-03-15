@@ -22,10 +22,7 @@ if num + num.reversed == num
 Complexity analysis
 Time: O(N)
 Space: O(1)
-
-
 */
-
 
 // takes in a number, returns the number reversed
 const reverseNumber = (numberInt) =>{
@@ -41,8 +38,9 @@ const sumOfNumberAndItsReverse = (numberInt) => {
     if (numberInt === 0){
         return true;
     }
-
-    let x = 1;
+    
+    // only check from n/2 to n, instead of 1 to n
+    let x = Math.floor(numberInt/2)
     while (x < numberInt){
         const reversed = reverseNumber(x)
         if (x + reversed === numberInt){
@@ -54,7 +52,6 @@ const sumOfNumberAndItsReverse = (numberInt) => {
 }
 
 /* TESTS */
-
 let test1 = reverseNumber(54)
 console.log('Test 1:', test1)
 // so, 54, would return 45
