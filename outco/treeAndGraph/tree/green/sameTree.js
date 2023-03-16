@@ -50,7 +50,6 @@ bst.right = new TreeNode(13)
 const sameTree = (tree1, tree2) => {
     const traverse = (node1, node2) => {
         if (node1 === null && node2 === null){
-            console.log('hi')
             return true;
         }
         if (node1 === null || node2 === null){

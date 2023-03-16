@@ -5,7 +5,7 @@
 
 let words = 'Wake Forest University === home.';
 
-words =''
+words =' I am accepting an offer with another firm. I would love to stay in touch to potentially cooperate in the future. Thanks for thinking of me and have an awesome day!'
 const cleanText = (text) => {
     // Replace multiple spaces between lines with single space
     text = text.replace(/\n\s+/g, '\n');
