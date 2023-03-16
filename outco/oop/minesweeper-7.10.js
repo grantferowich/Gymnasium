@@ -66,14 +66,24 @@ The Grid must place a number in each cell indicating how many bombs are located 
 the surrounding 8 cells, or, if there are 0 bombs in the surrounding 8 cells, 
 the Grid must place a '' in the cell. 
 
+## class methods
+generateBombCoordinates()
+        - basically, we want to generate three unique coordinate pairs
+        - generate the coords as a string and set the string as a key in a bombMap<string, ToF>
+        - loop from 0 to b -1
+        - generate two random numbers between 0 and n-1
+        - concat the numbers to create a string
+        - if the bombMap does not contain the string, add the string to the map
 
 */
 
 class Grid{
     constructor(n=10, b=3){
         this.n = n;
+        this.b = b;
         // create n x n dimensional board
         this.storage = Array.from({length: this.n}, () => Array.from({length: n}, () => ''));
+        
     }
 
 
@@ -84,7 +94,49 @@ class Grid{
             x++
         }
     }
+
+    generateRandomCoordinateInt = () =>{
+        return parseInt(Math.random() * 10);
+    }
+
+    convertMapToCoordinatesArr(bombMap){
+        let bombCoordinatesArr = [];
+        for (let [k,v] of bombMap){
+            let coordinatesPair0Int = parseInt(k.split(',')[0])
+            let coordinatesPair1Int = parseInt(k.split(',')[1])
+            bombCoordinatesArr.push([coordinatesPair0Int, coordinatesPair1Int])
+        }
+        return bombCoordinatesArr;
+    }
+    
+    generateBombCoordinates(){
+        let bombMap = new Map()
+        let bombCountInt = 0
+        while(bombCountInt < this.b){
+            const rowInt = this.generateRandomCoordinateInt()
+            const colInt = this.generateRandomCoordinateInt()
+            let coordinatePairStr = rowInt.toString() + ',' + colInt.toString()
+            if (!bombMap.has(coordinatePairStr)){
+                // add new coords to map
+                bombMap.set(coordinatePairStr, true)
+                bombCountInt++
+            }
+        }
+        return this.convertMapToCoordinatesArr(bombMap)
+    }
+
+    // setBombsOnGrid(){
+    //     const coordinatesArr = this.generateBombCoordinates
+    //     // console.log('coordinatesArr', coordinatesArr)
+    //     // for (let row = 0; row < this.n; row++){
+    //     //     for (let col = 0; col < this.n; col++){
+
+    //     //     }
+    //     // }
+    // }
 }
 
-let grid = new Grid()
-grid.print()
+let grid = new Grid(10, 3)
+// grid.print()
+console.log(grid.generateBombCoordinates())
+// grid.setBombsOnGrid()
