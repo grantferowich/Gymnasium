@@ -22,16 +22,23 @@ Initial fully exposed board with 3 bombs:
 ['', '', '', 1, 1, 1, '']
 ['', '', '', 1, *, 1, '']]
 
-
+## The Grid Class: Functional Requirements
+The Grid must be N x N dimensions.
+The Grid must have B bombs. 
+The Grid must place the bombs randomly throughout the n x n array.
+There Grid must never place more than one bomb in a row.
+The Grid must place a number in each cell indicating how many bombs are located in 
+the surrounding 8 cells, or, if there are 0 bombs in the surrounding 8 cells, 
+the Grid must place a '' in the cell. 
 
 
 */
 
 class Grid{
-    constructor(n=10){
+    constructor(n=10, b=3){
         this.n = n;
         // create n x n dimensional board
-        this.storage = Array.from({length: this.n}, () => Array.from({length: n}));
+        this.storage = Array.from({length: this.n}, () => Array.from({length: n}, () => ''));
     }
 }
 
