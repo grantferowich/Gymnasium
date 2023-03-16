@@ -82,33 +82,34 @@ class Grid{
         this.n = n;
         this.b = b;
         // create n x n dimensional board
-        this.storage = Array.from({length: this.n}, () => Array.from({length: n}, () => ''));
-        
+        this.storageArr = Array.from({length: this.n}, () => Array.from({length: n}, () => ''));
+        this.bombCoordinatesArr = []
     }
 
-
+    // view the state
     print(){
         let x = 0
-        while (x < this.storage.length){
-            console.log(this.storage[x])
+        while (x < this.storageArr.length){
+            console.log(this.storageArr[x])
             x++
         }
     }
 
+    // helper method for updating class property, this.bombCoordinatesArr
     generateRandomCoordinateInt = () =>{
         return parseInt(Math.random() * 10);
     }
 
+    // helper method for updateing class property, this.bombCoordinatesArr
     convertMapToCoordinatesArr(bombMap){
-        let bombCoordinatesArr = [];
         for (let [k,v] of bombMap){
             let coordinatesPair0Int = parseInt(k.split(',')[0])
             let coordinatesPair1Int = parseInt(k.split(',')[1])
-            bombCoordinatesArr.push([coordinatesPair0Int, coordinatesPair1Int])
+            this.bombCoordinatesArr.push([coordinatesPair0Int, coordinatesPair1Int])
         }
-        return bombCoordinatesArr;
     }
     
+    // updates class property, this.bombCoordinatesArr
     generateBombCoordinates(){
         let bombMap = new Map()
         let bombCountInt = 0
@@ -127,18 +128,67 @@ class Grid{
         return this.convertMapToCoordinatesArr(bombMap)
     }
 
-    // setBombsOnGrid(){
-    //     const coordinatesArr = this.generateBombCoordinates
-    //     // console.log('coordinatesArr', coordinatesArr)
-    //     // for (let row = 0; row < this.n; row++){
-    //     //     for (let col = 0; col < this.n; col++){
+    // utility method for updating class property, this.storageArr
+    updateCellValue(row, col, val){
+        return this.storageArr[row][col] = val;
+    }
+    
+    // utility method for reading class property, this.storageArr
+    getCellValue(row, col){
+        return this.storageArr[row][col]
+    }
+    
+    // update class property, storageArr
+    setBombsOnGrid(){
+        this.generateBombCoordinates()
+        let x = 0;
+        while (x < this.bombCoordinatesArr.length){
+            let row = this.bombCoordinatesArr[x][0]
+            let col = this.bombCoordinatesArr[x][1]
+            this.updateCellValue(row, col, "*")
+            x++
+        }
+        this.print()
+    }
 
-    //     //     }
-    //     // }
-    // }
+
+    // utility method for updating class property, this.storageArr
+    getBombCountOfCell(rowInt, colInt){
+        // down, right, up, left, bottom right diag, bottom left diag, top left, top right
+        let coordinatesArr = [[1, 0], [0, 1], [-1, 0], [0, -1], [ 1, 1], [1, -1], [-1, -1,], [-1, 1]];
+        let countInt = 0;
+        while (x < coordinatesArr.length){
+            let rowCoordinateToCheckInt = rowInt + coordinatesArr[x][0];
+            let colCoordinateToCheckInt = colInt + coordinatesArr[x][1];
+            let cellValueToCheckStr = this.getCellValue(rowCoordinateToCheckInt, colCoordinateToCheckInt);
+            if (cellValueToCheckStr === '*'){
+                countInt++
+            }
+            x++
+        }
+
+        return countInt
+    }
+
+    // calculate how many bombs are in the 8 spaces around a cell
+    setNumbersOnGrid(){
+        // iterate over each cell
+        // if cell is NOT a cell where there are bombs
+        // let num = getBombCountOfCell(row, col)
+        // updateCellValue(row, col, num)
+        for (let row = 0; row < this.n; row++){
+            for (let col = 0; col < this.n; col++){
+                
+            }
+        }
+
+    }
+
+
 }
 
 let grid = new Grid(10, 3)
+grid.setBombsOnGrid()
 // grid.print()
-console.log(grid.generateBombCoordinates()
+// console.log(grid.generateBombCoordinates())
 // grid.setBombsOnGrid()
