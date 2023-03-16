@@ -112,6 +112,7 @@ class Grid{
     generateBombCoordinates(){
         let bombMap = new Map()
         let bombCountInt = 0
+        // populate bombMap 
         while(bombCountInt < this.b){
             const rowInt = this.generateRandomCoordinateInt()
             const colInt = this.generateRandomCoordinateInt()
@@ -122,6 +123,7 @@ class Grid{
                 bombCountInt++
             }
         }
+        // get an array of arrays out of the bombMap
         return this.convertMapToCoordinatesArr(bombMap)
     }
 
@@ -138,5 +140,5 @@ class Grid{
 
 let grid = new Grid(10, 3)
 // grid.print()
-console.log(grid.generateBombCoordinates())
+console.log(grid.generateBombCoordinates()
 // grid.setBombsOnGrid()
