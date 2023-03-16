@@ -1,4 +1,8 @@
-// from /linkedList/randomNodeValue.js
+
+// want equal number of occurrences from 0 to 9
+const generateRandomCoordinateInt = () =>{
+    return parseInt(Math.random() * 10);
+}
 
 const testRandomness = () =>{
     let occurrences = {};
