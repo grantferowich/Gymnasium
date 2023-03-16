@@ -13,7 +13,19 @@ non-bomb cells are exposed. The player can also flag certain places as
 potential bombs. This doesn't affect game play, other than to block the user
 from accidentally clicking a cell that is thought to have a bomb. 
 
+State 0. Null State.
+
+[['', '', '', '', '', '', ''],
+['', '', '', '', '', '', '',],
+['', '', '', '', '', '', ''],
+['', '', '', '', '', '', ''],
+['', '', '', '', '', '', ''],
+['', '', '', '', '', '', '']
+['', '', '', '', '', '', '']]
+
+
 Initial fully exposed board with 3 bombs:
+State 1. Initial state:
 [['', 1, 1, 1, '', '', ''],
 ['', 1, *, 1, '', '', '',],
 ['', 2, 2, 2, '', '', ''],
@@ -21,6 +33,29 @@ Initial fully exposed board with 3 bombs:
 ['', 1, 1, 1, '', '', ''],
 ['', '', '', 1, 1, 1, '']
 ['', '', '', 1, *, 1, '']]
+
+State 2: Visual State at start of game.
+
+[['?', '?', '?', '?', '?', '?', '?'],
+['?', '?', '?', '?', '?', '?', '?',],
+['?', '?', '?', '?', '?', '?', '?'],
+['?', '?', '?', '?', '?', '?', '?'],
+['?', '?', '?', '?', '?', '?', '?'],
+['?', '?', '?', '?', '?', '?', '?']
+['?', '?', '?', '?', '?', '?', '?']]
+
+State 3: User click on row 1, column 0
+
+[['', 1, '?', '?', '?', '?', '?'],
+['', 1, '?', '?', '?', '?', '?',],
+['', 2, '?', '?', '?', '?', '?'],
+['', 1, '?', '?', '?', '?', '?'],
+['', 1, 1, 1, '?', '?', '?'],
+['', '', '', 1, '?', '?', '?']
+['', '', '', 1, '?', '?', '?']]
+
+State 4: The user wins when everything other than the bombs has been exposed.
+
 
 ## The Grid Class: Functional Requirements
 The Grid must be N x N dimensions.
@@ -40,7 +75,16 @@ class Grid{
         // create n x n dimensional board
         this.storage = Array.from({length: this.n}, () => Array.from({length: n}, () => ''));
     }
+
+
+    print(){
+        let x = 0
+        while (x < this.storage.length){
+            console.log(this.storage[x])
+            x++
+        }
+    }
 }
 
 let grid = new Grid()
-console.log(grid.storage)
+grid.print()
