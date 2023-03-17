@@ -59,52 +59,53 @@
 // sort the array and return the first value at index 0
 
 
-function closestValue(arr, target) {
-  if (target > arr[arr.length-1]){return arr[arr.length -1]}
-    let startIdx = 0;
-    let endIdx = arr.length;
-    let midIdx;
-    let closest = Infinity;
-    let hash = {};
-    let result = [];
+function closestValue(numsArr, targetInt) {
+  if (targetInt > numsArr[numsArr.length-1]){
+    return numsArr[numsArr.length -1]
+  }
+  let startIdxInt = 0;
+  let endIdxInt = numsArr.length;
+  let midIdxInt;
+  let closestInt = Infinity;
+  let hash = {};
+  let resultArr = [];
     
-    while (startIdx < endIdx){
+  while (startIdxInt < endIdxInt){
       // find middle
-      midIdx = parseInt(startIdx + parseInt((endIdx - startIdx)/2));
+      midIdxInt = parseInt(startIdxInt + parseInt((endIdxInt - startIdxInt)/2));
       // process middle element relative to input target 
-      let difference = Math.abs(target - arr[midIdx]);
-      
+      let differenceInt = Math.abs(targetInt - numsArr[midIdxInt]);
       // process the result 
-      if (difference <= closest){
+      if (differenceInt <= closestInt){
         // hash storage steps: 
         // store the middle element as a key
         // store the processing result as the value
-        hash[arr[midIdx]] = difference;
-       
+        hash[numsArr[midIdxInt]] = differenceInt;
         // update the state variable to be returned, called closest
-        closest = difference;
+        closestInt = differenceInt;
       }
 
       // decide where to keep processing, the left half of the array
       // or the right half of the array
-      if (arr[midIdx] < target){
-        startIdx = midIdx + 1;
+      if (numsArr[midIdxInt] < targetInt){
+        startIdxInt = midIdxInt + 1;
       } else {
-        endIdx = midIdx;
+        endIdxInt = midIdxInt;
       }
     }
 
 
     // store all the keys from the hash which are characterized by having a value which is equal to the closest value to the target
-    for (let key in hash){
-      if (hash[key] === closest){
-          result.push(key)
+    for (let keyInt in hash){
+      if (hash[keyInt] === closestInt){
+          resultArr.push(keyInt)
       }
     }
     // only return the smallest element which is the closest to the target 
-    return result[0]
+    return parseInt(resultArr[0])
 }
     
-console.log(closestValue([1, 2, 3, 4, 5, 7, 9, 10, 11], 6)) // should return 5 since 5 is the lower of 5 and 7
-console.log(closestValue([1, 2, 3], 8)) // 3 // fn works 
+/* TESTS */
+console.log(closestValue([1, 2, 3, 4, 5, 7, 9, 10, 11], 6)) // 5 // explanation: Since 5 is the lower of 5 and 7, return 5.
+console.log(closestValue([1, 2, 3], 8)) // 3 
 console.log(closestValue([-1, -2, 0], -5)) // -2
