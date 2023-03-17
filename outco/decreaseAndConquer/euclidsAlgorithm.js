@@ -14,24 +14,24 @@
 // Time Complexity: O(logN)
 // Space Complexity: O(1)
 
-const gcd = (a,b) => {
+const gcd = (aInt, bInt) => {
     // ensure inputs are positive
-    if (a < 0) { a *= -1};
-    if (b < 0) { b *= -1};
+    if (aInt < 0) { aInt *= -1};
+    if (bInt < 0) { bInt *= -1};
 
     // ensure A is larger than B
-    if ( a < b){
-        [a,b] = [b,a]
+    if ( aInt < bInt){
+        [aInt, bInt] = [bInt, aInt]
     }
 
     // for (A,B) take the difference of the two integers
     // then set the new pair to (b, difference)
-    while (b > 0){
-        let temp;
-        temp = a - b;
-        [a,b] = [b,temp];
+    while (bInt > 0){
+        let tempInt;
+        tempInt = aInt - bInt;
+        [aInt, bInt] = [bInt,tempInt];
     }
-    return console.log(a);
+    return console.log(aInt);
 }
 
 gcd(78,52)

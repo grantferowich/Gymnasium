@@ -38,24 +38,24 @@
  * Aux Space analysis: O(1). There are a few state variables declared yet there are no extra linear data structures. 
  */ 
 
-function greaterValues(arr, target) {
-    if (target > arr[arr.length-1]){return 0}
-    let startIdx = 0;
-    let endIdx = arr.length -1;
-    let midIdx;
+function greaterValues(numsArr, targetInt) {
+    if (targetInt > numsArr[numsArr.length-1]){return 0}
+    let startIdxInt = 0;
+    let endIdxInt = numsArr.length -1;
+    let midIdxInt;
     
-    while (startIdx <= endIdx){
-        midIdx = startIdx + parseInt((endIdx - startIdx) / 2);
+    while (startIdxInt <= endIdxInt){
+        midIdxInt = startIdxInt + parseInt((endIdxInt - startIdxInt) / 2);
     //   console.log('midIdx: ', midIdx);
-      if (arr[midIdx] <= target){
-        startIdx = midIdx + 1;
+      if (numsArr[midIdxInt] <= targetInt){
+        startIdxInt = midIdxInt + 1;
         // console.log('startIdx: ', startIdx)
       } else {
         // console.log('endIdx', endIdx)
-        endIdx = midIdx - 1;
+        endIdxInt = midIdxInt - 1;
       }
     }
-    return arr.length - midIdx
+    return numsArr.length - midIdxInt
   }
 
 console.log(greaterValues([1, 2, 3, 5, 5, 7, 9, 10, 11], 5)) //  --> 4
