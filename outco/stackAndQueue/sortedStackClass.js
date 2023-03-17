@@ -29,7 +29,7 @@
 class StackNode{
     constructor(data=null){
         this.data = data;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

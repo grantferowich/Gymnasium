@@ -59,7 +59,7 @@ loop through each element of the first linked list
 class ListNode {
     constructor(val) {
       this.val = val;
-      this.next = null;
+      this.nIntext = null;
     }
 }
   

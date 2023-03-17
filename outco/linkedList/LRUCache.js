@@ -52,7 +52,7 @@ class Node{
     constructor(key, value){
         this.key = key === undefined ? null : key;
         this.value = value === undefined ? null : value;
-        this.next = null;
+        this.nIntext = null;
         this.prev = null;
     }
 }

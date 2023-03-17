@@ -19,7 +19,7 @@ Output: 5
 class ListNode{
     constructor(value){
         this.value = value === undefined ? null : value;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

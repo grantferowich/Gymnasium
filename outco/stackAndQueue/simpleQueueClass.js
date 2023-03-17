@@ -35,7 +35,7 @@ require('colors');
 class QueueNode{
     constructor(data = null){
         this.data = data;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

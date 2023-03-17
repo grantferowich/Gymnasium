@@ -99,7 +99,7 @@ class Board{
 class Game{
     constructor(){
         this.currentPlayer = 'X';
-        this.numberOfRounds = 9;
+        this.nIntumberOfRounds = 9;
         this.board = new Board()
     }
 
@@ -117,7 +117,7 @@ class Game{
     }
 
     decrementRounds(){
-        this.numberOfRounds--;
+        this.nIntumberOfRounds--;
     }
 
     declareTie(){
@@ -158,7 +158,7 @@ class Game{
             }
             // update state
             this.decrementRounds()
-            if (!detectWinner && this.numberOfRounds <= 0){
+            if (!detectWinner && this.nIntumberOfRounds <= 0){
                 this.declareTie();
             }
             // change state again

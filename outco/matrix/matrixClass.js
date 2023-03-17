@@ -2,7 +2,7 @@
 class Matrix {
     constructor(m, n) {
       this.m = m;
-      this.n = n;
+      this.nInt = n;
       this.storage = [];
       for(let i = 0; i < m; i++) {
         this.storage.push(new Array(n).fill(0));
@@ -11,7 +11,7 @@ class Matrix {
   
     print() {
       for (let row = 0; row < this.m; row++){
-       for (let element = 0; element < this.n; element++){
+       for (let element = 0; element < this.nInt; element++){
         console.log(element);
        }
       }
@@ -19,7 +19,7 @@ class Matrix {
   
     isValid(i, j) {
       for (let row = 0; row < this.m; row++){
-        for (let element = 0; element < this.n; element++){
+        for (let element = 0; element < this.nInt; element++){
           if (row === i && element === j){
             return true;
           }
@@ -31,7 +31,7 @@ class Matrix {
     initialize(arrayOfArrays) {
       this.storage = arrayOfArrays;
       this.m = this.storage.length
-      this.n = this.storage[0].length
+      this.nInt = this.storage[0].length
     }
   
     insert(i, j, val) {
@@ -51,7 +51,7 @@ class Matrix {
   
     scale(factor) {
       for (let row = 0; row < this.m; row++){
-        for (let element = 0; element < this.n; element++){
+        for (let element = 0; element < this.nInt; element++){
             let scaled = factor * this.retrieve(row, element) 
             this.insert(row, element, scaled)
           }
@@ -60,7 +60,7 @@ class Matrix {
   
     fill(val) {
       for (let row = 0; row < this.m; row++){
-        for (let element = 0; element < this.n; element++){
+        for (let element = 0; element < this.nInt; element++){
             this.insert(row, element, val)
           }
       }
@@ -69,7 +69,7 @@ class Matrix {
     flatten() {
       let output = [];
       for (let row = 0; row < this.m; row++){
-        for (let element = 0; element < this.n; element++){
+        for (let element = 0; element < this.nInt; element++){
             output.push(this.storage[row][element])
           }
       }
@@ -80,7 +80,7 @@ class Matrix {
       let rowMin = Math.max(0, rowRange[0]);
       let rowMax = Math.min(rowRange[1], this.m);
       let colMin = Math.max(0, colRange[0]);
-      let colMax = Math.min(colRange[1], this.n);
+      let colMax = Math.min(colRange[1], this.nInt);
   
       let matrix = new Matrix(rowMax - rowMin, colMax - colMin);
       
@@ -94,9 +94,9 @@ class Matrix {
     }
   
     transpose() {
-      let newMatrix = new Matrix(this.n, this.m);
+      let newMatrix = new Matrix(this.nInt, this.m);
       for (let x = 0; x < this.m; x++){
-        for (let y = 0; y < this.n; y++){
+        for (let y = 0; y < this.nInt; y++){
             let element = this.retrieve(x,y);
             newMatrix.insert(y, x, element);
         }
@@ -105,14 +105,14 @@ class Matrix {
     }
   
     multiply(matrix) {
-      if(this.n !== matrix.m) {
+      if(this.nInt !== matrix.m) {
       return null;
       }
     let newMatrix = new Matrix(this.m, matrix.n);
     for(let i = 0; i < newMatrix.m; i++) {
       for(let j = 0; j < newMatrix.n; j++) {
         let newVal = 0;
-        for (let k = 0; k < this.n; k++) {
+        for (let k = 0; k < this.nInt; k++) {
           newVal += this.retrieve(i, k) * matrix.retrieve(k, j);
         }
         newMatrix.insert(i, j, newVal);

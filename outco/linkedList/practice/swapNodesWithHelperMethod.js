@@ -3,7 +3,7 @@
 class SinglyLinkedListNode {
     constructor(value) {
       this.value = value;
-      this.next = null;
+      this.nIntext = null;
     }
 }
  

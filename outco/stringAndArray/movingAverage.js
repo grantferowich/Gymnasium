@@ -13,7 +13,7 @@ output:
 
 class Moving Average{
     this.size
-    this.next
+    this.nIntext
 }
 
 movingAverage = new MovingAverage(3);
@@ -33,7 +33,7 @@ movingAverage.next(5) // return 6.0 => ((10 + 3 + 5) / 3)
 class ListNode {
     constructor(value){
         this.value = value;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

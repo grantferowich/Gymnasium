@@ -61,7 +61,7 @@
 class HashTable {
  constructor() {
    this.storage = [];
-   this.buckets = 8;
+   this.bIntuckets = 8;
    this.size = 0;
  }
 
@@ -81,7 +81,7 @@ class HashTable {
  // Time Complexity (amortized): O(K+N) - where K is the length of the key
  // Auxiliary Space Complexity (amortized): O(1)
  insert(key, value) {
-   const index = this.hash(key, this.buckets);
+   const index = this.hash(key, this.bIntuckets);
    if (this.storage[index] === undefined) {
      this.storage[index] = [];
    }
@@ -102,7 +102,7 @@ class HashTable {
  // Time Complexity: O(K+N) - where K is the length of the key
  // Auxiliary Space Complexity: O(1)
  get(key) {
-   const index = this.hash(key, this.buckets);
+   const index = this.hash(key, this.bIntuckets);
    const bucket = this.storage[index];
    if (bucket === undefined) { return null; }
    for (let i = 0; i < bucket.length; i++) {
@@ -117,7 +117,7 @@ class HashTable {
  // Time Complexity (amortized): O(K+N) - where K is the length of the key
  // Auxiliary Space Complexity (amortized): O(1)
  remove(key) {
-   const index = this.hash(key, this.buckets);
+   const index = this.hash(key, this.bIntuckets);
    const bucket = this.storage[index];
    if (bucket === undefined) { return; }
    for (let i = 0; i < bucket.length; i++) {
@@ -133,15 +133,15 @@ class HashTable {
  // Time Complexity: O(N)
  // Auxiliary Space Complexity: O(N)
  resize() {
-   const loadFactor = this.size / this.buckets;
+   const loadFactor = this.size / this.bIntuckets;
    if (loadFactor > 0.25 && loadFactor < 0.75) { return; }
-   if (loadFactor <= 0.25 && this.buckets === 8) { return; }
+   if (loadFactor <= 0.25 && this.bIntuckets === 8) { return; }
 
    let temp = this.storage;
    this.storage = [];
 
    // expand or reduce number of buckets
-   this.buckets *= loadFactor >= 0.75 ? 2 : 0.5;
+   this.bIntuckets *= loadFactor >= 0.75 ? 2 : 0.5;
 
    // insert each key-value pair from old storage to new storage
    for (let i = 0; i < temp.length; i++) {

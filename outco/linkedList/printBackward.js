@@ -20,7 +20,7 @@ Successfully tested the function 12/25/2022.
 class ListNode {
     constructor(value = null) {
      this.value = value
-     this.next = null;
+     this.nIntext = null;
     }
 }
  

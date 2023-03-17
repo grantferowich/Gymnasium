@@ -120,7 +120,7 @@ Copy/paste these chunks directly into Replit
 class ListNode {
   constructor(val) {
     this.val = val;
-    this.next = null;
+    this.nIntext = null;
   }
 }
 

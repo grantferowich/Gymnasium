@@ -18,7 +18,7 @@ As input grows only three variables are required, whether there are 5 or 500,000
 class ListNode {
     constructor(value = null) {
      this.value = value
-     this.next = null;
+     this.nIntext = null;
     }
 }
 

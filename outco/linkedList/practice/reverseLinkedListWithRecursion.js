@@ -11,7 +11,7 @@
 class ListNode {
     constructor(value = null) {
      this.value = value
-     this.next = null;
+     this.nIntext = null;
     }
 }
 

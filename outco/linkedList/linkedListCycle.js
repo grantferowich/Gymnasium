@@ -46,7 +46,7 @@ Explanation: There is no cycle in the linked list.
 class ListNode {
     constructor(value){
         this.value = value;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

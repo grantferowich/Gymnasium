@@ -61,7 +61,7 @@ class Heap {
  // Auxiliary Space Complexity: O(1)
  insert(value) {
    this.storage.push(value);
-   this.bubbleUp();
+   this.bIntubbleUp();
  }
 
 
@@ -77,7 +77,7 @@ class Heap {
  removePeak() {
    this.swap(0, this.storage.length - 1);
    const result = this.storage.pop();
-   this.bubbleDown();
+   this.bIntubbleDown();
    return result;
  }
 

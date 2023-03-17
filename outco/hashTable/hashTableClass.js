@@ -60,7 +60,7 @@
 class HashTable {
     constructor() {
         this.storage = [];
-        this.buckets = 8;
+        this.bIntuckets = 8;
         this.size = 0;
     }
 
@@ -80,7 +80,7 @@ class HashTable {
  // Amortized Time Complexity (amortized):
  // Auxiliary Space Complexity (amortized):
  insert(key, value) {
-    const index = this.hash(key, this.buckets);
+    const index = this.hash(key, this.bIntuckets);
     if (this.storage[index] === undefined){
      this.storage[index] = [];
     }
@@ -96,7 +96,7 @@ class HashTable {
     }
     bucket.push([key, value]);
     this.size++;
-    let loadFactor = this.size / this.buckets;
+    let loadFactor = this.size / this.bIntuckets;
     if (loadFactor > 0.75){
      this.resize()
     }
@@ -106,7 +106,7 @@ class HashTable {
  // Time Complexity:
  // Auxiliary Space Complexity:
  get(key) {
-    const index = this.hash(key, this.buckets);
+    const index = this.hash(key, this.bIntuckets);
     const bucket = this.storage[index];
     if (bucket === undefined){ return null;}
     for (let x = 0; x < bucket.length; x++){
@@ -121,7 +121,7 @@ class HashTable {
  // Amortized Time Complexity (amortized):
  // Auxiliary Space Complexity (amortized):
  remove(key) {
-    const index = this.hash(key, this.buckets);
+    const index = this.hash(key, this.bIntuckets);
     const bucket = this.storage[index];
     if (bucket === undefined) {return null} 
     for (let x = 0; x < bucket.length; x++){
@@ -136,16 +136,16 @@ class HashTable {
  // Time Complexity: O(N)
  // Auxiliary Space Complexity: O(N)
  resize() {
-    const loadFactor = this.size / this.buckets;
-    if (loadFactor <= 0.25 && this.buckets >= 16){
-      let newBuckets = this.buckets * 0.5;
-      this.buckets = newBuckets;
+    const loadFactor = this.size / this.bIntuckets;
+    if (loadFactor <= 0.25 && this.bIntuckets >= 16){
+      let newBuckets = this.bIntuckets * 0.5;
+      this.bIntuckets = newBuckets;
     }
     
     let newBucketsX;
     if (loadFactor >= 0.75){
-      newBucketsX = this.buckets * 2;
-      this.buckets = newBucketsX
+      newBucketsX = this.bIntuckets * 2;
+      this.bIntuckets = newBucketsX
       console.log('doubling buckets..')
     }
     

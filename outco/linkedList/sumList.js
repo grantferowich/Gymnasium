@@ -1,7 +1,7 @@
 class Node {
   constructor(value) {
     this.val = value;
-    this.next = null;
+    this.nIntext = null;
   }
 }
 

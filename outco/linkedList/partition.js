@@ -23,7 +23,7 @@ Space complexity: O(1)
 class ListNode{
     constructor(data=null){
         this.data = data;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

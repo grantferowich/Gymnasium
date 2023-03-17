@@ -13,7 +13,7 @@ Successfully tested the function 2/27/23.
 class StackNode{
     constructor(data=null){
         this.data = data;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

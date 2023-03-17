@@ -79,10 +79,10 @@ generateBombCoordinates()
 
 class Grid{
     constructor(n=5, b=3){
-        this.n = n;
-        this.b = b;
+        this.nInt = n;
+        this.bInt = b;
         // create n x n dimensional board
-        this.storageArr = Array.from({length: this.n}, () => Array.from({length: n}, () => ''));
+        this.storageArr = Array.from({length: this.nInt}, () => Array.from({length: n}, () => ''));
         this.bombCoordinatesArr = []
     }
 
@@ -97,7 +97,7 @@ class Grid{
 
     // helper method for updating class property, this.bombCoordinatesArr
     generateRandomCoordinateInt = () =>{
-        return parseInt(Math.random() * this.n);
+        return parseInt(Math.random() * this.nInt);
     }
 
     // helper method for updateing class property, this.bombCoordinatesArr
@@ -114,7 +114,7 @@ class Grid{
         let bombMap = new Map()
         let bombCountInt = 0
         // populate bombMap 
-        while(bombCountInt < this.b){
+        while(bombCountInt < this.bInt){
             const rowInt = this.generateRandomCoordinateInt()
             const colInt = this.generateRandomCoordinateInt()
             let coordinatePairStr = rowInt.toString() + ',' + colInt.toString()
@@ -135,7 +135,7 @@ class Grid{
     
     // utility method for reading class property, this.storageArr
     getCellValue(row, col){
-        if (row < 0 || row >= this.n || col < 0 || col >= this.n){
+        if (row < 0 || row >= this.nInt || col < 0 || col >= this.nInt){
             return 0 
         }
         // console.log(`row ${row}, col ${col}`)
@@ -162,7 +162,7 @@ class Grid{
         while (x < coordinatesArr.length){
             let rowCoordinateToCheckInt = rowInt + coordinatesArr[x][0];
             let colCoordinateToCheckInt = colInt + coordinatesArr[x][1];
-            if (rowCoordinateToCheckInt < this.n || rowCoordinateToCheckInt > 0 || colCoordinateToCheckInt < this.n || colCoordinateToCheckInt > 0){ 
+            if (rowCoordinateToCheckInt < this.nInt || rowCoordinateToCheckInt > 0 || colCoordinateToCheckInt < this.nInt || colCoordinateToCheckInt > 0){ 
                 let cellValueToCheckStr = this.getCellValue(rowCoordinateToCheckInt, colCoordinateToCheckInt);
                 if (cellValueToCheckStr === '*'){
                     countInt++
@@ -179,8 +179,8 @@ class Grid{
     // let num = getBombCountOfCell(row, col)
     // updateCellValue(row, col, num)
     setNumbersOnGrid(){
-        for (let row = 0; row < this.n; row++){
-            for (let col = 0; col < this.n; col++){
+        for (let row = 0; row < this.nInt; row++){
+            for (let col = 0; col < this.nInt; col++){
                 let val = this.getBombCountOfCell(row, col)
                 this.updateCellValue(row, col, val)
             }

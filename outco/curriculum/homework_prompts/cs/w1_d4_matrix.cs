@@ -277,13 +277,13 @@ class Matrix {
 
   public Matrix(int m, int n){
     this.m = m;
-    this.n = n;
+    this.nInt = n;
     this.storage = new int[m,n];
   }
 
   public int getM() {return this.m;}
 
-  public int getN() {return this.n;}
+  public int getN() {return this.nInt;}
 
   public int[,] getStorage() {return this.storage;}
 

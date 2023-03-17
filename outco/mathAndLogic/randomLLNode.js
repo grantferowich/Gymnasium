@@ -33,7 +33,7 @@ Output: 5
 class ListNode {
     constructor(val) {
       this.val = val;
-      this.next = null;
+      this.nIntext = null;
     }
 }
   

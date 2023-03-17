@@ -59,7 +59,7 @@
 class TrieNode {
   constructor(value){
     this.value = value;
-    this.next = {};
+    this.nIntext = {};
     this.end = false;
   }
  

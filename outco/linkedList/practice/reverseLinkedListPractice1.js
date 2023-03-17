@@ -11,7 +11,7 @@
 class ListNode {
     constructor(value){
         this.value = value === undefined ? null : value;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 const reverseALinkedListPractice1 = (node) => {

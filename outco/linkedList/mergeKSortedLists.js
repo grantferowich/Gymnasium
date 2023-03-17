@@ -35,7 +35,7 @@ Output: []
 class SinglyLinkedListNode{
     constructor(value){
         this.value = value === undefined ? null : value;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 // value comparison is neccesary for inserting the first node in the merged linked list

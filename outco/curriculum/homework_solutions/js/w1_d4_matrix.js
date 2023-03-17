@@ -270,7 +270,7 @@
 class Matrix {
   constructor(m, n) {
     this.m = m;
-    this.n = n;
+    this.nInt = n;
     this.storage = [];
     for(let i = 0; i < m; i++) {
       this.storage.push(new Array(n).fill(0));
@@ -286,7 +286,7 @@ class Matrix {
   }
 
   isValid(i, j) {
-    if(i < 0 || j < 0 || i >= this.m || j >= this.n) {
+    if(i < 0 || j < 0 || i >= this.m || j >= this.nInt) {
       return false;
     }
     return true;
@@ -295,7 +295,7 @@ class Matrix {
   initialize(arrayOfArrays) {
     this.storage = arrayOfArrays;
     this.m = arrayOfArrays.length;
-    this.n = arrayOfArrays[0].length;
+    this.nInt = arrayOfArrays[0].length;
     /*
     // YOUR WORK HERE
   }
@@ -317,7 +317,7 @@ class Matrix {
 
   scale(factor) {
     for(let i = 0; i < this.m; i++) {
-      for(let j = 0; j < this.n; j++) {
+      for(let j = 0; j < this.nInt; j++) {
         let newVal = this.retrieve(i, j) * factor;
         this.insert(i, j, newVal);
       }
@@ -326,7 +326,7 @@ class Matrix {
 
   fill(val) {
     for(let i = 0; i < this.m; i++) {
-      for(let j = 0; j < this.n; j++) {
+      for(let j = 0; j < this.nInt; j++) {
         this.insert(i, j, val);
       }
     }
@@ -335,7 +335,7 @@ class Matrix {
   flatten() {
     let result = [];
     for(let i = 0; i < this.m; i++) {
-      for(let j = 0; j < this.n; j++) {
+      for(let j = 0; j < this.nInt; j++) {
         result.push(this.storage[i][j]);
       }
     }
@@ -346,7 +346,7 @@ class Matrix {
     let rowMin = Math.max(0, rowRange[0]);
     let rowMax = Math.min(rowRange[1], this.m);
     let colMin = Math.max(0, colRange[0]);
-    let colMax = Math.min(colRange[1], this.n)
+    let colMax = Math.min(colRange[1], this.nInt)
 
     let newMatrix = new Matrix(rowMax - rowMin, colMax - colMin);
     for(let i = rowMin; i < rowMax; i++) {
@@ -359,9 +359,9 @@ class Matrix {
   }
 
   transpose() {
-    let newMatrix = new Matrix(this.n, this.m);
+    let newMatrix = new Matrix(this.nInt, this.m);
     for(let i = 0; i < this.m; i++) {
-      for(let j = 0; j < this.n; j++) {
+      for(let j = 0; j < this.nInt; j++) {
         let val = this.retrieve(i, j);
         newMatrix.insert(j, i, val);
       }
@@ -370,14 +370,14 @@ class Matrix {
   }
 
   multiply(matrix) {
-    if(this.n !== matrix.m) {
+    if(this.nInt !== matrix.m) {
       return null;
     }
     let newMatrix = new Matrix(this.m, matrix.n);
     for(let i = 0; i < newMatrix.m; i++) {
       for(let j = 0; j < newMatrix.n; j++) {
         let newVal = 0;
-        for(let k = 0; k < this.n; k++) {
+        for(let k = 0; k < this.nInt; k++) {
           newVal += this.retrieve(i, k) * matrix.retrieve(k, j);
         }
         newMatrix.insert(i, j, newVal);

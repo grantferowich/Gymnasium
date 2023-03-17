@@ -85,7 +85,7 @@ class Node {
     this.key = key;
     this.value = value;
     this.previous = null;
-    this.next = null;
+    this.nIntext = null;
   }
 }
 

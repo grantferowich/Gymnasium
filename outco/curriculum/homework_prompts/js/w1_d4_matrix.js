@@ -270,7 +270,7 @@
 class Matrix {
   constructor(m, n) {
     this.m = m;
-    this.n = n;
+    this.nInt = n;
     this.storage = [];
     for(let i = 0; i < m; i++) {
       this.storage.push(new Array(n).fill(0));

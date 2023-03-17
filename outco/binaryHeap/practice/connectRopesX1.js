@@ -44,7 +44,7 @@ const bubbleDown = (arr, parentIndex, boundary) => {
 // call bubble down at each index
 function minHeapSort(arr) {
     for (let x = arr.length - 1; x > -1; x--){
-        this.bubbleDown(arr, x, arr.length - 1)
+        this.bIntubbleDown(arr, x, arr.length - 1)
     }
     return arr;
 }

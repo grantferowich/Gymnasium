@@ -277,20 +277,20 @@ class Matrix {
 
   public Matrix(int m, int n){
     this.m = m;
-    this.n = n;
+    this.nInt = n;
     this.storage = new int[m,n];
   }
 
   public int getM() {return this.m;}
 
-  public int getN() {return this.n;}
+  public int getN() {return this.nInt;}
 
   public int[,] getStorage() {return this.storage;}
 
 
   public void print() {
     for(int i = 0; i < this.m; i++) {
-      for(int j = 0; j < this.n; j++) {
+      for(int j = 0; j < this.nInt; j++) {
         Console.Write(storage[i,j] + "\t");
       }
       Console.WriteLine();
@@ -300,7 +300,7 @@ class Matrix {
   }
 
   public bool isValid(int i, int j) {
-    if(i < 0 || j < 0 || i >= this.m || j >= this.n) {
+    if(i < 0 || j < 0 || i >= this.m || j >= this.nInt) {
       return false;
     }
     return true;
@@ -309,7 +309,7 @@ class Matrix {
   public void initialize(int[,] arrayOfArrays) {
     this.storage = arrayOfArrays;
     this.m = arrayOfArrays.GetLength(0);
-    this.n = arrayOfArrays.GetLength(1);
+    this.nInt = arrayOfArrays.GetLength(1);
     /*
     // YOUR WORK HERE
   }
@@ -332,7 +332,7 @@ class Matrix {
   public void scale(int factor) {
     int newVal;
     for(int i = 0; i < this.m; i++) {
-      for(int j = 0; j < this.n; j++) {
+      for(int j = 0; j < this.nInt; j++) {
         newVal = this.retrieve(i, j) * factor;
         this.insert(i, j, newVal);
       }
@@ -341,7 +341,7 @@ class Matrix {
 
   public void fill(int val) {
     for(int i = 0; i < this.m; i++) {
-      for(int j = 0; j < this.n; j++) {
+      for(int j = 0; j < this.nInt; j++) {
         this.insert(i, j, val);
       }
     }
@@ -351,7 +351,7 @@ class Matrix {
     int[] result = new int[m*n];
     int counter = 0;
     for(int i = 0; i < this.m; i++) {
-      for(int j = 0; j < this.n; j++) {
+      for(int j = 0; j < this.nInt; j++) {
         result[counter++] = this.storage[i,j];
       }
     }
@@ -362,7 +362,7 @@ class Matrix {
     int rowMin = Math.Max(0, rowRange[0]);
     int rowMax = Math.Min(rowRange[1], this.m);
     int colMin = Math.Max(0, colRange[0]);
-    int colMax = Math.Min(colRange[1], this.n);
+    int colMax = Math.Min(colRange[1], this.nInt);
 
     Matrix newMatrix = new Matrix(rowMax - rowMin, colMax - colMin);
     int newVal;
@@ -376,10 +376,10 @@ class Matrix {
   }
 
   public Matrix transpose() {
-    Matrix newMatrix = new Matrix(this.n, this.m);
+    Matrix newMatrix = new Matrix(this.nInt, this.m);
     int val;
     for(int i = 0; i < this.m; i++) {
-      for(int j = 0; j < this.n; j++) {
+      for(int j = 0; j < this.nInt; j++) {
         val = this.retrieve(i, j);
         newMatrix.insert(j, i, val);
       }
@@ -388,7 +388,7 @@ class Matrix {
   }
 
   public Matrix multiply(Matrix matrix) {
-    if(this.n != matrix.m) {
+    if(this.nInt != matrix.m) {
       return null;
     }
     Matrix newMatrix = new Matrix(this.m, matrix.n);
@@ -396,7 +396,7 @@ class Matrix {
     for(int i = 0; i < newMatrix.m; i++) {
       for(int j = 0; j < newMatrix.n; j++) {
         newVal = 0;
-        for(int k = 0; k < this.n; k++) {
+        for(int k = 0; k < this.nInt; k++) {
           newVal += this.retrieve(i, k) * matrix.retrieve(k, j);
         }
         newMatrix.insert(i, j, newVal);

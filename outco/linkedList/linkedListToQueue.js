@@ -20,7 +20,7 @@ enqueue and dequeue methods.
 class ListNode {
     constructor(value){
         this.value = value;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

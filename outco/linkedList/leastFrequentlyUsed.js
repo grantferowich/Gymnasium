@@ -33,7 +33,7 @@ class Node{
         this.key = key,
         this.value = value,
         this.frequency = 0,
-        this.next = null,
+        this.nIntext = null,
         this.prev = null
     }
 }

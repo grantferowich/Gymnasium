@@ -7,7 +7,7 @@ Successfully tested the function 02/10/23.
 class ListNode {
     constructor(value){
         this.value = value;
-        this.next = null;
+        this.nIntext = null;
     }
   }
   

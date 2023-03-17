@@ -50,7 +50,7 @@ class Heap {
      this.storage.push(value);
      // when inserting, the value must be bubbled up from the end of the array
      // to satisfy the heap condition
-     this.bubbleUp()
+     this.bIntubbleUp()
     }
    
    
@@ -69,7 +69,7 @@ class Heap {
     removePeak() {
      this.swapValues(0, this.storage.length -1)
      const node = this.storage.pop()
-     this.bubbleDown()
+     this.bIntubbleDown()
      return node
     }
    

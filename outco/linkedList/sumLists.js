@@ -36,7 +36,7 @@ Output: [8,9,9,9,0,0,0,1]
 class ListNode {
     constructor(value = null) {
      this.value = value
-     this.next = null;
+     this.nIntext = null;
     }
 }
 

@@ -8,7 +8,7 @@ Successfully tested the function 2/20/23 at 2:35pm.
 class ListNode {
     constructor(value){
         this.value = value;
-        this.next = null;
+        this.nIntext = null;
     }
 }
 

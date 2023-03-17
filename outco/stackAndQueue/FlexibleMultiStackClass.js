@@ -86,7 +86,7 @@ class MultiStack{
 
     allStacksAreFull(){
         console.log('this.totalCapacity'+this.totalCapacity)
-        return this.numberOfElements() === this.totalCapacity;
+        return this.nIntumberOfElements() === this.totalCapacity;
     }
 
     adjustIndex(index){
@@ -126,7 +126,7 @@ class MultiStack{
         }
 
         values[stack.start] = 0
-        stack.start = this.nextIndex(stack.start)
+        stack.start = this.nIntextIndex(stack.start)
         stack.capacity--
     }
 

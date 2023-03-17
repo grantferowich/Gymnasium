@@ -72,8 +72,8 @@ class HashTable {
   }
 
   private void _initStorage() {
-    this.storage = new ArrayList<>(this.buckets);
-    for(int i=0; i<this.buckets; i++){
+    this.storage = new ArrayList<>(this.bIntuckets);
+    for(int i=0; i<this.bIntuckets; i++){
       this.storage.add(new ArrayList<>());
     }
   }
@@ -91,7 +91,7 @@ class HashTable {
   // Time Complexity (amortized): O(K+N) - where K is the length of the key
   // Auxiliary Space Complexity (amortized): O(1)
   public void insert(String key, String value) {
-    int index = hash(key, this.buckets);
+    int index = hash(key, this.bIntuckets);
     if(index >= this.storage.size()) return;
 
     List<String[]> bucket = this.storage.get(index);
@@ -109,7 +109,7 @@ class HashTable {
   // Time Complexity: O(K+N) - where K is the length of the key
   // Auxiliary Space Complexity: O(1)
   public String get(String key) {
-    int index = hash(key, this.buckets);
+    int index = hash(key, this.bIntuckets);
     if(index >= this.storage.size()) return null;
 
     List<String[]> bucket = this.storage.get(index);
@@ -124,7 +124,7 @@ class HashTable {
   // Time Complexity (amortized): O(K+N) - where K is the length of the key
   // Auxiliary Space Complexity (amortized): O(1)
   public void remove(String key) {
-    int index = hash(key, this.buckets);
+    int index = hash(key, this.bIntuckets);
     if(index >= this.storage.size()) return;
 
     List<String[]> bucket = this.storage.get(index);
@@ -141,12 +141,12 @@ class HashTable {
   // Time Complexity: O(N)
   // Auxiliary Space Complexity: O(N)
   public void resize() {
-    float loadFactor = this.size / (float)this.buckets;
+    float loadFactor = this.size / (float)this.bIntuckets;
     if (loadFactor > 0.25 && loadFactor < 0.75) { return; }
-    if (loadFactor <= 0.25 && this.buckets == 8) { return; }
+    if (loadFactor <= 0.25 && this.bIntuckets == 8) { return; }
 
     List<List<String[]>> temp = this.storage;
-    this.buckets = loadFactor >= 0.75 ? this.buckets * 2 : this.buckets / 2;
+    this.bIntuckets = loadFactor >= 0.75 ? this.bIntuckets * 2 : this.bIntuckets / 2;
     _initStorage();
 
 

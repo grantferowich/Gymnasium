@@ -39,7 +39,7 @@ print out q.dequeue() => 10
 class SinglyLinkedListNode{
     constructor(value){
         this.value = value === undefined ? null : value;
-        this.next = null
+        this.nIntext = null
     }
 }
 

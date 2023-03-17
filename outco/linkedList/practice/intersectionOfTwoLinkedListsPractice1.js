@@ -32,7 +32,7 @@
 class ListNode {
     constructor(val) {
       this.val = val;
-      this.next = null;
+      this.nIntext = null;
     }
 }
 let head = new ListNode(1);
