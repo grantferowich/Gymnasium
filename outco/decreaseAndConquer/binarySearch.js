@@ -1,7 +1,7 @@
 /* 
 Binary Search
 
-Leetcode 704
+Leetcode 704: Easy
 
 Given an array of integers nums which is sorted in ascending order, 
 and an integer target, write a function to search target in nums. 
@@ -19,20 +19,24 @@ Input: nums = [-1,0,3,5,9,12], target = 2
 Output: -1
 Explanation: 2 does not exist in nums so return -1
 
+Algorithm analysis
+Time: O(log(N))
+Space: O(1)
+
 */
 
-const binarySearch = (nums, target) => {
-    let startPtr = 0
-    let endPtr = nums.length-1
-    while (startPtr < endPtr){
-        let midPtr =  Math.floor((startPtr + endPtr)/2)
-        if (nums[midPtr] === target){
-            return midPtr
+const binarySearch = (numsArr, targetInt) => {
+    let startPtrInt = 0;
+    let endPtrInt = numsArr.length-1;
+    while (startPtrInt <= endPtrInt){
+        let midPtrInt = parseInt((startPtrInt + endPtrInt)/2)
+        if (numsArr[midPtrInt] === targetInt){
+            return midPtrInt;
         }
-        if (nums[midPtr] > target){
-            endPtr = midPtr - 1 
+        if (numsArr[midPtrInt] > targetInt){
+            endPtrInt = midPtrInt - 1;
         } else {
-            startPtr = midPtr + 1
+            startPtrInt = midPtrInt + 1;
         }
     }
     return -1
@@ -51,3 +55,15 @@ const target2 = 2
 const test2 = binarySearch(nums2, target2)
 console.log(`Test 2: ${test2}`)
 // Expected output: Test 2: -1 ✓
+
+const nums3 = [2,5]
+const target3 = 5
+const test3 = binarySearch(nums3, target3)
+console.log(`Test 3: ${test3}`)
+// Expected output: Test 3: 1 ✓
+
+const nums4 = [5]
+const target4 = 5
+const test4 = binarySearch(nums4, target4)
+console.log(`Test 4: ${test4}`)
+// Expected output: Test 4: 0 ✓
