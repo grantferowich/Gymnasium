@@ -1,3 +1,8 @@
+/* 
+Euclid's Algorithm
+
+Successfully tested the function 03/17/2023.
+
 // Given A and B take the difference of A and B to find the greatest common divisor.
 // To find the GCD of 78 and 52 
 
@@ -13,7 +18,7 @@
 // Complexity Analysis
 // Time Complexity: O(logN)
 // Space Complexity: O(1)
-
+ */
 const gcd = (aInt, bInt) => {
     // ensure inputs are positive
     if (aInt < 0) { aInt *= -1};
