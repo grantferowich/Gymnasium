@@ -72,7 +72,7 @@ function closestValue(numsArr, targetInt) {
     
   while (startIdxInt < endIdxInt){
       // find middle
-      midIdxInt = parseInt(startIdxInt + parseInt((endIdxInt - startIdxInt)/2));
+      midIdxInt = parseInt((endIdxInt + startIdxInt)/2);
       // process middle element relative to input target 
       let differenceInt = Math.abs(targetInt - numsArr[midIdxInt]);
       // process the result 
@@ -90,7 +90,7 @@ function closestValue(numsArr, targetInt) {
       if (numsArr[midIdxInt] < targetInt){
         startIdxInt = midIdxInt + 1;
       } else {
-        endIdxInt = midIdxInt;
+        endIdxInt = midIdxInt - 1;
       }
     }
 
