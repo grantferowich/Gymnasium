@@ -61,7 +61,6 @@ State 4: The user wins when everything other than the bombs has been exposed.
 The Grid must be N x N dimensions.
 The Grid must have B bombs. 
 The Grid must place the bombs randomly throughout the n x n array.
-There Grid must never place more than one bomb in a row.
 The Grid must place a number in each cell indicating how many bombs are located in 
 the surrounding 8 cells, or, if there are 0 bombs in the surrounding 8 cells, 
 the Grid must place a '' in the cell. 
@@ -87,11 +86,11 @@ class Grid{
     }
 
     // view the state
-    print(){
-        let x = 0
-        while (x < this.storageArr.length){
-            console.log(this.storageArr[x])
-            x++
+    printArr(){
+        let xInt = 0
+        while (xInt < this.storageArr.length){
+            console.log(this.storageArr[xInt])
+            xInt++
         }
     }
 
@@ -102,15 +101,15 @@ class Grid{
 
     // helper method for updateing class property, this.bombCoordinatesArr
     convertMapToCoordinatesArr(bombMap){
-        for (let [k,v] of bombMap){
-            let coordinatesPair0Int = parseInt(k.split(',')[0])
-            let coordinatesPair1Int = parseInt(k.split(',')[1])
+        for (let [kInt,v] of bombMap){
+            let coordinatesPair0Int = parseInt(kInt.split(',')[0])
+            let coordinatesPair1Int = parseInt(kInt.split(',')[1])
             this.bombCoordinatesArr.push([coordinatesPair0Int, coordinatesPair1Int])
         }
     }
     
     // updates class property, this.bombCoordinatesArr
-    generateBombCoordinates(){
+    generateBombCoordinatesArr(){
         let bombMap = new Map()
         let bombCountInt = 0
         // populate bombMap 
@@ -135,15 +134,12 @@ class Grid{
     
     // utility method for reading class property, this.storageArr
     getCellValue(row, col){
-        if (row < 0 || row >= this.nInt || col < 0 || col >= this.nInt){
-            return 0 
-        }
         // console.log(`row ${row}, col ${col}`)
         return this.storageArr[row][col]
     }
     
     // update class property, storageArr
-    setBombsOnGrid(){
+    setBombsOnGridArr(){
         let x = 0;
         while (x < this.bombCoordinatesArr.length){
             let row = this.bombCoordinatesArr[x][0]
@@ -154,7 +150,7 @@ class Grid{
     }
 
     // utility method for updating class property, this.storageArr
-    getBombCountOfCell(rowInt, colInt){
+    getBombCountOfCellInt(rowInt, colInt){
         // down, right, up, left, bottom right diag, bottom left diag, top left, top right
         let coordinatesArr = [[1, 0], [0, 1], [-1, 0], [0, -1], [ 1, 1], [1, -1], [-1, -1,], [-1, 1]];
         let countInt = 0;
@@ -162,10 +158,10 @@ class Grid{
         while (x < coordinatesArr.length){
             let rowCoordinateToCheckInt = rowInt + coordinatesArr[x][0];
             let colCoordinateToCheckInt = colInt + coordinatesArr[x][1];
-            if (rowCoordinateToCheckInt < this.nInt || rowCoordinateToCheckInt > 0 || colCoordinateToCheckInt < this.nInt || colCoordinateToCheckInt > 0){ 
+            if (row >= 0 && row && this.nInt && col >= 0 && col < this.nInt){
                 let cellValueToCheckStr = this.getCellValue(rowCoordinateToCheckInt, colCoordinateToCheckInt);
                 if (cellValueToCheckStr === '*'){
-                    countInt++
+                    countInt++;
                 }
             }
             x++
