@@ -3,14 +3,22 @@ Robot in a Grid
 
 CTCI 8.02
 
+Successfully tested the function 03/20/2023.
+
 Imagine a robot sitting on the upper left corner of a grid with
 r rows and c columns. The robot can only move in two directions, right and down,
 but certain cells are "off limits" such that the robot cannot step on them. 
 Design an algorithm to find a path from the robot from the top left to the bottom right.
 
+
+Input: rInt, cInt, which are both integers
+Output: the number of unique paths from (0,0) to (2,3), an integer
+
 Test case: 
 rInt = 2
-cInt = 2
+cInt = 3
+
+Output: 10
 
 */
 
