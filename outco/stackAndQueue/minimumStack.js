@@ -64,12 +64,9 @@ class MinimumStack{
     }
 
     push(value){
-        this.allStack.push(value)
-        if (this.minimumStack.top === null || this.minimumStack.top === undefined){
-            this.minimumStack.push(value)
-        }        
+        this.allStack.push(value)    
         let currentMinimum = this.minimumStack.top.data
-        if (value < currentMinimum ){
+        if (!this.minimumStack.length || value <= currentMinimum ){
             this.minimumStack.push(value)
         }
     }

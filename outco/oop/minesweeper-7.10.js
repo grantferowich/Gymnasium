@@ -81,13 +81,13 @@ class Grid{
         this.nInt = n;
         this.bInt = b;
         // create n x n dimensional board
-        this.storageArr = Array.from({length: this.nInt}, () => Array.from({length: n}, () => ''));
-        this.bombCoordinatesArr = []
+        this.storageArr = Array.from({length: this.nInt}, () => Array.from({length: this.nInt}, () => ''));
+        this.bombCoordinatesArr = [];
     }
 
     // view the state
     printArr(){
-        let xInt = 0
+        let xInt = 0;
         while (xInt < this.storageArr.length){
             console.log(this.storageArr[xInt])
             xInt++
@@ -149,7 +149,7 @@ class Grid{
         }
     }
 
-    // utility method for updating class property, this.storageArr
+    // utility method for updating storageArr
     getBombCountOfCellInt(rowInt, colInt){
         // down, right, up, left, bottom right diag, bottom left diag, top left, top right
         let coordinatesArr = [[1, 0], [0, 1], [-1, 0], [0, -1], [ 1, 1], [1, -1], [-1, -1,], [-1, 1]];
