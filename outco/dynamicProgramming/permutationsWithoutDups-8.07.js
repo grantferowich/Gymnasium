@@ -4,6 +4,8 @@ Permutations without duplicates
 
 CTCI 8.07
 
+Successfully tested the function 03/21/20/23.
+
 Write a method to computer all permutations of a string of unique characters.
 
 Example case

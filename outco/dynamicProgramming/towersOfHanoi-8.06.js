@@ -3,6 +3,8 @@ Towers of Hanoi
 
 CTCI 8.06
 
+Successfully tested the function 03/21/2023.
+
 In the classic problem of the Towers of Hanoi, you have
 three towers and N disks of different sizes which can slide 
 onto any tower. The puzzle starts with disks sorted in ascending 
