@@ -71,6 +71,6 @@ console.log(stringPermutationWithMemoization("aabc"))
 //     'cbaa'
 //   ]
 
-// console.log(stringPermutation("aabcxxbj"))
+console.log(stringPermutationWithMemoization("aabcxxbj"))
 var t1 = performance.now();
 console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
