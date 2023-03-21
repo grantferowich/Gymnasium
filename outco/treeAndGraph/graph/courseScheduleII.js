@@ -190,5 +190,15 @@ const courseScheduleII = (NInt, prereqsArr) => {
         }
     }
 
+    // kick off search
+    let list = []
+    while (queue.length > 0){
+        let currentCourse = queue.pop();
+        list.push(currentCourse);
+        if (!map.has(currentCourse)){
+            continue;
+        }
+        // for (let )
+    }
 
 }
