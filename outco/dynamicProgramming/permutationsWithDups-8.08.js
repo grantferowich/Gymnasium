@@ -1,6 +1,8 @@
 /* 
 Permutations with Dups
 
+Successfully tested the function 03/22/2023.
+
 Write a method to compute all permutations of a string whose characters are not necessarily unique. 
 The list of permutations should no have duplicataes.
 
@@ -34,7 +36,6 @@ const permutationsWithDups = (str ='') => {
         }
         xInt++
     }
-    
 
     const generatePermutations = (build) => {
         if (build.length === str.length){
@@ -53,10 +54,10 @@ const permutationsWithDups = (str ='') => {
                 }  
                 xInt++  
             }
-            
+
             for (let [kStr, vInt] of tempMap){
                 if (tempMap.get(kStr) !== idealMap.get(kStr)){
-                    return false
+                    return
                 }
             }
             permutationsSet.add(build)
