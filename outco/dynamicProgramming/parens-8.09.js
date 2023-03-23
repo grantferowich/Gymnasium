@@ -4,6 +4,8 @@ Parens
 Implement an algorithm to print all valid (i.e., 
 properly opened and closer) combinations of n parentheses.
 
+Successfully tested the function 03/23/2023.
+
 Example
 nInt = 1
 Output: ['()']
