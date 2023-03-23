@@ -6,7 +6,6 @@
 let words = 'Wake Forest University === home.';
 
 words = ""
-
 const cleanText = (text) => {
     // Replace multiple spaces between lines with single space
     text = text.replace(/\n\s+/g, '\n');
