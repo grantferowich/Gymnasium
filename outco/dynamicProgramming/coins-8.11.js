@@ -15,8 +15,6 @@ Output: 2
 Rationale:
 1: a nickle
 2: five pennies
-
-
 */
 
 const coins = (nInt = 0) => {
