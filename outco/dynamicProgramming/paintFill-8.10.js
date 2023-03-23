@@ -15,15 +15,14 @@ output: gridArr
 */
 
 const paintFill = (gridArr, rowInt, colInt, newColorStr) => {
-
     const traverse = (rInt, cInt) => {
         if (rInt < 0 || rInt >= gridArr.length || cInt < 0 || cInt >= gridArr[0].length){
-            return
+            return;
         }
 
         // already updated the color
         if (gridArr[rInt][cInt] === newColorStr) {
-            return
+            return;
         }
 
         gridArr[rInt][cInt] = newColorStr;
@@ -33,8 +32,8 @@ const paintFill = (gridArr, rowInt, colInt, newColorStr) => {
         traverse(rInt, cInt + 1)
     }
 
-    traverse(rowInt, colInt, newColorStr)
-    return gridArr
+    traverse(rowInt, colInt, newColorStr);
+    return gridArr;
 }
 
 /* TESTS */
