@@ -4,7 +4,7 @@
 // The resulting data becomes fragmented. I saw an option on Google Sheets for tab separated values.
 // TSV formatting may be something to explore.
 const fs = require('fs');
-const csv = fs.readFileSync('./accountabilityTracker.csv', 'utf-8')
+const csv = fs.readFileSync('./Syracuse_Public_Art.csv', 'utf-8')
 console.log(csv)
 
 const parseCSV = (csv) => {
@@ -17,8 +17,20 @@ const parseCSV = (csv) => {
     for (let line of data){
         // process the array data
         const fields = line.split(',');
+  
         // push the processed array data to a state variable
+    //  'Y',                'Y',
+    // 'FID',                'Title',
+    // 'Type',               'Address',
+    // 'Latitude',           'Longitude',
+    // 'Artist_Last_',       'Artist_First',
+    // 'Additional_Artists', 'Media',
+    // 'Year_Created',       'Year_Erected',
+    // 'TNT_Area',           'Neighborhood',
+    // 'Specific_Location',  'Image_Url'
         parsedData.push(fields)
+        console.log(fields.length)
+        break
     }
 
     // return the state variable`
