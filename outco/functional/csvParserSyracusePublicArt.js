@@ -1,4 +1,5 @@
-// 1/16/23
+// CSV Parser Syracuse Public Art
+// 03/24/23
 // Note to self: CSV parsing works welll when you have data types such as integers.
 // When you have data types such as long strings, or paragraphs, the csv parser is going to catch on every comma.
 // The resulting data becomes fragmented. I saw an option on Google Sheets for tab separated values.
