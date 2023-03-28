@@ -4,6 +4,12 @@ const inputArr1 = [0, undefined, null, 5, 10, 13, 25, 50]
 
 // Expect: 0, 0, 0, 2, 3
 const runTests = (inputArr) => {
+    // generate date on which tests were run
+    const todayDate = new Date()
+    const dayInt = todayDate.getDate()
+    const monthInt = todayDate.getMonth()
+    const yearInt = todayDate.getFullYear()
+
     let xInt = 0
     while (xInt < inputArr.length){
         let testIntputInt = inputArr[xInt]
@@ -11,6 +17,9 @@ const runTests = (inputArr) => {
         console.log(`Test ${xInt}: ${resultInt}`)
         xInt++
     }
+
+
+    console.log(`Successfully tested the function ${dayInt}/${monthInt}/${yearInt}`);
 }
 
 runTests(inputArr1)
