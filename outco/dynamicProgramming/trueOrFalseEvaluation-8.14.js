@@ -14,10 +14,9 @@ Examples
 input 1: "1^0|0|1", false
 output 1: 2
 
-                             ''
-    pick next three /            \    don't 
-                1 ^ 0 -> incr [0,1,2]
-              /     \
+(1^0)(0|0)(0|1)
+
+
 
 input 2: "0&0&0&1^1|0", true
 output: 10
@@ -25,52 +24,7 @@ output: 10
 */
 
 const tOrFEvaluation = (str = '', ToF = false) => {
-    if (!str && !ToF){
-        return 0;
-    }
-    let countInt = 0
-    const eval = (str, depth) => {
-        if (depth >= str.length){
-            return
-        }
-        let operand1 = parseInt(str[depth], 2) 
-        let operator = str[depth+1]
-        let operand2 = parseInt(str[2 + depth], 2) 
-        console.log(`str[${depth}] ${str[depth]}`)
-        console.log(`str[${depth + 1}] ${str[depth+1]}`)
-        console.log(`str[${depth + 2}] ${str[depth + 2]}`)
-
-        console.log('operand1', operand1)
-        console.log('operand2', operand2)
-
-        if (operator === '^' && (operand1 ^ operand2) && ToF === true){
-            countInt++
-            console.log('^ and count change')
-        }
-        if (operator === '^' && !(operand1 ^ operand2) && ToF === false){
-            countInt++
-            console.log('^ and count change')
-        }
-        if (operator === '&' && (operand1 & operand2) && ToF === true){
-            countInt++
-            console.log('& and count change')
-        }
-        if (operator === '&' && !(operand1 & operand2) && ToF === false){
-            countInt++
-            console.log('& and count change')
-        }
-        if (operator === '|' && (operand1 | operand2) && ToF === true){
-            countInt++
-            console.log('| and count change')
-        }
-        if (operator === '|' && !(operand1 | operand2) && ToF === false){
-            countInt++
-            console.log('| and count change')
-        }
-        eval(str, depth + 2)
-    }
-    eval(str, 0)
-    return countInt
+    
 }
 
 /* TESTS */

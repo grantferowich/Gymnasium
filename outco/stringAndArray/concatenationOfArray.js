@@ -23,7 +23,6 @@ const runTests = (array) => {
     const monthInt = todayDate.getMonth() + 1
     const yearInt = todayDate.getFullYear()
 
-
     let xInt = 0
     while (xInt < inputArr.length){
         let testIntputInt = inputArr[xInt]
@@ -31,7 +30,6 @@ const runTests = (array) => {
         console.log(`Test ${xInt}: ${resultInt}`)
         xInt++
     }
-    
     console.log(`✓ Successfully tested the function ${monthInt}/${dayInt}/${yearInt}`);
 }
 

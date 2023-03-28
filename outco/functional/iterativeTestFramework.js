@@ -19,7 +19,7 @@ const runTests = (inputArr) => {
     }
 
 
-    console.log(`Successfully tested the function ${dayInt}/${monthInt}/${yearInt}`);
+    console.log(`✓ Successfully tested the function ${dayInt}/${monthInt}/${yearInt}`);
 }
 
 runTests(inputArr1)
