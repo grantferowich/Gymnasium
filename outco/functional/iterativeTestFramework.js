@@ -7,7 +7,7 @@ const runTests = (inputArr) => {
     // generate date on which tests were run
     const todayDate = new Date()
     const dayInt = todayDate.getDate()
-    const monthInt = todayDate.getMonth()
+    const monthInt = todayDate.getMonth() + 1
     const yearInt = todayDate.getFullYear()
 
     let xInt = 0
@@ -19,7 +19,7 @@ const runTests = (inputArr) => {
     }
 
 
-    console.log(`✓ Successfully tested the function ${dayInt}/${monthInt}/${yearInt}`);
+    console.log(`✓ Successfully tested the function ${monthInt}/${dayInt}/${yearInt}`);
 }
 
 runTests(inputArr1)
