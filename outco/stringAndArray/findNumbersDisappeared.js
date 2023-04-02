@@ -61,8 +61,6 @@ const findNumbersDisappeared = (arr=[]) => {
 
 /* TESTS */
 
-/* TESTS */
-
 const inputArr1 = [[0], undefined, null, [4,3,2,7,8,2,3,1], [1, 1], [1,3,2,2,2, 4]]
 
 // Expect: 0, 0, 0, 2, 3
