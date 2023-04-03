@@ -69,13 +69,12 @@ const maxiumNumberOfBalloons = (str) => {
         xInt++;
     }
 
-    resultInt = Math.min(charMap.get('b'), charMap.get('a'), (charMap.get('l')/2), (charMap.get('o')/2), charMap.get('n'))
-    return resultInt > 0 ? resultInt : 0
+    resultInt = Math.min(charMap.get('b'), charMap.get('a'), Math.floor(charMap.get('l')/2), Math.floor(charMap.get('o')/2), charMap.get('n'))
+    return resultInt >= 1 ? resultInt : 0
 }
 
 /* TESTS */
-
-const inputArr1 = ['leetcode', 'loonbalxballpoon', 'nlaebolko']
+const inputArr1 = ['balon', 'leetcode', 'loonbalxballpoon', 'nlaebolko']
 
 // Expect: 0, 2, 1
 const runTests = (inputArr) => {
@@ -92,7 +91,6 @@ const runTests = (inputArr) => {
         console.log(`Test ${xInt}: ${resultInt}`)
         xInt++
     }
-
 
     console.log(`✓ Successfully tested the function ${monthInt}/${dayInt}/${yearInt}`);
 }
