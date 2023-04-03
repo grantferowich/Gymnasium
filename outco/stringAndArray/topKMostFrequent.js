@@ -9,8 +9,8 @@ return the answer in any order.
 
 create a frequencyMap<char, integer>
 for all the elements in a list
-if the element has a frequency of k or higher
 push the element to an output array
+
 return the output array
 
 
@@ -41,11 +41,26 @@ const topKMostFrequent = (numsArr, kInt) => {
     }
 
     // check the frequency of each char in the charMap
-    for (let [key, val] of charMap){
-        if (charMap.get(key) >= kInt){
-            outputArr.push(key)
+    // for (let [key, val] of charMap){
+    //     if (charMap.get(key) >= kInt){
+    //         outputArr.push(key)
+    //     }
+    // }
+    let valuesArr = Array.from(charMap.values())
+    valuesArr.sort((a,b) => b - a)
+    valuesArr = valuesArr.slice(0, kInt)
+    xInt = 0
+
+    while (xInt < valuesArr.length){
+        for (let [key, val] of charMap){
+            if (val === valuesArr[xInt] && outputArr.length < kInt && !outputArr.includes(key)){
+                outputArr.push(key)
+            }
         }
+        xInt++
     }
+    
+
 
     return outputArr
 }
@@ -70,3 +85,8 @@ let kInt3 = 1
 let result3 = topKMostFrequent(arr3, kInt3)
 console.log(`Result 3: ${result3}`)
 // Result 3: 1,2,3
+
+let arr4 = [1,2]
+let kInt4 = 2
+let result4 = topKMostFrequent(arr4, kInt4)
+console.log(`Result 4: ${result4}`)
