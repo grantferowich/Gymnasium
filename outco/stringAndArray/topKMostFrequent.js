@@ -3,6 +3,8 @@
 
 Medium
 
+Successfully tested the function 04/03/2023.
+
 Given an integer array nums and an integer k, 
 return the k most frequent elements. You may 
 return the answer in any order.
@@ -40,12 +42,6 @@ const topKMostFrequent = (numsArr, kInt) => {
         xInt++
     }
 
-    // check the frequency of each char in the charMap
-    // for (let [key, val] of charMap){
-    //     if (charMap.get(key) >= kInt){
-    //         outputArr.push(key)
-    //     }
-    // }
     let valuesArr = Array.from(charMap.values())
     valuesArr.sort((a,b) => b - a)
     valuesArr = valuesArr.slice(0, kInt)
@@ -90,3 +86,4 @@ let arr4 = [1,2]
 let kInt4 = 2
 let result4 = topKMostFrequent(arr4, kInt4)
 console.log(`Result 4: ${result4}`)
+// Result 4: 1,2
