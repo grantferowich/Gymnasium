@@ -3,6 +3,8 @@ Longest Consecutive Sequence
 
 Medium
 
+Partially tested as of 04/04/2023.
+
 Given an unsorted array of integers nums, 
 return the length of the longest consecutive elements sequence.
 
