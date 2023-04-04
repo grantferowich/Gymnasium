@@ -46,9 +46,17 @@ const wordPattern = (patternStr, inputStr) => {
         let patternChar = patternStr[xInt];
 
         let inputWordStr = inputArr[xInt];
-        if (!charMap.has(patternChar)){
-            charMap.set(patternChar, inputWordStr);
+        if (charMap.has(inputWordStr)){
+            continue
         }
+
+        if (!charMap.has(patternChar)){
+            let valuesArr = Array.from(charMap.values())
+            if (!valuesArr.includes(inputWordStr)) {
+                charMap.set(patternChar, inputWordStr);
+            }
+            
+        } 
         xInt++
     }
 
@@ -76,3 +84,7 @@ const inputStr2 = 'dog cat cat turtle'
 const result2 = wordPattern(patternStr2, inputStr2)
 console.log(`Result 2 ${result2}`)
 
+const patternStr3 = 'abba'
+const inputStr3 = 'dog dog dog dog'
+const result3 = wordPattern(patternStr3, inputStr3)
+console.log(`Result 3 ${result3}`)
