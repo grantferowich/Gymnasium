@@ -57,44 +57,44 @@ subtract       /            \       pop
   * all the coins are used up
  */
 
-const coinChangeWithMemoization = (target, coins) =>{
+const coinChangeWithMemoization = (targetInt, coinsArr) =>{
     // create a cache
     let cache = {};
-    const findWays = (total, coins) => {
+    let ways = 0;
+
+    const findWays = (totalInt, coinsArr) => {
         // create a key
-        let key = total.toString() + "_" + coins.toString();
+        let key = totalInt.toString() + "_" + coinsArr.length
         // check the cache for the key
         if (cache[key]){
             return cache[key];
         }
-        
         // destination: coins have been used up to bring total to 0
-        if (total === 0 && coins.length === 0){
-            return 1; 
+        if (totalInt === 0 && coinsArr.length === 0){
+            ways++ 
         }
-        
         // base case
-        if (total < 0){
-            return 0
+        if (totalInt < 0){
+            return 
         }
-
-        if (coins.length === 0){
-            return 0;
+        if (coinsArr.length === 0){
+            return
         }
         // two recursive cases: traverse left and traverse right
         // traversing left means subtracting
-        let left = findWays(total - coins[coins.length - 1], coins);
+        let left = findWays(totalInt - coinsArr[coinsArr.length - 1], coinsArr);
         // traverse right means popping
-        let popped = coins.pop();
+        let popped = coinsArr.pop();
         // recursive call with shorter coins array
-        let right = findWays(total, coins)
+        let right = findWays(totalInt, coinsArr)
         // backtrack to put the coin back on the array
-        coins.push(popped);
+        coinsArr.push(popped);
         let result = left + right
         cache[key] = result
         return result
     }
-    return findWays(target, coins)
+    findWays(targetInt, coinsArr)
+    return ways > 0 ? ways : -1
 }
 
 /* TESTS */
@@ -103,4 +103,6 @@ const coinChangeWithMemoization = (target, coins) =>{
 
 console.log(coinChangeWithMemoization(4, [1,2,3])) // 4
 console.log(coinChangeWithMemoization(10, [2,5,3,6])) // 5 
+console.log(coinChangeWithMemoization(11, [1,2,5])) // 3
+console.log(coinChangeWithMemoization(3, [2])) // -1 
 
