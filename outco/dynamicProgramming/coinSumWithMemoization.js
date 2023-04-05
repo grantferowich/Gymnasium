@@ -55,7 +55,7 @@ subtract       /            \       pop
   * all the coins are used up
  */
 
-const coinChangeWithMemoization = (coins, target) =>{
+const coinChangeWithMemoization = (target, coins) =>{
     // create a cache
     let cache = {};
     const findWays = (total, coins) => {
@@ -65,10 +65,12 @@ const coinChangeWithMemoization = (coins, target) =>{
         if (cache[key]){
             return cache[key];
         }
+        
         // destination: coins have been used up to bring total to 0
         if (total === 0 && coins.length === 0){
             return 1; 
         }
+        
         // base case
         if (total < 0){
             return 0
@@ -86,11 +88,17 @@ const coinChangeWithMemoization = (coins, target) =>{
         let right = findWays(total, coins)
         // backtrack to put the coin back on the array
         coins.push(popped);
-        return cache[key] = left + right
+        let result = left + right
+        cache[key] = result
+        return result
     }
-    return findWays(coins, target)
+    return findWays(target, coins)
 }
 
-console.log(coinChangeWithMemoization[1,2,3], 4) // 4
-console.log(coinChangeWithMemoization[2,5,3,6], 10) // 5 
+/* TESTS */
+// const arr1 = [1,2,3];
+// const int1 = 4;
+
+console.log(coinChangeWithMemoization(4, [1,2,3])) // 4
+console.log(coinChangeWithMemoization(10, [2,5,3,6])) // 5 
 
