@@ -8,9 +8,9 @@ const isPalindrome = function(s) {
           }
       }
       return true
-  };
+};
 
-  console.log(isPalindrome('hannah')) // expected output: true | actual output: true
+console.log(isPalindrome('hannah')) // expected output: true | actual output: true
 console.log(isPalindrome('dog')) // expected output: false | actual output: false
 console.log(isPalindrome('aba')) // expected output: true | actual output: true
 console.log(isPalindrome('A man, a plan, a canal: Panama')) // expected output: true
