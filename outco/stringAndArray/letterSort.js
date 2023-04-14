@@ -3,6 +3,8 @@
  *
  * Given a string of letters, return the letters in sorted order.
  *
+ * Successfully tested the function 04/14/2023. 
+ * 
  * Parameters
  * Input: str {String}
  * Output: {String}
