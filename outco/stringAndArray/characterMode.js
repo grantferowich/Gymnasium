@@ -33,6 +33,8 @@
  */
 
 const characterMode = (str) => {
+    str = str.replaceAll(' ', '')
+    str = str.toLowerCase()
     let charFrequencyMap = new Map();
     let maxValueInt = 0
     let outputStr = ''
@@ -57,7 +59,6 @@ const characterMode = (str) => {
         }
     }
 
-    console.log(maxValueInt)
     for (let [key, value] of charFrequencyMap){
         if (value === maxValueInt){
             outputStr+= key
