@@ -35,12 +35,15 @@ const anagramPair = (str1 = [], str2 = []) => {
     let str1FrequencyMap = new Map();
     let str2FrequencyMap = new Map();
     let xInt = 0;
+
+    if (str1.split('').sort().join('') !== str2.split('').sort().join('')){
+        return false
+    }
     // initialize maps
     while (xInt < str1.length){
-        let char1 = str1[xInt]
-        let char2 = str2[xInt]
-        // console.log(char1)
-        // console.log(char2)
+        let char1 = str1[xInt];
+        let char2 = str2[xInt];
+
         if (str1FrequencyMap.has(char1)){
             let frequency1Int = str1FrequencyMap.get(char1)
             str1FrequencyMap.set(char1, frequency1Int + 1)
@@ -59,9 +62,6 @@ const anagramPair = (str1 = [], str2 = []) => {
     }
 
     for (let [key, value] in str1FrequencyMap){
-        // console.log(value)
-        // console.log(str2FrequencyMap.get(key))
-        
         if (str1FrequencyMap.get(key) !== str2FrequencyMap.get(key)){
             return false
         }
