@@ -28,3 +28,26 @@
  *  return true
  * 
  */
+const anagramPair = (str1, str2) => {
+
+}
+/* TESTS */
+const word1Str = 'wake'
+const word2Str = 'forest'
+const result1 = anagramPair(word1Str, word2Str)
+console.log(`Result 1: ${result1}`)
+
+const word3Str = 'cat'
+const word4Str = 'act'
+const result2 = anagramPair(word3Str, word4Str)
+console.log(`Result 2: ${result2}`)
+
+const word5Str = 'cat'
+const word6Str = 'dog'
+const result3 = anagramPair(word5Str, word6Str)
+console.log(`Result 3: ${result3}`)
+
+const word7Str = 'racecar'
+const word8Str = 'aaccrres' 
+const result4 = anagramPair(word7Str, word8Str)
+console.log(`Result 4: ${result4}`)
