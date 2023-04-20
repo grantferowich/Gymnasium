@@ -28,6 +28,7 @@
  *  return true
  * 
  */
+
 const anagramPair = (str1 = [], str2 = []) => {
     if (str1.length !== str2.length || str1.length === 0 && str2.length === 0){
         return false;
@@ -70,6 +71,7 @@ const anagramPair = (str1 = [], str2 = []) => {
     return true
 
 }
+
 /* TESTS */
 const word1Str = 'wake'
 const word2Str = 'forest'
