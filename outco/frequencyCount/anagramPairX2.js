@@ -28,7 +28,46 @@
  *  return true
  * 
  */
-const anagramPair = (str1, str2) => {
+const anagramPair = (str1 = [], str2 = []) => {
+    if (str1.length !== str2.length || str1.length === 0 && str2.length === 0){
+        return false;
+    }
+    let str1FrequencyMap = new Map();
+    let str2FrequencyMap = new Map();
+    let xInt = 0;
+    // initialize maps
+    while (xInt < str1.length){
+        let char1 = str1[xInt]
+        let char2 = str2[xInt]
+        // console.log(char1)
+        // console.log(char2)
+        if (str1FrequencyMap.has(char1)){
+            let frequency1Int = str1FrequencyMap.get(char1)
+            str1FrequencyMap.set(char1, frequency1Int + 1)
+        }
+        if (str1FrequencyMap.has(char2)){
+            let frequency2Int = str2FrequencyMap.get(char2)
+            str2FrequencyMap.set(char2, frequency2Int + 1)
+        }
+        if (!str1FrequencyMap.has(char1)){
+            str1FrequencyMap.set(char1, 1)
+        }
+        if (!str2FrequencyMap.has(char2)){
+            str2FrequencyMap.set(char2, 1)
+        }
+        xInt++
+    }
+
+    for (let [key, value] in str1FrequencyMap){
+        // console.log(value)
+        // console.log(str2FrequencyMap.get(key))
+        
+        if (str1FrequencyMap.get(key) !== str2FrequencyMap.get(key)){
+            return false
+        }
+    }
+
+    return true
 
 }
 /* TESTS */
