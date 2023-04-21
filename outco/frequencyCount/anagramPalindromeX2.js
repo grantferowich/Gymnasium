@@ -63,7 +63,16 @@ const anagramPalindrome = (str1) =>{
 const data1 = 'carrace'
 const result1 = anagramPalindrome(data1)
 console.log(`Result 1: ${result1}`)
+// Expect true
 
 const data2 = 'cat'
 const result2 = anagramPalindrome(data2)
 console.log(`Result 2: ${result2}`)
+// Expect false
+
+/* TESTS RESULTS
+
+Result 1: true
+Result 2: false
+
+*/
