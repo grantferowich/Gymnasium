@@ -1,6 +1,8 @@
 /**
  *  Anagram Palindrome
  *
+ *  Successfully tested the function 04/21/2023.
+ * 
  *  Given a string, determine if the string can be rearranged to form a palindrome.
  *
  *  A palindrome is a word that is the same as its reversed. For example: "racecar"
@@ -54,6 +56,7 @@ const anagramPalindrome = (str1) =>{
             flagInt++
         }
     }
+    
     return flagInt <= 1
 
 }

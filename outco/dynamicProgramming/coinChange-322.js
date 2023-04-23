@@ -73,13 +73,14 @@ if a path has a smaller number of steps, then update the steps
 */
 const coinChange = (coinsArr, amountInt) => {
 
-    coinsArr.sort((a,b) => a - b)
-
+    // coinsArr.sort((a,b) => a - b)
     // let steps = 0;
     const reduce = (coinsArr, targetInt, steps, depth) => {
-        if (targetInt === 0){
+        
+        if (targetInt === 0 && coinsArr.length === 0){
             return steps
         }
+       
         // oob
         if (depth < 0){
             return
@@ -91,11 +92,15 @@ const coinChange = (coinsArr, amountInt) => {
         }
 
         if (coinsArr[depth] <= targetInt){
-            targetInt -= coinsArr[depth]
-            steps += 1
+            targetInt -= coinsArr[depth];
+            steps += 1;
+            // console.log(`targetInt ${targetInt}; steps ${steps}; depth ${depth}`)
             return reduce(coinsArr, targetInt, steps, depth)
+            
         } else {
+            let popped = coinsArr.pop()
             return reduce(coinsArr, targetInt, steps, depth - 1)
+            coinsArr.push(popped)
         }
     }
 
@@ -132,4 +137,9 @@ const arr5 = [1]
 const amount5 = 0
 const result5 = coinChange(arr5, amount5)
 console.log(`Result 5: ${result5}`)
+
+const arr6 = [186, 419, 83, 408]
+const amount6 = 6249
+const result6 = coinChange(arr6, amount6)
+console.log(`Result 6: ${result6}`)
 /* TEST RESULTS */
