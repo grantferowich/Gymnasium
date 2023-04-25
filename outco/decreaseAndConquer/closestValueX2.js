@@ -35,9 +35,10 @@ const closestValue = (arr, targetInt) => {
     let differenceHashMap = new Map()
     let outputArr = []
 
-    while (leftPtrInt < rightPtrInt){
+    while (leftPtrInt <= rightPtrInt){
         let midPtrInt = parseInt((rightPtrInt + leftPtrInt)/2)
         localDifferenceInt = Math.abs(targetInt - arr[midPtrInt])
+        // console.log(`midPtrInt: ${midPtrInt}; localDifferenceInt: ${localDifferenceInt}`)
         
         if (localDifferenceInt <= ultimateDifferenceInt){
             ultimateDifferenceInt = localDifferenceInt
@@ -45,16 +46,15 @@ const closestValue = (arr, targetInt) => {
             differenceHashMap.set(arr[midPtrInt], closestInt)
         }
         
-        if (targetInt <= arr[midPtrInt]){
+        if (targetInt < arr[midPtrInt]){
             rightPtrInt = midPtrInt - 1
             
         } 
-        if (targetInt > arr[midPtrInt]){
+        if (targetInt >= arr[midPtrInt]){
             leftPtrInt = midPtrInt + 1
         }
         
     }
-
 
     // console.log(outputArr)
     return closestInt
