@@ -62,6 +62,7 @@ const closestValue = (arr, targetInt) => {
             outputArr.push(key)
         }
     }
+    
     outputArr.sort((a,b) => a - b)
     return outputArr[0]
 }
