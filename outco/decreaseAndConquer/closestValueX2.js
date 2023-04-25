@@ -32,24 +32,36 @@ const closestValue = (arr, targetInt) => {
     let localDifferenceInt  = Infinity
     let ultimateDifferenceInt = Infinity
     let closestInt = Infinity
+    let differenceHashMap = new Map()
+    let outputArr = []
 
     while (leftPtrInt < rightPtrInt){
-        let midPtrInt = leftPtrInt + parseInt((rightPtrInt - leftPtrInt)/2)
-        let localDifferenceInt = targetInt - arr[midPtrInt]
+        let midPtrInt = parseInt((rightPtrInt + leftPtrInt)/2)
+        localDifferenceInt = Math.abs(targetInt - arr[midPtrInt])
         
         if (localDifferenceInt <= ultimateDifferenceInt){
             ultimateDifferenceInt = localDifferenceInt
             closestInt = arr[midPtrInt]
+            differenceHashMap.set(arr[midPtrInt], closestInt)
         }
-
-        if (targetInt >= arr[midPtrInt]){
-            leftPtrInt = midPtrInt + 1
-        } 
-        if (targetInt < arr[midPtrInt]){
+        
+        if (targetInt <= arr[midPtrInt]){
             rightPtrInt = midPtrInt - 1
+            
+        } 
+        if (targetInt > arr[midPtrInt]){
+            leftPtrInt = midPtrInt + 1
         }
+        
     }
 
+    // console.log(ultimateDifferenceInt)
+    for (let [key, value] of differenceHashMap){
+        if (value === ultimateDifferenceInt){
+            outputArr.push([key])
+        } 
+    }
+    // console.log(outputArr)
     return closestInt
 }
 
