@@ -20,5 +20,39 @@
  * `14856 --> 121.885192
  * 
  * 
+ * init state vars at 0 and the int
+ * calculate the midpoint between 0 and the int
+ * check if the midpoint times the midpoint is equal to int 
+ * if yes, return the midpointInt 
+ * 
+ * 
  * 
  */
+
+const squareRoot = (int) => {
+    let leftInt = 0
+    let rightInt = int
+
+    while (leftInt < rightInt){
+        let midInt = ((leftInt + rightInt)/2)
+        let squareInt = midInt * midInt
+        if (squareInt === int){
+            return midInt
+        }
+
+        
+    }
+}
+
+/* TESTS */
+const int1 = 4
+const int2 = 98
+const int3 = 14856
+
+const result1Int = squareRoot(int1)
+const result2Int = squareRoot(int2)
+const result3Int = squareRoot(int3)
+
+console.log(`Result 1: ${result1Int}`)
+console.log(`Result 2: ${result2Int}`)
+console.log(`Result 3: ${result3Int}`)
