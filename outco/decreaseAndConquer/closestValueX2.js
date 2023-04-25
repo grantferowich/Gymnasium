@@ -55,12 +55,7 @@ const closestValue = (arr, targetInt) => {
         
     }
 
-    // console.log(ultimateDifferenceInt)
-    for (let [key, value] of differenceHashMap){
-        if (value === ultimateDifferenceInt){
-            outputArr.push([key])
-        } 
-    }
+
     // console.log(outputArr)
     return closestInt
 }
