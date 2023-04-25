@@ -1,6 +1,8 @@
 /*
  * ## Closest Value
- *
+ * 
+ * Successfully passed all tests on April 25, 2023.
+ * 
  * *Given a sorted bit array of integers, and a target value, find the number in the array that is closest to the target.*
  *
  * **Parameters**
@@ -43,7 +45,6 @@ const closestValue = (arr, targetInt) => {
         if (localDifferenceInt < ultimateDifferenceInt){
             ultimateDifferenceInt = localDifferenceInt
             closestInt = arr[midPtrInt]
-            
             // differenceHashMap.set(arr[midPtrInt], ultimateDifferenceInt)
         }
         
@@ -56,7 +57,6 @@ const closestValue = (arr, targetInt) => {
         }
         
     }
-
     // for (let [key, value] of differenceHashMap){
     //     if (value === ultimateDifferenceInt){
     //         outputArr.push(key)
