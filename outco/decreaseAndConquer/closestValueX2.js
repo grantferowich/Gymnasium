@@ -26,4 +26,22 @@
  * if the middle number is less than the target, reset rightPtrInt
  */
 
+const closestValue = (arr, targetInt) => {
 
+}
+
+/* TESTS */
+const dataArr1 = [1, 2, 3, 5, 5, 7, 9, 10, 11]
+const targetInt1 = 6
+const dataArr2 = [1, 2, 3]
+const targetInt2 = 8
+const dataArr3 = [1, 10, 22, 59, 67, 72, 100]
+const targetInt3 = 70
+
+const result1 = closestValue(dataArr1, targetInt1)
+const result2 = closestValue(dataArr2, targetInt2)
+const result3 = closestValue(dataArr3, targetInt3)
+
+console.log(`Result 1: ${result1}`)
+console.log(`Result 2: ${result2}`)
+console.log(`Result 3: ${result3}`)
