@@ -43,7 +43,8 @@ const closestValue = (arr, targetInt) => {
         if (localDifferenceInt <= ultimateDifferenceInt){
             ultimateDifferenceInt = localDifferenceInt
             closestInt = arr[midPtrInt]
-            differenceHashMap.set(arr[midPtrInt], closestInt)
+            
+            differenceHashMap.set(arr[midPtrInt], ultimateDifferenceInt)
         }
         
         if (targetInt < arr[midPtrInt]){
@@ -56,8 +57,13 @@ const closestValue = (arr, targetInt) => {
         
     }
 
-    // console.log(outputArr)
-    return closestInt
+    for (let [key, value] of differenceHashMap){
+        if (value === ultimateDifferenceInt){
+            outputArr.push(key)
+        }
+    }
+    outputArr.sort((a,b) => a - b)
+    return outputArr[0]
 }
 
 /* TESTS */
