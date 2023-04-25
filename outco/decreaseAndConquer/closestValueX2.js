@@ -35,7 +35,7 @@ const closestValue = (arr, targetInt) => {
     let ultimateDifferenceInt = Infinity
     let closestInt = Infinity
     // let differenceHashMap = new Map()
-    let outputArr = []
+    // let outputArr = []
 
     while (leftPtrInt <= rightPtrInt){
         let midPtrInt = parseInt((rightPtrInt + leftPtrInt)/2)
