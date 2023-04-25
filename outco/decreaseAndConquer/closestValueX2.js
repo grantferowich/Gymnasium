@@ -27,7 +27,14 @@
  */
 
 const closestValue = (arr, targetInt) => {
+    let leftPtrInt = 0  
+    let rightPtrInt = arr.length - 1
+    let localDifferenceInt  = Infinity
+    let ultimateDifferenceInt = Infinity
+    let closestInt = Infinity
 
+    
+    return closestInt
 }
 
 /* TESTS */
