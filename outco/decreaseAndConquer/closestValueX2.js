@@ -33,7 +33,23 @@ const closestValue = (arr, targetInt) => {
     let ultimateDifferenceInt = Infinity
     let closestInt = Infinity
 
-    
+    while (leftPtrInt < rightPtrInt){
+        let midPtrInt = leftPtrInt + parseInt((rightPtrInt - leftPtrInt)/2)
+        let localDifferenceInt = targetInt - arr[midPtrInt]
+        
+        if (localDifferenceInt <= ultimateDifferenceInt){
+            ultimateDifferenceInt = localDifferenceInt
+            closestInt = arr[midPtrInt]
+        }
+
+        if (targetInt >= arr[midPtrInt]){
+            leftPtrInt = midPtrInt + 1
+        } 
+        if (targetInt < arr[midPtrInt]){
+            rightPtrInt = midPtrInt - 1
+        }
+    }
+
     return closestInt
 }
 
