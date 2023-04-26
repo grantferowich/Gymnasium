@@ -35,6 +35,9 @@ const squareRoot = (int) => {
     let leftInt = 0
     let rightInt = int
 
+    if (int < 0){
+        return 'The square root of a negative number does not exist.'
+    }
     while (leftInt < rightInt){
         let midInt = ((leftInt + rightInt)/2)
         let squareInt = midInt * midInt
@@ -44,9 +47,9 @@ const squareRoot = (int) => {
         }
 
         if (squareInt > int){
-            rightInt = midInt - 0.000001
+            rightInt = midInt + 0.000001
         } else {
-            leftInt = midInt + 0.000001
+            leftInt = midInt - 0.000001
         }   
         
     }
@@ -57,11 +60,23 @@ const squareRoot = (int) => {
 const int1 = 4
 const int2 = 98
 const int3 = 14856
+const int4 = -4
 
 const result1Int = squareRoot(int1)
 const result2Int = squareRoot(int2)
 const result3Int = squareRoot(int3)
+const result4Int = squareRoot(int4)
 
 console.log(`Result 1: ${result1Int}`)
 console.log(`Result 2: ${result2Int}`)
 console.log(`Result 3: ${result3Int}`)
+console.log(`Result 4: ${result4Int}`)
+
+/* TEST RESULTS
+
+Result 1: 2.000000
+Result 2: 9.899495
+Result 3: 121.885192 
+Result 4: The square root of a negative number does not exist.
+
+*/
