@@ -32,22 +32,27 @@
 const squareRoot = (int) => {
     let leftInt = 0
     let rightInt = int
+    let resultInt = 0;
 
     while (leftInt < rightInt){
         let midInt = ((leftInt + rightInt)/2)
         let squareInt = midInt * midInt
+        
         if (squareInt === int){
-            return midInt
+            return parseFloat(midInt.toFixed(6))
         }
 
         if (squareInt > int){
-            rightInt = midInt - 0.000001
+            rightInt = midInt + 0.000001
+            resultInt = midInt
         } else {
-            leftInt = midInt + 0.000001
+            leftInt = midInt - 0.000001
         }
         
     }
+
 }
+
 
 /* TESTS */
 const int1 = 4
