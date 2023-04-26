@@ -44,9 +44,9 @@ const squareRoot = (int) => {
         }
 
         if (squareInt > int){
-            rightInt = midInt + 0.000001
+            rightInt = midInt - 0.000001
         } else {
-            leftInt = midInt - 0.000001
+            leftInt = midInt + 0.000001
         }   
         
     }
