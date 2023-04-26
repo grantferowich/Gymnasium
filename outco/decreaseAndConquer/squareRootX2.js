@@ -40,7 +40,7 @@ const squareRoot = (int) => {
         let squareInt = midInt * midInt
 
         if (squareInt === int){
-            return parseFloat(midInt.toFixed(6))
+            return midInt.toFixed(6)
         }
 
         if (squareInt > int){
