@@ -40,6 +40,11 @@ const squareRoot = (int) => {
             return midInt
         }
 
+        if (squareInt > int){
+            rightInt = midInt - 0.000001
+        } else {
+            leftInt = midInt + 0.000001
+        }
         
     }
 }
