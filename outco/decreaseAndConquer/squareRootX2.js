@@ -3,6 +3,8 @@
  *
  * *Given an positive integer, find the square root.*
  *
+ * Successfully tested the function April 26, 2023. 
+ * 
  * **Parameters**
  * Input: value {Integer}
  * Output: {Float}
