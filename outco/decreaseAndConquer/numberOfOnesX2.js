@@ -29,10 +29,8 @@ const numberOfOnes = (arr) => {
 
     while (leftPtrInt < rightPtrInt){
         let midPtrInt = Math.floor((rightPtrInt - leftPtrInt)/2) + leftPtrInt
-
-        console.log(`midPtrInt ${midPtrInt}; leftPtrInt ${leftPtrInt}; rightPtrInt ${rightPtrInt}`)
-        console.log(`arr[midPtrInt] ${arr[midPtrInt]}`)
-
+        // console.log(`midPtrInt ${midPtrInt}; leftPtrInt ${leftPtrInt}; rightPtrInt ${rightPtrInt}`)
+        // console.log(`arr[midPtrInt] ${arr[midPtrInt]}`)
         if (arr[midPtrInt] === 1){
             while (arr[midPtrInt - 1] > 0 && arr[midPtrInt] === 1){
                 midPtrInt--
@@ -44,8 +42,6 @@ const numberOfOnes = (arr) => {
         } else {
             rightPtrInt = midPtrInt - 1
         }
-        
-        
     }
 
     return 0
