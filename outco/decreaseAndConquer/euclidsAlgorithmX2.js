@@ -56,6 +56,18 @@ const euclidsAlgorithm = (int1, int2) => {
 const int1 = 78
 const int2 = 52
 
+const int3 = 9
+const int4 = 6
+
 const result1Int = euclidsAlgorithm(int1, int2)
+const result2Int = euclidsAlgorithm(int3, int4)
+
 
 console.log(`Result 1: ${result1Int}`)
+console.log(`Result 2: ${result2Int}`)
+/* TEST RESULTS
+
+Result 1: 26
+Result 2: 3
+
+*/
