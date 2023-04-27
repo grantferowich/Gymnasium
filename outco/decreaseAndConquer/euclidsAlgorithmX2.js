@@ -1,7 +1,6 @@
 /* 
 Euclid's Algorithm
 
-Successfully tested the function 03/17/2023.
 
 // Given A and B take the difference of A and B to find the greatest common divisor.
 // To find the GCD of 78 and 52 
@@ -15,6 +14,14 @@ Successfully tested the function 03/17/2023.
 
 // if a is not larger than b
 // swap A and B
+// steps
+// subtract b from a, store as differenceInt
+// process A less differenceInt
+// process B less differenceInt
+// if B less differenceInt is 0
+// return A
+// since the GCD of (A, 0) will always be A
+
 // Complexity Analysis
 // Time Complexity: O(logN)
 // Space Complexity: O(1)
@@ -22,6 +29,26 @@ Successfully tested the function 03/17/2023.
 
 const euclidsAlgorithm = (int1, int2) => {
 
+    if (int2 > int1){
+        let tempInt1 = int1;
+        let tempInt2 = int2;
+        int1 = tempInt2;
+        int2 = tempInt1;
+    }
+
+    const process = (aInt1, bInt2) => {
+        // destination
+        if (bInt2 === 0){
+            return aInt1
+        }
+        let differenceInt = aInt1 - bInt2
+        aInt1 = aInt1 - differenceInt
+        bInt2 = bInt2 - differenceInt
+        return process(aInt1, bInt2)
+
+    }
+
+    return process(int1, int2)
 }
 
 /* TESTS */
