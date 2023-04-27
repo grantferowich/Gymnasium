@@ -1,6 +1,8 @@
 /**
  * Character Mode
  *
+ * Successfully tested the function 04/17/23.
+ * 
  * Given a string, find the most frequent occurring letter(s) in the string
  *
  * Parameters
@@ -39,7 +41,6 @@ const characterMode = (str) => {
     let maxValueInt = 0
     let outputStr = ''
     let xInt = 0;
-    let valuesArr = []
 
     while (xInt < str.length){
         let charStr = str[xInt]

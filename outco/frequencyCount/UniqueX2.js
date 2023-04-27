@@ -2,6 +2,7 @@
 * Utilize the frequency count pattern to solve these problems.  Use a Hash Set
 * or an Array instead of a Hash Table where applicable.
 *
+Successfully tested the function April 13, 2023.
 * Unique
 *
 * Given an array of integers, return an array with all duplicates removed.*
