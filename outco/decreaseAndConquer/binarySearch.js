@@ -3,6 +3,8 @@ Binary Search
 
 Leetcode 704: Easy
 
+Successfully passed the test cases on Leetcode on April 1, 2023.
+
 Given an array of integers nums which is sorted in ascending order, 
 and an integer target, write a function to search target in nums. 
 If target exists, then return its index. Otherwise, return -1.
