@@ -3,6 +3,9 @@
  *
  * *Given a sorted array of integers, and a target value return the number of values greater the target.*
  *
+ * 
+ * Successfully tested the function on April 27, 2023.
+ * 
  * **Parameters**
  * Input: arr {Array of Integers}
  * Input: target {Integer}
