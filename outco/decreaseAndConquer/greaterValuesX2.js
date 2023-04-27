@@ -60,3 +60,11 @@ const resultInt3 = greaterValues(arr3, targetInt3)
 console.log(`Result 1: ${resultInt1}`)
 console.log(`Result 2: ${resultInt2}`)
 console.log(`Result 3: ${resultInt3}`)
+
+/* TEST RESULTS 
+
+Result 1: 4
+Result 2: 0
+Result 3: 5
+
+*/
