@@ -13,7 +13,6 @@
  */
 
 const printArray = (arr) => {
-
     const printOne = (arr, depth) => {
         if (depth === arr.length){
             return
@@ -22,7 +21,6 @@ const printArray = (arr) => {
         printOne(arr, depth + 1)
     }
     printOne(arr, 0)
-
 }
 
 /* TESTS */
