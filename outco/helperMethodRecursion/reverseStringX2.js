@@ -1,6 +1,8 @@
 /*
  * 2c. Reverse a string
  *
+ * Successfully tested the function on April 28, 2023. 
+ * 
  * Input:   str {String}
  * Output:  {String}
  *
