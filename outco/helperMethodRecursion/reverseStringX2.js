@@ -10,15 +10,16 @@
  */
 
 const reverseString = (str) => {
-
+    let outputStr = ''
     const reverseChar = (depth) => {
         if (depth < 0){
             return
         }
-        console.log(str[depth])
+        outputStr += str[depth]
         reverseChar(depth - 1)
     }
     reverseChar(str.length - 1)
+    return outputStr
 }
 
 /* TESTS */
@@ -30,30 +31,14 @@ const result1 = reverseString(str1)
 const result2 = reverseString(str2)
 const result3 = reverseString(str3)
 
+console.log(`Result 1: ${result1}`)
+console.log(`Result 2: ${result2}`)
+console.log(`Result 3: ${result3}`)
+
 /* TEST RESULTS 
-o
-l
-l
-e
-h
 
-t
-s
-e
-r
-o
-f
- 
-e
-k
-a
-w
+Result 1: olleh
+Result 2: tserof ekaw
+Result 3: ogacihc
 
-o
-g
-a
-c
-i
-h
-c
 */
