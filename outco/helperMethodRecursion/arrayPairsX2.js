@@ -1,6 +1,8 @@
 /*
  * 2d. Given an array of integers, create an array of two-item arrays
  *
+ * Successfully tested the function April 28, 2023.
+ * 
  * Input:   arr {Array}
  * Output:  {Array}
  *
