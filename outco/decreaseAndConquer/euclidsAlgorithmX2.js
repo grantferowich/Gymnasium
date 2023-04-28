@@ -46,7 +46,6 @@ const euclidsAlgorithm = (int1, int2) => {
         aInt1 = aInt1 - differenceInt
         bInt2 = bInt2 - differenceInt
         return process(aInt1, bInt2)
-
     }
 
     return process(int1, int2)
@@ -62,7 +61,6 @@ const int4 = 6
 
 const result1Int = euclidsAlgorithm(int1, int2)
 const result2Int = euclidsAlgorithm(int3, int4)
-
 
 console.log(`Result 1: ${result1Int}`)
 console.log(`Result 2: ${result2Int}`)
