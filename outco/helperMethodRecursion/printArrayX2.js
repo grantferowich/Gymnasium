@@ -1,6 +1,8 @@
 /*
  * 2a. Print each item in an array in order
  *
+ * Successfully tested the function 04/28/23.
+ * 
  * Input:   arr {Array}
  * Output:  {undefined}
  *
