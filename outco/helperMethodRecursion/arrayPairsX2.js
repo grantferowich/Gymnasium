@@ -19,7 +19,7 @@ const arrayPairs = (arr) => {
         outputArr.push(newPairArr)
         createPair(depth+2)
     }
-    
+
     createPair(0)
     return outputArr
 }
@@ -36,5 +36,7 @@ console.log(`Result 2: ${result2}`)
 
 /* TEST RESULTS
 
+Result 1: 1,2,3,4,5,6
+Result 2: 1,2,3,4,5,
 
 */
