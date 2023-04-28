@@ -1,6 +1,8 @@
 /*
  * 2b. Print each item in an array backwards
  *
+ * Successfully tested the function April 28, 2023.
+ * 
  * Input:   arr {Array}
  * Output:  {undefined}
  *
