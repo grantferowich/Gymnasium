@@ -14,14 +14,14 @@ A flattened array is a version of that array with some or all of the sub-arrays 
 
 Please solve it without the built-in Array.flat method. */
 
-const flat = (arr, n) => {
+const flat = (arr, nInt) => {
     let outputArr = []
     const traverse = (arr, depth) =>{
         let xInt = 0
         while (xInt < arr.length){
             let element = arr[xInt]
 
-            if (Array.isArray(element) && depth < n){
+            if (Array.isArray(element) && depth < nInt){
                 traverse(element, depth +1 )
             } else {
                 outputArr.push(element)
