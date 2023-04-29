@@ -1,6 +1,7 @@
 /*
  * 2e. Flatten a nested array
  *
+ * 
  * Input:   arr {Array}
  * Output:  {Array}
  *
@@ -40,4 +41,9 @@ const result2Arr = flatten(arr2)
 console.log(`Result 1: ${result1Arr}`)
 console.log(`Result 2: ${result2Arr}`)
 
-/* TEST RESULTS */
+/* TEST RESULTS
+
+Result 1: 1,2,3,4,5,6
+Result 2: 1,1,2,3,5,8,13
+
+*/
