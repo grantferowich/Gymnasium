@@ -1,6 +1,8 @@
 /*
  * 2f. Given a base and an exponent, create a function to find the power
  *
+ * Successfully tested the function April 29, 2023.
+ * 
  * Input:   base {Integer}
  * Input:   exponent {Integer}
  * Output:  {Integer}
