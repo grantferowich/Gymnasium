@@ -34,4 +34,8 @@ const resultInt1 = exponentiate(baseInt1, exponentInt1)
 
 console.log(`Result 1: ${resultInt1}`)
 
-/* TEST RESULTS */
+/* TEST RESULTS 
+
+Result 1: 81
+
+*/
