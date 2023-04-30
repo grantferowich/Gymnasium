@@ -29,13 +29,13 @@ const bitArraySortWithTwoPointers = (array) => {
             right--;
         }
 
-        if (array[left] === 1){
+        if (array[left] === 1 || array[right] === 0){
            [array[left], array[right]] = [array[right], array[left]]
         }
 
-        if (array[right] === 0){
-           [array[left], array[right]] = [array[right], array[left]]
-        }
+        // if (array[right] === 0){
+        //    [array[left], array[right]] = [array[right], array[left]]
+        // }
     }
 
 return array

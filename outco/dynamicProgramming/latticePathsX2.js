@@ -98,4 +98,49 @@
  *            paths(2,1) = paths(0,2) + paths(1,1) = 1 + 2 = 3
  *            paths(1,2) = paths(1,1) + paths(2,0) = 2 + 1 = 3
  *            paths(2,2) = paths(2,1) + paths(1,2) = 3 + 3 = 6
+ * 
+ * Base Case: Out of bounds, already visited
+ * Destination: row and col === rows and cols
+ * 
  */
+
+// const latticePaths = (rows, cols) => {
+//     let cache = {}
+
+//     const traverse  = (row, col) => {
+//         let key = row.toString() + "_" + col.toString()
+        
+        
+//          // destination
+//          if (row === 0 && col === 0){
+//             return 1 
+//         }
+
+//         // oob
+//         if (row < 0 || col < 0 ){
+//             return 0 
+//         }
+
+//         if (cache[key]){
+//             return cache[key]
+//         }
+
+//         let up = traverse(row - 1, col)
+//         let left = traverse(row, col - 1)
+//         cache[key] = up + left
+//         return cache[key]
+
+//     }
+//     return traverse(rows,cols)
+// }
+
+/* TESTS */
+
+const rows1Int = 3
+const cols1Int = 2
+
+const result1Int = latticePaths(2, 3)
+
+console.log(`Result 1: ${rows1Int}`)
+
+/* TEST RESULTS */
