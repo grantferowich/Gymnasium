@@ -18,6 +18,7 @@ const latticePathsWithMemoization = (m, n) => {
         if (row < 0 || col < 0){
             return 0;
         }
+        
         // read cache during each recursive call
         if (cache[key]) { return cache[key]}
 

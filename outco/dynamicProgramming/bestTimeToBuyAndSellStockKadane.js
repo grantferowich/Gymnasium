@@ -5,11 +5,13 @@ Assume you may only buy stock in an early period and sell stock later on.
 const buyAndSellStock = (arr) => {
 
     let minPrice = Infinity;
-    let maxProfit = 0
+    let maxProfit = 0;
+
     for ( let x = 0; x < arr.length; x++){
        minPrice = Math.min(minPrice, arr[x])
        maxProfit = Math.max(maxProfit, arr[x] - minPrice)
     }
+    
     return maxProfit
 }
 
