@@ -82,3 +82,8 @@ const cInt3 = 3
 const result3 = robotInAGrid(rInt3, cInt3)
 console.log('Test result 3: ', result3)
 // Expect 10 ✓
+
+const rInt4 = 10
+const cInt4 = 10
+const result4Int = robotInAGrid(rInt4, cInt4)
+console.log(`Test Result 4: ${result4Int}`)
