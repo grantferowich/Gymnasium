@@ -18,7 +18,7 @@ const kUniqueCharacters = (s) => {
     let maxLength = 1;
     let counts = {};
 
-   let x = 0;
+    let x = 0;
    
    if (Object.keys(counts).length < k){
     return -1;

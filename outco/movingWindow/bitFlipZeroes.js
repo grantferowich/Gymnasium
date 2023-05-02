@@ -44,7 +44,7 @@ const bitFlip = (array) => {
     // for all elements x in the array
     for (let x = 0; x < n; x++){
         if (array[x] == 0){
-            original0Count++
+            original0Count++;
         } 
         let count0 = 0;
         let count1 = 0;

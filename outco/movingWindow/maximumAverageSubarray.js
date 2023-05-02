@@ -13,15 +13,20 @@ https://leetcode.com/problems/maximum-average-subarray-i/
 */
 
 const maximumAverageSubarray = (nums, k) => {
+    
     let sum = 0;
+    
     for (let x = 0; x < k; x++){
         sum += nums[x]
     }
+    
     let maxAvg = sum / k;
+    
     for (let x = k; x < nums.length; x++){
         sum = sum - nums[x-k] + nums[x];
         maxAvg = Math.max(maxAvg, sum/k)
     }
+    
     return maxAvg
 }
 
