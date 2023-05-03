@@ -43,4 +43,17 @@ const nonConsecutiveOnes = (nInt) => {
 
 }
 
-/*  */
+/* Tests */
+const n1Int = 2 
+const n2Int = 3
+
+const result1Set = nonConsecutiveOnes(n1Int)
+const result2Set = nonConsecutiveOnes(n2Int)
+
+console.log(`Result 1: ${result1Set}`)
+console.log(`Result 2: ${result2Set}`)
+
+/* Test Results
+
+
+*/
