@@ -1,7 +1,8 @@
 /* 
 Lattice Paths
 
-Attempted on May 3, 2023
+Attempted on May 3, 2023.
+Successfully tested the function May 3, 2023.
 
 Input: two integers, m and n
 output: one integer
