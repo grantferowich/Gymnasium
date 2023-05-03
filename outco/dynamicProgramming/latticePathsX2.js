@@ -25,3 +25,38 @@ each recursive call. Return the value if the value exists in the hash map.
 call the recursive function. Ensure the parameters passed to the function call are (0, 0).
 
 */
+
+const latticePaths = (mInt, nInt) => {
+    let cacheHM = {}
+    
+    const traverse = (rowInt, colInt) => {
+        let keyStr = rowInt + '_' + colInt
+        console.log(keyStr)
+        if (rowInt > mInt || colInt > nInt){
+            return 0
+        }
+
+        if (rowInt === mInt && colInt === nInt){
+            return 1
+        }
+
+        if (cacheHM[keyStr]){
+            return cacheHM[keyStr]
+        }
+
+        let leftInt = traverse(rowInt, colInt + 1)
+        let upInt = traverse(rowInt + 1, colInt)
+        cacheHM[keyStr] = leftInt + upInt
+        return cacheHM[keyStr]
+        
+    }
+
+    return traverse(0, 0)
+}
+
+const m1Int = 2
+const n1Int = 3
+
+const result1Int = latticePaths(m1Int, n1Int)
+
+console.log(`Result 1: ${result1Int}`)

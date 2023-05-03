@@ -4,6 +4,7 @@ var t0 = performance.now();
 // solution 2
 const latticePathsWithMemoization = (m, n) => {
     let cache = {};
+    
     const traverse = (row, col) => {
         let key = row.toString() + "_" + col.toString();
         
@@ -25,6 +26,7 @@ const latticePathsWithMemoization = (m, n) => {
         let up = traverse(row - 1, col);
         let left = traverse(row, col - 1);
         cache[key] = up + left; 
+
         return cache[key];
     }
     return traverse(m,n)
