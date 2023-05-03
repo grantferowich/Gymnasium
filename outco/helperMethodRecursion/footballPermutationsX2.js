@@ -29,12 +29,15 @@ Edge: there will never be a case of a score that cannot
 */
 
 const footballPermutations = (scoreInt) => {
+    
     if (isNaN(scoreInt) || scoreInt === null){
         return 'Invalid input.'
     }
+
     let waysInt = 0;
 
     const reduce = (sInt) => {
+
         // destination case
         if (sInt === 0){
             waysInt++;
@@ -51,6 +54,7 @@ const footballPermutations = (scoreInt) => {
         reduce(sInt - 3);
     }
 
+    // invoke recursive call
     reduce(scoreInt)
     return waysInt;
 }
