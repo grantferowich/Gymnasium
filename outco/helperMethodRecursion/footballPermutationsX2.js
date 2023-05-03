@@ -1,7 +1,9 @@
 /* 
+
 Football Permutations
 
 Attempted on May 03, 2023. 
+Successfully tested the function May 03, 2023.
 
 input: integer
 output: integer
@@ -27,27 +29,30 @@ Edge: there will never be a case of a score that cannot
 */
 
 const footballPermutations = (scoreInt) => {
+    if (isNaN(scoreInt) || scoreInt === null){
+        return 'Invalid input.'
+    }
+    let waysInt = 0;
 
-    let waysInt = 0
     const reduce = (sInt) => {
-
+        // destination case
         if (sInt === 0){
             waysInt++;
             return;
         }
 
+        // oob
         if (sInt < 0){
             return;
         }
 
-        reduce(sInt - 7)
-        reduce(sInt - 3)
-
-
+        // recursive calls
+        reduce(sInt - 7);
+        reduce(sInt - 3);
     }
 
     reduce(scoreInt)
-    return waysInt
+    return waysInt;
 }
 
 const score1Int = 10
@@ -55,16 +60,21 @@ const score2Int = 14
 const score3Int = 17
 const score4Int = 21
 const score5Int = 24
+const score6Int = undefined
+const score7Int = null
 
 const result1Int = footballPermutations(score1Int)
 const result2Int = footballPermutations(score2Int)
 const result3Int = footballPermutations(score3Int)
 const result4Int = footballPermutations(score4Int)
 const result5Int = footballPermutations(score5Int)
+const result6Int = footballPermutations(score6Int)
+const result7Int = footballPermutations(score7Int)
 
 console.log(`Result 1: ${result1Int}`)
 console.log(`Result 2: ${result2Int}`)
 console.log(`Result 3: ${result3Int}`)
 console.log(`Result 4: ${result4Int}`)
 console.log(`Result 5: ${result5Int}`)
-
+console.log(`Result 6: ${result6Int}`)
+console.log(`Result 7: ${result7Int}`)
