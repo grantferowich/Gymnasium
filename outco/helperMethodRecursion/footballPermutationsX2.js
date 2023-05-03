@@ -62,6 +62,7 @@ const footballPermutations = (scoreInt) => {
     return waysInt;
 }
 
+/* TESTS */
 const score1Int = 10
 const score2Int = 14 
 const score3Int = 17
@@ -85,3 +86,15 @@ console.log(`Result 4: ${result4Int}`)
 console.log(`Result 5: ${result5Int}`)
 console.log(`Result 6: ${result6Int}`)
 console.log(`Result 7: ${result7Int}`)
+
+/* TEST RESULTS 
+
+Result 1: 2
+Result 2: 1
+Result 3: 3
+Result 4: 2
+Result 5: 5
+Result 6: Invalid input.
+Result 7: Invalid input.
+
+*/
