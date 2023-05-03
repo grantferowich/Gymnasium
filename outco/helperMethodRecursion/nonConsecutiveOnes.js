@@ -4,7 +4,7 @@
 // define and invoke helper method
 // base case(s)
 // recursive case(s)
-//NonConsecutiveOnes.js
+// NonConsecutiveOnes.js
 
 // given a number, n, return the number of bit strings
 // of n length that DO NOT contain consecutive 1's
