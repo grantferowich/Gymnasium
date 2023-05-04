@@ -55,9 +55,10 @@ subtract (change sumInt)
   *            Order does not matter. Ex: One penny and one nickel to create six
   *            cents is equivalent to one nickel and one penny
   * 
-  * // base cases: total is negative
+  * base cases: total is negative
   * all the coins are used up and total is 0
   * all the coins are used up
+  * 
  */
 
 const coinSum = (sumInt, coinsArr) => {
@@ -67,8 +68,8 @@ const coinSum = (sumInt, coinsArr) => {
     const change = (sInt, cArr) => {
         let keyStr = sInt + '_' + cArr;
 
-        console.log(`sInt ${sInt}`)
-        console.log(`cArr ${cArr}`)
+        // console.log(`sInt ${sInt}`)
+        // console.log(`cArr ${cArr}`)
 
         if (sInt < 0){
             return;
