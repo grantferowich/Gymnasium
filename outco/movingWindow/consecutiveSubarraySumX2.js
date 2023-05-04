@@ -1,6 +1,9 @@
 /* 
 222 - Consecutive Subarray Sum
 
+Attempted May 4, 2023.
+Successfully tested the function May 4, 2023.
+
 Given an array of positive integers and a target value, 
 return true if there is a subarray of consecutive 
 elements that sum up to this target value.
