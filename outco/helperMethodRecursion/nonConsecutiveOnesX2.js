@@ -3,6 +3,7 @@
 Non-consecutive Ones
 
 Attempted on May 3, 2023.
+Successfully tested the function May 4, 2023. 
 
 Given a number, nInt, return the number of bit strings
 of nInt length that DO NOT contain consecutive 1's.
@@ -74,6 +75,7 @@ console.log(`Result 2: ${result2Set}`)
 
 /* Test Results
 
-
+Result 1: 10,01,00
+Result 2: 101,100,010,001,000
 
 */
