@@ -1,6 +1,7 @@
 /* // COIN SUM
 
 Attempted May 04, 2023.
+Successfully tested the function on May 04, 2023. 
 
 // how many ways can you use the coins to produce the target value?
 
