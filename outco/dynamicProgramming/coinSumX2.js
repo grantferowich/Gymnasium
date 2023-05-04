@@ -10,9 +10,11 @@ Attempted May 04, 2023.
 // Test case: [1,2,3], 4
 // Expected output is 4 : 1 + 3, 2+2, 1 + 1 + 1 + 1, 1 + 1 + 2
 // Since there are four ways to sum the coins to reach 4
-
-                 4, [1,2,3]
-subtract       /            \       pop
+                
+                sumInt, coinsArr
+                   4, [1,2,3]
+subtract (change sumInt)
+                /            \       pop (change the coinsArr)
          1,[1,2,3]        4,[1,2]
           /   \             /   \
 -2,[`1,2,3] 
@@ -56,3 +58,68 @@ subtract       /            \       pop
   * all the coins are used up and total is 0
   * all the coins are used up
  */
+
+const coinSum = (sumInt, coinsArr) => {
+    let waysInt = 0;
+    let cacheHM = {};
+
+    const change = (sInt, cArr) => {
+        let keyStr = sInt + '_' + cArr;
+
+        console.log(`sInt ${sInt}`)
+        console.log(`cArr ${cArr}`)
+
+        if (sInt < 0){
+            return;
+        }
+
+        if (cArr.length === 0 && sInt === 0){
+            waysInt++;
+        }
+
+        if (cArr.length < 0 || !cArr.length){
+            return;
+        }
+
+        if (cacheHM[keyStr]){
+            return cacheHM[keyStr];
+        }
+        
+        // recursive call with changed sInt
+        let leftInt = change(sInt - cArr[cArr.length - 1], cArr);
+
+        let poppedInt = cArr.pop();
+    
+        // recursive call with shortened arr
+        let rightInt = change(sInt, cArr);
+
+        cArr.push(poppedInt)
+        
+        cacheHM[keyStr] = leftInt + rightInt;
+        return cacheHM[keyStr];
+    }
+
+    change(sumInt, coinsArr)
+    return waysInt
+}
+
+/* TESTS */
+
+const arr1 = [1,2,3];
+const sum1Int = 4;
+
+const arr2 = [2,5,3,6];
+const sum2Int = 10;
+
+const result1Int = coinSum(sum1Int, arr1)
+const result2Int = coinSum(sum2Int, arr2)
+
+console.log(`Result 1: ${result1Int}`)
+console.log(`Result 2: ${result2Int}`)
+
+/* Test Results 
+
+Result 1: 4
+Result 2: 5
+
+*/

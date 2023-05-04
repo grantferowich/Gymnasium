@@ -63,26 +63,33 @@ const coinChangeWithMemoization = (targetInt, coinsArr) =>{
     let ways = 0;
 
     const findWays = (totalInt, coinsArr) => {
+        
         // create a key
         let key = totalInt.toString() + "_" + coinsArr.length
+        
         // check the cache for the key
         if (cache[key]){
             return cache[key];
         }
+
         // destination: coins have been used up to bring total to 0
         if (totalInt === 0 && coinsArr.length === 0){
             ways++ 
         }
+
         // base case
         if (totalInt < 0){
             return 
         }
+
         if (coinsArr.length === 0){
             return
         }
+
         // two recursive cases: traverse left and traverse right
         // traversing left means subtracting
         let left = findWays(totalInt - coinsArr[coinsArr.length - 1], coinsArr);
+        
         // traverse right means popping
         let popped = coinsArr.pop();
         // recursive call with shorter coins array
