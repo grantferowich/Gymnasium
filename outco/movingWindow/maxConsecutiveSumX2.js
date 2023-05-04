@@ -29,24 +29,28 @@ const maxConsecutiveSum = (arr) => {
         xInt++;
     }
 
-    return maxSum;
+    return maxSum !== -Infinity ? maxSum : 0 
 }
 
 /* Tests */
 
 const arr1 = [6, -1, 3, 5, -10]
 const arr2 = [5]
+const arr3 = []
 
 
 const result1Int = maxConsecutiveSum(arr1)
 const result2Int = maxConsecutiveSum(arr2)
+const result3Int = maxConsecutiveSum(arr3)
 
 console.log(`Result 1: ${result1Int}`)
 console.log(`Result 2: ${result2Int}`)
+console.log(`Result 3: ${result3Int}`)
 
 /* Test Results
 
 Result 1: 13
 Result 2: 5
+Result 3: 0
 
 */
