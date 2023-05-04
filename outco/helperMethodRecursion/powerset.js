@@ -66,7 +66,7 @@ const powerset = (word) => {
         discoverCombos(build, depth+1);
         
         // when moving to the right, depth increases, 
-        //build adds the letter at the depth index
+        // build adds the letter at the depth index
         discoverCombos(build + word[depth], depth + 1);
     }
     // invoke helper method
