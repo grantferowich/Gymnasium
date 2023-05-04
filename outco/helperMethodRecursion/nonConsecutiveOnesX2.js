@@ -40,10 +40,29 @@ if the number of elements in the build === nInt, push the build to the set
 
 const nonConsecutiveOnes = (nInt) => {
 
+    let outputArr = []
 
+    const increase = (buildStr, depthInt) => {
+        console.log(`buildtStr ${buildStr}; depthInt ${depthInt}`)
+        
+        if (depthInt > nInt){
+            return
+        }
+
+        if (!buildStr.includes('11') && buildStr.length === nInt){ 
+            outputArr.push(buildStr)
+        }
+        
+        increase(buildStr + '1', depthInt + 1)
+        increase(buildStr + '0', depthInt + 1)
+    }
+
+    increase('', 0)
+    return outputArr
 }
 
 /* Tests */
+
 const n1Int = 2 
 const n2Int = 3
 
@@ -54,6 +73,7 @@ console.log(`Result 1: ${result1Set}`)
 console.log(`Result 2: ${result2Set}`)
 
 /* Test Results
+
 
 
 */

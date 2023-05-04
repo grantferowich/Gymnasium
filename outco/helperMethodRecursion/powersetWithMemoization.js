@@ -35,7 +35,7 @@ const powersetWithMemoization = (word) => {
     const discoverCombos = (build, depth) => {
 
         // create the key: use the recursive call's inputs to formulate a string key
-        let key = build.toString() + "_"+depth.toString()
+        let key = build.toString() + "_"+ depth.toString()
         
         // base case
         // condition at which the tree stops making binary decisions
