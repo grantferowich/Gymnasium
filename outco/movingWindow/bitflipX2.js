@@ -5,6 +5,8 @@
  *  can convert a 0 to a 1, determine the maximum number of consecutive 1's
  *  that can be made.
  *
+ *  Successfully tested the function May 06, 2023. 
+ * 
  *  Input: arr {Array}
  *  Input: n {Integer}
  *  Output: Integer
@@ -46,7 +48,7 @@ const bitflip = (arr, flipsInt) => {
             }
             leftPtrInt++;
         }
-        
+
         rightPtrInt++;
         windowSizeInt = rightPtrInt - leftPtrInt;
         ultimateInt = Math.max(windowSizeInt, ultimateInt);
