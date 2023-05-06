@@ -11,18 +11,78 @@
  *
  *  Example: bitFlip([0,1,1,1,0,1,0,1,0,0], 2)
  *  Result: 7
+ * 
+ *  dynamic moving window
+ *  while the flipBudgetInt is less than or equal to flipsInt 
+ *  store the windowSizeInt as rightPtrInt less leftPtrInt
+ *  if the windowSizeInt is greater than ultimateInt set ultimateSizeInt to windowSizeInt
+ *  move the rightPtrInt up
+ * 
+ *  while the flipBudgetInt is greater than flipsInt
+ *  move the leftPtrInt up
+ * 
  */
 
 const bitflip = (arr, flipsInt) => {
 
+    let flipBudgetInt = 0;
+    let windowSizeInt = 0; 
+    let ultimateInt = 0;
+    let leftPtrInt = 0;
+    let rightPtrInt = 0;
+
+    while (rightPtrInt < arr.length){
+
+        // expansion phase 
+        while (flipBudgetInt <= flipsInt){
+            
+            console.log(`flipsBudgetInt ${flipBudgetInt}; flipsInt ${flipsInt}`);
+            
+            if (arr[rightPtrInt] === 0){
+                flipBudgetInt++;
+            }
+            
+            windowSizeInt = rightPtrInt - leftPtrInt;
+            
+            if (windowSizeInt > ultimateInt){
+                ultimateInt = windowSizeInt;
+            }
+            rightPtrInt++;
+            console.log(`windowSizeInt ${windowSizeInt}`);
+        }
+
+        // hunting phase
+        while (flipBudgetInt > flipsInt){
+            console.log(`flipBudgetInt ${flipBudgetInt}`)
+            
+            if (arr[leftPtrInt] === 0){
+                flipBudgetInt--;
+            }
+            
+            leftPtrInt++;
+        }
+    }
+
+    return ultimateInt
 }
 
 /* Tests */
 const arr1 = [0,1,1,1,0,1,0,1,0,0];
 const int1 = 2;
 
-const result1Int = bitflip(arr1, int1)
+const arr2 = [0];
+const int2 = 1;
+
+const arr3 = [0];
+const int3 = 0;
+
+const result1Int = bitflip(arr1, int1); // 7
+const result2Int = bitflip(arr2, int2); // 1
+const result3Int = bitflip(arr3, int3); // 0
+
 
 console.log(`Result 1: ${result1Int}`)
+console.log(`Result 2: ${result2Int}`)
+console.log(`Result 3: ${result3Int}`)
 
 /* Test Results */
