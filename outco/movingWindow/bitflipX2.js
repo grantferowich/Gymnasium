@@ -12,3 +12,17 @@
  *  Example: bitFlip([0,1,1,1,0,1,0,1,0,0], 2)
  *  Result: 7
  */
+
+const bitflip = (arr, flipsInt) => {
+
+}
+
+/* Tests */
+const arr1 = [0,1,1,1,0,1,0,1,0,0];
+const int1 = 2;
+
+const result1Int = bitflip(arr1, int1)
+
+console.log(`Result 1: ${result1Int}`)
+
+/* Test Results */
