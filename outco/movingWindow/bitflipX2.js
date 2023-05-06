@@ -13,7 +13,7 @@
  *  Result: 7
  * 
  *  dynamic moving window
- *  while the flipBudgetInt is less than or equal to flipsInt 
+ *  while the flipBudgetInt is greater than 0
  *  store the windowSizeInt as rightPtrInt less leftPtrInt
  *  if the windowSizeInt is greater than ultimateInt set ultimateSizeInt to windowSizeInt
  *  move the rightPtrInt up
@@ -33,34 +33,24 @@ const bitflip = (arr, flipsInt) => {
 
     while (rightPtrInt < arr.length){
 
+        
         // expansion phase 
-        while (flipBudgetInt <= flipsInt){
-            
-            console.log(`flipsBudgetInt ${flipBudgetInt}; flipsInt ${flipsInt}`);
-            
-            if (arr[rightPtrInt] === 0){
-                flipBudgetInt++;
-            }
-            
-            windowSizeInt = rightPtrInt - leftPtrInt;
-            
-            if (windowSizeInt > ultimateInt){
-                ultimateInt = windowSizeInt;
-            }
-            rightPtrInt++;
-            console.log(`windowSizeInt ${windowSizeInt}`);
+        if (arr[rightPtrInt] === 0){
+            flipBudgetInt++;
         }
-
+        
         // hunting phase
-        while (flipBudgetInt > flipsInt){
-            console.log(`flipBudgetInt ${flipBudgetInt}`)
-            
+        while (flipBudgetInt > flipsInt){ 
             if (arr[leftPtrInt] === 0){
                 flipBudgetInt--;
             }
-            
             leftPtrInt++;
         }
+        
+        rightPtrInt++;
+        windowSizeInt = rightPtrInt - leftPtrInt;
+        ultimateInt = Math.max(windowSizeInt, ultimateInt);
+        
     }
 
     return ultimateInt
