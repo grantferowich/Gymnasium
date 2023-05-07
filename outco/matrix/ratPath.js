@@ -68,38 +68,62 @@ const ratPath = (matrix) => {
         }
 
     }
-    travel(0,0)
+
+    travel(0,0);
     return output === undefined ? [ -1 , -1 ] : output
 }
 
-console.log(ratPath([[0, 0, 0, 1],
-                     [0, 1, 0, 1],
-                     [0, 1, 0, 0],
-                     [0, 0, 1, 0]]))
+/* Tests  */
+const input1Arr = [[0, 0, 0, 1],
+                [0, 1, 0, 1],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0]]   
 
-// expected output: Output:  [[0, 0],
-        //   [0, 1],
-        //   [0, 2],
-        //   [1, 2],
-        //   [2, 2],
-        //   [2, 3],
-        //   [3, 3]]
+const result1Arr = ratPath(input1Arr);
 
-// actual output: [
-//   [ 0, 0 ], [ 0, 1 ],
-//   [ 0, 2 ], [ 1, 2 ],
-//   [ 2, 2 ], [ 2, 3 ],
-//   [ 3, 3 ]
-// ]
+const input2Arr = [[0, 0, 0, 1],
+                   [0, 1, 0, 1],
+                   [0, 1, 1, 1],
+                   [0, 0, 1, 0]]
 
-console.log(ratPath([[0, 0, 0, 1],
-    [0, 1, 0, 1],
-    [0, 1, 1, 1],
-    [0, 0, 1, 0]])) 
+const result2Arr = ratPath(input2Arr);
 
-console.log(ratPath([[0, 0, 0, 0]])) // [[ 0 , 0 ], [ 0 , 1], [ 0 , 2 ], [ 0 , 3], [ 0 , 3]]
+const input3Arr = [[0, 0, 0, 0]]
 
-console.log(ratPath([[ 0 ],
-                     [ 0 ], 
-                     [ 0 ], 
-                     [ 0 ]])) // [[ 0 , 0 ], [ 1 , 0], [ 2 , 0 ], [ 3 , 0 ]]
+const result3Arr = ratPath(input3Arr);
+
+const input4Arr = [[ 0 ],
+                   [ 0 ], 
+                   [ 0 ], 
+                   [ 0 ]]
+
+const result4Arr = ratPath(input4Arr);
+
+console.log(result1Arr)
+console.log(result2Arr)
+console.log(result3Arr)
+console.log(result4Arr)
+
+/* Test Results 
+
+Result 1: [[ 0, 0 ], 
+           [ 0, 1 ],
+           [ 0, 2 ],
+           [ 1, 2 ],
+           [ 2, 2 ],
+           [ 2, 3 ],
+           [ 3, 3 ]]
+
+Result 2: [ -1, -1 ]
+
+Result 3: [[ 0, 0 ],
+           [ 0, 1 ],
+           [ 0, 2 ],
+           [ 0, 3 ]]
+
+Result 4: [[ 0, 0 ], 
+           [ 1, 0 ], 
+           [ 2, 0 ],
+           [ 3, 0 ]]
+
+*/
