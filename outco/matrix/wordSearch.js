@@ -1,13 +1,15 @@
 /* 
 314 - Word Search
-/Successfully tested the function 1/22/23.
+
+Successfully tested the function 1/22/23.
+
 Complexity Analysis:
 Where M = matrix height, N = matrix width, L = length of word
 Time Complexity: O(MN * 4^L)
 Auxiliary Space Complexity: O(MN)
 
 Given a matrix of characters a-z and a word,
-return a boolean as to whether the word can be found within the matrix. 
+return true or false about whether the word can be found within the matrix. 
 Words can only be built from adjacent letters (up, down, left, right), but not diagonals.
 Same elements cannot be used multiple times in the same word.
 
@@ -40,12 +42,15 @@ recursive tree
 
 
 */
+
 const wordSearch = (matrix, word) => {
+    
     let height = matrix.length;
     let width = matrix[0].length;
-    let xCoordinate = 0
-    let yCoordinate = 0
+    let xCoordinate = 0;
+    let yCoordinate = 0;
     let output;
+
     for (let x = 0; x < height; x++){
         for (let y = 0; y < width; y++){
             if (matrix[x][y] === word[0]){
@@ -92,18 +97,16 @@ const wordSearch = (matrix, word) => {
 console.log(wordSearch([['a', 'b', 'c', 'd'],
                         ['e', 'f', 'g', 'h'],
                         ['i', 'd', 'o', 'j'],
-                        ['k', 'l', 'm', 'n']], 'dog')) 
-
-// true
+                        ['k', 'l', 'm', 'n']], 'dog')) // true
 
 console.log(wordSearch([['t', 'a', 'c', 'd'],
- ['e', 'f', 'g', 'h'],
- ['i', 'd', 'o', 'j'],
- ['k', 'l', 'm', 'n']], 'cat')) // true
+                        ['e', 'f', 'g', 'h'],
+                        ['i', 'd', 'o', 'j'],
+                        ['k', 'l', 'm', 'n']], 'cat')) // true
 
- console.log(wordSearch([['t']], 't')) // true
+console.log(wordSearch([['t']], 't')) // true
 
- console.log(wordSearch([['t', 'a', 'c', 'd'],
- ['e', 'f', 'g', 'h'],
- ['i', 'd', 'o', 'j'],
- ['k', 'l', 'm', 'n']], '1123132134')) //  false
+console.log(wordSearch([['t', 'a', 'c', 'd'],
+                         ['e', 'f', 'g', 'h'],
+                         ['i', 'd', 'o', 'j'],
+                         ['k', 'l', 'm', 'n']], '1123132134')) // false

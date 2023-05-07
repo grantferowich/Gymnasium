@@ -28,12 +28,14 @@ var t0 = performance.now();
 const robotPathsVisitedSet = (matrix) => {
     let result = 0;
     let visited = new Set();
-    //base cases: 
+    // base cases: 
         // oob
         // already visited
         // reach destination
+    
     let totalColumns = matrix[0].length - 1;
     let totalRows = matrix.length  - 1;
+    
     const traverse = (row, col) => {
         let key = row.toString() + "_" + col.toString();
         if (row < 0 || col < 0 || col > matrix[0].length - 1 || row > matrix.length - 1){

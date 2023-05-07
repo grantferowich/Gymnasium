@@ -43,25 +43,25 @@ Example 3:
 
  Output: 7110272
 
- Complexity Analysis 
+Complexity Analysis 
 Time Complexity: O(4^N*M)
 Space Complexity: O(1)
- */
 
-
- const { performance } = require("perf_hooks");
+*/
+const { performance } = require("perf_hooks");
 
 var t0 = performance.now();
 
 const robotPathsToggle = (matrix) => {
         let result = 0;
-        //base cases: 
+        // base cases: 
             // oob
             // already visited
             // reach destination
             
-        let totalColumns = matrix[0].length -1;
-        let totalRows = matrix.length  -1;
+        let totalColumns = matrix[0].length - 1;
+        let totalRows = matrix.length  - 1;
+
         const traverse = (row, col) => {
 
             if (row < 0 || col < 0 || col > matrix[0].length - 1 || row > matrix.length - 1){
@@ -74,16 +74,16 @@ const robotPathsToggle = (matrix) => {
             }
 
             if (row === totalRows && col === totalColumns){
-                result++
+                result++;
                 return;
             }
 
             //toggle for tracking visited 
             matrix[row][col] = 1;
-            traverse(row+1,col)
-            traverse(row-1,col)
-            traverse(row, col-1)
-            traverse(row, col+1)
+            traverse(row + 1,col)
+            traverse(row - 1,col)
+            traverse(row, col - 1)
+            traverse(row, col + 1)
             // toggle back
             matrix[row][col] = 0;
         }

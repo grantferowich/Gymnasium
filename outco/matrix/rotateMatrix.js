@@ -30,8 +30,10 @@ Input:
 
 const rotateMatrix = (matrix) => {
   
-    if (matrix.length === 0 || matrix.length !== matrix[0].length){ return }
-    let n = matrix.length
+    if (matrix.length === 0 || matrix.length !== matrix[0].length){ return; }
+    
+    let n = matrix.length;
+
     for (let layer = 0; layer < n / 2; layer++){
       let first = layer;
       let last = n - 1 - layer;

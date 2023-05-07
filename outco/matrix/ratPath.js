@@ -74,6 +74,7 @@ const ratPath = (matrix) => {
 }
 
 /* Tests  */
+
 const input1Arr = [[0, 0, 0, 1],
                 [0, 1, 0, 1],
                 [0, 1, 0, 0],
@@ -114,7 +115,7 @@ Result 1: [[ 0, 0 ],
            [ 2, 3 ],
            [ 3, 3 ]]
 
-Result 2: [ -1, -1 ]
+Result 2: [-1, -1]
 
 Result 3: [[ 0, 0 ],
            [ 0, 1 ],
