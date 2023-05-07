@@ -77,4 +77,10 @@ console.log(`Result 1: ${result1Int}`)
 console.log(`Result 2: ${result2Int}`)
 console.log(`Result 3: ${result3Int}`)
 
-/* Test Results */
+/* Test Results
+
+Result 1: 7
+Result 2: 1
+Result 3: 0
+
+*/
