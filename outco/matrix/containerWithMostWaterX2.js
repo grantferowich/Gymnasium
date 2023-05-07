@@ -28,15 +28,16 @@ The width of the container is 8 - 1 = 7
 7 times 7 is 49
 
 input: [ 2 , 2 ]
-output: 4
+output: 2
 The highest val the right side can reach is 2
 The highest val the left side can reach is 2
-The width of the container is 2
+The width of the container is 1
 
 input: [ 2, 3, 4, 5, 4, 3, 2 ] 
-output: 14
+output: 12
 The highest value the right side can reach is 2
 The highest value the left side can reach is 2 
+The width is 6
 
 Initialize two pointers at the distal ends of the array.
 Initialize areaInt and outputInt state variables.
@@ -46,6 +47,7 @@ Calculate the areaInt of the container by multiplying the widthInt and heightInt
 Assign the value of outputInt to the maximum of outputInt or areaInt.
 One approach is to move both of the pointers toward each other.
 Another approach is the move the smaller of the two pointers.
+
 */
 
 const containerWithMostWater = (arr) => {
