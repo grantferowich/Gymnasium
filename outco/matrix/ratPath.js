@@ -1,11 +1,16 @@
 /* 
+
+Rat Path
+
 Successfully tested the function 1/22/23
 The function uses backtracking and recursion
+
 Complexity analysis:
 Time complexity: O(2^MN)
 Space complexity: O(N)
 
-Given a maze, represented by a matrix of bits (values 0 and 1), a rat must find a path from index [0][0] to [n-1][m-1]. The rat can only travel to the right or down, and can only travel on 0 values. 1 values represent walls.
+Given a maze, represented by a matrix of bits (values 0 and 1), a rat must find a path from index [0][0] to [n-1][m-1].
+The rat can only travel to the right or down, and can only travel on 0 values. 1 values represent walls.
 
 Input:   [[0, 0, 0, 1],
           [0, 1, 0, 1],
@@ -43,14 +48,17 @@ const ratPath = (matrix) => {
     let output;
 
     const travel = (row, col) => {
+        
         if (row < 0 || col < 0 || row >= xTarget || col >= yTarget){
             return;
         }
+
         if (row === xTarget - 1 && col === yTarget - 1){
             path.push([row, col]);
             output = [...path];
             return;
         }
+
         if (matrix[row][col] === 0){
             path.push([row,col]);
             matrix[row][col] = 1;
@@ -58,6 +66,7 @@ const ratPath = (matrix) => {
             travel(row, col + 1);
             path.pop();
         }
+
     }
     travel(0,0)
     return output === undefined ? [ -1 , -1 ] : output
