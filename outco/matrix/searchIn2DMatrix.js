@@ -21,12 +21,14 @@ const search2DMatrix = (matrix, target) => {
     let width = matrix[0].length;
 
     for (let x = 0; x < height; x++){
+        
         for (let y = 0; y < width; y++){
             if (matrix[x][y] === target){
                 return true
             }
         }
     }
+
     return false
 }
 
