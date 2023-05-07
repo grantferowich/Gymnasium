@@ -68,6 +68,7 @@ const containerWithMostWater = (arr) => {
         } 
         outputInt = Math.max(areaInt, outputInt)
     }
+
     return outputInt;
 }
 
@@ -86,5 +87,9 @@ console.log(`Result 2: ${output2Int}`)
 console.log(`Result 3: ${output3Int}`)
 
 /* Test Result 
+
+Result 1: 49
+Result 2: 2
+Result 3: 12
 
 */
