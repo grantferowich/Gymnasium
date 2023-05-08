@@ -37,11 +37,12 @@ output: 'wake' + 1, akef +1, kefo +1, efor +1, fore +1, ores +1, rest +1
 4. Each time the right pointer moves add the char to the map, or, increase the value 
 associate with the char by 1.
 5. Initialize the valuesArr as the array of values from the current charMap. Initialize a variable called multiplesInt.
-If a value is greater than 1 increment multiplesInt. After looping over valuesArr if multiplesInt equals 0 and valuesArr.length equals kInt
-increment outputInt.
+If a value is greater than 1 increment multiplesInt. After looping over valuesArr if multiplesInt equals 0 
+and valuesArr.length equals kInt increment outputInt.
 6. Move the the left pointer minus the right pointer is greater than kInt. 
 7. Each time the left pointer moves decrease the associated value by 1, or, remove the char.
 8. Return outputInt
+
 */
 
 const findKLengthSubstrings = (str, kInt) => {
@@ -63,7 +64,7 @@ const findKLengthSubstrings = (str, kInt) => {
             let rCharStr = str[rightPtrInt];
             
             if (currentCharsMap.has(rCharStr)){
-                console.log(`rChar ${rCharStr}`)
+                // console.log(`rChar ${rCharStr}`)
                 let frequencyInt = currentCharsMap.get(rCharStr);
                 currentCharsMap.set(rCharStr, frequencyInt + 1);
                 multiplesInt++;
@@ -77,7 +78,7 @@ const findKLengthSubstrings = (str, kInt) => {
         }
 
         if (multiplesInt === 0 && (rightPtrInt - leftPtrInt === kInt)){
-            console.log(`rightPtrInt ${rightPtrInt}; leftPtrInt ${leftPtrInt}`)
+            // console.log(`rightPtrInt ${rightPtrInt}; leftPtrInt ${leftPtrInt}`)
             outputInt++;
         }
 
