@@ -2,7 +2,7 @@
 MAXIMUM AVERAGE SUBARRAY
 https://leetcode.com/problems/maximum-average-subarray-i/
 
-Attempted May 08, 2023
+Attempted on May 08, 2023.
 
 Input 1
 input = [1,12,-5,-6,50,3], k = 4
@@ -22,7 +22,7 @@ output 0
 
 
 fixed moving window
-1. Initialize two pointers at 0 and kInt - 1 called leftPtrInt and rightPtrInte
+1. Initialize two pointers at 0 and 0 called leftPtrInt and rightPtrInte
 2. Loop while rightPtrInt is less than arr.length
 3. Loop from leftPtrInt to rightPtrInt 
 4. Push each element value to the localSum
@@ -37,11 +37,38 @@ const maximumAverageSubarray = (arr, kInt) => {
     if (kInt > arr.length || arr.length === 0){
         return 0;
     }
-    let rightPtrInt = kInt - 1;
+    let rightPtrInt = 0;
     let leftPtrInt = 0;
-    let localAverage = -Infinity
-    let outputAverageInt = -Infinity
-    return outputAverageInt
+    let localAverageInt = 0
+    let localSumInt = 0;
+    let outputAverageInt = 0
+
+    while (rightPtrInt < arr.length){
+        
+        // expand the window
+        while (rightPtrInt - leftPtrInt < kInt){
+            let valueInt = arr[rightPtrInt];
+            localSumInt += valueInt;
+            rightPtrInt++;
+        }
+
+        if (rightPtrInt - leftPtrInt === kInt){
+            console.log(localAverageInt)
+            localAverageInt = localSumInt / kInt
+            outputAverageInt = Math.max(localAverageInt, outputAverageInt)
+        }
+
+        // contract the window
+        while (rightPtrInt - leftPtrInt >= kInt){
+
+            let valueInt = arr[leftPtrInt];
+            localSumInt -= valueInt;
+            leftPtrInt++
+        }
+
+    }
+
+    return outputAverageInt !== -Infinity ? outputAverageInt : 0
 
 }
 
