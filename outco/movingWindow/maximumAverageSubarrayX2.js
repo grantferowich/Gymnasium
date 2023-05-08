@@ -53,23 +53,18 @@ const maximumAverageSubarray = (arr, kInt) => {
         }
 
         if (rightPtrInt - leftPtrInt === kInt){
-            console.log(localAverageInt)
             localAverageInt = localSumInt / kInt
             outputAverageInt = Math.max(localAverageInt, outputAverageInt)
         }
 
         // contract the window
         while (rightPtrInt - leftPtrInt >= kInt){
-
             let valueInt = arr[leftPtrInt];
             localSumInt -= valueInt;
             leftPtrInt++
         }
-
     }
-
     return outputAverageInt !== -Infinity ? outputAverageInt : 0
-
 }
 
 /* Tests */
@@ -91,5 +86,11 @@ console.log(`Result 1: ${resultInt1}`)
 console.log(`Result 2: ${resultInt2}`)
 console.log(`Result 3: ${resultInt3}`)
 
-/* Test results */
+/* Test results 
+
+Result 1: 12.75
+Result 2: 5
+Result 3: 0
+
+*/
 
