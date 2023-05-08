@@ -4,7 +4,8 @@ Medium
 Premium
 
 Attempted May 07, 2023.
-Successfully tested the function May 07, 2023.
+Successfully tested the function May 07, 2023. 
+
 Given a string s and an integer k, return the number of substrings
 in s of length k with no repeated characters.
 
