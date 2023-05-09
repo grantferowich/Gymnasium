@@ -39,7 +39,7 @@ const bitflip = (arr, kInt) => {
             leftPtrInt++
         }
 
-        maxLengthInt = (maxLengthInt, rightPtrInt - leftPtrInt)
+        maxLengthInt = (maxLengthInt, rightPtrInt - leftPtrInt + 1)
         rightPtrInt++ 
     }
     return maxLengthInt
@@ -47,5 +47,16 @@ const bitflip = (arr, kInt) => {
 }
 
 /* Tests */
+const arr1 = [0,1,1,1,0,1,0,1,0,0]
+const kInt1 = 2
+
+const arr2 = [1, 1, 0, 1, 1]
+const kInt2 = 1 
+
+const result1Int = bitflip(arr1, kInt1)
+const result2Int = bitflip(arr2, kInt2)
+
+console.log(`Result 1: ${result1Int}`)
+console.log(`Result 2: ${result2Int}`)
 
 /* Test results */
