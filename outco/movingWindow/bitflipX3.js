@@ -3,6 +3,7 @@
  *
  *  Attempted May 09, 2023.
  *  Successfully tested the function May 9, 2023.
+ * 
  *  Completed writing of the function and testing in under 25 minutes.
  * 
  *  Given an array of binary values (0 and 1) and N number of flips that
