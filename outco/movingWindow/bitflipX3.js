@@ -59,4 +59,9 @@ const result2Int = bitflip(arr2, kInt2)
 console.log(`Result 1: ${result1Int}`)
 console.log(`Result 2: ${result2Int}`)
 
-/* Test results */
+/* Test results 
+
+Result 1: 7
+Result 2: 5
+
+*/
