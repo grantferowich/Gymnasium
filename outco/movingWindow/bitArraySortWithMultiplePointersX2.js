@@ -47,7 +47,7 @@ const bitArraySort = (arr) => {
             arr[leftPtrInt] = tempRightInt;
             arr[righPtrInt] = tempLeftInt;
         }
-        
+
     }
     return arr
 }
@@ -63,4 +63,9 @@ const result2Arr = bitArraySort(arr2);
 console.log(`Result 1: ${result1Arr}`)
 console.log(`Result 2: ${result2Arr}`)
 
-/* Test results */
+/* Test results
+
+Result 1: 0,0,1,1
+Result 2: 0,0,0,0,0,0,0,0,0,0,1,1
+
+*/
