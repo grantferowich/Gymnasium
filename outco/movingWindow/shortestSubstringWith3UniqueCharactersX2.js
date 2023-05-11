@@ -24,14 +24,6 @@ Time Complexity: O(N)
 Auxiliary Space Complexity: O(K)
 
 
-
-Initialize a variable called charMap.
-Initialize rightPtrInt, leftPtrInt, resultRightInt, and resultLeftInt.
-Loop over the string while the rightPtrInt is less than the string length.
-Expand the window while the number of unique characters in the string is less than 3.
-Contract the window while the number of unique characters in the string is greater than 3.
-return the string sliced from the resultLeftInt to the resultRightInt.
-
 */
 
 const shortestSubstringWith3UniqueCharacters = (str) => {
@@ -39,38 +31,44 @@ const shortestSubstringWith3UniqueCharacters = (str) => {
     let rightPtrInt = 0;
     let leftPtrInt = 0;
     let uniquesInt = 0;
-    let windowArr = []
+    let charMap = new Map()
     let resultRightInt = Infinity;
     let resultLeftInt = 0;
 
     while (rightPtrInt < str.length){
         
-        while (uniquesInt < 3){
+        if (uniquesInt < 3){
             let rChar = str[rightPtrInt];
-            if (!windowArr.includes(rChar)){
+            let charCountInt = charMap.get(rChar) || 0
+            if (charCountInt === 0){
                 uniquesInt++;
             }
-            windowArr.push(rChar)
-            rightPtrInt++
+            charMap.set(rChar, (charMap.get(rChar) || 0) + 1)
+            rightPtrInt++;
         }
 
-        if (uniquesInt === 3 && rightPtrInt - leftPtrInt < resultRightInt - resultLeftInt){
-            resultRightInt = rightPtrInt;
-            resultLeftInt = leftPtrInt;
-        }
-        
         while (uniquesInt >= 3){
-            let lChar = str[leftPtrInt]
-            if (!windowArr.includes(lChar)){
-                uniquesInt--
+            if (rightPtrInt - leftPtrInt < resultRightInt - resultLeftInt){
+                resultRightInt = rightPtrInt;
+                resultLeftInt = leftPtrInt;
             }
-            windowArr.pop();
-            leftPtrInt++
-        }
-
+            let lChar = str[leftPtrInt];
+            let charCountInt = charMap.get(lChar) || 0
+            if (charCountInt === 1){
+                uniquesInt--;
+            }
+            charMap.set(lChar, charCountInt - 1)
+            leftPtrInt++;
+        }    
     }
-    console.log(`result right ${resultRightInt} result left ${resultLeftInt}`);
-    return str.slice(resultLeftInt, resultRightInt)
+
+    // console.log(`str ${str} result right ${resultRightInt} result left ${resultLeftInt}`);
+
+    if (resultRightInt === Infinity && resultLeftInt === 0){
+        return false
+    } else {
+        return str.slice(resultLeftInt, resultRightInt)
+    }    
 }
 
 /* Tests */
