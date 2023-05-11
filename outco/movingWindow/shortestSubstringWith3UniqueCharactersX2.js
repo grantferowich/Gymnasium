@@ -4,6 +4,7 @@
 Given a string, return the shortest substring that has at least 3 unique characters, or false if there is no such string
 
 Attempted May 11, 2023.
+Successfully tested the function May 11, 2023.
 
 Input: String
 Output: String or ToF
