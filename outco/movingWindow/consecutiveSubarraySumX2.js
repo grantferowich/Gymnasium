@@ -33,6 +33,7 @@ const consecutiveSubarraySum = (arr, targetInt) => {
     let sumInt = arr[slowPtrInt] + arr[fastPtrInt];
 
     while (fastPtrInt < arr.length){
+        
         // hunting logic
         while (sumInt < targetInt){
             fastPtrInt++;

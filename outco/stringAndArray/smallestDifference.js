@@ -19,7 +19,6 @@ const smallestDifference = (arrayOne, arrayTwo) => {
     // second hunts for the smallest number in arrayTwo
     let first = arrayOne[idxOne];
     let second = arrayTwo[idxTwo];
-
     
     if (first < second) {
       difference = second - first;

@@ -110,14 +110,13 @@ class Heap {
      }
     }
 }
-
    
 const pathWithMinimumuEffortRecursion = (matrix) => {
 
     let xTarget = matrix.length;
     let yTarget = matrix[0].length;
     // visited track coords 
-    const visited = new Set()
+    const visited = new Set();
 
     // map tracks coords and cell values
     let path = []

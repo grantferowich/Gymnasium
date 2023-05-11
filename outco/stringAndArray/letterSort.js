@@ -1,9 +1,10 @@
 /**
  * Letter Sort
- *
+ * 
  * Given a string of letters, return the letters in sorted order.
- *
+ * 
  * Successfully tested the function 04/14/2023. 
+ * 
  * 
  * Parameters
  * Input: str {String}
@@ -31,6 +32,7 @@ const letterSort = (str) => {
     let letterArr = new Array(26).fill(0)
     let xInt = 0;
     let outputStr = '';
+    
     while (xInt < str.length){
         // let charStr = str[xInt];
         let charCodeInt = str.charCodeAt(xInt) - 97
@@ -41,10 +43,10 @@ const letterSort = (str) => {
     xInt = 0
     while (xInt < letterArr.length){
         if (letterArr[xInt] > 0) {
-            charCodeInt = xInt + 97
-            let charStr = String.fromCharCode(charCodeInt)
+            charCodeInt = xInt + 97;
+            let charStr = String.fromCharCode(charCodeInt);
             outputStr += charStr;
-            letterArr[xInt]--
+            letterArr[xInt]--;
             if (letterArr[xInt] > 0){
                 xInt--
             }
