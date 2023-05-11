@@ -96,4 +96,13 @@ console.log(`Result 4: ${result4Str}`);
 console.log(`Result 5: ${result5Str}`);
 console.log(`Result 6: ${result6Str}`);
 
-/* Test results */
+/* Test results 
+
+Result 1: bac
+Result 2: baac
+Result 3: abc
+Result 4: false
+Result 5: wak
+Result 6: for
+
+*/
