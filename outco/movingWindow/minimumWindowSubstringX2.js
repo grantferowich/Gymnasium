@@ -3,6 +3,7 @@
  * Minimum Window Substring (Sliding Window)
  *
  * Wrote down: May 9, 2023
+ * 
  * Given a string, and a set of characters
  * return the substring representing the SMALLEST
  * window containing those characters.
@@ -40,4 +41,8 @@
  * contain two "A"s
  *
  *
+ * Initialize two pointers called leftPtrInt and rightPtrInt.
+ * Initialize a map called charMap.
+ * Expand the window by incrementing the rightPtrInt.
  */
+
