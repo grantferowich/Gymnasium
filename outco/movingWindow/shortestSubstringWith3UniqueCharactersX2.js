@@ -3,6 +3,8 @@
 302 - Shortest Substring With 3 Unique Characters
 Given a string, return the shortest substring that has at least 3 unique characters, or false if there is no such string
 
+Attempted May 11, 2023.
+
 Input: String
 Output: String or ToF
 
@@ -22,7 +24,8 @@ Time Complexity: O(N)
 Auxiliary Space Complexity: O(K)
 
 
-Initialize a variable called uniquesInt. 
+
+Initialize a variable called charMap.
 Initialize rightPtrInt, leftPtrInt, resultRightInt, and resultLeftInt.
 Loop over the string while the rightPtrInt is less than the string length.
 Expand the window while the number of unique characters in the string is less than 3.
@@ -32,7 +35,42 @@ return the string sliced from the resultLeftInt to the resultRightInt.
 */
 
 const shortestSubstringWith3UniqueCharacters = (str) => {
+    
+    let rightPtrInt = 0;
+    let leftPtrInt = 0;
+    let uniquesInt = 0;
+    let windowArr = []
+    let resultRightInt = Infinity;
+    let resultLeftInt = 0;
 
+    while (rightPtrInt < str.length){
+        
+        while (uniquesInt < 3){
+            let rChar = str[rightPtrInt];
+            if (!windowArr.includes(rChar)){
+                uniquesInt++;
+            }
+            windowArr.push(rChar)
+            rightPtrInt++
+        }
+
+        if (uniquesInt === 3 && rightPtrInt - leftPtrInt < resultRightInt - resultLeftInt){
+            resultRightInt = rightPtrInt;
+            resultLeftInt = leftPtrInt;
+        }
+        
+        while (uniquesInt >= 3){
+            let lChar = str[leftPtrInt]
+            if (!windowArr.includes(lChar)){
+                uniquesInt--
+            }
+            windowArr.pop();
+            leftPtrInt++
+        }
+
+    }
+    console.log(`result right ${resultRightInt} result left ${resultLeftInt}`);
+    return str.slice(resultLeftInt, resultRightInt)
 }
 
 /* Tests */
