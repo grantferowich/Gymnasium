@@ -23,6 +23,7 @@ const kUniqueCharacters = (s) => {
    if (Object.keys(counts).length < k){
     return -1;
    }
+
     for (let i = 0; i < str.length; i++){
         let char = str[i];
         hash[char] = true;
