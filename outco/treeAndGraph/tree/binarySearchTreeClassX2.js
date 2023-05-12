@@ -54,15 +54,62 @@
  */
 
 class TreeNode{
-    constructor(valueInt){
-        this.rootInt = valueInt === undefined ? null : valueInt;
+    constructor(valInt){
+        this.valueInt = valInt === undefined ? null : valInt;
         this.leftInt = null;
         this.rightInt = null;
     }
 }
 
-let root1Int = new TreeNode(5);
-root1Int.leftInt = new TreeNode(3);
-root1Int.rightInt = new TreeNode(8);
+class BinarySearchTree{
+    constructor(){
+        this.rootInt = null;
+        this.sizeInt = 0;
+    }
 
-console.log('Tree 1: ', root1Int)
+    insert(valueInt){
+        let insertionNodeInt = new TreeNode(valueInt);
+        
+        if (this.sizeInt === 0){
+            this.rootInt = insertionNodeInt;
+            this.sizeInt++
+            return
+        }
+
+        const traverse = (nodeInt, insertNodeInt) => {
+
+            if (insertNodeInt.valueInt < nodeInt.valueInt && nodeInt.leftInt === null){
+                nodeInt.leftInt = insertNodeInt
+                this.sizeInt++
+                return
+            }
+
+            if (insertNodeInt.valueInt > nodeInt.valueInt && nodeInt.rightInt === null){
+                nodeInt.rightInt = insertNodeInt;
+                this.sizeInt++
+                return
+            }
+
+            if (insertNodeInt.value < nodeInt.valueInt){
+                traverse(nodeInt.leftInt, insertNodeInt);
+            }
+
+            if (insertNodeInt.value > nodeInt.valueInt){
+                traverse(nodeInt.rightInt, insertNodeInt)
+            }
+
+        }
+        traverse(this.rootInt, insertionNodeInt)
+    }
+}
+// let root1Int = new TreeNode(5);
+// root1Int.leftInt = new TreeNode(3);
+// root1Int.rightInt = new TreeNode(8);
+
+// console.log('Tree 1: ', root1Int)
+
+let binarySearchTree1 = new BinarySearchTree();
+binarySearchTree1.insert(5);
+binarySearchTree1.insert(8);
+binarySearchTree1.insert(2);
+console.log('Binary Search Tree: ', binarySearchTree1)
