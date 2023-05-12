@@ -101,6 +101,30 @@ class BinarySearchTree{
         }
         traverse(this.rootInt, insertionNodeInt)
     }
+
+    search(valueInt){
+        if (this.rootInt.valueInt === valueInt){
+            return true;
+        }
+
+        const traverse = (nodeInt, targetInt) => {
+            if (nodeInt.valueInt === targetInt || nodeInt.leftInt.valueInt === targetInt || nodeInt.rightInt.valueInt === targetInt){
+                return true
+            }
+            if (!nodeInt.value){
+                return
+            }
+            
+            if (nodeInt.valueInt < targetInt){
+                return traverse(nodeInt.leftInt, targetInt)
+            }
+            if (nodeInt.valueInt > targetInt){
+                return traverse(nodeInt.rightInt, targetInt)
+            }
+
+        }
+        return traverse(this.rootInt, valueInt) !== undefined ? true : false
+    }
 }
 // let root1Int = new TreeNode(5);
 // root1Int.leftInt = new TreeNode(3);
@@ -112,4 +136,8 @@ let binarySearchTree1 = new BinarySearchTree();
 binarySearchTree1.insert(5);
 binarySearchTree1.insert(8);
 binarySearchTree1.insert(2);
-console.log('Binary Search Tree: ', binarySearchTree1)
+console.log('Binary Search Tree: ', binarySearchTree1);
+let trueOrFalse1 = binarySearchTree1.search(8);
+let trueOrFalse2 = binarySearchTree1.search(11);
+console.log('True or false 1: ', trueOrFalse1);
+console.log('True or false 2: ', trueOrFalse2);
