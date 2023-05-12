@@ -52,7 +52,8 @@
  *
  *             What are the time and auxilliary space complexities of the
  *             various methods?
- *
+ *              Insert: Time: O(N), Auxiliary space: O(1)
+ *              Search: Time: O(N), Auxiliary space: O(1)
  */
 
 class TreeNode{
