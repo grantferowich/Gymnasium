@@ -53,3 +53,16 @@
  *
  */
 
+class TreeNode{
+    constructor(valueInt){
+        this.rootInt = valueInt === undefined ? null : valueInt;
+        this.leftInt = null;
+        this.rightInt = null;
+    }
+}
+
+let root1Int = new TreeNode(5);
+root1Int.leftInt = new TreeNode(3);
+root1Int.rightInt = new TreeNode(8);
+
+console.log('Tree 1: ', root1Int)
