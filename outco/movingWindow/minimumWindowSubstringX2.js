@@ -2,6 +2,7 @@
  * Minimum Window Substring (Sliding Window)
  *
  * Wrote down on May 9, 2023
+ * Successfully tested the function on May 11, 2023.
  * 
  * Given a string, and a set of characters
  * return the substring representing the SMALLEST
