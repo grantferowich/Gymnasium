@@ -2,6 +2,8 @@
  *  Homework - Binary Search Tree
  *
  *  Defined on May 11, 2023.
+ *  Successfully tested the function May 12, 2023.
+ * 
  *  TreeNode class
  *  
  * 
