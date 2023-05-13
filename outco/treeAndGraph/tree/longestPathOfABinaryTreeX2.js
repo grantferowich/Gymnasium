@@ -5,6 +5,7 @@ Given a binary tree node, return the number of nodes
 in the longest path between the root and a leaf node.
 
 Attempted May 13, 2023.
+Successfully tested the solution May 13, 2023.
 
 Input: Node in a Binary Tree
 Output: Integer
@@ -34,21 +35,29 @@ class TreeNode{
 
 const longestPathOfABinaryTree = (rootNodeInt) => {
     
-    let pathInt = 0;
-
     const traverse = (nodeInt) => {
+        
+        if (nodeInt === null){
+            return 0
+        }
+
+        if (nodeInt.valueInt !== null){
+            let leftInt = traverse(nodeInt.leftInt)
+            let rightInt = traverse(nodeInt.rightInt)
+            return Math.max(leftInt, rightInt) + 1 
+        }
 
     }
 
-    traverse(rootNodeInt)
-    return pathInt;
+    return traverse(rootNodeInt)
+
 }
 
 /* Tests */
 
 let binaryTree1 = new TreeNode(3);
-binaryTree.leftInt = new TreeNode(1);
-binaryTree.rightInt = new TreeNode(5);
+binaryTree1.leftInt = new TreeNode(1);
+binaryTree1.rightInt = new TreeNode(5);
 
 const resultInt1 = longestPathOfABinaryTree(binaryTree1)
 
