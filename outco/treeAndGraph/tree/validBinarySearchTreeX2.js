@@ -27,9 +27,38 @@ class TreeNode{
 
 const validBinarySearchTree = (rootNodeInt) => {
 
+    if (rootNodeInt.valueInt === null || rootNodeInt === null){
+        return false;
+    }
+
+    const traverse = (nodeInt) => {
+
+        if (nodeInt.leftInt === null && nodeInt.rightInt === null){
+            return true
+        }
+        
+        if (nodeInt.leftInt > nodeInt.valueInt || nodeInt.rightInt < nodeInt.valueInt){
+            return false
+        }
+
+        let leftToF = traverse(nodeInt.leftInt);
+        let rightToF = traverse(nodeInt.rightInt);
+        return leftToF && rightToF
+    
+    }
+
+    return traverse(rootNodeInt);
 }
 
 /* Tests */
+let binaryTree1 = new TreeNode(5);
+binaryTree1.rightInt = new TreeNode(8);
+binaryTree1.leftInt = new TreeNode(3);
+
+const result1TrueOrFalse = validBinarySearchTree(binaryTree1);
+
+console.log(`Result 1: ${result1TrueOrFalse}`)
+
 
 
 
