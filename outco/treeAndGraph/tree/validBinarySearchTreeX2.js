@@ -17,6 +17,20 @@ value (Integer)
 right (Binary Tree Node, default null)
 left (Binary Tree Node, default null) */
 
-const validBinarySearchTree = (rootNodeInt) => {
-    
+class TreeNode{
+    constructor(valueInt){
+        this.valueInt = valueInt === undefined ? null : valueInt;
+        this.leftInt = null;
+        this.rightInt = null;
+    }
 }
+
+const validBinarySearchTree = (rootNodeInt) => {
+
+}
+
+/* Tests */
+
+
+
+/* Test results */
