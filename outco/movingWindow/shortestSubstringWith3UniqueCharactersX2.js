@@ -23,21 +23,17 @@ K ~ Number of unique characters in input string
 
 Time Complexity: O(N)
 Auxiliary Space Complexity: O(K)
-
-
 */
 
-const shortestSubstringWith3UniqueCharacters = (str) => {
-    
+const shortestSubstringWith3UniqueCharacters = (str) => {    
     let rightPtrInt = 0;
     let leftPtrInt = 0;
     let uniquesInt = 0;
-    let charMap = new Map()
+    let charMap = new Map();
     let resultRightInt = Infinity;
     let resultLeftInt = 0;
 
     while (rightPtrInt < str.length){
-        
         if (uniquesInt < 3){
             let rChar = str[rightPtrInt];
             let charCountInt = charMap.get(rChar) || 0

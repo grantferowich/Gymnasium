@@ -29,6 +29,7 @@ elements as the window slides over the input array.
 */ 
 
 const slidingWindowMaximum = (array, k) => {
+    
     let slidingWindowArr = [];
     let outputArr = [];
     let currentMaxInt = -Infinity;
@@ -38,27 +39,29 @@ const slidingWindowMaximum = (array, k) => {
         if (array[x] > currentMaxInt){
             currentMaxInt = array[x];
         } 
-        slidingWindowArr.push(array[x])
+        slidingWindowArr.push(array[x]);
     }
-    outputArr.push(currentMaxInt)
+    outputArr.push(currentMaxInt);
 
     // move window from k to end of array input
     for (x = k; x < array.length; x++){
         if (array[x] > currentMaxInt){
             currentMaxInt = array[x];
         }
-        outputArr.push(currentMaxInt)
-        slidingWindowArr.push(array[x])
-        let evictedValue = slidingWindowArr.unshift()
+        outputArr.push(currentMaxInt);
+        slidingWindowArr.push(array[x]);
+        let evictedValue = slidingWindowArr.unshift();
+        
         if (evictedValue === currentMaxInt){
             currentMaxInt = -Infinity;
             for (let y = 0; y < slidingWindowArr.length; y++){
                 if (slidingWindowArr[y] > currentMaxInt){
-                    currentMaxInt = slidingWindowArr[y]
+                    currentMaxInt = slidingWindowArr[y];
                 }
             }
         }
     }
+
     return outputArr;
 }
 

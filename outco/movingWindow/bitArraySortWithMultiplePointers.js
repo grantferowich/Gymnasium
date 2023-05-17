@@ -1,4 +1,7 @@
-// Given a bit array, return the array sorted in place using multiple pointers
+/*
+
+
+Given a bit array, return the array sorted in place using multiple pointers
 
 // input: array
 // output: array
@@ -10,7 +13,7 @@
 // The input space is O(N). The auxiliary space is O(2). 
 // Therefore the space complexity of the algorithm is linear, O(N).
 
-
+*/
 var t0 = performance.now();
 
 // console.log(bitArraySort([1,0,0,1])) // => [0,0,1,1]

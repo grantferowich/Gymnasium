@@ -14,7 +14,7 @@ K ~ Number of unique characters in input string
 
 Time Complexity: O(N)
 Auxiliary Space Complexity: O(K)
-s consists of English letters
+Consists of English letters
 
  */
 

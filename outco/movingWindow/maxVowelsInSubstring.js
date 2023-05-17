@@ -1,4 +1,5 @@
 /* 
+
 Successfully tested the function 2/17/23.
 
 1, initialize left most window
@@ -13,6 +14,7 @@ Successfully tested the function 2/17/23.
 Given a string s and an integer k
 return the max number of vowel letters
 in any substring of s with length k
+
 */
 
 const maxVowel = (s, k) => {
@@ -35,8 +37,7 @@ const maxVowel = (s, k) => {
                     local++
             }
         }
-
-
+        
         ultimate = Math.max(local, ultimate)
         right++
     }    
