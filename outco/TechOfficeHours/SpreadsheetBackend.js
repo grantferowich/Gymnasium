@@ -23,7 +23,7 @@
 #        --------
  */
 
-
+/* 
 class Sheet:
 
   def __init__(self) -> None:
@@ -36,3 +36,22 @@ class Sheet:
 sheet = Sheet()
 sheet.set_value('A1', 1)
 sheet.set_value('B1', 100)
+
+ */
+
+class Sheet{
+    constructor(){
+        this.cellsHM = {}
+    }
+
+    setValue(cellStr, valueAny){
+        this.cellsHM[cellStr] = valueAny;
+    }
+
+    getValue(cellStr){
+        return this.cells[cellStr];
+    }
+}
+
+let sheet1 = new Sheet();
+
