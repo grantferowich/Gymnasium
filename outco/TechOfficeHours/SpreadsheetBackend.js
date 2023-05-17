@@ -1,5 +1,9 @@
 /* # Create a simple backend implementation to power an excel-like spreadsheet.
 #
+
+Attempted on May 17, 2023.
+Partially completed as of May 17, 2023. 
+
 # Example Spreadsheet - https://sheets.google.com
 #
 # Provided below is some starter code to get you headed in the right direction.
@@ -37,21 +41,49 @@ sheet = Sheet()
 sheet.set_value('A1', 1)
 sheet.set_value('B1', 100)
 
- */
+Hadis's example:
+https://replit.com/@HadisDaqiq2/excelsheet#main.py
+https://replit.com/@HadisDaqiq2/excelsheet#main.py
+
+*/
 
 class Sheet{
     constructor(){
         this.cellsHM = {}
     }
 
-    setValue(cellStr, valueAny){
-        this.cellsHM[cellStr] = valueAny;
+    setValue(cellStr, valueAny, referenceToF=false){
+        if (referenceToF){
+            this.cells[cellStr] = ["", valueAny]
+        }
+        if (!referenceToF){
+            this.cells[cellStr] = [valueAny, ""]
+        }
     }
 
-    getValue(cellStr){
-        return this.cells[cellStr];
+    sum(){
+        let sumInt = 0;
+    }
+
+    // getValue(cellStr){
+    //     return this.cells[cellStr];
+    // }
+
+
+    represent(){
+        let outputStr = "--------\n";
+        for (let keyStr in this.cells){
+            outputStr += keyStr + ": " + this.getValue(keyStr) + "\n"
+        }
+        outputStr += "--------"
+        return outputStr;
     }
 }
 
 let sheet1 = new Sheet();
+// console.log(sheet1.represent())
+sheet1.setValue('A1', 1)
+sheet1.setValue('B1', 100)
+sheet1.setValue('B3', 'A1', True)
+console.log(sheet1.represent())
 
