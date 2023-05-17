@@ -26,33 +26,29 @@
 
 const bitflipAdvanced = (arr, int) => {
 
-    let flipBudgetInt = 0;
+    let flipBudgetInt = int;
     let leftPtrInt = 0;
     let rightPtrInt = 0;
-    let countInt = 0
-
+    let countInt = 0;
 
     while (rightPtrInt < arr.length){
-
+        
         if (arr[rightPtrInt] === 0){
-            flipBudgetInt++;
+            flipBudgetInt--;
         }
 
+        rightPtrInt++
         
-
-        if (flipBudgetInt > int){
-            // update result
-            if (rightPtrInt - leftPtrInt > countInt){
-                countInt = rightPtrInt - leftPtrInt;
-            }
+        while (flipBudgetInt < 0){
             if (arr[leftPtrInt] === 0){
-                flipBudgetInt--;
+                flipBudgetInt++;
             }
+
             leftPtrInt++
         }
-        
-        rightPtrInt++
+        countInt = Math.max(countInt, rightPtrInt - leftPtrInt)        
     }
+
     return countInt;
 }
 
@@ -61,9 +57,23 @@ const bitflipAdvanced = (arr, int) => {
 const arr1 = [0,1,1,1,0,1,0,1,0,0];
 const int1 = 2;
 
+const arr2 = [0, 1, 0, 1, 0]
+const int2 = 1
+
+const arr3 = [0]
+const int3 = 1;
+
+const arr4 = [0];
+const int4 = 0;
+
 const resultInt1 = bitflipAdvanced(arr1, int1);
+const resultInt2 = bitflipAdvanced(arr2, int2);
+const resultInt3 = bitflipAdvanced(arr3, int3);
+const resultInt4 = bitflipAdvanced(arr4, int4);
 
-
-console.log(`Result 1: ${resultInt1}`)
+console.log(`Result 1: ${resultInt1}`);
+console.log(`Result 2: ${resultInt2}`);
+console.log(`Result 3: ${resultInt3}`);
+console.log(`Result 4: ${resultInt4}`);
 
 /* Test results */
