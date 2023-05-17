@@ -42,17 +42,21 @@ class TreeNode{
 const validateBST = (root) => {
     if (root === null || root === undefined){return false}
     const traverse = (node, min, max) => {
+        
         // reached destination
         if (node === null){
-            return true
+            return true;
         }
+
         // every value in right subtree must be greater than min
         if (min !== null && node.value < min){
-            return false
+            return false;
         }
+
         if (max !== null && node.value > max){
-            return false
+            return false;
         }
+
         // when traversing right, min is updated, max stays the same
         let right = traverse(node.right, node.value, max)
         // when traversing left, max is updated, min stays the same
