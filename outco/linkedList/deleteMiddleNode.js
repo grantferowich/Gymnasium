@@ -25,27 +25,46 @@ Implement an algorithm to delete a node in the middle
  then delete the next node 
  */
 
- class SinglyLinkedListNode{
-    constructor(value){
-        this.value = value === undefined ? null : value;
-        this.nIntext = null;
+class SinglyLinkedListNode{
+    constructor(valueInt){
+        this.valueInt = valueInt === undefined ? null : valueInt;
+        this.nextInt = null;
     }
- }
+}
+
 const deleteMiddleNode = (node) => {
-    if (node.next === null || node === null){
+    
+    if (node.nextInt === null || node.valueInt === null){
         return false;
+    }  
+    let lengthInt = 0;
+    console.log(node)
+    while (node !== null){
+        lengthInt++;
+        node = node.nextInt;
     }
-    let data = node.next.value;
-    node.value = data;
-    node.next = node.next.next;
+    let middleInt = Math.ceil(lengthInt / 2);
+    let indexInt = 0;
+
+    while (node !== null){
+        if (indexInt === middleInt){
+            let nextValueInt = node.nextInt.valueInt;
+            node.valueInt = nextValueInt;
+        }
+        indexInt++;
+        node = node.nextInt;
+    }
+    // let data = node.next.value;
+    // node.value = data;
+    // node.next = node.next.next;
 }
 
 const list = new SinglyLinkedListNode(1);
-list.next = new SinglyLinkedListNode(1);
-list.next.next = new SinglyLinkedListNode(2);
-list.next.next.next = new SinglyLinkedListNode(3);
-list.next.next.next.next = new SinglyLinkedListNode(5);
+list.nextInt = new SinglyLinkedListNode(1);
+list.nextInt.nextInt = new SinglyLinkedListNode(2);
+list.nextInt.nextInt.nextInt = new SinglyLinkedListNode(3);
+list.nextInt.nextInt.nextInt.nextInt = new SinglyLinkedListNode(5);
 
-let nodeX = list.next.next;
-deleteMiddleNode(nodeX);
-console.log(list.next) // 3
+// let nodeX = list.next.next;
+deleteMiddleNode(list);
+// console.log(list.next) // 3
