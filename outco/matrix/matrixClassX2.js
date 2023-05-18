@@ -334,8 +334,8 @@ console.log(matrix1.print()) // successfully tested print() on May 18, 2023
 matrix1.insert(0, 1, 23) 
 console.log(matrix1.print()) // successfully tested insert(iInt, jInt, valueInt)
 console.log(matrix1.insert(100, 100, 12)) // successfully tested insert(iInt, jInt, valueInt)
-console.log(matrix1.retrieve(0, 1)) // successfully tested retrieve(0, 1);
+console.log(matrix1.retrieve(0, 1)) // successfully tested retrieve(0, 1) on May 18, 2023
 console.log(matrix1.fill(1)) 
-console.log(matrix1.print()) // 
+console.log(matrix1.print()) // successfully tested fill(valueInt) on May 18, 2023
 
 
