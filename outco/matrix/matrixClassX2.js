@@ -317,11 +317,31 @@ class Matrix{
         while (xInt < this.mInt){
             yInt = 0;
             while (yInt < this.nInt){
-                this.insert(xInt, yInt, valueInt)
+                if (this.isValid(xInt, yInt)){
+                    this.insert(xInt, yInt, valueInt)
+                }
                 yInt++;
             }
             xInt++;
         }
+    }
+
+    flatten(){
+        let arr = []
+        let xInt = 0;
+        let yInt = 0;
+        while (xInt < this.mInt){
+            yInt = 0;
+            while (yInt < this.nInt){
+                if (this.isValid(xInt, yInt)){
+                    let valueInt = this.retrieve(xInt, yInt);
+                    arr.push(valueInt);
+                }
+                yInt++;
+            }
+            xInt++;
+        }
+        return arr;
     }
 
 }
@@ -337,5 +357,6 @@ console.log(matrix1.insert(100, 100, 12)) // successfully tested insert(iInt, jI
 console.log(matrix1.retrieve(0, 1)) // successfully tested retrieve(0, 1) on May 18, 2023
 console.log(matrix1.fill(1)) 
 console.log(matrix1.print()) // successfully tested fill(valueInt) on May 18, 2023
+console.log(matrix1.flatten()) // succcessfully tested flatten() on May 18, 2023
 
 
