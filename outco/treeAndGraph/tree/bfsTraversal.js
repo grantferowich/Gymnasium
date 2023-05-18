@@ -4,7 +4,7 @@
  * 
  * Using a queue and while loop write a function that 
  * takes the root of a binary tree node and outputs
- * an array of values ordered by breadth-first. 
+ * an array of values ordered in breadth-first order.
  * 
  * 
  * Input: node
@@ -28,6 +28,7 @@
  * BFS uses queue to temporarily store nodes. 
  * From queue, the function acts on the values. 
  * */  
+
 class TreeNode{
     constructor(value){
         this.value = value === undefined ? null : value;
@@ -55,15 +56,15 @@ const treeBFSTraversal = (root) => {
 
     while (queue.length > 0){
 
-        let current = queue.shift()
-        result.push(current.value)
+        let current = queue.shift();
+        result.push(current.value);
 
         if (current.left !== null){
-            queue.push(current.left)
+            queue.push(current.left);
         }
         
         if (current.right !== null){
-            queue.push(current.right)
+            queue.push(current.right);
         }   
     }
     return result;
