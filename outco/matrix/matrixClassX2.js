@@ -274,7 +274,7 @@ class Matrix{
         this.storage = Array(this.mInt)
         let xInt = 0
         while (xInt < mInt){
-            this.storage[xInt] = Array(this.nInt).fill(0)
+            this.storage[xInt] = Array(this.nInt)
             xInt++
         }
     }
@@ -291,7 +291,37 @@ class Matrix{
     }
 
     insert(iInt, jInt, valueInt){
-        this.storage[iInt][jInt] = valueInt;
+        
+        if (this.isValid(iInt, jInt)){
+            this.storage[iInt][jInt] = valueInt;
+            return true;
+        }
+
+        if (!this.isValid(iInt, jInt)){
+            return false;
+        } 
+    }
+
+    retrieve(iInt, jInt){
+        if (this.isValid(iInt, jInt)){
+            return this.storage[iInt][jInt];
+        }
+        if (!this.isValid(iInt, jInt)){
+            return -Infinity;
+        }
+    }
+
+    fill(valueInt){
+        let xInt = 0;
+        let yInt = 0;
+        while (xInt < this.mInt){
+            yInt = 0;
+            while (yInt < this.nInt){
+                this.insert(xInt, yInt, valueInt)
+                yInt++;
+            }
+            xInt++;
+        }
     }
 
 }
@@ -301,5 +331,11 @@ const matrix1 = new Matrix(3, 3)
 console.log(matrix1.isValid(4,4)) // successfully tested isValid(iInt, jInt) on May 18, 2023
 console.log(matrix1.isValid(0,1)) // successfully tested isValid(iInt, jInt) on May 18, 2023
 console.log(matrix1.print()) // successfully tested print() on May 18, 2023
-matrix1.insert(0, 1, 23)
+matrix1.insert(0, 1, 23) 
 console.log(matrix1.print()) // successfully tested insert(iInt, jInt, valueInt)
+console.log(matrix1.insert(100, 100, 12)) // successfully tested insert(iInt, jInt, valueInt)
+console.log(matrix1.retrieve(0, 1)) // successfully tested retrieve(0, 1);
+console.log(matrix1.fill(1)) 
+console.log(matrix1.print()) // 
+
+
