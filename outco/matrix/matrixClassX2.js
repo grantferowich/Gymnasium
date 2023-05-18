@@ -290,6 +290,9 @@ class Matrix{
         return this.storage
     }
 
+    insert(iInt, jInt, valueInt){
+        this.storage[iInt][jInt] = valueInt;
+    }
 
 }
 
@@ -298,3 +301,5 @@ const matrix1 = new Matrix(3, 3)
 console.log(matrix1.isValid(4,4)) // successfully tested isValid(iInt, jInt) on May 18, 2023
 console.log(matrix1.isValid(0,1)) // successfully tested isValid(iInt, jInt) on May 18, 2023
 console.log(matrix1.print()) // successfully tested print() on May 18, 2023
+matrix1.insert(0, 1, 23)
+console.log(matrix1.print()) // successfully tested insert(iInt, jInt, valueInt)
