@@ -1,5 +1,8 @@
 /* 340-longest-substring-with-at-most-k-distinct-characters
 Question
+
+Successfully tested the function on May 18, 2023. 
+
 https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/description/
 
 Given a string, find the length of the longest substring T that contains at most k distinct characters.
@@ -36,12 +39,14 @@ const longestSubstringWithAtMostKDistinctCharacters = (str) => {
     let map = new Map();
     let rightPtrInt = 1;
     let leftPtrInt = 1;
-    let longestSubstringInt = 0
+    let longestSubstringInt = -Infinity;
     while (rightPtrInt < str.length){
 
-            let char = str[rightPtrInt];
-            map.set(char, (map.get(char) || 0) + 1);
-            rightPtrInt++;
+        let char = str[rightPtrInt];
+        map.set(char, (map.get(char) || 0) + 1);
+        rightPtrInt++;
+        
+
 
         while (map.size > kInt){
 
@@ -56,10 +61,14 @@ const longestSubstringWithAtMostKDistinctCharacters = (str) => {
             }
             leftPtrInt++
         }
+            
 
-        longestSubstringInt = Math.max(longestSubstringInt, rightPtrInt - leftPtrInt)
+        longestSubstringInt = Math.max(longestSubstringInt, rightPtrInt - leftPtrInt)  
+        if (map.size < kInt){
+            longestSubstringInt = -1
+        }
     }
-    return longestSubstringInt
+    return longestSubstringInt !== -Infinity ? longestSubstringInt : -1;
 }
 
 
