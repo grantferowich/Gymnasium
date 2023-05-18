@@ -4,7 +4,7 @@
  * where the values of “1” always appear in the form of a rectangular island and the islands
  * are always separated row-wise and column-wise by at least one line of “0”s, 
  * count the number of islands in the given matrix. 
- * Note that the islands can diagonally adjacent.
+ * Note that the islands can be diagonally adjacent.
  * 
  * 
  * Input: [[1, 1, 0, 1],
@@ -40,16 +40,14 @@ Input: [[1, 0, 0, 0],
  *  */ 
 
 const rectangleIslands = (matrix) => {
-    let rectangleIslands = 0
+    let rectangleIslands = 0;
     for (let x = 0; x < matrix.length; x++){
         for (let y = 0; y < matrix[0].length; y++){
             if (matrix[x][y] === 1){
                 // left check
                 if (((x - 1) < 0 || matrix[x-1][y] === 0) && ((y - 1) < 0 || matrix[x][y-1] === 0)){
                     // top check
-
-                        rectangleIslands++
-                   
+                    rectangleIslands++;
                 }
             }
         }
