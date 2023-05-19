@@ -393,6 +393,28 @@ class Matrix{
         return newMatrix
     }
 
+    // one bug after first iteration
+    transpose(){
+        let xInt = 0;
+        let yInt = 0;
+        let newMatrix = Array(this.nInt)
+        let iInt = 0; 
+        while (iInt < newMatrix.length){
+            newMatrix[iInt] = Array(this.mInt);
+            iInt++;
+        }
+        while (xInt < this.mInt){
+            yInt = 0;
+            while (yInt < this.nInt){
+                let valueInt = this.retrieve(xInt, yInt);
+                newMatrix[yInt][xInt] = valueInt;
+                yInt++;
+            }
+            xInt++;
+        }
+        console.log(newMatrix);
+    }
+
 }
 
 const matrix1 = new Matrix(3, 3)
@@ -417,10 +439,25 @@ matrix1.insert(1, 2, 8)
 matrix1.insert(2, 0, 13)
 matrix1.insert(2, 1, 21)
 matrix1.insert(2, 2, 55)
-console.log('matrix1')
-matrix1.print()
-console.log('matrix slice')
-console.log(matrix1.slice([0,2], [0,2])) // successfully tested slice(rowRangeInt, colRangeInt) on May 19, 2023
+
+console.log('matrix1');
+
+matrix1.print();
+// console.log('matrix slice')
+// console.log(matrix1.slice([0,2], [0,2])) // successfully tested slice(rowRangeInt, colRangeInt) on May 19, 2023
+matrix1.transpose() // Successfully tested transpose()
 
 
+/* 
+original matrix
+[ [ 11, 23, 34 ], 
+  [ 3, 5, 8 ], 
+  [ 13, 21, 55 ] ]
 
+transposed matrix 
+[ [ 11, 3, 13 ],
+  [ 23, 5, 21 ], 
+  [ 34, 8, 55 ] ]
+
+successfully tested transpose() on May 19, 2023.
+*/
