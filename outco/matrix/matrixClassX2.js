@@ -1,6 +1,8 @@
 /*
  *  Homework - Matrices
  *
+ * Attempted on May 18, 2023.
+ * 
  *  Prompt: Create a Matrix class
  *
  *  The Matrix will take in the following input:
@@ -268,6 +270,7 @@
  */
 
 class Matrix{
+
     constructor(mInt, nInt){
         this.mInt = mInt;
         this.nInt = nInt;
@@ -326,6 +329,20 @@ class Matrix{
         }
     }
 
+    scale(factorInt){
+        let xInt = 0;
+        let yInt = 0;
+        while (xInt < this.mInt){
+            yInt = 0
+            while (yInt < this.nInt){
+                let valueInt = this.retrieve(xInt, yInt)
+                this.insert(xInt, yInt, valueInt * factorInt)
+                yInt++
+            }
+            xInt++
+        }
+    }
+
     flatten(){
         let arr = []
         let xInt = 0;
@@ -344,6 +361,7 @@ class Matrix{
         return arr;
     }
 
+
 }
 
 const matrix1 = new Matrix(3, 3)
@@ -356,7 +374,9 @@ console.log(matrix1.print()) // successfully tested insert(iInt, jInt, valueInt)
 console.log(matrix1.insert(100, 100, 12)) // successfully tested insert(iInt, jInt, valueInt)
 console.log(matrix1.retrieve(0, 1)) // successfully tested retrieve(0, 1) on May 18, 2023
 console.log(matrix1.fill(1)) 
+console.log(matrix1.scale(5)) //
 console.log(matrix1.print()) // successfully tested fill(valueInt) on May 18, 2023
-console.log(matrix1.flatten()) // succcessfully tested flatten() on May 18, 2023
+// console.log(matrix1.flatten()) // succcessfully tested flatten() on May 18, 2023
+// successfully tested scale(factorInt) on May 19, 2023
 
 
