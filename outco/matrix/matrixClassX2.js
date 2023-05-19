@@ -415,6 +415,51 @@ class Matrix{
         console.log(newMatrix);
     }
 
+    multiply(inputMatrix){
+        /* 
+        if the originalMatrix is mInt by nInt
+        and the inputMatrix is nInt by kInt
+        multipliedMatrix must be mInt by kInt
+        */
+        
+        // ensure the number of columns in the originalMatrix equals 
+        // the number of rows in the inputMatrix
+        if (inputMatrix.length !== this.nInt){
+            return 'The input matrix may not be multiplied by the original matrix in a valid way.';
+        }
+
+        let multipliedMatrix = Array(this.mInt);
+        let kInt = inputMatrix[0].length;
+        let iInt = 0;
+
+        while (iInt < kInt){
+            multipliedMatrix[iInt] = Array(kInt);
+            iInt++;
+        }
+
+        let xInt = 0;
+        let yInt = 0;
+        let gInt = 0
+        while (xInt < this.mInt){
+            yInt = 0;
+            let multipliedValueInt = 0;
+            while (yInt < this.nInt){
+                let originalValueInt = this.retrieve(xInt, yInt);
+                while (gInt < inputMatrix.length){
+                    let inputValueInt = inputMatrix[gInt][xInt];
+                    multipliedValueInt += originalValueInt * inputValueInt;
+                    gInt++;
+                }
+                multipliedMatrix[xInt][yInt] = multipliedValueInt;
+                yInt++;
+            }
+            xInt++
+        }
+
+        return multipliedValueInt;
+
+    }
+
 }
 
 const matrix1 = new Matrix(3, 3)
@@ -447,7 +492,6 @@ matrix1.print();
 // console.log(matrix1.slice([0,2], [0,2])) // successfully tested slice(rowRangeInt, colRangeInt) on May 19, 2023
 matrix1.transpose() // Successfully tested transpose()
 
-
 /* 
 original matrix
 [ [ 11, 23, 34 ], 
@@ -461,3 +505,4 @@ transposed matrix
 
 successfully tested transpose() on May 19, 2023.
 */
+
