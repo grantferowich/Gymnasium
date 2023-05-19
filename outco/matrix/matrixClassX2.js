@@ -290,7 +290,7 @@ class Matrix{
     }
 
     print(){
-        return this.storage
+        console.log(this.storage)
     }
 
     insert(iInt, jInt, valueInt){
@@ -361,6 +361,37 @@ class Matrix{
         return arr;
     }
 
+    slice(rowRangeInt, colRangeInt){
+        if (!this.isValid(rowRangeInt, colRangeInt)){
+            return this.storage
+        }
+
+        let minRowInt = rowRangeInt[0];
+        let maxRowInt = rowRangeInt[1];
+        let minColInt = colRangeInt[0];
+        let maxColInt = colRangeInt[1];
+
+        let newMatrix = Array(maxRowInt)
+        let iInt = 0
+        while (iInt < newMatrix.length){
+            newMatrix[iInt] = Array(maxColInt);
+            iInt++
+        }
+
+        let xInt = minRowInt;
+        let yInt = minColInt;
+        while (xInt < maxRowInt){
+            yInt = minColInt
+            while (yInt < maxColInt){
+                console.log(`xInt ${xInt} yInt ${yInt}`)
+                let valueInt = this.retrieve(xInt, yInt);
+                newMatrix[xInt][yInt] = valueInt;
+                yInt++
+            }
+            xInt++
+        }
+        return newMatrix
+    }
 
 }
 
@@ -368,15 +399,28 @@ const matrix1 = new Matrix(3, 3)
 // console.log(matrix1) // successfully tested constructor function on May 18, 2023
 console.log(matrix1.isValid(4,4)) // successfully tested isValid(iInt, jInt) on May 18, 2023
 console.log(matrix1.isValid(0,1)) // successfully tested isValid(iInt, jInt) on May 18, 2023
-console.log(matrix1.print()) // successfully tested print() on May 18, 2023
+// console.log(matrix1.print()) // successfully tested print() on May 18, 2023
 matrix1.insert(0, 1, 23) 
-console.log(matrix1.print()) // successfully tested insert(iInt, jInt, valueInt)
+// console.log(matrix1.print()) // successfully tested insert(iInt, jInt, valueInt)
 console.log(matrix1.insert(100, 100, 12)) // successfully tested insert(iInt, jInt, valueInt)
 console.log(matrix1.retrieve(0, 1)) // successfully tested retrieve(0, 1) on May 18, 2023
-console.log(matrix1.fill(1)) 
-console.log(matrix1.scale(5)) //
-console.log(matrix1.print()) // successfully tested fill(valueInt) on May 18, 2023
+// console.log(matrix1.fill(1)) 
+// console.log(matrix1.scale(5)) //
+// console.log(matrix1.print()) // successfully tested fill(valueInt) on May 18, 2023
 // console.log(matrix1.flatten()) // succcessfully tested flatten() on May 18, 2023
 // successfully tested scale(factorInt) on May 19, 2023
+matrix1.insert(0, 0, 11)
+matrix1.insert(0, 2, 34)
+matrix1.insert(1, 0, 3)
+matrix1.insert(1, 1, 5)
+matrix1.insert(1, 2, 8)
+matrix1.insert(2, 0, 13)
+matrix1.insert(2, 1, 21)
+matrix1.insert(2, 2, 55)
+console.log('matrix1')
+matrix1.print()
+console.log('matrix slice')
+console.log(matrix1.slice([0,2], [0,2])) // successfully tested slice(rowRangeInt, colRangeInt) on May 19, 2023
+
 
 
