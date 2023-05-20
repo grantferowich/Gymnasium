@@ -455,9 +455,7 @@ class Matrix{
             }
             xInt++
         }
-
         return multipliedValueInt;
-
     }
 
 }

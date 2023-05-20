@@ -1,8 +1,8 @@
 /*
  *  Homework - Dynamic Programming
- *
- * Successfully tested the function May 04, 2023. 
  * 
+ * Successfully tested the function May 04, 2023. 
+ *  Implemented Kadane's algorithm. 
  *  Problem 1:  Max Consecutive Sum
  *
  *  Prompt:    Given an array of integers find the sum of consecutive

@@ -27,7 +27,6 @@ Under what condition does the runner move?
 there are less than or equal to kInt unique characters
 map.size is less or equal to kInt
 
-
 When to read temp solution?
 after shrinking the window
 
