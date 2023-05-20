@@ -58,3 +58,92 @@
  *
  */
 
+class ListNode{
+    constructor(valueInt){
+        this.valueInt = valueInt === undefined ? null : valueInt;
+        this.nextInt = null;
+    }
+}
+
+class LinkedList{
+    constructor(){
+        this.headInt = null;
+        this.tailInt = null;
+        this.lengthInt = 0;
+    }
+
+    /* 
+    suppose new list xList
+    listX = <5>-<8>-<13>
+    headInt = 5
+    tailInt = 13
+    length = 3
+    ptrInt = 2
+
+    instructions
+    insert 5
+    insert 8
+    insert 13
+    */
+    append(valueInt){
+        this.insert(valueInt, this.lengthInt)
+    }
+
+    insert(valueInt, indexInt){
+        if (indexInt < 0){
+            return;
+        }
+
+        let insertionNodeInt = new ListNode(valueInt);
+        let nodeInt = this.headInt;
+        if (this.lengthInt === 0){
+            this.headInt = insertionNodeInt;
+            this.tailInt = insertionNodeInt;
+            this.lengthInt++
+            return;
+        }
+
+        let ptrInt = 0;
+
+        while (nodeInt !== null){
+            if (ptrInt === indexInt - 1){
+                this.tailInt.nextInt = insertionNodeInt;
+                this.tailInt = insertionNodeInt;
+                this.lengthInt++;
+                return;
+            }
+            nodeInt = nodeInt.nextInt;
+            ptrInt++
+        }
+    }
+
+    contains(valueInt){
+        let nodeInt = this.headInt;
+        // scan
+        while (nodeInt !== null){
+            if (nodeInt.valueInt === valueInt){
+                return true
+            }
+            nodeInt = nodeInt.nextInt;
+        }
+
+        return false;
+    }
+
+    print(){
+        let nodeInt = this.headInt;
+        while (nodeInt !== null){
+            console.log(nodeInt.valueInt)
+            nodeInt = nodeInt.nextInt;
+        }
+    }
+}
+
+let linkedList1 = new LinkedList();
+linkedList1.append(5);
+linkedList1.append(8);
+linkedList1.append(13); // successfully tested append(valueInt) on May 20, 2023
+console.log(linkedList1)
+linkedList1.print(); // successfully tested print() on May 20, 2023
+const contains13ToF = linkedList1.contains(13) // successfully tested contains(valueInt) on May 20, 2023
+console.log(`Contains 13 result: ${contains13ToF}`) // expect true
