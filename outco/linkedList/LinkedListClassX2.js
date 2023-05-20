@@ -144,19 +144,20 @@ class LinkedList{
     instruction
     delete(4) -> 
 
-
+    4 deletion cases:
+    delete the only node
+    delete the head
+    delete the tail
+    delete a node between the head and the tail
     */
 
     delete(indexInt){
-        
-        
-        
         // invalid 
-        if (this.lengthInt === 0){
+        if (this.lengthInt === 0 || indexInt > this.lengthInt || indexInt < 0){
             return 'Error running delete(xInt): The list is empty.'
         }
  
-        // delete the head
+        // case 1: delete the only node
         if (this.lengthInt === 1 && indexInt === 0){
             this.headInt = null;
             this.tailInt = null;
@@ -164,14 +165,54 @@ class LinkedList{
             return;
         }
 
-        let ptrInt = 0;
-        
-        while (nodeInt !== null){
-            // delete tail 
-            ptrInt++;
-            nodeInt = nodeInt.nextInt;
+        // case 2: delete the head
+        if (indexInt === 0){
+            let nodeInt = this.headInt.nextInt;
+            this.headInt = nodeInt;
+            this.headInt.next = nodeInt.nextInt;
+            this.lengthInt--;
+            return
         }
 
+        let nodeInt = this.headInt;
+        let ptrInt = 0;
+        
+        // case 3: delete the tail
+        if (indexInt === this.length - 1){
+            while (nodeInt){
+                // jump to node pointing to the tail
+                if (ptrInt === indexInt - 1){
+                    // reassign the tail pointer
+                    this.nodeInt = this.tailInt;
+                    // sever reference to the old tail
+                    this.nextInt = null;
+                    this.lengthInt--;
+                    return;
+                }
+                nodeInt = nodeInt.nextInt;
+                ptrInt++;
+            }
+        }
+
+        
+        ptrInt = 0;
+        nodeInt = this.headInt;
+        // case 4: delete a node between the head and tail
+        console.log(`indexInt ${indexInt} `)
+        console.log(``)
+        while (nodeInt !== null){
+                if (ptrInt === indexInt){
+                    let replaceInt = nodeInt.nextInt.valueInt;
+                    nodeInt.valueInt = replaceInt;
+                    nodeInt.nextInt = nodeInt.nextInt.nextInt;
+                    this.lengthInt--;
+                    console.log('ran')
+                    return;
+                }
+                ptrInt++;
+                nodeInt = nodeInt.nextInt;
+        }
+        
     }
 
     contains(valueInt){
@@ -183,7 +224,6 @@ class LinkedList{
             }
             nodeInt = nodeInt.nextInt;
         }
-
         return false;
     }
 
@@ -211,5 +251,7 @@ console.log(`Contains 13 result: ${contains13ToF}`) // expect true
 
 let linkedList2 = new LinkedList();
 linkedList2.append(34);
-linkedList2.delete(0);
-console.log(linkedList2)
+linkedList2.append(55);
+linkedList2.append(89);
+linkedList2.delete(1); // successfully deleted a node between the head and tail
+linkedList2.print();
