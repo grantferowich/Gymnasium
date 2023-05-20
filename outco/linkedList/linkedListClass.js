@@ -31,15 +31,16 @@ class LinkedList{
         if (this.length === 0){
             this.head = newNode;
             this.tail = newNode;
-            this.length++
+            this.length++;
         } else if (index === 0){
             newNode.next = this.head;
             this.head = newNode;
             this.length++;
         } else if (index === this.length){
             this.tail.next = newNode;
-            this.tail = newNode
+            this.tail = newNode;
         } else {
+            // iterate up until the node before the insertion location
             let prev = this.head;
             for (let x = 0; x < index - 1; x++){
                 prev = prev.next;
@@ -67,12 +68,14 @@ class LinkedList{
         if ( index < 0 || index >= this.length){
             return;
         }
-
+        // case 1: delete only node
         if (this.length === 1){
             this.head = null;
             this.tail = null;
+            // case 2: delete head 
         } else if (index === 0){
             this.head = this.head.next;
+            // case 3: delete tail 
         } else if (index === this.length - 1){
             let prev = this.head;
             for (let x = 0; x < this.length - 1; x++){
@@ -80,6 +83,7 @@ class LinkedList{
             }
             this.tail = prev;
             prev.next = null;
+            // case three: delete a node between the head and tail
         } else {
             let prev = this.head;
             for (let y = 0; y < index - 1; y++){

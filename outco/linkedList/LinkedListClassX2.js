@@ -119,14 +119,44 @@ class LinkedList{
         }
     }
 
+    /* 
+
+    // delete a node in the middle 
+    linkedList = <13>-<21>-<34>-<55>-<89>
+    head: 13
+    tail: 89
+    length: 5
+    ptrInt = 4
+
+    instruction
+    delete(2) -> iterate until ptrInt is 2 (equal to indexInt)
+    -> store 55
+    -> set current node's value to 55
+    -> point current node at 89
+
+    // delete a node at the end 
+    linkedList = <13>-<21>-<34>-<55>-<89>
+    head: 13
+    tail: 89
+    length: 5
+    ptrInt = 4
+
+    instruction
+    delete(4) -> 
+
+
+    */
+
     delete(indexInt){
         
-        let nodeInt = this.headInt;
         
+        
+        // invalid 
         if (this.lengthInt === 0){
             return 'Error running delete(xInt): The list is empty.'
         }
-
+ 
+        // delete the head
         if (this.lengthInt === 1 && indexInt === 0){
             this.headInt = null;
             this.tailInt = null;
