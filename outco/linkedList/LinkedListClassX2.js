@@ -73,6 +73,8 @@ class LinkedList{
     }
 
     /* 
+    append diagram 
+
     suppose new list xList
     listX = <5>-<8>-<13>
     headInt = 5
@@ -117,6 +119,31 @@ class LinkedList{
         }
     }
 
+    delete(indexInt){
+        
+        let nodeInt = this.headInt;
+        
+        if (this.lengthInt === 0){
+            return 'Error running delete(xInt): The list is empty.'
+        }
+
+        if (this.lengthInt === 1 && indexInt === 0){
+            this.headInt = null;
+            this.tailInt = null;
+            this.lengthInt--;
+            return;
+        }
+
+        let ptrInt = 0;
+        
+        while (nodeInt !== null){
+            // delete tail 
+            ptrInt++;
+            nodeInt = nodeInt.nextInt;
+        }
+
+    }
+
     contains(valueInt){
         let nodeInt = this.headInt;
         // scan
@@ -144,6 +171,15 @@ linkedList1.append(5);
 linkedList1.append(8);
 linkedList1.append(13); // successfully tested append(valueInt) on May 20, 2023
 console.log(linkedList1)
-linkedList1.print(); // successfully tested print() on May 20, 2023
+// linkedList1.print(); // successfully tested print() on May 20, 2023
 const contains13ToF = linkedList1.contains(13) // successfully tested contains(valueInt) on May 20, 2023
 console.log(`Contains 13 result: ${contains13ToF}`) // expect true
+
+// linkedList1.delete(2)
+// const contains13ToF2 = linkedList1.contains(13)
+// linkedList1.print();
+
+let linkedList2 = new LinkedList();
+linkedList2.append(34);
+linkedList2.delete(0);
+console.log(linkedList2)
