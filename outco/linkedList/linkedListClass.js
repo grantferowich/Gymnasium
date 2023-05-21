@@ -1,3 +1,8 @@
+/* 
+Linked List Class
+Successfully tested the classes on January 11, 2023.
+
+*/
 class ListNode {
     constructor(value){
         this.value = value === undefined ? null : value;

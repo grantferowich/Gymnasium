@@ -4,6 +4,7 @@
 
 /*
  * Attempted on May 20, 2023.
+ * Succeesfully tested the classes on May 21, 2023.
  *  ListNode class
  *
  *  Prompt:    Create a ListNode class

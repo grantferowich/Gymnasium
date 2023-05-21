@@ -25,6 +25,8 @@ each recursive call. Return the value if the value exists in the hash map.
 
 call the recursive function. Ensure the parameters passed to the function call are (0, 0).
 
+
+Remember to diagram the function ! 
 */
 
 const latticePaths = (mInt, nInt) => {
