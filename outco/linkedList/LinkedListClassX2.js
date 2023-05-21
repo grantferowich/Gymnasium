@@ -254,8 +254,8 @@ linkedList2.append(34);
 linkedList2.append(55);
 linkedList2.append(89);
 // linkedList2.delete(1); // successfully deleted a node between the head and tail
-// linkedList2.delete(6) // expect an error message 
-linkedList2.delete(2); // expect to delete 89 and print 34 55 
+// linkedList2.delete(6) // expect an error message  // successfully observed error message
+linkedList2.delete(2); // expect to delete 89 and print 34 55 // successfully tested the deletion of the tail node on May 20, 2023.
 linkedList2.print();
 
 
