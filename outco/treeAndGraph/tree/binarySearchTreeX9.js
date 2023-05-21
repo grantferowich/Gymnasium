@@ -58,7 +58,7 @@ class TreeNode{
     }
 }
 
-class BinartSearchTree{
+class BinarySearchTree{
     constructor(){
         this.rootInt = null;
         this.sizeInt = 0;
@@ -104,11 +104,28 @@ class BinartSearchTree{
     // input: int
     // outout: true or false
     search(valueInt){
-
-        if (nodeInt.leftInt > nodeInt.valueInt 
-            || nodeInt.rightInt < nodeInt.valueInt){
-                ret
+        if (valueInt === null && this.rootInt === null){
+            return true
         }
+
+        const traverse = (nodeInt) => {
+        
+            // destination
+            if (nodeInt.valueInt === valueInt){
+                return true;
+            }
+
+            // recursive case 1
+            if (valueInt <= nodeInt.valueInt && nodeInt.leftInt !== null){
+                return traverse(nodeInt.leftInt);
+            }
+
+            // recursive case 2
+            if (valueInt > nodeInt.valueInt && nodeInt.rightInt !== null){
+                return traverse(nodeInt.rightInt);
+            }
+        }
+        return traverse(this.rootInt) !== undefined ? true : false
     }
 }
 
@@ -118,7 +135,7 @@ class BinartSearchTree{
 // rootNodeInt.leftInt = new TreeNode(5);
 // rootNodeInt.rightInt = new TreeNode(8);
 
-let rootNodeInt = new BinartSearchTree();
+let rootNodeInt = new BinarySearchTree();
 rootNodeInt.insert(7)
 console.log(rootNodeInt) // successfully tested TreeNode(iInt)
 rootNodeInt.insert(11)
@@ -128,4 +145,8 @@ console.log(rootNodeInt) // successfully tested TreeNode(iInt)
 rootNodeInt.insert(5)
 console.log(rootNodeInt) // successfully tested TreeNode(iInt)
 /* Test result */
-console.log(rootNodeInt) // successfully tested TreeNode(iInt)
+// console.log(rootNodeInt) // successfully tested TreeNode(iInt)
+const trueOrFalse1 = rootNodeInt.search(5)  
+const trueOrFalse2 = rootNodeInt.search(55) 
+console.log(`Result 1: ${trueOrFalse1}`) // expect true
+console.log(`Result 2: ${trueOrFalse2}`) // expect false
