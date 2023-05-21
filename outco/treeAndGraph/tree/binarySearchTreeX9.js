@@ -58,11 +58,74 @@ class TreeNode{
     }
 }
 
+class BinartSearchTree{
+    constructor(){
+        this.rootInt = null;
+        this.sizeInt = 0;
+    }
+
+    // time complexity: O(log(N))
+    // input: int
+    // output: undefined
+    insert(valueInt){
+        let insertionNodeInt = new TreeNode(valueInt)
+        if (this.sizeInt === 0){
+            this.rootInt = insertionNodeInt;
+            this.sizeInt++;
+            return;
+        }
+
+        const traverse = (nodeInt) => {
+
+            if (valueInt <= nodeInt.valueInt && nodeInt.leftInt === null){
+                nodeInt.leftInt = insertionNodeInt;
+                this.sizeInt++
+                return;
+            }
+
+            if (valueInt > nodeInt.valueInt && nodeInt.rightInt === null){
+                nodeInt.rightInt = insertionNodeInt;
+                this.sizeInt++;
+                return 
+            }
+            
+            if (valueInt > nodeInt.valueInt){
+                traverse(nodeInt.rightInt);
+            }
+            if (valueInt < nodeInt.valueInt){
+                traverse(nodeInt.leftInt);
+            }
+        }
+
+        traverse(this.rootInt)
+    }
+
+    // run time: O(log(N))
+    // input: int
+    // outout: true or false
+    search(valueInt){
+
+        if (nodeInt.leftInt > nodeInt.valueInt 
+            || nodeInt.rightInt < nodeInt.valueInt){
+                ret
+        }
+    }
+}
+
 /* Test */
 
-let rootNodeInt = new TreeNode(7);
-rootNodeInt.leftInt = new TreeNode(5);
-rootNodeInt.rightInt = new TreeNode(8);
+// let rootNodeInt = new TreeNode(7);
+// rootNodeInt.leftInt = new TreeNode(5);
+// rootNodeInt.rightInt = new TreeNode(8);
 
+let rootNodeInt = new BinartSearchTree();
+rootNodeInt.insert(7)
+console.log(rootNodeInt) // successfully tested TreeNode(iInt)
+rootNodeInt.insert(11)
+console.log(rootNodeInt) // successfully tested TreeNode(iInt)
+rootNodeInt.insert(13)
+console.log(rootNodeInt) // successfully tested TreeNode(iInt)
+rootNodeInt.insert(5)
+console.log(rootNodeInt) // successfully tested TreeNode(iInt)
 /* Test result */
 console.log(rootNodeInt) // successfully tested TreeNode(iInt)
