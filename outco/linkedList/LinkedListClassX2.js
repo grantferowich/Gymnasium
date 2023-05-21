@@ -150,11 +150,12 @@ class LinkedList{
     delete the tail
     delete a node between the head and the tail
     */
-
+    
     delete(indexInt){
         // invalid 
+        console.log(`indexInt ${indexInt} length ${this.lengthInt}`)
         if (this.lengthInt === 0 || indexInt > this.lengthInt || indexInt < 0){
-            return 'Error running delete(xInt): The list is empty.'
+            console.log(`Error: Invalid indexInt or linked list.`)
         }
  
         // case 1: delete the only node
@@ -178,14 +179,16 @@ class LinkedList{
         let ptrInt = 0;
         
         // case 3: delete the tail
-        if (indexInt === this.length - 1){
+        console.log(indexInt);
+        console.log(this.lengthInt);
+
+
+        if (indexInt === (this.lengthInt - 1)){
             while (nodeInt){
                 // jump to node pointing to the tail
                 if (ptrInt === indexInt - 1){
-                    // reassign the tail pointer
-                    this.nodeInt = this.tailInt;
-                    // sever reference to the old tail
-                    this.nextInt = null;
+                    this.tailInt = nodeInt;
+                    this.tailInt.nextInt = null;
                     this.lengthInt--;
                     return;
                 }
@@ -194,19 +197,16 @@ class LinkedList{
             }
         }
 
-        
         ptrInt = 0;
         nodeInt = this.headInt;
         // case 4: delete a node between the head and tail
-        console.log(`indexInt ${indexInt} `)
-        console.log(``)
         while (nodeInt !== null){
                 if (ptrInt === indexInt){
                     let replaceInt = nodeInt.nextInt.valueInt;
                     nodeInt.valueInt = replaceInt;
                     nodeInt.nextInt = nodeInt.nextInt.nextInt;
                     this.lengthInt--;
-                    console.log('ran')
+                    // console.log('ran')
                     return;
                 }
                 ptrInt++;
@@ -240,10 +240,10 @@ let linkedList1 = new LinkedList();
 linkedList1.append(5);
 linkedList1.append(8);
 linkedList1.append(13); // successfully tested append(valueInt) on May 20, 2023
-console.log(linkedList1)
+// console.log(linkedList1)
 // linkedList1.print(); // successfully tested print() on May 20, 2023
 const contains13ToF = linkedList1.contains(13) // successfully tested contains(valueInt) on May 20, 2023
-console.log(`Contains 13 result: ${contains13ToF}`) // expect true
+// console.log(`Contains 13 result: ${contains13ToF}`) // expect true
 
 // linkedList1.delete(2)
 // const contains13ToF2 = linkedList1.contains(13)
@@ -253,5 +253,9 @@ let linkedList2 = new LinkedList();
 linkedList2.append(34);
 linkedList2.append(55);
 linkedList2.append(89);
-linkedList2.delete(1); // successfully deleted a node between the head and tail
+// linkedList2.delete(1); // successfully deleted a node between the head and tail
+// linkedList2.delete(6) // expect an error message 
+linkedList2.delete(2); // expect to delete 89 and print 34 55 
 linkedList2.print();
+
+
