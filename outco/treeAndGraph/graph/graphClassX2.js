@@ -71,7 +71,7 @@
 
 class Graph{
     constructor(){
-        this.storage = new Map();
+        this.storageMap = new Map();
     }
 
     addVertex(idInt){ 
@@ -81,7 +81,7 @@ class Graph{
         }
         
         if (!this.isVertex(idInt)){
-            this.storage.set(idInt, [])
+            this.storageMap.set(idInt, [])
             return true;
         }
     }
@@ -89,7 +89,7 @@ class Graph{
     removeVertex(idInt){
         
         if (this.isVertex(idInt)){
-            this.storage.delete(idInt);
+            this.storageMap.delete(idInt);
             return true
         }
 
@@ -99,22 +99,48 @@ class Graph{
     }
 
     addEdge(id1Int, id2Int){
+        
         if (!this.isVertex(id1Int)){
-            return false;
+            this.addVertex(id1Int)
         }
+
+        if (!this.isVertex(id2Int)){
+            this.addVertex(id2Int);
+        }
+
         if (this.isVertex(id1Int)){
-            let edges = this.storage.get(id1Int)
-            edges.push(id2Int);
-            this.storage.set(id1Int, edges);
+            let edgesArr = this.storageMap.get(id1Int)
+            edgesArr.push(id2Int);
+            this.storageMap.set(id1Int, edgesArr);
             return true; 
         }
     }
 
+    removeEdge(id1Int, id2Int){
+        if (!this.isVertex(id1Int)){
+            return false;
+        }
+        if (this.isVertex(id1Int)){
+            let edgesArr = this.storageMap.get(id1Int);
+            let xInt = 0;
+            while (xInt < edgesArr.length){
+                let edgeInt = edgesArr[xInt];
+                if (edgeInt === id2Int){
+                    edgesArr.splice(xInt, 1);
+                }
+                xInt++;
+            }
+        }
+    }
+
     isVertex(idInt){
-        if (this.storage.has(idInt)){
+        if (this.storageMap.has(idInt)){
             return true
         }
         return false
+    }
+    print(){
+        console.log(this.storageMap)
     }
     
 }
@@ -124,7 +150,14 @@ let graph1 = new Graph();
 // console.log(graph1.isVertex(2)) // successfully tested the isVertex(iInt) method on May 22, 2023.
 console.log(graph1.addVertex(3));
 console.log(graph1.addVertex(4));
-console.log(graph1.addVertex(3));
+graph1.addVertex(5);
+graph1.addVertex(7)
+// console.log(graph1.addVertex(3));
 // console.log(graph1.removeVertex(3))
 // console.log(graph1.removeVertex(1)) // successfully tested removeVertex(idInt) on May 22, 2023.
-
+graph1.addEdge(3, 4);
+graph1.addEdge(5, 10);
+graph1.addEdge(5, 4);
+graph1.addEdge(7, 10);
+graph1.addEdge(5, 1)
+graph1.print() // successfully tested addEdge(id1Int, id2Int)  and print()
