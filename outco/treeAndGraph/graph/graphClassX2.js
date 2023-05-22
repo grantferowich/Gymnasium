@@ -156,6 +156,7 @@ class Graph{
 }
 
 /* Tests */
+
 let graph1 = new Graph();
 // console.log(graph1.isVertex(2)) // successfully tested the isVertex(iInt) method on May 22, 2023.
 console.log(graph1.addVertex(3));

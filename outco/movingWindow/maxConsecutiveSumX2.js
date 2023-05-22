@@ -20,19 +20,15 @@
  */
 
 const maxConsecutiveSum = (arr) => {
-    
     let tempSum = - Infinity;
     let maxSum = -Infinity;
     let xInt = 0;
-
     while (xInt < arr.length){
         tempSum = Math.max(tempSum + arr[xInt], arr[xInt]);
         maxSum = Math.max(tempSum, maxSum);
         xInt++;
     }
-
     return maxSum !== -Infinity ? maxSum : 0;
-
 }
 
 /* Tests */
