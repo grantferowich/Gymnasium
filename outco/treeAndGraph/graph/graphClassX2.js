@@ -75,9 +75,11 @@ class Graph{
     }
 
     addVertex(idInt){ 
+        
         if (this.isVertex(idInt)){
             return false;
         }
+        
         if (!this.isVertex(idInt)){
             this.storage.set(idInt, [])
             return true;
@@ -85,12 +87,26 @@ class Graph{
     }
 
     removeVertex(idInt){
+        
         if (this.isVertex(idInt)){
             this.storage.delete(idInt);
             return true
         }
+
         if (!this.isVertex(idInt)){
             return false;
+        }
+    }
+
+    addEdge(id1Int, id2Int){
+        if (!this.isVertex(id1Int)){
+            return false;
+        }
+        if (this.isVertex(id1Int)){
+            let edges = this.storage.get(id1Int)
+            edges.push(id2Int);
+            this.storage.set(id1Int, edges);
+            return true; 
         }
     }
 
@@ -103,11 +119,12 @@ class Graph{
     
 }
 
+/* Tests */
 let graph1 = new Graph();
 // console.log(graph1.isVertex(2)) // successfully tested the isVertex(iInt) method on May 22, 2023.
 console.log(graph1.addVertex(3));
 console.log(graph1.addVertex(4));
 console.log(graph1.addVertex(3));
 // console.log(graph1.removeVertex(3))
-console.log(graph1.removeVertex(1)) // successfully tested removeVertex(idInt) on May 22, 2023.
+// console.log(graph1.removeVertex(1)) // successfully tested removeVertex(idInt) on May 22, 2023.
 
