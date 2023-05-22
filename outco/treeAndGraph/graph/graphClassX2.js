@@ -71,11 +71,31 @@
 
 class Graph{
     constructor(){
-        this.storage = {};
+        this.storage = new Map();
+    }
+
+    addVertex(idInt){ 
+        if (this.isVertex(idInt)){
+            return false;
+        }
+        if (!this.isVertex(idInt)){
+            this.storage.set(idInt, [])
+            return true;
+        }
+    }
+
+    removeVertex(idInt){
+        if (this.isVertex(idInt)){
+            this.storage.delete(idInt);
+            return true
+        }
+        if (!this.isVertex(idInt)){
+            return false;
+        }
     }
 
     isVertex(idInt){
-        if (this.storage[idInt]){
+        if (this.storage.has(idInt)){
             return true
         }
         return false
@@ -84,4 +104,10 @@ class Graph{
 }
 
 let graph1 = new Graph();
-console.log(graph1.isVertex(2)) // successfully tested the isVertex(iInt) method on May 22, 2023.
+// console.log(graph1.isVertex(2)) // successfully tested the isVertex(iInt) method on May 22, 2023.
+console.log(graph1.addVertex(3));
+console.log(graph1.addVertex(4));
+console.log(graph1.addVertex(3));
+// console.log(graph1.removeVertex(3))
+console.log(graph1.removeVertex(1)) // successfully tested removeVertex(idInt) on May 22, 2023.
+
