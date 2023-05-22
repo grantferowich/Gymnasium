@@ -139,8 +139,18 @@ class Graph{
         }
         return false
     }
+
     print(){
         console.log(this.storageMap)
+    }
+
+    neighbors(idInt){
+        if (!this.isVertex(idInt)){
+            return false;
+        }
+
+        return this.storageMap.get(idInt)
+
     }
     
 }
@@ -161,3 +171,5 @@ graph1.addEdge(5, 4);
 graph1.addEdge(7, 10);
 graph1.addEdge(5, 1)
 graph1.print() // successfully tested addEdge(id1Int, id2Int)  and print()
+const neighborsOf5Arr = graph1.neighbors(5)
+console.log(neighborsOf5Arr) // successfully tested .neighbors(idInt)
