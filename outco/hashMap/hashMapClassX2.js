@@ -3,6 +3,8 @@
  *
  *  Problem: Hash Table
  *
+ * Attempted on May 23, 2023.
+ * 
  *  Prompt: Create a hash table class using separate chaining.
  *
  *  The HashTable will have the following properties:
@@ -82,8 +84,30 @@ class HashMap{
         return hashInt % bucketsInt;
     }
 
-    insert(keyStr, valueStr){
 
+    /* 
+    inputs: k-v pair
+    Procedure: 
+    1, calculate hash value for determining
+    where the k-v pair will be inserted
+    2, store the bucketArr based on the hashInt from (1)
+    3, Loop over the bucket to check if the keyStr already exists
+        -> if keyStr already exists, update the valueStr
+        -> if keyStr does not exist, push the key-value pair into the bucketArr
+    
+    */
+
+    insert(keyStr, valueStr){
+        let hashInt = hash(keyStr, this.bucketsInt);
+        let bucketArr = this.storageArr[bucketsInt];
+    
+        let xInt = 0
+        while (xInt < bucketArr.length){
+            let tempKeyStr = bucketArr[]
+        }
+
+
+        
     }
 
     get(keyStr){
@@ -96,4 +120,6 @@ class HashMap{
 
 }
 
-
+let hashMap1 = new HashMap();
+map1.set('wake', 'forest')
+console.log(map1)
