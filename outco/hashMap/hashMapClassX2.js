@@ -138,7 +138,19 @@ class HashMap{
         let bucketInt = this.hash(keyStr, this.bucketsInt);
         let bucketArr = this.storageArr[bucketInt];
         let xInt = 0;
-        // while 
+
+        
+        if (bucketArr.length === 1 && bucketArr[0][0] === keyStr){
+            return bucketArr[0][1];
+        }
+        
+        while (bucketArr.length > 0 && xInt < bucketArr.length){
+            let tempKeyStr = bucketArr[xInt][0];
+            if (tempKeyStr === keyStr){
+                return bucketArr[xInt][1];
+            }
+            xInt++;
+        }
 
     }
 
@@ -148,7 +160,16 @@ class HashMap{
 
 }
 
+/* Tests */
 let hashMap1 = new HashMap();
-hashMap1.insert('wake', 'forest')
-console.log(hashMap1)
+hashMap1.insert('wake', 'forest');
+hashMap1.insert('wf', 'university');
+hashMap1.insert('philosophy', 'economics');
+// console.log(hashMap1) // successfully tested insert(keyStr, valueStr) on May 24, 2023.
+let valueStrX1 = hashMap1.get('wf') // successfully tested get(keyStr) on May 24, 2023.
+const valueStrX2 = hashMap1.get('philosophy')
+console.log(valueStrX1)
+console.log(valueStrX2) // successfully tested get(keyStr) on May 24, 2023.
+
+
 
