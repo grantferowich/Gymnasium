@@ -98,16 +98,23 @@ class HashMap{
     */
 
     insert(keyStr, valueStr){
-        let hashInt = hash(keyStr, this.bucketsInt);
-        let bucketArr = this.storageArr[bucketsInt];
-    
+        // bucket index where the present key-value pair will be inserted
+        let bucketInt = hash(keyStr, this.bucketsInt);
+        // arr of key-value pairs
+        let bucketArr = this.storageArr[bucketInt];
         let xInt = 0
         while (xInt < bucketArr.length){
-            let tempKeyStr = bucketArr[]
+            let tempKeyStr = bucketArr[xInt][0]
+            // keyStr already exists in the bucket
+            if (tempKeyStr === keyStr){
+                bucketArr[xInt][1] = valueStr;
+                return
+            }
+            xInt++
         }
+        // keyStr does not exist in the bucket 
+        bucketArr.push([keyStr, valueStr])
 
-
-        
     }
 
     get(keyStr){
