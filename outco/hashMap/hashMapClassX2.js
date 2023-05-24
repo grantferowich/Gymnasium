@@ -60,8 +60,13 @@
 class HashMap{
     constructor(){
         this.bucketsInt = 8;
-        this.storageArr = Array(this.buckets);
-        this.sizeInt = 0
+        this.storageArr = Array(this.bucketsInt);
+        this.sizeInt = 0;
+        let xInt = 0;
+        while (xInt < this.storageArr.length){
+            this.storageArr[xInt] = Array()
+            xInt++
+        }
     }
 
     // Time complexity: O(N)
@@ -73,7 +78,7 @@ class HashMap{
         let xInt = 0;
         while (xInt < keyStr.length){
             // each char will have some value between 97 and 123
-            let charInt = key.charCodeAt(xInt)
+            let charInt = keyStr.charCodeAt(xInt)
             // let hashInt be shifting over five times, added to the constant, and then
             // add the char int
             // each keySr passed into the function will generate a different 
@@ -99,25 +104,41 @@ class HashMap{
 
     insert(keyStr, valueStr){
         // bucket index where the present key-value pair will be inserted
-        let bucketInt = hash(keyStr, this.bucketsInt);
+        let bucketInt = this.hash(keyStr, this.bucketsInt);
         // arr of key-value pairs
         let bucketArr = this.storageArr[bucketInt];
         let xInt = 0
+        // bucket is empty && key-value pair does not exist in the bucket
+        if (bucketArr.length === 0){
+            bucketArr.push([keyStr, valueStr])
+            this.sizeInt++;
+            return
+        }
+
+        // bucket is not empty
         while (xInt < bucketArr.length){
             let tempKeyStr = bucketArr[xInt][0]
             // keyStr already exists in the bucket
+            // this.sizeInt does not change because a key which already exists 
+            // is being updated
             if (tempKeyStr === keyStr){
                 bucketArr[xInt][1] = valueStr;
                 return
             }
             xInt++
         }
-        // keyStr does not exist in the bucket 
+        // bucket is not empty && key-value pair does not exist in the bucket
         bucketArr.push([keyStr, valueStr])
+        this.sizeInt++;
+        return
 
     }
 
     get(keyStr){
+        let bucketInt = this.hash(keyStr, this.bucketsInt);
+        let bucketArr = this.storageArr[bucketInt];
+        let xInt = 0;
+        // while 
 
     }
 
@@ -128,5 +149,6 @@ class HashMap{
 }
 
 let hashMap1 = new HashMap();
-map1.set('wake', 'forest')
-console.log(map1)
+hashMap1.insert('wake', 'forest')
+console.log(hashMap1)
+
