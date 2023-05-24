@@ -4,6 +4,7 @@
  *  Problem: Hash Table
  *
  * Attempted on May 23, 2023.
+ * Successfuly attempted on May 24, 2023. 
  * 
  *  Prompt: Create a hash table class using separate chaining.
  *
@@ -62,7 +63,6 @@ class HashMap{
         this.bucketsInt = 8;
         this.storageArr = Array(this.bucketsInt);
         this.sizeInt = 0;
-
         let xInt = 0;
         while (xInt < this.storageArr.length){
             this.storageArr[xInt] = Array()
@@ -74,16 +74,10 @@ class HashMap{
     // Auxiliary space complexity: O()
     // dbjb2 hashing function
     hash(keyStr, bucketsInt){
-        // some random constant int
         let hashInt = 5381;
         let xInt = 0;
         while (xInt < keyStr.length){
-            // each char will have some value between 97 and 123
             let charInt = keyStr.charCodeAt(xInt)
-            // let hashInt be shifting over five times, added to the constant, and then
-            // add the char int
-            // each keySr passed into the function will generate a different 
-            // hashInt, unless there is a collision
             hashInt = ((hashInt << 5) + hashInt) + charInt;
             xInt++;
         }
@@ -92,37 +86,26 @@ class HashMap{
     }
 
     insert(keyStr, valueStr){
-        // bucket index where the present key-value pair will be inserted
         let bucketInt = this.hash(keyStr, this.bucketsInt);
-        // arr of key-value pairs
         let bucketArr = this.storageArr[bucketInt];
-        
         if (!bucketArr) {
             bucketArr = [];
             this.storageArr[bucketInt] = bucketArr;
         }
-
-        // bucket is empty && key-value pair does not exist in the bucket
         if (bucketArr.length === 0 || bucketArr === undefined){
             bucketArr.push([keyStr, valueStr]);
             this.sizeInt++;
             return;
         }
-
         let xInt = 0;
         while (xInt < bucketArr.length){
             let tempKeyStr = bucketArr[xInt][0];
-            // keyStr already exists in the bucket
-            // this.sizeInt does not change because a key which already exists 
-            // is being updated
             if (tempKeyStr === keyStr){
                 bucketArr[xInt][1] = valueStr;
                 return;
             }
             xInt++;
         }
-
-        // bucket is not empty && key-value pair does not exist in the bucket
         bucketArr.push([keyStr, valueStr]);
         this.sizeInt++;
         this.resize();
@@ -133,11 +116,9 @@ class HashMap{
         let bucketInt = this.hash(keyStr, this.bucketsInt);
         let bucketArr = this.storageArr[bucketInt];
         let xInt = 0;
-        
         if (bucketArr.length === 1 && bucketArr[0][0] === keyStr){
             return bucketArr[0][1];
         }
-        
         while (bucketArr.length > 0 && xInt < bucketArr.length){
             let tempKeyStr = bucketArr[xInt][0];
             if (tempKeyStr === keyStr){
@@ -150,19 +131,16 @@ class HashMap{
     resize(keyStr){
         // increase the number of buckets
         let loadFactorInt = this.sizeInt / this.bucketsInt;
-
         // map does not need to be resized
         if (loadFactorInt > 0.25 && loadFactorInt < 0.75){
             console.log('map does not need to be resized');
             return;
         }
-
         // map does not need to be resized
         if (loadFactorInt <= 0.25 && this.bucketsInt === 8){
             console.log('map does not need to be resized');
             return;
         }
-
         // resize map
         if (loadFactorInt >= 0.75 && this.bucketsInt >= 8){
             console.log('Map is being resized: Expansion.');
@@ -173,26 +151,20 @@ class HashMap{
             let int = this.bucketsInt;
             this.bucketsInt = int / 2;
         }
-        
         const tempArr = [...this.storageArr]
         this.storageArr = Array(this.bucketsInt);
         let iInt = 0;
-
         while (iInt < this.storageArr.length){
             this.storageArr[iInt] = [];
             iInt++;
         }
-
         let xInt = 0;
-
         while (xInt < tempArr.length){
             let bucketArr = tempArr[xInt];
-
             if (bucketArr.length === 0){
                 xInt++;
                 continue;
             }
-
             if (bucketArr.length === 1){
                 let keyStr = bucketArr[0][0];
                 let valueStr = bucketArr[0][1];
@@ -232,3 +204,22 @@ hashMap1.insert('great', 'lakes');
 hashMap1.insert('Lake', 'Michigan');
 hashMap1.insert('East Troy', 'Wisconsin');
 console.log(hashMap1);
+
+/* Test results
+
+HashMap {
+  bucketsInt: 16,
+  storageArr: [
+    [ [Array] ],          [],
+    [ [Array], [Array] ], [],
+    [ [Array], [Array] ], [],
+    [],                   [],
+    [ [Array] ],          [],
+    [ [Array] ],          [],
+    [],                   [ [Array], [Array] ],
+    [],                   []
+  ],
+  sizeInt: 9
+}
+
+*/
