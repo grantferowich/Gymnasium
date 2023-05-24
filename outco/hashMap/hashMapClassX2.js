@@ -62,6 +62,7 @@ class HashMap{
         this.bucketsInt = 8;
         this.storageArr = Array(this.bucketsInt);
         this.sizeInt = 0;
+
         let xInt = 0;
         while (xInt < this.storageArr.length){
             this.storageArr[xInt] = Array()
@@ -86,65 +87,52 @@ class HashMap{
             hashInt = ((hashInt << 5) + hashInt) + charInt;
             xInt++;
         }
-        hashInt = Math.abs(hashInt)
-        return hashInt % bucketsInt - 2;
+        hashInt = Math.abs(hashInt);
+        return Math.abs(hashInt % bucketsInt);
     }
-
-
-    /* 
-    inputs: k-v pair
-    Procedure: 
-    1, calculate hash value for determining
-    where the k-v pair will be inserted
-    2, store the bucketArr based on the hashInt from (1)
-    3, Loop over the bucket to check if the keyStr already exists
-        -> if keyStr already exists, update the valueStr
-        -> if keyStr does not exist, push the key-value pair into the bucketArr
-    
-    */
 
     insert(keyStr, valueStr){
         // bucket index where the present key-value pair will be inserted
-        console.log
         let bucketInt = this.hash(keyStr, this.bucketsInt);
         // arr of key-value pairs
         let bucketArr = this.storageArr[bucketInt];
-        let xInt = 0
-        console.log('keyStr', keyStr)
-        console.log(`bucketInt ${bucketInt}`)
-        console.log('bucketArr', bucketArr)
-        // bucket is empty && key-value pair does not exist in the bucket
-        if (bucketArr.length === 0){
-            bucketArr.push([keyStr, valueStr])
-            this.sizeInt++;
-            return
+        
+        if (!bucketArr) {
+            bucketArr = [];
+            this.storageArr[bucketInt] = bucketArr;
         }
 
-        // bucket is not empty
+        // bucket is empty && key-value pair does not exist in the bucket
+        if (bucketArr.length === 0 || bucketArr === undefined){
+            bucketArr.push([keyStr, valueStr]);
+            this.sizeInt++;
+            return;
+        }
+
+        let xInt = 0;
         while (xInt < bucketArr.length){
-            let tempKeyStr = bucketArr[xInt][0]
+            let tempKeyStr = bucketArr[xInt][0];
             // keyStr already exists in the bucket
             // this.sizeInt does not change because a key which already exists 
             // is being updated
             if (tempKeyStr === keyStr){
                 bucketArr[xInt][1] = valueStr;
-                return
+                return;
             }
-            xInt++
+            xInt++;
         }
-        // bucket is not empty && key-value pair does not exist in the bucket
-        bucketArr.push([keyStr, valueStr])
-        this.sizeInt++;
-        this.resize()
-        return
 
+        // bucket is not empty && key-value pair does not exist in the bucket
+        bucketArr.push([keyStr, valueStr]);
+        this.sizeInt++;
+        this.resize();
+        return
     }
 
     get(keyStr){
         let bucketInt = this.hash(keyStr, this.bucketsInt);
         let bucketArr = this.storageArr[bucketInt];
         let xInt = 0;
-
         
         if (bucketArr.length === 1 && bucketArr[0][0] === keyStr){
             return bucketArr[0][1];
@@ -157,90 +145,90 @@ class HashMap{
             }
             xInt++;
         }
-
     }
 
     resize(keyStr){
         // increase the number of buckets
         let loadFactorInt = this.sizeInt / this.bucketsInt;
-        
+
         // map does not need to be resized
-        if ( loadFactorInt > 0.25 && loadFactorInt < 0.75){
-            console.log('map does not need to be resized')
-            return
+        if (loadFactorInt > 0.25 && loadFactorInt < 0.75){
+            console.log('map does not need to be resized');
+            return;
         }
 
         // map does not need to be resized
         if (loadFactorInt <= 0.25 && this.bucketsInt === 8){
-            console.log('map does not need to be resized')
-            return
+            console.log('map does not need to be resized');
+            return;
         }
 
         // resize map
         if (loadFactorInt >= 0.75 && this.bucketsInt >= 8){
-            console.log('map is being resized: expansion')
+            console.log('Map is being resized: Expansion.');
             let int = this.bucketsInt;
             this.bucketsInt = int * 2;
         } else if (loadFactorInt <= 0.25 && this.bucketsInt > 8){
-            console.log('map is being resized: contraction')
+            console.log('Map is being resized: Contraction.');
             let int = this.bucketsInt;
             this.bucketsInt = int / 2;
         }
         
-        
-        let tempArr = this.storageArr;
+        const tempArr = [...this.storageArr]
         this.storageArr = Array(this.bucketsInt);
-        this.sizeInt = 0
         let iInt = 0;
 
-        while (iInt < tempArr.length){
-            tempArr[iInt] = Array();
+        while (iInt < this.storageArr.length){
+            this.storageArr[iInt] = [];
             iInt++;
         }
 
         let xInt = 0;
+
         while (xInt < tempArr.length){
             let bucketArr = tempArr[xInt];
-            // case 1: bucket has 1 k-v pair
+
+            if (bucketArr.length === 0){
+                xInt++;
+                continue;
+            }
+
             if (bucketArr.length === 1){
                 let keyStr = bucketArr[0][0];
                 let valueStr = bucketArr[0][1];
+                this.sizeInt--;
                 this.insert(keyStr, valueStr);
-            }
-
-            // case 2: bucket has more than 1 k-v pair
-            // loop over bucketArr
-            if (bucketArr.length > 1){
+            } else {
                 let jInt = 0;
                 while (jInt < bucketArr.length){
-                    let keyStr = bucketArr[jInt][0];
-                    let valueStr = bucketArr[jInt][1];
-                    this.insert(keyStr, valueStr);
-                    jInt++;
+                        let keyStr = bucketArr[jInt][0];
+                        let valueStr = bucketArr[jInt][1];
+                        this.sizeInt--;
+                        this.insert(keyStr, valueStr);
+                        jInt++;
                 } 
             }
+            console.log('xInt resize', xInt)
             xInt++;
         }
     }
-
 }
 
 /* Tests */
+
 let hashMap1 = new HashMap();
 hashMap1.insert('wake', 'forest');
 hashMap1.insert('wf', 'university');
 hashMap1.insert('philosophy', 'economics');
 // console.log(hashMap1) // successfully tested insert(keyStr, valueStr) on May 24, 2023.
 let valueStrX1 = hashMap1.get('wf') // successfully tested get(keyStr) on May 24, 2023.
-const valueStrX2 = hashMap1.get('philosophy')
-// console.log(valueStrX1)
+const valueStrX2 = hashMap1.get('philosophy');
+// console.log(valueStrX1) // 
 // console.log(valueStrX2) // successfully tested get(keyStr) on May 24, 2023.
-hashMap1.insert('saint', 'charles')
-hashMap1.insert('chicago', 'Illinois')
-hashMap1.insert('winston-salem', 'north carolina')
-hashMap1.insert('great', 'lakes')
-hashMap1.insert('Lake', 'Michigan')
-hashMap1.insert('East Troy', 'Wisconsin')
-
-
-
+hashMap1.insert('saint', 'charles');
+hashMap1.insert('chicago', 'Illinois');
+hashMap1.insert('winston-salem', 'north carolina');
+hashMap1.insert('great', 'lakes');
+hashMap1.insert('Lake', 'Michigan');
+hashMap1.insert('East Troy', 'Wisconsin');
+console.log(hashMap1);
