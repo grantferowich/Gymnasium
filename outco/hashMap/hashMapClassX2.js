@@ -86,7 +86,8 @@ class HashMap{
             hashInt = ((hashInt << 5) + hashInt) + charInt;
             xInt++;
         }
-        return hashInt % bucketsInt;
+        hashInt = Math.abs(hashInt)
+        return hashInt % bucketsInt - 2;
     }
 
 
@@ -104,10 +105,14 @@ class HashMap{
 
     insert(keyStr, valueStr){
         // bucket index where the present key-value pair will be inserted
+        console.log
         let bucketInt = this.hash(keyStr, this.bucketsInt);
         // arr of key-value pairs
         let bucketArr = this.storageArr[bucketInt];
         let xInt = 0
+        console.log('keyStr', keyStr)
+        console.log(`bucketInt ${bucketInt}`)
+        console.log('bucketArr', bucketArr)
         // bucket is empty && key-value pair does not exist in the bucket
         if (bucketArr.length === 0){
             bucketArr.push([keyStr, valueStr])
@@ -130,6 +135,7 @@ class HashMap{
         // bucket is not empty && key-value pair does not exist in the bucket
         bucketArr.push([keyStr, valueStr])
         this.sizeInt++;
+        this.resize()
         return
 
     }
@@ -155,7 +161,66 @@ class HashMap{
     }
 
     resize(keyStr){
+        // increase the number of buckets
+        let loadFactorInt = this.sizeInt / this.bucketsInt;
         
+        // map does not need to be resized
+        if ( loadFactorInt > 0.25 && loadFactorInt < 0.75){
+            console.log('map does not need to be resized')
+            return
+        }
+
+        // map does not need to be resized
+        if (loadFactorInt <= 0.25 && this.bucketsInt === 8){
+            console.log('map does not need to be resized')
+            return
+        }
+
+        // resize map
+        if (loadFactorInt >= 0.75 && this.bucketsInt >= 8){
+            console.log('map is being resized: expansion')
+            let int = this.bucketsInt;
+            this.bucketsInt = int * 2;
+        } else if (loadFactorInt <= 0.25 && this.bucketsInt > 8){
+            console.log('map is being resized: contraction')
+            let int = this.bucketsInt;
+            this.bucketsInt = int / 2;
+        }
+        
+        
+        let tempArr = this.storageArr;
+        this.storageArr = Array(this.bucketsInt);
+        this.sizeInt = 0
+        let iInt = 0;
+
+        while (iInt < tempArr.length){
+            tempArr[iInt] = Array();
+            iInt++;
+        }
+
+        let xInt = 0;
+        while (xInt < tempArr.length){
+            let bucketArr = tempArr[xInt];
+            // case 1: bucket has 1 k-v pair
+            if (bucketArr.length === 1){
+                let keyStr = bucketArr[0][0];
+                let valueStr = bucketArr[0][1];
+                this.insert(keyStr, valueStr);
+            }
+
+            // case 2: bucket has more than 1 k-v pair
+            // loop over bucketArr
+            if (bucketArr.length > 1){
+                let jInt = 0;
+                while (jInt < bucketArr.length){
+                    let keyStr = bucketArr[jInt][0];
+                    let valueStr = bucketArr[jInt][1];
+                    this.insert(keyStr, valueStr);
+                    jInt++;
+                } 
+            }
+            xInt++;
+        }
     }
 
 }
@@ -168,8 +233,14 @@ hashMap1.insert('philosophy', 'economics');
 // console.log(hashMap1) // successfully tested insert(keyStr, valueStr) on May 24, 2023.
 let valueStrX1 = hashMap1.get('wf') // successfully tested get(keyStr) on May 24, 2023.
 const valueStrX2 = hashMap1.get('philosophy')
-console.log(valueStrX1)
-console.log(valueStrX2) // successfully tested get(keyStr) on May 24, 2023.
+// console.log(valueStrX1)
+// console.log(valueStrX2) // successfully tested get(keyStr) on May 24, 2023.
+hashMap1.insert('saint', 'charles')
+hashMap1.insert('chicago', 'Illinois')
+hashMap1.insert('winston-salem', 'north carolina')
+hashMap1.insert('great', 'lakes')
+hashMap1.insert('Lake', 'Michigan')
+hashMap1.insert('East Troy', 'Wisconsin')
 
 
 
