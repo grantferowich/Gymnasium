@@ -3,24 +3,21 @@
  *
  *  Problem: Hash Table
  *
- * Attempted on May 23, 2023.
- * Successfuly attempted on May 24, 2023. 
+ *  Attempted on May 23, 2023.
+ *  Successfuly attempted on May 24, 2023. 
  * 
  *  Prompt: Create a hash table class using separate chaining.
  *
  *  The HashTable will have the following properties:
- *
  *         storage:  {Array} - an array of arrays.
  *         buckets:  {Integer} - the maximum number of buckets that your
  *                   storage can contain. Initially set to 8.
  *           size:   {Integer} count of key-value pairs in the storage
  *
  *  The HashTable will also have the following methods:
- *
  *           hash:   Method that takes a key and bucket number and provides a
  *                   hashed value. The dbjb2 hashing function has been
  *                   provided.
- *
  *                   Input:      key {String}
  *                   Input:      buckets {Integer}
  *                   Output:     index {Integer}
@@ -28,20 +25,17 @@
  *         insert:   Method that adds a key-value pair into the storage. If the
  *                   key already exists, the value should be updated. Use
  *                   separate chaining to handle collisions.
- *
  *                   Input:      key {String}
  *                   Input:      value {String}
  *                   Output:     {Undefined}
  *
  *            get:   Method that given a key, return its corresponding value.
  *                   If the key does not exist, return null.
- *
  *                   Input:      key {String}
  *                   Output:     value {String}
  *
  *         remove:   Method that takes a key as its input, and looks for the
  *                   and removes the key-value pair from the bucket.
- *
  *                   Input:      key {String}
  *                   Output:     {Undefined}
  *
@@ -50,7 +44,6 @@
  *                   or less, half the number of buckets. Make sure the number
  *                   of buckets do not fall below 8 and re-index all key-value
  *                   pairs if bucket size is changed.
- *
  *                   Input:      key {String}
  *                   Output:     {Undefined}
  *
