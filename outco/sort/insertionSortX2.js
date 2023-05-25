@@ -3,6 +3,7 @@
 Insertion Sort
 
 Started developing the function on Thursday, May 25, 2023.
+Successfully tested the function on Thursday, May 25, 2023.
 
 Insertion sort is an algorithm for converting 
 an unsorted array into a sorted array.
