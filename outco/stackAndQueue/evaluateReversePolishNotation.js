@@ -55,40 +55,45 @@ Procedure
 */
 
 const evaluateReversePolishNotation = (arr) => {
-
+    let operatorsStr = '+-*/'
     let xInt = 0;
     let stackArr = [];
 
-    while (arr.length > 0){
-        let elementAny = arr.pop()
+    while (xInt < arr.length){
+        let elementAny = arr[xInt]
         let resultInt = 0;
 
-        if (elementAny === "/" || elementAny === "+" || elementAny === "-" || elementAny === "*"){
-            let operatorInt1 = arr.pop()
-            let operatorInt2 = arr.pop();
+        if (!operatorsStr.includes(elementAny)){
+            stackArr.push(parseInt(elementAny))
+        } else {
+            let operatorInt1 = stackArr.pop();
+            let operatorInt2 = stackArr.pop();
+
             if (elementAny === "+"){
                 resultInt = parseInt(operatorInt2) + parseInt(operatorInt1);
             }
+
             if (elementAny === "/"){
                 resultInt = parseInt(parseInt(operatorInt2) / parseInt(operatorInt1));
             }    
+
             if (elementAny === "-"){
                 resultInt = parseInt(operatorInt2) - parseInt(operatorInt1);
             }
+
             if (elementAny === "*"){
                 resultInt = parseInt(operatorInt1) * parseInt(operatorInt2);
             }
-            console.log(resultInt)
+            // console.log(resultInt)
             stackArr.push(resultInt);
-        } else {
-            stackArr.push(parseInt(elementAny))
         }
-
-        xInt++;
-    }
-    console.log(stackArr)
+            xInt++;
+    } 
+    // console.log(stackArr)
     return stackArr.pop()
 }
+    
+
 
 /* Tests */
 const arr1 = ["4","13","5","/","+"]
@@ -100,4 +105,9 @@ const resultInt2 = evaluateReversePolishNotation(arr2);
 console.log(`result 1: ${resultInt1}`);
 console.log(`result 2: ${resultInt2}`);
 
-/* Test results */
+/* Test results
+
+result 1: 6
+result 2: 22
+
+*/
