@@ -3,8 +3,8 @@
 
 https://leetcode.com/problems/evaluate-reverse-polish-notation/
 
-Attempted on May 24, 2023.
-Untested as of May 24, 2023.
+Attempted on Wednesday, May 24, 2023.
+Successfully tested the function on Thursday, May 25, 2023.
 
 Medium
 5.8K
