@@ -1,5 +1,11 @@
 /* 
 150. Evaluate Reverse Polish Notation
+
+https://leetcode.com/problems/evaluate-reverse-polish-notation/
+
+Attempted on May 24, 2023.
+Untested as of May 24, 2023.
+
 Medium
 5.8K
 882
@@ -45,4 +51,53 @@ Procedure
         4. pop the last two operands
         5. calculate using current operator
         6. push result to stack
+7. return the top of the stack (.pop())
 */
+
+const evaluateReversePolishNotation = (arr) => {
+
+    let xInt = 0;
+    let stackArr = [];
+
+    while (arr.length > 0){
+        let elementAny = arr.pop()
+        let resultInt = 0;
+
+        if (elementAny === "/" || elementAny === "+" || elementAny === "-" || elementAny === "*"){
+            let operatorInt1 = arr.pop()
+            let operatorInt2 = arr.pop();
+            if (elementAny === "+"){
+                resultInt = parseInt(operatorInt2) + parseInt(operatorInt1);
+            }
+            if (elementAny === "/"){
+                resultInt = parseInt(parseInt(operatorInt2) / parseInt(operatorInt1));
+            }    
+            if (elementAny === "-"){
+                resultInt = parseInt(operatorInt2) - parseInt(operatorInt1);
+            }
+            if (elementAny === "*"){
+                resultInt = parseInt(operatorInt1) * parseInt(operatorInt2);
+            }
+            console.log(resultInt)
+            stackArr.push(resultInt);
+        } else {
+            stackArr.push(parseInt(elementAny))
+        }
+
+        xInt++;
+    }
+    console.log(stackArr)
+    return stackArr.pop()
+}
+
+/* Tests */
+const arr1 = ["4","13","5","/","+"]
+const arr2 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+
+const resultInt1 = evaluateReversePolishNotation(arr1);
+const resultInt2 = evaluateReversePolishNotation(arr2);
+
+console.log(`result 1: ${resultInt1}`);
+console.log(`result 2: ${resultInt2}`);
+
+/* Test results */
