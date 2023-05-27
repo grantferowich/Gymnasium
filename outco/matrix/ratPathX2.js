@@ -28,7 +28,7 @@ Output:  [[0, 0],
 // depth first search
 // store coords of successful path in an output accumulator array
 // the rat only goes down and to the left (binary decision)
-(x + 1, y) and (y + 1, x)
+(x + 1, y) and (x, y + 1)
 the rat only travels on 0s
 
 
@@ -38,4 +38,66 @@ cannot travel to a cell because 1 (path is blocked)
 out of bounds
 
 ** note: you have to use backtracking like you did in robot paths
+*/
+
+const ratPath = (gridArr) => {
+
+    let rowDestinationInt = gridArr.length;
+    let colDestinationInt = gridArr[0].length;
+    let pathArr = [];
+    let visitedMap = new Map();
+    
+
+    const traverse = (iInt, jInt) => {
+        // destination
+        if (iInt === rowDestinationInt && jInt === colDestinationInt){
+            pathArr.push([iInt, jInt]);
+            return
+        }
+        // out of bounds
+        if (iInt < 0 || iInt >= rowDestinationInt || jInt < 0 || jInt >= colDestinationInt){
+            return 
+        }
+
+        console.log(`iInt ${iInt}; jInt ${jInt}`);
+
+        if (gridArr[iInt][jInt] === 1){
+            return 
+        }
+
+        if (gridArr[iInt][jInt] === 0){
+            pathArr.push([iInt, jInt]);
+            visitedMap.set(`${iInt}_${jInt}`, true);
+            traverse(iInt + 1, jInt);
+            traverse(iInt, jInt + 1);
+            visitedMap.delete(`${iInt}_${jInt}`);
+        }
+    }
+
+    traverse(0, 0, visitedMap)
+    return pathArr
+}
+
+/* Tests */
+
+const gridArr1 = [[0, 0, 0, 1],
+                  [0, 1, 0, 1],
+                  [0, 1, 0, 0],
+                  [0, 0, 1, 0]]
+
+const resultArr1 = ratPath(gridArr1);
+
+console.log('Result 1:', resultArr1)
+
+/* Tests results 
+
+Result 1: [
+  [ 0, 0 ], [ 1, 0 ],
+  [ 2, 0 ], [ 3, 0 ],
+  [ 3, 1 ], [ 0, 1 ],
+  [ 0, 2 ], [ 1, 2 ],
+  [ 2, 2 ], [ 2, 3 ],
+  [ 3, 3 ]
+]
+
 */
