@@ -66,9 +66,39 @@ class TrieNode {
 
 class Trie {
   // YOUR WORK HERE
+  constructor(){
+    this.rootNode = new TrieNode('')
+  }
 
-  insert(word) {
-    // YOUR WORK HERE
+  /* 
+        ""
+        /
+       w 
+       /
+       a
+       /
+       k
+       /
+       e
+  
+  */
+  insert(wordStr = '') {
+    // invalid input
+    if (wordStr.length === 0){
+        return 
+    }
+    let currentNode = this.rootNode
+    console.log('1 current node', currentNode)
+    let xInt = 0;
+    while (xInt < wordStr.length){ 
+        let charStr = wordStr[xInt];
+        if (!currentNode.nextHM.has(charStr)){
+            currentNode.nextHM.set(charStr, new TrieNode(charStr))
+        }
+        currentNode = currentNode.nextHM.get(charStr)
+        xInt++
+    }
+    currentNode.endTorF = true;
   }
 
   isWord(word) {
@@ -93,6 +123,14 @@ class Trie {
 /* Test 1: instantiate a trie node */
 let trieNode1 = new TrieNode("w")
 console.log('Result 1: ',trieNode1)
+
+/* Test 2: insert a word into an empty trie */
+let trie2 = new Trie();
+trie2.insert('wake');
+console.log('Result 2: ', trie2)
+console.log('Result 2 contd:', trie2.rootNode.nextHM)
+
+
 
 /* Test results 
 Test 1: instantiate a trie node
