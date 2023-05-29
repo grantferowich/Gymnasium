@@ -90,5 +90,13 @@ class Trie {
 }
 
 /* Tests */
+/* Test 1: instantiate a trie node */
 let trieNode1 = new TrieNode("w")
-console.log(trieNode1)
+console.log('Result 1: ',trieNode1)
+
+/* Test results 
+Test 1: instantiate a trie node
+Result 1: TrieNode { valueStr: 'w', nextHM: Map(0) {}, endTorF: false }
+
+
+*/
