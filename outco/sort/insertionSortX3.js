@@ -3,8 +3,8 @@
  *
  *  Problem 1: Insertion Sort
  *
- * Attempted on Thursday May 25, 2023.
- * Successfully tested the function on May 25, 2023.
+ *  Attempted on Thursday May 25, 2023.
+ *  Successfully tested the function on May 25, 2023.
  * 
  * Completed function development in <10 minutes.
  * 
@@ -21,7 +21,6 @@
 */
 
 const insertionSort = (arr) => {
-
     let xInt = 1;
     // step through array
     while (xInt < arr.length){
@@ -34,7 +33,6 @@ const insertionSort = (arr) => {
         }
         xInt++
     }
-
     return arr;
 }
 
