@@ -174,6 +174,8 @@ console.log('Result 6: ', result6ToF);
 Test 1: instantiate a trie node
 Result 1: TrieNode { valueStr: 'w', nextHM: Map(0) {}, endTorF: false }
 
+Test 2: insert a word into an empty trie
+
 Result 2:  Trie {
   rootNode: TrieNode {
     valueStr: '',
@@ -189,9 +191,11 @@ Result 2 contd: Map(1) {
   }
 }
 
+Test 3 search the trie for a word 
 Result 3: false
 Result 4:  true // successfully tested isWord(wordStr) on May 29, 2023
 
+Test 4 search the trie for a prefix 
 Result 5:  false // successfully tested isPrefix(wordStr) on May 29, 2023
 Result 6:  true // successfully tested isPrefix(wordStr) on May 29, 2023
 
