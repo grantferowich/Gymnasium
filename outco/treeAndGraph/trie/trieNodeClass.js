@@ -2,6 +2,9 @@
  *  Homework - Trie
  *
  *  TrieNode class
+ * 
+ * Attempted on May 29, 2023.
+ * Partially tested the function successfully on May 29, 2023.
  *
  *  Prompt:    Create a TrieNode class
  *             The TrieNode class should contain the following properties:
@@ -135,8 +138,47 @@ class Trie {
     return true
   }
 
-  startsWith(word) {
-    // YOUR WORK HERE
+  traverseTrie(currentNode, prefixStr, outputArr){
+    if (currentNode.endTorF){
+        outputArr.push(prefixStr)
+    }
+    
+    // think of charStr as key
+    // think of nextHM as value
+    for (const [charStr, nextHM] of currentNode.nextHM){
+        this.traverseTrie(nextHM, prefixStr + charStr, outputArr)
+    }
+  }
+
+  startsWith(wordStr = '') {
+    if (wordStr.length === 0){
+        return false;
+    }
+
+    let currentNode = this.rootNode;
+    let xInt = 0;
+    let outputArr = [];
+    while (xInt < wordStr.length){
+        let charStr = wordStr[xInt];
+        if (!currentNode.nextHM.has(charStr)){
+            return false;
+        }
+        currentNode = currentNode.nextHM.get(charStr);
+        xInt++;
+    }
+    
+    this.traverseTrie(currentNode, wordStr, outputArr)
+    //            ""
+    //          /    \
+    //         w        x
+    //       /   \
+    //      a     o
+    //     /       \
+    //    k         r
+    //   /           \
+    //  e             k
+    return outputArr
+    
   }
 
   remove(word) {
@@ -153,6 +195,8 @@ let trieNode1 = new TrieNode("w")
 /* Test 2: insert a word into an empty trie */
 let trie2 = new Trie();
 trie2.insert('wake');
+trie2.insert('work')
+trie2.insert('forest')
 // console.log('Result 2: ', trie2)
 // console.log('Result 2 contd:', trie2.rootNode.nextHM)
 
@@ -169,6 +213,11 @@ console.log('Result 5: ', result5ToF);
 
 const result6ToF = trie2.isPrefix('wa') // expect true
 console.log('Result 6: ', result6ToF);
+
+/* Test 5 return all words starting with a certain prefix */
+const result7ToF = trie2.startsWith('w') // expect ['wake', 'work']
+console.log('Result 7: ', result7ToF);
+
 
 /* Test results 
 Test 1: instantiate a trie node
