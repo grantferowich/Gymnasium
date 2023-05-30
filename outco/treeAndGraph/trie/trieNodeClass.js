@@ -118,8 +118,21 @@ class Trie {
     return currentNode.endTorF
   }
 
-  isPrefix(word) {
-    // YOUR WORK HERE
+  isPrefix(wordStr = '') {
+    if (wordStr.length === 0){
+        return false;
+    }
+    let currentNode = this.rootNode;
+    let xInt = 0;
+    while ( xInt < wordStr.length){
+        let charStr = wordStr[xInt];
+        if (!currentNode.nextHM.has(charStr)){
+            return false
+        }
+        currentNode = currentNode.nextHM.get(charStr);
+        xInt++
+    }
+    return true
   }
 
   startsWith(word) {
@@ -150,7 +163,12 @@ console.log('Result 3:', result3ToF)
 let result4ToF = trie2.isWord('wake')
 console.log('Result 4: ', result4ToF)
 
+/* Test 4 search the trie for a prefix */
+const result5ToF = trie2.isPrefix('ma') // expect false
+console.log('Result 5: ', result5ToF);
 
+const result6ToF = trie2.isPrefix('wa') // expect true
+console.log('Result 6: ', result6ToF);
 
 /* Test results 
 Test 1: instantiate a trie node
@@ -172,4 +190,9 @@ Result 2 contd: Map(1) {
 }
 
 Result 3: false
+Result 4:  true // successfully tested isWord(wordStr) on May 29, 2023
+
+Result 5:  false // successfully tested isPrefix(wordStr) on May 29, 2023
+Result 6:  true // successfully tested isPrefix(wordStr) on May 29, 2023
+
 */
