@@ -88,7 +88,7 @@ class Trie {
         return 
     }
     let currentNode = this.rootNode
-    console.log('1 current node', currentNode)
+    // console.log('1 current node', currentNode)
     let xInt = 0;
     while (xInt < wordStr.length){ 
         let charStr = wordStr[xInt];
@@ -101,8 +101,21 @@ class Trie {
     currentNode.endTorF = true;
   }
 
-  isWord(word) {
-    // YOUR WORK HERE
+  isWord(wordStr = '') {
+    if (wordStr.length === 0){
+        return false;
+    }
+    let currentNode = this.rootNode
+    let xInt = 0;
+    while (xInt < wordStr.length){
+        let charStr = wordStr[xInt]
+        if (!currentNode.nextHM.has(charStr)){
+            return false
+        }
+        currentNode = currentNode.nextHM.get(charStr)
+        xInt++
+    }
+    return currentNode.endTorF
   }
 
   isPrefix(word) {
@@ -122,13 +135,20 @@ class Trie {
 /* Tests */
 /* Test 1: instantiate a trie node */
 let trieNode1 = new TrieNode("w")
-console.log('Result 1: ',trieNode1)
+// console.log('Result 1: ',trieNode1)
 
 /* Test 2: insert a word into an empty trie */
 let trie2 = new Trie();
 trie2.insert('wake');
-console.log('Result 2: ', trie2)
-console.log('Result 2 contd:', trie2.rootNode.nextHM)
+// console.log('Result 2: ', trie2)
+// console.log('Result 2 contd:', trie2.rootNode.nextHM)
+
+/* Test 3 search the trie for a word */
+let result3ToF = trie2.isWord('work') // expect false
+console.log('Result 3:', result3ToF) 
+
+let result4ToF = trie2.isWord('wake')
+console.log('Result 4: ', result4ToF)
 
 
 
@@ -136,5 +156,20 @@ console.log('Result 2 contd:', trie2.rootNode.nextHM)
 Test 1: instantiate a trie node
 Result 1: TrieNode { valueStr: 'w', nextHM: Map(0) {}, endTorF: false }
 
+Result 2:  Trie {
+  rootNode: TrieNode {
+    valueStr: '',
+    nextHM: Map(1) { 'w' => [TrieNode] },
+    endTorF: false
+  }
+}
+Result 2 contd: Map(1) {
+  'w' => TrieNode {
+    valueStr: 'w',
+    nextHM: Map(1) { 'a' => [TrieNode] },
+    endTorF: false
+  }
+}
 
+Result 3: false
 */
