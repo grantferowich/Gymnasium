@@ -245,9 +245,14 @@ console.log('Result 7: ', result7ToF);
 
 /* Test 6 remove a word */
 trie2.remove('wake') 
-console.log(trie2)
+console.log('Result 8: ', trie2) // 'wake' was successfully removed from the trie at 9:36pm on May 30, 2023.
+
 // the trie should no longer contain 'wake' but 
 // the trie should continue to contain 'work'
+
+// the first approach totally deletes 'wake'
+// yet 'work' also becomes unavailable
+// the method must preserve the 'w' 
 
 
 
@@ -281,4 +286,15 @@ Test 4 search the trie for a prefix
 Result 5:  false // successfully tested isPrefix(wordStr) on May 29, 2023
 Result 6:  true // successfully tested isPrefix(wordStr) on May 29, 2023
 
+Test 5 return all words starting with a certain prefix
+Result 7:  [ 'wake', 'work' ]
+
+Test 6 remove 'wake'
+Result 8:  Trie {
+  rootNode: TrieNode {
+    valueStr: '',
+    nextHM: Map(1) { 'f' => [TrieNode] },
+    endTorF: false
+  }
+}
 */
