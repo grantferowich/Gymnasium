@@ -22,6 +22,16 @@ The largest element will be set at the n-1 position.
 After one loop, look to insert the next largest element
 at the n-2 position. And so on, and so forth.
 
+
+Set the swap variable to true outside the loop.
+Set the swap varaible to false inside the loop.
+Loop while the swap variable is true.
+When swapping, set the swap flag to true. 
+A true swap flag indicates there must be another pass
+through the array to sort the array.
+As soon as there is a pass through the array without a 
+swap the swapped flag will be false and the outer while
+loop will terminate. 
  */
 
 const bubbleSort = (arr) => {
