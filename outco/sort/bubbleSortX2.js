@@ -2,6 +2,7 @@
 *  Problem 3: Bubble Sort
 *
 *  Started engineering on May 31, 2023 at 7:03 a.m.
+*  Successfully tested the function on May 31, 2023 at 7:27 a.m.
 * 
 *  Prompt:    Given an unsorted array of integers, return the array
 *             sorted using bubble sort.
@@ -68,4 +69,10 @@ console.log(`Result 1: ${result1Arr}`);
 console.log(`Result 2: ${result2Arr}`);
 console.log(`Result 3: ${result3Arr}`);
 
-/* Test results */
+/* Test results 
+
+Result 1: 1,3,4,7,9
+Result 2: 5,8,13,23
+Result 3: 2,34,36,55
+
+*/
