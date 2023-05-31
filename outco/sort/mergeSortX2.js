@@ -2,7 +2,10 @@
 /**
  *  Homework - Quasilinear Sorts
  *
- *  Problem 1: Mergesort
+ *  Attempted the function on May 31, 2023.
+ * 
+ * 
+ *  Mergesort
  *
  *  Prompt:    Given an unsorted array of integers, return the array
  *             sorted using mergesort.
@@ -29,13 +32,17 @@ const mergeSort = (arr) => {
     if (arr.length <= 1){
         return arr;
     }
+    
+    // recursive case 
     const midPtrInt = Math.floor(arr.length / 2);
     const leftArr = arr.slice(0, midPtrInt);
     const rightArr = arr.slice(midPtrInt);
+
     return merge(mergeSort(leftArr), mergeSort(rightArr));
 }
 
 const merge = (leftArr, rightArr) => {
+
     let outputArr = [];
     let leftPtrInt = 0;
     let rightPtrInt = 0;
@@ -49,13 +56,26 @@ const merge = (leftArr, rightArr) => {
             rightPtrInt++;
         }
     }
-    console.log(outputArr)
+    
+    while (leftPtrInt < leftArr.length){
+        outputArr.push(leftArr[leftPtrInt]);
+        leftPtrInt++;
+    }
 
+    while (rightPtrInt < rightArr[rightPtrInt]){
+        outputArr.push(rightArr[rightPtrInt]);
+        rightPtrInt++;
+    }
 
+    return outputArr;
 }
 
 /* Test */
+
 const arr1 = [ 3, 9, 1, 4, 7];
-const resultArr1 = mergeSort(arr1)
-console.log('Result 1: ', resultArr1)
+
+const resultArr1 = mergeSort(arr1);
+
+console.log('Result 1: ', resultArr1);
+
 /* Test results */
