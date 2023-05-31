@@ -32,7 +32,7 @@ const mergeSort = (arr) => {
     if (arr.length <= 1){
         return arr;
     }
-    
+
     // recursive case 
     const midPtrInt = Math.floor(arr.length / 2);
     const leftArr = arr.slice(0, midPtrInt);
@@ -78,4 +78,8 @@ const resultArr1 = mergeSort(arr1);
 
 console.log('Result 1: ', resultArr1);
 
-/* Test results */
+/* Test results 
+
+Result 1:  [ 1, 3, 4, 7, 9 ]
+
+*/
