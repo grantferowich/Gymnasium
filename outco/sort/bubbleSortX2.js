@@ -32,6 +32,7 @@ through the array to sort the array.
 As soon as there is a pass through the array without a 
 swap the swapped flag will be false and the outer while
 loop will terminate. 
+
  */
 
 const bubbleSort = (arr) => {
