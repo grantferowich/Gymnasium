@@ -1,6 +1,8 @@
 /* *  Problem 2: Selection Sort
+ * 
  * Started engineering on May 31, 2023.
  * Successfully tested the function on May 31, 2023. 
+ * 
  *  Prompt:    Given an unsorted array of integers, return the array
  *             sorted using selection sort.
  *
@@ -62,6 +64,7 @@ const result3Arr = selectionSort(arr3)
 console.log(`Result 1: ${result1Arr}`);
 console.log(`Result 2: ${result2Arr}`);
 console.log(`Result 3: ${result3Arr}`);
+
 /* Test results 
 
 Result 1: 1,3,4,7,9
