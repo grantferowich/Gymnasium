@@ -61,7 +61,7 @@
 
 class TrieNode {
     constructor(valueStr=null){
-        this.valueStr = valueStr;
+        this.valueStr = valueStr === undefined ? null : valueStr
         this.nextHM = new Map();
         this.endTorF = false;
     }
@@ -93,6 +93,7 @@ class Trie {
     let currentNode = this.rootNode
     // console.log('1 current node', currentNode)
     let xInt = 0;
+
     while (xInt < wordStr.length){ 
         let charStr = wordStr[xInt];
         if (!currentNode.nextHM.has(charStr)){
@@ -168,23 +169,47 @@ class Trie {
     }
     
     this.traverseTrie(currentNode, wordStr, outputArr)
-    //            ""
-    //          /    \
-    //         w        x
-    //       /   \
-    //      a     o
-    //     /       \
-    //    k         r
-    //   /           \
-    //  e             k
-    return outputArr
-    
+    return outputArr 
   }
 
-  remove(word) {
-    // YOUR WORK HERE
-  }
+/* 
+loop to the end of the input word
+if the letter's nextHM is size 0,
+-> push to stack
+To remove the letter, starting from the last char
+iterating back to the first char,
+pop from the stack as long as the map size is 0
+*/
 
+remove(wordStr = '') {
+    if (wordStr.length === 0){
+      return ''
+    }
+
+    let xInt = 0;
+    let stackArr = []
+    let currentNode = this.rootNode;
+
+    while (xInt < wordStr.length){
+      let charStr = wordStr[xInt];
+      if (!currentNode.nextHM.has(charStr)){
+        return;
+      }
+      stackArr.push([charStr, currentNode])
+      currentNode = currentNode.nextHM.get(charStr)
+      xInt++;
+      if (currentNode === null){ 
+        return
+      }
+    }
+
+    currentNode.endTorF = false;
+
+    while (stackArr.length > 0){
+      let [charStr, prevNode] = stackArr.pop()
+      prevNode.nextHM.delete(charStr)
+    }
+  }
 }
 
 /* Tests */
@@ -217,6 +242,14 @@ console.log('Result 6: ', result6ToF);
 /* Test 5 return all words starting with a certain prefix */
 const result7ToF = trie2.startsWith('w') // expect ['wake', 'work']
 console.log('Result 7: ', result7ToF);
+
+/* Test 6 remove a word */
+trie2.remove('wake') 
+console.log(trie2)
+// the trie should no longer contain 'wake' but 
+// the trie should continue to contain 'work'
+
+
 
 
 /* Test results 
