@@ -6,6 +6,8 @@
  *  Attempted on Thursday May 25, 2023.
  *  Successfully tested the function on May 25, 2023.
  * 
+ *  Run time: O(N^2) - quadratic
+ *  Space: O(1)
  * Completed function development in <10 minutes.
  * 
  *  Prompt:    Given an unsorted array of integers, return the array sorted
