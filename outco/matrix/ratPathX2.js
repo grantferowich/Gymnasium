@@ -59,8 +59,6 @@ const ratPath = (gridArr) => {
             return 
         }
 
-        console.log(`iInt ${iInt}; jInt ${jInt}`);
-
         if (gridArr[iInt][jInt] === 1){
             return 
         }

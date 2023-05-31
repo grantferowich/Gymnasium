@@ -3,8 +3,8 @@
  *
  *  TrieNode class
  * 
- * Attempted on May 29, 2023.
- * Partially tested the function successfully on May 29, 2023.
+ *  Attempted on May 29, 2023.
+ *  Partially tested the function successfully on May 29, 2023.
  *
  *  Prompt:    Create a TrieNode class
  *             The TrieNode class should contain the following properties:
