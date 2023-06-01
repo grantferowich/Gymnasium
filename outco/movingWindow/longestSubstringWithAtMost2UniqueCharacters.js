@@ -58,10 +58,10 @@ const longestSubstringWithAtMost2UniqueCharacters = (str) => {
 
 /* Test */
 
-let str1 = 'grant' 
-let str2 = 'wakeforest'
-let str3 = 'mill' 
-const str4 = 'eceba'
+const str1 = 'grant';
+const str2 = 'wakeforest';
+const str3 = 'mill';
+const str4 = 'eceba';
 
 const result1Int = longestSubstringWithAtMost2UniqueCharacters(str1);
 const result2Int = longestSubstringWithAtMost2UniqueCharacters(str2);
@@ -73,4 +73,11 @@ console.log(`Result 2: ${result2Int}`);
 console.log(`Result 3: ${result3Int}`);
 console.log(`Result 4: ${result4Int}`);
 
-/* Test result */
+/* Test result 
+
+Result 1: 2
+Result 2: 2
+Result 3: 3
+Result 4: 3
+
+*/
