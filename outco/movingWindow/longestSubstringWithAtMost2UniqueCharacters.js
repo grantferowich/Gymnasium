@@ -4,7 +4,7 @@ Longest Substring With At Most 2 Unique Characters
 Sliding window problem
 
 Started engineering on June 1, 2023 at 4pm.
-
+Successfully completed tested of the function at 4:39 pm on June 1, 2023.
 
 str1 = "eceba"
 output: 3
