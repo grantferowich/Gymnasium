@@ -271,6 +271,7 @@
 
 class Matrix{
 
+    // keep
     constructor(mInt, nInt){
         this.mInt = mInt;
         this.nInt = nInt;
@@ -282,6 +283,7 @@ class Matrix{
         }
     }
 
+    // keep 
     isValid(iInt, jInt){
         if (iInt < 0 || jInt < 0 || iInt > this.mInt || jInt > this.nInt){
             return false
@@ -289,10 +291,12 @@ class Matrix{
         return true;
     }
 
+    // keep
     print(){
         console.log(this.storage)
     }
 
+    // keep
     insert(iInt, jInt, valueInt){
         
         if (this.isValid(iInt, jInt)){
@@ -305,6 +309,7 @@ class Matrix{
         } 
     }
 
+    // keep
     retrieve(iInt, jInt){
         if (this.isValid(iInt, jInt)){
             return this.storage[iInt][jInt];
@@ -415,6 +420,7 @@ class Matrix{
         console.log(newMatrix);
     }
 
+    // keep
     multiply(inputMatrix){
         /* 
         if the originalMatrix is mInt by nInt
