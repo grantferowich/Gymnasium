@@ -54,7 +54,6 @@ const longestSubstringWithAtMost2UniqueCharacters = (str) => {
         rPtrInt++
     }
     return resultInt;
-
 }
 
 /* Test */
