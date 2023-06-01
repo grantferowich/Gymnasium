@@ -21,6 +21,9 @@ why? 'ded', 'gee', 'eec'
 Expand while there are less than or equal to two distinct characters (move fastPtrInt)
 Contract while there are more than two distinctcharacters (move slowPtrInt)
 
+
+Is there a way to only keep track of the index? 
+
 */
 
 const longestSubstringWithAtMost2UniqueCharacters = (str) => {
@@ -46,10 +49,13 @@ const longestSubstringWithAtMost2UniqueCharacters = (str) => {
             lPtrInt++
         }
 
-        // update
-        if (rPtrInt - lPtrInt + 1 > resultInt){
-            resultInt = rPtrInt - lPtrInt + 1
-        }
+        // update: method 1
+        // if (rPtrInt - lPtrInt + 1 > resultInt){
+        //     resultInt = rPtrInt - lPtrInt + 1
+        // }
+        // update: method 2
+        // this way of updating the result works also!
+        resultInt = Math.max(resultInt, rPtrInt - lPtrInt +1)
         
         rPtrInt++
     }
