@@ -24,6 +24,17 @@ Contract while there are more than two distinctcharacters (move slowPtrInt)
 
 Is there a way to only keep track of the index? 
 
+
+Pierre study guide for moving window problems
+
+     1- What makes Runner to move ?
+     A.  R moves as long as the map/ array contains at most two distint characters
+     2- How to record temp solution ?
+     A. We record temp as long as R moves and decrement Temp when C move 
+     3- How to update Result ?
+     A.   Result is compare to temp and update.  
+     4 - what makes C to move ?
+     A. C moves once map/ array containes more than one character and we decrement to get size to less than two char. 
 */
 
 const longestSubstringWithAtMost2UniqueCharacters = (str) => {
@@ -55,9 +66,8 @@ const longestSubstringWithAtMost2UniqueCharacters = (str) => {
         // }
         // update: method 2
         // this way of updating the result works also!
-        resultInt = Math.max(resultInt, rPtrInt - lPtrInt +1)
-        
-        rPtrInt++
+        resultInt = Math.max(resultInt, rPtrInt - lPtrInt + 1)
+        rPtrInt++;
     }
     return resultInt;
 }
