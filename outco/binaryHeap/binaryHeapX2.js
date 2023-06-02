@@ -2,7 +2,9 @@
  *  Homework - Binary Heap
  *
  *  Prompt: Create a Binary Heap class
- *
+ *  Started engineering on June 2, 2023.
+ *  Walked through basics of the d.s.
+ * 
  *  The Heap will take in the following input:
  *
  *            type:   {String} - 'min' for minheap, 'max' for maxheap
@@ -52,8 +54,8 @@ class Heap {
  // a given right child is at 2i + 1
  // parent of arr[i] is arr[i/2]
 
- // Time Complexity:
- // Auxiliary Space Complexity:
+ // Time Complexity: O(1)
+ // Auxiliary Space Complexity: O(1)
  compare(parentInt, childInt) {
     let parentNumInt = this.storageArr[parentInt];
     let childNumInt = this.storageArr[childInt]
@@ -70,10 +72,42 @@ class Heap {
  }
 
 
+
  // Time Complexity:
  // Auxiliary Space Complexity:
- insert(value) {
-   // YOUR WORK HERE
+ insert(valueInt) {
+
+  const traverse = (indexInt, valueInt) => {
+    
+    // insert a new min element into a min heap
+    if (this.storageArr[0] > valueInt && this.typeStr === 'min'){
+        this.storageArr.unshift(valueInt)
+        return;
+    }
+
+    // insert a new max element into a max heap
+    if (this.storageArr[0] < valueInt && this.typeStr === 'max'){
+      this.storageArr.unshift(valueInt);
+      return;
+    }
+
+    if (this.typeStr === 'min' && )
+
+
+
+    // recursive cases 
+    if (valueInt > this.storageArr[indexInt] && this.typeStr === 'min'){
+      traverse(indexInt * 2, valueInt)
+    }
+
+    if (valueInt < this.storageArr[indexInt] && this.typeStr === 'max'){
+      traverse(indexInt * 2, valueInt)
+    }
+
+
+  }
+
+  traverse(0,valueInt)
  }
 
 
@@ -93,5 +127,16 @@ class Heap {
  }
 
 }
-
+  /* 
+                           [1]
+                        /     \
+                      [2]       [3]
+                    /   \      /  
+                  [5]   [7]  [12]
+  
+  */
 let minHeap1 = new Heap('min')
+minHeapArr1.storageArr= [1,2,3,5,7,12] 
+// is minHeapArr1[1] the parent of minHeapArr[6]? 
+// No. minHeapArr[1]'s children are [2] and [3].
+minHeapArr1.compare()
