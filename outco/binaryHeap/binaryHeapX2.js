@@ -42,14 +42,31 @@
 
 class Heap {
 
- constructor(type = 'min') {
-   // YOUR WORK HERE
+ constructor(typeStr = 'min') {
+    this.typeStr = typeStr;
+    this.storageArr = []
  }
+
+
+ // a given left child is at 2i
+ // a given right child is at 2i + 1
+ // parent of arr[i] is arr[i/2]
 
  // Time Complexity:
  // Auxiliary Space Complexity:
- compare(parent, child) {
-   // YOUR WORK HERE
+ compare(parentInt, childInt) {
+    let parentNumInt = this.storageArr[parentInt];
+    let childNumInt = this.storageArr[childInt]
+    if (parentInt !== childInt * 2 || parentInt !== childInt * 2 + 1){
+      return false
+    } 
+    if (this.typeStr === 'min' && parentNumInt > childNumInt){
+      return false
+    }
+    if (this.typeStr === 'max' && parentNumInt < childNumInt){
+      return false
+    }
+    return true
  }
 
 
@@ -76,3 +93,5 @@ class Heap {
  }
 
 }
+
+let minHeap1 = new Heap('min')
