@@ -48,10 +48,10 @@ const bubbleSort = (arr) => {
         swappedToF = false; 
 
         let ptrInt = 0;
-        let endPtr = arr.length;
+        let endPtrInt = arr.length;
 
         // take n steps through
-        while (ptrInt < endPtr){
+        while (ptrInt < endPtrInt){
             // at each step, check to swap
             if (arr[ptrInt] > arr[ptrInt+1]){
                 [arr[ptrInt], arr[ptrInt+1]] = [arr[ptrInt + 1], arr[ptrInt]];
@@ -65,7 +65,7 @@ const bubbleSort = (arr) => {
         // when the arr is sorted properly, swapped will still be 
         // false after completing the inner loop
         // termination
-        endPtr--;
+        endPtrInt--;
     }
     return arr
 }
