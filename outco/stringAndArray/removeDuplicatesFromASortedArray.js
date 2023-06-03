@@ -32,12 +32,11 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 */
 const removeDuplicates = (numsArr) => {
-    
     let xInt = 0;
     while (xInt < numsArr.length){
         let elementInt = numsArr[xInt]
         if (numsArr.indexOf(elementInt) < xInt){
-            numsArr.splice(xInt,1)
+            numsArr.splice(xInt, 11)
         }
         xInt++
     }

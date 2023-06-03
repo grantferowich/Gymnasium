@@ -76,25 +76,18 @@ class Heap {
  // Time Complexity:
  // Auxiliary Space Complexity:
  insert(valueInt) {
-
   const traverse = (indexInt, valueInt) => {
-    
     // insert a new min element into a min heap
     if (this.storageArr[0] > valueInt && this.typeStr === 'min'){
         this.storageArr.unshift(valueInt)
         return;
     }
-
     // insert a new max element into a max heap
     if (this.storageArr[0] < valueInt && this.typeStr === 'max'){
       this.storageArr.unshift(valueInt);
       return;
     }
-
-    if (this.typeStr === 'min' && )
-
-
-
+    // if (this.typeStr === 'min' && )
     // recursive cases 
     if (valueInt > this.storageArr[indexInt] && this.typeStr === 'min'){
       traverse(indexInt * 2, valueInt)
@@ -103,8 +96,6 @@ class Heap {
     if (valueInt < this.storageArr[indexInt] && this.typeStr === 'max'){
       traverse(indexInt * 2, valueInt)
     }
-
-
   }
 
   traverse(0,valueInt)

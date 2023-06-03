@@ -1,11 +1,11 @@
 /* 
-ODD MAN OUT
+Odd Man Out
 
 Successfully tested the function 2/27/23.
 
 Complexity Analysis:
 Time complexity: O(N)
-Space complexity: O(1)
+Space complexity: O(N)
 
 You're given an unsorted array of integers where every integer appears exactly
 twice,except for one integer which appears only once. Write an algorithm (in a
@@ -15,7 +15,6 @@ input: [1,1,2,2,3,3,4,4,5]
 output: 5
 
 */
-
 
 const oddManOut = (array) => {
     let frequency = new Map()
