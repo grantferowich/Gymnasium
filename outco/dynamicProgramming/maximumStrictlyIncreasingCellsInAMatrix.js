@@ -1,4 +1,7 @@
 /* 2713. Maximum Strictly Increasing Cells in a Matrix
+
+Started on June 2, 2023 at 4:34pm.
+
 Hard
 Given a 1-indexed m x n integer matrix mat, 
 you can select any cell in the matrix as your starting cell.
@@ -23,13 +26,21 @@ Output: 2
 Explanation: The image shows how we can 
 visit 2 cells starting from row 1, column 2.
 It can be shown that we cannot visit more 
-than 2 cells no matter where we start from, so the answer is 2.  
+than 2 cells no matter where we start from, 
+so the answer is 2.  
 
-Why must you go find a strictly increasing value? Because if you could travel
-to equal values then there would be infinite loops, there would not be a terminating
-condition. 
+Why must you go find a strictly increasing value? 
+Because if you could travel to equal values then 
+there would be infinite loops, there would not 
+be a terminating condition. 
 
+Regarding dynamic programming:
 
+1, recall optimal substructure
+2, recall overlapping subproblems
+
+Run time: O((M*N), max(M*N))
+O(M^2*N), if M >N 
 */
 
 const maximumStrictlyIncreasingCellsInAMatrix = (matrixArr) => {
