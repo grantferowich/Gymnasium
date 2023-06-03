@@ -2,7 +2,8 @@
 /**
  *  Homework - Quasilinear Sorts
  *
- *  Attempted the function on May 31, 2023.
+ *  Engineered the function on Saturday, June 3, 2023.
+ * 
  * 
  * 
  *  Mergesort
