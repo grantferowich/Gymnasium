@@ -40,8 +40,10 @@ loop will terminate.
 
 */
 
-const bubbleSort = (arr) => {
-
+const bubbleSort = (arr = []) => {
+    if (arr.length === 0){
+        return []
+    }
     let swappedToF = true;
 
     while (swappedToF){
@@ -80,15 +82,17 @@ const arr4 = []
 const result1Arr = bubbleSort(arr1)
 const result2Arr = bubbleSort(arr2)
 const result3Arr = bubbleSort(arr3)
+const result4Arr = bubbleSort(arr4)
 
 console.log(`Result 1: ${result1Arr}`);
 console.log(`Result 2: ${result2Arr}`);
 console.log(`Result 3: ${result3Arr}`);
-
+console.log(`Result 4: ${result4Arr}`)
 /* Test results 
 
 Result 1: 1,3,4,7,9
 Result 2: 5,8,13,23
 Result 3: 2,34,36,55
+Result 4: 
 
 */
