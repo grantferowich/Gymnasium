@@ -75,29 +75,48 @@ class Heap {
  // Time Complexity:
  // Auxiliary Space Complexity:
  insert(valueInt) {
+
+  if (this.storageArr.length === 0){
+    this.storageArr.push(valueInt)
+    return
+  }
+  
   const traverse = (indexInt, valueInt) => {
-    // insert a new min element into a min heap
-    if (this.storageArr[0] > valueInt && this.typeStr === 'min'){
-        this.storageArr.unshift(valueInt)
-        return;
-    }
-    // insert a new max element into a max heap
-    if (this.storageArr[0] < valueInt && this.typeStr === 'max'){
-      this.storageArr.unshift(valueInt);
-      return;
-    }
-    // if (this.typeStr === 'min' && )
-    // recursive cases 
-    if (valueInt > this.storageArr[indexInt] && this.typeStr === 'min'){
-      traverse(indexInt * 2, valueInt)
+    if (indexInt < 0){
+      return this.storageArr.splice(0, 0, valueInt)
     }
 
-    if (valueInt < this.storageArr[indexInt] && this.typeStr === 'max'){
-      traverse(indexInt * 2, valueInt)
+    let parentNodeInt = this.storageArr[indexInt]
+    let childNodeInt = valueInt
+
+    // insert into a min heap when the child node
+    // is greater than the parent node
+    if (childNodeInt > parentNodeInt && this.typeStr === 'min'){
+      this.storageArr.splice(indexInt, 0, childNodeInt)
+      return
+    }
+
+    // insert into a max heap when the child node is 
+    // less than the parent node
+    if (childNodeInt < parentNodeInt && this.typeStr === 'max'){
+      this.storageArr.splice(indexInt, 0, childNodeInt)
+      return
+    }
+
+    // recursive cases: 
+    // min heap property is not satisfied: the parent is larger than
+    // the child
+    if (valueInt < this.storageArr[indexInt] && this.typeStr === 'min'){
+      traverse(Math.floor(indexInt / 2), valueInt)
+    }
+
+    // max heap property is not satisfied: the parent is smaller than 
+    // the child 
+    if (valueInt > this.storageArr[indexInt] && this.typeStr === 'max'){
+      traverse(Math.floor(indexInt / 2), valueInt)
     }
   }
-
-  traverse(0,valueInt)
+  traverse(this.storageArr.length, valueInt)
  }
 
 
