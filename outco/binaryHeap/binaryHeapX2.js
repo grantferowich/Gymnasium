@@ -62,13 +62,12 @@ class Heap {
     if (parentInt !== childInt * 2 || parentInt !== childInt * 2 + 1){
       return false
     } 
-    if (this.typeStr === 'min' && parentNumInt > childNumInt){
-      return false
+    if (this.typeStr === 'min'){
+      return parentNumInt > childNumInt
+    } 
+    if (this.typeStr === 'max' ){
+      return parentNumInt < childNumInt
     }
-    if (this.typeStr === 'max' && parentNumInt < childNumInt){
-      return false
-    }
-    return true
  }
 
 
