@@ -72,8 +72,8 @@ class Heap {
     }
  }
 
- // Time Complexity:
- // Auxiliary Space Complexity:
+ // Time Complexity: O(log(N))
+ // Auxiliary Space Complexity: O(1)
  insert(valueInt) {
 
   if (this.storageArr.length === 0){
@@ -107,16 +107,17 @@ class Heap {
     // min heap property is not satisfied: the parent is larger than
     // the child
     if (valueInt < this.storageArr[indexInt] && this.typeStr === 'min'){
-      traverse(Math.floor(indexInt / 2), valueInt)
+      return traverse(Math.floor(indexInt / 2), valueInt)
     }
 
     // max heap property is not satisfied: the parent is smaller than 
     // the child 
     if (valueInt > this.storageArr[indexInt] && this.typeStr === 'max'){
-      traverse(Math.floor(indexInt / 2), valueInt)
+      return traverse(Math.floor(indexInt / 2), valueInt)
     }
   }
-  traverse(this.storageArr.length, valueInt)
+  console.log('root...', this.storageArr)
+  return traverse(this.storageArr.length, valueInt)
  }
 
 
@@ -257,7 +258,7 @@ assert(testCount, 'has insert method', () => {
 assert(testCount, 'should be able to insert a single element', () => {
  let heap = new Heap();
  heap.insert(5);
- return heap.storage[0] === 5;
+ return heap.storageArr[0] === 5;
 });
 
 assert(testCount, 'minimum value should be on top of a minheap', () => {
@@ -268,7 +269,7 @@ assert(testCount, 'minimum value should be on top of a minheap', () => {
  heap.insert(1);
  heap.insert(8);
  heap.insert(6);
- return heap.storage[0] === 1;
+ return heap.storageArr[0] === 1;
 });
 
 assert(testCount, 'maximum value should be on top of a maxheap', () => {
@@ -279,7 +280,7 @@ assert(testCount, 'maximum value should be on top of a maxheap', () => {
  heap.insert(1);
  heap.insert(8);
  heap.insert(6);
- return heap.storage[0] === 10;
+ return heap.storageArr[0] === 10;
 });
 
 console.log('PASSED: ' + testCount[0] + ' / ' + testCount[1], '\n\n');
