@@ -11,8 +11,10 @@ The following exercises demonstrate bit manipulation by hand.
 6. 0011 * 0011 = 1001
 7. 11001 >> 2 = 0011
 8. 1101 ^ 0101 = 1000
-9. 0110 + 0110 = 1100
+9. 0110 + 0110 = 1100 // doubling // you can simply shift the 1's left 1 time to double the binary number
+   1. 0110 + 0110 === 0110 << 1
 10. 0100 * 0011 = 1100
+    // 0100 * 0011 === 0011 << 2 === 1100
 11. 1101 ^ (~1101) = 1111
 12. 1011 & (~0 << 2) => 1001 & 1100 = 1000
 
