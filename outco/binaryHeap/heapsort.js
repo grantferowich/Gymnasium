@@ -6,6 +6,10 @@
  * The function is expected to return an INTEGER_ARRAY.
  * The function accepts INTEGER_ARRAY arr as parameter.
  * 
+ * Heapsort 
+ *  -> Heapify: converts array into a max heap
+ *  -> Sortify: converts max heap into a sorted array
+ * 
  */
 const getChildIndexInt = (arr, parentIndexInt, boundaryInt) => {
     let childIndexInt1 = parentIndexInt * 2 + 1;
