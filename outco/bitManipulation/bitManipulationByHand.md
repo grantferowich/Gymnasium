@@ -18,6 +18,7 @@ The following exercises demonstrate bit manipulation by hand.
 11. 1101 ^ (~1101) = 1111 
     // the same as 1101 ^ 0010 === 1111
 12. 1011 & (~0 << 2) => 1001 & 1100 = 1000
+13. 
 
 ## Bit Tricks 
 On #9, 0110 + 0110 is the same as 0110 * 2, which is the same as << by 1. So, shifting 0110 left by one results in 1100. 
@@ -40,10 +41,11 @@ Trick #4: Applying the shift left operator twice on 1111 returns 1100. Completin
 1. >> == shift right
 2. >>> === logical right shift 
 3. << == shift left
-4. ^ == XOR
-5. ~ == NOT
-6. & == AND
-7. | == or
+4. <<< === logical shift left 
+5. ^ == XOR
+6. ~ == NOT
+7. & == AND
+8. | == or
    
 ## Binary representations
     Notice for an N-bit number the highest value which can be represented by 
