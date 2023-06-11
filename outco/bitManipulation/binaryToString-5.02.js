@@ -36,3 +36,11 @@ console.log('Output 2:', data)
 
 const data3 = binaryToString(0.04) 
 console.log('Output 3:', data3)
+
+/* Test results 
+
+Output 1: ERROR
+Output 2: 0.10000
+Output 3: 0.100
+
+*/
