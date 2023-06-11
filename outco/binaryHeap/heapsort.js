@@ -35,6 +35,8 @@ const swap = (arr, int1, int2) => {
 const bubbleDown = (arr, parentIndexInt, boundaryInt) => {
     let childIndexInt = getChildIndexInt(arr, parentIndexInt, boundaryInt);
     
+    // if the childIndexInt is outside the boundary
+    // never enter the while loop
     while (childIndexInt < boundaryInt && arr[parentIndexInt] < arr[childIndexInt]){
         // swap
         swap(arr, parentIndexInt, childIndexInt);
