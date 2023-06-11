@@ -57,3 +57,18 @@ const heapsort = (arr) => {
     console.log('arr', arr)
     return arr;
 }
+
+
+/* Tests */
+
+const arr1 = [10, 111, 9, 23, 5, 7, 2, 8, 3, -4, 20]
+
+/* Test result 
+
+After running heapify: heapsort, bubbleDown, swap, getChildIndexInt
+you basically have a max heap 
+the max heap looks like this:
+arr [ 111, 9, 23, 5, 7,
+    2, 8, 3, -4, -20 ]
+
+*/
