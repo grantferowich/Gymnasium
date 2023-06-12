@@ -72,57 +72,49 @@ class Heap {
     }
  }
 
+ getParentIndexInt(childIndexInt){
+  let parentIndexInt = Math.floor(childIndexInt / 2);
+  return parentIndexInt
+ }
+
+ // Runtime: O(1)
+ // Space complexity: O(1)
+ swap(iInt, jInt){
+  [this.storageArr[iInt], this.storageArr[jInt]] = [this.storageArr[jInt], this.storageArr[iInt]];
+ }
+
+ // Runtime: O(log(N))
+ // Space complexity: O(1)
+ bubbleUp(childIndexint) {
+  const parentIndexInt = this.getParentIndexInt(childIndexint);
+  if (parentIndexInt < 0){
+    return 
+  }
+  // swap
+  if (this.typeStr === 'min' && this.storageArr[parentIndexInt] > this.storageArr[childIndexint]){
+    this.swap(childIndexint, parentIndexInt);
+    return this.bubbleUp(parentIndexInt);
+  }
+
+  // swap
+  if (this.typeStr === 'max' && this.storageArr[parentIndexInt] < this.storageArr[childIndexint]){
+    this.swap(childIndexint, parentIndexInt);
+    return this.bubbleUp(parentIndexInt);
+  }
+
+  return 
+ }
+
  // Time Complexity: O(log(N))
  // Auxiliary Space Complexity: O(1)
  insert(valueInt) {
-
-  if (this.storageArr.length === 0){
-    this.storageArr.push(valueInt)
-    return
-  }
-  
-  const traverse = (indexInt, valueInt) => {
-    if (indexInt < 0){
-      return this.storageArr.splice(0, 0, valueInt)
-    }
-
-    let parentNodeInt = this.storageArr[indexInt]
-    let childNodeInt = valueInt
-
-    // insert into a min heap when the child node
-    // is greater than the parent node
-    if (childNodeInt > parentNodeInt && this.typeStr === 'min'){
-      this.storageArr.splice(indexInt, 0, childNodeInt)
-      return
-    }
-
-    // insert into a max heap when the child node is 
-    // less than the parent node
-    if (childNodeInt < parentNodeInt && this.typeStr === 'max'){
-      this.storageArr.splice(indexInt, 0, childNodeInt)
-      return
-    }
-
-    // recursive cases: 
-    // min heap property is not satisfied: the parent is larger than
-    // the child
-    if (valueInt < this.storageArr[indexInt] && this.typeStr === 'min'){
-      return traverse(Math.floor(indexInt / 2), valueInt)
-    }
-
-    // max heap property is not satisfied: the parent is smaller than 
-    // the child 
-    if (valueInt > this.storageArr[indexInt] && this.typeStr === 'max'){
-      return traverse(Math.floor(indexInt / 2), valueInt)
-    }
-  }
-  console.log('root...', this.storageArr)
-  return traverse(this.storageArr.length, valueInt)
+  this.storageArr.push(valueInt)
+  this.bubbleUp(this.storageArr.length - 1)
  }
 
 
- // Time Complexity:
- // Auxiliary Space Complexity:
+ // Time Complexity: O(1)
+ // Auxiliary Space Complexity: O(1)
  peek() {
    // YOUR WORK HERE
  }
