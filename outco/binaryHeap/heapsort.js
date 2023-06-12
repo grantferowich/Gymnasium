@@ -2,7 +2,8 @@
  * Complete the 'heapsort' function below.
  *  
  * Engineered on June 11, 2023.
- *  
+ * Successfully tested the function on June 12, 2023. 
+ * 
  * The function is expected to return an INTEGER_ARRAY.
  * The function accepts INTEGER_ARRAY arr as parameter.
  * 
@@ -74,11 +75,16 @@ const heapsort = (arr) => {
 /* Tests */
 
 const arr1 = [10, 111, 9, 23, 5, 7, 2, 8, 3, -4, 20]
+const arr2 = [99, 912, 349, 8123, 900, 120, 54, 23, 231, 981]
+
 
 const result1Arr = heapsort(arr1)
+const result2Arr = heapsort(arr2)
 
 console.log('Result 1:', result1Arr)
-/* Test result 
+console.log('Result 2:', result2Arr)
+
+/* Test results 
 
 After running heapify: heapsort, bubbleDown, swap, getChildIndexInt
 you basically have a max heap 
@@ -92,6 +98,12 @@ Result 1: [
    -4, 2,  3,  5,  7,
     8, 9, 10, 20, 23,
   111
+]
+
+Result 2: [
+   23,   54,  99, 120,
+  231,  349, 900, 912,
+  981, 8123
 ]
 
 */
