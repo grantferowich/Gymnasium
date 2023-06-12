@@ -78,6 +78,28 @@ class Heap {
   return parentIndexInt
  }
 
+ getChildIndexInt(parentIndexInt){
+  let childIndexInt1 = parentIndexInt * 2 + 1
+  let childIndexInt2 = parentIndexInt * 2 + 2;
+
+  if (childIndexInt1 > this.storageArr.length){
+    return childIndexInt1;
+  } else if (childIndexInt2 > this.storageArr.length){
+    return childIndexInt2;
+  }
+
+  if (this.typeStr === 'min' && this.storageArr[childIndexInt1] < this.storageArr[childIndexInt2]){
+    return childIndexInt1
+  } 
+
+  if (this.typeStr === 'max' && this.storageArr[childIndexInt1] > this.storageArr[childIndexInt2]){
+    return childIndexInt1
+  }
+
+  return childIndexInt2
+
+ }
+
   // engineered and tested swap on June 12, 2023 at 8:56 am
  // Runtime: O(1)
  // Space complexity: O(1)
@@ -108,6 +130,12 @@ class Heap {
   return 
  }
 
+
+
+ bubbleDown(parentIndexInt){
+  let childIndexInt = this.getChildIndexInt
+
+ }
  // engineered and tested insert on June 12, 2023 at 8:56 am
  // Time Complexity: O(log(N))
  // Auxiliary Space Complexity: O(1)
@@ -120,7 +148,6 @@ class Heap {
  // Time Complexity: O(1)
  // Auxiliary Space Complexity: O(1)
  peek() {
-    console.log('this.storageArr', this.storageArr)
     return this.storageArr[0]
  }
 
@@ -130,7 +157,9 @@ class Heap {
  // Time Complexity:
  // Auxiliary Space Complexity:
  removePeak() {
-   // YOUR WORK HERE
+   this.swap(0, this.storageArr.length);
+
+   let peakInt = this.storageArr.pop();
  }
 
 }
