@@ -72,17 +72,20 @@ class Heap {
     }
  }
 
+  // engineered and tested getParentIndexInt on June 12, 2023 at 8:56 am
  getParentIndexInt(childIndexInt){
   let parentIndexInt = Math.floor(childIndexInt / 2);
   return parentIndexInt
  }
 
+  // engineered and tested swap on June 12, 2023 at 8:56 am
  // Runtime: O(1)
  // Space complexity: O(1)
  swap(iInt, jInt){
   [this.storageArr[iInt], this.storageArr[jInt]] = [this.storageArr[jInt], this.storageArr[iInt]];
  }
 
+  // engineered and tested bubbleUp on June 12, 2023 at 8:56 am
  // Runtime: O(log(N))
  // Space complexity: O(1)
  bubbleUp(childIndexint) {
@@ -105,6 +108,7 @@ class Heap {
   return 
  }
 
+ // engineered and tested insert on June 12, 2023 at 8:56 am
  // Time Complexity: O(log(N))
  // Auxiliary Space Complexity: O(1)
  insert(valueInt) {
@@ -116,7 +120,8 @@ class Heap {
  // Time Complexity: O(1)
  // Auxiliary Space Complexity: O(1)
  peek() {
-   // YOUR WORK HERE
+    console.log('this.storageArr', this.storageArr)
+    return this.storageArr[0]
  }
 
 
@@ -288,9 +293,9 @@ assert(testCount, 'has peek method', () => {
 
 assert(testCount, 'should return the top element of the heap', () => {
  let heap = new Heap();
- heap.storage.push(1);
- heap.storage.push(5);
- heap.storage.push(10);
+ heap.storageArr.push(1);
+ heap.storageArr.push(5);
+ heap.storageArr.push(10);
  return heap.peek() === 1;
 });
 
@@ -332,16 +337,16 @@ assert(testCount, 'should be able to remove a single element', () => {
 
 assert(testCount, 'should be able to remove and return min', () => {
  let heap = new Heap('min');
- heap.storage = [1,2,7,4,9,10,8,6];
+ heap.storageArr = [1,2,7,4,9,10,8,6];
  let example = heap.removePeak();
- return example === 1 && arraysEqual([2,4,7,6,9,10,8], heap.storage);
+ return example === 1 && arraysEqual([2,4,7,6,9,10,8], heap.storageArr);
 });
 
 assert(testCount, 'should be able to remove and return max', () => {
  let heap = new Heap('max');
- heap.storage = [10,9,6,8,3,5,2,7];
+ heap.storageArr = [10,9,6,8,3,5,2,7];
  let example = heap.removePeak();
- return example === 10 && arraysEqual([9,8,6,7,3,5,2], heap.storage);
+ return example === 10 && arraysEqual([9,8,6,7,3,5,2], heap.storageArr);
 });
 
 console.log('PASSED: ' + testCount[0] + ' / ' + testCount[1], '\n\n');
