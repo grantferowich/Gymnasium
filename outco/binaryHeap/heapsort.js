@@ -2,7 +2,7 @@
  * Complete the 'heapsort' function below.
  *  
  * Engineered on June 11, 2023.
- * 
+ *  
  * The function is expected to return an INTEGER_ARRAY.
  * The function accepts INTEGER_ARRAY arr as parameter.
  * 
@@ -38,7 +38,6 @@ const swap = (arr, int1, int2) => {
 
 const bubbleDown = (arr, parentIndexInt, boundaryInt) => {
     let childIndexInt = getChildIndexInt(arr, parentIndexInt, boundaryInt);
-    
     // if the childIndexInt is outside the boundary
     // never enter the while loop
     while (childIndexInt < boundaryInt && arr[parentIndexInt] < arr[childIndexInt]){
@@ -58,8 +57,17 @@ const heapsort = (arr) => {
          bubbleDown(arr, xInt, arr.length)
          xInt--;
     }
-    console.log('arr', arr)
+    // console.log('arr', arr)
+    
+    let wallInt = arr.length - 1;
+    while (wallInt > -1){
+        swap(arr, 0, wallInt)
+        bubbleDown(arr, 0, wallInt)
+        wallInt--;
+    }
     return arr;
+
+
 }
 
 
@@ -67,6 +75,9 @@ const heapsort = (arr) => {
 
 const arr1 = [10, 111, 9, 23, 5, 7, 2, 8, 3, -4, 20]
 
+const result1Arr = heapsort(arr1)
+
+console.log('Result 1:', result1Arr)
 /* Test result 
 
 After running heapify: heapsort, bubbleDown, swap, getChildIndexInt
@@ -74,5 +85,13 @@ you basically have a max heap
 the max heap looks like this:
 arr: [ 111, 9, 23, 5, 7,
     2, 8, 3, -4, -20 ]
+
+After running sortify: swap, bubbleDown, wallInt--
+The array is properly sorted.
+Result 1: [
+   -4, 2,  3,  5,  7,
+    8, 9, 10, 20, 23,
+  111
+]
 
 */
