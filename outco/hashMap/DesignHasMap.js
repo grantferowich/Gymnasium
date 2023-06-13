@@ -46,7 +46,7 @@ var ListNode = function (keyInt = null, valueInt = null, nextInt = null){
 }
 
 var MyHashMap = function() {
-    
+    this.MapArr = new Array(1000)
 };
 
 /** 
@@ -54,6 +54,11 @@ var MyHashMap = function() {
  * @param {number} value
  * @return {void}
  */
+
+MyHashMap.prototype.hash = function(keyInt){
+    // return 
+}
+
 MyHashMap.prototype.put = function(key, value) {
     
 };
@@ -86,3 +91,6 @@ MyHashMap.prototype.remove = function(key) {
 
 let listNode1 = new ListNode(1, 4)
 console.log(listNode1)
+
+let myHashMap1 = new MyHashMap()
+console.log('myHashMap1.mapArr.length:', myHashMap1.MapArr.length)
