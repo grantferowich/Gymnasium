@@ -136,8 +136,19 @@ class Heap {
 
 
  bubbleDown(parentIndexInt){
-  let childIndexInt = this.getChildIndexInt
+  let childIndexInt = this.getChildIndexInt(parentIndexInt);
 
+  if (this.typeStr === 'min' & this.storageArr[parentIndexInt] > this.storageArr[childIndexInt]){
+    this.swap(parentIndexInt, childIndexInt);
+    return this.bubbleDown(childIndexInt)
+  }
+
+  if (this.typeStr === 'max' & this.storageArr[parentIndexInt] < this.storageArr[childIndexInt]){
+    this.swap(parentIndexInt, childIndexInt);
+    return this.bubbleDown(childIndexInt)
+  }
+
+  return 
  }
  // engineered and tested insert on June 12, 2023 at 8:56 am
  // Time Complexity: O(log(N))
@@ -160,9 +171,16 @@ class Heap {
  // Time Complexity:
  // Auxiliary Space Complexity:
  removePeak() {
-   this.swap(0, this.storageArr.length);
-
-   let peakInt = this.storageArr.pop();
+  if (this.storageArr.length === 1){
+    let rootInt = this.storageArr.pop()
+    console.log('removing rootInt - ', rootInt)
+    return rootInt
+  } 
+  
+  this.swap(0, this.storageArr.length - 1);
+  this.bubbleDown(0)
+  let peakInt = this.storageArr.pop();
+  return peakInt; 
  }
 
 }
@@ -364,7 +382,7 @@ assert(testCount, 'should be able to remove a single element', () => {
  let heap = new Heap();
  heap.insert(5);
  heap.removePeak();
- return heap.storage.length === 0;
+ return heap.storageArr.length === 0;
 });
 
 assert(testCount, 'should be able to remove and return min', () => {
