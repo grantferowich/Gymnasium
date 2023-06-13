@@ -46,7 +46,7 @@ var ListNode = function (keyInt = null, valueInt = null, nextInt = null){
 }
 
 var MyHashMap = function() {
-    this.MapArr = new Array(1000)
+    this.mapArr = new Array(1000).fill(new ListNode())
 };
 
 /** 
@@ -55,12 +55,15 @@ var MyHashMap = function() {
  * @return {void}
  */
 
+
 MyHashMap.prototype.hash = function(keyInt){
-    // return 
+    return keyInt % this.mapArr.length
 }
 
 MyHashMap.prototype.put = function(key, value) {
-    
+    let insertionLocationInt = this.hash(keyInt);
+    let locationLinkedList = this.mapArr[insertionLocationInt];
+    // while (locationLinkedList)
 };
 
 /** 
@@ -93,4 +96,5 @@ let listNode1 = new ListNode(1, 4)
 console.log(listNode1)
 
 let myHashMap1 = new MyHashMap()
-console.log('myHashMap1.mapArr.length:', myHashMap1.MapArr.length)
+console.log('myHashMap1:', myHashMap1)
+console.log('myHashMap1.mapArr.length:', myHashMap1.mapArr.length)
