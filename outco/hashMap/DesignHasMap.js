@@ -39,6 +39,12 @@ Constraints:
 At most 104 calls will be made to put, get, and remove.
 */
 
+var ListNode = function (keyInt = null, valueInt = null, nextInt = null){
+    this.keyInt = keyInt;
+    this.valueInt = valueInt;
+    this.nextInt = nextInt;
+}
+
 var MyHashMap = function() {
     
 };
@@ -75,3 +81,8 @@ MyHashMap.prototype.remove = function(key) {
  * var param_2 = obj.get(key)
  * obj.remove(key)
  */
+
+/* Tests */
+
+let listNode1 = new ListNode(1, 4)
+console.log(listNode1)
