@@ -5,6 +5,8 @@ Easy
 Companies
 Design a HashMap without using any built-in hash table libraries.
 
+URL: https://leetcode.com/problems/design-hashmap/
+
 Started engineering on Tuesday, June 13, 2023. Stopped right before
 testing the class' put and get methods.
 
