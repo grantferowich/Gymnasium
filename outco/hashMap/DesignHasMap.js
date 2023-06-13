@@ -5,6 +5,9 @@ Easy
 Companies
 Design a HashMap without using any built-in hash table libraries.
 
+Started engineering on Tuesday, June 13, 2023. Stopped right before
+testing the class' put and get methods.
+
 Implement the MyHashMap class:
 
 MyHashMap() initializes the object with an empty map.
@@ -39,14 +42,14 @@ Constraints:
 At most 104 calls will be made to put, get, and remove.
 */
 
-var ListNode = function (keyInt = null, valueInt = null, nextInt = null){
+var ListNode = function (keyInt = null, valueInt = null, nextLN = null){
     this.keyInt = keyInt;
     this.valueInt = valueInt;
-    this.nextInt = nextInt;
+    this.nextLN = nextLN;
 }
 
 var MyHashMap = function() {
-    this.mapArr = new Array(1000).fill(new ListNode())
+    this.mapArr = new Array(1000).fill(new ListNode());
 };
 
 /** 
@@ -57,28 +60,43 @@ var MyHashMap = function() {
 
 
 MyHashMap.prototype.hash = function(keyInt){
-    return keyInt % this.mapArr.length
+    return keyInt % this.mapArr.length;
 }
 
-MyHashMap.prototype.put = function(key, value) {
+MyHashMap.prototype.put = function(keyInt, valueInt) {
     let insertionLocationInt = this.hash(keyInt);
-    let locationLinkedList = this.mapArr[insertionLocationInt];
-    // while (locationLinkedList)
+    let rootLN = this.mapArr[insertionLocationInt];
+    
+    while (rootLN.nextLN){
+        if (rootLN.keyInt === keyInt){
+            rootLN.valueInt = valueInt
+            return
+        }
+        rootLinkedList = rootLinkedList.nextLN
+    }
 };
 
 /** 
  * @param {number} key
  * @return {number}
  */
-MyHashMap.prototype.get = function(key) {
-    
+
+MyHashMap.prototype.get = function(keyInt) {
+    let insertionLocationInt = this.hash(keyInt)
+    let rootLN = this.mapArr[insertionLocationInt]
+    while (rootLN.nextLN){
+        if (rootLN.keyInt === keyInt){
+            return rootLN.valueInt
+        }
+        rootLN = rootLN.nextLN
+    }
 };
 
 /** 
  * @param {number} key
  * @return {void}
  */
-MyHashMap.prototype.remove = function(key) {
+MyHashMap.prototype.remove = function(keyInt) {
     
 };
 
@@ -98,3 +116,4 @@ console.log(listNode1)
 let myHashMap1 = new MyHashMap()
 console.log('myHashMap1:', myHashMap1)
 console.log('myHashMap1.mapArr.length:', myHashMap1.mapArr.length)
+
