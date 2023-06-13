@@ -4,6 +4,9 @@
  *  Prompt: Create a Binary Heap class
  *  Started engineering on June 2, 2023.
  *  Walked through basics of the d.s.
+ *  June 13: I have implemented constructor, 
+ *  compare, getParentIndexInt, getChildIndexInt, 
+ *  swap, insert, and peek.
  * 
  *  The Heap will take in the following input:
  *
