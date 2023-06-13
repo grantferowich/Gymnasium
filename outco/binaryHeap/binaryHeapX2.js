@@ -8,6 +8,13 @@
  *  compare, getParentIndexInt, getChildIndexInt, 
  *  swap, insert, and peek.
  * 
+ *  June 13, 2023: 
+ *  I have successfully tested all methods in the binary heap class.
+ *  I completed the removePeak() method today, June 13, at 8:20 a.m.
+ *  I implemented bubble down.
+ *  Recall to remove the peak, the peak is swapped with the last element in the array,
+ *  then there is a call to bubble down the new root. 
+ * 
  *  The Heap will take in the following input:
  *
  *            type:   {String} - 'min' for minheap, 'max' for maxheap
