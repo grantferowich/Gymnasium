@@ -83,12 +83,21 @@ class Heap {
  }
 
   // engineered and tested getParentIndexInt on June 12, 2023 at 8:56 am
+  // Time complexity: O(1)
+  // Space complexity: O(1)
  getParentIndexInt(childIndexInt){
   let parentIndexInt = Math.floor(childIndexInt / 2);
   return parentIndexInt
  }
-
+ 
+ // Time complexity: O(1)
+ // Space complexity: O(1)
  getChildIndexInt(parentIndexInt){
+  // draw out the binary tree and 
+  // count the nodes from left to right,
+  // level by level. O's children are at 1 and 2, 
+  // 1's children are at 3 and 4, and so on.
+
   let childIndexInt1 = parentIndexInt * 2 + 1
   let childIndexInt2 = parentIndexInt * 2 + 2;
 
@@ -97,17 +106,13 @@ class Heap {
   } else if (childIndexInt2 > this.storageArr.length){
     return childIndexInt2;
   }
-
   if (this.typeStr === 'min' && this.storageArr[childIndexInt1] < this.storageArr[childIndexInt2]){
     return childIndexInt1
   } 
-
   if (this.typeStr === 'max' && this.storageArr[childIndexInt1] > this.storageArr[childIndexInt2]){
     return childIndexInt1
   }
-
   return childIndexInt2
-
  }
 
   // engineered and tested swap on June 12, 2023 at 8:56 am
@@ -141,7 +146,9 @@ class Heap {
  }
 
 
-
+ 
+ // Time complexity: O(log(N))
+ // Space complexity: O(1)
  bubbleDown(parentIndexInt){
   let childIndexInt = this.getChildIndexInt(parentIndexInt);
 
@@ -165,7 +172,6 @@ class Heap {
   this.bubbleUp(this.storageArr.length - 1)
  }
 
-
  // Time Complexity: O(1)
  // Auxiliary Space Complexity: O(1)
  peek() {
@@ -175,15 +181,12 @@ class Heap {
 
  // Time Complexity: O(log(N))
  // Auxiliary Space Complexity: O(1)
- // Time Complexity:
- // Auxiliary Space Complexity:
  removePeak() {
   if (this.storageArr.length === 1){
     let rootInt = this.storageArr.pop()
     console.log('removing rootInt - ', rootInt)
     return rootInt
   } 
-  
   this.swap(0, this.storageArr.length - 1);
   this.bubbleDown(0)
   let peakInt = this.storageArr.pop();
