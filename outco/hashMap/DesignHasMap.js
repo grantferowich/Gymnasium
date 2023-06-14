@@ -10,6 +10,8 @@ URL: https://leetcode.com/problems/design-hashmap/
 Started engineering on Tuesday, June 13, 2023. Stopped right before
 testing the class' put and get methods.
 
+Successfully tested the put and get methods on June 14, 2023 at 12:57pm.
+
 Implement the MyHashMap class:
 
 MyHashMap() initializes the object with an empty map.
@@ -42,6 +44,10 @@ Constraints:
 
 0 <= key, value <= 106
 At most 104 calls will be made to put, get, and remove.
+
+New debugging technique! 
+When the output is not what you expect
+go through each line of the method specifying exactly what's happening 
 */
 
 var ListNode = function (keyInt = null, valueInt = null, nextLN = null){
@@ -69,21 +75,21 @@ MyHashMap.prototype.put = function(keyInt, valueInt) {
     // find the node in the array where there will be an insertion
     let insertLN = this.mapArr[this.hash(keyInt)];
     // isolate the node
-    let currentLN = insertLN
+    // let currentLN = insertLN
     // does the current bucket have a key equal to the present key?
-    while (currentLN.nextLN){
+    while (insertLN.nextLN){
         // the current bucket has a key equal to the present key!
         // time for an update! 
-        if (currentLN.nextLN.keyInt === keyInt){
-            currentLN.nextLN.valueInt = valueInt
+        if (insertLN.nextLN.keyInt === keyInt){
+            insertLN.nextLN.valueInt = valueInt
             return
         }
         // loop
-        currentLN = currentLN.nextLN
+        insertLN = insertLN.nextLN
     }
     // the current bucket was not found to have 
     // append the key value pair to the end of the current bucket
-    currentLN.nextLN = new ListNode(keyInt, valueInt)
+    insertLN.nextLN = new ListNode(keyInt, valueInt)
 };
 
 /** 
@@ -94,8 +100,6 @@ MyHashMap.prototype.put = function(keyInt, valueInt) {
 MyHashMap.prototype.get = function(keyInt) {
     let insertionLocationInt = this.hash(keyInt)
     let currentLN = this.mapArr[insertionLocationInt]
-    console.log('insertLocationInt', insertionLocationInt);
-    console.log('currentLN', currentLN);
     while (currentLN && currentLN.keyInt !== keyInt){
         currentLN = currentLN.nextLN;
     }
@@ -138,9 +142,9 @@ let myHashMap1 = new MyHashMap()
 // console.log('myHashMap1.mapArr.length:', myHashMap1.mapArr.length)
 myHashMap1.put(2, 8)
 myHashMap1.put(1, 5)
-console.log(myHashMap1.get(2)) // 8
-console.log(myHashMap1.get(1)) // 5
-
+console.log(myHashMap1.get(2)) // 8 // successfully returned the proper value at 12:56pm, June 14, 2023
+console.log(myHashMap1.get(1)) // 5 // successfully returned the proper value at 12:56pm, June 14, 2023
+console.log(myHashMap1.get(14)) // -1 
 
 // console.log('myHashMap', myHashMap1)
 /* Test results 
