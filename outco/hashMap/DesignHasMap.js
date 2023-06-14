@@ -51,7 +51,7 @@ var ListNode = function (keyInt = null, valueInt = null, nextLN = null){
 }
 
 var MyHashMap = function() {
-    this.mapArr = new Array(1000).fill(new ListNode());
+    this.mapArr = new Array(1000).fill(new ListNode())
 };
 
 /** 
@@ -66,16 +66,24 @@ MyHashMap.prototype.hash = function(keyInt){
 }
 
 MyHashMap.prototype.put = function(keyInt, valueInt) {
-    let insertionLocationInt = this.hash(keyInt);
-    let rootLN = this.mapArr[insertionLocationInt];
-    
-    while (rootLN.nextLN){
-        if (rootLN.keyInt === keyInt){
-            rootLN.valueInt = valueInt
+    // find the node in the array where there will be an insertion
+    let insertLN = this.mapArr[this.hash(keyInt)];
+    // isolate the node
+    let currentLN = insertLN
+    // does the current bucket have a key equal to the present key?
+    while (currentLN.nextLN){
+        // the current bucket has a key equal to the present key!
+        // time for an update! 
+        if (currentLN.nextLN.keyInt === keyInt){
+            currentLN.nextLN.valueInt = valueInt
             return
         }
-        rootLinkedList = rootLinkedList.nextLN
+        // loop
+        currentLN = currentLN.nextLN
     }
+    // the current bucket was not found to have 
+    // append the key value pair to the end of the current bucket
+    currentLN.nextLN = new ListNode(keyInt, valueInt)
 };
 
 /** 
@@ -85,13 +93,16 @@ MyHashMap.prototype.put = function(keyInt, valueInt) {
 
 MyHashMap.prototype.get = function(keyInt) {
     let insertionLocationInt = this.hash(keyInt)
-    let rootLN = this.mapArr[insertionLocationInt]
-    while (rootLN.nextLN){
-        if (rootLN.keyInt === keyInt){
-            return rootLN.valueInt
-        }
-        rootLN = rootLN.nextLN
+    let currentLN = this.mapArr[insertionLocationInt]
+    console.log('insertLocationInt', insertionLocationInt);
+    console.log('currentLN', currentLN);
+    while (currentLN && currentLN.keyInt !== keyInt){
+        currentLN = currentLN.nextLN;
     }
+    if (currentLN) {
+        return currentLN.valueInt
+    }
+    return -1;
 };
 
 /** 
@@ -99,7 +110,14 @@ MyHashMap.prototype.get = function(keyInt) {
  * @return {void}
  */
 MyHashMap.prototype.remove = function(keyInt) {
-    
+    let insertionLocationInt = this.hash(keyInt);
+    let rootLN = this.mapArr[insertionLocationInt];
+    while (rootLN.next){
+        if (rootLN.nextLN.keyInt === keyInt){
+            rootLN.nextLN = rootLN.nextLN.nextLN
+        }
+        rootLN = rootLN.nextLN
+    }
 };
 
 /** 
@@ -112,10 +130,26 @@ MyHashMap.prototype.remove = function(keyInt) {
 
 /* Tests */
 
-let listNode1 = new ListNode(1, 4)
-console.log(listNode1)
+// let listNode1 = new ListNode(1, 4)
+// console.log(listNode1)
 
 let myHashMap1 = new MyHashMap()
-console.log('myHashMap1:', myHashMap1)
-console.log('myHashMap1.mapArr.length:', myHashMap1.mapArr.length)
+// console.log('myHashMap1:', myHashMap1)
+// console.log('myHashMap1.mapArr.length:', myHashMap1.mapArr.length)
+myHashMap1.put(2, 8)
+myHashMap1.put(1, 5)
+console.log(myHashMap1.get(2)) // 8
+console.log(myHashMap1.get(1)) // 5
 
+
+// console.log('myHashMap', myHashMap1)
+/* Test results 
+ListNode { keyInt: 1, valueInt: 4, nextLN: null }
+myHashMap1: MyHashMap {
+  mapArr: [
+    ListNode { keyInt: null, valueInt: null, nextLN: null },
+    ... 999 more items
+  ]
+}
+myHashMap1.mapArr.length: 1000
+*/
