@@ -11,6 +11,7 @@ Started engineering on Tuesday, June 13, 2023. Stopped right before
 testing the class' put and get methods.
 
 Successfully tested the put and get methods on June 14, 2023 at 12:57pm.
+I finished up the session going through the remove method. I will test remove tomorrow.
 
 Implement the MyHashMap class:
 
@@ -74,8 +75,6 @@ MyHashMap.prototype.hash = function(keyInt){
 MyHashMap.prototype.put = function(keyInt, valueInt) {
     // find the node in the array where there will be an insertion
     let insertLN = this.mapArr[this.hash(keyInt)];
-    // isolate the node
-    // let currentLN = insertLN
     // does the current bucket have a key equal to the present key?
     while (insertLN.nextLN){
         // the current bucket has a key equal to the present key!
@@ -114,13 +113,17 @@ MyHashMap.prototype.get = function(keyInt) {
  * @return {void}
  */
 MyHashMap.prototype.remove = function(keyInt) {
+    // isolate the bucket number where the key is laocated
     let insertionLocationInt = this.hash(keyInt);
-    let rootLN = this.mapArr[insertionLocationInt];
-    while (rootLN.next){
-        if (rootLN.nextLN.keyInt === keyInt){
-            rootLN.nextLN = rootLN.nextLN.nextLN
+    // isolate the bucket of list nodes (the linked list)
+    let currentLN = this.mapArr[insertionLocationInt];
+    // loop over the bucket's linked list
+    // loop while the next node is not null
+    while (currentLN.next){
+        if (currentLN.nextLN.keyInt === keyInt){
+            currentLN.nextLN = currentLN.nextLN.nextLN
         }
-        rootLN = rootLN.nextLN
+        currentLNLN = currentLN.nextLN
     }
 };
 
@@ -145,6 +148,8 @@ myHashMap1.put(1, 5)
 console.log(myHashMap1.get(2)) // 8 // successfully returned the proper value at 12:56pm, June 14, 2023
 console.log(myHashMap1.get(1)) // 5 // successfully returned the proper value at 12:56pm, June 14, 2023
 console.log(myHashMap1.get(14)) // -1 
+myHashMap1.remove(1)
+console.log(myHashMap1.get(1)) // expect -1 // 
 
 // console.log('myHashMap', myHashMap1)
 /* Test results 
