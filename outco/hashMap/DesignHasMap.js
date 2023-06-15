@@ -119,11 +119,11 @@ MyHashMap.prototype.remove = function(keyInt) {
     let currentLN = this.mapArr[insertionLocationInt];
     // loop over the bucket's linked list
     // loop while the next node is not null
-    while (currentLN.next){
+    while (currentLN){
         if (currentLN.nextLN.keyInt === keyInt){
             currentLN.nextLN = currentLN.nextLN.nextLN
         }
-        currentLNLN = currentLN.nextLN
+        currentLN = currentLN.nextLN
     }
 };
 
@@ -147,9 +147,9 @@ myHashMap1.put(2, 8)
 myHashMap1.put(1, 5)
 console.log(myHashMap1.get(2)) // 8 // successfully returned the proper value at 12:56pm, June 14, 2023
 console.log(myHashMap1.get(1)) // 5 // successfully returned the proper value at 12:56pm, June 14, 2023
-console.log(myHashMap1.get(14)) // -1 
+console.log(myHashMap1.get(14)) // -1 // successfully returned the proper value at 6:45am, June 15, 2023
 myHashMap1.remove(1)
-console.log(myHashMap1.get(1)) // expect -1 // 
+console.log(myHashMap1.get(1)) // expect -1 // successfully returned the proper value at 6:47am, June 15, 2023
 
 // console.log('myHashMap', myHashMap1)
 /* Test results 
