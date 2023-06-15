@@ -13,6 +13,7 @@ testing the class' put and get methods.
 Successfully tested the put and get methods on June 14, 2023 at 12:57pm.
 I finished up the session going through the remove method. I will test remove tomorrow.
 
+Completed engineering June 15, 2023 at 7:06am.
 Implement the MyHashMap class:
 
 MyHashMap() initializes the object with an empty map.
