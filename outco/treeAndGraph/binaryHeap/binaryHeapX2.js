@@ -151,17 +151,14 @@ class Heap {
  // Space complexity: O(1)
  bubbleDown(parentIndexInt){
   let childIndexInt = this.getChildIndexInt(parentIndexInt);
-
   if (this.typeStr === 'min' & this.storageArr[parentIndexInt] > this.storageArr[childIndexInt]){
     this.swap(parentIndexInt, childIndexInt);
     return this.bubbleDown(childIndexInt)
   }
-
   if (this.typeStr === 'max' & this.storageArr[parentIndexInt] < this.storageArr[childIndexInt]){
     this.swap(parentIndexInt, childIndexInt);
     return this.bubbleDown(childIndexInt)
   }
-
   return 
  }
  // engineered and tested insert on June 12, 2023 at 8:56 am
