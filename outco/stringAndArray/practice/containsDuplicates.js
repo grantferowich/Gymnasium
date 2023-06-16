@@ -1,5 +1,8 @@
 /* 
 Leetcode 217
+Engineered February 22, 2023
+Return true if the array contains a duplicate element
+Else return false
 
 */
 
