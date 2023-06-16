@@ -28,7 +28,7 @@ Input: s = "(]"
 Output: false
  * input:a string
  * output: a boolean 
- * the boolean states whether or not the function's input has balanced parentheses
+ * the true or false states whether or not the function's input has balanced parentheses
  * use a stack 
  * a stack expands from the end and contracts from the end
  * in short the function pushes symbols onto the stack
