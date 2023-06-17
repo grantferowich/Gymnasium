@@ -44,11 +44,20 @@ make one function call on find(left - 1, right) and find(left, right + 1)
 What is the base case? 
 What are the base cases?
 The base case of a palindromic subsequence is "a." 
+By definition, "a" equals itself. 
 "a" is the same forwards and backwards. 
 "a" is a palindrome of length 1.
+=> return 1.
 Another base case of a palindromic subsequence is "aa."
+There are two chars AND the chars are the same.
 "aa" is the same forwards and backwards. 
 "aa" is a palindrome of length 2.
+=> return 2.
+Another base case could be there are two chars AND the chars are not equal.
+"ba" is not the same forwards and backwards.
+"ba" !== "ab" therefore the string is not a palindrome.
+=> return 0. 
+
 */
 
 const longestPalindromicSubsequence = (string) => {
@@ -66,23 +75,31 @@ const longestPalindromicSubsequence = (string) => {
         }
         
         // base case: 
-        // there is one char
+        // there is one char (by definition, the char 'a' equals itself)
         if (left === right){
             return 1; 
         }
 
         // base case:
-        // there are two chars
+        // there are two chars AND the two chars are equal
         if (left === right - 1 && string[left] === string[right]){
             return 2;
         }
 
+        // Recursive case 1: there is a match! 
         // recursive case: chars are equal (& :. palindromic )
         // set cache[key] to 2 plus the result of the recursive call on left+1, right-1
         if (string[left] === string[right]){
             cache[key] = 2 + find(left + 1, right -1 )
             return cache[key];
         }
+        
+        // Recursive case 2: There is no match! 
+        // Let's move the left pointer up, to check for character equality.
+        // AND Let's move the right pointer back  to check for character equality.
+        // Let's return the largest value of both searches. 
+        // Both calls are searching for character quality in the case 
+        // where the two characters being pointed at are different.
         cache[key] = Math.max(find(left + 1, right), find(left, right - 1));
         return cache[key];
     }
