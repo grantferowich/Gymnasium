@@ -32,14 +32,23 @@ input: "g"
 output: 1
 number is a thing being maximized 
 
-the general technique is to use to pointers 
+the general technique is to use two pointers 
 the pointers start at the right and left ends of the string
 when the chars at the pointers are equal,
 let the number of chars in the longest palindromic subsequence increase by 1
 then move both pointers toward each other
 
-in the recursive case when the chars are NOT equal
+in the recursive case where the chars are NOT equal
 make one function call on find(left - 1, right) and find(left, right + 1)
+
+What is the base case? 
+What are the base cases?
+The base case of a palindromic subsequence is "a." 
+"a" is the same forwards and backwards. 
+"a" is a palindrome of length 1.
+Another base case of a palindromic subsequence is "aa."
+"aa" is the same forwards and backwards. 
+"aa" is a palindrome of length 2.
 */
 
 const longestPalindromicSubsequence = (string) => {
