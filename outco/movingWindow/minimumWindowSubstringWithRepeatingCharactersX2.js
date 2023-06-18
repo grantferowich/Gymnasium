@@ -48,12 +48,17 @@ const targetStr3 = 'WAKE';
 const string4 = 'abc';
 const targetStr4 = 'cba';
 
+const string5 = 'wakeforestuniversitywildlife';
+const targetStr5 = 'stii';
+
 const resultStr1 = minimumWindowWithRepeatingCharacters(string1, targetStr1);
 const resultStr2 = minimumWindowWithRepeatingCharacters(string2, targetStr2);
 const resultStr3 = minimumWindowWithRepeatingCharacters(string3, targetStr3);
 const resultStr4 = minimumWindowWithRepeatingCharacters(string4, targetStr4);
+const resultStr5 = minimumWindowWithRepeatingCharacters(string5, targetStr5);
 
 console.log('Result 1: ', resultStr1); // BANC
 console.log('Result 2: ', resultStr2); // BAANC
 console.log('Result 3: ', resultStr3); // ""
 console.log('Result 4: ', resultStr4); // abc
+console.log('Result 5: ', resultStr5); // sitywi
