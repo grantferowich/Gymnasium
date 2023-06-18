@@ -1,6 +1,29 @@
 /* 
 
+Minimum Window Substring With Repeating Characters
 
+Find the minimum window in the string containing all of the characters
+from the target string. 
+
+Test 1: 
+const string2 = 'ADOBECODEBAANC';
+const targetStr2 = 'AABC';
+
+output: 'BAANC'
+
+Test 2: 
+const string5 = 'wakeforestuniversitywildlife'
+const targetString5 = 'stii'
+possibilities: 
+    1. 'stuniversi' : 10
+    2. 'sitywi': 6
+
+output: 'sitywi'
+
+Reason: "witywi" contains all 
+of the targtet characters in string and is also 
+the smallest window which fulfills the requirement
+of containing all the target targets. 
 */
 
 const minimumWindowWithRepeatingCharacters = (string, targetStr) => {
