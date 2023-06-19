@@ -75,6 +75,7 @@ class Heap {
       // return true if the child is larger than the parent
       return parentNumInt <= childNumInt
     } 
+    
     // return whether the max heap condition is true
     // return true if the child is less than the parent
     if (this.typeStr === 'max' ){
