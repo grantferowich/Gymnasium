@@ -1,3 +1,8 @@
+/* 
+Check if an email is valid
+
+Successfully tested the function June 20, 2023.
+*/
 
 const checkIfEmailIsValid = (emailStr) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailStr)
