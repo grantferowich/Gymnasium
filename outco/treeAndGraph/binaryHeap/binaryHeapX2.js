@@ -75,7 +75,7 @@ class Heap {
       // return true if the child is larger than the parent
       return parentNumInt <= childNumInt
     } 
-    
+
     // return whether the max heap condition is true
     // return true if the child is less than the parent
     if (this.typeStr === 'max' ){
@@ -98,10 +98,8 @@ class Heap {
   // count the nodes from left to right,
   // level by level. O's children are at 1 and 2, 
   // 1's children are at 3 and 4, and so on.
-
   let childIndexInt1 = parentIndexInt * 2 + 1
   let childIndexInt2 = parentIndexInt * 2 + 2;
-
   if (childIndexInt1 > this.storageArr.length){
     return childIndexInt1;
   } else if (childIndexInt2 > this.storageArr.length){
@@ -127,17 +125,23 @@ class Heap {
  // Runtime: O(log(N))
  // Space complexity: O(1)
  bubbleUp(childIndexint) {
+  
   const parentIndexInt = this.getParentIndexInt(childIndexint);
   if (parentIndexInt < 0){
     return 
   }
-  // swap
+
+  // in a MIN heap, if parent is larger than the child:
+  //      -> swap
+  //      -> bubble up the parent
   if (this.typeStr === 'min' && this.storageArr[parentIndexInt] > this.storageArr[childIndexint]){
     this.swap(childIndexint, parentIndexInt);
     return this.bubbleUp(parentIndexInt);
   }
 
-  // swap
+  // in a MAX heap, if parent is less than the child:
+  //      -> swap
+  //      -> bubble up the parent
   if (this.typeStr === 'max' && this.storageArr[parentIndexInt] < this.storageArr[childIndexint]){
     this.swap(childIndexint, parentIndexInt);
     return this.bubbleUp(parentIndexInt);
