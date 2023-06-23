@@ -2,8 +2,7 @@
  * Homework - LRU Cache
 
 Started engineering on Saturday, June 17, 2023.
-The class successfully passed 2 out of 5 tests.
-Passed three of five tests as of June 20, 2023.
+Passed all five test cases on Friday, June 23, 2023.
  */
 
 /*
