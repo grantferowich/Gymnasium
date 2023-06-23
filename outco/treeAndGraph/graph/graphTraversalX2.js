@@ -22,7 +22,7 @@ class ListNode {
     }
   }
   
-  class LinkedList {
+class LinkedList {
   
     constructor(){
         this.head = null;
@@ -100,7 +100,7 @@ class ListNode {
     }
   }
   
-  class Queue {
+class Queue {
     constructor(){
         // instantiate a queue as an instance of a linked list
         this.linkedlist = new LinkedList();
@@ -125,7 +125,6 @@ class ListNode {
         } else {
             return null;
         }
-        
     }
   
     peek(){
@@ -133,7 +132,7 @@ class ListNode {
     }
   }
   
-  class Stack{
+class Stack{
     constructor(){
         this.linkedList = new LinkedList()
         this.length = 0

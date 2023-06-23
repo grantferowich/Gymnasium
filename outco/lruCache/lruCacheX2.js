@@ -168,11 +168,11 @@ class LRUCache {
     }
   };
 
-
   set(keyStr, valueStr) {
 
     if (this.cacheMap.has(keyStr)){
       let existingNode = this.cacheMap.get(keyStr); 
+      existingNode.valueStr = valueStr;
       this.moveToHead(existingNode);  
     }   
   // append a new element to cache
