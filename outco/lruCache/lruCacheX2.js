@@ -147,9 +147,6 @@ class LRUCache {
     let previousNode = node.previousNode
     previousNode.nextNode = node.nextNode
     node.nextNode.previousNode = previousNode
-    this.countInt--;
-
-    console.log(this.cacheMap)
   };
 
   moveToHead(node) {
@@ -176,8 +173,7 @@ class LRUCache {
   set(keyStr, valueStr) {
 
     if (this.cacheMap.has(keyStr)){
-      let existingNode = this.cacheMap.get(keyStr);
-      console.log('existingNode', existingNode)
+      let existingNode = this.cacheMap.get(keyStr); 
       this.moveToHead(existingNode);  
     }   
   // append a new element to cache
@@ -192,7 +188,7 @@ class LRUCache {
     // evict the LRU
     // count decrements
     if (this.countInt > this.capacityInt){
-        this.countInt--
+        this.countInt--;
         this.removeFromTail()
     }
   };
@@ -263,22 +259,23 @@ assert(testCount, 'most recently modified/viewed items should be moved to front 
   return lruCache.get('cpo') === -1;
 });
 
-// assert(testCount, 'should be able to replace multiple stale items', function(){
-//   var lruCache = new LRUCache(3);
-//   lruCache.set('one', 1);
-//   lruCache.set('two', 2);
-//   lruCache.set('three', 3);
-//   lruCache.set('four', 4);
-//   lruCache.set('five', 5);
-//   lruCache.set('six', 6);
-//   var ex1 = lruCache.get('one');
-//   var ex2 = lruCache.get('two');
-//   var ex3 = lruCache.get('three');
-//   var ex4 = lruCache.get('four');
-//   var ex5 = lruCache.get('five');
-//   var ex6 = lruCache.get('six');
-//   return ex1 === -1 && ex2 === -1 && ex3 === -1 && ex4 === 4 && ex5 === 5 && ex6 === 6;
-// });
+assert(testCount, 'should be able to replace multiple stale items', function(){
+  var lruCache = new LRUCache(3);
+  lruCache.set('one', 1);
+  lruCache.set('two', 2);
+  lruCache.set('three', 3);
+  lruCache.set('four', 4);
+  lruCache.set('five', 5);
+  lruCache.set('six', 6);
+  var ex1 = lruCache.get('one');
+  var ex2 = lruCache.get('two');
+  var ex3 = lruCache.get('three');
+  var ex4 = lruCache.get('four');
+  var ex5 = lruCache.get('five');
+  var ex6 = lruCache.get('six');
+  console.log(lruCache)
+  return ex1 === -1 && ex2 === -1 && ex3 === -1 && ex4 === 4 && ex5 === 5 && ex6 === 6;
+});
 
 console.log('PASSED: ' + testCount[0] + ' / ' + testCount[1], '\n\n');
 
