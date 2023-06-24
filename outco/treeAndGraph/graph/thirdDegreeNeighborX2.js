@@ -265,8 +265,6 @@ function thirdDegreeNeighbors(edgeListArr, startInt) {
         let xInt = 0;
         while ( neighborsArr !== undefined && xInt < neighborsArr.length){
             let neighborInt = neighborsArr[xInt]
-            console.log('neighborInt', neighborInt);
-            console.log('degreeInt', degreeInt)
             // recurse when the degree is less than 3
             // recurse when the node has not been visited
             if (!visitedHM.has(neighborInt) && degreeInt < 3){
@@ -287,4 +285,8 @@ let startInt1 = 1;
 
 let resultList1 = thirdDegreeNeighbors(arrayOfEdges1, startInt1);
 console.log('Result 1: ', resultList1)
-/* Test results */
+/* Test results 
+
+Result 1:  [ 8, 5 ]
+
+*/
