@@ -89,10 +89,18 @@ class Graph{
     }
 
     removeVertex(idInt){
-        
+        // this method should loop over all the keys and 
+        // remove the vertex from each list of neighbors, too
         if (this.isVertex(idInt)){
             this.storageMap.delete(idInt);
             return true
+        }
+
+        let verticesArr = Array.from(this.storageMap.keys)
+        let xInt = 0;
+        
+        while (xInt < verticesArr.length){
+
         }
 
         if (!this.isVertex(idInt)){

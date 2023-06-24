@@ -245,35 +245,37 @@ function thirdDegreeNeighbors(edgeListArr, startInt) {
     let queue = new Queue;
     queue.enqueue([startInt, 0]);
     let visitedHM = new Map();
-    let thirdDegreeNeighborsArr = [];
+    let thirdDegreeNeighborsSet = new Set()
 
     while (queue.length > 0){
         // base case: append nodeInt to thirdDegreeNeighborsArr when degree is 3
         // base case: if degree exceeds 3, then terminate the function calls
         let nodeTuple = queue.dequeue()
         let nodeInt = nodeTuple[0];
+        visitedHM.set(nodeInt)
         let degreeInt = nodeTuple[1];
-        let neighborsSet= graph.neighbors(nodeInt);
+        let neighborsSet = graph.neighbors(nodeInt);
         let neighborsArr;
+        if (degreeInt === 3){
+            thirdDegreeNeighborsSet.add(nodeInt)
+        }
         if (neighborsSet !== undefined){
             neighborsArr = Array.from(neighborsSet)
         }
-        console.log('neighborsArr', neighborsArr)
         let xInt = 0;
-        while (xInt < neighborsArr.length && neighborsArr !== undefined){
+        while ( neighborsArr !== undefined && xInt < neighborsArr.length){
             let neighborInt = neighborsArr[xInt]
+            console.log('neighborInt', neighborInt);
+            console.log('degreeInt', degreeInt)
             // recurse when the degree is less than 3
             // recurse when the node has not been visited
-            if (!visitedHM.has(nodeInt) && degreeInt < 3){
-                queue.enqueue(neighborInt)
-            }
-            if (degreeInt === 3){
-                thirdDegreeNeighborsArr.push(neighborInt)
+            if (!visitedHM.has(neighborInt) && degreeInt < 3){
+                queue.enqueue([neighborInt, degreeInt + 1])
             }
             xInt++
         }
     }
-    return thirdDegreeNeighborsArr
+    return Array.from(thirdDegreeNeighborsSet)
 }
 
 /* Tests */
@@ -284,4 +286,5 @@ let arrayOfEdges1 = [[1,2], [2,1], [1,3], [3,1], [2,4], [4,2], [3,4], [4,3],
 let startInt1 = 1;
 
 let resultList1 = thirdDegreeNeighbors(arrayOfEdges1, startInt1);
+console.log('Result 1: ', resultList1)
 /* Test results */
