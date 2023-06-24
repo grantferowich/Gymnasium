@@ -247,23 +247,23 @@ function generateAdjacencyList(edges) {
   *  Graph A: https://res.cloudinary.com/outco/image/upload/v1519855558/graph-traversal/Paper.Graph_Traversal.10.png
   *
   *  YOUR WORK HERE
-  *  1) BFS:
-  *  2) DFS:
-  *  3) Topological sort:
+  *  1) BFS: 0, 1, 2, 3, 4, 5
+  *  2) DFS: 0, 1, 3, 4, 5, 2
+  *  3) Topological sort: 0, 2, 1, 3, 4, 5
   *
   *  Graph B: https://res.cloudinary.com/outco/image/upload/v1519855554/graph-traversal/Paper.Graph_Traversal.11.png
   *
   *  YOUR WORK HERE
-  *  1) BFS:
-  *  2) DFS:
-  *  3) Topological sort:
+  *  1) BFS: 0, 1, 2, 4, 3
+  *  2) DFS: 0, 1, 3, 4, 2, 5
+  *  3) Topological sort: 0, 1, 2, 3, 4, 5
   *
   *  Graph C: https://res.cloudinary.com/outco/image/upload/v1519855557/graph-traversal/Paper.Graph_Traversal.12.png
   *
   *  YOUR WORK HERE
-  *  1) BFS:
-  *  2) DFS:
-  *  3) Topological sort:
+  *  1) BFS: 0, 1, 2, 3, 4, 5, 6, 7
+  *  2) DFS: 0, 1, 3, 2, 4, 5, 7, 6
+  *  3) Topological sort: 1, 3, 5, 0, 2, 4, 7, 6
   *
   */
 
@@ -328,9 +328,35 @@ function redundantConnection(edgeList) {
  *
  */
 
-function thirdDegreeNeighbors(edgeList, start) {
-  // YOUR WORK HERE
-  return -1;
+function thirdDegreeNeighbors(edgeListArr, startInt) {
+    let graph = generateAdjacencyList(edgeListArr);
+    let queue = new Queue;
+    queue.enqueue([startInt, 0]);
+    let visitedHM = new Map();
+    let thirdDegreeNeighborsArr = [];
+
+    while (queue.length > 0){
+        // base case: append nodeInt to thirdDegreeNeighborsArr when degree is 3
+        // base case: if degree exceeds 3, then terminate the function calls
+        let nodeTuple = queue.dequeue()
+        let nodeInt = nodeTuple[0];
+        let degreeInt = nodeTuple[1];
+        let neighborsArr = graph.neighbors(nodeInt);
+        let xInt = 0;
+        while (xInt < neighborsArr.length && neighborsArr !== undefined){
+            let neighborInt = neighborsArr[xInt]
+            // recurse when the degree is less than 3
+            // recurse when the node has not been visited
+            if (!visitedHM.has(nodeInt) && degreeInt < 3){
+                queue.enqueue([neighborInt, degreeInt +1])
+            }
+            if (degreeInt === 3){
+                thirdDegreeNeighborsArr.push(neighborInt)
+            }
+            xInt++
+        }
+    }
+    return thirdDegreeNeighborsArr
 }
 
 
