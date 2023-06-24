@@ -2,7 +2,7 @@
   *  Friend Circles
   *
   *  Started engineering on June 24, 2023. 
-  * 
+  *  Successfully tested the function on June 24, 2023. 
   * 
   *  A friend circle is a group of people who are direct or indirect friends.
   *  Given a NxN bitset matrix, where a 1 in the i,j coordinate signifies a
