@@ -359,8 +359,6 @@ function thirdDegreeNeighbors(edgeListArr, startInt) {
     return thirdDegreeNeighborsArr
 }
 
-
-
 /*
  *  Detect Cycle in Graph (Undirected)
  *
@@ -405,10 +403,14 @@ function detectCycleInGraph(edgeList) {
   *
   *  Example:
   *
-  *  Input: `{{1,1,0}, {1,1,0}, {0,0,1}}`
+  *  Input: `{{1,1,0},
+  *           {1,1,0},
+  *           {0,0,1}}`
   *  Output: 2
   *
-  *  Input: `{{1,1,0}, {1,1,1}, {0,1,1}}`
+  *  Input: `{{1,1,0}, 
+  *           {1,1,1}, 
+  *           {0,1,1}}`
   *  Output: 1
   *
   *  Resources:
@@ -418,8 +420,45 @@ function detectCycleInGraph(edgeList) {
 
 
 function friendCircles(matrix) {
-  // YOUR WORK HERE
-  return -1;
+    let visitedHM = new Map();
+    
+    const dfs = (iInt, jInt) => {
+       
+        // base case: out of bounds
+        // base case: visitedHM already has the iInt _ jInt coordinates as a key
+        let keyStr = iInt + "_" + jInt;
+        visitedHM.set(keyStr, true)
+        if (iInt < 0 || jInt < 0 || iInt >= matrix.length || jInt >= matrix[0].length || visitedHM.has(keyStr)){
+            return 
+        }
+
+        if (matrix[iInt][jInt] === 0){
+            return
+        }
+        // recurisve case: move down or move right
+        if (matrix[iInt][jInt] === 1){
+            visitedHM.set(keyStr, true)
+            dfs(iInt + 1, jInt)
+            dfs(iInt, jInt + 1)
+        }
+    }
+
+    let xInt = 0;
+    let yInt = 0;   
+    let circlesInt = 0;
+    while (xInt < matrix.length){
+        while (yInt < matrix[0].length){
+            let keyStr = xInt.toString() +"_"+yInt.toString()
+            if (matrix[xInt][yInt] === 1 && !visitedHM.has(keyStr)){
+                circlesInt++
+                dfs(xInt, yInt)
+            }
+            yInt++
+        }
+        xInt++
+    }
+
+    return circlesInt
 }
 
 
