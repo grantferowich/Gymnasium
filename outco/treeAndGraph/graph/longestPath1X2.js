@@ -2,7 +2,8 @@
  *  Longest Path I
 
  *  Started engingeering on June 27, 2023.
- *  
+ *  Successfully tested the function on June 27, 2023.
+ * 
  *  Given a DAG (directed acyclic graph), find the longest path in the graph.
  *
  *  Parameters:
@@ -281,7 +282,6 @@ const longestPath1 = (listOfEdgesArr) => {
             xInt++
         }
     }
-    console.log(longestPathArr)
     return longestPathArr.length
 }
 
