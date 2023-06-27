@@ -2,6 +2,8 @@
 
 Successfully tested the function 2/12/23.
 
+I ran friend circles with helper method recursion. 
+Next, I can implement the depth first search with a queue.
 */
 
 class ListNode {
@@ -177,7 +179,7 @@ function friendCircles(matrix) {
     return output > 0 ? output : 0
   }
   
-
+/* Tests */
 
 let input1 = [[1, 1, 0], 
               [1, 1, 0], 
@@ -188,6 +190,8 @@ let input2 = [[1, 1, 0],
 // [ [ null, null, 0 ], 
 //   [ null, null, 1 ], 
 //   [ 0,     1,   1 ] ]
-
 console.log(friendCircles(input1)) // 2 
 console.log(friendCircles(input2)) // 1
+
+/* Test results */
+
