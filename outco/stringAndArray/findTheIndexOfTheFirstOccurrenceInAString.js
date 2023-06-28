@@ -31,21 +31,16 @@ const findTheNeedle = (haystackStr, needleStr) => {
     let leftPtrInt = 0;
     let windowArr = [];
     let haystackArr = haystackStr.split("")
-
     while (rightPtrInt < haystackArr.length){
-
         let char = haystackArr[rightPtrInt];
         windowArr.push(char);
         rightPtrInt++;
-
         if (windowArr.length === needleStr.length){
-            console.log('windowStr', windowArr.join(""))
             let tempStr = windowArr.join("");
             if (tempStr === needleStr){
                 return leftPtrInt;
             }
         }
-
         if (windowArr.length >= needleStr.length){
             windowArr.shift()
             leftPtrInt++
