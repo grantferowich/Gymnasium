@@ -1,5 +1,8 @@
 /* 
 169. Majority Element
+
+Successfully tested the function on June 28, 2023.
+
 Easy
 15.4K
 456
