@@ -1,7 +1,7 @@
 /* 28. Find the Index of the First Occurrence in a String
 
 Successfully tested the function June 28, 2023. 
-
+This problem is a fixed-sized window problem. 
 
 Easy
 3.8K

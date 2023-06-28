@@ -487,8 +487,36 @@ function friendCircles(matrix) {
  */
 
 function longestPath(graph) {
-  // YOUR WORK HERE
-  return -1;
+  let graphX = generateAdjacencyList(graph)
+  if (listOfEdgesArr.length === 0){
+      return;
+  }
+
+  let longestPathArr = [];
+  let queue = new Queue();
+  let visitedSet = new Set()
+  let rootTuple = graph[0];
+  queue.enqueue(rootTuple[0]);
+  longestPathArr.push(rootTuple[0]);
+  visitedSet.add(rootTuple[0])
+  
+  while (queue.length > 0){
+      let nodeInt = queue.dequeue()
+      let neighborsArr = Array.from(graphX.neighbors(nodeInt))
+      if (longestPathArr.indexOf(nodeInt) === -1){
+          longestPathArr.push(nodeInt)
+      }
+      let xInt = 0;
+      while (neighborsArr !== undefined && xInt < neighborsArr.length){
+          let neighborInt = neighborsArr[xInt];
+          if (!visitedSet.has(neighborInt)){
+              visitedSet.add(neighborInt);
+              queue.enqueue(neighborInt)
+          }
+          xInt++
+      }
+  }
+  return longestPathArr.length
 }
 
 
