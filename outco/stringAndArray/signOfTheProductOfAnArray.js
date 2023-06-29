@@ -15,8 +15,6 @@ You are given an integer array nums. Let product be the product of all values in
 
 Return signFunc(product).
 
- 
-
 Example 1:
 
 Input: nums = [-1,-2,-3,-4,3,2,1]
