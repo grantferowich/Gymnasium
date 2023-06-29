@@ -1,4 +1,7 @@
 /* 1822. Sign of the Product of an Array
+
+Successfully tested the function on June 29, 2023. 
+
 Easy
 1.9K
 191
