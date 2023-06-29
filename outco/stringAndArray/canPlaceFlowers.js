@@ -2,6 +2,7 @@
 605. Can Place Flowers
 
 Started engineering on June 28, 2023.
+Successfully tested the function on June 29, 2023.
 
 Easy
 5.2K
@@ -24,16 +25,21 @@ Example 2:
 Input: flowerbed = [1,0,0,0,1], n = 2
 Output: false
 
-Input arr = [1, 0, 0, 1, 0, 0, 1]
+Input: 
+arr = [1, 0, 0, 1, 0, 0, 1]
 n = 1
 output: false
 
-Input arr =  [1, 0, 0, 0, 0, 0, 0, 1]
+Input:
+arr =  [1, 0, 0, 0, 0, 0, 0, 1]
 n = 2
 output : true
 
+Input:
+flowerbedArr5 = [1,0,0,0,0,0,1];
+nInt5 = 2 
+
 The idea here is to count the number of sets of three consecutive 0's.
-All the 0's must be unique. 
 Maintain some capacityInt, which marks the number of available flower beds.
 CapacityInt increments when three consecutive 0's are found. 
 Consecutive0s is a thing I want to track.
@@ -44,9 +50,15 @@ At the end I will return capcityInt >= n.
 */
 
 const canPlaceFlowers = (arr, int) => {
-
-
-
+    let xInt = 0;
+    while (xInt < arr.length){
+        if (arr[xInt] === 0 && (arr[xInt - 1] === 0 || arr[xInt - 1] === undefined) && (arr[xInt + 1] === 0 || arr[xInt + 1] === undefined)){
+            arr[xInt] = 1;
+            int--
+        }
+        xInt++
+    }
+    return int <= 0
 }
 
 /* Test */
@@ -58,16 +70,23 @@ const nInt2 = 2;
 const flowerbedArr3 = [1, 0, 0, 1, 0, 0, 1];
 const nInt3 = 1;
 const flowerbedArr4 = [1, 0, 0, 0, 0, 0, 0, 1];
-const nInt4 = 2
+const nInt4 = 2;
+const flowerbedArr5 = [1,0,0,0,0,0,1];
+const nInt5 = 2 
+const flowerbedArr6 = [0,0,1,0,1];
+const nInt6 = 1;
 
 const result1ToF = canPlaceFlowers(flowerbedArr1, nInt1);
 const result2ToF = canPlaceFlowers(flowerbedArr2, nInt2);
 const result3ToF = canPlaceFlowers(flowerbedArr3, nInt3);
 const result4ToF = canPlaceFlowers(flowerbedArr4, nInt4);
+const result5ToF = canPlaceFlowers(flowerbedArr5, nInt5);
+const result6ToF = canPlaceFlowers(flowerbedArr6, nInt6);
 
 console.log('Result 1:', result1ToF) // true
 console.log('Result 2:', result2ToF) // false
 console.log('Result 3:', result3ToF) // false 
 console.log('Result 4:', result4ToF) // true
-
+console.log('Result 5:', result5ToF) // true
+console.log('Result 6:', result6ToF) // true
 /* Test results */
