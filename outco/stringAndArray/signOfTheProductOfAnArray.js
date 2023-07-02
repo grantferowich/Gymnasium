@@ -29,7 +29,6 @@ Explanation: The product of all values in the array is 0, and signFunc(0) = 0 */
 const arraySign = (numsArr) => {
     let int = 1
     let xInt = 0
-    
     while (xInt < numsArr.length){
         let newInt = numsArr[xInt]
         if (newInt === 0){
@@ -38,7 +37,6 @@ const arraySign = (numsArr) => {
         int *= newInt
         xInt++
     }
-
     if (int === 1 || int === 0){
         return 0;
     }
