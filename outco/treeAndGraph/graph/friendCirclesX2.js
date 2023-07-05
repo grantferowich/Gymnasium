@@ -251,14 +251,14 @@ function friendCircles(matrix) {
         // base case: visitedHM already has the iInt _ jInt coordinates as a key
         let keyStr = iInt + "_" + jInt;
         if (iInt < 0 || jInt < 0 || iInt >= matrix.length || jInt >= matrix[0].length || visitedHM.has(keyStr) || matrix[iInt][jInt] === 0){
-            return 
+            return;
         }
         visitedHM.set(keyStr, true)
         // recurisve case: move down or move right
-        dfs(iInt + 1, jInt)
-        dfs(iInt, jInt + 1)
-        dfs(iInt - 1, jInt)
-        dfs(iInt, jInt - 1)
+        dfs(iInt + 1, jInt);
+        dfs(iInt, jInt + 1);
+        dfs(iInt - 1, jInt);
+        dfs(iInt, jInt - 1);
     }
 
     let xInt = 0;
@@ -266,18 +266,17 @@ function friendCircles(matrix) {
     let circlesInt = 0;
 
     while (xInt < matrix.length){
-        yInt = 0 
+        yInt = 0;
         while (yInt < matrix[0].length){
-            let keyStr = xInt.toString() + "_" + yInt.toString()
+            let keyStr = xInt.toString() + "_" + yInt.toString();
             if (matrix[xInt][yInt] === 1 && !visitedHM.has(keyStr)){
-                dfs(xInt, yInt)
-                circlesInt++
+                dfs(xInt, yInt);
+                circlesInt++;
             }
-            yInt++
+            yInt++;
         }
-        xInt++
+        xInt++;
     }
-
     return circlesInt
 }
 

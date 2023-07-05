@@ -241,12 +241,46 @@ function generateAdjacencyList(edges) {
 *  I will implement the topological sort with a post-order
 *  depth-first search traversal to generate an array. Then, to complete
 *  the topological sort I will reverse the array.
+
+Post order traversal means: Left, Right, Action
+
 */
 
-const courseSchedule = (edgeListArr) => {
-
-
-
+const courseSchedule = (edgeListArr = []) => {
+    if (edgeListArr.length === 0 ){
+        return "Invalid input!"
+    }
+    let originStr = edgeListArr[0][0];
+    let outputArr = [];
+    let graph = generateAdjacencyList(edgeListArr);
+    let visitedSet = new Set()
+    let queue = []
+    queue.push(originStr)
+    visitedSet.add(originStr);
+    
+    // implement post-order depth-first traversal
+    // post order dfs is defined by the sequence
+    // left, right, current
+    while (queue.length > 0){
+        let currentStr = queue.shift()
+        let neighborsSet = graph.neighbors(currentStr);
+        if (neighborsSet !== undefined){
+            let neighborsArr = Array.from(neighborsSet);
+            let xInt = 0
+            while (xInt < neighborsArr.length) {
+                // console.log('neighborsArr', neighborsArr)
+                let neighbor = neighborsArr[xInt];
+                if (!visitedSet.has(neighbor)){
+                    queue.push(neighbor)
+                    visitedSet.add(neighbor)
+                }
+                xInt++
+            }
+        }
+        // console.log('currentStr', currentStr)
+        outputArr.push(currentStr)
+    }
+    return outputArr
 }
 
 /* Tests 

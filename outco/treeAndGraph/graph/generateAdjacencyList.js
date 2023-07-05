@@ -81,8 +81,9 @@ class Graph {
     // Auxiliary Space Complexity: O(E)
     // access to return the values given a key
     neighbors(id) {
-        console.log('hi')
-        if (!this.storage.has(id)){return null;}
+        if (!this.storage.has(id)){
+            return null;
+        }
         return this.storage.get(id)
     }
   

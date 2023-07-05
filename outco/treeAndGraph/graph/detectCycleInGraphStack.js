@@ -153,15 +153,14 @@ function detectCycleInGraph(edgeList) {
     s.push(start);
     visited[start] = 'pre';
 
-
     const getNeighbors = (element, edgeList) => {
       let neighbors = [];
       for (let x = 0; x < edgeList.length; x++){
         if (edgeList[x][0] === element){
-          neighbors.push(edgeList[x][1])
+          neighbors.push(edgeList[x][1]);
         }
       }
-      return neighbors
+      return neighbors;
     }
 
     while (s.length > 0){
