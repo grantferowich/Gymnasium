@@ -246,41 +246,83 @@ Post order traversal means: Left, Right, Action
 
 */
 
-const courseSchedule = (edgeListArr = []) => {
-    if (edgeListArr.length === 0 ){
-        return "Invalid input!"
-    }
-    let originStr = edgeListArr[0][0];
-    let outputArr = [];
-    let graph = generateAdjacencyList(edgeListArr);
-    let visitedSet = new Set()
-    let queue = []
-    queue.push(originStr)
-    visitedSet.add(originStr);
+// const courseSchedule = (edgeListArr = []) => {
+//     if (edgeListArr.length === 0 ){
+//         return "Invalid input!"
+//     }
+//     let originStr = edgeListArr[0][0];
+//     let outputArr = [];
+//     let graph = generateAdjacencyList(edgeListArr);
+//     let visitedSet = new Set()
+//     let queue = []
+//     queue.push(originStr)
+//     visitedSet.add(originStr);
     
-    // implement post-order depth-first traversal
-    // post order dfs is defined by the sequence
-    // left, right, current
-    while (queue.length > 0){
-        let currentStr = queue.shift()
-        let neighborsSet = graph.neighbors(currentStr);
-        if (neighborsSet !== undefined){
-            let neighborsArr = Array.from(neighborsSet);
-            let xInt = 0
-            while (xInt < neighborsArr.length) {
-                // console.log('neighborsArr', neighborsArr)
-                let neighbor = neighborsArr[xInt];
-                if (!visitedSet.has(neighbor)){
-                    queue.push(neighbor)
-                    visitedSet.add(neighbor)
-                }
-                xInt++
-            }
-        }
-        // console.log('currentStr', currentStr)
-        outputArr.push(currentStr)
+//     // implement post-order depth-first traversal
+//     // post order dfs is defined by the sequence
+//     // left, right, current
+//     while (queue.length > 0){
+//         let currentStr = queue.shift()
+//         let neighborsSet = graph.neighbors(currentStr);
+
+//         if (neighborsSet !== undefined){
+//             let neighborsArr = Array.from(neighborsSet);
+//             let xInt = 0
+//             while (xInt < neighborsArr.length) {
+//                 // console.log('neighborsArr', neighborsArr)
+//                 let neighbor = neighborsArr[xInt];
+//                 if (!visitedSet.has(neighbor)){
+//                     queue.push(neighbor)
+//                     visitedSet.add(neighbor)
+//                 }
+//                 xInt++
+//             }
+//         }
+//         // console.log('currentStr', currentStr)
+//         outputArr.push(currentStr)
+//     }
+//     return outputArr
+// }
+
+const topologicalSort = (graph = []) => {
+    if (graph === []){
+        return []
     }
-    return outputArr
+    let visitedSet = new Set();
+    let outputArr = [];
+
+    const dfs = (vertex) => {
+        if (visitedSet.has(vertex)){
+            return
+        }
+        visitedSet.add(vertex)
+        let neighborsArr = graph.neighbors(vertex)
+        if (neighborsArr !== null && neighborsArr !== undefined){
+            neighborsArr = Array.from(neighborsArr)
+        }
+        let yInt = 0;
+        while (yInt < neighborsArr.length){
+            dfs(neighborsArr[yInt])
+            yInt++
+        }
+        outputArr.push(vertex)
+    }
+
+    let verticesArr = graph.vertices()
+    let xInt = 0;
+    while (xInt < verticesArr.length){
+        let vertex = verticesArr[xInt]
+        dfs(vertex)
+        xInt++
+    }
+    return outputArr.reverse()
+}
+
+const courseSchedule = (edgeListArr = []) => {
+    graph = generateAdjacencyList(edgeListArr)
+    let a = topologicalSort(graph)
+    return a;
+
 }
 
 /* Tests 
@@ -298,5 +340,11 @@ console.log('Result 1: ', testArr1); // a, b, c , d
 const edgeListArr2 = [["a", "b"], ["b","c"], ["c", "d"]];
 const testArr2 = courseSchedule(edgeListArr2);
 console.log('Result 2: ', testArr2) // a, b, c, d
+
+const edgeListArr3 = [["a","b"],["a","c"],["b","d"],["d","e"],
+["d","c"],["c","e"],["e","f"],["f","h"],
+["e","h"],["e","g"],["h","g"]]
+const testArr3 = courseSchedule(edgeListArr3);
+console.log('Result 3: ', testArr3)
 
 /* Test results */

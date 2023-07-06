@@ -545,10 +545,43 @@ function longestPath(graph) {
  *
  */
 
+const topologicalSort = (graph = []) => {
+  if (graph === []){
+      return []
+  }
+  let visitedSet = new Set();
+  let outputArr = [];
 
-function courseSchedule(courseList) {
-  // YOUR WORK HERE
-  return [];
+  const dfs = (vertex) => {
+      if (visitedSet.has(vertex)){
+          return
+      }
+      visitedSet.add(vertex)
+      let neighborsArr = graph.neighbors(vertex)
+      if (neighborsArr !== null && neighborsArr !== undefined){
+          neighborsArr = Array.from(neighborsArr)
+      }
+      let yInt = 0;
+      while (yInt < neighborsArr.length){
+          dfs(neighborsArr[yInt])
+          yInt++
+      }
+      outputArr.push(vertex)
+  }
+
+  let verticesArr = graph.vertices()
+  let xInt = 0;
+  while (xInt < verticesArr.length){
+      let vertex = verticesArr[xInt]
+      dfs(vertex)
+      xInt++
+  }
+  return outputArr.reverse()
+}
+
+function courseSchedule(edgeListArr = []) {
+    let graph = generateAdjacencyList(edgeListArr);
+    return topologicalSort(graph)
 }
 
 
@@ -791,6 +824,7 @@ assert(testCount, 'should work on second example', function(){
 
 assert(testCount, 'should work on third example', function(){
   let result = courseSchedule([['a','c'],['a','b']]);
+  console.log('result', result)
   return arraysEqual(result, ['a', 'b', 'c']) || arraysEqual(result, ['a', 'c', 'b']);
 });
 
@@ -798,6 +832,7 @@ assert(testCount, 'should work on fourth example', function(){
   let result = courseSchedule([["a","b"],["a","c"],["b","d"],["d","e"],
           ["d","c"],["c","e"],["e","f"],["f","h"],
           ["e","h"],["e","g"],["h","g"]]);
+  console.log('result', result)     
   return arraysEqual(result, ["a","b","d","c","e","f","h","g"]);
 });
 
