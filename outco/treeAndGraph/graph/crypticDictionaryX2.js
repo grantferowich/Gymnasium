@@ -1,7 +1,7 @@
  /*
   *  Cryptic Dictionary
-  *  Engineered in a code-along on July 8.
-  * 
+  *  Engineered in a code-along on July 8, 2023.
+  *  Successfully tested the function on July 8, 2023.
   *  An array of strings in lexicographical (alphabetical) order has been put
   *  through a [simple substitution cypher](https://en.wikipedia.org/wiki/Substitution_cipher)
   *  where each letter is now substituted for another letter. Determine a valid
