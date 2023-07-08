@@ -36,14 +36,12 @@
 
 
  // Helper Data Structures and Algorithms
-
 class ListNode {
     constructor(value){
         this.value = value;
         this.next = null;
     }
   }
-  
 class LinkedList {
   
     constructor(){
@@ -121,7 +119,6 @@ class LinkedList {
         return false;
     }
   }
-  
 class Queue {
     constructor(){
         // instantiate a queue as an instance of a linked list
@@ -247,7 +244,30 @@ class Graph {
 
     let outputArr = [];
 
+
+    console.log('outputArr', outputArr);
     let graph = generateAdjacencyList(outputArr);
-    return topologicalSort(grap)
+    console.log('graph', graph)
+    return topologicalSort(graph)
 
  }
+
+ 
+ /* Test */
+const inputArr1 = ["baa", "abcd", "abca", "cab", "cad"];
+// Output: {"b", "d", "a", "c"}
+
+const inputArr2= ["caa", "aaa", "aab"];
+//    Output: {"c", "a", "b"}
+
+const output1Str = crypticDictionary(inputArr1);
+const output2Str = crypticDictionary(inputArr2);
+
+console.log('Result 1:', output1Str);
+console.log('Result 2:', output2Str);
+
+/* Test results 
+
+
+
+*/
