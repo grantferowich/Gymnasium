@@ -63,4 +63,9 @@ console.log('The first duplicate number is ', int1);
 console.log('The second duplicate number is ', int2);
 console.log('The third duplicate number is ', int3);
 console.log('The fourth duplicate number is ', int4);
-/* Test result */
+/* Test result 
+The first duplicate number is  5
+The second duplicate number is  2
+The third duplicate number is  3
+The fourth duplicate number is  2
+*/
