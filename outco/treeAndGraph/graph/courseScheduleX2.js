@@ -1,5 +1,7 @@
 /* *  Course Schedule
 *
+ Successfully engineered the solution on July 6, 2023.
+ 
 *  A collection of courses at a University has prerequisite courses that must
 *  be taken first.  Given an array of course pairs [A, B] where A is the
 *  prerequisite of B, determine a valid sequence of courses a student can
