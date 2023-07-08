@@ -2,7 +2,9 @@
 724. Find Pivot Index
 Easy
 
-Successfully tested the function on 2/23/23.
+Time complexity: O(n)
+Space complexity O(1)
+Successfully tested the function on 07/08/23.
 
 Given an array of integers nums, calculate the pivot index of this array.
 
@@ -18,47 +20,58 @@ Return the leftmost pivot index. If no such index exists, return -1.
 */
 
 
-const pivotIndex = function(nums) {
-    if (nums.length === 0){
+const pivotIndex = function(numsArr) {
+    if (numsArr.length === 0){
         return -1;
     }
-    if (nums.length === 1){
+    if (numsArr.length === 1){
         return 0
     }
 
-    let x = 0 
-    let totalSum = 0
-    let currentSum = 0
-    while (x < nums.length){
-        totalSum += nums[x];
-        x++
+    let xInt = 1
+    let rightSumInt = 0
+    let leftSumInt = 0
+    //
+    while (xInt < numsArr.length){
+        rightSumInt += numsArr[xInt];
+        xInt++
     }
-
-    x = 0
-    while (x < nums.length){
-        rightSum = totalSum - nums[x] - currentSum
-        if (currentSum === rightSum){
-            return x
+    xInt = 0
+    while (xInt < numsArr.length){
+        if (leftSumInt === rightSumInt){
+            return xInt
         }
-        currentSum += nums[x]
-        x++
+        leftSumInt += numsArr[xInt];
+        rightSumInt -= numsArr[xInt + 1];
+        xInt++
     }
     return -1
 };
 
+/* Test */
 
 let input = [1,7,3,6,5,6]
 let result = pivotIndex(input)
-console.log('result ', result) // 3
+console.log('First result: ', result) // 3
 
 const input2 = [2,1,-1]
 const result2 = pivotIndex(input2)
-console.log('result2', result2) // 0 
+console.log('Second result:', result2) // 0 
 
 const input3 = [1]
 const result3 = pivotIndex(input3)
-console.log('result3', result3) // 0 
+console.log('Third result:', result3) // 0 
 
 const input4 = []
 const result4 = pivotIndex(input4)
-console.log('result4', result4) // -1
+console.log('Fourth result:', result4) // -1
+
+/* Test result 
+
+First result:  3
+Second result: 0
+Third result: 0
+Fourth result: -1
+
+
+*/

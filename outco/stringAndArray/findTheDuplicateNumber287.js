@@ -43,7 +43,7 @@ const findTheDuplicateNumber = (arr) => {
         }
         xInt++
     }
-    for (const [ int, frequencyInt] of intMap){
+    for (const [int, frequencyInt] of intMap){
         if (frequencyInt >= 2){
             return int
         }
