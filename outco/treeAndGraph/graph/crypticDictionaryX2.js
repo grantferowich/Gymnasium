@@ -28,6 +28,9 @@
   * So, the returned list is the lexigraphically sorted
   * list of characters, as given by the input.
   * 
+  * Sorted lexigraphically means the word at the position 0 in the array
+  * is also the word which is closest to the start of the cryptic / alien
+  * dictionary. 
   *  Here: 
   *  Input: {"caa", "aaa", "aab"}
   *  Output: {"c", "a", "b"}
@@ -229,12 +232,62 @@ class Graph {
   }
   }
 
- const findUniqueLetters = (word1Str, words2Str) => {
+// generate graph from list of edges
+function generateAdjacencyList(edges) {
+    let graph = new Graph();
+  
+    let u, v;
+    edges.forEach(edge => {
+      [u, v] = edge;
+      graph.addEdge(u, v);
+    });
+  
+    return graph;
+  }
+
+const topologicalSort = (graph = []) => {
+    if (graph === []){
+        return []
+    }
+    let visitedSet = new Set();
+    let outputArr = [];
+  
+    const dfs = (vertex) => {
+        if (visitedSet.has(vertex)){
+            return
+        }
+        visitedSet.add(vertex)
+        let neighborsArr = graph.neighbors(vertex)
+        if (neighborsArr !== null && neighborsArr !== undefined){
+            neighborsArr = Array.from(neighborsArr)
+        }
+        let yInt = 0;
+        while (yInt < neighborsArr.length){
+            dfs(neighborsArr[yInt])
+            yInt++
+        }
+        outputArr.push(vertex)
+    }
+  
+    let verticesArr = graph.vertices()
     let xInt = 0;
-    let shortestWordLengthInt = Math.min(word1Str.length, words2Str.length);
+    while (xInt < verticesArr.length){
+        let vertex = verticesArr[xInt]
+        dfs(vertex)
+        xInt++
+    }
+    return outputArr.reverse()
+  } 
+
+ const findUniqueLetters = (word1Str, word2Str) => {
+    let xInt = 0;
+    let shortestWordLengthInt = Math.min(word1Str.length, word2Str.length);
     while (xInt < shortestWordLengthInt){
-        if (word1Str[xInt] !== word2Str[x]){
-            return [word1Str[xInt], words2Str[xInt]]
+        if (word1Str[xInt] !== word2Str[xInt]){
+            // the char at word1[x] lexigraphically
+            // precedes the char at word2[x] since the list
+            // of words is already sorted lexigraphically,
+            return [word1Str[xInt], word2Str[xInt]]
         }
         xInt++
     }
@@ -243,7 +296,13 @@ class Graph {
  const crypticDictionary = (arr) => {
 
     let outputArr = [];
-
+    let xInt = 0;
+    while (xInt < arr.length - 1){
+        let word1Str = arr[xInt];
+        let word2Str = arr[xInt + 1];
+        outputArr.push(findUniqueLetters(word1Str, word2Str))
+        xInt++
+    }
 
     console.log('outputArr', outputArr);
     let graph = generateAdjacencyList(outputArr);
