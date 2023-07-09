@@ -2,10 +2,10 @@
 
 CHECK SUBTREE
 
-4.10
+CTCI 4.10
 Successfully tested the function 2/26/23.
 Successfully tested the function on Leetcode on July 8, 2023. 
-
+Leetcode 572
 
 /* T1 is longer
 first, find the node in t1 which matches t2's root
