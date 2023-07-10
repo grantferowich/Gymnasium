@@ -34,23 +34,17 @@ class TreeNode{
 }
 
 const longestPathOfABinaryTree = (rootNodeInt) => {
-    
     const traverse = (nodeInt) => {
-        
         if (nodeInt === null){
             return 0
         }
-
         if (nodeInt.valueInt !== null){
             let leftInt = traverse(nodeInt.leftInt)
             let rightInt = traverse(nodeInt.rightInt)
             return Math.max(leftInt, rightInt) + 1 
         }
-
     }
-
     return traverse(rootNodeInt)
-
 }
 
 /* Tests */
@@ -59,11 +53,20 @@ let binaryTree1 = new TreeNode(3);
 binaryTree1.leftInt = new TreeNode(1);
 binaryTree1.rightInt = new TreeNode(5);
 
-const resultInt1 = longestPathOfABinaryTree(binaryTree1)
+let binaryTree2 = new TreeNode(3);
+binaryTree2.leftInt = new TreeNode(1);
+binaryTree2.rightInt = new TreeNode(5);
+binaryTree2.rightInt.rightInt = new TreeNode(8);
+binaryTree2.rightInt.rightInt.rightInt = new TreeNode(13)
 
+const resultInt1 = longestPathOfABinaryTree(binaryTree1)
+const resultInt2 = longestPathOfABinaryTree(binaryTree2)
 console.log(`Result 1: ${resultInt1}`);
+console.log(`Result 2: ${resultInt2}`);
 
 /* Test results 
 
+Result 1: 2
+Result 2: 4
 
 */
