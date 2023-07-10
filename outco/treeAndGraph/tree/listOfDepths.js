@@ -131,19 +131,19 @@ const listOfDepths = (treeRoot) => {
     const traverse = (node, depth) =>{
         // initialize a linked list for each depth
         if (output[depth] === undefined || output[depth] === null){
-            let newList = new LinkedList()
-            output.push(newList)
+            let newList = new LinkedList();
+            output.push(newList);
         }
         // append values to each list in array of lists
         let currentList = output[depth];
-        currentList.append(node.value)
+        currentList.append(node.value);
         // stop at leaves
         if (node.left === null || node.right === null){
-            return
+            return;
         }
         // recursive cases
-        traverse(node.right, depth+1)
-        traverse(node.left, depth+1)
+        traverse(node.right, depth+1);
+        traverse(node.left, depth+1);
     }
     traverse(treeRoot, 0)
     return output

@@ -281,6 +281,9 @@ const topologicalSort = (graph = []) => {
 
  const findUniqueLetters = (word1Str, word2Str) => {
     let xInt = 0;
+
+    // key step: when checking over the two words
+    // only iterate as far as the smallest of the two words
     let shortestWordLengthInt = Math.min(word1Str.length, word2Str.length);
     while (xInt < shortestWordLengthInt){
         if (word1Str[xInt] !== word2Str[xInt]){
@@ -297,6 +300,7 @@ const topologicalSort = (graph = []) => {
 
     let outputArr = [];
     let xInt = 0;
+    // loop over the list 
     while (xInt < arr.length - 1){
         let word1Str = arr[xInt];
         let word2Str = arr[xInt + 1];

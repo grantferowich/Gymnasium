@@ -268,10 +268,9 @@ const nthDegreeNeighbors = (graph, start, n) => {
     let visited = new Set();
     let current, degree, neighbors;
     let result = [];
-    
     // two item array of the vertex and degrees from start
-    queue.enqueue([start, 0])
-    visited.add(start)
+    queue.enqueue([start, 0]);
+    visited.add(start);
     while (queue.length > 0){
         [current, degree] = queue.dequeue();
         neighbors = graph[current];

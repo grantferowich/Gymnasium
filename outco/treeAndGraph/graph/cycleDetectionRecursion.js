@@ -262,9 +262,10 @@ const cycleDetection = (graph) => {
         let neighbors = graph[current];
         if (neighbors !== undefined){
             for (let x = 0; x < neighbors.length; x++){
-                if (dfs(neighbors[x])){
-                    return true;
-                }
+                return dfs(neighbors[x])
+                // if (dfs(neighbors[x])){
+                //     return true;
+                // }
             }
         }
         ancestors.delete(current);

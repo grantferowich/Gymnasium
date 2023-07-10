@@ -238,8 +238,6 @@ const generateAdjacencyList = ( edges ) => {
     return g
 }
 
-
-
 /* 
 Topological Sort Psuedocode:
 1. Instantiate a set and an array for tracking visited vertices and returning an output.
@@ -272,8 +270,7 @@ const topologicalSort = (graph) => {
         temporary.delete(current)
         output.push(current);
     }
-    let vertices = graph.vertices()
-    
+    let vertices = graph.vertices();
     let v = 0
     while (v < vertices.length){
         dfs(vertices[v])

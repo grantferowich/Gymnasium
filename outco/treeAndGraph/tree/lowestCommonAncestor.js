@@ -55,11 +55,11 @@ const lowestCommonAncestor = (root, value1, value2) => {
             return
         }
         if (node.value === value1){
-            path.push(value1)
+            path.push(value1);
             return
         }
         if (node.value === value2){
-            path.push(value2)
+            path.push(value2);
             return
         }
         if (node.left === null && node.right === null){

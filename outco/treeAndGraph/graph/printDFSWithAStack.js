@@ -250,7 +250,7 @@ const generateAdjacencyList = (edges) => {
 
 }
 
-const printDFSWithAStack = ( graph, start) => {
+const printDFSWithAStack = (graph, start) => {
     let stack = new Stack();
     let visited = new Set();
     let current, neighbors;
@@ -265,7 +265,7 @@ const printDFSWithAStack = ( graph, start) => {
         for (let x = 0; x < neighbors.length; x++){
             if (!visited.has(neighbors[x])){
                 stack.push(neighbors[x]);
-                visited.add(neighbors[x])
+                visited.add(neighbors[x]);
             }
         }
     }
