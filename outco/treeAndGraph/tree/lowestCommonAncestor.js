@@ -6,7 +6,14 @@ Successfully tested the function 2/21/23.
 Time complexity: O(V)
 Space complexity: O(N)
 
+The basic idea here is to run a dfs from the root node to both input nodes.
+While running the dfs to the parameter nodes be sure to store values 
+in pathArr 1 and pathArr2.
 
+Finally, to find the lowest common ancestor, loop over the array.
+When the two path array values are equal store them in a temp value called 
+tempInt. Eventually, the two paths will not be equal at each node, but the 
+node before the two paths diverge will be the lowest common ancestor.
 
 */
 
@@ -40,15 +47,16 @@ function deserialize(arr) {
 
 const lowestCommonAncestor = (root, value1, value2) => {
     if (root === undefined || value1 === undefined || value2 === undefined){
-        return
+        return;
     }
     if (root === null || value1 === null || value2 === null){
-        return
+        return;
     }
-    let path1 = []
-    let path2 = []
+
+    let path1 = [];
+    let path2 = [];
     let visited = new Set();
-    let value = 0
+    let value = 0;
 
     const dfs = (node, path) => {
         if (node === null || node.value === undefined){

@@ -119,8 +119,4 @@ const pathWithMinimumEffort = (matrix) => {
     //                value = matrix[x][y] value
     const priorityQueue = new Heap();
     priorityQueue.insert(matrix[0][0]);
-
-
-
-
 }

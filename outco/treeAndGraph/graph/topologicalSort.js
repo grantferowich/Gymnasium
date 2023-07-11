@@ -271,7 +271,7 @@ const topologicalSort = (graph) => {
         output.push(current);
     }
     let vertices = graph.vertices();
-    let v = 0
+    let v = 0;
     while (v < vertices.length){
         dfs(vertices[v])
         v++

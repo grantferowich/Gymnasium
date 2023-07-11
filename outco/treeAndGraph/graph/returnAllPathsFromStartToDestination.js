@@ -102,17 +102,13 @@ function returnAllPaths(arrayOfTuples, vertex, destination){
             path.pop();
             return;
         }
-
         let edges = graph[vertex];
         // base case: bottomed out
-       
         if (!edges){
             path.pop();
             return
         }
-        
         visited.add(vertex);
-        
         for (const edge of edges){
             // case 1: edge was already visited
             if (visited.has(edge)){
