@@ -18,6 +18,8 @@ present character. Then scan the array: does any char match
 the present char? If yes, then return false. This solution is O(N^2) or O(kN)
 */
 
+// Runtime: O(N)
+// Space: O(N)
 const isUniqueWithMap = (str) => {
     let charMap = new Map();
     let xInt = 0;
@@ -42,12 +44,16 @@ const isUniqueWithMap = (str) => {
     return true
 }
 
+// Runtime: O(N^2)
+// Space: O(1)
 const isUniqueConstantSpace = (str) => {
     let iInt = 0;
     let jInt = 0
+    // step through the array n times 
     while (iInt < str.length){
         jInt = iInt + 1
         let char1 = str[iInt];
+        // check the remaining n-1, n-2... elements at each step
         while (jInt < str.length){
         let char2 = str[jInt]
             if (char2 === char1){
