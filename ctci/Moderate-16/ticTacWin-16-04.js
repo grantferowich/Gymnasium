@@ -36,6 +36,9 @@ outside the loop return false
 */
 
 const ticTacWin = (playerSymbolStr, matrix) => {
+    if (playerSymbolStr !== "x" && playerSymbolStr !== "o"){
+        return "invalid player symbol"
+    }
     if (matrix.length === 0){
         return "invalid game board"
     }
@@ -67,6 +70,26 @@ const playerSymbolStr1 = "x";
 const matrix1 = [["x", "x", "x"],
                  ["", "o", "o" ],
                  ["", "", ""   ]];
+const playerSymbolStr2 = "o"
+const playerSymbolStr3 = "23"
+
+
+
 
 const result1ToF = ticTacWin(playerSymbolStr1, matrix1);
 console.log('Result 1: Player X won', result1ToF);
+
+const result2ToF = ticTacWin(playerSymbolStr2, matrix1);
+console.log('Result 2: Player X won', result2ToF);
+
+
+const result3ToF = ticTacWin(playerSymbolStr3, matrix1);
+console.log('Result 3: Player X won', result3ToF);
+
+/* Test results 
+
+Result 1: Player X won true
+Result 2: Player X won false
+Result 3: Player X won invalid player symbol
+
+*/
