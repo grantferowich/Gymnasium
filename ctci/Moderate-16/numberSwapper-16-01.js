@@ -1,9 +1,7 @@
 /* 
 Number Swapper 
-
-Successfully tested the function on July 11, 2023.
-
 CTCI 16.01
+Successfully tested the function on July 11, 2023.
 
 
 Write a function to swap two numbers in place (that is, without temporary variables.)
