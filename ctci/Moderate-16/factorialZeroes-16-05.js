@@ -49,7 +49,10 @@ console.log('Result 1: ', outputInt)
 const inputInt2 = 8
 const outputInt2 = factorialZeroes(inputInt2)
 console.log('Result 2: ', outputInt2)
+
 /* Test results 
-Result 1:  1
-Result 2:  1
+
+Result 1: 1
+Result 2: 1
+
 */
