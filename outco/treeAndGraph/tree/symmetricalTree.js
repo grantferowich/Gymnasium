@@ -4,8 +4,6 @@ Easy
 
 Given the root of a binary tree, check whether it is a mirror of itself (i.e.
 symmetrical around its center.)
-
-
 */
 
 const symmetricalTree = (root) => {

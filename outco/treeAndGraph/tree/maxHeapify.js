@@ -36,20 +36,19 @@ const getChildIndex = (arr, parentIndex, boundary) => {
 }
 
 const swapValues = (arr, x1, x2) => {
-    [ arr[x1], arr[x2] ] = [ arr[x2] , arr[x1] ]
+    [arr[x1], arr[x2] ] = [ arr[x2] , arr[x1]];
 }
 
 const bubbleDown = (arr, parentIndex, boundary) => {
     let childIndex = getChildIndex(arr, parentIndex, boundary);
-    
     // while the max heap condition is violated
     while (childIndex < boundary && arr[parentIndex] < arr[childIndex]){
         // when the max heap condition is violated swap the parent and child
         // i.e. in a max heap when the parent is smaller than th child node swap the two nodes
-        swapValues(arr, parentIndex, childIndex)
+        swapValues(arr, parentIndex, childIndex);
         // set parent equal to child and recalculate child index
         parentIndex = childIndex;
-        childIndex = getChildIndex(arr, parentIndex, boundary)
+        childIndex = getChildIndex(arr, parentIndex, boundary);
     }
 }
 

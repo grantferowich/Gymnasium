@@ -15,6 +15,7 @@ When the two path array values are equal store them in a temp value called
 tempInt. Eventually, the two paths will not be equal at each node, but the 
 node before the two paths diverge will be the lowest common ancestor.
 
+
 */
 
 class TreeNode {
