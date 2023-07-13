@@ -19,7 +19,6 @@ integer.
 */
 
 const factorialZeroes = (int) => {
-
     let productInt = 1
     const computeIntFactorial = (int) => {
         if (int === 1){
@@ -28,7 +27,7 @@ const factorialZeroes = (int) => {
         productInt *= int;
         computeIntFactorial(int - 1);
     }
-    computeIntFactorial(int)
+    computeIntFactorial(int);
     let trailingZeroesInt = 0
     let productStr = productInt.toString()
     let zeroLocationInt = productStr.length - 1
