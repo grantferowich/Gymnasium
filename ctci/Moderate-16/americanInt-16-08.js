@@ -2,6 +2,8 @@
 American Int
 CTCI 16.08
 
+Unfinished as of July 13, 2023.
+
 Given any integer, print an American phrase that describes the number.
 
 input: 1234 
@@ -18,6 +20,7 @@ Create a map. Map numbers to the American word.
 
 const americanInt = (int) => {
     let map = new Map();
+    map.set("0", "zero")
     map.set("1", "one");
     map.set("2", "two");
     map.set("3", "three");
@@ -56,15 +59,22 @@ const americanInt = (int) => {
     const decimalStr = decimalInt.toString;
     let decimalArr = [];
     let xInt = 0;
+    // put the decimal portion in American in an array
     while (xInt < decimalStr.length){
         let numStr = decimalStr[xInt];
         let wordStr = map.get(numStr);
         decimalArr.push(wordStr)
         xInt++
     }
-    let intStr = int2Str[0]
-    xInt = 0
+    let intStr = int2Str[0];
+    xInt = intStr.length - 1;
     while (xInt < intStr.length){
+        if (intStr.length < 2){
+            let intChar = intStr[xInt];
+
+        }
+        let placeInt = 1
+        if (placeInt )
         
         xInt++;
     }
