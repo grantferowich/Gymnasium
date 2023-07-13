@@ -1,6 +1,9 @@
 /* 
 Factorial Zeroes
 CTCI 16.05
+
+Partially tested as of July 12, 2023.
+
 Write an algorithm which computes the number of trailing 
 zeroes in n! factorial. 
 
