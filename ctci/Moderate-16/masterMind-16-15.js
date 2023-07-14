@@ -34,4 +34,8 @@ Approach
     and decrement totalHitsInt.
 10. Return hits: ${hitsInt} : psuedo-hits: ${totalHitsInt}
 
+Test 1
+actualStr = 'RGBY'
+guessStr = 'GGRR'
+Output: 1 hit, 1 psuedohit
 */
