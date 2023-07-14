@@ -44,9 +44,49 @@ Output: 1 hit, 1 psuedohit
 */
 
 const masterMind = (actualStr, guessStr) => {
-
-
-
+    let actualMap = new Map();
+    let guessMap = new Map();
+    let totalHitsInt = 0;
+    let hitsInt = 0;
+    let xInt = 0;
+    while (xInt < 4){
+        let actualChar = actualStr[xInt];
+        let guessChar = guessStr[xInt];
+        if (actualMap.has(actualChar)){
+            let aFrequencyInt = actualMap.get(actualChar);
+            actualMap.set(actualChar, aFrequencyInt + 1);
+        }
+        if (!actualMap.has(actualChar)){
+            actualMap.set(actualChar, 1);
+        }
+        if (guessMap.has(guessChar)){
+            let gFrequencyInt = guessMap.get(guessChar);
+            guessMap.set(guessChar, gFrequencyInt + 1);
+        }
+        if (!guessMap.has(guessChar)){
+            guessMap.set(guessChar, 1);
+        }
+        xInt++
+    }
+    
+    for (const [keyStr, frequencyInt] of guessMap){
+        let matchInt
+        if (actualMap.get(keyStr) !== undefined){
+            matchInt = Math.min(frequencyInt, actualMap.get(keyStr))
+            totalHitsInt += matchInt;
+        }
+    }
+    
+    xInt = 0;
+    
+    while (xInt < 4){
+        if (guessStr[xInt] === actualStr[xInt]){
+            hitsInt++;
+            totalHitsInt--;
+        }
+        xInt++
+    }
+    return [hitsInt, totalHitsInt]
 }
 
 /* Test */
@@ -59,6 +99,11 @@ const guessStr3 =  'RYBG';
 const result1Str = masterMind(actualStr1, guessStr1) // 1 hit(s), 1 psuedo-hit(s)
 const result2Str = masterMind(actualStr2, guessStr2) // 1 hit(s), 0 psuedo-hit(s)
 const result3Str = masterMind(actualStr3, guessStr3) // 0 hit(s), 4 psuedo-hit(s)
+console.log(`Result 1: Hits: ${result1Str[0]} | psuedo-hits: ${result1Str[1]}`);
+console.log(`Result 2: Hits: ${result2Str[0]} | psuedo-hits: ${result2Str[1]}`)
+console.log(`Result 3: Hits: ${result3Str[0]} | psuedo-hits: ${result3Str[1]}`)
 /* Test results 
-
+Result 1: Hits: 1 | psuedo-hits: 1
+Result 2: Hits: 1 | psuedo-hits: 0
+Result 3: Hits: 0 | psuedo-hits: 4
 */
