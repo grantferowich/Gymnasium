@@ -84,7 +84,6 @@ personsArr1.push(new Person(1900, 1980));
 personsArr1.push(new Person(1904, 1987));
 personsArr1.push(new Person(1940, 1949));
 personsArr1.push(new Person(1940, 1945));
-
 const int1 = maximumLivingPeople(personsArr1);
 console.log('Result 1:', int1) // 1940: 7 
 /* Test result 
