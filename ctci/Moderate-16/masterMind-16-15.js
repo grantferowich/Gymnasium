@@ -1,6 +1,9 @@
 /* 
 Master Mind
 
+CTCI 16.15
+Started engineering on July 14, 2023.
+
 The game of Master Mind is played as follows: 
 
 The computer has four slots, and each slot will contain a ball
@@ -38,4 +41,24 @@ Test 1
 actualStr = 'RGBY'
 guessStr = 'GGRR'
 Output: 1 hit, 1 psuedohit
+*/
+
+const masterMind = (actualStr, guessStr) => {
+
+
+
+}
+
+/* Test */
+const actualStr1 = 'RGBY';
+const guessStr1 = 'GGRR';
+const actualStr2 = 'YYYY';
+const guessStr2 = 'YGBR'
+const actualStr3 = 'YGRB';
+const guessStr3 =  'RYBG';
+const result1Str = masterMind(actualStr1, guessStr1) // 1 hit(s), 1 psuedo-hit(s)
+const result2Str = masterMind(actualStr2, guessStr2) // 1 hit(s), 0 psuedo-hit(s)
+const result3Str = masterMind(actualStr3, guessStr3) // 0 hit(s), 4 psuedo-hit(s)
+/* Test results 
+
 */
