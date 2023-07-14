@@ -1,30 +1,25 @@
 /* 
 Living People
 CTCI 16.10
-
 Successfully tested the question on July 13, 2023.
-
 */
-
 class Person{
     constructor(bornInt, deadInt){
         this.bornInt = bornInt;
         this.deadInt = deadInt;
     }
 }
-
-
 // in 1940 there were 7 people alive
-
 /* maximumLivingPeople */
-
-
 const maximumLivingPeople = (arr) => {
     let yearsMap = new Map()
     let startInt = 1900;
     let endYearInt = 2000;
     let xInt = startInt;
-   
+    // create the years map
+    // the years map has yearInts as keys
+    // each year has a map with three fields: 
+    // bornInt, deadInt, totalInt
     while (xInt <= endYearInt){
         yearsMap.set(xInt, new Map());
         let yearMap = yearsMap.get(xInt);
@@ -33,8 +28,8 @@ const maximumLivingPeople = (arr) => {
         yearMap.set("totalInt", 0);
         xInt++;
     }
-
     let gInt = 0;
+    // loop over the input array to populate the yearsMap
     while (gInt < arr.length){
         let personHM = arr[gInt];
         let bornYearInt = personHM['bornInt'];
@@ -45,9 +40,11 @@ const maximumLivingPeople = (arr) => {
         yearsMap.get(deathYearInt).set('deadInt', deathIntFrequencyInt + 1);
         gInt++;
     }
-
     let totalInt = 0;
     xInt = 1900;
+    // loop through the map by looping from 1900 to 2000
+    // the point of the point here is to determine the total number of people
+    // living in that particular year
     while (xInt <= endYearInt){
         let decrementInt;
         if (yearsMap.get(xInt - 1)) {
@@ -63,8 +60,8 @@ const maximumLivingPeople = (arr) => {
         yearsMap.get(xInt).set('totalInt', totalInt);
         xInt++
     }
-
     let maxTuple = [-Infinity, -Infinity]; 
+    // finally check all of the totalInt fields to find the largest 
     for (const [keyInt, valueMap] of yearsMap){
         let currentTotalInt;
         if (valueMap.get('totalInt')){
