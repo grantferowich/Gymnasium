@@ -3,6 +3,7 @@ Master Mind
 
 CTCI 16.15
 Started engineering on July 14, 2023.
+Successfully tested the solution on July 14, 2023.
 
 The game of Master Mind is played as follows: 
 
