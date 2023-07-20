@@ -9,47 +9,46 @@ entire array would be sorted. Minimize n - m
 
 Input 1
 const arr = [ 1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19]
-
-output: [ 3, 9]
+output: [ 3, 9 ].
 At [ 3, 9 ] you could sort the elements in between 
 arr[3] and arr[9] and the entire array would be sorted.
 
 Input 2
-const arr = [ 1, 1, 2, 3,      5, 13, 21, 34,]
-
+const arr = [ 1, 1, 2, 3 ]
+output: 0. 
 What is the pause condition? The number at arr[iInt] and 
 the number at arr[jInt] are equal, or, the element at arr[iInt]
 is greater than the element at arr[jInt].
 
-1. Apply the two pointer technique
-    -> specifically, initialize the two pointers at
-    the first and last indices of the array
-2. If the element at the front index is less than the element at the back index,
-then move both pointers.
-3. If the element at the front index is greater
-than or equal to the number at the back index,
-then pause and return those numbers. 
 
 */
 
 const subSort = (arr) => {
-    let iInt = 0;
-    let jInt = arr.length - 1;
-    while (iInt < jInt){
-        if ( arr[iInt] >= arr[jInt]){
-            return [iInt, jInt]
-        }   
-        iInt++
-        jInt--
-    }
-    return -1
+
 }
 
 /* Test */
-const arr = [ 1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19];
+const arr1 = [ 1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19];
+                     // x                 // x
+const arr2 = [ 1, 1, 2, 3]; // 0
+const arr3 = [2, 6, 4, 8, 10, 9, 15]; // 5
+// find the first location where the array is not sorted
+    // 1 index
+// find the last location where the array is not sorted
+    // 5 index
+// return 5 - 1 + 1
+const arr4 = [ 1, 3, 2, 4, 5 ]; // 2
 
-const resultTuple1 = subSort(arr);
 
-console.log('Result 1:', resultTuple1); // expect [ 3, 9 ]
+const resultTuple1 = subSort(arr1);
+const resultTuple2 = subSort(arr2);
+const resultTuple3 = subSort(arr3);
+const resultTuple4 = subSort(arr4);
+
+console.log('Result 1:', resultTuple1); // expect [ 3, 9 ] // 7
+console.log('Result 2:', resultTuple2); // expect  0 
+console.log('Result 3:', resultTuple3); // expect 5 
+console.log('Result 4:', resultTuple4); // expect 2
+
 
 /* Test results */
