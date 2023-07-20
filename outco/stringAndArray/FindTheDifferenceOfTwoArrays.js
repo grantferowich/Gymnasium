@@ -12,8 +12,6 @@ answer[0] is a list of all distinct integers in nums1 which are not present in n
 answer[1] is a list of all distinct integers in nums2 which are not present in nums1.
 Note that the integers in the lists may be returned in any order.
 
- 
-
 Example 1:
 Input: nums1 = [1,2,3], nums2 = [2,4,6]
 Output: [[1,3],[4,6]]
@@ -68,4 +66,8 @@ const arr2 = [ 2, 4, 6];
 const tuple1 = findTheDifferenceOfTwoArrays(arr1, arr2); // [[1, 3], [4, 6]];
 
 console.log('Result 1:', tuple1)
-/* Test results */
+/* Test results 
+
+Result 1: [ [ 1, 3 ], [ 4, 6 ] ]
+
+*/
