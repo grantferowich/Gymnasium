@@ -37,35 +37,36 @@ Window position                Max
 */
 
 const slidingWindowMaximum = (nums, k) => {
-    let rightPtr = 0;
-    let leftPtr = 0;
-    let maxVal = -Infinity
-    let maxValIndex = -1
-    let output = []
-
-    while (rightPtr < nums.length){
-        let num = nums[rightPtr];
+    if (k > nums.length){
+        return [];
+    }
+    let rightPtrInt = 0;
+    let leftPtrInt = 0;
+    let maxValInt = -Infinity;
+    let maxValIndexInt = -1;
+    let outputArr = [];
+    while (rightPtrInt < nums.length){
+        let num = nums[rightPtrInt];
         // maxVal = Math.max(maxVal, num);
-        if (num >= maxVal){
-            maxVal = num;
-            maxValIndex = rightPtr;
+        if (num >= maxValInt){
+            maxValInt = num;
+            maxValIndexInt = rightPtrInt;
         }
-        rightPtr++;
-        
-        if (rightPtr - leftPtr === k){
-            output.push(maxVal)
+        rightPtrInt++;
+        if (rightPtrInt - leftPtrInt === k){
+            outputArr.push(maxValInt)
             // handle the case where the maxVal leaves when leftPtr moves
-            if (maxValIndex === leftPtr){
-                maxVal = -Infinity;
-                for (let x = leftPtr+1; x < rightPtr; x++){
+            if (maxValIndexInt === leftPtrInt){
+                maxValInt = -Infinity;
+                for (let x = leftPtrInt+1; x < rightPtrInt; x++){
                     let num = nums[x];
-                    if (num >= maxVal){
-                        maxVal = num;
-                        maxValIndex = x
+                    if (num >= maxValInt){
+                        maxValInt = num;
+                        maxValIndexInt = x
                     }
                 }
             }
-            leftPtr++
+            leftPtrInt++
         }
         
         // if (rightPtr - leftPtr >= k){
@@ -79,7 +80,7 @@ const slidingWindowMaximum = (nums, k) => {
         //     }
         // }
     }
-    return output;
+    return outputArr;
 }
 
 let nums1 = [1,3,-1,-3,5,3,6,7]  // [3,3,5,5,6,7]

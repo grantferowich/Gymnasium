@@ -32,8 +32,11 @@ const slidingWindowMaximum = (array, k) => {
     let slidingWindowArr = [];
     let outputArr = [];
     let currentMaxInt = -Infinity;
+    // if (array.length === 1){
+    //     return array
+    // }
     // initialize fixed window from 0 to k-1
-    for (let x = 0; x < k - 1; x++){
+    for (let x = 0; x < k; x++){
         if (array[x] > currentMaxInt){
             currentMaxInt = array[x];
         }
@@ -78,3 +81,11 @@ const slidingWindowMaximum = (array, k) => {
 const numsArr = [1,3,-1,-3,5,3,6,7]
 const output = slidingWindowMaximum(numsArr, 3)
 console.log('Test 1:', output)
+
+const numsArr2 = [1];
+const outputArr2 = slidingWindowMaximum(numsArr2, 1)
+console.log('Test 2:', outputArr2)
+
+const numsArr3 = [ 1, -1];
+const outputArr3 = slidingWindowMaximum(numsArr3, 1)
+console.log('Test 3:', outputArr3)

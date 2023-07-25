@@ -6,21 +6,20 @@ Premium
 Given a string s and an integer k, return the number of substrings
 in s of length k with no repeated characters.
 
-
+Example 1
 s = 'havefunonleetcode', k = 5
 output: 6
 Explanation: The six substrings are: 'havef',
 'avefu', 'vefun', 'efuno, 'etcod', 'tcode'.
 
+Example 2
+s = 'home', k = 5
+output: 0
+-> k cannot be larger than substring
 
 Expand the window from 0 to k-1
 check if the word is unique 
 move the window to the end of the string 
-
-
-s = 'home', k = 5
-output: 0
--> k cannot be larger than substring
 */
 
 const isUnique = (wordStr) => {
@@ -36,19 +35,15 @@ const isUnique = (wordStr) => {
 }
 
 const findKLengthSubstrings = (inputStr, kInt) => {
-
     if (kInt > inputStr.length){
         return 0
     }
-
     let windowArr = [];
     let uniqueSubstringArr = [];
     // initialize window from 0 to k
-    
     for (let x = 0; x < kInt; x++){
         windowArr.push(inputStr[x])
     }
-
     for (let x = kInt; x < inputStr.length+1; x++){
         let isUniqueToF = isUnique(windowArr.join(''))
         if (isUniqueToF){
