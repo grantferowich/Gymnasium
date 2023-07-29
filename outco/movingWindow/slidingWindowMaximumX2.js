@@ -52,8 +52,10 @@ const slidingWindowMaximum = (array, k) => {
         slidingWindowArr.push(array[x]);
         let evictedValue = slidingWindowArr.unshift();
         
+    
         if (evictedValue === currentMaxInt){
             currentMaxInt = -Infinity;
+            // find new max integer
             for (let y = 0; y < slidingWindowArr.length; y++){
                 if (slidingWindowArr[y] > currentMaxInt){
                     currentMaxInt = slidingWindowArr[y];
