@@ -93,12 +93,13 @@ let nums3 = [1, -1]
 let k3 = 1
 
 let nums4 = [1,3,1,2,0,5]
-let k4 = 3
+let kInt4 = 3
+
 
 console.log(slidingWindowMaximum(nums1, k1)) // [3,3,5,5,6,7]
 console.log(slidingWindowMaximum(nums2, k2)) // [1]
 console.log(slidingWindowMaximum(nums3, k3)) // [1, -1] 
-console.log(slidingWindowMaximum(nums4, k4)) // [3,3,2,5] // [3,3,0,5]
+console.log(slidingWindowMaximum(nums4, k4)) // [3,3,2,5] // [3,3,2,5]
 
 /*
 Explanation: 
