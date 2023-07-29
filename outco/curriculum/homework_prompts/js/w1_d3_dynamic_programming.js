@@ -103,15 +103,12 @@
   // Time Complexity: O(XY)
   // Auxiliary Space Complexity: O(1)
 function latticePaths(x, y) {
-  
     let table = new Array(y+1).fill(1);
-
     for (let j = 0; j < x; j++){
       for ( i = 0; i < y + 1; i++){
           table[j][i] = table[j-1][i] + table[j][i-1];
       }
     }
-
     return table[x][y];
 }
 
@@ -125,9 +122,7 @@ const latticePathsWithMemoization = (m,n) => {
     if (row < 0 || col < 0){
       return 0;
     }
-
     if (cache[key]){ return }
-
     let up = traverse(row - 1, col)
     let left = traverse(row, col - 1)
     cache[key] = up + left;
