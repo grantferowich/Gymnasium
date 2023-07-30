@@ -2,7 +2,6 @@
 class JustAClass {
     public: 
         void print(){
-   
             std::cout << "Hi from just a class" << std::endl;
         }
 };
