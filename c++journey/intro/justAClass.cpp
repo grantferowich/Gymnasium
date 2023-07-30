@@ -1,3 +1,6 @@
+/* 
+Successfully tested the class on July 30, 2023.
+ */
 #include <iostream>
 class JustAClass {
     public: 
