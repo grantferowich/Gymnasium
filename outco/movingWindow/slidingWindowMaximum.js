@@ -36,8 +36,8 @@ Window position                Max
 
 */
 
-const slidingWindowMaximum = (nums, k) => {
-    if (k > nums.length){
+const slidingWindowMaximum = (nums, kInt) => {
+    if (kInt > nums.length){
         return [];
     }
     let rightPtrInt = 0;
@@ -46,39 +46,28 @@ const slidingWindowMaximum = (nums, k) => {
     let maxValIndexInt = -1;
     let outputArr = [];
     while (rightPtrInt < nums.length){
-        let num = nums[rightPtrInt];
-        // maxVal = Math.max(maxVal, num);
-        if (num >= maxValInt){
-            maxValInt = num;
+        let numInt = nums[rightPtrInt];
+        if (numInt >= maxValInt){
+            maxValInt = numInt;
             maxValIndexInt = rightPtrInt;
         }
         rightPtrInt++;
-        if (rightPtrInt - leftPtrInt === k){
+        if (rightPtrInt - leftPtrInt === kInt){
             outputArr.push(maxValInt)
-            // handle the case where the maxVal leaves when leftPtr moves
+            // handle the case where the maxVal leaves when leftPtrInt is about to moves
             if (maxValIndexInt === leftPtrInt){
                 maxValInt = -Infinity;
-                for (let x = leftPtrInt+1; x < rightPtrInt; x++){
-                    let num = nums[x];
-                    if (num >= maxValInt){
-                        maxValInt = num;
-                        maxValIndexInt = x
+                // perform O(kInt) scan to find and store the maximum value in the window
+                for (let xInt = leftPtrInt+1; xInt < rightPtrInt; xInt++){
+                    let numInt = nums[xInt];
+                    if (numInt >= maxValInt){
+                        maxValInt = numInt;
+                        maxValIndexInt = xInt
                     }
                 }
             }
             leftPtrInt++
         }
-        
-        // if (rightPtr - leftPtr >= k){
-        //     leftPtr++
-        //     if (nums.indexOf(maxVal) < leftPtr){
-        //         maxVal = -Infinity
-        //         for (let x = leftPtr; x < rightPtr; x++){
-        //             let num = nums[x];
-        //             maxVal = Math.max(maxVal, num)
-        //         }
-        //     }
-        // }
     }
     return outputArr;
 }
