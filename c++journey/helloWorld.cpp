@@ -1,5 +1,7 @@
 #include <iostream>
-
+/* 
+Successfully tested the function on July 30, 2023.
+ */
 int sumDigits(int firstInt, int secondInt) {
         return firstInt + secondInt;
 }
@@ -10,7 +12,6 @@ int main() {
     int ageInt = 30;
     double pi = 3.141;
     char letterChar = 'G';
-    
     // conditional
     if (ageInt >= 21){
         std::cout << "You can purchase different things." << std::endl;
