@@ -36,8 +36,8 @@ Window position                Max
 
 */
 
-const slidingWindowMaximum = (nums, kInt) => {
-    if (kInt > nums.length){
+const slidingWindowMaximum = (numsArr, kInt) => {
+    if (kInt > numsArr.length){
         return [];
     }
     let rightPtrInt = 0;
@@ -45,8 +45,8 @@ const slidingWindowMaximum = (nums, kInt) => {
     let maxValInt = -Infinity;
     let maxValIndexInt = -1;
     let outputArr = [];
-    while (rightPtrInt < nums.length){
-        let numInt = nums[rightPtrInt];
+    while (rightPtrInt < numsArr.length){
+        let numInt = numsArr[rightPtrInt];
         if (numInt >= maxValInt){
             maxValInt = numInt;
             maxValIndexInt = rightPtrInt;
@@ -59,7 +59,7 @@ const slidingWindowMaximum = (nums, kInt) => {
                 maxValInt = -Infinity;
                 // perform O(kInt) scan to find and store the maximum value in the window
                 for (let xInt = leftPtrInt+1; xInt < rightPtrInt; xInt++){
-                    let numInt = nums[xInt];
+                    let numInt = numsArr[xInt];
                     if (numInt >= maxValInt){
                         maxValInt = numInt;
                         maxValIndexInt = xInt
@@ -72,23 +72,26 @@ const slidingWindowMaximum = (nums, kInt) => {
     return outputArr;
 }
 
-let nums1 = [1,3,-1,-3,5,3,6,7]  // [3,3,5,5,6,7]
-let k1 = 3
+/* Tests */
+let nums1Arr = [1,3,-1,-3,5,3,6,7];
+let k1Int = 3;
 
-let nums2 = [1]
-let k2 = 1
+let nums2Arr = [1];
+let k2Int = 1;
 
-let nums3 = [1, -1]
-let k3 = 1
+let nums3Arr = [1, -1];
+let k3Int = 1;
 
-let nums4 = [1,3,1,2,0,5]
-let kInt4 = 3
+let nums4Arr = [1,3,1,2,0,5];
+let k4Int = 3;
 
 
-console.log(slidingWindowMaximum(nums1, k1)) // [3,3,5,5,6,7]
-console.log(slidingWindowMaximum(nums2, k2)) // [1]
-console.log(slidingWindowMaximum(nums3, k3)) // [1, -1] 
-console.log(slidingWindowMaximum(nums4, k4)) // [3,3,2,5] // [3,3,2,5]
+console.log(slidingWindowMaximum(nums1Arr, k1Int)); // Expect [3,3,5,5,6,7]
+console.log(slidingWindowMaximum(nums2Arr, k2Int)); // Expect [1]
+console.log(slidingWindowMaximum(nums3Arr, k3Int)); // Expect [1, -1] 
+console.log(slidingWindowMaximum(nums4Arr, k4Int)); // Expect [3,3,2,5] 
+
+/*  */
 
 /*
 Explanation: 
