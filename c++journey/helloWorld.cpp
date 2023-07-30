@@ -10,7 +10,7 @@ int main() {
     std::cout << "Hello, world" << std::endl;
     // data types
     int ageInt = 30;
-    double pi = 3.141;
+    double piDouble = 3.141;
     char letterChar = 'G';
     // conditional
     if (ageInt >= 21){
