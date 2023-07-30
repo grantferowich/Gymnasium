@@ -56,12 +56,7 @@
 
  */
  int indexOf(vector<int> arr, int target) {
-   for (int i = 0; i < arr.size(); i++) {
-     if(arr[i] == target) {
-       return i;
-     }
-   }
-   return -1;
+
  }
 
 
@@ -83,13 +78,7 @@
 
  */
  vector<int> evens(vector<int> arr) {
-   vector<int> results;
-   for(int i = 0; i < arr.size(); i++) {
-     if(arr[i] % 2 == 0) {
-       results.push_back(arr[i]);
-     }
-   }
-   return results;
+ 
  }
 
 
@@ -111,11 +100,7 @@
 
  */
  int sum(vector<int> arr) {
-   int total = 0;
-   for(int i = 0; i < arr.size(); i++) {
-     total = total + arr[i];
-   }
-   return total;
+
  }
 
 
@@ -138,23 +123,7 @@
 
  */
  vector<int> merge(vector<int> arr1, vector<int> arr2) {
-   int totalElements = arr1.size() + arr2.size();
-   vector<int> result(totalElements, 0);
-   int i = 0;
-   int j = 0;
-   int k = 0;
-   while(i + j < totalElements) {
-     if(j >= arr2.size() || (i < arr1.size() && arr1[i] <= arr2[j])) {
-       result[k] = arr1[i];
-       i++;
-       k++;
-     } else {
-       result[k] = arr2[j];
-       j++;
-       k++;
-     }
-   }
-   return result;
+
  }
 
 
@@ -178,22 +147,7 @@
 
  */
  int binarySearch(vector<int> arr, int val) {
-   int low = 0;
-   int high = arr.size() - 1;
-   int mid;
-   while(low <= high) {
-     mid = (low + high) / 2;
-     if(arr[mid] > val) {
-       high = mid - 1;
-     }
-     else if (arr[mid] < val) {
-       low = mid + 1;
-     }
-     else {
-       return mid;
-     }
-   }
-   return -1;
+
  }
 
 
@@ -215,10 +169,7 @@
 
  */
  int factorial(int n) {
-   if(n <= 1) {
-     return 1;
-   }
-   return n * factorial(n - 1);
+ 
  }
 
 
@@ -228,13 +179,7 @@
  *  Auxiliary Space Complexity:
  */
  int firstTimesLast(vector<int> arr) {
-   int result = 0;
-   if (arr.size() < 2) {
-     return result;
-   } else {
-     result = arr[0] * arr[arr.size()-1];
-     return result;
-   }
+
  }
 
 
@@ -244,26 +189,7 @@
   *  Auxiliary Space Complexity:
   */
  char mostFrequentOccurrence(string str) {
-   unordered_map<char, int> letters;
-   char mostFrequent = str[0];
-   char currentChar;
-   int maxCount = 0;
 
-   for (int i = 0; i < str.size(); i++) {
-     currentChar = str[i];
-     letters[currentChar]++;
-   }
-
-   for(auto keyPair: letters) {
-     char key = keyPair.first;
-     int count = keyPair.second;
-     if (count > maxCount) {
-       mostFrequent = key;
-       maxCount = count;
-     }
-   }
-
-   return mostFrequent;
  }
 
 
@@ -273,11 +199,7 @@
   *  Auxiliary Space Complexity:
   */
  void printUnorderedPairs(vector<int> arr) {
-  for (int i = 0; i < arr.size(); i++) {
-     for (int j = i + 1; j < arr.size(); j++) {
-       cout << to_string(arr[i]) + "," + to_string(arr[j]);
-     }
-   }
+
  }
 
 
@@ -287,15 +209,8 @@
   *  Auxiliary Space Complexity:
   */
  vector<vector<int>> makeCombinedMatrix(vector<int> arr1, vector<int> arr2) {
-   vector<vector<int>> result(arr1.size(), vector<int>(arr2.size(),0));
-
-   for (int i = 0; i < arr1.size(); i++) {
-     for (int j = 0; j < arr2.size(); j++) {
-       result[i][j] = arr1[i] + arr2[j];
-     }
-   }
-
-   return result;
+ 
+  
  }
 
  /**
@@ -305,16 +220,7 @@
   *  Auxiliary Space Complexity:
   */
  int nthFibonacci(int n) {
-   if(n < 2){ return n; }
-
-   vector<int> result(n+1, 0);
-   result[0] = 0;
-   result[1] = 1;
-
-   for(int i = 2; i < n+1; i++) {
-     result[i] = result[i-1] + result[i-2];
-   }
-   return result[n];
+ 
  }
 
 
@@ -325,30 +231,4 @@
 */
 
 unordered_map<int, int> cache;
-int result;
 
-int searchFib(int index) {
-  int solution;
-
-  if (index < 2) {
-   return index;
-  }
-
-  if (cache.find(index) != cache.end()) {
-   return cache[index];
-  }
-
-  solution = searchFib(index-1) + searchFib(index-2);
-  cache[index] = solution;
-  return solution;
-}
-
-int nthFibonnaci(int n) {
-  result = 0;
-  result = searchFib(n);
-  return result;
-}
-
-int main(){
-  return 0;
-}
