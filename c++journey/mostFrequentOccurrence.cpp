@@ -23,9 +23,9 @@
 *   --> 10. If the integer value is greater than the mostFrequentInteger,
 *       then set the mostFrequentChar to be the present character.
 * 11. Return the mostFrequentChar.
-
-time complexity: O(N) where n is the length of the str param
-space complexity: O(c) where c is the number of characters in the str
+* 
+* time complexity: O(N) where n is the length of the str param
+* space complexity: O(c) where c is the number of characters in the str
 */
 #include <string>
 #include <iostream>
