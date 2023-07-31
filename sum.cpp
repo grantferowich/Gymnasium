@@ -1,7 +1,7 @@
  /*  Sum
 
  Given an array of integers, return the sum of all the integers.
-
+ Successfully test the C++ implementation on July 31, 2023.
  Parameters
  Input: arr {Array of ints}
  Output: {int}
@@ -11,8 +11,8 @@
  [0, 1, -1] --> 0
  [] --> 0
 
- Time Complexity:
- Auxiliary Space Complexity:
+ Time Complexity: O(N)
+ Auxiliary Space Complexity: O(1)
 
  */
 #include <iostream>
