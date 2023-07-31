@@ -30,11 +30,11 @@ vector<int> mergeArrays (const std::vector<int>& vec1, const std::vector<int>& v
         if (vec1[gInt1] < vec2[gInt2]){
             mergedVec.push_back(vec1[gInt1]);
             gInt1++;
-        };
+        }
         if (vec2[gInt2] < vec1[gInt1]){
             mergedVec.push_back(vec2[gInt2]);
             gInt2++;
-        };
+        }
     }
     if (vec1.size() > vec2.size()){
         int differenceInt = vec1.size() - vec2.size();
@@ -46,25 +46,25 @@ vector<int> mergeArrays (const std::vector<int>& vec1, const std::vector<int>& v
         vector<int>remainingVec2(vec2.end() - differenceInt, vec2.end());
         mergedVec.insert(mergedVec.end(), remainingVec2.begin(), remainingVec2.end());
     }
-    
-
     return mergedVec;
 }
 
 void printVector(vector<int> vec){
     int gInt1 = 0;
     while (gInt1 < vec.size()){
-        cout << vec[gInt1] << " ";
+        cout << vec[gInt1] << ", ";
         gInt1++;
     };
 };
 
 int test(){
     vector<int> outputVector1 = mergeArrays({1 , 2, 13}, {4, 9, 23});
-    cout << "Result 1:" << endl;
+    cout << "Result 1: " << endl;
     printVector(outputVector1);
+
+
     vector<int> outputVector2 = mergeArrays({1, 2, 3, 5, 9}, {4, 7, 23, 34, 89, 127, 244, 340});
-    cout << "Result 2: " << endl;
+    cout << "\nResult 2: " << endl;
     printVector(outputVector2);
     return 0;
 }
@@ -73,3 +73,13 @@ int main(){
     test();
     return 0;
 }
+
+/* Test results
+
+Result 1: 
+1 2 4 9 13 
+
+Result 2: 
+1 2 3 4 5 7 9 127 244 340 %  
+
+ */
