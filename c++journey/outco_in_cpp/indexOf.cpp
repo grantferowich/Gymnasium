@@ -19,7 +19,6 @@
  */
 #include <iostream>
 #include <vector>
-
 int findIndexOf(const std::vector<int>& vect, int targetInt) {
     int indexInt = 0;
     for (int valueInt : vect){
@@ -30,7 +29,6 @@ int findIndexOf(const std::vector<int>& vect, int targetInt) {
     }
     return -1;
 }
-
 int test(){
     int resultInt1 = findIndexOf({1, 2, 3, 4, 5, 6}, 5); 
     int resultInt2 = findIndexOf({9, 83, 74}, 8);
@@ -40,7 +38,6 @@ int test(){
     std::cout << "Result 3: " << resultInt3 << std::endl;
     return 0;
 }
-
 int main(){
     test();
     return 0;
