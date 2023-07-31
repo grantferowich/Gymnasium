@@ -1,6 +1,7 @@
 /*
  *     Evens
- *
+ *     Successfully tested evens on July 31, 2023.
+ * 
  *     Given an array of integers, return an array of only the even values.
  *
  *     Parameters
@@ -12,8 +13,8 @@
  *     [9, 83, 74] --> [74]
  *     [6, 4, 7, 9, 7, 8, 2, 4, 3] --> [6, 4, 8, 2, 4]
  *      [1, 1, 2, 3, 5, 8, 13, 21, 34] -> [2, 8, 34]
- *     Time Complexity:
- *     Auxiliary Space Complexity:
+ *     Time Complexity: O(N)
+ *     Auxiliary Space Complexity: O(N)
  */
 
 #include <iostream>
@@ -35,6 +36,7 @@ void printVector(const std::vector<int>& vec){
     }
     std::cout << std::endl;
 }
+
 int test(){
     std::vector<int> resultVec1 = evens({1, 2, 3, 4, 5, 6});
     std::cout << "Result 1: ";
