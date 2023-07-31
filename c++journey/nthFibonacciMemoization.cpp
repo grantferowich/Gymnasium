@@ -11,16 +11,12 @@ using namespace std;
 int nthFibonacciMemoization(int gInt ){
     unordered_map<string, int> intMap;
     string keyStr = to_string(gInt);
-    
     if (intMap.find(keyStr) != intMap.end()){
         return intMap[keyStr];
     }
-
     if (gInt < 2){
         return intMap[keyStr] = gInt;
     }
-    
-  
     return intMap[keyStr] = nthFibonacciMemoization(gInt - 1) + nthFibonacciMemoization(gInt - 2);
 }
 int main(){
@@ -30,3 +26,7 @@ int main(){
     cout << "Result 2: " << resultInt2 << endl;
     return 0;
 }
+/* Test results
+Result 1: 55
+Result 2: 6765
+*/
