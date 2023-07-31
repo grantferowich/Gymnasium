@@ -12,8 +12,8 @@
  * 1 --> 1 (1)
  * 9 --> 362880 (9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1)
 
- Time Complexity: O(N)
- Auxiliary Space Complexity: O(1)
+ * Time Complexity: O(N)
+ * Auxiliary Space Complexity: O(1)
 
  */
 #include <iostream>
