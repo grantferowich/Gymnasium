@@ -19,9 +19,9 @@
 
 #include <iostream>
 #include <vector>
-
-std::vector<int> evens (const std::vector<int>& vec) {
-    std::vector<int> outputVec;
+using namespace std;
+vector<int> evens (const vector<int>& vec) {
+    vector<int> outputVec;
     for (int valueInt : vec){
         if (valueInt % 2 == 0){
             outputVec.push_back(valueInt);
