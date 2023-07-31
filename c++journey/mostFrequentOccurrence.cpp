@@ -67,3 +67,7 @@ int main(){
     test();
     return 0;
 }
+/* Test results
+Result 1: l
+Result 2: e
+*/
