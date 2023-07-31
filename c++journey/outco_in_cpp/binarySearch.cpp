@@ -57,7 +57,6 @@ int test(){
 
     int resultInt2 = binarySearch({5, 7, 10, 12, 14}, 7);
     cout << "\nResult Integer 2: " << resultInt2 << endl;
-    
 
     int resultInt3 = binarySearch({2, 4, 8, 9, 15}, 3);
     cout << "\nResult Integer 3: " << resultInt3 << endl;
