@@ -1,7 +1,8 @@
 /**
  *
  * Unique
- *
+ * Finished testing on 8/1/23.
+ 
  * Given an array/vector of integers, return an array/vector with all duplicates removed.*
  *
  * Parameters

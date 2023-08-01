@@ -21,5 +21,11 @@
  *  Picture here: https://res.cloudinary.com/outco/image/upload/v1519850256/graph-traversal/Paper.Graph_Traversal.2.png
  *
  *
- *
+ * Implement a queue. 
+ * Traverse the graph in a breadth-first traversal manner:
+ * Locate all the neighbors of the present node.
+ * Enqueue those neighbors to the queue if the neighbors have not been visited. 
+ * Keep track of the neighborDegreeInt. 
+ * At first the neighborDegreeInt is 0.
+ * If the 
  */
