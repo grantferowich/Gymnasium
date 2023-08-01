@@ -36,8 +36,6 @@
 #include <array>
 #include <sstream>
 using namespace std;
-
-
 vector<string> splitString(string inputStr){
     istringstream iss(inputStr);
     vector<string> wordsVec;
@@ -47,8 +45,8 @@ vector<string> splitString(string inputStr){
     }
     return wordsVec;
 }
-
 unordered_map<string, int> wordCount(string sentenceStr){
+    unordered_map<string, int> wordMap;
     unordered_set<char> punctuationSet{ ';', '\'', ',',  '.', '!', '?' };
     string cleanSentenceStr;
     for (char character : sentenceStr){
@@ -56,17 +54,23 @@ unordered_map<string, int> wordCount(string sentenceStr){
             cleanSentenceStr += tolower(character);
         }
     }
-    vector<string> wordsVec = splitString(cleanSentenceStr)
-
+    vector<string> wordsVec = splitString(cleanSentenceStr);
+    for (string word : wordsVec){
+        if (wordMap.find(word) != wordMap.end()){
+            int frequencyInt = wordMap.count(word);
+            wordMap[word] = frequencyInt + 1;
+        }
+        if (wordMap.find(word) == wordMap.end()){
+            wordMap[word] = 1; 
+        }
+    }
+    return wordMap;
 }
-
 void printMap(const unordered_map<string, int> wordMap){
     for (const auto& keyvalue : wordMap){
         cout << keyvalue.first << "=>" << keyvalue.second << endl;
     }
-
 }
-
 void test(){
     unordered_map<string, int> resultMap1 = wordCount("The cat and the hat.");
     cout << "Address of map1: " << &resultMap1 << endl;
@@ -81,7 +85,6 @@ void test(){
     cout << "Result of map3: " << endl;
     printMap(resultMap3);
 }
-
 int main(){
     test();
     return 0;
