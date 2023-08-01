@@ -10,7 +10,7 @@ using namespace std;
 int nthFibonacciMemoization(int gInt ){
     unordered_map<string, int> intMap;
     string keyStr = to_string(gInt);
-    if (intMap.find(keyStr) != intMap.end()){
+    if (intMap[keyStr] != 0){
         return intMap[keyStr];
     }
     if (gInt < 2){
