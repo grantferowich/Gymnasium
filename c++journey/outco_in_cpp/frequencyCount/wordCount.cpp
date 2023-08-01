@@ -1,7 +1,8 @@
 /**
-* Word Count
-*
-* Given a body of text, return a hash table of the frequency of each word.
+*  * Word Count
+*  * Successfully developed and tested the function 08/1/23.
+* 
+*  * Given a body of text, return a hash table of the frequency of each word.
 *
 * Parameters
 * Input: sentence {string}
