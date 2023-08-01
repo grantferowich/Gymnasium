@@ -1,6 +1,7 @@
 /**
  * RGB Set
- *
+ * Successfully tested and developed function on August 1, 2023.
+
  * Given a string of characters where each character is either 'r', 'g', or 'b',
  * determine the number of complete sets of 'rgb' that can be made with the
  * characters.
@@ -37,7 +38,6 @@
 #include <array>
 #include <sstream>
 using namespace std;
-
 int rgb(string str){
     unordered_map<char, int> charMap;
     for (char c : str){
@@ -51,7 +51,6 @@ int rgb(string str){
     int minimumInt = min(min(charMap['r'], charMap['g']), charMap['b']);
     return minimumInt;
 }
-
 void test(){
     int resultInt1 = rgb("rgbrgb");
     cout << "Result 1: " << resultInt1 << endl;
@@ -60,7 +59,6 @@ void test(){
     int resultInt3 = rgb("bbrr");
     cout << "Result 3: " << resultInt3 << endl;
 }
-
 int main(){
     test();
     return 0;
