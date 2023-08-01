@@ -23,6 +23,7 @@
 * 'It's a man, it's a plane, it's superman!' --> '{ its: 3, a: 2, man: 1, plane: 1, superman: 1 }'`
 */
 #include <array>
+#include <cctype>
 #include <cmath>
 #include <iterator>
 #include <ostream>
@@ -33,9 +34,29 @@
 #include <unordered_map>
 #include <iostream>
 #include <array>
+#include <sstream>
 using namespace std;
 
+
+vector<string> splitString(string inputStr){
+    istringstream iss(inputStr);
+    vector<string> wordsVec;
+    string word;
+    while (iss >> word){
+        wordsVec.push_back(word);
+    }
+    return wordsVec;
+}
+
 unordered_map<string, int> wordCount(string sentenceStr){
+    unordered_set<char> punctuationSet{ ';', '\'', ',',  '.', '!', '?' };
+    string cleanSentenceStr;
+    for (char character : sentenceStr){
+        if (punctuationSet.find(character) == punctuationSet.end()){
+            cleanSentenceStr += tolower(character);
+        }
+    }
+    vector<string> wordsVec = splitString(cleanSentenceStr)
 
 }
 
@@ -43,6 +64,7 @@ void printMap(const unordered_map<string, int> wordMap){
     for (const auto& keyvalue : wordMap){
         cout << keyvalue.first << "=>" << keyvalue.second << endl;
     }
+
 }
 
 void test(){
