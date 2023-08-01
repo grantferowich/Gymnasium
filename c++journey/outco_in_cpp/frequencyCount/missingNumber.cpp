@@ -32,14 +32,12 @@
 #include <array>
 #include <sstream>
 using namespace std;
-
 void printVector(const std::vector<int>& vec){
     for (int valueInt : vec){
         cout << valueInt << " ";
     }
     cout << endl;
 }
-
 vector<int> missingNumbers(int numInt, vector<int> vec){
     unordered_map<int, int> intMap;
     vector<int> outputVec;
@@ -60,7 +58,6 @@ vector<int> missingNumbers(int numInt, vector<int> vec){
     }
     return outputVec;
 }
-
 void test(){
     vector<int> resultVec1 = missingNumbers(4, { 1, 2, 4 }); // 3
     cout << "Result 1: " << endl;
@@ -74,20 +71,16 @@ void test(){
     cout << "Result 3: " << endl;
     printVector(resultVec3);
 }
-
 int main(){
     test();
     return 0;
 }
-
 /* 
 Test results
-
 Result 1: 
 3 
 Result 2: 
 2 3 5 8 
 Result 3: 
 3 5 
-
- */
+*/
