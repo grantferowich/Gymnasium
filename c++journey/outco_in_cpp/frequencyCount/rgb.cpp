@@ -19,10 +19,9 @@
  * `'rbgrbrgrgbgrrggbbbbrgrgrgrg' --> 7`
  * `'bbrr' --> 0`
  * * Approach
- 1. Initialize a character map <char, int>
- 2. Count the number of rs, bs, and gs 
- 3. Take the minimum number of charMap['r'], charMap['g'], charMap['b']
- 4. 
+ 1. Initialize a character map <char, int>;
+ 2. Count the number of rs, bs, and gs;
+ 3. Take the minimum number of charMap['r'], charMap['g'], charMap['b'];
  */
 #include <array>
 #include <cctype>
