@@ -1,6 +1,6 @@
 /**
   * Character Mode
-  *
+  * Developed on August 2, 2023.
   * Given a string, find the most frequent occurring letter(s) in the string
   *
   * Parameters
