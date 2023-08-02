@@ -1,5 +1,6 @@
 /* 
 *  Anagram Palindrome
+*  Developed on August 2, 2023.
 *  A palindrome is a word that is the same as its reversed. For example: "racecar"
 *  and "noon" are palindromes because they match their reversed version
 *  respectively. On the other hand, "cat" is not a palindrome because "cat"
