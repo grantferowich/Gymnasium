@@ -4,7 +4,6 @@
 * 'As soon as possible.' 
 * 'It's a man, it's a plane, it's superman!' 
  */
-
 #include <array>
 #include <cctype>
 #include <cmath>
@@ -19,8 +18,6 @@
 #include <array>
 #include <sstream>
 using namespace std;
-
-
 vector<string> splitString(string inputStr){
     istringstream iss(inputStr);
     vector<string> wordsVec;
@@ -30,14 +27,12 @@ vector<string> splitString(string inputStr){
     }
     return wordsVec;
 }
-
 void printVector(const std::vector<string>& vec){
     for (string valueStr : vec){
         cout << valueStr << " ";
     }
     cout << endl;
 }
-
 int main(){
     vector<string> resultStr1 = splitString("Wake Forest University.");
     cout << "Result 1: " << endl;
