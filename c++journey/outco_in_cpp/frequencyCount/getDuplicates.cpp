@@ -42,9 +42,21 @@ using namespace std;
 * 4. Return the outputVec.
  */
 vector<int> getDuplicates(vector<int> vecX){
-
     vector<int> outputVec;
-
+    unordered_map<int, int> frequencyMap;
+    for (const int intX : vecX){
+        if (frequencyMap.find(intX) != frequencyMap.end()){
+            frequencyMap[intX] = frequencyMap[intX] + 1;
+        }
+        if (frequencyMap.find(intX) == frequencyMap.end()){
+            frequencyMap[intX] = 1;
+        }
+    }
+    for (const auto keyValue : frequencyMap){
+        if (keyValue.second >= 2){
+            outputVec.push_back(keyValue.first);
+        }
+    }
     return outputVec;
 }
 
