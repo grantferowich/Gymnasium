@@ -46,14 +46,13 @@
 using namespace std;
 
 int sortDigits(int intX){
-
     unordered_map<char, int> frequencyMap;
     string outputStr;
     string strX = to_string(intX);
     /* 
-    * 1. Initialize frequencyMap<char, int> and outputStr.
-    * 2. Convert input int into a string.
-    * 3. Build up frequencyMap by looping over the string.
+     * 1. Initialize frequencyMap<char, int> and outputStr.
+     * 2. Convert input int into a string.
+     * 3. Build up frequencyMap by looping over the string.
      */
     for (const char elementX : strX){
         if (frequencyMap.find(elementX) != frequencyMap.end()){
@@ -74,10 +73,8 @@ int sortDigits(int intX){
         }
         iInt++;
     }
-
     int outputInt = stoi(outputStr);
     return outputInt;
-
 }
 
 void test(){
@@ -93,3 +90,12 @@ int main(){
     test();
     return 0;
 }
+
+/* 
+Test results
+
+Result 1: 789
+Result 2: 23445
+Result 3: 111
+
+ */

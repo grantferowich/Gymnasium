@@ -86,3 +86,12 @@ int main(){
     test();
     return 0;
 }
+/* Test results
+Result 1: 
+2 
+Result 2: 
+3 2 
+Result 3: 
+
+Result 4: 
+8 5 1  */
