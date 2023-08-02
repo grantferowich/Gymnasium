@@ -1,6 +1,6 @@
 /**
   * Letter Sort
-  *
+  * Developed the function on August 1, 2023.
   * Given a string of lowercase letters, return the letters in sorted order.
   *
   * Parameters
