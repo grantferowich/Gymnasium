@@ -1,6 +1,7 @@
  /**
   *  2a. Print each integer in an array/vector in order using Helper Method Recursion
-  *
+  *  Developed Print Array on August 3, 2023. 
+  
   *  Input:   arr/vector {Array/vector of ints}
   *  Output:  {void}
   *
