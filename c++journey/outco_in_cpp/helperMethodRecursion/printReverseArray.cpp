@@ -1,7 +1,7 @@
 /**
  *  2b. Given an integer array/vector, print each item backwards using Helper Method
  *      Recursion
- *
+ *  Developed class and function on Aug 3, 2023
  *  Input:   arr/vector {Array/vector of ints}
  *  Output:  {void}
  *
