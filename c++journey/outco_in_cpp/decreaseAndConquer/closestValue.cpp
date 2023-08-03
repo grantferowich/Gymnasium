@@ -1,6 +1,6 @@
 /*
 * Closest Value
-*
+* Developed and tested the function on August 3, 2023. 
 * Given a sorted bit array/vector of integers, and a target value, find the number in the array that is closest to the target.*
 * 
 * **Parameters**
