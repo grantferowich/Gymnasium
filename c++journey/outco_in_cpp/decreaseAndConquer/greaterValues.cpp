@@ -1,4 +1,3 @@
-/*  */
 /*
 * Greater Values
 * Developed Aug. 3, 2023.
@@ -57,8 +56,13 @@ void test(){
     cout << "Result 2: " << resultInt2 << endl;
     cout << "Result 3: " << resultInt3 << endl;
 }
-
 int main(){
     test();
     return 0;
 }
+/* 
+Test results 
+Result 1: 4
+Result 2: 0
+Result 3: 5
+ */
