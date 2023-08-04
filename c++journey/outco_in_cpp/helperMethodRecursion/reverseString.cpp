@@ -1,13 +1,3 @@
-/**
- * 
- *  2c. Reverse a string using Helper Method Recursion
- *
- *  Input:   string
- *  Output:  string
- *
- *  Example: String greeting = 'hello';
- *          ReverseString.compute(greeting) => 'olleh'
- */
 #include <array>
 #include <cmath>
 #include <iterator>
@@ -19,6 +9,16 @@
 #include <iostream>
 #include <array>
 using namespace std;
+/**
+ * 
+ *  2c. Reverse a string using Helper Method Recursion
+ *
+ *  Input:   string
+ *  Output:  string
+ *
+ *  Example: String greeting = 'hello';
+ *          ReverseString.compute(greeting) => 'olleh'
+ */
 class ReverseString {
     public:
       void compute(string str){
@@ -33,7 +33,6 @@ class ReverseString {
         traverse(str, indexInt - 1);
       };
 };
-
 int main(){
     ReverseString reverseStringInstance;
     reverseStringInstance.compute("wakeforest");
