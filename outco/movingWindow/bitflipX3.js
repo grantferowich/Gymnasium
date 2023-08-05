@@ -46,7 +46,7 @@ const bitflip = (arr, kInt) => {
         rightPtrInt++;
         maxLengthInt = Math.max(maxLengthInt, rightPtrInt - leftPtrInt);
     }
-    return maxLengthInt
+    return maxLengthInt;
 
 }
 
