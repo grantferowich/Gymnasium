@@ -81,6 +81,10 @@ const takeKCharacters = (string, k) => {
         }
     }
 
+    const numberOfKeysInt = Object.keys(counts).length;
+    if (numberOfKeysInt < 3){
+        return -1;
+    }
     //sliding window
     for ( right = 0; right < string.length; right++){
         let char = string.charAt(right);
@@ -94,4 +98,12 @@ const takeKCharacters = (string, k) => {
     }
     return result;
 }
+
+/* Tests */
+
 console.log(takeKCharacters("aabaaaacaabc",2)) // expected output: 8
+const str2 = "acba";
+const kInt2 = 1;
+const resultInt2 = takeKCharacters(str2, kInt2);
+
+/* Test results */

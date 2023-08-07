@@ -51,37 +51,37 @@ const minimumSizeSubarraySum = (target, nums) => {
     let lengthInt = Infinity
 
     while (sumInt < target){
-        let rChar = nums[rightPtrInt]
-        sumInt += rChar
-        rightPtrInt++
+        let rChar = nums[rightPtrInt];
+        sumInt += rChar;
+        rightPtrInt++;
         while (sumInt >= target){
             if (rightPtrInt - leftPtrInt < lengthInt){
-                lengthInt = rightPtrInt - leftPtrInt
+                lengthInt = rightPtrInt - leftPtrInt;
             }
-            let lChar = nums[leftPtrInt]
-            sumInt -= lChar
-            leftPtrInt++
+            let lChar = nums[leftPtrInt];
+            sumInt -= lChar;
+            leftPtrInt++;
         }
     }
-    return lengthInt === Infinity ? 0 : lengthInt
+    return lengthInt === Infinity ? 0 : lengthInt;
 }
 
 
 /* TESTS */
 
 
-let test1 = minimumSizeSubarraySum( 7, [2,3,1,2,4,3])
+const test1 = minimumSizeSubarraySum( 7, [2,3,1,2,4,3])
 console.log('Test 1:', test1)
 // Expected output: 2
 
-let test2 = minimumSizeSubarraySum( 4, [1,4,4])
+const test2 = minimumSizeSubarraySum( 4, [1,4,4])
 console.log('Test 2:', test2)
 // Expected output: 1
 
-let test3 = minimumSizeSubarraySum( 11, [1,1,1,1,1,1,1,1])
+const test3 = minimumSizeSubarraySum( 11, [1,1,1,1,1,1,1,1])
 console.log('Test 3:', test3)
 // Expected output: 0
 
-let test4 = minimumSizeSubarraySum(11, [1,2,3,4,5])
+const test4 = minimumSizeSubarraySum(11, [1,2,3,4,5])
 console.log('Test 4', test4)
 // Expected 

@@ -4,7 +4,7 @@ Longest Substring With At Most 2 Unique Characters
 Sliding window problem
 
 Started engineering on June 1, 2023 at 4pm.
-Successfully completed tested of the function at 4:39 pm on June 1, 2023.
+Successfully completed testing of the function at 4:39 pm on June 1, 2023.
 
 str1 = "eceba"
 output: 3
@@ -24,8 +24,7 @@ Contract while there are more than two distinctcharacters (move slowPtrInt)
 
 Is there a way to only keep track of the index? 
 
-
-Pierre study guide for moving window problems
+Outco tudy guide for moving window problems
 
      1- What makes Runner to move ?
      A.  R moves as long as the map/ array contains at most two distint characters
@@ -60,12 +59,6 @@ const longestSubstringWithAtMost2UniqueCharacters = (str) => {
             lPtrInt++
         }
 
-        // update: method 1
-        // if (rPtrInt - lPtrInt + 1 > resultInt){
-        //     resultInt = rPtrInt - lPtrInt + 1
-        // }
-        // update: method 2
-        // this way of updating the result works also!
         resultInt = Math.max(resultInt, rPtrInt - lPtrInt + 1)
         rPtrInt++;
     }

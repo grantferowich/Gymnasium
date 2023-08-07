@@ -65,7 +65,7 @@ const longestSubstring = (string) => {
     // update result variable
     if (currentString.length > longestString.length) { longestString = currentString; }
     // return state variable
-    return longestString
+    return longestString.length
 }
 
 console.log(longestSubstring("abcabcbb")) // abc

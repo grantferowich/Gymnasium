@@ -34,9 +34,7 @@ const bitflip = (arr, kInt) => {
     let togglesInt = 0;
 
     while (rightPtrInt < arr.length){
-
         if (arr[rightPtrInt] === 0) { togglesInt++};
-
         if (togglesInt > kInt) { 
             if (arr[leftPtrInt] === 0){
                 togglesInt--;
