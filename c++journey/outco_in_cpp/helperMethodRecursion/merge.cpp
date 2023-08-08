@@ -22,7 +22,6 @@ using namespace std;
  *          { 1, 2, 3, 4, 6, 7, 9 }
  */
 class Merge {
-
   public:
     vector<int> compute(vector<int> vec1, vector<int> vec2) {
       vector<int> resultVec;
@@ -50,7 +49,6 @@ class Merge {
         vector<int> vec2remaining(vec2.begin() + hInt, vec2.end());
         resultVec.insert(resultVec.end(), vec2remaining.begin(), vec2remaining.end());
       }
-      
       return resultVec;
     }
 };
