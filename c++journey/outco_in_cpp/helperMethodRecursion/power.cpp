@@ -13,7 +13,7 @@ using namespace std;
 /**
  * 2f. Given a base and an exponent, create a method to find the power using
  *     Helper Method Recursion
- *
+ * Developed on August 7, 2023. 
  * Input:   Two ints, base and positive exponent
  * Output:  int
  *
