@@ -11,7 +11,7 @@
 using namespace std;
 /**
  * 2g. Merge two sorted arrays using the Helper Method Recursion
- *
+ * Developed and tested Merge on Aug. 8, 2023. 
  * Input:   Two Integer Arrays, both sorted
  * Output:  Integer Array, sorted
  *
@@ -41,7 +41,9 @@ class Merge {
             }
       }
       if (vec1.size() > vec2.size()){
+        // slice array
         vector<int> vec1remaining(vec1.begin() + gInt, vec1.end());
+        // concatenate arrays
         resultVec.insert(resultVec.end(), vec1remaining.begin(), vec1remaining.end());
       }
       if (vec2.size() > vec1.size()){
