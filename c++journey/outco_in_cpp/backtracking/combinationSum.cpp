@@ -40,7 +40,6 @@ Output: [[2,2,2,2],[2,3,3],[3,5]]
 Example 3:
 Input: candidates = [2], target = 1
 Output: [] */
-
 class Solution {
     public:
         vector<vector<int> > combinationSum(vector<int>& inputVec, int targetValueInt) {
@@ -71,16 +70,16 @@ class Solution {
             cout << "}" << endl;
         }
     private:
-        void generateCombination(vector<int>& inputVec, vector<int>& buildVec, set<vector<int> >& resultSet, int currentSumInt, int targetValueInt, int depthInt){
-            if (currentSumInt == targetValueInt){
-                sort(buildVec.begin(), buildVec.end());
-                resultSet.insert(buildVec);
-                return;
-            }
+        void generateCombination(vector<int>& inputVec, vector<int> buildVec, set<vector<int> >& resultSet, int currentSumInt, int targetValueInt, int depthInt){
             if (currentSumInt > targetValueInt){
                 return;
             }
             if (depthInt >= inputVec.size()){
+                return;
+            }
+            if (currentSumInt == targetValueInt){
+                sort(buildVec.begin(), buildVec.end());
+                resultSet.insert(buildVec);
                 return;
             }
             int xInt = 0;
