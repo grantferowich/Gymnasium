@@ -69,7 +69,6 @@ public:
 private:
     void generatePermutations(vector<int>& inputVec, vector<int>& buildVec, vector<vector<int> >& matrix){
         if (buildVec.size() == inputVec.size()){
-            
             matrix.push_back(buildVec);
             return;
         }
@@ -81,14 +80,13 @@ private:
             generatePermutations(inputVec, buildVec, matrix);
             buildVec.pop_back();
             }
-            
             xInt++;
         }
     }
 };
 int main(){
     Solution solution;
-    vector<vector<int> > resultMatrix1 =  solution.permute({1 , 2, 3});
+    vector<vector<int> > resultMatrix1 = solution.permute({1 , 2, 3});
     solution.printMatrixWithCurlyBraces(resultMatrix1);
     return 0;
 }
