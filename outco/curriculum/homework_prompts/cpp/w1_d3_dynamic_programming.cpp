@@ -21,6 +21,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <unordered_map>
 using namespace std;
 
 
@@ -69,11 +70,29 @@ using namespace std;
 *
 */
 
+int traverse(int rowInt, int mInt, int colInt, int nInt, unordered_map<string, int>& cacheMap){
+
+    string keyStr = to_string(rowInt) + "_" + to_string(colInt);
+    if (rowInt < 0 || colInt < 0 || rowInt > mInt || colInt > nInt){
+        return 0;
+    }
+    if (rowInt == mInt && colInt == nInt){
+        return 1;
+    }
+    if (cacheMap.find(keyStr) != cacheMap.end()){
+        return cacheMap[keyStr];
+    }
+    int rightInt = traverse(rowInt, mInt, colInt + 1, nInt, cacheMap);
+    int downInt = traverse(rowInt + 1, mInt, colInt, nInt, cacheMap);
+    cacheMap[keyStr] = rightInt + downInt;
+    return cacheMap[keyStr];
+}
+
 // Time Complexity:
 // Auxiliary Space Complexity:
-int latticePaths(int m, int n) {
-  //YOUR WORK HERE
-  return -1;
+int latticePaths(int mInt, int nInt) {
+  unordered_map<string, int> cacheMap;
+  return traverse(0, mInt, 0, nInt, cacheMap);
 }
 
 
