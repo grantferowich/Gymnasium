@@ -55,7 +55,9 @@ class Solution {
             vector<vector<int> > resultMatrix;
             resultMatrix.clear();
             vector<int> buildVec;
+            buildVec.clear();
             set<vector<int> > resultSet;
+            buildVec.clear();
             generateCombination(inputVec, buildVec, resultSet, 0, targetValueInt, 0);
             for (const vector<int> vec : resultSet){
                 resultMatrix.push_back(vec);
