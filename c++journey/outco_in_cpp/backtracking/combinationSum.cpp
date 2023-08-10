@@ -11,6 +11,15 @@
 #include <set>
 using namespace std;
 /* 39. Combination Sum
+
+Developed the function on August 10, 2023.
+The function works fine locally.
+The function encounters the following error on LeetCode:
+Getting inconsistent results?
+You might be using global/static variables or C/C++. 
+The system executes all testcases using the same program instance. 
+Global/static variables affect the program state from one test case to another.
+
 Medium
 17K
 342
