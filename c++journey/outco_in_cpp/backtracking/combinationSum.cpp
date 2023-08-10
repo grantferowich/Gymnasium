@@ -42,15 +42,18 @@ Input: candidates = [2], target = 1
 Output: [] */
 class Solution {
     public:
-        vector<vector<int> > combinationSum(vector<int>& inputVec, int targetValueInt) {
+        vector<vector<int> > combinationSum(vector<int>& inputVec, int& targetValueInt) {
             vector<vector<int> > resultMatrix;
+            resultMatrix.clear();
             vector<int> buildVec;
             set<vector<int> > resultSet;
             generateCombination(inputVec, buildVec, resultSet, 0, targetValueInt, 0);
             for (const vector<int> vec : resultSet){
                 resultMatrix.push_back(vec);
             }
+            printMatrixWithCurlyBraces(resultMatrix);
             return resultMatrix;
+            
         }
         void printMatrixWithCurlyBraces(const vector< vector<int> >& matrix) {
             cout << "{";

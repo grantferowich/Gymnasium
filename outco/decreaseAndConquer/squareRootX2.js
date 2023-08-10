@@ -35,22 +35,17 @@ const squareRoot = (int) => {
     if (int === 0 || int === 1){
         return int
     }
-
     let leftInt = 0
     let rightInt = int
-
     if (int < 0){
         return 'The square root of a negative number does not exist.'
     }
-
     while (leftInt < rightInt){
         let midInt = ((leftInt + rightInt)/2)
         let squareInt = midInt * midInt
-
         if (squareInt === int){
             return midInt.toFixed(6)
         }
-
         if (squareInt > int){
             rightInt = midInt + 0.000001
         } else {

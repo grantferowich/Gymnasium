@@ -20,6 +20,7 @@ function flatten(array){
         if (Array.isArray(subarray[x])){
             makeFlat(subarray[x]);
         } else {
+          // base case: push the value to the output array
             flattened.push(subarray[x])
         }
       }

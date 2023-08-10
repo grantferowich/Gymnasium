@@ -30,31 +30,29 @@ Remember to diagram the function !
 */
 
 const latticePaths = (mInt, nInt) => {
-    let cacheHM = {}
+    let cacheHM = {};
     
     const traverse = (rowInt, colInt) => {
-        let keyStr = rowInt + '_' + colInt
-        console.log(keyStr)
+        let keyStr = rowInt + '_' + colInt;
+        console.log(keyStr);
         if (rowInt > mInt || colInt > nInt){
-            return 0
+            return 0;
         }
-
         if (rowInt === mInt && colInt === nInt){
-            return 1
+            return 1;
         }
 
         if (cacheHM[keyStr]){
-            return cacheHM[keyStr]
+            return cacheHM[keyStr];
         }
 
-        let leftInt = traverse(rowInt, colInt + 1)
-        let upInt = traverse(rowInt + 1, colInt)
-        cacheHM[keyStr] = leftInt + upInt
-        return cacheHM[keyStr]
+        let leftInt = traverse(rowInt, colInt + 1);
+        let upInt = traverse(rowInt + 1, colInt);
+        cacheHM[keyStr] = leftInt + upInt;
+        return cacheHM[keyStr];
         
     }
-
-    return traverse(0, 0)
+    return traverse(0, 0);
 }
 
 const m1Int = 2

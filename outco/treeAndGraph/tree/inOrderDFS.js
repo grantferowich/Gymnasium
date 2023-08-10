@@ -32,7 +32,7 @@ const deserialize = (array) => {
 }
 
 const arr = [1,1,2,3,5,8,13,21,34,55,89];
-const tree = deserialize(arr)
+const tree = deserialize(arr);
 
 const inOrderDFS = (treeNode) => {
     let result = [];
@@ -43,16 +43,16 @@ const inOrderDFS = (treeNode) => {
         }
 
         // left traversal
-        traverse(current.left)
+        traverse(current.left);
 
         // action
-        result.push(current.value)
+        result.push(current.value);
         
         // right traversal
-        traverse(current.right)
+        traverse(current.right);
     }
     traverse(treeNode);
     return result;
 }
 
-console.log(inOrderDFS(tree))
+console.log(inOrderDFS(tree));
