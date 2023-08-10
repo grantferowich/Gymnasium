@@ -51,7 +51,6 @@ class Solution {
             for (const vector<int> vec : resultSet){
                 resultMatrix.push_back(vec);
             }
-            printMatrixWithCurlyBraces(resultMatrix);
             return resultMatrix;
             
         }
@@ -98,15 +97,23 @@ class Solution {
             }
         }
 };
+
 int main(){
     Solution solution;
     vector<int> inputVec1 = {2, 3, 6, 7};
     int targetValueInt1 = 7;
     vector<vector <int> > resultMatrix1 = solution.combinationSum(inputVec1, targetValueInt1);
+    cout << "Solution 1: " << endl;
     solution.printMatrixWithCurlyBraces(resultMatrix1);
     vector<int> inputVec2 = {2, 3, 5};
     int targetValueInt2 = 8;
     vector<vector<int> > resultMatrix2 = solution.combinationSum(inputVec2, targetValueInt2);
+    cout << "Solution 2: " << endl;
     solution.printMatrixWithCurlyBraces(resultMatrix2);
+    vector<int> inputVec3 = {4,8,11,10,9,3,12,7,6};
+    int targetValueInt3 = 25;
+    vector<vector <int> > resultMatrix3 = solution.combinationSum(inputVec3, targetValueInt3);
+    cout << "Solution 3: " << endl;
+    solution.printMatrixWithCurlyBraces(resultMatrix3);
     return 0;
 }
