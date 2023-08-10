@@ -84,7 +84,8 @@ private:
 };
 int main(){
     Solution solution;
-    vector<vector<int> > resultMatrix1 = solution.permute({1 , 2, 3});
+    vector<int> vec1 = {1, 2, 3};
+    vector<vector<int> > resultMatrix1 = solution.permute(vec1);
     solution.printMatrixWithCurlyBraces(resultMatrix1);
     return 0;
 }
