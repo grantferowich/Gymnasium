@@ -14,6 +14,7 @@ using namespace std;
 314 - Word Search
 
 in C++
+Developed the function on August 10, 2023.
 
 Complexity Analysis:
 Where M = matrix height, N = matrix width, L = length of word
