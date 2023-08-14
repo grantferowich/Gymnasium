@@ -349,8 +349,19 @@ class Matrix {
     }
 
 
-    void scale(int factor) {
-        //YOUR WORK HERE
+    void scale(int factorInt) {
+        int rowInt = 0;
+        int colInt = 0;
+        while (rowInt < storage.size()){
+            colInt = 0;
+            while (colInt < storage[0].size()){
+                int valueInt = retrieve(rowInt, colInt);
+                int newValueInt = valueInt * factorInt;
+                insert(rowInt, colInt, newValueInt);
+                colInt++;
+            }
+            rowInt++;
+        }
     }
 
 
@@ -415,5 +426,7 @@ int main(){
     matrix1.print();
     int retrievedInt = matrix1.retrieve(1, 2);
     cout << "The value at [1, 2] is 8? " << retrievedInt << endl;
+    matrix1.scale(2);
+    matrix1.print();
     return 0;
 }
