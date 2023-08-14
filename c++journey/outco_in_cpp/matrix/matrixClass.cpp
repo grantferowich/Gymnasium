@@ -330,9 +330,13 @@ class Matrix {
     }
 
 
-    bool insert(int i, int j, int val) {
-    //YOUR WORK HERE
-    return false;
+    bool insert(int iInt, int jInt, int valueInt) {
+        bool isPositionValid = isValid(iInt, jInt);
+        if (isPositionValid){
+            storage[iInt][jInt] = valueInt;
+            return true;
+        }
+        return false;
     }
 
 
@@ -404,5 +408,7 @@ int main(){
     bool isValidBool2 = matrix1.isValid(-1, -1);
     string isValidStr2 = converToFToString(isValidBool2);
     cout << "Are the coordiantes [ -1, -1 ] valid? " << isValidStr2 << endl;
+    matrix1.insert(1, 1, 23);
+    matrix1.print();
     return 0;
 }
