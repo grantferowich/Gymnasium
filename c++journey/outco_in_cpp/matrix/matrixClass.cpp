@@ -307,9 +307,11 @@ class Matrix {
     }
 
 
-    bool isValid(int i, int j) {
-    //YOUR WORK HERE
-    return false;
+    bool isValid(int iInt, int jInt) {
+        if (iInt >= 0 || iInt < storage.size() || jInt >= 0 || jInt < storage[0].size()){
+            return true;
+        }
+        return false;
     }
 
 
@@ -370,6 +372,16 @@ class Matrix {
 
 };
 
+string converToFToString(bool ToF){
+    if (ToF == 0){
+        return "false";
+    }
+    if (ToF == 1){
+        return "true";
+    }
+    return "";
+}
+
 int main(){
     Matrix matrix1(3, 3);
     matrix1.initialize({
@@ -378,5 +390,8 @@ int main(){
         {8, 11, 21} 
     });
     matrix1.print();
+    bool isValidBool1 = matrix1.isValid(1, 1);
+    string isValidStr = converToFToString(isValidBool1);
+    cout << "Is 1,1 valid? " << isValidStr << endl;
     return 0;
 }
