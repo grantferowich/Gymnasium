@@ -365,8 +365,17 @@ class Matrix {
     }
 
 
-    void fill(int val) {
-    //YOUR WORK HERE
+    void fill(int valueInt) {
+        int rowInt = 0;
+        int colInt = 0;
+        while (rowInt < storage.size()){
+            colInt = 0;
+            while (colInt < storage[0].size()){
+                insert(rowInt, colInt, valueInt);
+                colInt++;
+            }
+            rowInt++;
+        }
     }
 
 
@@ -428,5 +437,13 @@ int main(){
     cout << "The value at [1, 2] is 8? " << retrievedInt << endl;
     matrix1.scale(2);
     matrix1.print();
+    Matrix matrix2(3, 3);
+    matrix2.initialize({
+        {1, 2, 3},
+        {4, 5, 6}, 
+        {8, 9, 10}
+    });
+    matrix2.fill(7);
+    matrix2.print();
     return 0;
 }
