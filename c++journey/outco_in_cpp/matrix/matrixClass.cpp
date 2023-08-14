@@ -396,8 +396,27 @@ class Matrix {
     }
 
     Matrix *slice(vector<int> rowRange, vector<int> colRange) {
-    //YOUR WORK HERE
-    return NULL;
+    
+    int rowStartInt = rowRange[0];
+    int rowEndInt = rowRange[1];
+    int colStartInt = colRange[0];
+    int colEndInt = colRange[1];
+    int rowsInt = rowEndInt - rowStartInt;
+    int colsInt = colEndInt - colStartInt;
+    Matrix* matrix = new Matrix(rowsInt, colsInt);
+
+    int xInt = rowStartInt;
+    int yInt = colStartInt;
+    while (xInt < rowEndInt){
+        yInt = colStartInt;
+        while (yInt < colEndInt){
+            int valueInt = storage[xInt][yInt];
+            matrix->insert(xInt - rowStartInt, yInt - colStartInt, valueInt);
+            yInt++;
+        }
+        xInt++;
+    }
+    return matrix;
     }
 
 
@@ -466,13 +485,16 @@ int main(){
     matrix1.print();
     Matrix matrix2(3, 3);
     matrix2.initialize({
-        {1, 2, 3},
-        {4, 5, 6}, 
-        {8, 9, 10}
+        {1, 2, 3, 9},
+        {4, 5, 6, 12}, 
+        {8, 9, 10, 20},
+        {31, 34, 55, 88}
     });
-    matrix2.fill(7);
+    // matrix2.fill(7);
     matrix2.print();
-    vector<int> flatVec = matrix2.flatten();
-    printVector(flatVec);
+    // vector<int> flatVec = matrix2.flatten();
+    // printVector(flatVec);
+    Matrix* matrix3 = matrix2.slice({0,2}, {0, 2});
+    matrix3->print();
     return 0;
 }
