@@ -293,6 +293,12 @@ public:
   vector<vector<int>> getStorage(){return this->storage;}
 
   void print() {
+     for (auto row : storage){
+        for ( auto item: row){
+            cout << to_string(storage[row][item]) << "\t" << cout;
+        }
+        cout << endl;
+    }
 }
 
 

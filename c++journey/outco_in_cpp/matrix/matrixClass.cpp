@@ -278,79 +278,105 @@ using namespace std;
 
 
 class Matrix {
-public:
+    public:
 
-  Matrix(int m, int n) {
-    this->m = m;
-    this->n = n;
-    this->storage = vector<vector<int> >(m, vector<int>(n));
-  }
+    Matrix(int m, int n) {
+        this->m = m;
+        this->n = n;
+        this->storage = vector<vector<int> >(m, vector<int>(n));
+    }
 
-  int getM() {return this->m;}
+    int getM() {return this->m;}
 
-  int getN() {return this->n;}
+    int getN() {return this->n;}
 
-  vector<vector<int> > getStorage(){return this->storage;}
+    vector<vector<int> > getStorage(){return this->storage;}
 
-  void print() {
-}
-
-
-bool isValid(int i, int j) {
-  //YOUR WORK HERE
-  return false
-}
-
-
-void initialize(vector<vector<int>> arrayOfArrays) {
-}
-
-
-bool insert(int i, int j, int val) {
-  //YOUR WORK HERE
-  return false
-}
+    void print() {
+        int rowInt = 0;
+        int colInt = 0;
+        while (rowInt < storage.size()){
+            colInt = 0;
+            while (colInt < storage[0].size()){
+                cout << to_string(storage[rowInt][colInt]) << "\t";
+                colInt++;
+            }
+            cout << endl;
+            rowInt++;
+        }
+    }
 
 
-int retrieve(int i, int j) {
-  //YOUR WORK HERE
-  return INT_MIN;
-}
+    bool isValid(int i, int j) {
+    //YOUR WORK HERE
+    return false;
+    }
 
 
-void scale(int factor) {
-  //YOUR WORK HERE
-}
+    void initialize(vector<vector<int> > arrayOfArrays) {
+        this->storage = arrayOfArrays;
+        this->m = arrayOfArrays.size();
+        this->n = arrayOfArrays[0].size();
+    }
 
 
-void fill(int val) {
-  //YOUR WORK HERE
-}
+    bool insert(int i, int j, int val) {
+    //YOUR WORK HERE
+    return false;
+    }
 
 
-vector<int> flatten() {
-  //YOUR WORK HERE
-  return vector<int>{};
-}
-
-Matrix *slice(vector<int> rowRange, vector<int> colRange) {
-  //YOUR WORK HERE
-  return NULL;
-}
+    int retrieve(int i, int j) {
+    //YOUR WORK HERE
+    return INT_MIN;
+    }
 
 
-Matrix *transpose() {
-  //YOUR WORK HERE
-  return NULL
-}
+    void scale(int factor) {
+    //YOUR WORK HERE
+    }
 
 
-Matrix *multiply(Matrix *matrix) {
-  //YOUR WORK HERE
-  return NULL;
-}
+    void fill(int val) {
+    //YOUR WORK HERE
+    }
 
-private:
-  int m,n;
-  vector<vector<int>> storage;
+
+    // vector<int> flatten() {
+    //   //YOUR WORK HERE
+    //   return vector<int>{};
+    // }
+
+    Matrix *slice(vector<int> rowRange, vector<int> colRange) {
+    //YOUR WORK HERE
+    return NULL;
+    }
+
+
+    Matrix *transpose() {
+    //YOUR WORK HERE
+    return NULL;
+    }
+
+
+    Matrix *multiply(Matrix *matrix) {
+    //YOUR WORK HERE
+    return NULL;
+    }
+
+    private:
+    int m,n;
+    vector<vector<int> > storage;
+
 };
+
+int main(){
+    Matrix matrix1(3, 3);
+    matrix1.initialize({
+        {1, 2, 3}, 
+        {6, 7, 8},
+        {8, 11, 21} 
+    });
+    matrix1.print();
+    return 0;
+}
