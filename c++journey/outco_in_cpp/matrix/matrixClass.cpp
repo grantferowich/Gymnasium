@@ -295,15 +295,23 @@ class Matrix {
     void print() {
         int rowInt = 0;
         int colInt = 0;
+        cout << "{" << endl;
         while (rowInt < storage.size()){
             colInt = 0;
+            cout << "{";
             while (colInt < storage[0].size()){
-                cout << to_string(storage[rowInt][colInt]) << "\t";
+                if (colInt < storage[0].size() - 1){
+                    cout << to_string(storage[rowInt][colInt]) << ", ";
+                }
+                if (colInt == storage[0].size() -1){
+                    cout << to_string(storage[rowInt][colInt]);
+                }
                 colInt++;
             }
-            cout << endl;
+            cout << "}" << endl;
             rowInt++;
         }
+        cout << "}" << endl;
     }
 
 
@@ -391,7 +399,10 @@ int main(){
     });
     matrix1.print();
     bool isValidBool1 = matrix1.isValid(1, 1);
-    string isValidStr = converToFToString(isValidBool1);
-    cout << "Is 1,1 valid? " << isValidStr << endl;
+    string isValidStr1 = converToFToString(isValidBool1);
+    cout << "Are the coordinates [ 1, 1 ]  valid? " << isValidStr1 << endl;
+    bool isValidBool2 = matrix1.isValid(-1, -1);
+    string isValidStr2 = converToFToString(isValidBool2);
+    cout << "Are the coordiantes [ -1, -1 ] valid? " << isValidStr2 << endl;
     return 0;
 }
