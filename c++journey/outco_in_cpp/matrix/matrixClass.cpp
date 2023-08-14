@@ -283,14 +283,14 @@ public:
   Matrix(int m, int n) {
     this->m = m;
     this->n = n;
-    this->storage = vector<vector<int>>(m, vector<int>(n));
+    this->storage = vector<vector<int> >(m, vector<int>(n));
   }
 
   int getM() {return this->m;}
 
   int getN() {return this->n;}
 
-  vector<vector<int>> getStorage(){return this->storage;}
+  vector<vector<int> > getStorage(){return this->storage;}
 
   void print() {
 }
