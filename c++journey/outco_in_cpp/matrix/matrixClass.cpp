@@ -331,8 +331,8 @@ class Matrix {
 
 
     bool insert(int iInt, int jInt, int valueInt) {
-        bool isPositionValid = isValid(iInt, jInt);
-        if (isPositionValid){
+        bool isPositionValidBool = isValid(iInt, jInt);
+        if (isPositionValidBool){
             storage[iInt][jInt] = valueInt;
             return true;
         }
@@ -340,14 +340,17 @@ class Matrix {
     }
 
 
-    int retrieve(int i, int j) {
-    //YOUR WORK HERE
-    return INT_MIN;
+    int retrieve(int iInt, int jInt) {
+        bool isPositionedValidBool = isValid(iInt, jInt);
+        if (isPositionedValidBool){
+            return storage[iInt][jInt];
+        }
+        return INT_MIN;
     }
 
 
     void scale(int factor) {
-    //YOUR WORK HERE
+        //YOUR WORK HERE
     }
 
 
@@ -410,5 +413,7 @@ int main(){
     cout << "Are the coordiantes [ -1, -1 ] valid? " << isValidStr2 << endl;
     matrix1.insert(1, 1, 23);
     matrix1.print();
+    int retrievedInt = matrix1.retrieve(1, 2);
+    cout << "The value at [1, 2] is 8? " << retrievedInt << endl;
     return 0;
 }
