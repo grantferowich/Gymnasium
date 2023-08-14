@@ -379,10 +379,21 @@ class Matrix {
     }
 
 
-    // vector<int> flatten() {
-    //   //YOUR WORK HERE
-    //   return vector<int>{};
-    // }
+    vector<int> flatten() {
+      int rowInt = 0;
+      int colInt = 0;
+      vector<int> outputVec;
+      while (rowInt < storage.size()){
+        colInt = 0;
+        while (colInt < storage[0].size()){
+            int valueInt = storage[rowInt][colInt];
+            outputVec.push_back(valueInt);
+            colInt++;
+        }
+        rowInt++;
+      }
+      return outputVec;
+    }
 
     Matrix *slice(vector<int> rowRange, vector<int> colRange) {
     //YOUR WORK HERE
@@ -417,6 +428,22 @@ string converToFToString(bool ToF){
     return "";
 }
 
+void printVector(const vector<int>& vec){
+    cout << "{ ";
+    int xInt = 0;
+    while (xInt < vec.size()){
+        int valueInt = vec[xInt];
+        if (xInt < vec.size() - 1){
+            cout << valueInt << ", ";
+        } 
+        if (xInt == vec.size() - 1){
+            cout << valueInt;
+        }
+        xInt++;
+    }
+    cout << " }" << endl;
+}
+
 int main(){
     Matrix matrix1(3, 3);
     matrix1.initialize({
@@ -445,5 +472,7 @@ int main(){
     });
     matrix2.fill(7);
     matrix2.print();
+    vector<int> flatVec = matrix2.flatten();
+    printVector(flatVec);
     return 0;
 }
