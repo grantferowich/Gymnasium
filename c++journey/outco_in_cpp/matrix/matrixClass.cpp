@@ -421,8 +421,22 @@ class Matrix {
 
 
     Matrix *transpose() {
-    //YOUR WORK HERE
-    return NULL;
+    
+    Matrix* matrixX = new Matrix(storage[0].size(), storage.size());
+    int rowInt = 0;
+    int colInt = 0;
+
+    while (rowInt < storage.size()){
+        colInt = 0;
+        while (colInt < storage[0].size()){
+            int valueInt = retrieve(rowInt, colInt);
+            matrixX->insert(colInt, rowInt, valueInt);
+
+            colInt++;
+        }
+        rowInt++;
+    }
+    return matrixX;
     }
 
 
@@ -494,7 +508,10 @@ int main(){
     matrix2.print();
     // vector<int> flatVec = matrix2.flatten();
     // printVector(flatVec);
-    Matrix* matrix3 = matrix2.slice({0,2}, {0, 2});
-    matrix3->print();
+    // Matrix* matrix3 = matrix2.slice({0,2}, {0, 2});
+    // matrix3->print();
+    // delete matrix3;
+    Matrix* matrix4 = matrix2.transpose();
+    matrix4->print();
     return 0;
 }
