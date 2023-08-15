@@ -37,8 +37,8 @@
               The LRUCache class should contain the following properties:
               capacity: {Integer}
               count: {Integer} (initially 0)
-              cache: {Hash Table} The keys represent unique ids of each node, and the values represent the node objects
-                                that possess those keys.
+              cache: {Hash Table} The keys represent unique ids of each node, 
+              and the values represent the node objects that possess those keys.
               head: {Node*}
               tail: {Node*}
 
@@ -68,6 +68,7 @@
 
 */
 
+#include <iterator>
 #include <string>
 #include <iostream>
 #include <unordered_map>
@@ -77,30 +78,52 @@ using namespace std;
 
 class Node {
   public:
-    string key;
-    string value;
-    Node *previous, *next;
+    string keyStr;
+    string valueStr;
+    Node *previousNode, *nextNode;
 };
 
 
 class LRUCache {
   public:
-    int capacity;
-    int count;
-    unordered_map<string, Node*> cache;
-    Node *head, *tail;
+    int capacityInt;
+    int countInt;
+    unordered_map<string, Node*> cacheMap;
+    Node *headNode, *tailNode;
 
-    LRUCache(int capacity) {
-      // YOUR WORK HERE
+    LRUCache(int xCapacityInt) {
+      this->capacityInt = xCapacityInt;
+      this->countInt = 0;
+      headNode = new Node();
+      tailNode = new Node();
+      headNode->nextNode = tailNode;
+      tailNode->previousNode = headNode;
     }
 
-
-    string get(string key) {
-      // YOUR WORK HERE
-      return "";
+    // get should read the valueStr
+    // associated with the keyStr
+    // get should move the node itself to
+    // be the node which the head's next pointer
+    // points to
+    string get(string xKeyStr) {
+      if (this->cacheMap.count(xKeyStr) == 0){
+        return "";
+      }
+      Node* xNode = this->cacheMap[xKeyStr];
+      moveToHead(xNode);
+      return xNode->valueStr;
     }
 
-    void set(string key, string value) {
+    void set(string xKeyStr, string xValueStr) {
+        Node *xNode = new Node();
+        xNode->keyStr = xKeyStr;
+        xNode->valueStr = xValueStr;
+        addNode(xNode);
+        this->cacheMap[xKeyStr] = xNode;
+        this->countInt++;
+        if (countInt > capacityInt){
+            this->removeFromTail();
+        }
     }
 
   private:
@@ -114,15 +137,20 @@ class LRUCache {
     Insert a new node immediately following the
     head node
     */
-    void addNode(Node *node) {
-      // YOUR WORK HERE
+    void addNode(Node *xNode) {
+        xNode->nextNode = this->headNode->nextNode;
+        this->headNode->nextNode = xNode;
+        xNode->previousNode = this->headNode;
     }
 
     /*
     Remove an existing node from the linked list
     */
-    void removeNode(Node *node) {
-      // YOUR WORK HERE
+    void removeNode(Node *xNode) {
+        Node* prevNode = xNode->previousNode;
+        Node* nextNode = xNode->nextNode;
+        prevNode->nextNode = nextNode;
+        nextNode->previousNode = prevNode;
     }
 
     /*
@@ -130,15 +158,61 @@ class LRUCache {
     the linked list to the head of the linked
     list
     */
-    void moveToHead(Node *node) {
-      // YOUR WORK HERE
+    void moveToHead(Node *xNode) {
+      // update pointers of the node in its current position
+      xNode->previousNode->nextNode = xNode->nextNode;
+      xNode->nextNode->previousNode = xNode->previousNode;
+      xNode->nextNode = this->headNode->nextNode;
+      xNode->previousNode = this->headNode;
+      this->headNode->nextNode = xNode;
     }
 
     /*
     Remove the current tail
     */
     Node* removeFromTail() {
-      // YOUR WORK HERE
-      return NULL;
+      Node *toRemoveNode = this->tailNode->previousNode;
+      string toRemoveKeyStr = toRemoveNode->keyStr;
+      cacheMap.erase(toRemoveKeyStr);
+      toRemoveNode->previousNode->nextNode = this->tailNode;
+      this->tailNode->previousNode = toRemoveNode->previousNode;
+      return toRemoveNode;
     }
 };
+
+/* 
+     Example:
+     lruCache = new LRUCache(03);
+     lruCache->set('doc', 'david');
+     lruCache->set('cpo', 'joshua');
+     lruCache->set('ceo', 'andy');
+
+     lruCache->get('doc'); => 'david'
+     lruCache->set('swe', 'ron');
+     lruCache->get('cpo'); => ''
+*/
+
+void printMap(const unordered_map<string, Node*>& myMap) {
+    for (const auto& pair : myMap) {
+        std::cout << "Key: " << pair.first << ", Node Address: " << pair.second << std::endl;
+    }
+}
+
+int main(){
+    LRUCache* lruCacheX = new LRUCache(3);
+    lruCacheX->set("sd1", "Gary");
+    lruCacheX->set("sd2", "Joseph");
+    lruCacheX->set("em", "Matthew");
+    string sd1Str = lruCacheX->cacheMap["sd1"]->valueStr;
+    cout << "SD 1: " << sd1Str << endl;
+    string sd2Str = lruCacheX->cacheMap["sd2"]->valueStr;
+    cout << "SD 2: " << sd2Str << endl;
+    string emStr = lruCacheX->cacheMap["em"]->valueStr;
+    cout << "EM: " << emStr << endl;
+    // lruCacheX->set("qa", "Paul");
+    // unordered_map<string, Node*>& cacheMapX = lruCacheX->cacheMap;
+    // printMap(cacheMapX);
+    delete lruCacheX;
+    return 0;
+
+}
