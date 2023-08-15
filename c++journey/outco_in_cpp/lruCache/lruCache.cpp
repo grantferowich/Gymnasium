@@ -81,6 +81,11 @@ class Node {
     string keyStr;
     string valueStr;
     Node *previousNode, *nextNode;
+
+    Node(){
+        previousNode = nullptr;
+        nextNode = nullptr;
+    }
 };
 
 
@@ -115,24 +120,30 @@ class LRUCache {
     }
 
     void set(string xKeyStr, string xValueStr) {
-        Node *xNode = new Node();
-        xNode->keyStr = xKeyStr;
-        xNode->valueStr = xValueStr;
-        addNode(xNode);
-        this->cacheMap[xKeyStr] = xNode;
-        this->countInt++;
-        if (countInt > capacityInt){
-            this->removeFromTail();
-        }
-    }
+        Node *xNode = this->cacheMap[xKeyStr];
 
+        if (xNode == NULL){
+            Node *xNode = new Node();
+            xNode->keyStr = xKeyStr;
+            xNode->valueStr = xValueStr;
+            this->cacheMap[xKeyStr] = xNode;
+            this->addNode(xNode);
+            if (countInt > capacityInt){
+                Node *toRemoveNode = this->removeFromTail();
+                cacheMap.erase(toRemoveNode->keyStr);
+                this->countInt--;
+            }
+        } else {
+            xNode->valueStr = xValueStr;
+            this->moveToHead(xNode);
+        }        
+    }
   private:
     /*
     Following are helper methods that will aid in
     implementing the get and set methods for this
     LRU Cache data structure
     */
-
     /*
     Insert a new node immediately following the
     head node
@@ -142,7 +153,6 @@ class LRUCache {
         this->headNode->nextNode = xNode;
         xNode->previousNode = this->headNode;
     }
-
     /*
     Remove an existing node from the linked list
     */
@@ -152,7 +162,6 @@ class LRUCache {
         prevNode->nextNode = nextNode;
         nextNode->previousNode = prevNode;
     }
-
     /*
     Move particular node from any position within
     the linked list to the head of the linked
@@ -166,16 +175,16 @@ class LRUCache {
       xNode->previousNode = this->headNode;
       this->headNode->nextNode = xNode;
     }
-
     /*
     Remove the current tail
     */
     Node* removeFromTail() {
       Node *toRemoveNode = this->tailNode->previousNode;
       string toRemoveKeyStr = toRemoveNode->keyStr;
-      cacheMap.erase(toRemoveKeyStr);
       toRemoveNode->previousNode->nextNode = this->tailNode;
       this->tailNode->previousNode = toRemoveNode->previousNode;
+      toRemoveNode->nextNode = nullptr;
+      toRemoveNode->previousNode = nullptr;
       return toRemoveNode;
     }
 };
@@ -209,10 +218,11 @@ int main(){
     cout << "SD 2: " << sd2Str << endl;
     string emStr = lruCacheX->cacheMap["em"]->valueStr;
     cout << "EM: " << emStr << endl;
-    // lruCacheX->set("qa", "Paul");
-    // unordered_map<string, Node*>& cacheMapX = lruCacheX->cacheMap;
-    // printMap(cacheMapX);
+    lruCacheX->set("qa", "Paul");
+    string qaStr = lruCacheX->cacheMap["qa"]->valueStr;
+    cout << "QA: " << qaStr << endl;
+    // string sd1StrX = lruCacheX->cacheMap["sd1"]->valueStr; // expect ""
+    // cout << "SD1: " << sd1StrX << endl;
     delete lruCacheX;
     return 0;
-
 }
