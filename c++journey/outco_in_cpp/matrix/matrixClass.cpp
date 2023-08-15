@@ -440,9 +440,34 @@ class Matrix {
     }
 
 
-    Matrix *multiply(Matrix *matrix) {
-    //YOUR WORK HERE
-    return NULL;
+    Matrix *multiply(Matrix *inputMatrix) {
+        
+        // if (*inputMatrix.size() != this->n){
+        //     cout <<  "The input matrix may not be multiplied by the original matrix." << endl;
+        // }
+        
+        int kInt = inputMatrix->getN();
+        int iInt = 0;
+
+        Matrix* multipliedMatrix = new Matrix(this->m, kInt);
+        
+        int xInt = 0;
+        int yInt = 0;
+        while (xInt < this->m){
+            yInt = 0;
+            while (yInt < this->n){
+                int multipliedValueInt = 0;
+                for (int gInt = 0; gInt < this->n; gInt++){
+                    int originalValueInt = this->retrieve(xInt, gInt);
+                    int inputValueInt = inputMatrix->retrieve(gInt, yInt);
+                    multipliedValueInt += originalValueInt * inputValueInt;
+                }
+                multipliedMatrix->storage[xInt][yInt] = multipliedValueInt;
+                yInt++;
+            }
+            xInt++;
+        }
+        return multipliedMatrix;
     }
 
     private:
@@ -513,5 +538,21 @@ int main(){
     // delete matrix3;
     Matrix* matrix4 = matrix2.transpose();
     matrix4->print();
+    delete matrix4;
+
+    Matrix* matrix5 = new Matrix(2, 3);
+    Matrix* matrix6 = new Matrix(3,2);
+    matrix5->initialize({
+        { 4, 1, 3},
+        { 3, 2, 5}
+    });
+    matrix6->initialize({
+        {8, 9}, 
+        {7, 10},
+        {0, 6}
+    });
+    Matrix* matrix7 = matrix5->multiply(matrix6);
+    cout << "Mutliplied matrix: " << endl;
+    matrix7->print();
     return 0;
 }
