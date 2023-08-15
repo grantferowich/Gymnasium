@@ -7,6 +7,8 @@ using namespace std;
  /*
  *  Problem 2: Bit Flip
  *
+    Developed the function on August 15, 2023.
+    
  *     Given an array of binary values (0 and 1) and N number of flips (convert
  *     a 0 to a 1), determine the maximum number of consecutive 1's that can be
  *     made.
@@ -43,7 +45,6 @@ int BitFlip(vector<int> vec, int kInt) {
         if (rValueInt == 0){
             flipsInt++;
         }
-        
         while (flipsInt > kInt){
             int valueInt = vec[leftPtrInt];
             if (valueInt == 0){
@@ -51,7 +52,6 @@ int BitFlip(vector<int> vec, int kInt) {
             }
             leftPtrInt++;
         }
-        
         rightPtrInt++;
         if (rightPtrInt - leftPtrInt > ultimateResultInt){
                 ultimateResultInt = rightPtrInt - leftPtrInt;
