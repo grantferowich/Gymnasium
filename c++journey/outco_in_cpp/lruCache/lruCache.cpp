@@ -111,10 +111,11 @@ class LRUCache {
     // be the node which the head's next pointer
     // points to
     string get(string xKeyStr) {
-      if (this->cacheMap.count(xKeyStr) == 0){
+      Node *xNode = cacheMap[xKeyStr];
+      if (xNode == NULL){
+        cout << "xNode DNE" << endl;
         return "";
       }
-      Node* xNode = this->cacheMap[xKeyStr];
       moveToHead(xNode);
       return xNode->valueStr;
     }
@@ -123,14 +124,15 @@ class LRUCache {
         Node *xNode = this->cacheMap[xKeyStr];
 
         if (xNode == NULL){
-            Node *xNode = new Node();
+            xNode = new Node();
             xNode->keyStr = xKeyStr;
             xNode->valueStr = xValueStr;
             this->cacheMap[xKeyStr] = xNode;
             this->addNode(xNode);
+            this->countInt++;
             if (countInt > capacityInt){
                 Node *toRemoveNode = this->removeFromTail();
-                cacheMap.erase(toRemoveNode->keyStr);
+                this->cacheMap.erase(toRemoveNode->keyStr);
                 this->countInt--;
             }
         } else {
@@ -149,18 +151,20 @@ class LRUCache {
     head node
     */
     void addNode(Node *xNode) {
-        xNode->nextNode = this->headNode->nextNode;
-        this->headNode->nextNode = xNode;
-        xNode->previousNode = this->headNode;
+        xNode->previousNode = headNode;
+        xNode->nextNode = headNode->nextNode;
+        headNode->nextNode->previousNode = xNode;
+        headNode->nextNode = xNode;
+        
     }
     /*
     Remove an existing node from the linked list
     */
     void removeNode(Node *xNode) {
-        Node* prevNode = xNode->previousNode;
-        Node* nextNode = xNode->nextNode;
-        prevNode->nextNode = nextNode;
-        nextNode->previousNode = prevNode;
+        Node* previousNodeX = xNode->previousNode;
+        Node* nextNodeX = xNode->nextNode;
+        previousNodeX->nextNode = nextNodeX;
+        nextNodeX->previousNode = previousNodeX;
     }
     /*
     Move particular node from any position within
@@ -168,7 +172,7 @@ class LRUCache {
     list
     */
     void moveToHead(Node *xNode) {
-      // update pointers of the node in its current position
+    //   update pointers of the node in its current position
       xNode->previousNode->nextNode = xNode->nextNode;
       xNode->nextNode->previousNode = xNode->previousNode;
       xNode->nextNode = this->headNode->nextNode;
@@ -179,12 +183,8 @@ class LRUCache {
     Remove the current tail
     */
     Node* removeFromTail() {
-      Node *toRemoveNode = this->tailNode->previousNode;
-      string toRemoveKeyStr = toRemoveNode->keyStr;
-      toRemoveNode->previousNode->nextNode = this->tailNode;
-      this->tailNode->previousNode = toRemoveNode->previousNode;
-      toRemoveNode->nextNode = nullptr;
-      toRemoveNode->previousNode = nullptr;
+      Node *toRemoveNode = tailNode->previousNode;
+      this->removeNode(toRemoveNode);
       return toRemoveNode;
     }
 };
@@ -221,8 +221,7 @@ int main(){
     lruCacheX->set("qa", "Paul");
     string qaStr = lruCacheX->cacheMap["qa"]->valueStr;
     cout << "QA: " << qaStr << endl;
-    // string sd1StrX = lruCacheX->cacheMap["sd1"]->valueStr; // expect ""
-    // cout << "SD1: " << sd1StrX << endl;
+    printMap(lruCacheX->cacheMap);
     delete lruCacheX;
     return 0;
 }
