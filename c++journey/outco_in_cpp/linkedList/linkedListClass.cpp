@@ -122,9 +122,17 @@ class LinkedList {
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-
-    void delete_node(int index){
-      // YOUR WORK HERE
+    void delete_node(int indexInt){
+      ListNode *node = this->headNode;
+      int currentInt = 0;
+      while (node){
+        if (currentInt == indexInt - 1){
+           node->nextNode = node->nextNode->nextNode;
+        } 
+        node = node->nextNode;
+        currentInt++;
+      }
+      lengthInt--;
     }
 
 
@@ -156,6 +164,7 @@ int main(){
     linkedListX.append_value(13);
     linkedListX.append_value(21);
     linkedListX.append_value(34);
+    linkedListX.delete_node(1);
     linkedListX.printLinkedList();
     return 0;
 }
