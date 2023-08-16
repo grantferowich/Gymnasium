@@ -1,6 +1,6 @@
 /*
 *  Homework - Matrices
-*
+*  DEVELOPED AUGUST 14, 2023.
 *  Prompt: Create a Matrix class
 *
 *  The Matrix will take in the following input:

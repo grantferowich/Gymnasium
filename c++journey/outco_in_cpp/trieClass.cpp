@@ -62,23 +62,26 @@ using namespace std;
 // TrieNode class
 class TrieNode {
   public:
-    char value;
-    unordered_map<char, TrieNode*> children;
-    bool end;
+    char valueChar;
+    unordered_map<char, TrieNode*> childrenMap;
+    bool endBool;
 
-    TrieNode(char val) {
-        value = val;
-        end = false;
+    TrieNode(char valueXStr) {
+        valueChar = valueXStr;
+        endBool = false;
     }
 };
 
 class Trie {
 
     public:
-      TrieNode *root = new TrieNode('\u0000');
+      TrieNode *rootNode = new TrieNode('\u0000');
 
-      bool insert(string word) {
-        // YOUR WORK HERE
+      bool insert(string wordStr) {
+        char charX = wordStr[0];
+        if (rootNode->childrenMap.find(charX) == rootNode->childrenMap.end()){
+            rootNode[]
+        }
         return false;
       }
 
