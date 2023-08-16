@@ -112,13 +112,11 @@ class LinkedList {
         }
     }
 
-
     // Time Complexity:
     // Auxiliary Space Complexity:
     void append_value(int valueInt){
       this->insert_value(valueInt, lengthInt);
     }
-
 
     // Time Complexity:
     // Auxiliary Space Complexity:
@@ -135,11 +133,16 @@ class LinkedList {
       lengthInt--;
     }
 
-
     // Time Complexity:
     // Auxiliary Space Complexity:
-    bool contains_value(int value){
-      // YOUR WORK HERE
+    bool contains_value(int valueInt){
+      ListNode *node = this->headNode;
+      while (node){
+        if (node->valueInt == valueInt){
+          return true;
+        }
+        node = node->nextNode;
+      }
       return false;
     }
 
@@ -156,7 +159,6 @@ class LinkedList {
  };
 
 int main(){
-
     LinkedList linkedListX;
     linkedListX.append_value(3);
     linkedListX.append_value(5);
@@ -165,6 +167,8 @@ int main(){
     linkedListX.append_value(21);
     linkedListX.append_value(34);
     linkedListX.delete_node(1);
+    bool contains34Bool = linkedListX.contains_value(34);
+    cout << "Result 1: " << contains34Bool << endl; // 1
     linkedListX.printLinkedList();
     return 0;
 }
