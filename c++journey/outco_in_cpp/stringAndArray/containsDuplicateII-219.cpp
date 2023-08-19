@@ -12,11 +12,12 @@ using namespace std;
 /* 219. Contains Duplicate II
 Easy
 
-Developed the function on August 19, 2023.
+Developed and tested the function on August 19, 2023.
 5.3K
 2.8K
 Companies
-Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+Given an integer array nums and an integer k, 
+return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
 
  
 
@@ -54,11 +55,22 @@ bool containsDuplicateII(vector<int> inputVec, int kInt){
             if (abs(gInt - xInt) <= kInt && inputVec[xInt] == inputVec[gInt] && gInt != xInt){
                 return true;
             }
+            gInt++;
          }   
         }
         xInt++;
     }
     return false;
+}
+
+string printToFToString(bool inputToF){
+        if (inputToF == 1){
+            return "true";
+        }
+        if (inputToF == 0){
+            return "false";
+        }
+        return "false";
 }
 
 int main(){
@@ -68,6 +80,14 @@ int main(){
     int kInt2 = 1;
     vector<int> inputVec3 = {1, 2, 3, 1, 2, 3};
     int kInt3 = 2;
-    bool 
+    bool resultToF1 = containsDuplicateII(inputVec1, kInt1);
+    bool resultToF2 = containsDuplicateII(inputVec2, kInt2);
+    bool resultToF3 = containsDuplicateII(inputVec3, kInt3);
+    string resultStr1 = printToFToString(resultToF1);
+    string resultStr2 = printToFToString(resultToF2);
+    string resultStr3 = printToFToString(resultToF3);
+    cout << "Result 1: " << resultStr1 << endl;
+    cout << "Result 2: " << resultStr2 << endl;
+    cout << "Result 3: " << resultStr3 << endl;
     return 0;
 }
