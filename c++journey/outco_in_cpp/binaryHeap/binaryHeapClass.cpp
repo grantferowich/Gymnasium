@@ -1,6 +1,6 @@
 /*
   * Homework - Heap
-  *
+  * Started development on August 21, 2023.
   *
   *  Prompt: Create a Heap class/constructor
   *
@@ -80,39 +80,51 @@ using namespace std;
 
 class Heap {
   public:
-    vector<int> storage;
-    string type;
+    vector<int> storageVec;
+    string typeStr;
 
-    Heap(string type) {
-      //YOUR WORK HERE
+    Heap(string typeStr) {
+      this->typeStr = typeStr; 
     }
 
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    bool compare(int a, int b){
-      //YOUR WORK HERE
+    bool compare(int parentInt, int childInt){
+      int parentValueInt = this->storageVec[parentInt];
+      int childValueInt = this->storageVec[childInt];
+      if (this->typeStr == "min"){
+        return parentValueInt <= childValueInt;
+      }
+      if (this->typeStr == "max"){
+        return parentValueInt >= childValueInt;
+      }
       return false;
     }
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    void swap(int index1, int index2){
-      //YOUR WORK HERE
+    void swap(int index1Int, int index2Int){
+      int valueInt1 = this->storageVec[index1Int];
+      int valueInt2 = this->storageVec[index2Int];
+      this->storageVec[index1Int] = valueInt2;
+      this->storageVec[index2Int] = valueInt1;
     }
 
     // Time Complexity:
     // Auxiliary Space Complexity:
     int peak(){
-      //YOUR WORK HERE
-      return -1;
+      return this->storageVec[0];
     }
 
     // Time Complexity:
     // Auxiliary Space Complexity:
     int size(){
-      //YOUR WORK HERE
-      return -1;
+       int sizeInt = 0;
+      for (int valueInt: this->storageVec){
+        sizeInt++;
+      }
+      return sizeInt;
     }
 
     // Time Complexity:
