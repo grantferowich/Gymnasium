@@ -76,6 +76,7 @@
 #include <iostream>
 #include <algorithm>
 #include <typeinfo>
+#include <cmath>
 using namespace std;
 
 class Heap {
@@ -114,7 +115,11 @@ class Heap {
     // Time Complexity:
     // Auxiliary Space Complexity:
     int peak(){
-      return this->storageVec[0];
+      if (this->typeStr == "max"){
+        return this->storageVec[0];
+      } else {
+        return this->storageVec[this->storageVec.size() - 1];
+      }
     }
 
     // Time Complexity:
@@ -129,38 +134,103 @@ class Heap {
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    void insert(int value){
-      //YOUR WORK HERE
+    void insert(int valueInt){
+        this->storageVec.push_back(valueInt);
+        this->bubbleUp(this->size() - 1);
     }
-
+    int getParentIndexInt(int childIndexInt){
+        int parentIndexInt = floor(childIndexInt / 2);
+        return parentIndexInt;
+    }
     // Time Complexity:
     // Auxiliary Space Complexity:
-    void bubbleUp(int index){
-      //YOUR WORK HERE
+    void bubbleUp(int childIndexInt){
+      int parentIndexInt = this->getParentIndexInt(childIndexInt);
+      if (parentIndexInt < 0){
+        return;
+      }
+      if (this->typeStr == "min" && this->storageVec[parentIndexInt] > this->storageVec[childIndexInt]){
+        this->swap(childIndexInt, parentIndexInt);
+        return this->bubbleUp(parentIndexInt);
+      }
+      if (this->typeStr == "max" && this->storageVec[parentIndexInt] < this->storageVec[childIndexInt]){
+        this->swap(childIndexInt, parentIndexInt);
+        return this->bubbleUp(parentIndexInt);
+      }
+      return;
     }
 
     // Time Complexity:
     // Auxiliary Space Complexity:
     int removePeak(){
-      //YOUR WORK HERE
-      return -1;
+      if (this->size() == 1){
+        int rootInt = this->storageVec.back();
+        this->storageVec.pop_back();
+        return rootInt;
+      }
+      this->swap(0, this->storageVec.size() -1 );
+      this->bubbleDown(0);
+      int peakInt = this->storageVec.back();
+      storageVec.pop_back();
+      return peakInt;
+    }
+
+    int getChildIndexInt(int parentIndexInt){
+        int childIndexInt1 = parentIndexInt * 2 + 1;
+        int childIndexInt2 = parentIndexInt * 2 + 2;
+        if (childIndexInt1 > this->storageVec.size()){
+            return childIndexInt1;
+        } else if (childIndexInt2 > this->storageVec.size()){
+            return childIndexInt2;
+        }
+
+        if (this->typeStr == "min" && this->storageVec[childIndexInt1] < this->storageVec[childIndexInt2]){
+            return childIndexInt1;
+        }
+        if (this->typeStr == "max" && this->storageVec[childIndexInt1] > this->storageVec[childIndexInt2]){
+            return childIndexInt1;
+        }
+        return childIndexInt2;
     }
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    void bubbleDown(int index){
-      //YOUR WORK HERE
+    void bubbleDown(int parentIndexInt){
+      int childIndexInt = this->getChildIndexInt(parentIndexInt);
+      if (this->typeStr == "min" && this->storageVec[parentIndexInt] > this->storageVec[childIndexInt]){
+        this->swap(parentIndexInt, childIndexInt);
+        return this->bubbleDown(childIndexInt);
+      }
+      if (this->typeStr == "max" && this->storageVec[parentIndexInt] < this->storageVec[childIndexInt]){
+        this->swap(parentIndexInt, childIndexInt);
+        return this->bubbleDown(childIndexInt);
+      }
+      return;
     }
 
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    bool remove(int value){
-      //YOUR WORK HERE
-      return false;
+    // bool remove(int value){
+    //   //YOUR WORK HERE
+    //   return false;
+    // }
+
+
+    void printVector(){
+        for (int valueInt : this->storageVec){
+            cout << valueInt << " ";
+        }
+        cout << endl;
     }
-
-
-
 };
 
+
+
+int main(){
+    Heap heap("min");
+    heap.storageVec = {1, 2, 3, 5, 7, 12};
+    heap.printVector();
+    int peakInt = heap.peak();
+    cout << "Peak int: " << peakInt << endl;
+}
