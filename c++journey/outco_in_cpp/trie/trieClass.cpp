@@ -78,8 +78,19 @@ class Trie {
       TrieNode *rootNode = new TrieNode('\u0000');
 
       bool insert(string wordStr) {
-        if (this->childrenMap.find(wordStr) == this->childrenMap.end())
-
+        if (wordStr.size() == 0){
+          return false;
+        }
+        TrieNode currentNode = this->rootNode;
+        int xInt = 0;
+        while (xInt < wordStr.size()){
+          char charX = wordStr[xInt];
+          if (currentNode.childrenMap.find(charX) == currentNode.childrenMap.end()){
+            currentNode.childrenMap[charX] = new TrieNode(charX);
+          }
+          currentNode = currentNode.childrenMap[charX];
+          xInt++;
+        }
         return false;
       }
 
