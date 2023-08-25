@@ -74,8 +74,22 @@ class TrieNode {
 
 class Trie {
 
+    private: 
+      void printNodesRecursive(TrieNode* node, string currentWordStr){
+        if (node->endBool){
+          cout << currentWordStr << endl;
+        }
+        for (const auto& pair: node->childrenMap){
+          printNodesRecursive(pair.second, currentWordStr + pair.first);
+        }
+    }
+    
     public:
       TrieNode *rootNode = new TrieNode('\u0000');
+
+      void printNodes(){
+        printNodesRecursive(rootNode, "");
+      }
 
       bool insert(string wordStr) {
         if (wordStr.size() == 0){
@@ -134,9 +148,8 @@ class Trie {
 };
 
 int main(){
-
   Trie trieX;
   trieX.insert("dog");
-  
+  trieX.printNodes();
   return 0;
 }
