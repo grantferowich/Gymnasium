@@ -81,37 +81,62 @@ class Trie {
         if (wordStr.size() == 0){
           return false;
         }
-        TrieNode currentNode = this->rootNode;
+        TrieNode *currentNode = this->rootNode;
         int xInt = 0;
         while (xInt < wordStr.size()){
           char charX = wordStr[xInt];
-          if (currentNode.childrenMap.find(charX) == currentNode.childrenMap.end()){
-            currentNode.childrenMap[charX] = new TrieNode(charX);
+          if (currentNode->childrenMap.find(charX) == currentNode->childrenMap.end()){
+            TrieNode *xNode = new TrieNode(charX);
+            currentNode->childrenMap[charX] = xNode;
+            if (xInt == wordStr.size() - 1){
+              xNode->endBool = true;
+            }
           }
-          currentNode = currentNode.childrenMap[charX];
+          currentNode = currentNode->childrenMap[charX];
           xInt++;
         }
         return false;
       }
 
-      bool isWord(string word) {
+      bool isWord(string wordStr) {
+        TrieNode *currentNode = this->rootNode;
+        int xInt = 0;
+        while (xInt < wordStr.size()){
+          char charX = wordStr[xInt];
+          if (currentNode->childrenMap.find(charX) == currentNode->childrenMap.end()){
+            return false;
+          }
+          if (currentNode->childrenMap.find(charX) != currentNode->childrenMap.end()){
+            if (currentNode->endBool == true){
+              return true;
+            }
+            currentNode = currentNode->childrenMap[charX];
+          }
+          xInt++;
+        }
+        return false;
+      }
+
+      bool isPrefix(string prefixStr) {
         // YOUR WORK HERE
         return false;
       }
 
-      bool isPrefix(string prefix) {
-        // YOUR WORK HERE
-        return false;
-      }
-
-      vector<string> startsWith(string prefix) {
+      vector<string> startsWith(string prefixStr) {
         // YOUR WORK HERE
         return vector<string>{};
       }
 
-      void remove(string word) {
+      void remove(string wordStr) {
         // YOUR WORK HERE
       }
 
 };
 
+int main(){
+
+  Trie trieX;
+  trieX.insert("dog");
+  
+  return 0;
+}
