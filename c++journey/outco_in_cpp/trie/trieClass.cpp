@@ -121,7 +121,7 @@ class Trie {
             return false;
           }
           if (currentNode->childrenMap.find(charX) != currentNode->childrenMap.end()){
-            if (currentNode->endBool == true){
+            if (xInt == wordStr.size() - 1){
               return true;
             }
             currentNode = currentNode->childrenMap[charX];
@@ -132,8 +132,26 @@ class Trie {
       }
 
       bool isPrefix(string prefixStr) {
-        // YOUR WORK HERE
+        TrieNode *currentNode = this->rootNode;
+        int xInt = 0;
+        while (xInt < prefixStr.size()){
+          char charX = prefixStr[xInt];
+
+          currentNode = currentNode->childrenMap[xInt];
+          xInt++;
+        }
+
         return false;
+      }
+
+      string printToFToString(bool inputToF){
+            if (inputToF == 1){
+                return "true";
+            }
+            if (inputToF == 0){
+                return "false";
+            }
+            return "false";
       }
 
       vector<string> startsWith(string prefixStr) {
@@ -147,9 +165,24 @@ class Trie {
 
 };
 
+string printToFToString(bool inputToF){
+            if (inputToF == 1){
+                return "true";
+            }
+            if (inputToF == 0){
+                return "false";
+            }
+            return "false";
+}
+
+
 int main(){
   Trie trieX;
   trieX.insert("dog");
+  bool resultToF1 = trieX.isWord("dog");
+  bool resultToF2 = trieX.isWord("cat");
+  cout << "Result 1:" << printToFToString(resultToF1) << endl;
+  cout << "Result 2:" << printToFToString(resultToF2) << endl;
   trieX.printNodes();
   return 0;
 }
