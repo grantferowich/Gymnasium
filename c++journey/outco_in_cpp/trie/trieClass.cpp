@@ -136,8 +136,16 @@ class Trie {
         int xInt = 0;
         while (xInt < prefixStr.size()){
           char charX = prefixStr[xInt];
-
-          currentNode = currentNode->childrenMap[xInt];
+          if (currentNode->childrenMap.find(charX) == currentNode->childrenMap.end()){
+            return false;
+          }
+          if (currentNode->childrenMap.find(charX) != currentNode->childrenMap.end()){
+            if (xInt == prefixStr.size() - 1){
+              return true;
+            }
+            currentNode = currentNode->childrenMap[xInt];
+          }
+         
           xInt++;
         }
 
@@ -181,8 +189,10 @@ int main(){
   trieX.insert("dog");
   bool resultToF1 = trieX.isWord("dog");
   bool resultToF2 = trieX.isWord("cat");
+  bool resultToF3 = trieX.isWord("do");
   cout << "Result 1:" << printToFToString(resultToF1) << endl;
   cout << "Result 2:" << printToFToString(resultToF2) << endl;
+  cout << "Result 3:" << printToFToString(resultToF3) << endl;
   trieX.printNodes();
   return 0;
 }
