@@ -116,30 +116,31 @@ const result1 = coinChange(arr1, amount1);
 console.log(`Result 1: ${result1}.`);
 // expect Result 1: 2. 
 
-const arr2 = [1, 5, 10]
-const amount2 = 16
-const result2 = coinChange(arr2, amount2)
+const arr2 = [1, 5, 10];
+const amount2 = 16;
+const result2 = coinChange(arr2, amount2);
 console.log(`Result 2: ${result2}.`);
 // expect 3
 
-const arr3 = [1, 2, 5]
-const amount3 = 11
-const result3 = coinChange(arr3, amount3)
+const arr3 = [1, 2, 5];
+const amount3 = 11;
+const result3 = coinChange(arr3, amount3);
 console.log(`Result 3: ${result3}.`);
 // expect 3
 
-const arr4 = [ 2 ]
-const amount4 = 3
-const result4 = coinChange(arr4, amount4)
+const arr4 = [ 2 ];
+const amount4 = 3;
+const result4 = coinChange(arr4, amount4);
 console.log(`Result 4: ${result4}.`);
 
-const arr5 = [1]
-const amount5 = 0
-const result5 = coinChange(arr5, amount5)
-console.log(`Result 5: ${result5}`)
+const arr5 = [1];
+const amount5 = 0;
+const result5 = coinChange(arr5, amount5);
+console.log(`Result 5: ${result5}`);
 
-const arr6 = [186, 419, 83, 408]
-const amount6 = 6249
-const result6 = coinChange(arr6, amount6)
-console.log(`Result 6: ${result6}`)
+const arr6 = [186, 419, 83, 408];
+const amount6 = 6249;
+const result6 = coinChange(arr6, amount6);
+console.log(`Result 6: ${result6}`);
+
 /* TEST RESULTS */

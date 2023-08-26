@@ -163,7 +163,25 @@ class Trie {
       }
 
       vector<string> startsWith(string prefixStr) {
-        // YOUR WORK HERE
+        int xInt = 0;
+        TrieNode *currentNode = this->rootNode;
+        vector<string> outputVec;
+        while (xInt < prefixStr.size()){
+          char charX = prefixStr[xInt];
+          currentNode = currentNode->childrenMap[charX];
+          if (xInt == prefixStr.size() - 1){
+            for (const auto& pair : currentNode->childrenMap){
+              string newStr = prefixStr;
+              prefixStr.push_back(currentNode->valueChar);
+              while (currentNode){
+                char pair->first;
+                currentNode = currentNode->childrenMap[];
+              }
+            }
+          }
+          xInt++;
+        }
+
         return vector<string>{};
       }
 
@@ -183,16 +201,29 @@ string printToFToString(bool inputToF){
             return "false";
 }
 
+void printVector(const std::vector<string>& vec){
+    for (string valueStr : vec){
+        cout << valueStr << " ";
+    }
+    cout << endl;
+}
 
 int main(){
   Trie trieX;
   trieX.insert("dog");
+  trieX.insert("dino");
+  trieX.insert("dinosaur");
+  trieX.insert("win");
+  trieX.insert("dinner");
   bool resultToF1 = trieX.isWord("dog");
   bool resultToF2 = trieX.isWord("cat");
   bool resultToF3 = trieX.isWord("do");
   cout << "Result 1:" << printToFToString(resultToF1) << endl;
   cout << "Result 2:" << printToFToString(resultToF2) << endl;
   cout << "Result 3:" << printToFToString(resultToF3) << endl;
+  vector<string> startsWithDiVec = trieX.startsWith("di");
+  cout << "Result 4: Starts with Di:" << endl;
+  printVector(startsWithDiVec); // dino, dinosaur, dinner
   trieX.printNodes();
   return 0;
 }

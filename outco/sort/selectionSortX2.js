@@ -14,7 +14,8 @@
  *  Example:   [3,9,1,4,7] --> [1,3,4,7,9]
  * 
  * 
- * Step: Start with some key at 0 which states the first unsorted element in 
+ * Step: Start with some key at 0 which states
+ * the first unsorted element in 
  * the array
  * loop from 0 to N - 1, keeping track of the minimum element
  * Swap: when the loop has completed, set the minimum element at the location of the key,

@@ -190,7 +190,7 @@ class Heap {
     return rootInt
   } 
   this.swap(0, this.storageArr.length - 1);
-  this.bubbleDown(0)
+  this.bubbleDown(0);
   let peakInt = this.storageArr.pop();
   return peakInt; 
  }
