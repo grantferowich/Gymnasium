@@ -162,27 +162,29 @@ class Trie {
             return "false";
       }
 
+      void gatherWords(TrieNode *node, string currentWord, vector<string> &outputVec){
+        if (node->endBool){
+          outputVec.push_back(currentWord);
+        }
+        for (const auto &pair : node->childrenMap){
+          char charX = pair.first;
+          TrieNode *nextNode = pair.second;
+          gatherWords(nextNode, currentWord + charX, outputVec);
+        }
+      }
+
       vector<string> startsWith(string prefixStr) {
-        int xInt = 0;
+       
         TrieNode *currentNode = this->rootNode;
         vector<string> outputVec;
-        while (xInt < prefixStr.size()){
-          char charX = prefixStr[xInt];
-          currentNode = currentNode->childrenMap[charX];
-          if (xInt == prefixStr.size() - 1){
-            for (const auto& pair : currentNode->childrenMap){
-              string newStr = prefixStr;
-              prefixStr.push_back(currentNode->valueChar);
-              while (currentNode){
-                char pair->first;
-                currentNode = currentNode->childrenMap[];
-              }
-            }
+        for (char charX: prefixStr){
+          if (currentNode->childrenMap.find(charX) == currentNode->childrenMap.end()){
+            return outputVec;
           }
-          xInt++;
+          currentNode = currentNode->childrenMap[charX];
         }
-
-        return vector<string>{};
+        gatherWords(currentNode, prefixStr, outputVec);
+        return outputVec;
       }
 
       void remove(string wordStr) {
@@ -224,6 +226,7 @@ int main(){
   vector<string> startsWithDiVec = trieX.startsWith("di");
   cout << "Result 4: Starts with Di:" << endl;
   printVector(startsWithDiVec); // dino, dinosaur, dinner
+  cout << "Print all nodes: " << endl;
   trieX.printNodes();
   return 0;
 }
