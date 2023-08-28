@@ -72,7 +72,7 @@ class Queue{
             return true
         }
         if (this.first && !this.last){
-            console.log('enqueue case2..')
+            console.log('enqueue case2..');
             this.first.next = qNode
             this.last = qNode
             return true

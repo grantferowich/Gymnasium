@@ -52,12 +52,11 @@ class Stack{
         return this.top !== null ? this.top : 'The stack is empty.'
     }
     push(value){
-        let xNode = new StackNode(value)
+        let xNode = new StackNode(value);
         // connect the new stack node to the current top
-        xNode.next = this.top
+        xNode.next = this.top;
         // set the top node as a new node 
-        this.top = xNode
-
+        this.top = xNode;
     }
 
     isEmpty(){
