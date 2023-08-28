@@ -130,9 +130,9 @@ class LinkedList {
         }
         cout << "}" << endl;
     }
- };
+};
 
- class Queue {
+class Queue {
     public: 
         Queue(){
             this->firstNode = nullptr;
@@ -143,11 +143,51 @@ class LinkedList {
             return this->firstNode == nullptr;
         }
 
-        
+        int peek(){
+            if (this->firstNode){
+                return firstNode->valueInt;
+            }
+            return 0;
+            // how to handle empty list?
+        }
+
+        void enqueue(int valueInt){
+            ListNode* qNode = new ListNode(valueInt);
+            if (this->firstNode == nullptr){
+                this->firstNode = qNode;
+            }
+            if (this->firstNode && !this->lastNode){
+                this->firstNode->nextNode = qNode;
+                this->lastNode = qNode;
+            }
+            if (this->firstNode && this->lastNode){
+                this->lastNode->nextNode = qNode;
+                this->lastNode = qNode;
+            }
+        }
+
+        int dequeue(){
+            int intX = this->firstNode->valueInt;
+            this->firstNode = this->firstNode->nextNode;
+            return intX;
+        }     
+
+        void printQueue() {
+            ListNode* node = this->firstNode;
+            cout << "Printing out the queue: " << endl;
+            cout << "{";
+            while (node) {
+                cout << node->valueInt;
+                if (node->nextNode) {
+                    cout << ", ";
+                }
+                node = node->nextNode;
+            }
+            cout << "}" << endl;
+        }
     private: 
         ListNode* firstNode;
-        ListNode* lastNode;
-    
+        ListNode* lastNode;  
  };
 
 
@@ -166,5 +206,9 @@ string printToFToString(bool inputToF){
     bool isEmptyToF = queueX.isEmpty();
     string isEmptyToFStr = printToFToString(isEmptyToF);
     cout << "Is empty: (expect true): " << isEmptyToFStr << endl;
+    queueX.enqueue(3);
+    queueX.enqueue(5);
+    queueX.enqueue(9);
+    queueX.printQueue();
     return 0;
  }
