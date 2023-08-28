@@ -11,7 +11,7 @@
 using namespace std;
 /*
 *  Problem: Lattice Paths (Dynamic Programming Approach)
-*
+*  Developed on August 8, 2023.
 *  Prompt:    Count the number of unique paths to travel from the top left
 *             to the bottom right of a lattice of squares.
 *

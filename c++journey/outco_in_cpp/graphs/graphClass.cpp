@@ -145,7 +145,7 @@ class Graph {
     vector<int> neighbors(int idInt) {
       return this->storageMap[idInt];
     }
-    
+
     string printToFToString(bool inputToF){
         if (inputToF == 1){
             return "true";
