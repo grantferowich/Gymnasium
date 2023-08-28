@@ -145,7 +145,16 @@ class Graph {
     vector<int> neighbors(int idInt) {
       return this->storageMap[idInt];
     }
-
+    
+    string printToFToString(bool inputToF){
+        if (inputToF == 1){
+            return "true";
+        }
+        if (inputToF == 0){
+            return "false";
+        }
+        return "false";
+}
     void printGraph() {
         cout << "Vertices:" << endl;
         for (const auto& vertexPair : this->storageMap) {
