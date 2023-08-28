@@ -124,25 +124,26 @@ class Graph {
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    bool removeEdge(int id1, int id2) {
-      // YOUR WORK HERE
+    bool removeEdge(int idInt1, int idInt2) {
+      this->storageMap[idInt1].erase(remove(this->storageMap[idInt1].begin(), this->storageMap[idInt1].end(), idInt2), this->storageMap[idInt1].end());
       return true;
     }
 
 
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool isVertex(int id) {
-      // YOUR WORK HERE
+    bool isVertex(int idInt) {
+      if (this->storageMap.find(idInt) == this->storageMap.end()){
+        return false;
+      }
       return true;
     }
 
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    vector<int> neighbors(int id) {
-      // YOUR WORK HERE
-      return vector<int>{};
+    vector<int> neighbors(int idInt) {
+      return this->storageMap[idInt];
     }
 
     void printGraph() {
@@ -171,6 +172,13 @@ int main(){
     graphX.addVertex(1);
     graphX.addVertex(2);
     graphX.addEdge(1, 2);
+    graphX.addEdge(3, 4);
+    graphX.addEdge(3, 5);
+    cout << "Graph state 1: " << endl; 
+    graphX.printGraph();
+    cout << "Removing edge from 1 - 2.." << endl;
+    graphX.removeEdge(1, 2);
+    cout << "Graph state 2: " << endl;
     graphX.printGraph();
     return 0;
 }
