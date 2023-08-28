@@ -140,6 +140,29 @@ class Stack {
         Stack(){
             this->topNode = nullptr;
         }
+
+        bool isEmpty(){
+            return this->topNode == nullptr;
+        }
     private: 
         ListNode* topNode;
 };
+
+
+string printToFToString(bool inputToF){
+        if (inputToF == 1){
+            return "true";
+        }
+        if (inputToF == 0){
+            return "false";
+        }
+        return "false";
+}
+
+int main(){
+    Stack stackX;
+    bool isEmptyToF = stackX.isEmpty();
+    string isEmptyStr = printToFToString(isEmptyToF);
+    cout << "Stack is empty: (expect true): " << isEmptyStr << endl;
+    return 0;
+}
