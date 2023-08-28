@@ -81,26 +81,44 @@ using namespace std;
 
 class Graph {
   public:
-    unordered_map<int, vector<int>> storage;
+    unordered_map<int, vector<int>> storageMap;
 
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool addVertex(int id) {
-      // YOUR WORK HERE
+    bool addVertex(int idInt) {
+      if (this->storageMap.find(idInt) == this->storageMap.end()){
+        storageMap[idInt] = {};
+      }
       return true;
     }
 
 
-    bool removeVertex(int id) {
-      // YOUR WORK HERE
+    bool removeVertex(int idInt) {
+      if (this->storageMap.find(idInt) == this->storageMap.end()){
+        return false;
+      }
+      if (this->storageMap.find(idInt) != this->storageMap.end()){
+        this->storageMap.erase(idInt);
+        for (auto pair : this->storageMap){
+            vector<int> neighborVec = pair.second;
+            neighborVec.erase(remove(neighborVec.begin(), neighborVec.end(), idInt), neighborVec.end());
+        }
+      }
       return true;
     }
 
 
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool addEdge(int id1, int id2) {
-      // YOUR WORK HERE
+    bool addEdge(int idInt1, int idInt2) {
+      if (this->storageMap.find(idInt1) == this->storageMap.end()){
+        this->addVertex(idInt1);
+      }
+      if (this->storageMap.find(idInt2) == this->storageMap.end()){
+        this->addVertex(idInt2);
+      }
+      vector<int> neighborsVec = this->storageMap[idInt1];
+      neighborsVec.push_back(idInt2);
       return true;
     }
 
@@ -128,4 +146,32 @@ class Graph {
       return vector<int>{};
     }
 
+    void printGraph() {
+        cout << "Vertices:" << endl;
+        for (const auto& vertexPair : adjacencyList) {
+            std::cout << vertexPair.first << " ";
+        }
+        cout << endl;
+
+        cout << "Edges:" << endl;
+        for (const auto& vertexPair : adjacencyList) {
+            int fromVertex = vertexPair.first;
+            const std::vector<int>& neighbors = vertexPair.second;
+            for (int toVertex : neighbors) {
+                if (fromVertex < toVertex) {
+                    std::cout << fromVertex << " - " << toVertex << std::endl;
+                }
+            }
+        }
+    }
 };
+
+
+int main(){
+    Graph graphX;
+    graphX.addVertex(1);
+    graphX.addVertex(2);
+    graphX.addEdge(1, 2);
+    graphX.printGraph();
+    return 0;
+}
