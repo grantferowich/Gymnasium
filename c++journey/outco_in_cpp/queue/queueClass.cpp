@@ -209,6 +209,9 @@ string printToFToString(bool inputToF){
     queueX.enqueue(3);
     queueX.enqueue(5);
     queueX.enqueue(9);
+    // queueX.dequeue();
     queueX.printQueue();
+    int peekInt = queueX.peek();
+    cout << "Peek: " << peekInt << endl;
     return 0;
  }
