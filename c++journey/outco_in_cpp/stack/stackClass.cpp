@@ -23,6 +23,7 @@ using namespace std;
     |- isEmpty()               | 
     |- peek()                  | 
     |- pop()                   | 
+    |- printStack( )           | 
     ----------------------------
 
     |--------------------------|
@@ -144,6 +145,34 @@ class Stack {
         bool isEmpty(){
             return this->topNode == nullptr;
         }
+
+        int pop(){
+            if (this->topNode == nullptr){ return -1;}
+            int topInt = this->topNode->valueInt;
+            this->topNode = this->topNode->nextNode;
+            return topInt;
+        }
+
+        void push(int valueInt){
+            ListNode* sNode = new ListNode(valueInt);
+            ListNode* nextNode = this->topNode;
+            this->topNode = sNode;
+            sNode->nextNode = nextNode;
+        }
+
+        void printStack() {
+            ListNode* node = this->topNode;
+            cout << "Printing out the stack: " << endl;
+            cout << "{";
+            while (node) {
+                cout << node->valueInt;
+                if (node->nextNode) {
+                    cout << ", ";
+                }
+                node = node->nextNode;
+            }
+            cout << "}" << endl;
+        }
     private: 
         ListNode* topNode;
 };
@@ -164,5 +193,10 @@ int main(){
     bool isEmptyToF = stackX.isEmpty();
     string isEmptyStr = printToFToString(isEmptyToF);
     cout << "Stack is empty: (expect true): " << isEmptyStr << endl;
+    stackX.push(3);
+    stackX.push(5);
+    stackX.push(23);
+    stackX.pop();
+    stackX.printStack();
     return 0;
 }
