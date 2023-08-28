@@ -54,6 +54,7 @@
  *                          Output:    {Boolean}
  */
 
+#include <string>
 #include <typeinfo>
 #include <type_traits>
 #include <iostream>
@@ -158,6 +159,15 @@ class LinkedList {
     }
  };
 
+string printToFToString(bool inputToF){
+        if (inputToF == 1){
+            return "true";
+        }
+        if (inputToF == 0){
+            return "false";
+        }
+        return "false";
+}
 int main(){
     LinkedList linkedListX;
     linkedListX.append_value(3);
@@ -166,9 +176,10 @@ int main(){
     linkedListX.append_value(13);
     linkedListX.append_value(21);
     linkedListX.append_value(34);
-    linkedListX.delete_node(1);
+    linkedListX.delete_node(1); // deletes the node whose value is 5
     bool contains34Bool = linkedListX.contains_value(34);
-    cout << "Result 1: " << contains34Bool << endl; // 1
+    string contains34Str = printToFToString(contains34Bool);
+    cout << "Result 1: " << contains34Str << endl; // 1
     linkedListX.printLinkedList();
     return 0;
 }
