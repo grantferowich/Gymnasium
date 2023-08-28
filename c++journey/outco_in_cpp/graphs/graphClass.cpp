@@ -117,8 +117,7 @@ class Graph {
       if (this->storageMap.find(idInt2) == this->storageMap.end()){
         this->addVertex(idInt2);
       }
-      vector<int> neighborsVec = this->storageMap[idInt1];
-      neighborsVec.push_back(idInt2);
+      this->storageMap[idInt1].push_back(idInt2);
       return true;
     }
 
@@ -148,13 +147,13 @@ class Graph {
 
     void printGraph() {
         cout << "Vertices:" << endl;
-        for (const auto& vertexPair : adjacencyList) {
+        for (const auto& vertexPair : this->storageMap) {
             std::cout << vertexPair.first << " ";
         }
         cout << endl;
 
         cout << "Edges:" << endl;
-        for (const auto& vertexPair : adjacencyList) {
+        for (const auto& vertexPair : this->storageMap) {
             int fromVertex = vertexPair.first;
             const std::vector<int>& neighbors = vertexPair.second;
             for (int toVertex : neighbors) {
