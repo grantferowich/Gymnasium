@@ -3,17 +3,39 @@
 #include <typeinfo>
 #include <type_traits>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class ListNode {
    public:
-     int valueInt;
-     ListNode* nextNode;
+    string str;
+    int valueInt;
+    vector<int> intVec;
+    ListNode* nextNode;
 
-     ListNode(int inputInt) {
+    ListNode(int inputInt) {
        this->valueInt = inputInt;
-       this->nextNode = nullptr;
-     }
+    }
+
+    ListNode(string str){
+        this->str = str;
+    }
+
+    ListNode(vector<int> intVec){
+        this->intVec = intVec;
+    }
+
+    string getStringID(){
+        return this->str;
+    }
+
+    int getValueIntID(){
+        return this->valueInt;
+    }
+
+    vector<int> getIntVecID(){
+        return this->intVec;
+    }
 };
 
 class LinkedList {

@@ -36,19 +36,44 @@
 #include <typeinfo>
 #include <type_traits>
 #include <iostream>
+#include <unordered_set>
 #include <vector>
+#include <unordered_map>
 using namespace std;
+
 
 class ListNode {
    public:
-     int valueInt;
-     ListNode* nextNode;
+    string str;
+    int valueInt;
+    vector<int> intVec;
+    ListNode* nextNode;
 
-     ListNode(int inputInt) {
+    ListNode(int inputInt) {
        this->valueInt = inputInt;
-       this->nextNode = nullptr;
-     }
+    }
+
+    ListNode(string str){
+        this->str = str;
+    }
+
+    ListNode(vector<int> intVec){
+        this->intVec = intVec;
+    }
+
+    string getStringID(){
+        return this->str;
+    }
+
+    int getValueIntID(){
+        return this->valueInt;
+    }
+
+    vector<int> getIntVecID(){
+        return this->intVec;
+    }
 };
+
 
 class LinkedList {
   public:
@@ -181,9 +206,14 @@ class Stack {
 
 class Queue {
     public: 
+        ListNode* firstNode;
+        ListNode* lastNode;  
+        int lengthInt;
+
         Queue(){
             this->firstNode = nullptr;
             this->lastNode = nullptr;
+            this->lengthInt = 0;
         }
         
         bool isEmpty(){
@@ -200,6 +230,7 @@ class Queue {
 
         void enqueue(int valueInt){
             ListNode* qNode = new ListNode(valueInt);
+            this->lengthInt++;
             if (this->firstNode == nullptr){
                 this->firstNode = qNode;
             }
@@ -214,6 +245,7 @@ class Queue {
         }
 
         int dequeue(){
+            this->lengthInt--;
             int intX = this->firstNode->valueInt;
             this->firstNode = this->firstNode->nextNode;
             return intX;
@@ -232,14 +264,11 @@ class Queue {
             }
             cout << "}" << endl;
         }
-    private: 
-        ListNode* firstNode;
-        ListNode* lastNode;  
 };
 
 class Graph {
   public:
-    unordered_map<int, vector<int>> storageMap;
+    unordered_map<int, vector<int> > storageMap;
     //   Time Complexity:
     //   Auxiliary Space Complexity:
     bool addVertex(int idInt) {
@@ -310,11 +339,57 @@ class Graph {
             return "false";
         }
         return "false";
-};
+    }
 
-vector<int> thirdDegreeNeighbors(vector<vector<int>> edgesVec, int startInt) {
-  Graph
-  return vector<int>{};
+    void printAdjacencyList() {
+        for (const auto &vertexPair : storageMap) {
+            int vertex = vertexPair.first;
+            const vector<int> &neighborsVec = vertexPair.second;
+
+            cout << "Vertex " << vertex << ": ";
+            cout << "{ ";
+            int xInt = 0;
+            while (xInt < neighborsVec.size()){
+                int neighborInt = neighborsVec[xInt];
+                cout << neighborInt;
+                if (xInt < neighborsVec.size() - 1){
+                    cout << ", ";
+                    
+                }
+                xInt++;
+            }
+            cout << " }"; 
+            cout << endl;
+        }
+    }
+};    
+
+Graph generateAdjacencyList(vector<vector<int> > edgeVec){
+    Graph graphX;
+    for (vector<int> pair : edgeVec){
+        int uInt = pair[0];
+        int vInt = pair[1];
+        graphX.addEdge(uInt, vInt);
+    }
+    return graphX;
+}
+
+vector<int> thirdDegreeNeighbors(vector<vector<int> > edgesVec, int startInt) {
+    Graph graphX = generateAdjacencyList(edgesVec);
+    Queue* queueX = new Queue();
+    queueX->enqueue([startInt, 0]);
+    unordered_map<int, int> vistedMap;
+    unordered_set<int> thirdDegreeNeighborsSet;
+    vector<int> outputVec;
+    while (queueX->lengthInt > 0){
+
+        vector<int> tuple = queueX->dequeue();
+    }
+
+    for (int valueInt: thirdDegreeNeighborsSet){
+        outputVec.push_back(valueInt);
+    }   
+    return outputVec;
 }
 
 void printVector(const vector<int>& vec){
