@@ -82,7 +82,6 @@ using namespace std;
 class Graph {
   public:
     unordered_map<int, vector<int>> storageMap;
-
     //   Time Complexity:
     //   Auxiliary Space Complexity:
     bool addVertex(int idInt) {
@@ -91,7 +90,6 @@ class Graph {
       }
       return true;
     }
-
 
     bool removeVertex(int idInt) {
       if (this->storageMap.find(idInt) == this->storageMap.end()){
@@ -154,8 +152,9 @@ class Graph {
             return "false";
         }
         return "false";
-}
-    void printGraph() {
+    }
+
+void printGraph() {
         cout << "Vertices:" << endl;
         for (const auto& vertexPair : this->storageMap) {
             std::cout << vertexPair.first << " ";
