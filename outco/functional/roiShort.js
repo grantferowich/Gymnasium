@@ -40,5 +40,4 @@ const callFunctions = async () => {
     console.log("ROI in % terms:", percentageROIInt)
 }
 
-
 callFunctions();

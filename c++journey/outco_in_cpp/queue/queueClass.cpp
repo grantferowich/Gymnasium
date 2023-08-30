@@ -188,7 +188,7 @@ class Queue {
     private: 
         ListNode* firstNode;
         ListNode* lastNode;  
- };
+};
 
 
 string printToFToString(bool inputToF){
@@ -199,9 +199,9 @@ string printToFToString(bool inputToF){
             return "false";
         }
         return "false";
-}
+};
 
- int main(){
+int main(){
     Queue queueX;
     bool isEmptyToF = queueX.isEmpty();
     string isEmptyToFStr = printToFToString(isEmptyToF);
@@ -214,4 +214,4 @@ string printToFToString(bool inputToF){
     int peekInt = queueX.peek();
     cout << "Peek: " << peekInt << endl;
     return 0;
- }
+};
