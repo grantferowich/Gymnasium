@@ -154,7 +154,29 @@ class Graph {
         return "false";
     }
 
-void printGraph() {
+    void printAdjacencyList() {
+        for (const auto &vertexPair : storageMap) {
+            int vertex = vertexPair.first;
+            const vector<int> &neighborsVec = vertexPair.second;
+
+            cout << "Vertex " << vertex << ": ";
+            cout << "{ ";
+            int xInt = 0;
+            while (xInt < neighborsVec.size()){
+                int neighborInt = neighborsVec[xInt];
+                cout << neighborInt;
+                if (xInt < neighborsVec.size() - 1){
+                    cout << ", ";
+                    
+                }
+                xInt++;
+            }
+            cout << " }"; 
+            cout << endl;
+        }
+    }
+
+    void printGraph() {
         cout << "Vertices:" << endl;
         for (const auto& vertexPair : this->storageMap) {
             std::cout << vertexPair.first << " ";
