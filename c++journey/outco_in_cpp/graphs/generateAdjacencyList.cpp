@@ -103,22 +103,44 @@ class Graph {
         }
     }
 
+    void printAdjacencyList() {
+        for (const auto &vertexPair : storageMap) {
+            int vertex = vertexPair.first;
+            const vector<int> &neighborsVec = vertexPair.second;
+
+            cout << "Vertex " << vertex << ": ";
+            cout << "{ ";
+            int xInt = 0;
+            while (xInt < neighborsVec.size()){
+                int neighborInt = neighborsVec[xInt];
+                cout << neighborInt;
+                if (xInt < neighborsVec.size() - 1){
+                    cout << ", ";
+                    
+                }
+                xInt++;
+            }
+            cout << " }"; 
+            cout << endl;
+        }
+    }
+
 };   
 // Input: an array of arrays
 // Output: a graph
-vector<vector<int > >generateAdjacencyList(vector<vector<int> > edgeVec){
+Graph generateAdjacencyList(vector<vector<int> > edgeVec){
     Graph graphX;
     for (vector<int> pair : edgeVec){
         int uInt = pair[0];
         int vInt = pair[1];
         graphX.addEdge(uInt, vInt);
     }
-    return graphX
+    return graphX;
 }
 
 int main(){
     vector<vector<int > > inputVec1 = {{1,2},{2,1},{1,3},{3,1},{2,4},{4,2},{3,4},{4,3},{4,8},{8,4},{4,5},{5,4},{5,6},{6,5},{5,7},{7,5},{6,7},{7,6},{8,7},{7,8},{8,9},{9,8}};
     Graph graphX = generateAdjacencyList(inputVec1);
-    graphX.printG
+    graphX.printAdjacencyList();
     return 0;
 }
