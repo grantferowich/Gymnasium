@@ -58,44 +58,63 @@
 #include <typeinfo>
 #include <type_traits>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class ListNode {
    public:
-     int valueInt;
-     ListNode* nextNode;
+    string str;
+    int valueInt;
+    vector<int> intVec;
+    ListNode* nextNode;
 
-     ListNode(int inputInt) {
+    ListNode(int inputInt) {
        this->valueInt = inputInt;
-       this->nextNode = nullptr;
-     }
+    }
+
+    ListNode(string str){
+        this->str = str;
+    }
+
+    ListNode(vector<int> intVec){
+        this->intVec = intVec;
+    }
+
+    string getStringID(){
+        return this->str;
+    }
+
+    int getValueIntID(){
+        return this->valueInt;
+    }
+
+    vector<int> getIntVecID(){
+        return this->intVec;
+    }
 };
 
 class LinkedList {
   public:
     int lengthInt = 0;
-    ListNode *headNode;
-    ListNode *tailNode;
+    ListNode *headNode, *tailNode;
 
     LinkedList() {
       this->headNode = nullptr;
       this->tailNode = nullptr;
     }
 
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity: O(N)
+    // Auxiliary Space Complexity: O(1)
     void insert_value(int valueInt, int indexInt){
         ListNode *xNode = new ListNode(valueInt);
         if (this->lengthInt == 0){
             this->headNode = xNode;
             xNode->nextNode = tailNode;
-            lengthInt++;
             return;
         }
         if (this->lengthInt == 1){
             this->headNode->nextNode = xNode;
             xNode->nextNode = this->headNode;
-            lengthInt++;
             return;
         }
         if (this->lengthInt > 1){
@@ -109,18 +128,18 @@ class LinkedList {
                 node = node->nextNode;
                 currentIndexInt++;
             }
-            lengthInt++;
         }
+        lengthInt++;
     }
 
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity: O(N)
+    // Auxiliary Space Complexity: O(1)
     void append_value(int valueInt){
       this->insert_value(valueInt, lengthInt);
     }
 
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity:O(N)
+    // Auxiliary Space Complexity: O(1)
     void delete_node(int indexInt){
       ListNode *node = this->headNode;
       int currentInt = 0;
@@ -134,8 +153,8 @@ class LinkedList {
       lengthInt--;
     }
 
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity: o(n)
+    // Auxiliary Space Complexity: O(1)
     bool contains_value(int valueInt){
       ListNode *node = this->headNode;
       while (node){
@@ -157,7 +176,7 @@ class LinkedList {
         }
         cout << "}" << endl;
     }
- };
+};
 
 
 string printToFToString(bool inputToF){
