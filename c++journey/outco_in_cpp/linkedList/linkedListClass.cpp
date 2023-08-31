@@ -162,36 +162,29 @@ class LinkedList {
         toDeleteNode = this->headNode;
         headNode = nullptr;
         tailNode = nullptr;
-        lengthInt--;
-        return toDeleteNode;
-      } 
+      }
+
       if (indexInt == 0){
         toDeleteNode = this->headNode;
         this->headNode = this->headNode->nextNode;
-        lengthInt--;
-        return toDeleteNode;
-      } 
+      }
+
       if (this->lengthInt != 1 && indexInt != 0){
         int xInt = 0;
         while (xInt < indexInt - 1){
           node = node->nextNode;
+          xInt++;
         }
-        
+
+        toDeleteNode = node->nextNode;
+        node->nextNode = node->nextNode->nextNode;
+        if (indexInt == this->lengthInt - 1){
+          this->tailNode = node;
+        }
       }
-
-
-
-      while (node){
-        if (currentInt == indexInt - 1){
-          ListNode *tempNode = node->nextNode;
-          node->nextNode = tempNode->nextNode;
-          delete tempNode;
-          lengthInt--;
-          return;
-        } 
-        node = node->nextNode;
-        currentInt++;
-      }
+      lengthInt--;
+      delete toDeleteNode;
+      return toDeleteNode;
     };
 
     // Time Complexity: o(N)
@@ -205,6 +198,16 @@ class LinkedList {
         node = node->nextNode;
       }
       return false;
+    }
+
+    bool contains(string inputStr){
+      ListNode *node = this->headNode;
+      while (node){
+        if (node->getStringID() == inputStr){
+          return true;
+        }
+        node = node->nextNode;
+      }
     }
 
     void printLinkedList(){
