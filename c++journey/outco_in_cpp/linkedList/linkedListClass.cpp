@@ -112,11 +112,13 @@ class LinkedList {
         if (this->lengthInt == 0){
             this->headNode = xNode;
             xNode->nextNode = tailNode;
+            lengthInt++;
             return;
         }
         if (this->lengthInt == 1){
             this->headNode->nextNode = xNode;
-            xNode->nextNode = this->headNode;
+            xNode->nextNode = this->tailNode;
+            lengthInt++;
             return;
         }
         if (this->lengthInt > 1){
@@ -126,19 +128,22 @@ class LinkedList {
                 if (currentIndexInt == lengthInt - 1){
                     node->nextNode = xNode;
                     xNode->nextNode = this->tailNode;
+                    lengthInt++;
+                    return;
                 }
                 node = node->nextNode;
                 currentIndexInt++;
             }
+
         }
-        lengthInt++;
+        
     }
 
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     void append_value(int valueInt){
       ListNode *xNode = new ListNode(valueInt);
-      this->insert_value(xNode, lengthInt);
+      this->insert_value(xNode, this->lengthInt);
     };
 
     void append_value(string inputStr){
@@ -208,17 +213,21 @@ class LinkedList {
         }
         node = node->nextNode;
       }
+      return false;
     }
 
     void printLinkedList(){
         ListNode *node = this->headNode;
         cout << "Printing out the linked list: " << endl;
-        cout << "{" ;
+        cout << "{ " ;
         while (node){
-            cout << node->valueInt << ", " << endl;
+            cout << node->valueInt;
             node = node->nextNode;
+            if (node){
+              cout << ", ";
+            }
         }
-        cout << "}" << endl;
+        cout << " }" << endl;
     }
 };
 
@@ -239,11 +248,13 @@ int main(){
     linkedListX.append_value(8);
     linkedListX.append_value(13);
     linkedListX.append_value(21);
-    linkedListX.append_value(34);
-    linkedListX.delete_node(1); // deletes the node whose value is 5
-    bool contains34Bool = linkedListX.contains_value(34);
-    string contains34Str = printToFToString(contains34Bool);
-    cout << "Result 1: " << contains34Str << endl; // 1
+    // linkedListX.append_value(34);
+    // linkedListX.delete_node(1); // deletes the node whose value is 5
+    // bool contains34Bool = linkedListX.contains_value(34);
+    // string contains34Str = printToFToString(contains34Bool);
+    // cout << "Result 1: " << contains34Str << endl; // 1
+    int sizeInt = linkedListX.lengthInt;
+    cout << "Total # of nodes: " << sizeInt << endl;
     linkedListX.printLinkedList();
     return 0;
 };
