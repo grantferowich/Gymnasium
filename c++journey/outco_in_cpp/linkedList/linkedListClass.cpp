@@ -53,7 +53,7 @@
  *                          Input:     value {Integer}
  *                          Output:    {Boolean}
  */
-
+#include <cstddef>
 #include <string>
 #include <typeinfo>
 #include <type_traits>
@@ -95,18 +95,20 @@ class ListNode {
 
 class LinkedList {
   public:
-    int lengthInt = 0;
+    int lengthInt;
     ListNode *headNode, *tailNode;
 
     LinkedList() {
       this->headNode = nullptr;
       this->tailNode = nullptr;
-    }
-
+      this->lengthInt = 0;
+    };
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
-    void insert_value(int valueInt, int indexInt){
-        ListNode *xNode = new ListNode(valueInt);
+    void insert_value(ListNode *xNode, int indexInt){
+        if (indexInt < 0 || indexInt > this->lengthInt){
+          return;
+        }
         if (this->lengthInt == 0){
             this->headNode = xNode;
             xNode->nextNode = tailNode;
@@ -135,25 +137,64 @@ class LinkedList {
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     void append_value(int valueInt){
-      this->insert_value(valueInt, lengthInt);
-    }
+      ListNode *xNode = new ListNode(valueInt);
+      this->insert_value(xNode, lengthInt);
+    };
+
+    void append_value(string inputStr){
+      ListNode *xNode = new ListNode(inputStr);
+      this->insert_value(xNode, lengthInt);
+    };
+
+    void append_value(vector<int> inputVec){
+      ListNode *xNode = new ListNode(inputVec);
+      this->insert_value(xNode, lengthInt);
+    };
 
     // Time Complexity:O(N)
     // Auxiliary Space Complexity: O(1)
-    void delete_node(int indexInt){
+    ListNode* delete_node(int indexInt){
       ListNode *node = this->headNode;
       int currentInt = 0;
+      ListNode *toDeleteNode;
+
+      if (this->lengthInt == 1){
+        toDeleteNode = this->headNode;
+        headNode = nullptr;
+        tailNode = nullptr;
+        lengthInt--;
+        return toDeleteNode;
+      } 
+      if (indexInt == 0){
+        toDeleteNode = this->headNode;
+        this->headNode = this->headNode->nextNode;
+        lengthInt--;
+        return toDeleteNode;
+      } 
+      if (this->lengthInt != 1 && indexInt != 0){
+        int xInt = 0;
+        while (xInt < indexInt - 1){
+          node = node->nextNode;
+        }
+        
+      }
+
+
+
       while (node){
         if (currentInt == indexInt - 1){
-           node->nextNode = node->nextNode->nextNode;
+          ListNode *tempNode = node->nextNode;
+          node->nextNode = tempNode->nextNode;
+          delete tempNode;
+          lengthInt--;
+          return;
         } 
         node = node->nextNode;
         currentInt++;
       }
-      lengthInt--;
-    }
+    };
 
-    // Time Complexity: o(n)
+    // Time Complexity: o(N)
     // Auxiliary Space Complexity: O(1)
     bool contains_value(int valueInt){
       ListNode *node = this->headNode;
@@ -178,7 +219,6 @@ class LinkedList {
     }
 };
 
-
 string printToFToString(bool inputToF){
         if (inputToF == 1){
             return "true";
@@ -187,7 +227,8 @@ string printToFToString(bool inputToF){
             return "false";
         }
         return "false";
-}
+};
+
 int main(){
     LinkedList linkedListX;
     linkedListX.append_value(3);
@@ -202,4 +243,4 @@ int main(){
     cout << "Result 1: " << contains34Str << endl; // 1
     linkedListX.printLinkedList();
     return 0;
-}
+};

@@ -242,9 +242,9 @@ class Queue {
         }
 
         int dequeue(){
-            this->lengthInt--;
             int intX = this->firstNode->valueInt;
             this->firstNode = this->firstNode->nextNode;
+            this->lengthInt--;
             return intX;
         }     
 
@@ -374,13 +374,24 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
 vector<int> thirdDegreeNeighbors(vector<vector<int> > edgesVec, int startInt) {
     Graph graphX = generateAdjacencyList(edgesVec);
     Queue* queueX = new Queue();
-    queueX->enqueue([startInt, 0]);
-    unordered_map<int, int> vistedMap;
+    queueX->enqueue({startInt, 0});
+    unordered_set<int> vistedSet;
     unordered_set<int> thirdDegreeNeighborsSet;
     vector<int> outputVec;
-    while (queueX->lengthInt > 0){
-
-        vector<int> tuple = queueX->dequeue();
+    while (!queueX->isEmpty()){
+        pair<int, int> tuple = queueX->d
+        int nodeInt = tuple.first;
+        int degreeInt = tuple.second;
+        vistedSet.insert(nodeInt);
+        if (degreeInt == 3){
+            thirdDegreeNeighborsSet.insert(nodeInt);
+        }
+        vector<int> neighborsVec = graphX.neighbors(nodeInt);
+        for (int valueInt: neighborsVec){
+            if (vistedSet.find(valueInt) == vistedSet.end() && degreeInt < 3){
+                queueX->enqueue({valueInt, degreeInt + 1});
+            }
+        }
     }
 
     for (int valueInt: thirdDegreeNeighborsSet){

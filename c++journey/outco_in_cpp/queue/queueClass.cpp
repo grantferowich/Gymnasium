@@ -20,7 +20,8 @@ using namespace std;
     |- enqueue(value)          | 
     |- isEmpty()               | 
     |- peek()                  | 
-    |- dequeue()               | 
+    |- dequeue()               |
+    |-lengthInt                | 
     ----------------------------
 
     |--------------------------|
@@ -134,9 +135,14 @@ class LinkedList {
 
 class Queue {
     public: 
+        ListNode* firstNode;
+        ListNode* lastNode;  
+        int lengthInt;
+
         Queue(){
             this->firstNode = nullptr;
             this->lastNode = nullptr;
+            this->lengthInt = 0;
         }
         
         bool isEmpty(){
@@ -153,6 +159,7 @@ class Queue {
 
         void enqueue(int valueInt){
             ListNode* qNode = new ListNode(valueInt);
+            this->lengthInt++;
             if (this->firstNode == nullptr){
                 this->firstNode = qNode;
             }
@@ -169,6 +176,7 @@ class Queue {
         int dequeue(){
             int intX = this->firstNode->valueInt;
             this->firstNode = this->firstNode->nextNode;
+            this->lengthInt--;
             return intX;
         }     
 
@@ -185,11 +193,7 @@ class Queue {
             }
             cout << "}" << endl;
         }
-    private: 
-        ListNode* firstNode;
-        ListNode* lastNode;  
 };
-
 
 string printToFToString(bool inputToF){
         if (inputToF == 1){

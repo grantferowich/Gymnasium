@@ -41,8 +41,7 @@ class ListNode {
 class LinkedList {
   public:
     int lengthInt = 0;
-    ListNode *headNode;
-    ListNode *tailNode;
+    ListNode *headNode, *tailNode;
 
     LinkedList() {
       this->headNode = nullptr;
@@ -56,13 +55,11 @@ class LinkedList {
         if (this->lengthInt == 0){
             this->headNode = xNode;
             xNode->nextNode = tailNode;
-            lengthInt++;
             return;
         }
         if (this->lengthInt == 1){
             this->headNode->nextNode = xNode;
             xNode->nextNode = this->headNode;
-            lengthInt++;
             return;
         }
         if (this->lengthInt > 1){
@@ -76,8 +73,8 @@ class LinkedList {
                 node = node->nextNode;
                 currentIndexInt++;
             }
-            lengthInt++;
         }
+        lengthInt++;
     }
 
     // Time Complexity: O(N)
