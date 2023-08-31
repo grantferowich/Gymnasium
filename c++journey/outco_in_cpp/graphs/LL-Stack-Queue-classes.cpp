@@ -128,6 +128,7 @@ class LinkedList {
         }
       }
       lengthInt--;
+      // memory management
       delete toDeleteNode;
       return toDeleteNode;
     };
