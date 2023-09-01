@@ -154,6 +154,7 @@ class LinkedList {
         }
         node = node->nextNode;
       }
+      return false;
     }
 
     void printLinkedList(){
