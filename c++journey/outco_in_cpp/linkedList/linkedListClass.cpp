@@ -106,7 +106,7 @@ class LinkedList {
 
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
-    void insert_value(ListNode *xNode, int indexInt){
+    void insertValue(ListNode *xNode, int indexInt){
         if (indexInt < 0 || indexInt > this->lengthInt){
           return;
         }
@@ -140,19 +140,19 @@ class LinkedList {
 
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
-    void append_value(int valueInt){
+    void appendValue(int valueInt){
       ListNode *xNode = new ListNode(valueInt);
-      this->insert_value(xNode, this->lengthInt);
+      this->insertValue(xNode, this->lengthInt);
     };
 
-    void append_value(string inputStr){
+    void appendValue(string inputStr){
       ListNode *xNode = new ListNode(inputStr);
-      this->insert_value(xNode, lengthInt);
+      this->insertValue(xNode, lengthInt);
     };
 
-    void append_value(vector<int> inputVec){
+    void appendValue(vector<int> inputVec){
       ListNode *xNode = new ListNode(inputVec);
-      this->insert_value(xNode, lengthInt);
+      this->insertValue(xNode, lengthInt);
     };
 
     // Time Complexity:O(N)
@@ -193,7 +193,7 @@ class LinkedList {
 
     // Time Complexity: o(N)
     // Auxiliary Space Complexity: O(1)
-    bool contains_value(int valueInt){
+    bool containsValue(int valueInt){
       ListNode *node = this->headNode;
       while (node){
         if (node->valueInt == valueInt){
@@ -260,7 +260,7 @@ class LinkedList {
         node = node->nextNode;
       }
       cout << " }" << endl;
-    }
+    };
 
     
 };
@@ -277,11 +277,11 @@ string printToFToString(bool inputToF){
 
 int main(){
     LinkedList linkedListX;
-    linkedListX.append_value(3);
-    linkedListX.append_value(5);
-    linkedListX.append_value(8);
-    linkedListX.append_value(13);
-    linkedListX.append_value(21);
+    linkedListX.appendValue(3);
+    linkedListX.appendValue(5);
+    linkedListX.appendValue(8);
+    linkedListX.appendValue(13);
+    linkedListX.appendValue(21);
     // linkedListX.append_value(34);
     // linkedListX.delete_node(1); // deletes the node whose value is 5
     // bool contains34Bool = linkedListX.contains_value(34);
@@ -291,16 +291,16 @@ int main(){
     cout << "Total # of nodes: " << sizeInt << endl;
     linkedListX.printLinkedListInt();
     LinkedList linkedListS;
-    linkedListS.append_value("w");
-    linkedListS.append_value("a");
-    linkedListS.append_value("k");
-    linkedListS.append_value("e");
+    linkedListS.appendValue("w");
+    linkedListS.appendValue("a");
+    linkedListS.appendValue("k");
+    linkedListS.appendValue("e");
     cout << "Characters in linked list s" << endl;
     linkedListS.printLinkedListStr();
     LinkedList linkedListV;
-    linkedListV.append_value(vector<int>{ 0, 1 });
-    linkedListV.append_value(vector<int>{ 2, 3 });
-    linkedListV.append_value(vector<int>{ 4, 5 });
+    linkedListV.appendValue(vector<int>{ 0, 1 });
+    linkedListV.appendValue(vector<int>{ 2, 3 });
+    linkedListV.appendValue(vector<int>{ 4, 5 });
     linkedListV.printLinkedListVec();
     return 0;
 };
