@@ -134,11 +134,8 @@ class LinkedList {
                 node = node->nextNode;
                 currentIndexInt++;
             }
-
         }
-        
     }
-
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     void append_value(int valueInt){
@@ -216,10 +213,10 @@ class LinkedList {
       return false;
     }
 
-    void printLinkedList(){
+    void printLinkedListInt(){
         ListNode *node = this->headNode;
         cout << "Printing out the linked list: " << endl;
-        cout << "{ " ;
+        cout << "{ ";
         while (node){
             cout << node->valueInt;
             node = node->nextNode;
@@ -229,6 +226,39 @@ class LinkedList {
         }
         cout << " }" << endl;
     }
+
+    void printLinkedListStr(){
+      ListNode *node = this->headNode;
+      cout << "Printing out the linked list: " << endl;
+      cout << "{ ";
+      while (node){
+        cout << node->getStringID();
+        node = node->nextNode;
+        if (node){
+          cout << ", ";
+        }
+      }
+      cout << " }" << endl;
+    }
+
+    void printLinkedListVec(){
+      ListNode *node = this->headNode;
+      cout << "Printing out the linked list: " << endl;
+      cout << "{ ";
+      while (node){
+        vector<int> vec = node->getIntVecID();
+        int xInt = 0;
+        while (xInt < vec.size()){
+          cout << vec[xInt];
+          if (xInt < vec.size() - 1){
+            cout << ", " << endl;
+          }
+          xInt++;
+        }
+        node = node->nextNode;
+      }
+    }
+    
 };
 
 string printToFToString(bool inputToF){
@@ -255,6 +285,13 @@ int main(){
     // cout << "Result 1: " << contains34Str << endl; // 1
     int sizeInt = linkedListX.lengthInt;
     cout << "Total # of nodes: " << sizeInt << endl;
-    linkedListX.printLinkedList();
+    linkedListX.printLinkedListInt();
+    LinkedList linkedListS;
+    linkedListS.append_value("w");
+    linkedListS.append_value("a");
+    linkedListS.append_value("k");
+    linkedListS.append_value("e");
+    cout << "Characters in linked list s" << endl;
+    linkedListS.printLinkedListStr();
     return 0;
 };
