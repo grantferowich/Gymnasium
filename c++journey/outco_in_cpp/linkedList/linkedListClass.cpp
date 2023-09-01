@@ -103,6 +103,7 @@ class LinkedList {
       this->tailNode = nullptr;
       this->lengthInt = 0;
     };
+
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     void insert_value(ListNode *xNode, int indexInt){
@@ -136,6 +137,7 @@ class LinkedList {
             }
         }
     }
+
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     void append_value(int valueInt){
@@ -250,14 +252,16 @@ class LinkedList {
         int xInt = 0;
         while (xInt < vec.size()){
           cout << vec[xInt];
-          if (xInt < vec.size() - 1){
-            cout << ", " << endl;
+          if (xInt < vec.size() - 1 || node->nextNode != nullptr){
+            cout << ", ";
           }
           xInt++;
         }
         node = node->nextNode;
       }
+      cout << " }" << endl;
     }
+
     
 };
 
@@ -293,5 +297,10 @@ int main(){
     linkedListS.append_value("e");
     cout << "Characters in linked list s" << endl;
     linkedListS.printLinkedListStr();
+    LinkedList linkedListV;
+    linkedListV.append_value(vector<int>{ 0, 1 });
+    linkedListV.append_value(vector<int>{ 2, 3 });
+    linkedListV.append_value(vector<int>{ 4, 5 });
+    linkedListV.printLinkedListVec();
     return 0;
 };
