@@ -3,6 +3,7 @@
 #include <typeinfo>
 #include <type_traits>
 #include <iostream>
+#include <vector>
 using namespace std;
 /* 
 
@@ -239,43 +240,60 @@ class LinkedList {
 
 class Stack {
     public: 
-        Stack(){
-            this->topNode = nullptr;
-        }
-
+        LinkedList *linkedList = new LinkedList();
+        int lengthInt = 0;
         bool isEmpty(){
-            return this->topNode == nullptr;
+            return this->linkedList->headNode == nullptr;
         }
 
-        int pop(){
-            if (this->topNode == nullptr){ return -1;}
-            int topInt = this->topNode->valueInt;
-            this->topNode = this->topNode->nextNode;
+        int popInt(){
+            if (this->linkedList->headNode == nullptr){ return -1;}
+            int topInt = this->linkedList->headNode->getIntID();
+            this->linkedList->headNode = this->linkedList->headNode->nextNode;
             return topInt;
         }
 
-        void push(int valueInt){
-            ListNode* sNode = new ListNode(valueInt);
-            ListNode* nextNode = this->topNode;
-            this->topNode = sNode;
-            sNode->nextNode = nextNode;
+        string popStr(){
+            if (this->linkedList->headNode == nullptr){return "";}
+            string poppedStr = this->linkedList->headNode->getStringID();
+            this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            return poppedStr;
         }
 
-        void printStack() {
-            ListNode* node = this->topNode;
-            cout << "Printing out the stack: " << endl;
-            cout << "{";
-            while (node) {
-                cout << node->valueInt;
-                if (node->nextNode) {
-                    cout << ", ";
-                }
-                node = node->nextNode;
-            }
-            cout << "}" << endl;
+        vector<int> popVec(){
+            if (this->linkedList->headNode == nullptr){return {};}
+            vector<int> poppedVec = this->linkedList->headNode->getVecIntID();
+            this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            return poppedVec;
         }
-    private: 
-        ListNode* topNode;
+
+        void push(int valueInt){
+            this->linkedList->appendValue(valueInt);
+            this->lengthInt++;
+        }
+
+        void push(string inputStr){
+            this->linkedList->appendValue(inputStr);
+            this->lengthInt++;
+        }
+
+        void push(vector<int> inputVec){
+            this->linkedList->appendValue(inputVec);
+            this->lengthInt++;
+        }
+
+        void printStackInt() {
+           this->linkedList->printLinkedListInt();
+        }
+
+        void printStackString(){
+            this->linkedList->printLinkedListStr();
+        }
+
+        void printStackVec(){
+            this->linkedList->printLinkedListVec();
+        }
+
 };
 
 
@@ -297,8 +315,11 @@ int main(){
     stackX.push(3);
     stackX.push(5);
     stackX.push(23);
-    stackX.pop();
-    
-    stackX.printStack();
+    stackX.printStackInt();
+    Stack stackG;
+    stackG.push("Hello");
+    stackG.push("from");
+    stackG.push("the South");
+    stackG.printStackString();
     return 0;
 }
