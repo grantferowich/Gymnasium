@@ -49,8 +49,8 @@ class ListNode {
         this->str = str;
     }
 
-    ListNode(vector<int> intVec){
-        this->vecInt = intVec;
+    ListNode(vector<int> vecInt){
+        this->vecInt = vecInt;
     }
 
     string getStringID(){
@@ -221,7 +221,7 @@ class LinkedList {
       cout << "Printing out the linked list: " << endl;
       cout << "{ ";
       while (node){
-        vector<int> vec = node->getIntVecID();
+        vector<int> vec = node->getVecIntID();
         int xInt = 0;
         while (xInt < vec.size()){
           cout << vec[xInt];
@@ -344,7 +344,7 @@ class Queue {
           cout << "Printing out the queue of vectors..." << endl;
           cout << "{ ";
           while (node){
-            vector<int> vec = node->getIntVecID();
+            vector<int> vec = node->getVecIntID();
             printVector(vec);
             if (node->nextNode){
               cout << ", ";
@@ -406,6 +406,6 @@ int main(){
     vector<int> peekIntVec = queueV.peekIntVec();
     cout << "Queue V peek:";
     printVector(peekIntVec);
-    queueV
+    queueV.printQueueVecInt();
     return 0;
 };
