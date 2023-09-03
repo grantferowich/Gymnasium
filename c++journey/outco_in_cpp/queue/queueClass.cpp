@@ -296,9 +296,9 @@ class Queue {
             return this->lengthInt;
         }
 
-        void printQueue() {
+        void printQueueInt() {
             ListNode* node = this->linkedList->headNode;
-            cout << "Printing out the queue: " << endl;
+            cout << "Printing out the queue of ints: " << endl;
             cout << "{";
             while (node) {
                 cout << node->valueInt;
@@ -308,6 +308,20 @@ class Queue {
                 node = node->nextNode;
             }
             cout << "}" << endl;
+        }
+
+        void printQueueStr(){
+          ListNode* node = this->linkedList->headNode;
+          cout << "Printing out the queue of strings" << endl;
+          cout << "{ ";
+          while (node){
+            cout << node->getStringID();
+            if (node->nextNode){
+              cout << ", ";
+            }
+            node = node->nextNode;
+          }
+          cout << " }" << endl;
         }
 };
 
@@ -329,7 +343,7 @@ int main(){
     queueX.enqueue(3);
     queueX.enqueue(5);
     queueX.enqueue(9);
-    queueX.printQueue();
+    queueX.printQueueInt();
     int peekInt = queueX.peekIntID();
     cout << "Queue X Peek: " << peekInt << endl;
     Queue queueS;
@@ -338,5 +352,6 @@ int main(){
     queueS.enqueue("the south");
     string peekStrS = queueS.peekStringID();
     cout << "Queue S peek: " << peekStrS << endl;
+    queueS.printQueueStr();
     return 0;
 };
