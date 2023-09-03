@@ -160,7 +160,6 @@ class LinkedList {
         }
       }
       lengthInt--;
-      delete toDeleteNode;
       return toDeleteNode;
     };
 
@@ -272,7 +271,11 @@ class Queue {
             return this->linkedList->delete_node(0)->getIntID();
         }
 
-        vector<int> dequeueIntVec(){
+        vector<int> dequeueVecInt(){
+          if (this->lengthInt == 0){
+            return vector<int>({-1});
+          }
+            this->lengthInt--;
             return this->linkedList->delete_node(0)->getVecIntID();
         }
         
@@ -407,5 +410,8 @@ int main(){
     cout << "Queue V peek:";
     printVector(peekIntVec);
     queueV.printQueueVecInt();
+    vector<int> dequeuedVecV = queueV.dequeueVecInt();
+    cout << "Dequeued vector from queue V..." << endl;
+    printVector(dequeuedVecV);
     return 0;
 };
