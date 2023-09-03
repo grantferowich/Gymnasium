@@ -130,7 +130,7 @@ class LinkedList {
 
     // Time Complexity:O(N)
     // Auxiliary Space Complexity: O(1)
-    ListNode* delete_node(int indexInt){
+    ListNode* deleteNode(int indexInt){
       ListNode *node = this->headNode;
       int currentInt = 0;
       ListNode *toDeleteNode;
@@ -260,7 +260,7 @@ class Queue {
                 return NULL;
             }
             this->lengthInt--;
-            return this->linkedList->delete_node(0)->getStringID();
+            return this->linkedList->deleteNode(0)->getStringID();
         }
 
         int dequeueIntID(){
@@ -268,7 +268,7 @@ class Queue {
                 return -1;
             }
             this->lengthInt--;
-            return this->linkedList->delete_node(0)->getIntID();
+            return this->linkedList->deleteNode(0)->getIntID();
         }
 
         vector<int> dequeueVecInt(){
@@ -276,7 +276,7 @@ class Queue {
             return vector<int>({-1});
           }
             this->lengthInt--;
-            return this->linkedList->delete_node(0)->getVecIntID();
+            return this->linkedList->deleteNode(0)->getVecIntID();
         }
         
         bool isEmpty(){
