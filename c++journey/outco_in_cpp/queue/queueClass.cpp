@@ -335,6 +335,22 @@ string printToFToString(bool inputToF){
         return "false";
 };
 
+void printVector(const vector<int>& vec){
+    cout << "{ ";
+    int xInt = 0;
+    while (xInt < vec.size()){
+        int valueInt = vec[xInt];
+        if (xInt < vec.size() - 1){
+            cout << valueInt << ", ";
+        } 
+        if (xInt == vec.size() - 1){
+            cout << valueInt;
+        }
+        xInt++;
+    }
+    cout << " }" << endl;
+}
+
 int main(){
     Queue queueX;
     bool isEmptyToF = queueX.isEmpty();
@@ -353,5 +369,12 @@ int main(){
     string peekStrS = queueS.peekStringID();
     cout << "Queue S peek: " << peekStrS << endl;
     queueS.printQueueStr();
+    Queue queueV;
+    queueV.enqueue(vector<int>{1, 2, 3});
+    queueV.enqueue(vector<int>{8, 13});
+    queueV.enqueue(vector<int>{21});
+    vector<int> peekIntVec = queueV.peekIntVec();
+    cout << "Queue V peek:";
+    printVector(peekIntVec);
     return 0;
 };
