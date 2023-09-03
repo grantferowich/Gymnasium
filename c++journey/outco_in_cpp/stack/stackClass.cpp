@@ -321,6 +321,7 @@ int main(){
     stackG.push("Hello");
     stackG.push("from");
     stackG.push("the South");
+    stackG.popStr();
     stackG.printStackString();
     Stack stackF;
     cout << "stackF" << endl;
