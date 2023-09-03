@@ -329,9 +329,14 @@ int main(){
     queueX.enqueue(3);
     queueX.enqueue(5);
     queueX.enqueue(9);
-    // queueX.dequeue();
     queueX.printQueue();
     int peekInt = queueX.peekIntID();
-    cout << "Peek: " << peekInt << endl;
+    cout << "Queue X Peek: " << peekInt << endl;
+    Queue queueS;
+    queueS.enqueue("hello");
+    queueS.enqueue("from");
+    queueS.enqueue("the south");
+    string peekStrS = queueS.peekStringID();
+    cout << "Queue S peek: " << peekStrS << endl;
     return 0;
 };
