@@ -250,6 +250,7 @@ class Stack {
             if (this->linkedList->headNode == nullptr){ return -1;}
             int topInt = this->linkedList->headNode->getIntID();
             this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            this->lengthInt--;
             return topInt;
         }
 
@@ -257,6 +258,7 @@ class Stack {
             if (this->linkedList->headNode == nullptr){return "";}
             string poppedStr = this->linkedList->headNode->getStringID();
             this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            this->lengthInt--;
             return poppedStr;
         }
 
@@ -264,6 +266,7 @@ class Stack {
             if (this->linkedList->headNode == nullptr){return {};}
             vector<int> poppedVec = this->linkedList->headNode->getVecIntID();
             this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            this->lengthInt--;
             return poppedVec;
         }
 
@@ -293,7 +296,9 @@ class Stack {
         void printStackVec(){
             this->linkedList->printLinkedListVec();
         }
-
+        int size(){
+            return this->lengthInt;
+        }
 };
 
 
@@ -323,6 +328,10 @@ int main(){
     stackG.push("the South");
     stackG.popStr();
     stackG.printStackString();
+    cout << "Stack g size: (expect 2): " << stackG.size() << endl;
+    bool isEmptyToF2 = stackG.isEmpty();
+    string isEmpty2Str = printToFToString(isEmptyToF2);
+    cout << "Stack is empty: (expect false): " << isEmpty2Str << endl;
     Stack stackF;
     cout << "stackF" << endl;
     stackF.push(vector<int>({2,3,5}));
