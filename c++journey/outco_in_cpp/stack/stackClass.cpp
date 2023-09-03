@@ -317,9 +317,14 @@ int main(){
     stackX.push(23);
     stackX.printStackInt();
     Stack stackG;
+    cout << "stackG" << endl;
     stackG.push("Hello");
     stackG.push("from");
     stackG.push("the South");
     stackG.printStackString();
+    Stack stackF;
+    cout << "stackF" << endl;
+    stackF.push(vector<int>{2,3,5});
+    stackF.printStackVec();
     return 0;
 }
