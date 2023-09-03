@@ -4,6 +4,7 @@
 #include <typeinfo>
 #include <type_traits>
 #include <iostream>
+#include <vector>
 using namespace std;
 /*  
     QUEUE CLASS
@@ -56,7 +57,7 @@ class ListNode {
         return this->str;
     }
 
-    int getValueIntID(){
+    int getIntID(){
         return this->valueInt;
     }
 
@@ -235,41 +236,68 @@ class LinkedList {
     };
 };
 
-
 class Queue {
     public: 
         LinkedList *linkedList = new LinkedList();
         int lengthInt = 0;    
         
         void enqueue(int valueInt){
-            ListNode* qNode = new ListNode(valueInt);
+            this->linkedList->appendValue(valueInt);
             this->lengthInt++;
-
         }
 
-        bool isEmpty(){
-            return this->firstNode == nullptr;
+        void enqueue(string inputStr){
+            this->linkedList->appendValue(inputStr);
+            this->lengthInt++;
         }
 
-        int peek(){
-            if (this->firstNode){
-                return firstNode->valueInt;
+        void enqueue(vector<int> inputVec){
+            this->linkedList->appendValue(inputVec);
+            this->lengthInt++;
+        }
+
+        string dequeueStringID(){
+            if (this->lengthInt == 0){
+                return NULL;
             }
-            return 0;
-            // how to handle empty list?
+            this->lengthInt--;
+            return this->linkedList->delete_node(0)->getStringID();
         }
 
-        
-
-        int dequeue(){
-            int intX = this->firstNode->valueInt;
-            this->firstNode = this->firstNode->nextNode;
+        int dequeueIntID(){
+            if (this->lengthInt == 0){
+                return -1;
+            }
             this->lengthInt--;
-            return intX;
-        }     
+            return this->linkedList->delete_node(0)->getIntID();
+        }
+
+        vector<int> dequeueIntVec(){
+            return this->linkedList->delete_node(0)->getIntVecID();
+        }
+        
+        bool isEmpty(){
+            return this->lengthInt == 0;
+        }
+
+        string peekStringID(){
+            return this->linkedList->headNode->getStringID();
+        }
+
+        int peekIntID(){
+            return this->linkedList->headNode->getIntID();
+        }
+    
+        vector<int> peekIntVec(){
+            return this->linkedList->headNode->getIntVecID();
+        }
+
+        int size(){
+            return this->lengthInt;
+        }
 
         void printQueue() {
-            ListNode* node = this->firstNode;
+            ListNode* node = this->linkedList->headNode;
             cout << "Printing out the queue: " << endl;
             cout << "{";
             while (node) {
@@ -303,7 +331,7 @@ int main(){
     queueX.enqueue(9);
     // queueX.dequeue();
     queueX.printQueue();
-    int peekInt = queueX.peek();
+    int peekInt = queueX.peekIntID();
     cout << "Peek: " << peekInt << endl;
     return 0;
 };
