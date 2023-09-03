@@ -38,7 +38,7 @@ class ListNode {
    public:
     string str;
     int valueInt;
-    vector<int> intVec;
+    vector<int> vecInt;
     ListNode* nextNode;
 
     ListNode(int inputInt) {
@@ -50,7 +50,7 @@ class ListNode {
     }
 
     ListNode(vector<int> intVec){
-        this->intVec = intVec;
+        this->vecInt = intVec;
     }
 
     string getStringID(){
@@ -61,8 +61,8 @@ class ListNode {
         return this->valueInt;
     }
 
-    vector<int> getIntVecID(){
-        return this->intVec;
+    vector<int> getVecIntID(){
+        return this->vecInt;
     }
 };
 
@@ -273,7 +273,7 @@ class Queue {
         }
 
         vector<int> dequeueIntVec(){
-            return this->linkedList->delete_node(0)->getIntVecID();
+            return this->linkedList->delete_node(0)->getVecIntID();
         }
         
         bool isEmpty(){
@@ -289,7 +289,7 @@ class Queue {
         }
     
         vector<int> peekIntVec(){
-            return this->linkedList->headNode->getIntVecID();
+            return this->linkedList->headNode->getVecIntID();
         }
 
         int size(){
@@ -316,6 +316,36 @@ class Queue {
           cout << "{ ";
           while (node){
             cout << node->getStringID();
+            if (node->nextNode){
+              cout << ", ";
+            }
+            node = node->nextNode;
+          }
+          cout << " }" << endl;
+        }
+        void printVector(const vector<int>& vec){
+            cout << "{ ";
+            int xInt = 0;
+            while (xInt < vec.size()){
+                int valueInt = vec[xInt];
+                if (xInt < vec.size() - 1){
+                    cout << valueInt << ", ";
+                } 
+                if (xInt == vec.size() - 1){
+                    cout << valueInt;
+                }
+                xInt++;
+            }
+            cout << " }" << endl;
+        }
+
+        void printQueueVecInt(){
+          ListNode* node = this->linkedList->headNode;
+          cout << "Printing out the queue of vectors..." << endl;
+          cout << "{ ";
+          while (node){
+            vector<int> vec = node->getIntVecID();
+            printVector(vec);
             if (node->nextNode){
               cout << ", ";
             }
@@ -370,11 +400,12 @@ int main(){
     cout << "Queue S peek: " << peekStrS << endl;
     queueS.printQueueStr();
     Queue queueV;
-    queueV.enqueue(vector<int>{1, 2, 3});
-    queueV.enqueue(vector<int>{8, 13});
-    queueV.enqueue(vector<int>{21});
+    queueV.enqueue(vector<int>({1, 2, 3}));
+    queueV.enqueue(vector<int>({8, 13}));
+    queueV.enqueue(vector<int>({21}));
     vector<int> peekIntVec = queueV.peekIntVec();
     cout << "Queue V peek:";
     printVector(peekIntVec);
+    queueV
     return 0;
 };
