@@ -1,6 +1,6 @@
 /**
  *  Homework - Linked List
- *  Develop August 16, 2023.
+ *  Develop September 1, 2023.
  *  Problem 1: ListNode class
  *
  *  Prompt:    Create a ListNode class
