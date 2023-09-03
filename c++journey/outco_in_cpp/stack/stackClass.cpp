@@ -324,7 +324,8 @@ int main(){
     stackG.printStackString();
     Stack stackF;
     cout << "stackF" << endl;
-    stackF.push(vector<int>{2,3,5});
+    stackF.push(vector<int>({2,3,5}));
+    stackF.popVec();
     stackF.printStackVec();
     return 0;
 }
