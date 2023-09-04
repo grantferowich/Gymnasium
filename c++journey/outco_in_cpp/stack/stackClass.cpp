@@ -248,7 +248,8 @@ class Stack {
 
         int popInt(){
             if (this->linkedList->headNode == nullptr){ return -1;}
-            int topInt = this->linkedList->headNode->getIntID();
+            int topInt = this->linkedList->tailNode->getIntID();
+            this->linkedList->deleteNode(this->lengthInt);
             this->linkedList->headNode = this->linkedList->headNode->nextNode;
             this->lengthInt--;
             return topInt;
@@ -320,6 +321,7 @@ int main(){
     stackX.push(3);
     stackX.push(5);
     stackX.push(23);
+    stackX.popInt();
     stackX.printStackInt();
     Stack stackG;
     cout << "stackG" << endl;
