@@ -168,7 +168,7 @@ class LinkedList {
 
     // Time Complexity: o(N)
     // Auxiliary Space Complexity: O(1)
-    bool containsValue(int valueInt){
+    bool containsInt(int valueInt){
       ListNode *node = this->headNode;
       while (node){
         if (node->valueInt == valueInt){
@@ -179,7 +179,7 @@ class LinkedList {
       return false;
     }
 
-    bool contains(string inputStr){
+    bool containsStr(string inputStr){
       ListNode *node = this->headNode;
       while (node){
         if (node->getStringID() == inputStr){
@@ -243,32 +243,35 @@ class Stack {
         LinkedList *linkedList = new LinkedList();
         int lengthInt = 0;
         bool isEmpty(){
-            return this->linkedList->headNode == nullptr;
+            return lengthInt == 0;
         }
 
+        
         int popInt(){
             if (this->linkedList->headNode == nullptr){ return -1;}
-            int topInt = this->linkedList->tailNode->getIntID();
-            this->linkedList->deleteNode(this->lengthInt);
-            this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            ListNode *deletedNode = this->linkedList->deleteNode(lengthInt);
+            int deletedInt = deletedNode->getIntID();
+            delete deletedNode;
             this->lengthInt--;
-            return topInt;
+            return deletedInt;
         }
 
         string popStr(){
             if (this->linkedList->headNode == nullptr){return "";}
-            string poppedStr = this->linkedList->headNode->getStringID();
-            this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            ListNode *deletedNode = this->linkedList->deleteNode(lengthInt);
+            string poppedStr = deletedNode->getStringID();
+            delete deletedNode;
             this->lengthInt--;
             return poppedStr;
         }
 
         vector<int> popVec(){
             if (this->linkedList->headNode == nullptr){return {};}
-            vector<int> poppedVec = this->linkedList->headNode->getVecIntID();
-            this->linkedList->headNode = this->linkedList->headNode->nextNode;
+            ListNode *deletedNode = this->linkedList->deleteNode(lengthInt);
+            vector<int> deletedVec = deletedNode->getVecIntID();
+            delete deletedNode;
             this->lengthInt--;
-            return poppedVec;
+            return deletedVec;
         }
 
         void push(int valueInt){
@@ -302,7 +305,6 @@ class Stack {
         }
 };
 
-
 string printToFToString(bool inputToF){
         if (inputToF == 1){
             return "true";
@@ -321,7 +323,9 @@ int main(){
     stackX.push(3);
     stackX.push(5);
     stackX.push(23);
+    cout << "Stack x size: " << stackX.size() << endl;
     stackX.popInt();
+    cout << "Stack x size after pop: " << stackX.size() << endl;
     stackX.printStackInt();
     Stack stackG;
     cout << "stackG" << endl;
