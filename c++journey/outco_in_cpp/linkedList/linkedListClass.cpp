@@ -65,7 +65,7 @@ class ListNode {
    public:
     string str;
     int valueInt;
-    vector<int> intVec;
+    vector<int> vecInt;
     ListNode* nextNode;
 
     ListNode(int inputInt) {
@@ -76,20 +76,20 @@ class ListNode {
         this->str = str;
     }
 
-    ListNode(vector<int> intVec){
-        this->intVec = intVec;
+    ListNode(vector<int> vecInt){
+        this->vecInt = vecInt;
     }
 
     string getStringID(){
         return this->str;
     }
 
-    int getValueIntID(){
+    int getIntID(){
         return this->valueInt;
     }
 
-    vector<int> getIntVecID(){
-        return this->intVec;
+    vector<int> getVecIntID(){
+        return this->vecInt;
     }
 };
 
@@ -157,7 +157,7 @@ class LinkedList {
 
     // Time Complexity:O(N)
     // Auxiliary Space Complexity: O(1)
-    ListNode* delete_node(int indexInt){
+    ListNode* deleteNode(int indexInt){
       ListNode *node = this->headNode;
       int currentInt = 0;
       ListNode *toDeleteNode;
@@ -187,7 +187,6 @@ class LinkedList {
         }
       }
       lengthInt--;
-      delete toDeleteNode;
       return toDeleteNode;
     };
 
@@ -248,7 +247,7 @@ class LinkedList {
       cout << "Printing out the linked list: " << endl;
       cout << "{ ";
       while (node){
-        vector<int> vec = node->getIntVecID();
+        vector<int> vec = node->getVecIntID();
         int xInt = 0;
         while (xInt < vec.size()){
           cout << vec[xInt];
@@ -261,9 +260,8 @@ class LinkedList {
       }
       cout << " }" << endl;
     };
-
-    
 };
+
 
 string printToFToString(bool inputToF){
         if (inputToF == 1){
