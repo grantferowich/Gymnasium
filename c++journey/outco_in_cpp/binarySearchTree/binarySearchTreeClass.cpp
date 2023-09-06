@@ -73,6 +73,8 @@ class BinarySearchTree {
       this->sizeInt = 0;
     }
 
+    // Time Complexity: O(N)
+    // Auxiliary Space Complexity: O(1)
     void traverseAndInsert(TreeNode *insertionNode,TreeNode *node){
         if (insertionNode->valueInt < node->valueInt && node->leftNode == nullptr){
             node->leftNode = insertionNode;
@@ -91,8 +93,8 @@ class BinarySearchTree {
         }
     }
 
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity: O(N)
+    // Auxiliary Space Complexity: O(1)
     void insert(int valueInt) {
         TreeNode *xNode = new TreeNode(valueInt);
         TreeNode *node = this->rootNode;
@@ -104,6 +106,8 @@ class BinarySearchTree {
         traverseAndInsert(xNode, node);
     }
 
+    // Time Complexity: O(N)
+    // Auxiliary Space Complexity: O(1)
     bool traverseAndSearch(int searchInt, TreeNode *node){
             if (node == nullptr){
                 return false;
@@ -116,8 +120,8 @@ class BinarySearchTree {
             return leftToF || rightToF;
     }
 
-    // Time Complexity:
-    // Auxiliary Space Complexity:
+    // Time Complexity: O(log(N))
+    // Auxiliary Space Complexity: O(1)
     bool search(int valueInt) {
         TreeNode *node = this->rootNode;
         bool resultToF = traverseAndSearch(valueInt, node);
