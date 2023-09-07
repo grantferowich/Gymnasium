@@ -131,32 +131,31 @@ class LinkedList {
     // Time Complexity:O(N)
     // Auxiliary Space Complexity: O(1)
     ListNode* deleteNode(int indexInt){
-      ListNode *node = this->headNode;
-      int currentInt = 0;
-      ListNode *toDeleteNode;
-
-      if (this->lengthInt == 1){
-        toDeleteNode = this->headNode;
-        headNode = nullptr;
-        tailNode = nullptr;
+      if (indexInt < 0 || indexInt >= this->lengthInt){
+        return nullptr;
       }
+      ListNode *toDeleteNode = nullptr;
 
       if (indexInt == 0){
         toDeleteNode = this->headNode;
         this->headNode = this->headNode->nextNode;
-      }
-
-      if (this->lengthInt != 1 && indexInt != 0){
-        int xInt = 0;
-        while (xInt < indexInt - 1){
-          node = node->nextNode;
-          xInt++;
+        if (this->lengthInt == 1){
+          this->tailNode = nullptr;
         }
-
-        toDeleteNode = node->nextNode;
-        node->nextNode = node->nextNode->nextNode;
-        if (indexInt == this->lengthInt - 1){
-          this->tailNode = node;
+      } else {
+        ListNode *node = this->headNode;
+        int currentIndexInt = 0;
+        while (node){
+          if (currentIndexInt == indexInt - 1){
+            toDeleteNode = node->nextNode;
+            node->nextNode = node->nextNode->nextNode;
+            if (indexInt == this->lengthInt - 1){
+              this->tailNode = node;
+            }
+            break;
+          }
+          node = node->nextNode;
+          currentIndexInt++;
         }
       }
       lengthInt--;
@@ -176,7 +175,7 @@ class LinkedList {
       return false;
     }
 
-    bool contains(string inputStr){
+    bool containsStr(string inputStr){
       ListNode *node = this->headNode;
       while (node){
         if (node->getStringID() == inputStr){

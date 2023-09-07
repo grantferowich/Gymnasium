@@ -161,7 +161,6 @@ class LinkedList {
       if (indexInt < 0 || indexInt >= this->lengthInt){
         return nullptr;
       }
-        
       ListNode *toDeleteNode = nullptr;
 
       if (indexInt == 0){
