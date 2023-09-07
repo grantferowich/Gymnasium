@@ -203,7 +203,7 @@ class LinkedList {
       return false;
     }
 
-    bool contains(string inputStr){
+    bool containsStr(string inputStr){
       ListNode *node = this->headNode;
       while (node){
         if (node->getStringID() == inputStr){
@@ -280,6 +280,8 @@ int main(){
     linkedListX.appendValue(8);
     linkedListX.appendValue(13);
     linkedListX.appendValue(21);
+    cout << "LinkedList X contains 21: ";
+    cout << linkedListX.containsValue(21) << endl;
     // linkedListX.append_value(34);
     // linkedListX.delete_node(1); // deletes the node whose value is 5
     // bool contains34Bool = linkedListX.contains_value(34);
@@ -293,8 +295,11 @@ int main(){
     linkedListS.appendValue("a");
     linkedListS.appendValue("k");
     linkedListS.appendValue("e");
+    
     cout << "Characters in linked list s" << endl;
     linkedListS.printLinkedListStr();
+    cout << "Linked List S contains a: ";
+    cout << linkedListS.containsStr("a") << endl;
     LinkedList linkedListV;
     linkedListV.appendValue(vector<int>{ 0, 1 });
     linkedListV.appendValue(vector<int>{ 2, 3 });
