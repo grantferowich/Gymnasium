@@ -405,7 +405,7 @@ int main(){
     queueV.enqueue(vector<int>({1, 2, 3}));
     queueV.enqueue(vector<int>({8, 13}));
     queueV.enqueue(vector<int>({21}));
-    vector<int> peekVecInt = queueV.peekIntVec();
+    vector<int> peekVecInt = queueV.peekVecInt();
     cout << "Queue V peek:";
     printVector(peekVecInt);
     queueV.printQueueVecInt();
