@@ -294,7 +294,8 @@ int main(){
     linkedListS.appendValue("a");
     linkedListS.appendValue("k");
     linkedListS.appendValue("e");
-    
+    linkedListS.deleteNode(3);
+    linkedListS.deleteNode(1);
     cout << "Characters in linked list s" << endl;
     linkedListS.printLinkedListStr();
     cout << "Linked List S contains a: ";
