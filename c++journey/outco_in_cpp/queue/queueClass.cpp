@@ -290,7 +290,7 @@ class Queue {
             return this->linkedList->headNode->getIntID();
         }
     
-        vector<int> peekIntVec(){
+        vector<int> peekVecInt(){
             return this->linkedList->headNode->getVecIntID();
         }
 
@@ -405,9 +405,9 @@ int main(){
     queueV.enqueue(vector<int>({1, 2, 3}));
     queueV.enqueue(vector<int>({8, 13}));
     queueV.enqueue(vector<int>({21}));
-    vector<int> peekIntVec = queueV.peekIntVec();
+    vector<int> peekVecInt = queueV.peekIntVec();
     cout << "Queue V peek:";
-    printVector(peekIntVec);
+    printVector(peekVecInt);
     queueV.printQueueVecInt();
     vector<int> dequeuedVecV = queueV.dequeueVecInt();
     cout << "Dequeued vector from queue V..." << endl;
