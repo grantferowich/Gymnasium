@@ -208,43 +208,70 @@ class LinkedList {
 
 class Stack {
     public: 
-        Stack(){
-            this->topNode = nullptr;
-        }
-
+        LinkedList *linkedList = new LinkedList();
+        int lengthInt = 0;
         bool isEmpty(){
-            return this->topNode == nullptr;
+            return lengthInt == 0;
         }
 
-        int pop(){
-            if (this->topNode == nullptr){ return -1;}
-            int topInt = this->topNode->valueInt;
-            this->topNode = this->topNode->nextNode;
-            return topInt;
+        
+        int popInt(){
+            if (this->linkedList->headNode == nullptr){ return -1;}
+            ListNode *deletedNode = this->linkedList->deleteNode(lengthInt - 1);
+            cout << "Deleted Int: "<< deletedNode->getIntID() << endl;
+            int deletedInt = deletedNode->getIntID();
+            delete deletedNode;
+            this->lengthInt--;
+            return deletedInt;
+        }
+
+        string popStr(){
+            if (this->linkedList->headNode == nullptr){return "";}
+            ListNode *deletedNode = this->linkedList->deleteNode(lengthInt - 1);
+            string poppedStr = deletedNode->getStringID();
+            delete deletedNode;
+            this->lengthInt--;
+            return poppedStr;
+        }
+
+        vector<int> popVec(){
+            if (this->linkedList->headNode == nullptr){return {};}
+            ListNode *deletedNode = this->linkedList->deleteNode(lengthInt - 1);
+            vector<int> deletedVec = deletedNode->getVecIntID();
+            delete deletedNode;
+            this->lengthInt--;
+            return deletedVec;
         }
 
         void push(int valueInt){
-            ListNode* sNode = new ListNode(valueInt);
-            ListNode* nextNode = this->topNode;
-            this->topNode = sNode;
-            sNode->nextNode = nextNode;
+            this->linkedList->appendValue(valueInt);
+            this->lengthInt++;
         }
 
-        void printStack() {
-            ListNode* node = this->topNode;
-            cout << "Printing out the stack: " << endl;
-            cout << "{";
-            while (node) {
-                cout << node->valueInt;
-                if (node->nextNode) {
-                    cout << ", ";
-                }
-                node = node->nextNode;
-            }
-            cout << "}" << endl;
+        void push(string inputStr){
+            this->linkedList->appendValue(inputStr);
+            this->lengthInt++;
         }
-    private: 
-        ListNode* topNode;
+
+        void push(vector<int> inputVec){
+            this->linkedList->appendValue(inputVec);
+            this->lengthInt++;
+        }
+
+        void printStackInt() {
+           this->linkedList->printLinkedListInt();
+        }
+
+        void printStackString(){
+            this->linkedList->printLinkedListStr();
+        }
+
+        void printStackVec(){
+            this->linkedList->printLinkedListVec();
+        }
+        int size(){
+            return this->lengthInt;
+        }
 };
 
 
