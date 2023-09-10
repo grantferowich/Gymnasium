@@ -495,6 +495,17 @@ class Graph {
         }
     }
 };  
+
+Graph generateAdjacencyList(vector<vector<int> > edgeVec){
+    Graph graphX;
+    for (vector<int> pair : edgeVec){
+        int uInt = pair[0];
+        int vInt = pair[1];
+        graphX.addEdge(uInt, vInt);
+    }
+    return graphX;
+};
+
 /*
  *  Longest Path I
  *
@@ -516,13 +527,26 @@ class Graph {
  *  Resources:
  *  - https://www.geeksforgeeks.org/find-longest-path-directed-acyclic-graph/
  *
+
+ Maintan a vector of integers, called pathVec
+ When processing a node, and it's neighbors,
+ recursive: keep pushing new nodes to the pathVec
+ 
+ terminating: there are no more nodes. if the current pathVec is 
+ longer than the existing ultimatePathVec then set ultimatePathVec
+ to the current pathVec.
  */
 
 
 
-vector<int> longestPathI(vector<vector<int>> edges) {
-   // YOUR WORK HERE
-   return vector<int>{};
+vector<int> longestPathI(vector<vector<int>> edgesVec) {
+    Graph graphX = generateAdjacencyList(edgesVec);
+    
+    vector<int> ultimatePathVec;
+
+
+
+   return ultimatePathVec;
 }
 
 void printVector(const vector<int>& vec){

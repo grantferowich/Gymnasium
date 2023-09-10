@@ -84,6 +84,14 @@ class Graph {
     unordered_map<int, vector<int>> storageMap;
     //   Time Complexity:
     //   Auxiliary Space Complexity:
+    
+    vector<int> vertices(){
+      vector<int> vertexVec;
+      for (auto const pair : this->storageMap){
+        vertexVec.push_back(pair.first);
+      }
+      return vertexVec;
+    }
     bool addVertex(int idInt) {
       if (this->storageMap.find(idInt) == this->storageMap.end()){
         storageMap[idInt] = {};
@@ -229,5 +237,8 @@ int main(){
     cout << "Edges of 3:";
     vector<int> neighborsVec = graphX.neighbors(3);
     printVector(neighborsVec);
+    vector<int> vertexVec = graphX.vertices();
+    cout << "Printing the vertex vec..";
+    printVector(vertexVec);
     return 0; 
 }
