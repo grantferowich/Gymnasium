@@ -1,4 +1,3 @@
-
 #include <string>
 #include <typeinfo>
 #include <type_traits>
@@ -508,7 +507,9 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
 }
 /*
  *  Detect Cycle in Graph (Undirected)
+ *
  *  Developed on September 10, 2023.
+ *
  *  Given edges that represent an undirected graph, determine if the graph
  *  has a cycle. A cycle has a minimum of 3 vertices.
  *
