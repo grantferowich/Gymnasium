@@ -525,9 +525,30 @@ vector<int> longestPathI(vector<vector<int>> edges) {
    return vector<int>{};
 }
 
+void printVector(const vector<int>& vec){
+    cout << "{ ";
+    int xInt = 0;
+    while (xInt < vec.size()){
+        int valueInt = vec[xInt];
+        if (xInt < vec.size() - 1){
+            cout << valueInt << ", ";
+        } 
+        if (xInt == vec.size() - 1){
+            cout << valueInt;
+        }
+        xInt++;
+    }
+    cout << " }" << endl;
+}
+
 int main(){
     vector<vector<int> > edgeVec1 = {{1,2},{2,3},{1,3}};
     vector<vector<int> > edgeVec2 = {{6,5},{6,4},{5,4},{4,3},{2,3},{1,2},{4,1}};
-
+    vector<int> pathVec1 = longestPathI(edgeVec1);
+    vector<int> pathVec2 = longestPathI(edgeVec2);
+    cout << "Result 1: Expect {1, 2, 3}: ";
+    printVector(pathVec1);
+    cout << "Result 2: Expect {6,5,4,1,2,3}: ";
+    printVector(pathVec2);
     return 0;
 }
