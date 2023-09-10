@@ -508,7 +508,7 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
 }
 /*
  *  Friend Circles
- *
+ *  Started development on September 10, 2023.
  *  A friend circle is a group of people who are direct or indirect friends.
  *  Given a NxN bitset matrix, where a 1 in the i,j coordinate signifies a
  *  friendship between person i and person j, determine how many circles of
@@ -521,7 +521,10 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
  *
  *  Example:
  *
- *  Input: `{{1,1,0}, {1,1,0}, {0,0,1}}`
+ *  Input: `{{1,1,0}, 
+ *           {1,1,0}, 
+ *           {0,0,1}}`
+ *
  *  Output: 2
  *
  *  Input: `{{1,1,0}, {1,1,1}, {0,1,1}}`
@@ -532,8 +535,57 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
  *
  */
 
+void depthFirstSearch(int rowInt, int colInt, vector<vector<int> > matrix, unordered_set<string> vSet){
+    // OOB
+    if (rowInt < 0 || rowInt >= matrix.size() || colInt < 0 || colInt > matrix[0].size()){
+        return;
+    }
+    string keyStr = to_string(rowInt)+"_"+to_string(colInt);
+    // already visited this 1
+    if (vSet.find(keyStr) != vSet.end() && matrix[rowInt][colInt] == 1){
+        return;
+    }
+    // not a 1
+    if (matrix[rowInt][colInt] == 0){
+        return;
+    }
+    vSet.insert(keyStr);
+    depthFirstSearch(rowInt + 1, colInt, matrix, vSet);
+    depthFirstSearch(rowInt - 1, colInt, matrix, vSet);
+    depthFirstSearch(rowInt, colInt + 1, matrix, vSet);
+    depthFirstSearch(rowInt, colInt - 1, matrix, vSet);
+}
 
-int friendCircles(vector<vector<int>> matrix) {
-  // YOUR WORK HERE
-  return -1;
+
+int friendCircles(vector<vector<int> > matrix) {
+  int circlesInt = 0;
+  unordered_set<string> visitedSet;
+  int xInt = 0;
+  int gInt = 0;
+  while (xInt < matrix.size()){
+    vector<int> vec = matrix[xInt];
+    gInt = 0;
+    while (gInt < vec.size()){
+        string keyStr = to_string(xInt)+"_"+to_string(gInt);
+        if (matrix[xInt][gInt] == 1 && visitedSet.find(keyStr) == visitedSet.end()){
+            circlesInt++;
+            cout << "KeyStr: " << keyStr << endl;
+            depthFirstSearch(xInt, gInt, matrix, visitedSet);
+        }
+        gInt++;
+    }
+    xInt++;
+  }
+
+  return circlesInt;
+}
+
+int main(){
+    vector<vector<int> > matrix1 = {{1,1,0},{1,1,0},{0,0,1}};
+    vector<vector<int> > matrix2 = {{1,1,0},{1,1,1},{0,1,1}};
+    int resultInt1 = friendCircles(matrix1);
+    int resultInt2 = friendCircles(matrix2);
+    cout << "Result 1: " << resultInt1 << ". (expect 2)" << endl;
+    cout << "Result 2: " << resultInt2 << ". (expect 1)" << endl;
+    return 0;
 }
