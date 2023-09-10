@@ -543,25 +543,24 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
 vector<int> thirdDegreeNeighbors(vector<vector<int> > edgesVec, int startInt) {
     Graph graphX = generateAdjacencyList(edgesVec);
     Queue* queueX = new Queue();
-    queueX->enqueue(static_cast<vector<int> >({startInt, 0}));
+    queueX->enqueue(vector<int>{startInt, 0});
     unordered_set<int> vistedSet;
     unordered_set<int> thirdDegreeNeighborsSet;
     vector<int> outputVec;
     while (!queueX->isEmpty()){
-        vector<int, int> vec = queueX->dequeueVecInt();
+        vector<int> vec = queueX->dequeueVecInt();
         int nodeInt = vec[0];
         int degreeInt = vec[1];
         if (vistedSet.find(nodeInt) == vistedSet.end()){
             vistedSet.insert(nodeInt);
         }
-        
         if (degreeInt == 3){
             thirdDegreeNeighborsSet.insert(nodeInt);
         }
         vector<int> neighborsVec = graphX.neighbors(nodeInt);
         for (int valueInt: neighborsVec){
             if (vistedSet.find(valueInt) == vistedSet.end() && degreeInt < 3){
-                queueX->enqueue({valueInt, degreeInt + 1});
+                queueX->enqueue(vector<int>{valueInt, degreeInt + 1});
             }
         }
     }
