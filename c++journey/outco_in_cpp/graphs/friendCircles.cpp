@@ -507,68 +507,33 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
     return graphX;
 }
 /*
- *  Detect Cycle in Graph (Undirected)
- *  Developed on September 10, 2023.
- *  Given edges that represent an undirected graph, determine if the graph
- *  has a cycle. A cycle has a minimum of 3 vertices.
+ *  Friend Circles
+ *
+ *  A friend circle is a group of people who are direct or indirect friends.
+ *  Given a NxN bitset matrix, where a 1 in the i,j coordinate signifies a
+ *  friendship between person i and person j, determine how many circles of
+ *  friends there are.
  *
  *  Parameters:
  *
- *  Input: edges: [[int]]
- *  Output: bool
+ *  Input: Graph: [[int]] (adjacency matrix)
+ *  Output: int
  *
  *  Example:
  *
- *  Input: `{{1,2},{2,1},{2,3},{3,2},{3,1},{1,3},
- *           {3,4},{4,3},{5,4},{4,5},{5,6},{6,5},
- *           {4,7},{7,4}}`
- *  Output: True
+ *  Input: `{{1,1,0}, {1,1,0}, {0,0,1}}`
+ *  Output: 2
+ *
+ *  Input: `{{1,1,0}, {1,1,1}, {0,1,1}}`
+ *  Output: 1
  *
  *  Resources:
- *  - https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
+ *  - https://leetcode.com/problems/friend-circles/description/
  *
  */
 
-bool detectCycleInGraph(vector<vector<int> > edgesVec) {
-  Graph graphX = generateAdjacencyList(edgesVec);
-  unordered_set<int> visitedSet;
-  unordered_set<int> ancestorsSet;
-  Queue queueX;
-  queueX.enqueue(edgesVec[0][0]);
-  
-  while (!queueX.isEmpty()){
-    int nodeInt =  queueX.dequeueIntID();
-    vector<int> neighborsVec = graphX.neighbors(nodeInt);
-    
-    for (int valueInt: neighborsVec){
-        cout <<"value Int: " << valueInt << endl;
-        if (ancestorsSet.find(valueInt) != ancestorsSet.end()){
-            return true;
-        }
-        if (visitedSet.find(valueInt) == visitedSet.end()){
-            visitedSet.insert(valueInt);
-            queueX.enqueue(valueInt);
-        }
-    }
-    ancestorsSet.insert(nodeInt);
-  }
-  return false;
-}
 
-string printToFToString(bool inputToF){
-        if (inputToF == 1){
-            return "true";
-        }
-        if (inputToF == 0){
-            return "false";
-        }
-        return "false";
-}
-
-int main(){
-    vector<vector<int> > edgesVec1 = {{1,2},{2,1},{2,3},{3,2},{3,1},{1,3},{3,4},{4,3},{5,4},{4,5},{5,6},{6,5},{4,7},{7,4}};
-    bool resultToF1 = detectCycleInGraph(edgesVec1);
-    string resultStr1 = printToFToString(resultToF1);
-    cout << "Result from Detect Cycle: " << resultStr1 << ". (expect true)" << endl;
-    return 0;
+int friendCircles(vector<vector<int>> matrix) {
+  // YOUR WORK HERE
+  return -1;
 }

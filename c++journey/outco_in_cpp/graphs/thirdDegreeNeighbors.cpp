@@ -1,7 +1,7 @@
 /*
  *  Third Degree Neighbors
  *
- *  Developed on August 28, 2023.
+ *  Developed on September 10, 2023.
  *
  *  Given an undirected graph represented by a list of edges and a start
  *  vertex, return an array of the 3rd degree neighbors.
