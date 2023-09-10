@@ -535,9 +535,9 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
  *
  */
 
-void depthFirstSearch(int rowInt, int colInt, vector<vector<int> > matrix, unordered_set<string> vSet){
+void depthFirstSearch(int rowInt, int colInt, vector<vector<int> > matrix, unordered_set<string> &vSet){
     // OOB
-    if (rowInt < 0 || rowInt >= matrix.size() || colInt < 0 || colInt > matrix[0].size()){
+    if (rowInt < 0 || rowInt >= matrix.size() || colInt < 0 || colInt >= matrix[0].size()){
         return;
     }
     string keyStr = to_string(rowInt)+"_"+to_string(colInt);
@@ -555,7 +555,6 @@ void depthFirstSearch(int rowInt, int colInt, vector<vector<int> > matrix, unord
     depthFirstSearch(rowInt, colInt + 1, matrix, vSet);
     depthFirstSearch(rowInt, colInt - 1, matrix, vSet);
 }
-
 
 int friendCircles(vector<vector<int> > matrix) {
   int circlesInt = 0;

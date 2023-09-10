@@ -401,6 +401,14 @@ class Stack {
 class Graph {
   public:
     unordered_map<int, vector<int> > storageMap;
+    
+    vector<int> vertices(){
+      vector<int> vertexVec;
+      for (auto const pair : this->storageMap){
+        vertexVec.push_back(pair.first);
+      }
+      return vertexVec;
+    }
     //   Time Complexity:
     //   Auxiliary Space Complexity:
     bool addVertex(int idInt) {
@@ -539,10 +547,22 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
 
 
 
-vector<int> longestPathI(vector<vector<int>> edgesVec) {
+
+vector<int> longestPathI(vector<vector<int> > edgesVec) {
     Graph graphX = generateAdjacencyList(edgesVec);
-    
     vector<int> ultimatePathVec;
+    Stack stackX;
+    stackX.push(edgesVec[0][0]);
+   
+    while (!stackX.isEmpty()){
+        int currentInt = stackX.popInt();
+
+        vector<int> neighborsVec = graphX.neighbors(currentInt);
+        for (int valueInt: neighborsVec){
+            
+        }
+    }
+    
 
 
 
