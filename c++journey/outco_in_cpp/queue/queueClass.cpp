@@ -9,7 +9,7 @@ using namespace std;
 /*  
     QUEUE CLASS
     CTCI Chapter 3 Warm Up
-    Successfully tested the class 2/18/23.
+    Developed on September 10, 2023.
     |--------------------------|
     | simple Queue             |
     |--------------------------|
