@@ -197,6 +197,22 @@ class Graph {
 };
 
 
+void printVector(const vector<int>& vec){
+    cout << "{ ";
+    int xInt = 0;
+    while (xInt < vec.size()){
+        int valueInt = vec[xInt];
+        if (xInt < vec.size() - 1){
+            cout << valueInt << ", ";
+        } 
+        if (xInt == vec.size() - 1){
+            cout << valueInt;
+        }
+        xInt++;
+    }
+    cout << " }" << endl;
+}
+
 int main(){
     Graph graphX;
     graphX.addVertex(1);
@@ -210,5 +226,8 @@ int main(){
     graphX.removeEdge(1, 2);
     cout << "Graph state 2: " << endl;
     graphX.printGraph();
-    return 0;
+    cout << "Edges of 3:";
+    vector<int> neighborsVec = graphX.neighbors(3);
+    printVector(neighborsVec);
+    return 0; 
 }
