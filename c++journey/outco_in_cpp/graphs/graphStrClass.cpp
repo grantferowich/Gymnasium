@@ -252,6 +252,5 @@ int main(){
     vector<string> verticesVec = graphS.vertices();
     cout << "Vertices vec: ";
     printVector(verticesVec);
-
     return 0;
 }

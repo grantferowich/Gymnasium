@@ -401,33 +401,37 @@ class Stack {
 
 class Graph {
   public:
-    unordered_map<int, vector<int> > storageMap;
+    unordered_map<string, vector<string> > storageMap;
+    //   Time Complexity:
+    //   Auxiliary Space Complexity:
     
-    vector<int> vertices(){
-      vector<int> vertexVec;
+    vector<string> vertices(){
+      vector<string> vertexVec;
       for (auto const pair : this->storageMap){
         vertexVec.push_back(pair.first);
       }
       return vertexVec;
     }
-    //   Time Complexity:
-    //   Auxiliary Space Complexity:
-    bool addVertex(int idInt) {
-      if (this->storageMap.find(idInt) == this->storageMap.end()){
-        storageMap[idInt] = {};
+
+    bool addVertex(string idStr) {
+      if (this->storageMap.find(idStr) != this->storageMap.end()){
+        return false;
+      }
+      if (this->storageMap.find(idStr) == this->storageMap.end()){
+        storageMap[idStr] = {};
       }
       return true;
     }
-    
-    bool removeVertex(int idInt) {
-      if (this->storageMap.find(idInt) == this->storageMap.end()){
+
+    bool removeVertex(string idStr) {
+      if (this->storageMap.find(idStr) == this->storageMap.end()){
         return false;
       }
-      if (this->storageMap.find(idInt) != this->storageMap.end()){
-        this->storageMap.erase(idInt);
+      if (this->storageMap.find(idStr) != this->storageMap.end()){
+        this->storageMap.erase(idStr);
         for (auto pair : this->storageMap){
-            vector<int> neighborVec = pair.second;
-            neighborVec.erase(remove(neighborVec.begin(), neighborVec.end(), idInt), neighborVec.end());
+            vector<string> neighborVec = pair.second;
+            neighborVec.erase(remove(neighborVec.begin(), neighborVec.end(), idStr), neighborVec.end());
         }
       }
       return true;
@@ -436,30 +440,33 @@ class Graph {
 
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool addEdge(int idInt1, int idInt2) {
-      if (this->storageMap.find(idInt1) == this->storageMap.end()){
-        this->addVertex(idInt1);
+    bool addEdge(string idStr1, string idStr2) {
+      if (this->storageMap.find(idStr1) == this->storageMap.end()){
+        this->addVertex(idStr1);
       }
-      if (this->storageMap.find(idInt2) == this->storageMap.end()){
-        this->addVertex(idInt2);
+      if (this->storageMap.find(idStr2) == this->storageMap.end()){
+        this->addVertex(idStr2);
       }
-      this->storageMap[idInt1].push_back(idInt2);
+      this->storageMap[idStr1].push_back(idStr2);
       return true;
     }
 
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    bool removeEdge(int idInt1, int idInt2) {
-      this->storageMap[idInt1].erase(remove(this->storageMap[idInt1].begin(), this->storageMap[idInt1].end(), idInt2), this->storageMap[idInt1].end());
+    bool removeEdge(string idStr1, string idStr2) {
+      if (this->storageMap.find(idStr1) == this->storageMap.end() || this->storageMap.find(idStr2) == this->storageMap.end()){
+        return false;
+      } 
+      this->storageMap[idStr1].erase(remove(this->storageMap[idStr1].begin(), this->storageMap[idStr1].end(), idStr2), this->storageMap[idStr1].end());
       return true;
     }
 
 
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool isVertex(int idInt) {
-      if (this->storageMap.find(idInt) == this->storageMap.end()){
+    bool isVertex(string idStr) {
+      if (this->storageMap.find(idStr) == this->storageMap.end()){
         return false;
       }
       return true;
@@ -468,8 +475,8 @@ class Graph {
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    vector<int> neighbors(int idInt) {
-      return this->storageMap[idInt];
+    vector<string> neighbors(string idStr) {
+      return this->storageMap[idStr];
     }
 
     string printToFToString(bool inputToF){
@@ -484,15 +491,15 @@ class Graph {
 
     void printAdjacencyList() {
         for (const auto &vertexPair : storageMap) {
-            int vertex = vertexPair.first;
-            const vector<int> &neighborsVec = vertexPair.second;
+            string vertex = vertexPair.first;
+            const vector<string> &neighborsVec = vertexPair.second;
 
             cout << "Vertex " << vertex << ": ";
             cout << "{ ";
             int xInt = 0;
             while (xInt < neighborsVec.size()){
-                int neighborInt = neighborsVec[xInt];
-                cout << neighborInt;
+                string neighborStr = neighborsVec[xInt];
+                cout << neighborStr;
                 if (xInt < neighborsVec.size() - 1){
                     cout << ", ";
                     
@@ -503,7 +510,38 @@ class Graph {
             cout << endl;
         }
     }
-};  
+
+    void printGraph() {
+    cout << "Vertices:" << endl;
+    int numVertices = this->storageMap.size();
+    int vertexCount = 0;
+    
+    for (const auto& vertexPair : this->storageMap) {
+        std::cout << vertexPair.first;
+        
+        if (vertexCount < numVertices - 1) {
+            std::cout << ", ";
+        } else {
+            std::cout << " ";
+        }
+        
+        vertexCount++;
+    }
+    cout << endl;
+
+    cout << "Edges:" << endl;
+    for (const auto& vertexPair : this->storageMap) {
+        string fromVertex = vertexPair.first;
+        const std::vector<string>& neighbors = vertexPair.second;
+        for (string toVertex : neighbors) {
+            if (fromVertex < toVertex) {
+                std::cout << fromVertex << " - " << toVertex << std::endl;
+            }
+        }
+    }
+    }
+
+}; 
 
 Graph generateAdjacencyList(vector<vector<int> > edgeVec){
     Graph graphX;
