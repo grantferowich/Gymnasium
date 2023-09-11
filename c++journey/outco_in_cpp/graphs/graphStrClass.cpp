@@ -190,24 +190,36 @@ class Graph {
         }
     }
 
-    void printGraph() {
-        cout << "Vertices:" << endl;
-        for (const auto& vertexPair : this->storageMap) {
-            std::cout << vertexPair.first << " ";
+void printGraph() {
+    cout << "Vertices:" << endl;
+    int numVertices = this->storageMap.size();
+    int vertexCount = 0;
+    
+    for (const auto& vertexPair : this->storageMap) {
+        std::cout << vertexPair.first;
+        
+        if (vertexCount < numVertices - 1) {
+            std::cout << ", ";
+        } else {
+            std::cout << " ";
         }
-        cout << endl;
+        
+        vertexCount++;
+    }
+    cout << endl;
 
-        cout << "Edges:" << endl;
-        for (const auto& vertexPair : this->storageMap) {
-            string fromVertex = vertexPair.first;
-            const std::vector<string>& neighbors = vertexPair.second;
-            for (string toVertex : neighbors) {
-                if (fromVertex < toVertex) {
-                    std::cout << fromVertex << " - " << toVertex << std::endl;
-                }
+    cout << "Edges:" << endl;
+    for (const auto& vertexPair : this->storageMap) {
+        string fromVertex = vertexPair.first;
+        const std::vector<string>& neighbors = vertexPair.second;
+        for (string toVertex : neighbors) {
+            if (fromVertex < toVertex) {
+                std::cout << fromVertex << " - " << toVertex << std::endl;
             }
         }
     }
+}
+
 };
 
 
