@@ -543,12 +543,12 @@ class Graph {
 
 }; 
 
-Graph generateAdjacencyList(vector<vector<int> > edgeVec){
+Graph generateAdjacencyList(vector<vector<string> > edgeVec){
     Graph graphX;
-    for (vector<int> pair : edgeVec){
-        int uInt = pair[0];
-        int vInt = pair[1];
-        graphX.addEdge(uInt, vInt);
+    for (vector<string> pair : edgeVec){
+        string uStr = pair[0];
+        string vStr = pair[1];
+        graphX.addEdge(uStr, vStr);
     }
     return graphX;
 };
@@ -579,29 +579,36 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
   * Reverse the vectore order
   */
 
-void depthFirstSearch(string nodeStr, Graph inputGraph, vector<string> &pathVec){
+void depthFirstSearch(string nodeStr, Graph inputGraph, vector<string> &pathVec, unordered_set<string> &visitedSet){
+    
     // OOB
-    if (nodeStr == NULL){
-        return;
+    if (nodeStr.empty()){
+      return;
     }
-    vector<int> neighborsVec = inputGraph.neighbors(nodeStr);
-    for (int valueStr: neighborsVec){
-        depthFirstSearch(value, inputGraph, pathVec);
+
+    visitedSet.insert(nodeStr);
+    vector<string> neighborsVec = inputGraph.neighbors(nodeStr);
+
+    for (string valueStr: neighborsVec){
+      if (visitedSet.count(valueStr) == 0){
+        depthFirstSearch(valueStr, inputGraph, pathVec, visitedSet);
+      }
     }
-    pathVec.push_back(nodeStr);
+  pathVec.push_back(nodeStr);
+
 }
 
 vector<string> topologicalSort(string rootStr, Graph inputGraph){
     vector<string> pathVec;
-    depthFirstSearch(rootStr, inputGraph, pathVec)
-    // reverse pathVec
+    unordered_set<string> visitedSet;
+    depthFirstSearch(rootStr, inputGraph, pathVec, visitedSet);
+    reverse(pathVec.begin(), pathVec.end());
     return pathVec;
 }
 
 vector<string> courseSchedule(vector<vector<string> > edgesVec) {
     Graph graphX = generateAdjacencyList(edgesVec);
-    
-    return topologicalSort(edgesVec[0][0], graphX)
+    return topologicalSort(edgesVec[0][0], graphX);
 }
 
 void printVector(const std::vector<std::string>& vec) {
@@ -616,13 +623,12 @@ void printVector(const std::vector<std::string>& vec) {
     std::cout << std::endl;
 }
 
-
 int main(){
     vector<vector<string> > edgesVec1 = {{"a","b"},{"a","c"},{"b","d"},{"c","d"}};
     vector<vector<string> > edgesVec2 = {{"a","b"},{"b","c"},{"c","d"}};
     vector<string> outputVec1 = courseSchedule(edgesVec1);
     vector<string> outputVec2 = courseSchedule(edgesVec2);
-    cout << "Result 1. Expect {a, b, c, d}: ";
+    cout << "Result 1. Expect {a, b, c, d} or {a, c, b, d}: ";
     printVector(outputVec1);
     cout << endl;
     cout << "Result 2. Expect {a, b, c, d}: ";
