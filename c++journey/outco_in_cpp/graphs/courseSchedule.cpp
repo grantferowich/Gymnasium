@@ -537,13 +537,33 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
   *  Output: {"a","b","c","d"}
   *
   * Approach: Post-order DFS
-  Store node ints in a vector
-  Reverse the vectore order
+  * Store node ints in a vector
+  * Reverse the vectore order
   */
 
+void depthFirstSearch(string nodeStr, Graph inputGraph, vector<string> &pathVec){
+    // OOB
+    if (nodeStr == NULL){
+        return;
+    }
+    vector<int> neighborsVec = inputGraph.neighbors(nodeStr);
+    for (int valueStr: neighborsVec){
+        depthFirstSearch(value, inputGraph, pathVec);
+    }
+    pathVec.push_back(nodeStr);
+}
+
+vector<string> topologicalSort(string rootStr, Graph inputGraph){
+    vector<string> pathVec;
+    depthFirstSearch(rootStr, inputGraph, pathVec)
+    // reverse pathVec
+    return pathVec;
+}
+
 vector<string> courseSchedule(vector<vector<string> > edgesVec) {
-  
-  return vector<string>{};
+    Graph graphX = generateAdjacencyList(edgesVec);
+    
+    return topologicalSort(edgesVec[0][0], graphX)
 }
 
 void printVector(const std::vector<std::string>& vec) {
