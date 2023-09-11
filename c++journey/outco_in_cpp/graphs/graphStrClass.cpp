@@ -190,7 +190,7 @@ class Graph {
         }
     }
 
-void printGraph() {
+    void printGraph() {
     cout << "Vertices:" << endl;
     int numVertices = this->storageMap.size();
     int vertexCount = 0;
@@ -218,7 +218,7 @@ void printGraph() {
             }
         }
     }
-}
+    }
 
 };
 
