@@ -13,9 +13,14 @@
 #include <sstream>
 using namespace std;
 
-void printVector(const std::vector<string>& vec){
-    for (string valueStr : vec){
-        cout << valueStr << " ";
+void printVector(const std::vector<std::string>& vec) {
+    for (size_t i = 0; i < vec.size(); ++i) {
+        std::cout << vec[i];
+        if (i < vec.size() - 1) {
+            std::cout << ", ";
+        } else {
+            std::cout << ".";
+        }
     }
-    cout << endl;
+    std::cout << std::endl;
 }
