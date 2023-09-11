@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <string>
 #include <typeinfo>
 #include <type_traits>
@@ -547,26 +548,29 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
 
 
 
-
 vector<int> longestPathI(vector<vector<int> > edgesVec) {
     Graph graphX = generateAdjacencyList(edgesVec);
-    vector<int> ultimatePathVec;
-    Stack stackX;
-    stackX.push(edgesVec[0][0]);
-   
-    while (!stackX.isEmpty()){
-        int currentInt = stackX.popInt();
-
-        vector<int> neighborsVec = graphX.neighbors(currentInt);
+    vector<int> pathVec;
+    Queue queueX;
+    unordered_set<int> visitedSet;
+    queueX.enqueue(edgesVec[0][0]);
+    pathVec.push_back(edgesVec[0][0]);
+    visitedSet.insert(edgesVec[0][0]);
+    while (!queueX.isEmpty()){
+        int nodeInt = queueX.dequeueIntID();
+        vector<int> neighborsVec = graphX.neighbors(nodeInt);
+        if (find(pathVec.begin(), pathVec.end(), nodeInt) == pathVec.end()){
+            pathVec.push_back(nodeInt);
+        }
         for (int valueInt: neighborsVec){
-            
+            if (visitedSet.count(valueInt) == 0){
+                visitedSet.insert(valueInt);
+                queueX.enqueue(valueInt);
+            }
         }
     }
-    
-
-
-
-   return ultimatePathVec;
+   
+   return pathVec;
 }
 
 void printVector(const vector<int>& vec){
