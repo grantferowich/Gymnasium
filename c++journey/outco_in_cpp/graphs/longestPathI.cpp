@@ -563,13 +563,12 @@ vector<int> longestPathI(vector<vector<int> > edgesVec) {
             pathVec.push_back(nodeInt);
         }
         for (int valueInt: neighborsVec){
-            if (visitedSet.count(valueInt) == 0){
+            if (visitedSet.contains(valueInt)){
                 visitedSet.insert(valueInt);
                 queueX.enqueue(valueInt);
             }
         }
     }
-   
    return pathVec;
 }
 
