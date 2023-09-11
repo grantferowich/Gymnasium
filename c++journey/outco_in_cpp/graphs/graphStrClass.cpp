@@ -227,6 +227,11 @@ int main(){
     Graph graphS;
     graphS.addVertex("wake");
     graphS.addVertex("forest");
+    graphS.addVertex("winston-salem");
+    graphS.addEdge("saint charles", "winston-salem");
     graphS.printGraph();
+    vector<string> verticesVec = graphS.vertices();
+    cout << "Vertices vec: ";
+    printVector(verticesVec);
     return 0;
 }
