@@ -136,7 +136,7 @@ class Graph {
     bool removeEdge(string idStr1, string idStr2) {
       if (this->storageMap.find(idStr1) == this->storageMap.end() || this->storageMap.find(idStr2) == this->storageMap.end()){
         return false;
-      }
+      } 
       this->storageMap[idStr1].erase(remove(this->storageMap[idStr1].begin(), this->storageMap[idStr1].end(), idStr2), this->storageMap[idStr1].end());
       return true;
     }
@@ -237,13 +237,21 @@ void printVector(const std::vector<std::string>& vec) {
 
 int main(){
     Graph graphS;
-    graphS.addVertex("wake");
-    graphS.addVertex("forest");
-    graphS.addVertex("winston-salem");
-    graphS.addEdge("saint charles", "winston-salem");
+    graphS.addVertex("Wake");
+    graphS.addVertex("Forest");
+    graphS.addVertex("Winston-Salem");
+    graphS.addEdge("Saint Charles", "Winston-Salem");
+    graphS.addEdge("Illinois", "North Carolina");
+    graphS.addEdge("Chicago", "Illinois");
+    graphS.addEdge("Madison", "Wisconsin");
+    graphS.addEdge("Illinois", "North America");
+    graphS.removeEdge("Illinois", "North America");
     graphS.printGraph();
+    graphS.removeVertex("Illinois");
+    cout << "Graph S without Illinois.." << endl;
     vector<string> verticesVec = graphS.vertices();
     cout << "Vertices vec: ";
     printVector(verticesVec);
+
     return 0;
 }
