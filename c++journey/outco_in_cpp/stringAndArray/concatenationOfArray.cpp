@@ -49,7 +49,26 @@ vector<int> concatenationOfArray(vector<int> inputVector){
     return outputVector;
 }
 
-int main(){
+void printVector(const vector<int>& vec){
+    cout << "{ ";
+    int xInt = 0;
+    while (xInt < vec.size()){
+        int valueInt = vec[xInt];
+        if (xInt < vec.size() - 1){
+            cout << valueInt << ", ";
+        } 
+        if (xInt == vec.size() - 1){
+            cout << valueInt;
+        }
+        xInt++;
+    }
+    cout << " }" << endl;
+}
 
+int main(){
+    vector<int> inputVec1 = {1, 2, 3, 5};
+    vector<int> outputVec1 = concatenationOfArray(inputVec1);
+    cout << "Result 1: ";
+    printVector(outputVec1);
     return 0;
 }
