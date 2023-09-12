@@ -33,21 +33,17 @@ console.log(caesarCipher("apple", 2)); // => "crrng" :D
 console.log(caesarCipher("bootcamp", 2)); // => "dqqvecor" :D
 console.log(caesarCipher("zebra", 4)); // => "difve"
  */
-const caesarCipher = (string, k) => {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let encryptedWord = "";
-  for (let i = 0; i < string.length; i++) {
-    let oldIndex = alphabet.indexOf(string[i]);
-    let newIndex = (oldIndex + k) % 26;
-    let newLetter = alphabet[newIndex];
-    encryptedWord += newLetter;
-  }
-  return encryptedWord;
-};
 
 string caesarsCipher(string inputStr, int intX){
-
-    return "";
+    const string alphabetStr = "abcdefghijklmnopqrstuvwxyz";
+    string encryptedWordStr = "";
+    for (char charX: inputStr){
+        int oldIndexInt = alphabetStr.find(charX);
+        int newIndexInt = (oldIndexInt + intX) % 26;
+        char newLetterChar = alphabetStr[newIndexInt];
+        encryptedWordStr += newLetterChar;
+    }
+    return encryptedWordStr;
 }
 
 int main(){
