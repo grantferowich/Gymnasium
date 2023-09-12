@@ -11,7 +11,7 @@
 using namespace std;
 /* 
 CAESAR'S CIPHER
-successfully tested the function 1/10/23
+Developed on Sept 12, 2023
 Given a string and an integer k
 return a string 
 
@@ -61,4 +61,3 @@ int main(){
     cout << "Result 3: " << outputStr3 << endl;
     return 0;
 }
-
