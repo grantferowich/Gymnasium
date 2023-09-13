@@ -400,25 +400,37 @@ class Stack {
 
 class Graph {
   public:
-    unordered_map<int, vector<int> > storageMap;
+    unordered_map<string, vector<string> > storageMap;
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool addVertex(int idInt) {
-      if (this->storageMap.find(idInt) == this->storageMap.end()){
-        storageMap[idInt] = {};
+    
+    vector<string> vertices(){
+      vector<string> vertexVec;
+      for (auto const pair : this->storageMap){
+        vertexVec.push_back(pair.first);
+      }
+      return vertexVec;
+    }
+
+    bool addVertex(string idStr) {
+      if (this->storageMap.find(idStr) != this->storageMap.end()){
+        return false;
+      }
+      if (this->storageMap.find(idStr) == this->storageMap.end()){
+        storageMap[idStr] = {};
       }
       return true;
     }
-    
-    bool removeVertex(int idInt) {
-      if (this->storageMap.find(idInt) == this->storageMap.end()){
+
+    bool removeVertex(string idStr) {
+      if (this->storageMap.find(idStr) == this->storageMap.end()){
         return false;
       }
-      if (this->storageMap.find(idInt) != this->storageMap.end()){
-        this->storageMap.erase(idInt);
+      if (this->storageMap.find(idStr) != this->storageMap.end()){
+        this->storageMap.erase(idStr);
         for (auto pair : this->storageMap){
-            vector<int> neighborVec = pair.second;
-            neighborVec.erase(remove(neighborVec.begin(), neighborVec.end(), idInt), neighborVec.end());
+            vector<string> neighborVec = pair.second;
+            neighborVec.erase(remove(neighborVec.begin(), neighborVec.end(), idStr), neighborVec.end());
         }
       }
       return true;
@@ -427,30 +439,33 @@ class Graph {
 
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool addEdge(int idInt1, int idInt2) {
-      if (this->storageMap.find(idInt1) == this->storageMap.end()){
-        this->addVertex(idInt1);
+    bool addEdge(string idStr1, string idStr2) {
+      if (this->storageMap.find(idStr1) == this->storageMap.end()){
+        this->addVertex(idStr1);
       }
-      if (this->storageMap.find(idInt2) == this->storageMap.end()){
-        this->addVertex(idInt2);
+      if (this->storageMap.find(idStr2) == this->storageMap.end()){
+        this->addVertex(idStr2);
       }
-      this->storageMap[idInt1].push_back(idInt2);
+      this->storageMap[idStr1].push_back(idStr2);
       return true;
     }
 
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    bool removeEdge(int idInt1, int idInt2) {
-      this->storageMap[idInt1].erase(remove(this->storageMap[idInt1].begin(), this->storageMap[idInt1].end(), idInt2), this->storageMap[idInt1].end());
+    bool removeEdge(string idStr1, string idStr2) {
+      if (this->storageMap.find(idStr1) == this->storageMap.end() || this->storageMap.find(idStr2) == this->storageMap.end()){
+        return false;
+      } 
+      this->storageMap[idStr1].erase(remove(this->storageMap[idStr1].begin(), this->storageMap[idStr1].end(), idStr2), this->storageMap[idStr1].end());
       return true;
     }
 
 
     //   Time Complexity:
     //   Auxiliary Space Complexity:
-    bool isVertex(int idInt) {
-      if (this->storageMap.find(idInt) == this->storageMap.end()){
+    bool isVertex(string idStr) {
+      if (this->storageMap.find(idStr) == this->storageMap.end()){
         return false;
       }
       return true;
@@ -459,8 +474,8 @@ class Graph {
 
     // Time Complexity:
     // Auxiliary Space Complexity:
-    vector<int> neighbors(int idInt) {
-      return this->storageMap[idInt];
+    vector<string> neighbors(string idStr) {
+      return this->storageMap[idStr];
     }
 
     string printToFToString(bool inputToF){
@@ -475,15 +490,15 @@ class Graph {
 
     void printAdjacencyList() {
         for (const auto &vertexPair : storageMap) {
-            int vertex = vertexPair.first;
-            const vector<int> &neighborsVec = vertexPair.second;
+            string vertex = vertexPair.first;
+            const vector<string> &neighborsVec = vertexPair.second;
 
             cout << "Vertex " << vertex << ": ";
             cout << "{ ";
             int xInt = 0;
             while (xInt < neighborsVec.size()){
-                int neighborInt = neighborsVec[xInt];
-                cout << neighborInt;
+                string neighborStr = neighborsVec[xInt];
+                cout << neighborStr;
                 if (xInt < neighborsVec.size() - 1){
                     cout << ", ";
                     
@@ -494,17 +509,48 @@ class Graph {
             cout << endl;
         }
     }
-};    
 
-Graph generateAdjacencyList(vector<vector<int> > edgeVec){
+    void printGraph() {
+    cout << "Vertices:" << endl;
+    int numVertices = this->storageMap.size();
+    int vertexCount = 0;
+    
+    for (const auto& vertexPair : this->storageMap) {
+        std::cout << vertexPair.first;
+        
+        if (vertexCount < numVertices - 1) {
+            std::cout << ", ";
+        } else {
+            std::cout << " ";
+        }
+        
+        vertexCount++;
+    }
+    cout << endl;
+
+    cout << "Edges:" << endl;
+    for (const auto& vertexPair : this->storageMap) {
+        string fromVertex = vertexPair.first;
+        const std::vector<string>& neighbors = vertexPair.second;
+        for (string toVertex : neighbors) {
+            if (fromVertex < toVertex) {
+                std::cout << fromVertex << " - " << toVertex << std::endl;
+            }
+        }
+    }
+    }
+
+};  
+
+Graph generateAdjacencyList(vector<vector<string> > edgeVec){
     Graph graphX;
-    for (vector<int> pair : edgeVec){
-        int uInt = pair[0];
-        int vInt = pair[1];
-        graphX.addEdge(uInt, vInt);
+    for (vector<string> pair : edgeVec){
+        string uStr = pair[0];
+        string vStr = pair[1];
+        graphX.addEdge(uStr, vStr);
     }
     return graphX;
-}
+};
 
 void printVector(const std::vector<std::string>& vec) {
     for (size_t i = 0; i < vec.size(); ++i) {
@@ -542,21 +588,73 @@ void printVector(const std::vector<std::string>& vec) {
  *  Source: https://www.geeksforgeeks.org/given-sorted-dictionary-find-precedence-characters/
  */
 
-
-vector<string> crypticDictionary(vector<string> words) {
+void depthFirstSearch(string nodeStr, Graph inputGraph, vector<string> &pathVec, unordered_set<string> &visitedSet){
     
-    return vector<string>{};
+    // OOB
+    if (nodeStr.empty()){
+      return;
+    }
+
+    visitedSet.insert(nodeStr);
+    vector<string> neighborsVec = inputGraph.neighbors(nodeStr);
+
+    for (string valueStr: neighborsVec){
+      if (visitedSet.count(valueStr) == 0){
+        depthFirstSearch(valueStr, inputGraph, pathVec, visitedSet);
+      }
+    }
+  pathVec.push_back(nodeStr);
+
+}
+
+vector<string> topologicalSort(string rootStr, Graph inputGraph){
+    vector<string> pathVec;
+    unordered_set<string> visitedSet;
+    depthFirstSearch(rootStr, inputGraph, pathVec, visitedSet);
+    reverse(pathVec.begin(), pathVec.end());
+    return pathVec;
+}
+
+vector<string> findUniqueLetters(string word1Str, string word2Str){
+    int xInt = 0;
+    int shortestWordLengthInt = min(word1Str.size(), word2Str.size());
+    vector<string> outputStr;
+    while (xInt < shortestWordLengthInt){
+        if (word1Str[xInt] != word2Str[xInt]){
+            string characterStr1(1, word1Str[xInt]);
+            outputStr.push_back(characterStr1);
+            string characterStr2(1, word2Str[xInt]);
+            outputStr.push_back(characterStr2);
+            return outputStr;
+        }
+        xInt++;
+    }
+    return {"", ""};
+}
+
+vector<string> crypticDictionary(vector<string> wordsVec) {
+    vector<vector<string> > outputVec;
+    int xInt = 0;
+    while (xInt < wordsVec.size() - 1){
+        string word1Str = wordsVec[xInt];
+        string word2Str = wordsVec[xInt + 1];
+        outputVec.push_back(findUniqueLetters(word1Str, word2Str));
+        xInt++;
+    }
+    Graph graphG = generateAdjacencyList(outputVec);
+    return topologicalSort(outputVec[0][0], graphG);
 }
 
 int main(){
     vector<string> inputVec1 = {"baa", "abcd", "abca", "cab", "cad"};
     vector<string> outputVec1 = crypticDictionary(inputVec1);
-    cout << "Result 1:";
+    cout << "Result 1: ";
     printVector(outputVec1);
-
-     vector<string> inputVec2 = {"caa", "aaa", "aab"};
-    vector<string> outputVec2 = crypticDictionary(inputVec);
-    cout << "Result 2:";
+    cout << endl;
+    vector<string> inputVec2 = {"caa", "aaa", "aab"};
+    vector<string> outputVec2 = crypticDictionary(inputVec2);
+    cout << "Result 2: ";
     printVector(outputVec2);
+    cout << endl;
     return 0;
 }
