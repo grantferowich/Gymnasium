@@ -566,7 +566,7 @@ void printVector(const std::vector<std::string>& vec) {
 
 /*
  *  Cryptic Dictionary
- *
+ *  Developed Weds Sept 13, 2023.
  *  An array of strings in lexicographical (alphabetical) order has been put
  *  through a [simple substitution cypher](https://en.wikipedia.org/wiki/Substitution_cipher)
  *  where each letter is now substituted for another letter. Determine a valid

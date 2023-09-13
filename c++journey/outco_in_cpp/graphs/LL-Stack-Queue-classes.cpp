@@ -235,7 +235,7 @@ class Stack {
         }
 
         vector<int> popVec(){
-            if (this->linkedList->headNode == nullptr){return {};}
+            if (this->linkedList->headNode == nullptr){return {}};
             ListNode *deletedNode = this->linkedList->deleteNode(lengthInt - 1);
             vector<int> deletedVec = deletedNode->getVecIntID();
             delete deletedNode;
