@@ -1,8 +1,12 @@
+#include <cstring>
 #include <string>
 #include <typeinfo>
 #include <type_traits>
 #include <iostream>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
+#include <queue>
 using namespace std;
 
 class ListNode {
@@ -234,7 +238,7 @@ class Stack {
         }
 
         vector<int> popVec(){
-            if (this->linkedList->headNode == nullptr){return {}};
+            if (this->linkedList->headNode == nullptr){return {};}
             ListNode *deletedNode = this->linkedList->deleteNode(lengthInt - 1);
             vector<int> deletedVec = deletedNode->getVecIntID();
             delete deletedNode;
@@ -550,9 +554,41 @@ class Graph {
 
 class Solution {
     public:
+
+        vector<int> getNeighbors(int elementInt, vector<vector<int> > edgeVec){
+            vector<int> neighborsVec;
+            int xInt = 0;
+            while (xInt < edgeVec.size()){
+                if (edgeVec[xInt][0] == elementInt){
+                    neighborsVec.push_back(edgeVec[xInt][1]);
+                }
+                xInt++;
+            }
+            return neighborsVec;
+        }
         vector<int> redundantConnection(vector<vector<int> > edgesVec) {
-            // YOUR WORK HERE
-            return vector<int>{};
+            queue<int> q;
+            int startInt = edgesVec[0][0];
+            unordered_set<int> visitedSet;
+            q.push(startInt);
+            visitedSet.insert(startInt);
+
+            while (!q.empty()){
+                int currentInt = q.front();
+                q.pop();
+                vector<int> neighborsVec = getNeighbors(currentInt, edgesVec);
+                int xInt = 0;
+                while (xInt < neighborsVec.size()){
+                    if (visitedSet.count(neighborsVec[xInt]) != 0){
+                        return {currentInt, neighborsVec[xInt]};
+                    } else {
+                        q.push(neighborsVec[xInt]);
+                        visitedSet.insert(neighborsVec[xInt]);
+                    }
+                    xInt++;
+                }
+            }
+            return {};
         }
 };
 
