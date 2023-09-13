@@ -548,13 +548,42 @@ class Graph {
   *
   */
 
+class Solution {
+    public:
+        vector<int> redundantConnection(vector<vector<int> > edgesVec) {
+            // YOUR WORK HERE
+            return vector<int>{};
+        }
+};
 
-vector<int> redundantConnection(vector<vector<int>> edges) {
-    // YOUR WORK HERE
-    return vector<int>{};
+void printVector(const vector<int>& vec){
+    cout << "{ ";
+    int xInt = 0;
+    while (xInt < vec.size()){
+        int valueInt = vec[xInt];
+        if (xInt < vec.size() - 1){
+            cout << valueInt << ", ";
+        } 
+        if (xInt == vec.size() - 1){
+            cout << valueInt;
+        }
+        xInt++;
+    }
+    cout << " }" << endl;
 }
 
 int main(){
+    Solution solutionG;
     vector<vector<int> > inputVec1 = {{1, 2}, {1, 3}, {2, 3}}; 
+    vector<int> outputVec1 = solutionG.redundantConnection(inputVec1);
+    cout << "Result 1: ";
+    printVector(outputVec1);
+    cout << endl;
+
+    vector<vector<int> > inputVec2 = {{1, 2}, {2, 3}, {2, 4}, {4, 5}, {5, 2}};
+    vector<int> outputVec2 = solutionG.redundantConnection(inputVec2);
+    cout << "Result 2: ";
+    printVector(outputVec2);
+    cout << endl;
     return 0;
 }
