@@ -34,30 +34,60 @@ Plus sign in local name: "grant" and "grant+ferowich" are the same.
 
 
 */
+#include <cstddef>
 #include <iostream>
 #include <string>
+#include <unordered_set>
 #include <vector>
 using namespace std;
 
 class Solution {
 public:
     int numUniqueEmails(vector<string>& emailsVec) {
-        
+        unordered_set<string> uniqueEmailSet;
+        for (string emailStr : emailsVec){
+            size_t atIndexInt = emailStr.find("@");
+            string localNameStr = emailStr.substr(0, atIndexInt);
+            string domainNameStr = emailStr.substr(atIndexInt + 1);
+            string newLocalNameStr = "";
+            // strip periods from localNameStr
+            for (char xChar: localNameStr){
+                if (xChar != '.'){
+                    newLocalNameStr += xChar;
+                }
+            }
+            int xInt = 0;
+            while (xInt < newLocalNameStr.size()){
+                if (newLocalNameStr[xInt] == '+'){
+                    newLocalNameStr = newLocalNameStr.substr(0, xInt);
+                    break;
+                }
+                xInt++;
+            }
+            string cleanEmailStr = newLocalNameStr + "@" + domainNameStr;
+            cout << "Clean email str: " << cleanEmailStr << endl;
+            uniqueEmailSet.insert(cleanEmailStr);
+        }
+        return uniqueEmailSet.size();
     }
 };
 
 int main(){
     Solution solutionX;
-    vector<string> inputVec1 = {"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
-    int outputInt1 = solutionX.numUniqueEmails(inputVec1);
-    cout << "Result 1: " << outputInt1 << ". (Expect 2.)" << endl;
+    // vector<string> inputVec1 = {"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
+    // int outputInt1 = solutionX.numUniqueEmails(inputVec1);
+    // cout << "Result 1: " << outputInt1 << ". (Expect 2.)" << endl;
 
-    vector<string> inputVec2 = {"a@leetcode.com","b@leetcode.com","c@leetcode.com"};
-    int outputInt2 = solutionX.numUniqueEmails(inputVec2);
-    cout << "Result 2: " << outputInt2 << ". (Expect 3.)" << endl;
+    // vector<string> inputVec2 = {"a@leetcode.com","b@leetcode.com","c@leetcode.com"};
+    // int outputInt2 = solutionX.numUniqueEmails(inputVec2);
+    // cout << "Result 2: " << outputInt2 << ". (Expect 3.)" << endl;
 
-    vector<string> inputVec3 = {"jay@vscode.com","way@vscode.com","c@leetcode.com", "123@vscode.com"};
-    int outputInt3 = solutionX.numUniqueEmails(inputVec3);
-    cout << "Result 2: " << outputInt3 << ". (Expect 4.)" << endl;
+    // vector<string> inputVec3 = {"jay@vscode.com","way@vscode.com","c@leetcode.com", "123@vscode.com"};
+    // int outputInt3 = solutionX.numUniqueEmails(inputVec3);
+    // cout << "Result 3: " << outputInt3 << ". (Expect 4.)" << endl;
+
+    vector<string> inputVec4 = {"test.email+alex@leetcode.com","test.email.leet+alex@code.com"};
+    int outputInt4 = solutionX.numUniqueEmails(inputVec4);
+    cout << "Result 4: " << outputInt4 << ". (Expect 2.)" << endl;
     return 0;
 }
