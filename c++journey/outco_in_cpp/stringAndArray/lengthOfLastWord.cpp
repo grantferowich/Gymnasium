@@ -12,7 +12,6 @@ int lengthOfLastWord(string inputStr){
     while (iss >> wordStr){
         wordsVec.push_back(wordStr);
     }
-
     int lastInt = wordsVec.size() - 1;
     return wordsVec[lastInt].size();
 }
