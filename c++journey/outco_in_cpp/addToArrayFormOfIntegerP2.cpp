@@ -40,8 +40,19 @@ Explanation: 215 + 806 = 1021
 class Solution {
 public:
     vector<int> addToArrayForm(vector<int>& inputVec, int kInt) {
-       
-       return {};
+       int carryInt = kInt;
+       int xInt = inputVec.size() - 1;
+       while (xInt >= 0 || carryInt > 0){
+        if (xInt >= 0) {
+            carryInt += inputVec[xInt];
+            inputVec[xInt] = carryInt % 10;
+        } else {
+            inputVec.insert(inputVec.begin(), carryInt % 10);
+        }
+        carryInt /= 10;
+        xInt--;
+       }
+       return inputVec;
     }
 };
 
@@ -60,6 +71,7 @@ void printVector(const vector<int>& vec){
     }
     cout << " }" << endl;
 }
+
 int main(){
     Solution solutionX;
     vector<int> inputVec1 = {1, 2, 0, 0};
@@ -75,15 +87,15 @@ int main(){
     vector<int> outputVec3 = solutionX.addToArrayForm(inputVec3, cInt);
     
     cout << "Result 1: ";
-    printVector(inputVec1);
+    printVector(outputVec1);
     cout << endl;
 
     cout << "Result 2: ";
-    printVector(inputVec2);
+    printVector(outputVec2);
     cout << endl;
 
     cout << "Result 3: ";
-    printVector(inputVec3);
+    printVector(outputVec3);
     cout << endl;
     return 0;
 }
