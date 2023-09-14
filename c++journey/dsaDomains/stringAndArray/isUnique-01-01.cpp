@@ -16,9 +16,13 @@ why? There are two e characters.
 */
 #include <iostream> 
 #include <string>
+#include <sys/types.h>
 #include <unordered_map>
 #include <vector>
+#include <chrono>
 using namespace std;
+using namespace std::chrono;
+
 bool isUnique(string inputStr){
     unordered_map<char, int> charMap;
     for (char xChar: inputStr){
@@ -49,6 +53,7 @@ string printToFToString(bool inputToF){
 }
 
 int main(){
+    auto startTime = chrono::high_resolution_clock::now();
     string inputStr1 = "wake";
     bool outputToF1 = isUnique(inputStr1);
     string outputStr1 = printToFToString(outputToF1);
@@ -58,6 +63,9 @@ int main(){
     bool outputToF2 = isUnique(inputStr2);
     string outputStr2 = printToFToString(outputToF2);
     cout << "Result 2: " << outputStr2 << ". Expect false." << endl;
+    auto endTime = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(endTime - startTime);
+    cout << "Execution time: " << duration.count() << " microseconds." << endl;
     return 0;
 }
 
