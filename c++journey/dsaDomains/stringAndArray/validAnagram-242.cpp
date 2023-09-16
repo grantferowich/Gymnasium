@@ -25,6 +25,9 @@ using namespace std;
 class Solution {
 public:
     bool isAnagram(string str1, string str2) {
+        if (str1.size() != str2.size()){
+            return false;
+        }
         unordered_map<char, int> charMap1, charMap2;
         for (char xChar: str1){
             if (charMap1.find(xChar) == charMap1.end()){
