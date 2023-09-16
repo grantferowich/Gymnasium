@@ -44,6 +44,5 @@ int main(){
     string inputStr1 = "aabcccccdd";
     string outputStr1 = solutionX.stringCompression(inputStr1);
     cout << "Result 1: " << outputStr1 << ". Expect a2b1c5d2." << endl;
-
     return 0;
 }
