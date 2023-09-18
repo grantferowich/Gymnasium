@@ -1,4 +1,7 @@
-/* 242. Valid Anagram
+/* 
+Grant Ferowich
+242. Valid Anagram
+Developed on Sept 16, 2023
 Easy
 10.6K
 330

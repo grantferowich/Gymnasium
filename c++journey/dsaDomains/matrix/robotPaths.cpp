@@ -32,3 +32,22 @@ using namespace std;
  *            from the top left corner to the bottom right corner, does not go
  *            off of the matrix, and does not travel back on itself
  */
+
+ class Solution{
+    public:
+    int robotPaths(vector<vector<int> > matrix){
+
+    }
+
+ };
+ int main(){
+    Solution solutionX;
+    vector<vector<int> > inputVec1 = {{0,0,0}, {0,0,0}};
+    vector<vector<int> > inputVec2 = {{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+    int outputInt1 = solutionX.robotPaths(inputVec1);
+    cout << "Result 1: " << outputInt1 << ". Expect 8." << endl;
+
+    int outputInt2 = solutionX.robotPaths(inputVec2);
+    cout << "Result 2: " << outputInt2 << ". Expect 38. " << endl;
+    return 0;
+ }
