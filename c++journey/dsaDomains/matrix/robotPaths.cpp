@@ -38,7 +38,10 @@ using namespace std;
    public:
 
    void depthFirstSearch(int rowInt, int colInt, vector<vector<int> > &matrix, unordered_set<string> &vSet, int &outputInt){
-    
+    if (rowInt == matrix.size() - 1 && colInt == matrix[0].size() - 1){
+      outputInt++;
+      return;
+    }
     // OOB
     if (rowInt < 0 || rowInt >= matrix.size() || colInt < 0 || colInt >= matrix[0].size()){
         return;
@@ -48,20 +51,13 @@ using namespace std;
     if (vSet.find(keyStr) != vSet.end()){
         return;
     }
-    // not a 1
-    if (matrix[rowInt][colInt] == 0){
-        return;
-    }
-
-        if (rowInt == matrix.size() && colInt == matrix[0].size()){
-      outputInt++;
-      return;
-    }
+    
     vSet.insert(keyStr);
     depthFirstSearch(rowInt + 1, colInt, matrix, vSet, outputInt);
     depthFirstSearch(rowInt - 1, colInt, matrix, vSet, outputInt);
     depthFirstSearch(rowInt, colInt + 1, matrix, vSet, outputInt);
     depthFirstSearch(rowInt, colInt - 1, matrix, vSet, outputInt);
+    vSet.erase(keyStr);
 }
     int robotPaths(vector<vector<int> > matrix){
       int outputInt = 0;
@@ -76,7 +72,7 @@ using namespace std;
     vector<vector<int> > inputVec1 = {{0,0,0}, {0,0,0}};
     vector<vector<int> > inputVec2 = {{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     int outputInt1 = solutionX.robotPaths(inputVec1);
-    cout << "Result 1: " << outputInt1 << ". Expect 8." << endl;
+    cout << "Result 1: " << outputInt1 << ". Expect 4." << endl;
 
     int outputInt2 = solutionX.robotPaths(inputVec2);
     cout << "Result 2: " << outputInt2 << ". Expect 38. " << endl;
