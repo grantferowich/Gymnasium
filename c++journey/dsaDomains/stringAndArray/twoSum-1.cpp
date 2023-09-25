@@ -30,6 +30,11 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 
  */
+ #include <iostream>
+ #include <vector>
+ #include <string> 
+
+ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numsVec, int targetInt) {
@@ -50,3 +55,30 @@ public:
         return {};
     }
 };
+
+void printVector(const vector<int>& vec){
+    cout << "{ ";
+    int xInt = 0;
+    while (xInt < vec.size()){
+        int valueInt = vec[xInt];
+        if (xInt < vec.size() - 1){
+            cout << valueInt << ", ";
+        } 
+        if (xInt == vec.size() - 1){
+            cout << valueInt;
+        }
+        xInt++;
+    }
+    cout << " }" << endl;
+}
+
+int main(){
+    vector<int> inputVec1 = {3, 3, 8};
+    int int1 = 11;
+    // expect {0, 2} or {1, 2}
+    Solution solutionX;
+    vector<int> ouputVec1 = solutionX.twoSum(inputVec1, int1);
+    cout << "Result 1: ";
+    printVector(ouputVec1);
+    return 0;
+}
