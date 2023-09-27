@@ -31,6 +31,7 @@ Output: [0,1]
 
  */
  #include <iostream>
+#include <ostream>
  #include <vector>
  #include <string> 
 
@@ -76,9 +77,17 @@ int main(){
     vector<int> inputVec1 = {3, 3, 8};
     int int1 = 11;
     // expect {0, 2} or {1, 2}
+    vector<int> inputVec2 = {3, 3, 0};
+    int int2 = 6;
+    // expect {0, 1}
     Solution solutionX;
     vector<int> ouputVec1 = solutionX.twoSum(inputVec1, int1);
     cout << "Result 1: ";
     printVector(ouputVec1);
+    cout << endl;
+    vector<int> outputVec2 =  solutionX.twoSum(inputVec2, int2);
+    cout << "Result 2: ";
+    printVector(outputVec2);
+    cout << endl;
     return 0;
 }
