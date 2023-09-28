@@ -25,8 +25,28 @@ using namespace std::chrono;
  */
 class Solution{
     public: 
-     vector<vector<string> > rotateMatrix(vector<vector<int> > inputVec){
+     vector<vector<int> > rotateMatrix(vector<vector<int> >& inputVec){
+        if (inputVec.empty() || inputVec.size() != inputVec[0].size()){
+            return {};
+        }
 
+        int gInt = inputVec.size();
+        int iInt = 0;
+        while (iInt < gInt / 2){
+            int firstInt = iInt;
+            int lastInt = gInt - 1 - iInt;
+            while (firstInt < lastInt){
+                int offsetInt = iInt - firstInt;
+                int topLInt = inputVec[firstInt][iInt];
+                inputVec[firstInt][iInt] = inputVec[lastInt - offsetInt][firstInt];
+                inputVec[lastInt - offsetInt][firstInt] = inputVec[lastInt][lastInt - offsetInt];
+                inputVec[lastInt][lastInt - offsetInt] = inputVec[iInt][lastInt];
+                inputVec[iInt][lastInt] = topLInt;               
+                firstInt++;
+            }
+            iInt++;
+        }
+        return inputVec;
      }
 };
 
@@ -55,8 +75,11 @@ int main(){
     vector<vector<int> > inputVec1 = {{1, 2, 3},
                                       {4, 5, 6},     
                                       {7, 8, 9}};
+    cout << "main has started!// " << endl;
     vector<vector<int> > outputVec1 = solutionX.rotateMatrix(inputVec1);
-
+    cout << "rotateMatrix has finished running." << endl;
+    printMatrixWithCurlyBraces(outputVec1);
+    cout << "the function will end momentarily." << endl;
     return 0;
 }
 
