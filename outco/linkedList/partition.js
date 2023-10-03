@@ -39,18 +39,23 @@ const partition = (list, x) => {
 
     while (current !== null){
         let data = current.data;
+        // start with the greaterThanXList
         if (data >= x){
             let newNode = new ListNode(data)
+            // if the greaterThanXList is not empty, is already populated
             if (greaterThanXListTail){
+                // do stuff 
                 greaterThanXListTail.next = newNode;
                 greaterThanXListTail = newNode
             }
+            // if the greaterThanXList is empty 
             if (!greaterThanXListHead){
+                // do stuff
                 greaterThanXListHead = newNode;
                 greaterThanXListTail = greaterThanXListHead
             }
         }
-        
+        // process the lessThanXList
         if (data < x){
             newNode = new ListNode(data)
             if (lessThanXListHead){
