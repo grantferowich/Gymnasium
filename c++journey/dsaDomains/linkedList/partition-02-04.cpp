@@ -161,6 +161,10 @@ class LinkedList {
         cout << "Printing out the linked list: " << endl;
         cout << "{ ";
         while (node){
+            if (node == nullptr){
+                cout << "empty!" << endl;
+                break;
+            }
             cout << node->valueInt;
             node = node->nextNode;
             if (node){
@@ -240,26 +244,25 @@ class Solution{
             // Print a newline if it's the last node
             std::cout << std::endl;
         }
-
         // Move to the next node
         current = current->nextNode;
     }
 }
     public: 
-    ListNode* partition(LinkedList& inputList, int partitionInt){
+    void partition(LinkedList& inputList, int partitionInt){
         cout << "partition running.." << endl;
-        ListNode lessThanXListHead = nullptr;
-        ListNode lessThanXListTail = nullptr;
-        ListNode greaterThanXListHead = nullptr;
-        ListNode greaterThanXListTail = nullptr;
-        ListNode& node = inputList->headNode;
+        ListNode *lessThanXListHead = nullptr;
+        ListNode *lessThanXListTail = nullptr;
+        ListNode *greaterThanXListHead = nullptr;
+        ListNode *greaterThanXListTail = nullptr;
+        ListNode *node = inputList.headNode;
         
         while (node){
             ListNode* xNode = new ListNode(node->getIntID());
-            if (node.getIntID() >= partitionInt){
+            if (node->getIntID() >= partitionInt){
                 if (greaterThanXListTail){
                     greaterThanXListTail->nextNode = xNode;
-                    greaterThanXListHead = xNode;
+                    greaterThanXListTail = xNode;
                 } else {
                     greaterThanXListHead = xNode;
                     greaterThanXListTail = greaterThanXListHead;
@@ -274,14 +277,14 @@ class Solution{
                     lessThanXListTail = lessThanXListHead;
                 }
             }  
-            node = node.nextNode;
+            node = node->nextNode;
         }
         // connect the two lists
         if (lessThanXListHead){
             lessThanXListTail->nextNode = greaterThanXListHead;
-            return lessThanXListHead;
+            inputList.headNode = lessThanXListHead;
         } else {
-            return lessThanXListTail;
+            inputList.headNode = greaterThanXListHead;
         }
     
     }
@@ -319,8 +322,8 @@ int main(){
     listG.appendValue(1);
     cout << "List G before partition...";
     listG.printLinkedListInt();
-    ListNode* listX = solutionX.partition(listG, 5);
-    // cout << "List after partition...";
-    // printLinkedListValues(listX);
+    solutionX.partition(listG, 5);
+    cout << "List after partition...";
+    listG.printLinkedListInt();
     return 0;
 }
