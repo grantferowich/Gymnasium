@@ -217,7 +217,7 @@ class LinkedList {
 * Input 1: 
 * 3 - 5 - 8 - 5 - 10 - 2 - 1
 * Output 1: 
-* 3 1 2 10 5 5 8
+* 3 - 1 - 2 - 10 - 5 - 5 - 8
 
 *  
 */
@@ -226,28 +226,101 @@ class LinkedList {
 using namespace std;
 
 class Solution{
-    public: 
-    LinkedList partition(LinkedList inputList, int partitionInt){
-        ListNode* lessThanXListHead = new ListNode(nullptr);
-        ListNode* lessThanXListTail = new ListNode(nullptr);
-        ListNode* greaterThanXListHead = new ListNode(nullptr);
-        ListNode* greaterThanXListTail = new ListNode(nullptr);
-        ListNode* node = inputList.headNode;
+    private: 
+    void printLinkedListValues(ListNode* head) {
+    ListNode* current = head;
 
-        while (node){
-            if (node->getIntID() <= partitionInt){
-                // append to less than x list
-            }
-            if (node->getIntID() > partitionInt){
-                // append to the greater than x list
-            }
-            node = node->nextNode;
+    while (current != nullptr) {
+        std::cout << current->valueInt;
+
+        // Print a comma and space if it's not the last node
+        if (current->nextNode != nullptr) {
+            std::cout << ", ";
+        } else {
+            // Print a newline if it's the last node
+            std::cout << std::endl;
         }
-        return LinkedList();
+
+        // Move to the next node
+        current = current->nextNode;
     }
+}
+    public: 
+    ListNode* partition(LinkedList& inputList, int partitionInt){
+        cout << "partition running.." << endl;
+        ListNode lessThanXListHead = nullptr;
+        ListNode lessThanXListTail = nullptr;
+        ListNode greaterThanXListHead = nullptr;
+        ListNode greaterThanXListTail = nullptr;
+        ListNode& node = inputList->headNode;
+        
+        while (node){
+            ListNode* xNode = new ListNode(node->getIntID());
+            if (node.getIntID() >= partitionInt){
+                if (greaterThanXListTail){
+                    greaterThanXListTail->nextNode = xNode;
+                    greaterThanXListHead = xNode;
+                } else {
+                    greaterThanXListHead = xNode;
+                    greaterThanXListTail = greaterThanXListHead;
+                }
+            } else {
+                // append to the greater than x list
+                if (lessThanXListTail){
+                    lessThanXListTail->nextNode = xNode;
+                    lessThanXListTail = xNode;
+                } else {
+                    lessThanXListHead = xNode;
+                    lessThanXListTail = lessThanXListHead;
+                }
+            }  
+            node = node.nextNode;
+        }
+        // connect the two lists
+        if (lessThanXListHead){
+            lessThanXListTail->nextNode = greaterThanXListHead;
+            return lessThanXListHead;
+        } else {
+            return lessThanXListTail;
+        }
+    
+    }
+
 };
+
+void printLinkedListValues(ListNode* head) {
+    ListNode* current = head;
+
+    while (current != nullptr) {
+        std::cout << current->valueInt;
+
+        // Print a comma and space if it's not the last node
+        if (current->nextNode != nullptr) {
+            std::cout << ", ";
+        } else {
+            // Print a newline if it's the last node
+            std::cout << std::endl;
+        }
+
+        // Move to the next node
+        current = current->nextNode;
+    }
+}
 
 int main(){
     Solution solutionX;
+    LinkedList listG;
+    listG.appendValue(3);
+    listG.appendValue(5);
+    listG.appendValue(8);
+    listG.appendValue(5);
+    listG.appendValue(10);
+    listG.appendValue(2);
+    listG.appendValue(1);
+    cout << "List G before partition...";
+    listG.printLinkedListInt();
+    ListNode* listX = solutionX.partition(listG, 5);
+    // cout << "List after partition...";
+    // printLinkedListValues(listX);
     return 0;
 }
