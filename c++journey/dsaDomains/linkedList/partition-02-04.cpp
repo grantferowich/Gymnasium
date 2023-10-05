@@ -262,7 +262,7 @@ class Solution{
             if (node->getIntID() >= partitionInt){
                 if (greaterThanXListTail){
                     greaterThanXListTail->nextNode = xNode;
-                    greaterThanXListTail = xNode;
+                    greaterThanXListTail = greaterThanXListTail->nextNode;
                 } else {
                     greaterThanXListHead = xNode;
                     greaterThanXListTail = greaterThanXListHead;
@@ -271,7 +271,7 @@ class Solution{
                 // append to the greater than x list
                 if (lessThanXListTail){
                     lessThanXListTail->nextNode = xNode;
-                    lessThanXListTail = xNode;
+                    lessThanXListTail = lessThanXListTail->nextNode;
                 } else {
                     lessThanXListHead = xNode;
                     lessThanXListTail = lessThanXListHead;
