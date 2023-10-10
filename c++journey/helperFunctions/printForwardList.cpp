@@ -13,16 +13,14 @@ class Solution{
             cout <<  ", ";
         }
        }
-        cout << " }";
+        cout << " }" << endl;
     }
 };
 
 int main(){
-
     Solution solutionX;
     forward_list<int> list1 = { 1, 1, 2, 3, 5, 8, 13, 21};
     solutionX.printForwardList(list1);
     return 0;
-
 };
 
