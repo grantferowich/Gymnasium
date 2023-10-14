@@ -51,15 +51,28 @@ using namespace std;
 
 class Solution{
     public: 
-    forward_list<int> add(forward_list<int> list1, forward_list<int> list2, int carryInt){
+    forward_list<int> add(forward_list<int> list1, forward_list<int> list2, forward_list<int> finalList, int carryInt){
         
+        auto it1 = list1.begin();
+        auto it2 = list2.begin();
+
+        while (auto it1 && auto it2){
+            int int1 = it1;
+            int int2 = it2;
+            int sumInt = int1 + int2;
+            int finalInt = sumInt % 10;
+            finalList = finalInt + carryInt;
+            if (sumInt > 10){
+                carryInt = 1;
+            }
+        }
     }
 
     forward_list<int> sumLists(forward_list<int> list1, forward_list<int> list2 ){
         forward_list<int> finalList;
         int carryInt = 0;
         auto it = list1.begin();
-        add(list1, list2, carryInt);
+        add(list1, list2, finalList, carryInt);
         return finalList;
     }
 
