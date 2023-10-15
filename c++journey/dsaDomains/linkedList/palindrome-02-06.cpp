@@ -1,4 +1,4 @@
-/* 
+/ *  
 * Grant Ferowich
 * Developed on October 11, 2023
 * Cracking the Coding Interview
@@ -21,7 +21,7 @@
 * similar, the word is truly a palindrome. 
 *
 *
-*/
+* /
 
 #include <forward_list>
 #include <iostream>
