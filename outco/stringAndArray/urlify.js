@@ -6,6 +6,8 @@ const urlify = (s) => {
     return s.replaceAll(' ',"%20" )
 }
 
-module.exports = urlify
+// module.exports = urlify
 
 
+const outputStr1 = urlify("grant ferowich")
+console.log(outputStr1)

@@ -32,6 +32,7 @@
  * 
  */
 
+#include <cstddef>
 #include <iostream> 
 #include <forward_list>
 #include <iterator>
@@ -52,31 +53,46 @@ using namespace std;
 class Solution{
     public: 
     forward_list<int> add(forward_list<int> list1, forward_list<int> list2, forward_list<int> finalList, int carryInt){
-        
-        auto it1 = list1.begin();
-        auto it2 = list2.begin();
-
-        while (auto it1 && auto it2){
-            int int1 = it1;
-            int int2 = it2;
-            int sumInt = int1 + int2;
+        auto it1 = list1.end();
+        auto it2 = list2.end();
+        while (it1 != list1.before_begin() || it2 != list2.before_begin()){
+            size_t int1 = (it1 != list1.before_begin()) ? *it1 : 0;
+            size_t int2 = (it2 != list2.before_begin()) ? *it2 : 0;    
+            int sumInt = int1 + int2 + carryInt;
             int finalInt = sumInt % 10;
-            finalList = finalInt + carryInt;
+            finalList.push_front(finalInt);
+            if (it1 != list1.before_begin()){
+                --it1;
+            }
+            if (it2 != list2.before_begin()){
+                --it2;
+            }
             if (sumInt > 10){
                 carryInt = 1;
             }
         }
-    }
-
-    forward_list<int> sumLists(forward_list<int> list1, forward_list<int> list2 ){
-        forward_list<int> finalList;
-        int carryInt = 0;
-        auto it = list1.begin();
-        add(list1, list2, finalList, carryInt);
         return finalList;
     }
 
+    forward_list<int> sumLists(forward_list<int> list1, forward_list<int> list2){
+        int carryInt = 0;
+        auto it = list1.begin();
+        forward_list<int> finalList;
+        return add(list1, list2, finalList, carryInt);
+    }
 };
+
+void printForwardList(forward_list<int> list1){
+       auto it = list1.begin();
+       cout << "{ ";
+       while (it != list1.end()){
+        cout << *it;
+        if (++it != list1.end()){
+            cout <<  ", ";
+        }
+       }
+        cout << " }" << endl;
+}
 
 int main(){
     Solution solutionX;
@@ -89,6 +105,6 @@ int main(){
     list2.push_front(9);
     list2.push_front(5);
     forward_list<int> outputList1 = solutionX.sumLists(list1, list2);
-
+    printForwardList(outputList1);
     return 0;
 }

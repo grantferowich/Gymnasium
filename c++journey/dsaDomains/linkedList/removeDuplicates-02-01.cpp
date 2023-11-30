@@ -237,7 +237,6 @@ class Solution{
 
         node = inputList->headNode;
         while (node){
-
             if (frequencyMap[node->valueInt] > 1){
                 inputList->deleteNode(node->valueInt);
                 int frequencyInt = frequencyMap[node->valueInt];

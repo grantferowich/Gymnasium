@@ -1,12 +1,11 @@
 /* 
 628. Valid Palindrome II
 
-
 part tested 04/06/2023.
 
 Given a string s, return true if the s
- can be palindrome after deleting at 
- most one character from it.
+can be palindrome after deleting at 
+most one character from it.
 
 Approach
 Init two pointers at the start and end of word
@@ -27,7 +26,6 @@ const isPalindrome = function(str) {
       }
       return true
 };
-
 
 const validPalindromeII = (str) => {
    let result1 = isPalindrome(str);

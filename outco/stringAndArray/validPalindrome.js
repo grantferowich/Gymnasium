@@ -7,7 +7,7 @@ const isPalindrome = function(s) {
               return false
           }
       }
-      return true
+    return true
 };
 
 console.log(isPalindrome('hannah')) // expected output: true | actual output: true

@@ -22,6 +22,7 @@ Output: false
 
 
 */
+
 const isAnagram = function(s, t) {
     let counts1 = {}
     let counts2 = {}
@@ -37,14 +38,14 @@ const isAnagram = function(s, t) {
     }
     
     if (Object.keys(counts1).length !== Object.keys(counts2).length){
-        return false
+        return false;
     }
     for (let key in counts1){
         if (counts1[key] !== counts2[key]){
-            return false
+            return false;
         }
     }
-    return true
+    return true;
 };
 
 console.log(isAnagram('rat', 'dog')) // false
