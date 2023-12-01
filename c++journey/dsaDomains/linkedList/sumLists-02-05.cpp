@@ -57,7 +57,7 @@ class Solution{
         auto it2 = list2.end();
         while (it1 != list1.before_begin() || it2 != list2.before_begin()){
             size_t int1 = (it1 != list1.before_begin()) ? *it1 : 0;
-            size_t int2 = (it2 != list2.before_begin()) ? *it2 : 0;    
+            size_t int2 = (it2 != list2.before_begin()) ? *it2 : 0;
             int sumInt = int1 + int2 + carryInt;
             int finalInt = sumInt % 10;
             finalList.push_front(finalInt);
