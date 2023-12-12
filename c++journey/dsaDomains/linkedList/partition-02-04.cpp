@@ -132,7 +132,7 @@ class LinkedList {
       return toDeleteNode;
     };
 
-    // Time Complexity: o(N)
+    // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     bool containsValue(int valueInt){
       ListNode *node = this->headNode;
