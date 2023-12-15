@@ -1,11 +1,7 @@
 /* 
-
 Remove Node From DLL
-
 Hacking the Google Interview 
-
-
-Successfully tested the function 2/27/23.
+Successfully tested the function on December 15, 2023.
 */
 
 class DoublyLinkedListNode{
@@ -31,35 +27,34 @@ class DoublyLinkedList{
 
     insert(value, index){
         if (index < 0 || index > this.length){
-            return 
+            return;
         }
 
         let newNode = new DoublyLinkedListNode(value)
         // dll empty
         if (this.head.next === this.tail){
-            this.head.next = newNode
-            this.tail.prev = newNode
-            newNode.next = this.tail
-            newNode.prev = this.head
-        }
-        if (index === 0){
+            this.head.next = newNode;
+            this.tail.prev = newNode;
+            newNode.next = this.tail;
+            newNode.prev = this.head;
+            
+        } else if (index === 0){
             let ref = this.head.next;
             this.head.next = newNode;
             newNode.next = ref;
-            newNode.prev = this.head
-        } 
-        if (index > 0){
-            let ptr = this.head.next
+            newNode.prev = this.head;
+        } else if (index > 0){
+            let ptr = this.head.next;
             for (let x = 0; x < index - 1; x++){
-                ptr = ptr.next
+                ptr = ptr.next;
             }
-            let ref = ptr.next
-            ptr.next = newNode
-            newNode.prev = ptr
-            newNode.next = ref 
-            ref.prev = newNode
+            let ref = ptr.next;
+            ptr.next = newNode;
+            newNode.prev = ptr;
+            newNode.next = ref;
+            ref.prev = newNode;
         }
-        this.length++
+        this.length++;
     }
 
     remove(value){
@@ -67,12 +62,12 @@ class DoublyLinkedList{
         while (ptr !== null){
             if (value === ptr.value){
                 let prev = ptr.prev;
-                prev.next = ptr.next
-                let ref = ptr.next
-                ref.prev = prev
-                break
+                prev.next = ptr.next;
+                let ref = ptr.next;
+                ref.prev = prev;
+                break;
             }
-            ptr = ptr.next
+            ptr = ptr.next;
         }
         this.length--;
     }
