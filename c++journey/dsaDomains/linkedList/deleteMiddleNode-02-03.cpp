@@ -1,4 +1,3 @@
-
 #include <iostream> 
 #include <unordered_map>
 #include <vector>
@@ -203,18 +202,16 @@ class LinkedList {
       cout << " }" << endl;
     };
 };
-/* 
 
+/* 
 * Grant Ferowich 
 * Developed Sunday October 1, 2023
 * Cracking the Coding Interview
 * Chapter 2, question 3: Delete the middle node
-*Suppose you have a linked list: 
+* Suppose you have a linked list: 
 *  a - b - d - e - k. 
 * The returned list has no (d) node: 
 * a - b - e - k.
-
-
 */
 
 class Solution{
@@ -222,10 +219,12 @@ class Solution{
         void deleteMiddleNode(LinkedList &inputList){
             int deleteInt = inputList.lengthInt / 2;
             inputList.deleteNode(deleteInt); 
+
         }
 
 
 };
+
 int main(){
     Solution solutionX;
     LinkedList listK;

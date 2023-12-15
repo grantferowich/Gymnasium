@@ -14,6 +14,7 @@
  * The function takes in the head of the linked list. 
  * The function returns a linked list. 
  */
+
 #include <iostream> 
 #include <unordered_map>
 using namespace std;
@@ -229,8 +230,7 @@ class Solution{
             if (frequencyMap.find(valueInt) == frequencyMap.end()){
                 frequencyMap[valueInt] = 1;
             } else {
-                int frequencyInt = frequencyMap[valueInt];
-                frequencyMap[valueInt] = frequencyInt + 1;
+                frequencyMap[valueInt] = frequencyMap[valueInt] + 1;
             }
             node = node->nextNode;
         }
@@ -247,7 +247,7 @@ class Solution{
     }
 };
 
- int main(){
+int main(){
     Solution solutionX;
     LinkedList listK;
     listK.appendValue(1);

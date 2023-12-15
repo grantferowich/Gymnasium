@@ -219,9 +219,9 @@ class LinkedList {
 * value should be less than or equal to the partition value.
 
 * Input 1: 
-* 3 - 5 - 8 - 5 - 10 - 2 - 1
+* 3 - 5 - 8 - 5 - 10 - 2 - 1, partitionInt = 5
 * Output 1: 
-* 3 - 1 - 2 - 10 - 5 - 5 - 8
+* 3 - 1 - 2 - 5 - 10 - 5 - 8
 
 *  
 */
@@ -256,14 +256,15 @@ class Solution{
         ListNode *greaterThanXListHead = nullptr;
         ListNode *greaterThanXListTail = nullptr;
         ListNode *node = inputList.headNode;
-        
         while (node){
             ListNode* xNode = new ListNode(node->getIntID());
             if (node->getIntID() >= partitionInt){
+                    // when node is not the head of the input list
                 if (greaterThanXListTail){
                     greaterThanXListTail->nextNode = xNode;
                     greaterThanXListTail = greaterThanXListTail->nextNode;
                 } else {
+                    // when node is the head of the input list
                     greaterThanXListHead = xNode;
                     greaterThanXListTail = greaterThanXListHead;
                 }
@@ -276,19 +277,20 @@ class Solution{
                     lessThanXListHead = xNode;
                     lessThanXListTail = lessThanXListHead;
                 }
-            }  
+            }
             node = node->nextNode;
         }
         // connect the two lists
         if (lessThanXListHead){
             lessThanXListTail->nextNode = greaterThanXListHead;
             inputList.headNode = lessThanXListHead;
+            cout << "connect list 1" << endl;
+            inputList.printLinkedListInt();
         } else {
             inputList.headNode = greaterThanXListHead;
+            inputList.printLinkedListInt();
         }
-    
     }
-
 };
 
 void printLinkedListValues(ListNode* head) {
@@ -323,7 +325,7 @@ int main(){
     cout << "List G before partition...";
     listG.printLinkedListInt();
     solutionX.partition(listG, 5);
-    cout << "List after partition...";
-    listG.printLinkedListInt();
+    // cout << "List after partition...";
+    // listG.printLinkedListInt();
     return 0;
 }
