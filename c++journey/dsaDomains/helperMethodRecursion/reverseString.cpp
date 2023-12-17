@@ -22,19 +22,22 @@ using namespace std;
 class ReverseString {
     public:
       void compute(string str){
-        traverse(str, (str.length() - 1));
+        string outputStr;
+        traverse(str, (str.length() - 1), outputStr);
       };
     private: 
-      void traverse(string str, int indexInt){
+      void traverse(string str, int indexInt, string outputStr){
         if (indexInt < 0){
+            cout << outputStr << endl;
             return;
         }
-        cout << str[indexInt] << endl;
-        traverse(str, indexInt - 1);
+        outputStr.push_back(str[indexInt]);
+        traverse(str, indexInt - 1, outputStr);
       };
 };
 int main(){
     ReverseString reverseStringInstance;
     reverseStringInstance.compute("wakeforest");
+    reverseStringInstance.compute("hello");
     return 0;
 }
