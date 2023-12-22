@@ -65,15 +65,21 @@ const int1 = 14;
 const arr2 = [8,3,7,9,10,1,13];
 const int2 = 50;
 
+const arr3 = [6,12,1,7,5,2,3];
+const int3 = 900;
+
 const result1ToF = consecutiveSubarraySum(arr1, int1);
 const result2ToF = consecutiveSubarraySum(arr2, int2);
+const result3ToF = consecutiveSubarraySum(arr3, int3);
 
-console.log(`Result 1: ${result1ToF}`)
-console.log(`Result 2: ${result2ToF}`)
+console.log(`Result 1: ${result1ToF}`);
+console.log(`Result 2: ${result2ToF}`);
+console.log(`Result 3: ${result3ToF}`);
 
 /* Test Result 
 
 Result 1: true
 Result 2: false
+Result 3: false
 
 */

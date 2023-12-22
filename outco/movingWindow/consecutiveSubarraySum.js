@@ -20,7 +20,7 @@ const consecutiveSubarraySum = (nums, target) => {
     let i = 0;
     let j = 0; 
 
-    while (currentSum <= target && i < nums.length -1) {
+    while (currentSum <= target && i < nums.length -1){
        //hunting logic
        currentSum += nums[i];
        while (j < nums.length){
