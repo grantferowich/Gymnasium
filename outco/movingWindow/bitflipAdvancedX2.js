@@ -35,14 +35,14 @@ const bitflipAdvanced = (arr, int) => {
         if (arr[rightPtrInt] === 0){
             flipBudgetInt--;
         }
-        rightPtrInt++   
+        rightPtrInt++;   
         while (flipBudgetInt < 0){
             if (arr[leftPtrInt] === 0){
                 flipBudgetInt++;
             }
-            leftPtrInt++
+            leftPtrInt++;
         }
-        countInt = Math.max(countInt, rightPtrInt - leftPtrInt)        
+        countInt = Math.max(countInt, rightPtrInt - leftPtrInt);        
     }
 
     return countInt;

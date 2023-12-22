@@ -3,15 +3,15 @@
 
 Given a bit array, return the array sorted in place using multiple pointers
 
-// input: array
-// output: array
+input: array
+output: array
 
-// constraints: O(N) space and O(N) runtime
+constraints: O(N) space and O(N) runtime
 
-// the problem instructs us to sort the array in place 
-// this condition tells us the algorithm must not introduce new data structures
-// The input space is O(N). The auxiliary space is O(2). 
-// Therefore the space complexity of the algorithm is linear, O(N).
+the problem instructs us to sort the array in place 
+this condition tells us the algorithm must not introduce new data structures
+The input space is O(N). The auxiliary space is O(2). 
+Therefore the space complexity of the algorithm is linear, O(N).
 
 */
 var t0 = performance.now();
@@ -40,11 +40,11 @@ const bitArraySortWithTwoPointers = (array) => {
         //    [array[left], array[right]] = [array[right], array[left]]
         // }
     }
-
-return array
+    return array
 }
 
 console.log(bitArraySortWithTwoPointers([1,0,0,1])); // [0, 0, 1, 1]
 console.log(bitArraySortWithTwoPointers([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1]))
+console.log(bitArraySortWithTwoPointers([1,0,0,0,0,1,0,1,0,1,0,1,1,0,1])); 
 var t1 = performance.now();
 console.log("Call to bitArraySortWithTwoPointers took " + (t1 - t0) + " milliseconds.");

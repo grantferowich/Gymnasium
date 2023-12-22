@@ -17,9 +17,9 @@ const buyAndSellStock = (arr) => {
         while (y > x){
             let current = arr[y] - arr[x];
             if (current > max){
-                result[0] = arr[x]
-                result[1] = arr[y]
-                max = Math.max(max, current)
+                result[0] = arr[x];
+                result[1] = arr[y];
+                max = Math.max(max, current);
             }
             y--;
             x++;

@@ -3,7 +3,6 @@ Bit Array Sort With Multiple Pointers
 
 Given a bit array, return the array sorted in place using multiple pointers.
 
-
 Attempted May 9, 2023.
 Successfully tested the function May 9, 2023.
 
@@ -49,6 +48,7 @@ const bitArraySort = (arr) => {
         }
 
     }
+    
     return arr
 }
 
@@ -56,13 +56,15 @@ const bitArraySort = (arr) => {
 
 const arr1 = [ 1, 0, 0, 1];
 const arr2 = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+const arr3 = [ 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1];
 
 const result1Arr = bitArraySort(arr1);
 const result2Arr = bitArraySort(arr2);
+const result3Arr = bitArraySort(arr3);
 
 console.log(`Result 1: ${result1Arr}`)
 console.log(`Result 2: ${result2Arr}`)
-
+console.log(`Result 3: ${result3Arr}.`)
 /* Test results
 
 Result 1: 0,0,1,1

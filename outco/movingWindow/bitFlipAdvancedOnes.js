@@ -16,8 +16,8 @@
  * increase the window size to find 0s
  * 
     // decrease window size once n flips are used up
-    // increment the left pointer (shrink total size) until finding a 0
-    // once the zero is found on the left side the window can increase again to find 0s to the right
+    increment the left pointer (shrink total size) until finding a 0
+    once the zero is found on the left side the window can increase again to find 0s to the right
  */
 
 // Time Complexity: O(N)
