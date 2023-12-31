@@ -3,7 +3,6 @@
 const nthFibWithMemoization = (n) =>{
     let hash = {}
     const solve = (num) => {
-
         let key = num.toString();
         // check the cache
         if (hash[key]) {return hash[key]}
@@ -15,6 +14,12 @@ const nthFibWithMemoization = (n) =>{
     }
     return solve(n);
 }
-
-console.log(nthFibWithMemoization(4))
-console.log(nthFibWithMemoization(100))
+/* TESTS */
+console.log(`Test 1: `+nthFibWithMemoization(4))
+console.log(`Test 2: `+nthFibWithMemoization(100))
+console.log(`Test 3: `+nthFibWithMemoization(7))
+/* TEST RESULTS 
+Test 1: 3
+Test 2: 354224848179262000000
+Test 3: 13
+*/

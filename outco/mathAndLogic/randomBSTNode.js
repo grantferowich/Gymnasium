@@ -1,11 +1,8 @@
 /* 
-
 TREE NODE
 CTCI 4.11
-
 Successfully tested the function 2/26/23.
 */
-
 class TreeNode{
     constructor(value){
         this.value = value === undefined ? null : value;
@@ -13,7 +10,6 @@ class TreeNode{
         this.right = null;
     }
 }
-
 class BinarySearchTree{
     constructor(){
         this.root = null;
@@ -48,7 +44,6 @@ class BinarySearchTree{
         }
         this.size++;
     }
-
     // Time Complexity:  O(N) in the worst case when the tree is imbalanced
     // Space Complexity: O(1)
     // input: value
@@ -63,7 +58,6 @@ class BinarySearchTree{
         }
         return false
     }
-
     remove(value){
         if (!this.search(value)){
             return 'value does not exist'
@@ -75,7 +69,6 @@ class BinarySearchTree{
             }
             x++
         }
-
         let node = this.root;
         while (node){
             if (node.value === value){
@@ -91,13 +84,11 @@ class BinarySearchTree{
             }
         }
     }
-
     getRandomNode(){
         let random = Math.floor(Math.random() * this.size)
         return this.values[random]
     }
 }
-
 const testRandomness = (array) =>{
     let occurrences = {};
     let bst = new BinarySearchTree()
@@ -112,14 +103,11 @@ const testRandomness = (array) =>{
     }
     return occurrences
 }
-
-const array1 = [15,23,55]
+const array1 = [ 15, 23, 55 ];
 console.log("frequency: ", testRandomness(array1));
 // console.log("frequency: ", testRandomness(array2));
-
 // let bst = new BinarySearchTree()
 // bst.insert(8)
 // bst.insert(1)
 // bst.insert(23)
 // console.log(bst.getRandomNode())
-

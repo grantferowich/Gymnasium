@@ -66,14 +66,13 @@ const numberOfIslands = (arr = []) => {
             let valStr = arr[xInt][yInt];
             let keyStr = `${xInt}_${yInt}`;
             if (valStr === '1' && !visitedMap.has(keyStr)){
-                numberOfIslandsInt++
-                traverse(xInt, yInt, visitedMap)
+                numberOfIslandsInt++;
+                traverse(xInt, yInt, visitedMap);
             }
-            yInt++
+            yInt++;
         }
-        xInt++
+        xInt++;
     }
-
     return numberOfIslandsInt;
 }
 

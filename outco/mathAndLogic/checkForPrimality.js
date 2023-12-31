@@ -7,19 +7,27 @@ Output: true if the number is prime, false if the number is not prime
 */
 
 const checkForPrimality = (integer) => {
+    // type check
     if (isNaN(integer)){
         return false
     }
 
+
+    // exclusionary case 1
     if (integer < 2){
         return false
     }
+    
+    // exclusionary case 2 
     for (let x = 2; x < integer; x++){
         
         if (integer % x == 0){
             return false
         }
     }
+    // if not exclusionary case 1 and 
+    // not exclusionary case 2
+    // then true
     return true
 }
 

@@ -3,22 +3,23 @@
 #include <vector>
 using namespace std;
 
-class ListNode {
+class DoublyLinkedListNode {
    public:
     string str;
     int valueInt;
     vector<int> vecInt;
-    ListNode* nextNode;
+    DoublyLinkedListNode* nextNode;
+    DoublyLinkedListNode* prevNode;
 
-    ListNode(int inputInt) {
+    DoublyLinkedListNode(int inputInt) {
        this->valueInt = inputInt;
     }
 
-    ListNode(string str){
+    DoublyLinkedListNode(string str){
         this->str = str;
     }
 
-    ListNode(vector<int> vecInt){
+    DoublyLinkedListNode(vector<int> vecInt){
         this->vecInt = vecInt;
     }
 
@@ -35,29 +36,36 @@ class ListNode {
     }
 };
 
-class LinkedList {
+class DoublyLinkedList {
   public:
     int lengthInt;
-    ListNode *headNode, *tailNode;
+    DoublyLinkedListNode *headNode, *tailNode;
 
-    LinkedList() {
+    DoublyLinkedList() {
       this->headNode = nullptr;
+      headNode->nextNode = this->tailNode;
       this->tailNode = nullptr;
+      tailNode->prevNode = this->headNode;
       this->lengthInt = 0;
     };
 
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
-    void insertValue(ListNode *xNode, int indexInt){
+    void insertValue(DoublyLinkedListNode *xNode, int indexInt){
+        
         if (indexInt < 0 || indexInt > this->lengthInt){
           return;
         }
+
         if (this->lengthInt == 0){
-            this->headNode = xNode;
-            xNode->nextNode = tailNode;
+            xNode->nextNode = this->headNode->nextNode;
+            xNode->prevNode = this->headNode;
+            this->headNode->nextNode = xNode;
+            this->tailNode->prevNode = xNode;
             lengthInt++;
             return;
         }
+
         if (this->lengthInt == 1){
             this->headNode->nextNode = xNode;
             xNode->nextNode = this->tailNode;
@@ -65,7 +73,7 @@ class LinkedList {
             return;
         }
         if (this->lengthInt > 1){
-            ListNode *node = this->headNode;
+            DoublyLinkedListNode *node = this->headNode;
             int currentIndexInt = 0;
             while (node){
                 if (currentIndexInt == lengthInt - 1){
@@ -83,27 +91,27 @@ class LinkedList {
     // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     void appendValue(int valueInt){
-      ListNode *xNode = new ListNode(valueInt);
+      DoublyLinkedListNode *xNode = new DoublyLinkedListNode(valueInt);
       this->insertValue(xNode, this->lengthInt);
     };
 
     void appendValue(string inputStr){
-      ListNode *xNode = new ListNode(inputStr);
+      DoublyLinkedListNode *xNode = new DoublyLinkedListNode(inputStr);
       this->insertValue(xNode, lengthInt);
     };
 
     void appendValue(vector<int> inputVec){
-      ListNode *xNode = new ListNode(inputVec);
+      DoublyLinkedListNode *xNode = new DoublyLinkedListNode(inputVec);
       this->insertValue(xNode, lengthInt);
     };
 
     // Time Complexity:O(N)
     // Auxiliary Space Complexity: O(1)
-    ListNode* deleteNode(int indexInt){
+    DoublyLinkedListNode* deleteNode(int indexInt){
       if (indexInt < 0 || indexInt >= this->lengthInt){
         return nullptr;
       }
-      ListNode *toDeleteNode = nullptr;
+      DoublyLinkedListNode *toDeleteNode = nullptr;
 
       if (indexInt == 0){
         toDeleteNode = this->headNode;
@@ -112,7 +120,7 @@ class LinkedList {
           this->tailNode = nullptr;
         }
       } else {
-        ListNode *node = this->headNode;
+        DoublyLinkedListNode *node = this->headNode;
         int currentIndexInt = 0;
         while (node){
           if (currentIndexInt == indexInt - 1){
@@ -134,7 +142,7 @@ class LinkedList {
     // Time Complexity: o(N)
     // Auxiliary Space Complexity: O(1)
     bool containsValue(int valueInt){
-      ListNode *node = this->headNode;
+      DoublyLinkedListNode *node = this->headNode;
       while (node){
         if (node->valueInt == valueInt){
           return true;
@@ -145,7 +153,7 @@ class LinkedList {
     }
 
     bool containsStr(string inputStr){
-      ListNode *node = this->headNode;
+      DoublyLinkedListNode *node = this->headNode;
       while (node){
         if (node->getStringID() == inputStr){
           return true;
@@ -156,7 +164,7 @@ class LinkedList {
     }
 
     void printLinkedListInt(){
-        ListNode *node = this->headNode;
+        DoublyLinkedListNode *node = this->headNode;
         cout << "Printing out the linked list: " << endl;
         cout << "{ ";
         while (node){
@@ -170,7 +178,7 @@ class LinkedList {
     }
 
     void printLinkedListStr(){
-      ListNode *node = this->headNode;
+      DoublyLinkedListNode *node = this->headNode;
       cout << "Printing out the linked list: " << endl;
       cout << "{ ";
       while (node){
@@ -184,7 +192,7 @@ class LinkedList {
     }
 
     void printLinkedListVec(){
-      ListNode *node = this->headNode;
+      DoublyLinkedListNode *node = this->headNode;
       cout << "Printing out the linked list: " << endl;
       cout << "{ ";
       while (node){
@@ -203,38 +211,10 @@ class LinkedList {
     };
 };
 
-/* 
-* Grant Ferowich
-* Developed Sunday October 1, 2023
-* Cracking the Coding Interview
-* Chapter 2, question 3: Delete the middle node
-* Suppose you have a linked list: 
-*  a - b - d - e - k. 
-* The returned list has no (d) node: 
-* a - b - e - k.
-*/
-
-class Solution{
-    public:
-        void deleteMiddleNode(LinkedList &inputList){
-            int deleteInt = inputList.lengthInt / 2;
-            inputList.deleteNode(deleteInt); 
-
-        }
-};
-
 int main(){
-    Solution solutionX;
-    LinkedList listK;
-    listK.appendValue("a");
-    listK.appendValue("b");
-    listK.appendValue("d");
-    listK.appendValue("e");
-    listK.appendValue("k");
-    cout << "List before deleting the middle node: ";
-    listK.printLinkedListStr();
-    solutionX.deleteMiddleNode(listK);
-    cout << "List after deleting the middle node: ";
-    listK.printLinkedListStr();
-    return 0;
-}
+    DoublyLinkedList dllX;
+    dllX.appendValue(3);
+    // dllX.appendValue(5);
+    // dllX.appendValue(8);
+    dllX.printLinkedListInt();
+};

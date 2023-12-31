@@ -52,8 +52,8 @@ class Matrix {
     scale(factor) {
       for (let row = 0; row < this.m; row++){
         for (let element = 0; element < this.nInt; element++){
-            let scaled = factor * this.retrieve(row, element) 
-            this.insert(row, element, scaled)
+            let scaled = factor * this.retrieve(row, element);
+            this.insert(row, element, scaled);
           }
       }
     }
@@ -61,7 +61,7 @@ class Matrix {
     fill(val) {
       for (let row = 0; row < this.m; row++){
         for (let element = 0; element < this.nInt; element++){
-            this.insert(row, element, val)
+            this.insert(row, element, val);
           }
       }
     }
@@ -70,7 +70,7 @@ class Matrix {
       let output = [];
       for (let row = 0; row < this.m; row++){
         for (let element = 0; element < this.nInt; element++){
-            output.push(this.storage[row][element])
+            output.push(this.storage[row][element]);
           }
       }
       return output;
@@ -107,7 +107,8 @@ class Matrix {
     multiply(matrix) {
       if(this.nInt !== matrix.m) {
       return null;
-      }
+    }
+
     let newMatrix = new Matrix(this.m, matrix.n);
     for(let i = 0; i < newMatrix.m; i++) {
       for(let j = 0; j < newMatrix.n; j++) {

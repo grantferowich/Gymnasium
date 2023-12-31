@@ -26,16 +26,16 @@ Find Permutations("aabc")
  var t0 = performance.now();
 
 const stringPermutationWithMemoization = (string) => {
-    let set = new Set()
-    let hash = {}
-    let usedIndexes = []
+    let set = new Set();
+    let hash = {};
+    let usedIndexes = [];
 
     const buildPermutation = (build, usedIndexes) =>{
         let key = build + "_" + usedIndexes;
         if (hash[key]){return hash[key]}
         if (build.length  === string.length){
-            set.add(build)
-            return 
+            set.add(build);
+            return;
         }
         
         for (let x = 0; x < string.length; x++){

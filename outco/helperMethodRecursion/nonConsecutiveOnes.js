@@ -17,7 +17,7 @@
 
 
 // initialize state variables: array of strings
-// return state variables: qrray of strings
+// return state variables: array of strings
 // define and invoke recursive helper method
 // base case(s)
 // recursive case(s)
@@ -40,23 +40,27 @@
 // Output: ["000", "001", "010", "100", "101"]
 
 const nonConsecutiveOnes = (number) => {
+    
     if (typeof number !== "number"){
-        return []
+        return [];
     }
 
     let result = [];
     const findCombinations = (build, depth) => {
         // terminate recursion
         if (depth > number){
-            return 
+            return;
         }
+
         if (!build.includes("11")){
             if (build.length === number){
-                result.push(build)
+                result.push(build);
             }           
-        }   
+        }
+
         //right
         findCombinations(build + "1", depth + 1);
+        
         //left
         findCombinations(build + "0", depth + 1);
     }

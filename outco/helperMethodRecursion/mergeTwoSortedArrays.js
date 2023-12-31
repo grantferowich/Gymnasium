@@ -14,30 +14,30 @@ const mergeTwoSortedArrays = (arr1, arr2) => {
     const merge = (array1, array2, depthInt1, depthInt2) => {
 
         if (depthInt1 === arr1.length && depthInt2 < arr2.length){
-            let remainingArr = arr2.slice(depthInt2)
-            mergedArr = [...mergedArr, remainingArr]
-            return
+            let remainingArr = arr2.slice(depthInt2);
+            mergedArr = [...mergedArr, remainingArr];
+            return;
         }
 
         if (depthInt2 === arr2.length && depthInt1 < arr1.length){
-            let remainingArr = arr1.slice(depthInt1)
-            mergedArr = [...mergedArr, remainingArr]
-            return
+            let remainingArr = arr1.slice(depthInt1);
+            mergedArr = [...mergedArr, remainingArr];
+            return;
         }
 
         if (array1[depthInt1] <= array2[depthInt2]){
-            mergedArr.push(array1[depthInt1])
-            merge(array1, array2, depthInt1 + 1, depthInt2)
+            mergedArr.push(array1[depthInt1]);
+            merge(array1, array2, depthInt1 + 1, depthInt2);
         }
         if (array1[depthInt1] > array2[depthInt2]){
-            mergedArr.push(array2[depthInt2])
-            merge(array1, array2, depthInt1, depthInt2 + 1)
+            mergedArr.push(array2[depthInt2]);
+            merge(array1, array2, depthInt1, depthInt2 + 1);
         }
 
     }
 
-    merge(arr1, arr2, 0, 0)
-    return mergedArr
+    merge(arr1, arr2, 0, 0);
+    return mergedArr;
 }
 
 /* TESTS */

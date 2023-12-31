@@ -6,7 +6,7 @@ Complexity analysis:
 Time: O(N)
 Space: O(1)
 
-//Successfully tested the solution on Leetcode 2/21/23.
+Successfully tested the solution on Leetcode 2/21/23.
 
 You are given an integer array height of length n. 
 There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
@@ -37,17 +37,17 @@ loop while left is less than right
 */
 
 const maxArea = (height) => {
-    let local = 0
-    let ultimate = 0
+    let local = 0;
+    let ultimate = 0;
     
     let leftPtr = 0;
     let rightPtr = height.length - 1;
 
     while (leftPtr < rightPtr){
-        let length = rightPtr - leftPtr
-        let heightX = Math.min(height[rightPtr], height[leftPtr])
-        local = length * heightX
-        ultimate = Math.max(local, ultimate)
+        let length = rightPtr - leftPtr;
+        let heightX = Math.min(height[rightPtr], height[leftPtr]);
+        local = length * heightX;
+        ultimate = Math.max(local, ultimate);
         if (height[leftPtr] <= height[rightPtr]){
             leftPtr++;
         } else {

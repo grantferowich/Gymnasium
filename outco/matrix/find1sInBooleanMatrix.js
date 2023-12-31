@@ -1,7 +1,7 @@
 /* 
 
 Onsite whiteboarding question at Google 
-// Successfully tested the function 1/22/23.
+Successfully tested the function 1/22/23.
 Time complexity: O(MN)
 Space complexity: O(1)
 FIND THE NUMBER OF 1s IN A MATRIX OF 1s and 0s
@@ -9,7 +9,7 @@ FIND THE NUMBER OF 1s IN A MATRIX OF 1s and 0s
 input: m by n matrix
 output: number 
 
-//base cases
+base cases
 out of bounds
 arrived at the bottom right corner 
 
@@ -30,9 +30,9 @@ const find1sMatrix = (matrix) => {
 }
 
 console.log(find1sMatrix([[0, 0, 0, 1],
-    [0, 0, 1, 1],
-    [0, 1, 1, 1],
-    [0, 1, 1, 1]]))
+                          [0, 0, 1, 1],
+                          [0, 1, 1, 1],
+                          [0, 1, 1, 1]]))
 
 // Output: 9
 

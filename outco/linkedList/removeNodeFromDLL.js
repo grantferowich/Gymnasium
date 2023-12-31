@@ -7,7 +7,7 @@ Successfully tested the function on December 15, 2023.
 class DoublyLinkedListNode{
     constructor(value){
         this.value = value;
-        this.nIntext = null;
+        this.next = null;
         this.prev = null;
     }
 }
@@ -18,11 +18,11 @@ class DoublyLinkedList{
         this.tail = new DoublyLinkedListNode();
         this.head.next = this.tail;
         this.tail.prev = this.head;
-        this.length = 0
+        this.length = 0;
     }
 
     append(value){
-        this.insert(value, this.length)
+        this.insert(value, this.length);
     }
 
     insert(value, index){

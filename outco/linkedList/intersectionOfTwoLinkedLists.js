@@ -105,5 +105,5 @@ const intersection = (a,b) => {
 }
 
 console.log(intersection(head, head2)) // expected output: true
-console.log(intersection(head,head3)) // expected output: false
+console.log(intersection(head, head3)) // expected output: false
 

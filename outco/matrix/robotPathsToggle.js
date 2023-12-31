@@ -112,5 +112,5 @@ console.log(robotPathsToggle([[0,0,0,0,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0]]
 //     [ 0, 0, 0, 0, 0, 0, 0, 0]])) // 7110272
 
 
-    var t1 = performance.now();
-    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
+var t1 = performance.now();
+console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");

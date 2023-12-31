@@ -9,6 +9,7 @@
 #include <iostream>
 #include <array>
 using namespace std;
+
 /**
  * 2g. Merge two sorted arrays using the Helper Method Recursion
  * Developed and tested Merge on Aug. 8, 2023. 
@@ -24,9 +25,11 @@ using namespace std;
 class Merge {
   public:
     vector<int> compute(vector<int> vec1, vector<int> vec2) {
+
       vector<int> resultVec;
       int gInt = 0;
       int hInt = 0;
+
       while (gInt < vec1.size() && hInt < vec2.size()){
             int int1 = vec1[gInt];
             int int2 = vec2[hInt];
@@ -39,15 +42,20 @@ class Merge {
                 hInt++;
             }
       }
+
       if (vec1.size() > vec2.size()){
+
         // slice array
         vector<int> vec1remaining(vec1.begin() + gInt, vec1.end());
         // concatenate arrays
         resultVec.insert(resultVec.end(), vec1remaining.begin(), vec1remaining.end());
+      
       }
       if (vec2.size() > vec1.size()){
+        
         vector<int> vec2remaining(vec2.begin() + hInt, vec2.end());
         resultVec.insert(resultVec.end(), vec2remaining.begin(), vec2remaining.end());
+      
       }
       return resultVec;
     }

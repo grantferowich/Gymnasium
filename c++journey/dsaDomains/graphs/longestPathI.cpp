@@ -548,7 +548,7 @@ Graph generateAdjacencyList(vector<vector<int> > edgeVec){
 
 
 
-vector<int> longestPathI(vector<vector<int> > edgesVec) {
+vector<int> longestPathI(vector<vector<int> > edgesVec){
     Graph graphX = generateAdjacencyList(edgesVec);
     vector<int> pathVec;
     Queue queueX;

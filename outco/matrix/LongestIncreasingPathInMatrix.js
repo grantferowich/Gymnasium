@@ -37,7 +37,7 @@ const longestIncreasingPath = (matrix) => {
     const dfs = (matrix, x , y ) =>{
         let key = x + ',' + y;
         if (cache[key]){
-            return cache[key]
+            return cache[key];
         }
         cache[key] = 0;
         for (let d of directions){
@@ -46,11 +46,11 @@ const longestIncreasingPath = (matrix) => {
 
             if (nextRow >= 0 && nextRow < height && nextCol >= 0 && nextCol < width){
                 if (matrix[nextRow][nextCol] > matrix[x][y]){
-                    cache[key] = Math.max(cache[key], dfs(matrix, nextRow, nextCol))
+                    cache[key] = Math.max(cache[key], dfs(matrix, nextRow, nextCol));
                 }
             }
         }
-        return cache[key] += 1
+        return cache[key] += 1;
     }
 
   for (let r = 0; r < height; r++){

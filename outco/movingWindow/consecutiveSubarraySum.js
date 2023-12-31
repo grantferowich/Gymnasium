@@ -38,15 +38,15 @@ const consecutiveSubarraySum = (nums, target) => {
             // catch up logic is the logic for stopping j
             if (currentSum > target){
                 currentSum -= nums[j]
-            } j++
+            } j++;
 
             // if the window expands to the end of the array without returning true
             // move the start/left of the window up one spot
             // move the end/right of the window next to the start
             if (j === nums.length -1 && target !== currentSum){
                 currentSum -= nums[i];
-                i++
-                j = i+1
+                i++;
+                j = i+1;
             }
         }
     }

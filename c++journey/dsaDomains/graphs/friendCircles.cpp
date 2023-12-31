@@ -540,15 +540,19 @@ void depthFirstSearch(int rowInt, int colInt, vector<vector<int> > matrix, unord
     if (rowInt < 0 || rowInt >= matrix.size() || colInt < 0 || colInt >= matrix[0].size()){
         return;
     }
+
     string keyStr = to_string(rowInt)+"_"+to_string(colInt);
+
     // already visited this 1
     if (vSet.find(keyStr) != vSet.end() && matrix[rowInt][colInt] == 1){
         return;
     }
+
     // not a 1
     if (matrix[rowInt][colInt] == 0){
         return;
     }
+
     vSet.insert(keyStr);
     depthFirstSearch(rowInt + 1, colInt, matrix, vSet);
     depthFirstSearch(rowInt - 1, colInt, matrix, vSet);
@@ -556,7 +560,7 @@ void depthFirstSearch(int rowInt, int colInt, vector<vector<int> > matrix, unord
     depthFirstSearch(rowInt, colInt - 1, matrix, vSet);
 }
 
-int friendCircles(vector<vector<int> > matrix) {
+int friendCircles(vector<vector<int> > matrix){
   int circlesInt = 0;
   unordered_set<string> visitedSet;
   int xInt = 0;
@@ -575,16 +579,24 @@ int friendCircles(vector<vector<int> > matrix) {
     }
     xInt++;
   }
-
   return circlesInt;
 }
 
 int main(){
-    vector<vector<int> > matrix1 = {{1,1,0},{1,1,0},{0,0,1}};
-    vector<vector<int> > matrix2 = {{1,1,0},{1,1,1},{0,1,1}};
+
+    vector<vector<int> > matrix1 = {{1, 1, 0},
+                                    {1, 1, 0},
+                                    {0, 0, 1}};
+
+    vector<vector<int> > matrix2 = {{1, 1, 0},
+                                    {1, 1, 1},
+                                    {0, 1, 1}};
+
     int resultInt1 = friendCircles(matrix1);
     int resultInt2 = friendCircles(matrix2);
+
     cout << "Result 1: " << resultInt1 << ". (expect 2)" << endl;
     cout << "Result 2: " << resultInt2 << ". (expect 1)" << endl;
+
     return 0;
 }

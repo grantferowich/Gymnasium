@@ -13,13 +13,13 @@ const reverseString = (str) => {
     let outputStr = ''
     const reverseChar = (depth) => {
         if (depth < 0){
-            return
+            return;
         }
-        outputStr += str[depth]
-        reverseChar(depth - 1)
+        outputStr += str[depth];
+        reverseChar(depth - 1);
     }
-    reverseChar(str.length - 1)
-    return outputStr
+    reverseChar(str.length - 1);
+    return outputStr;
 }
 
 /* TESTS */

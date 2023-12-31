@@ -81,7 +81,7 @@ using namespace std;
 
 class Graph {
   public:
-    unordered_map<int, vector<int>> storageMap;
+    unordered_map<int, vector<int> > storageMap;
     //   Time Complexity:
     //   Auxiliary Space Complexity:
     
@@ -234,7 +234,7 @@ int main(){
     graphX.removeEdge(1, 2);
     cout << "Graph state 2: " << endl;
     graphX.printGraph();
-    cout << "Edges of 3:";
+    cout << "Edges of 3: ";
     vector<int> neighborsVec = graphX.neighbors(3);
     printVector(neighborsVec);
     vector<int> vertexVec = graphX.vertices();

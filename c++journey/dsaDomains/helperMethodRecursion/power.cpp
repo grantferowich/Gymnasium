@@ -22,12 +22,15 @@ using namespace std;
 class Power {
 
     public:
+    
       int compute(int aInt, int bInt) {
         int totalInt = 1;
         multiply(aInt, totalInt, 1, bInt);
         return totalInt;
       }
+
     private: 
+
       void multiply(int intX, int& totalInt, int startInt, int powerInt ){
         if (startInt == powerInt){
             return;

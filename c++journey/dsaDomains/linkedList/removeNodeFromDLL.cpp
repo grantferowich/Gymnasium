@@ -1,24 +1,31 @@
+/* 
+Remove Node From DLL
+Grant Ferowich
+December 16, 2023
+*/
+
 #include <iostream> 
 #include <unordered_map>
 #include <vector>
 using namespace std;
 
-class ListNode {
+class DoublyLinkedListNode {
    public:
     string str;
     int valueInt;
     vector<int> vecInt;
-    ListNode* nextNode;
+    DoublyLinkedListNode* nextNode;
+    DoublyLinkedListNode* prevNode;
 
-    ListNode(int inputInt) {
+    DoublyLinkedListNode(int inputInt) {
        this->valueInt = inputInt;
     }
 
-    ListNode(string str){
+    DoublyLinkedListNode(string str){
         this->str = str;
     }
 
-    ListNode(vector<int> vecInt){
+    DoublyLinkedListNode(vector<int> vecInt){
         this->vecInt = vecInt;
     }
 
@@ -35,12 +42,12 @@ class ListNode {
     }
 };
 
-class LinkedList {
+class DoublyLinkedList {
   public:
     int lengthInt;
-    ListNode *headNode, *tailNode;
+    DoublyLinkedListNode *headNode, *tailNode;
 
-    LinkedList() {
+    DoublyLinkedList() {
       this->headNode = nullptr;
       this->tailNode = nullptr;
       this->lengthInt = 0;
@@ -202,39 +209,3 @@ class LinkedList {
       cout << " }" << endl;
     };
 };
-
-/* 
-* Grant Ferowich
-* Developed Sunday October 1, 2023
-* Cracking the Coding Interview
-* Chapter 2, question 3: Delete the middle node
-* Suppose you have a linked list: 
-*  a - b - d - e - k. 
-* The returned list has no (d) node: 
-* a - b - e - k.
-*/
-
-class Solution{
-    public:
-        void deleteMiddleNode(LinkedList &inputList){
-            int deleteInt = inputList.lengthInt / 2;
-            inputList.deleteNode(deleteInt); 
-
-        }
-};
-
-int main(){
-    Solution solutionX;
-    LinkedList listK;
-    listK.appendValue("a");
-    listK.appendValue("b");
-    listK.appendValue("d");
-    listK.appendValue("e");
-    listK.appendValue("k");
-    cout << "List before deleting the middle node: ";
-    listK.printLinkedListStr();
-    solutionX.deleteMiddleNode(listK);
-    cout << "List after deleting the middle node: ";
-    listK.printLinkedListStr();
-    return 0;
-}

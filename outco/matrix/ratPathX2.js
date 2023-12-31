@@ -4,7 +4,6 @@ Rat Path
 
 Started engineering the function on May 26, 2023.
 
-
 Complexity analysis:
 Time complexity: O(2^MN)
 Space complexity: O(N)
@@ -25,9 +24,9 @@ Output:  [[0, 0],
           [2, 3],
           [3, 3]]
 
-// depth first search
-// store coords of successful path in an output accumulator array
-// the rat only goes down and to the left (binary decision)
+depth first search
+store coords of successful path in an output accumulator array
+the rat only goes down and to the left (binary decision)
 (x + 1, y) and (x, y + 1)
 the rat only travels on 0s
 
@@ -52,15 +51,15 @@ const ratPath = (gridArr) => {
         // destination
         if (iInt === rowDestinationInt && jInt === colDestinationInt){
             pathArr.push([iInt, jInt]);
-            return
+            return;
         }
         // out of bounds
         if (iInt < 0 || iInt >= rowDestinationInt || jInt < 0 || jInt >= colDestinationInt){
-            return 
+            return;
         }
 
         if (gridArr[iInt][jInt] === 1){
-            return 
+            return;
         }
 
         if (gridArr[iInt][jInt] === 0){

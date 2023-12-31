@@ -57,6 +57,7 @@ class LinkedList {
         if (indexInt < 0 || indexInt > this->lengthInt){
           return;
         }
+
         if (this->lengthInt == 0){
             this->headNode = xNode;
             xNode->nextNode = tailNode;
@@ -89,7 +90,7 @@ class LinkedList {
     // Auxiliary Space Complexity: O(1)
     void appendValue(int valueInt){
       ListNode *xNode = new ListNode(valueInt);
-      this->insertValue(xNode, this->lengthInt);
+      this->insertValue(xNode, lengthInt);
     };
 
     void appendValue(string inputStr){
@@ -108,6 +109,7 @@ class LinkedList {
       if (indexInt < 0 || indexInt >= this->lengthInt){
         return nullptr;
       }
+
       ListNode *toDeleteNode = nullptr;
 
       if (indexInt == 0){
@@ -136,7 +138,7 @@ class LinkedList {
       return toDeleteNode;
     };
 
-    // Time Complexity: o(N)
+    // Time Complexity: O(N)
     // Auxiliary Space Complexity: O(1)
     bool containsValue(int valueInt){
       ListNode *node = this->headNode;
@@ -502,7 +504,6 @@ class Graph {
                 cout << neighborStr;
                 if (xInt < neighborsVec.size() - 1){
                     cout << ", ";
-                    
                 }
                 xInt++;
             }
@@ -594,8 +595,8 @@ void depthFirstSearch(string nodeStr, Graph inputGraph, vector<string> &pathVec,
         depthFirstSearch(valueStr, inputGraph, pathVec, visitedSet);
       }
     }
-  pathVec.push_back(nodeStr);
 
+    pathVec.push_back(nodeStr);
 }
 
 vector<string> topologicalSort(string rootStr, Graph inputGraph){
@@ -624,15 +625,19 @@ void printVector(const std::vector<std::string>& vec) {
 }
 
 int main(){
+
     vector<vector<string> > edgesVec1 = {{"a","b"},{"a","c"},{"b","d"},{"c","d"}};
     vector<vector<string> > edgesVec2 = {{"a","b"},{"b","c"},{"c","d"}};
+
     vector<string> outputVec1 = courseSchedule(edgesVec1);
     vector<string> outputVec2 = courseSchedule(edgesVec2);
+
     cout << "Result 1. Expect {a, b, c, d} or {a, c, b, d}: ";
     printVector(outputVec1);
     cout << endl;
     cout << "Result 2. Expect {a, b, c, d}: ";
     printVector(outputVec2);
     cout << endl;
+
     return 0;
 }

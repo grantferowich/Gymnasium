@@ -3,7 +3,7 @@
  * 
  * Successfully tested powersetWithMemoization() on 12/11/2022.
  * 
- * Reviwing the 5 steps for implementing helper method recursion
+ * Reviewing the 5 steps for implementing helper method recursion
  * 
  * 1, create state variable(s)
  * 2, return state variable(s)
@@ -62,10 +62,10 @@ const powersetWithMemoization = (word) => {
         cache[key] = left + right;
     }
     // invoke helper method
-    discoverCombos("", 0)
+    discoverCombos("", 0);
 
     // return state variable
-    return array
+    return array;
 }
 
-console.log(powersetWithMemoization("abc"))
+console.log(powersetWithMemoization("abc"));

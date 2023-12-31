@@ -33,9 +33,9 @@ const numberOfIslands = (grid) => {
     let n = grid[0].length;
     let count = 0;
     let directions = [ [-1,0], [1,0], [0,-1], [0,1] ];
-    const visited = new Array(m).fill(0)
+    const visited = new Array(m).fill(0);
     for (let i = 0; i < m; i++){
-        visited[i] = new Array(n).fill(0)
+        visited[i] = new Array(n).fill(0);
     }
 
     const dfs = (grid, i, j, visited) => {
@@ -66,8 +66,8 @@ const numberOfIslands = (grid) => {
                 // check (x,y) is already visited?
                 // start the traversal
                 // get all the connected islands 
-                count++
-                dfs(grid, x, y, visited)
+                count++;
+                dfs(grid, x, y, visited);
             }
         }
     }

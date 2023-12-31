@@ -62,12 +62,12 @@ const containerWithMostWater = (arr) => {
 
     while (leftPtrInt < rightPtrInt){
         let heightInt = Math.min(arr[leftPtrInt], arr[rightPtrInt]);
-        let widthInt = rightPtrInt - leftPtrInt
-        areaInt = heightInt * widthInt
+        let widthInt = rightPtrInt - leftPtrInt;
+        areaInt = heightInt * widthInt;
         if (arr[leftPtrInt] <= arr[rightPtrInt]){
-            leftPtrInt++
+            leftPtrInt++;
         } else {
-            rightPtrInt--
+            rightPtrInt--;
         } 
         outputInt = Math.max(areaInt, outputInt)
     }
