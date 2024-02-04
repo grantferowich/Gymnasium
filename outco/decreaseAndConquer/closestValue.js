@@ -61,7 +61,7 @@
 
 function closestValue(numsArr, targetInt) {
   if (targetInt > numsArr[numsArr.length-1]){
-    return numsArr[numsArr.length -1]
+    return numsArr[numsArr.length -1];
   }
   let startIdxInt = 0;
   let endIdxInt = numsArr.length;
@@ -84,18 +84,19 @@ function closestValue(numsArr, targetInt) {
         // update the state variable to be returned, called closest
         closestInt = differenceInt;
       }
-
-      // decide where to keep processing, the left half of the array
-      // or the right half of the array
+      // decide which part of the array to process: 
+      // 1 - the right half
+      // 2 - the left half
       if (numsArr[midIdxInt] < targetInt){
+        // right 
         startIdxInt = midIdxInt + 1;
       } else {
+        // left
         endIdxInt = midIdxInt - 1;
       }
     }
-
-
-    // store all the keys from the hash which are characterized by having a value which is equal to the closest value to the target
+    // store all the keys from the hash which are characterized by having a value 
+    // which is equal to the closest value to the target
     for (let keyInt in hash){
       if (hash[keyInt] === closestInt){
           resultArr.push(keyInt)
