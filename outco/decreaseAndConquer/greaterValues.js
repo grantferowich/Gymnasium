@@ -46,16 +46,13 @@ function greaterValues(numsArr, targetInt) {
     
     while (startIdxInt <= endIdxInt){
         midIdxInt = startIdxInt + parseInt((endIdxInt - startIdxInt) / 2);
-    //   console.log('midIdx: ', midIdx);
       if (numsArr[midIdxInt] <= targetInt){
         startIdxInt = midIdxInt + 1;
-        // console.log('startIdx: ', startIdx)
       } else {
-        // console.log('endIdx', endIdx)
         endIdxInt = midIdxInt - 1;
       }
     }
-    return numsArr.length - midIdxInt
+    return numsArr.length - midIdxInt;
   }
 
 console.log(greaterValues([1, 2, 3, 5, 5, 7, 9, 10, 11], 5)) //  --> 4
