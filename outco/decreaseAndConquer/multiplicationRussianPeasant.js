@@ -5,7 +5,8 @@ Successfully tested the function 1/10/23.
  *
  * *Given two positive integers, return its product using Russian Peasant method of multiplication*
  *
- * Read up on how to apply the Russian Peasant method [here](https://en.wikipedia.org/wiki/Ancient_Egyptian_multiplication). It is also referred to as the Egyptian multiplication.
+ * Read up on how to apply the Russian Peasant method [here](https://en.wikipedia.org/wiki/Ancient_Egyptian_multiplication).
+ *  It is also referred to as Egyptian multiplication.
  *
  * **Parameters**
  * Input: a {Integer}
@@ -29,12 +30,18 @@ Successfully tested the function 1/10/23.
 
 const  multiplicationRussianPeasant = (a, b) => {
     let accumulator = 0;
+    // ( 2, 23 )
+    // a = 2
     while ( a > 0 ){
-        if (a % 2 === 1){
+        // a = 2
+        // a % 2 != 1
+        if ( a % 2 === 1 ){
             accumulator += b
         }
       a = parseInt(a / 2)
+      // a = 2/2 = 1 
       b = b * 2;
+      // b = 46
     }
     return accumulator
 }

@@ -28,20 +28,20 @@ const isUniqueWithMap = (str) => {
         let char = str[xInt];
         if (charMap.has(char)){
             let frequencyInt = charMap.get(char);
-            charMap.set(char, frequencyInt + 1)
+            charMap.set(char, frequencyInt + 1);
         }
         if (!charMap.has(char)){
-            charMap.set(char, 1)
+            charMap.set(char, 1);
         }
-        xInt++
+        xInt++;
     }
     // iterate through the charMap
     for (const [keyStr, valueInt] of charMap){
         if (valueInt > 1){
-            return false
+            return false;
         }
     }
-    return true
+    return true;
 }
 
 // Runtime: O(N^2)
@@ -51,19 +51,19 @@ const isUniqueConstantSpace = (str) => {
     let jInt = 0
     // step through the array n times 
     while (iInt < str.length){
-        jInt = iInt + 1
+        jInt = iInt + 1;
         let char1 = str[iInt];
         // check the remaining n-1, n-2... elements at each step
         while (jInt < str.length){
-        let char2 = str[jInt]
+        let char2 = str[jInt];
             if (char2 === char1){
-                return false
+                return false;
             }
-            jInt++
+            jInt++;
         }
-        iInt++
+        iInt++;
     }
-    return true
+    return true;
 }
 
 

@@ -12,7 +12,7 @@
  * **Constraints**
  * Do not use a native built in method.
  * Ensure the result is accurate to 6 decimal places (0.000001)
- *
+ * 
  * Time: O(logN)
  * Space: O(1)
  *
@@ -33,23 +33,23 @@
 
 const squareRoot = (int) => {
     if (int === 0 || int === 1){
-        return int
+        return int;
     }
-    let leftInt = 0
-    let rightInt = int
+    let leftInt = 0;
+    let rightInt = int;
     if (int < 0){
-        return 'The square root of a negative number does not exist.'
+        return 'The square root of a negative number does not exist.';
     }
     while (leftInt < rightInt){
-        let midInt = ((leftInt + rightInt)/2)
-        let squareInt = midInt * midInt
+        let midInt = ((leftInt + rightInt)/2);
+        let squareInt = midInt * midInt;
         if (squareInt === int){
-            return midInt.toFixed(6)
+            return midInt.toFixed(6);
         }
         if (squareInt > int){
-            rightInt = midInt + 0.000001
+            rightInt = midInt + 0.000001;
         } else {
-            leftInt = midInt - 0.000001
+            leftInt = midInt - 0.000001;
         }   
         
     }

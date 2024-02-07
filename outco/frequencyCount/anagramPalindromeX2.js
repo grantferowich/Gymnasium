@@ -41,19 +41,17 @@ const anagramPalindrome = (str1) =>{
     while (xInt < str1.length){
         let char = str1[xInt]
         if (charFrequencyMap.has(char)){
-            let frequencyInt = charFrequencyMap.get(char)
-            charFrequencyMap.set(char, frequencyInt+1)
+            let frequencyInt = charFrequencyMap.get(char);
+            charFrequencyMap.set(char, frequencyInt+1);
         }
-
         if (!charFrequencyMap.has(char)){
-            charFrequencyMap.set(char, 1)
+            charFrequencyMap.set(char, 1);
         }
-        xInt++
+        xInt++;
     }
-
     for (let [key, value] of charFrequencyMap){
         if (value < 2){
-            flagInt++
+            flagInt++;
         }
     }
     
