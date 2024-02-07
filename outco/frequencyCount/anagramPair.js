@@ -30,18 +30,21 @@
 // helper function's output is a hash map
 // the returned hash has characters as keys and the frequency of each character as a value
 // return the assertion of equality of hash N and hash M
-
-
 // Successfully tested the function 12/10/22.
 
+
+// input: string
+// output: hm
 const charMapMaker = (string) => {
   let hash = {};
   for (let i = 0; i < string.length; i++){
-    hash[string[i]] = hash[string[i]] + 1 || 1; 
+    hash[string[i]] = hash[string[i]] + 1 || 1;
   }
-  return hash
+  return hash;
 }
 
+// input: str
+// output: tof
 function anagramPair(string1, string2) {
     if (string1.length !== string2.length){
       return false;

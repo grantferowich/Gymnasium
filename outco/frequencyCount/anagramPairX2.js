@@ -12,7 +12,7 @@
  *
  *  Constraints
  *  With N as the length of the first string, and M as the length of the second string.
- *
+ *  
  *  Time: O(N)
  *  Space: O(N)
  *
@@ -36,40 +36,35 @@ const anagramPair = (str1 = [], str2 = []) => {
     let str1FrequencyMap = new Map();
     let str2FrequencyMap = new Map();
     let xInt = 0;
-
     if (str1.split('').sort().join('') !== str2.split('').sort().join('')){
-        return false
+        return false;
     }
     // initialize maps
     while (xInt < str1.length){
         let char1 = str1[xInt];
         let char2 = str2[xInt];
-
         if (str1FrequencyMap.has(char1)){
-            let frequency1Int = str1FrequencyMap.get(char1)
-            str1FrequencyMap.set(char1, frequency1Int + 1)
+            let frequency1Int = str1FrequencyMap.get(char1);
+            str1FrequencyMap.set(char1, frequency1Int + 1);
         }
         if (str1FrequencyMap.has(char2)){
-            let frequency2Int = str2FrequencyMap.get(char2)
-            str2FrequencyMap.set(char2, frequency2Int + 1)
+            let frequency2Int = str2FrequencyMap.get(char2);
+            str2FrequencyMap.set(char2, frequency2Int + 1);
         }
         if (!str1FrequencyMap.has(char1)){
-            str1FrequencyMap.set(char1, 1)
+            str1FrequencyMap.set(char1, 1);
         }
         if (!str2FrequencyMap.has(char2)){
-            str2FrequencyMap.set(char2, 1)
+            str2FrequencyMap.set(char2, 1);
         }
-        xInt++
+        xInt++;
     }
-
     for (let [key, value] in str1FrequencyMap){
         if (str1FrequencyMap.get(key) !== str2FrequencyMap.get(key)){
-            return false
+            return false;
         }
     }
-
-    return true
-
+    return true;
 }
 
 /* TESTS */
