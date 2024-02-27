@@ -72,7 +72,7 @@ const maximumLivingPeople = (arr) => {
             maxTuple[1] = currentTotalInt;
         }
     }
-    return maxTuple[0]
+    return maxTuple[1]
 }
 
 /* Tests */
@@ -86,6 +86,8 @@ personsArr1.push(new Person(1940, 1949));
 personsArr1.push(new Person(1940, 1945));
 const int1 = maximumLivingPeople(personsArr1);
 console.log('Result 1:', int1) // 1940: 7 
+
 /* Test result 
-Result 1: 1940 
+Result 1: 7
+
 */
