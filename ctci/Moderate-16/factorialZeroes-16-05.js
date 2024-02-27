@@ -28,15 +28,15 @@ const factorialZeroes = (int) => {
         computeIntFactorial(int - 1);
     }
     computeIntFactorial(int);
-    let trailingZeroesInt = 0
-    let productStr = productInt.toString()
-    let zeroLocationInt = productStr.length - 1
+    let trailingZeroesInt = 0;
+    let productStr = productInt.toString();
+    let zeroLocationInt = productStr.length - 1;
     while (zeroLocationInt > -1){
         if (productStr[zeroLocationInt] === "0"){
-            trailingZeroesInt++
+            trailingZeroesInt++;
         }
         if (productStr[zeroLocationInt] !== "0"){
-            return trailingZeroesInt
+            return trailingZeroesInt;
         }
         zeroLocationInt--;
     }
@@ -52,9 +52,20 @@ const inputInt2 = 8
 const outputInt2 = factorialZeroes(inputInt2)
 console.log('Result 2: ', outputInt2)
 
+const inputInt3 = 15
+const outputInt3 = factorialZeroes(inputInt3)
+console.log('Result 3: ', outputInt3)
+
+const inputInt4 = 20
+const outputInt4 = factorialZeroes(inputInt4)
+console.log('Result 4: ', outputInt4)
+
+
 /* Test results 
 
-Result 1: 1
-Result 2: 1
+Result 1:  1
+Result 2:  1
+Result 3:  3
+Result 4:  4
 
 */
