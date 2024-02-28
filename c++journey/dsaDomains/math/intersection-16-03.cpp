@@ -85,6 +85,7 @@ arbitraryY2Int = slope2Int*xStarInt + yIntercept2Int
 * outputYInt = arbitraryY2Int
 
 * return the tuple [outputXInt, outputYInt]
+
 find formula of line 2 using endpoint of line segment 2:
 6 = 3() + b
 yInterceptInt = endpoint[1] - endpoint[0]*endpoint[0]
@@ -112,8 +113,6 @@ form1
 outputYInt = 2(2) = 4
 return [2, 4]
 Point of intersection: [ 2, 4 ]
-
-
 
 * Inputs: 
 Line segment 1 start point: X0, Y0: [ 0, -4 ]
@@ -181,10 +180,14 @@ class Solution{
         }
         int outputXInt = yInterceptXInt / slopeXInt;
         int outputYInt = yCoordinateInt(slope1Int, outputXInt, yIntercerpt1Int);
+
+        // intersection coordinates are oob
+        if (outputXInt > vec1[0] || outputXInt < vec0[0] || outputXInt < vec2[0] || outputXInt > vec3[0]){
+            return {-1};
+        }
         return {outputXInt, outputYInt};
     }
 };
-
 
 /* 
 Line segment 1 start point: X0, Y0: [ 0, -4 ]

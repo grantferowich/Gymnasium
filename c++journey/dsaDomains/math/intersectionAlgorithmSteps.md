@@ -1,4 +1,3 @@
-
 * Inputs: 
 Line segment 1 start point: X0, Y0: [ 0, -4 ]
 Line segment 1 end point: X1, Y1: [ 3, 8 ]
