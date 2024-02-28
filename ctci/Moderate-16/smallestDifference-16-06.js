@@ -19,7 +19,7 @@ Output: 1
 const smallestDifference = (arr1, arr2) => {
     let iInt = 0;
     let jInt = 0;
-    let smallestDifferenceInt = Infinity
+    let smallestDifferenceInt = Infinity;
     while (iInt < arr1.length){
         jInt = 0;
         let int1 = arr1[iInt];
@@ -33,9 +33,9 @@ const smallestDifference = (arr1, arr2) => {
             if (diff2Int > 0 && diff2Int < smallestDifferenceInt){
                 smallestDifferenceInt = diff2Int;
             }
-            jInt++
+            jInt++;
         }
-        iInt++
+        iInt++;
     }
     return smallestDifferenceInt;
 }

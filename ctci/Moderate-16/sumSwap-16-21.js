@@ -43,6 +43,7 @@ const sumSwap = (arr1, arr2) => {
     }
 
     xInt = 0;
+    
     while (xInt < arr2.length){
         sumInt2 += arr2[xInt];
         xInt++;
@@ -54,12 +55,12 @@ const sumSwap = (arr1, arr2) => {
 
     if (sumInt1 > sumInt2){
         differenceInt = sumInt1 - sumInt2;
-        largerArr = arr1
-        smallerArr = arr2
+        largerArr = arr1;
+        smallerArr = arr2;
     }   
 
     if (sumInt2 > sumInt1){;
-        differenceInt = sumInt2 - sumInt1
+        differenceInt = sumInt2 - sumInt1;
         largerArr = arr2;
         smallerArr = arr1;
     }
@@ -71,11 +72,11 @@ const sumSwap = (arr1, arr2) => {
         while (jInt < largerArr.length){
             let smallerInt = smallerArr[jInt];
             if (largerInt > smallerInt && largerInt + smallerInt === differenceInt){
-                return [smallerInt, largerInt]
+                return [smallerInt, largerInt];
             }
-            jInt++  
+            jInt++;
         }
-        iInt++
+        iInt++;
     }
     return -1;
 }

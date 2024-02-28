@@ -45,13 +45,13 @@ const stringRotation = (string1, string2) =>{
     while (x < string1.length){
         let element = array.pop();
         array.unshift(element);
-        let word = array.join('')
+        let word = array.join('');
         if (word === string2){
-            return true
+            return true;
         }
-        x++
+        x++;
     }
-    return false
+    return false;
 }
 
 const input1 = 'wake forest';

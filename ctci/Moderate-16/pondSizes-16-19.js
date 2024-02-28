@@ -89,14 +89,13 @@ const pondSizes = (matrix) => {
         while (jInt < matrix[0].length){
             let keyStr = iInt.toString() + "_" + jInt.toString();
             if (matrix[iInt][jInt] > 0 && !visitedSet.has(keyStr)){
-                visitedSet.add(keyStr)
+                visitedSet.add(keyStr);
                 let heightInt = matrix[iInt][jInt];
-                console.log('heightInt,', heightInt)
+                console.log('heightInt,', heightInt);
                 let int = dfs(iInt, jInt, 1, heightInt) + 1;
-                console.log('int', int)
+                console.log('int', int);
                 outputArr.push(int);
             }
-            
             jInt++;
         }
         iInt++;

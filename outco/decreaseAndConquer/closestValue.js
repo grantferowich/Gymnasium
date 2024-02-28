@@ -99,11 +99,11 @@ function closestValue(numsArr, targetInt) {
     // which is equal to the closest value to the target
     for (let keyInt in hash){
       if (hash[keyInt] === closestInt){
-          resultArr.push(keyInt)
+          resultArr.push(keyInt);
       }
     }
     // only return the smallest element which is the closest to the target 
-    return parseInt(resultArr[0])
+    return parseInt(resultArr[0]);
 }
     
 /* TESTS */

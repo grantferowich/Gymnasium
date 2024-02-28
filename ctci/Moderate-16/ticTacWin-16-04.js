@@ -57,11 +57,11 @@ const ticTacWin = (playerSymbolStr, matrix) => {
             if (playerSymbolStr === winningMovesArr[rowInt][0] && 
                 playerSymbolStr === winningMovesArr[rowInt][1] && 
                 playerSymbolStr === winningMovesArr[rowInt][2]){
-                    return true
+                    return true;
             }
-        rowInt++
+        rowInt++;
     }
-    return false
+    return false;
 }
 
 /* TESTS */

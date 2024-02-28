@@ -67,7 +67,7 @@ const masterMind = (actualStr, guessStr) => {
         if (!guessMap.has(guessChar)){
             guessMap.set(guessChar, 1);
         }
-        xInt++
+        xInt++;
     }
     
     for (const [keyStr, frequencyInt] of guessMap){

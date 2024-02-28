@@ -22,7 +22,7 @@ const charMapMaker = (str) => {
     let map = new Map();
     let xInt = 0;
     while (xInt < str.length){
-        let char = str[xInt]
+        let char = str[xInt];
         if (map.has(char)){
             let frequencyInt = map.get(char);
             map.set(char, frequencyInt + 1);

@@ -59,6 +59,7 @@ const resultToF3 = palindromePermutation(str3);
 console.log('Result 1: ', resultToF1); // true
 console.log('Result 2: ', resultToF2); // true
 console.log('Result 3: ', resultToF3); // false 
+
 /* Test results
 Result 1:  true
 Result 2:  true
