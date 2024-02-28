@@ -54,7 +54,7 @@ class Solution{
         }
         return true;
     }
-        string checksResult(string str1, string str2){
+    string checksResult(string str1, string str2){
         bool permutationToF = checksPermutation(str1, str2);
         return printToFToString(permutationToF);
     }

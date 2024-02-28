@@ -13,7 +13,8 @@ A palindrome can have at most 1 unique integer.
 If two characters have an odd number of frequencies,
 the string is not a permutation of a palindrome. 
  */
- #include <cctype>
+
+#include <cctype>
 #include <iostream> 
 #include <string>
 #include <sys/types.h>
@@ -55,6 +56,7 @@ class Solution{
         bool resultToF = palindromePermutation(inputStr);
         return printToFToString(resultToF);
     }
+
     private:
         string printToFToString(bool inputToF){
             if (inputToF == 1){
@@ -68,9 +70,10 @@ class Solution{
         void printMap(unordered_map<char, int> inputMap){
             for (const auto& pair: inputMap) {
             cout << "Key: " << pair.first << ", Value: " << pair.second << std::endl;
-    }
+            }
         }
 };
+
 int main(){
     Solution solutionX;
     string inputStr1 = "Tact coa";

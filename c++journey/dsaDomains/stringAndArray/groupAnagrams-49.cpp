@@ -11,7 +11,6 @@ the letters of a different word or phrase, typically
 using all the original letters exactly once.
 
  
-
 Example 1:
 Input: strs = ["eat","tea","tan","ate","nat","bat"]
 Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
@@ -23,6 +22,9 @@ Output: [[""]]
 Example 3:
 Input: strs = ["a"]
 Output: [["a"]] 
+
+
+- a fn which checks anagram
 
 */
 #include <iostream>
