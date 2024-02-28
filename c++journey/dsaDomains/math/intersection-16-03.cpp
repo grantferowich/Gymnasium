@@ -221,5 +221,13 @@ int main(){
     vector<int> outputVec = solutionX.intersection(vec1, vec2, vec3, vec4);
     cout << "Output vector 1..." << endl;
     printVector(outputVec);
+
+    vector<int> vec5 = {5, 5};
+    vector<int> vec6 = {10, 10};
+    vector<int> vec7 = {0, 0};
+    vector<int> vec8 = {4, 4};
+    vector<int> outputVec1 = solutionX.intersection(vec5, vec6, vec7, vec8);
+    cout << "Output vector 2..." << endl;
+    printVector(outputVec1);
     return 0;
 }
