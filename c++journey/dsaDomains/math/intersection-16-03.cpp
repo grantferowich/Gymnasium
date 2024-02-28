@@ -107,14 +107,10 @@ outputXInt = 2
 
 outputYInt is given by plugging outputXInt into form1
 outputYInt = 
+
 form1 
-
 outputYInt = 2(2) = 4
-
 return [2, 4]
-
-
-
 Point of intersection: [ 2, 4 ]
 
 
