@@ -41,3 +41,34 @@ arbitraryY2Int = slope2Int*xStarInt + yIntercept2Int
 * outputYInt = arbitraryY2Int
 
 * return the tuple [outputXInt, outputYInt]
+
+* Compute the intersection when there is a vertical line
+* eqn1: x = 3
+* eqn2: y = 2x
+* outputXInt = 3
+* outputYInt = slope2Int * outputXInt = 2 * 3 = 6
+* return [ 3, 6 ]
+
+
+* Compute the intersection when there is a horizontal line 
+* eqn1: y = 2
+* eqn2: y = 2x
+* outputXInt = slope2Int / outputYInt = 2 / 2 = 1
+* outputYInt = 2
+* return [ 1, 2 ]
+
+
+* Compute the intersection when there is a horizontal line and a y intercept
+* eqn1: y = 2
+* eqn2: y = 2x + 1
+* outputXInt = (outputYInt - yIntercept2Int) / slope2Int
+* outputYInt = 2  
+* return [ 0.5, 2 ]
+
+
+* Compute the intersection when there is a vertical line and a y intercept
+* eqn1: x = 2
+* eqn2: y = 2x + 1
+* outputXInt = 2
+* outputYInt = yCoordinateInt()
+* return [ 2, 5 ]

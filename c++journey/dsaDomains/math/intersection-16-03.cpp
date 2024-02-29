@@ -160,10 +160,17 @@ arbitraryY2Int = slope2Int*xStarInt + yIntercept2Int
 */
 
 class Solution{
+    
     public: 
+
     int yCoordinateInt(int slopeInt, int xInt, int yInterceptInt){
         return slopeInt*xInt + yInterceptInt;
     }
+
+    int xCoordinateInt(int slopeInt, int yInt, int yInterceptInt){
+        return ((yInt - yInterceptInt) / slopeInt);
+    }
+
     vector<int>intersection(vector<int> vec0, vector<int> vec1, vector<int> vec2, vector<int> vec3){
         int slope1Int = ((abs(vec0[1]) + abs(vec1[1])) / (vec1[0] - vec0[0]));
         int slope2Int = ((abs(vec2[1]) + abs(vec3[1])) / (vec3[0] - vec2[0]));
@@ -185,7 +192,11 @@ class Solution{
         if (outputXInt > vec1[0] || outputXInt < vec0[0] || outputXInt < vec2[0] || outputXInt > vec3[0]){
             return {-1};
         }
-        return {outputXInt, outputYInt};
+        if (outputXInt <= vec1[0] || outputXInt >= vec0[0] || outputXInt >= vec2[0] || outputXInt <= vec3[0]){
+            return {outputXInt, outputYInt};
+        }
+
+        return {-1};
     }
 };
 
