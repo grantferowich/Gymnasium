@@ -2,25 +2,27 @@
 Number Swapper 
 CTCI 16.01
 Successfully tested the function on July 11, 2023.
-
-
-Write a function to swap two numbers in place (that is, without temporary variables.)
+Write a function to swap two numbers in place
+(that is, without temporary variables.)
 
 Suppose f = 100 (4)
 suppose g = 101 (5)
 
 at the end, f = 101, g = 100
-1, f = f ^ g
+1, 
+f = f ^ g
 f = 101 ^ 100
 => f = 001
 g = 100
 
-2, g = f ^ g
+2, 
+g = f ^ g
 g = 001 ^ 100
 g = 101
 f = 001
 
-3, f = f ^ g
+3, 
+f = f ^ g
 f = 001 ^ 101
 f = 100
 f is now 100, 
