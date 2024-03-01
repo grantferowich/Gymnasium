@@ -31,8 +31,16 @@ const contiguousSum = (arr) => {
 }
 
 /* Tests */
-const arr1 = [2, -8, 3, -2, 4, -10] // [ 3, -2, 4]
+const arr1 = [2, -8, 3, -2, 4, -10] // [ 3, -2, 4] // sum is 5
 const resultArr1 = contiguousSum(arr1);
-console.log('Result 1:', resultArr1)
+console.log('for the array', arr1);
+console.log('the largest contiguous sum is')
+console.log('Result 1: Sum is..', resultArr1)
 
-/* Test results */
+/* Test results
+
+for the array [ 2, -8, 3, -2, 4, -10 ]
+the largest contiguous sum is
+Result 1: Sum is.. 5
+
+*/
