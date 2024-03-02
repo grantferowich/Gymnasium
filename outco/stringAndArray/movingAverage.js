@@ -211,3 +211,11 @@ console.log(movingAverage.next(10)); // expect 5.5
 console.log(movingAverage.next(3)); // expect 4.6667
 console.log(movingAverage.next(5)); // expect 6
 
+/* Tests 
+
+1
+5.5
+4.666666666666667
+6
+
+*/
