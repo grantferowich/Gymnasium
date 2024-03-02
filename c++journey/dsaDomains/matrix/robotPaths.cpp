@@ -60,22 +60,22 @@ using namespace std;
     depthFirstSearch(rowInt, colInt + 1, matrix, vSet, outputInt);
     depthFirstSearch(rowInt, colInt - 1, matrix, vSet, outputInt);
     vSet.erase(keyStr);
-}
+    }
+
     int robotPaths(vector<vector<int> > matrix){
       int outputInt = 0;
       unordered_set<string> visitedSet;
       depthFirstSearch(0, 0, matrix, visitedSet, outputInt);
       return outputInt;
     }
-
  };
+ 
  int main(){
     Solution solutionX;
     vector<vector<int> > inputVec1 = {{0,0,0}, {0,0,0}};
     vector<vector<int> > inputVec2 = {{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     int outputInt1 = solutionX.robotPaths(inputVec1);
     cout << "Result 1: " << outputInt1 << ". Expect 4." << endl;
-
     int outputInt2 = solutionX.robotPaths(inputVec2);
     cout << "Result 2: " << outputInt2 << ". Expect 38. " << endl;
     return 0;

@@ -27,18 +27,22 @@
 
 class Solution{
     public:
+
     vector<vector<int> > zeroMatrix(int rowInt, int colInt, vector<vector<int> >& matrix){
         zeroRow(rowInt, matrix);
         zeroColumn(colInt, matrix);
         return matrix;
 
     }
+    
     private:
+
     void zeroRow(int rowInt, vector<vector<int> >& matrix){
         for (int& valueInt: matrix[rowInt]){
             valueInt = 0;
         }
     }
+
     void zeroColumn(int colInt, vector<vector<int > >& matrix){
         for (auto& row: matrix){
             row[colInt] = 0;

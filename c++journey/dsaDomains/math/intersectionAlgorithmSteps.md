@@ -62,7 +62,7 @@ arbitraryY2Int = slope2Int*xStarInt + yIntercept2Int
 * eqn1: y = 2
 * eqn2: y = 2x + 1
 * outputXInt = (outputYInt - yIntercept2Int) / slope2Int
-* outputYInt = 2  
+* outputYInt = 2
 * return [ 0.5, 2 ]
 
 
@@ -72,3 +72,10 @@ arbitraryY2Int = slope2Int*xStarInt + yIntercept2Int
 * outputXInt = 2
 * outputYInt = yCoordinateInt()
 * return [ 2, 5 ]
+
+Given: [x0, y0], [x1, y1], [x2, y2], [x3, y3]
+* Check if line 1 is vertical
+  * the line is vertical if x0 === x1
+* Check if line 2 is vertical
+  * the line is vertical if x2 === x3
+* Check if the line is vertical and on the y-axis

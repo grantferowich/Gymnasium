@@ -57,21 +57,21 @@
 
 
 const houseRobber = (array) => {
-    let maxRobbedTotalInt = 0 
-    let maxRobbedPreviousInt = 0
-    let xInt = 0
+    let maxRobbedTotalInt = 0; 
+    let maxRobbedPreviousInt = 0;
+    let xInt = 0;
     while (xInt < array.length){
-        // set the current value to be the grater of of maxTotal, 
+        // set the current value to be the greater of of maxTotal, 
         // and the maxTotal plus the current house
-        const currentRobbedInt = Math.max(array[xInt] + maxRobbedPreviousInt, maxRobbedTotalInt)
+        const currentRobbedInt = Math.max(array[xInt] + maxRobbedPreviousInt, maxRobbedTotalInt);
         // set the previous total to be the maxTotal
-        maxRobbedPreviousInt = maxRobbedTotalInt
+        maxRobbedPreviousInt = maxRobbedTotalInt;
         // set the max total to be the current total
         // the new max total incorporates the value of the present house
-        maxRobbedTotalInt = currentRobbedInt
-        xInt++
+        maxRobbedTotalInt = currentRobbedInt;
+        xInt++;
     }
-    return maxRobbedTotalInt
+    return maxRobbedTotalInt;
 }
 /* Tests */
 console.log(houseRobber([1,2,3,1])) // 4
@@ -79,8 +79,8 @@ console.log(houseRobber([2, 7, 9, 3,1])) // 12
 const arr3 = [1,2,1,1];
 const arr4 = [2, 1, 1, 2];
 const int3 = houseRobber(arr3);
-const int4 = houseRobber(arr4)
-console.log('Result 3: ', int3) // expect 3
-console.log('Result 4: ', int4)
+const int4 = houseRobber(arr4);
+console.log('Result 3: ', int3); // expect 3
+console.log('Result 4: ', int4);
 /* Test results */
 

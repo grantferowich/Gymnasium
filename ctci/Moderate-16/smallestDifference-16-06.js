@@ -1,6 +1,7 @@
 /* 
 Smallest Difference
 CTCI 16.06
+
 Successfully tested the function on July 12, 2023.
 
 Given two arrays of integers, compute the pair of values (one value in each array)

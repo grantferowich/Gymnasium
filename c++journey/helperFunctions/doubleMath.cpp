@@ -13,7 +13,7 @@ using namespace std;
 
 int main() {
     int tempDiffInt = 5;
-    int maxInt = max(INT_MAX, tempDiffInt);
+    int maxInt = max(INT_MAX, 5);
     cout << "The max is " << maxInt << endl;
     return 0;
 }

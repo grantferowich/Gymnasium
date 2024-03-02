@@ -1,4 +1,5 @@
 #include <array>
+#include <climits>
 #include <cmath>
 #include <iterator>
 #include <string>
@@ -160,9 +161,7 @@ arbitraryY2Int = slope2Int*xStarInt + yIntercept2Int
 */
 
 class Solution{
-    
     public: 
-
     int yCoordinateInt(int slopeInt, int xInt, int yInterceptInt){
         return slopeInt*xInt + yInterceptInt;
     }
@@ -172,12 +171,16 @@ class Solution{
     }
 
     vector<int>intersection(vector<int> vec0, vector<int> vec1, vector<int> vec2, vector<int> vec3){
+        
         int slope1Int = ((abs(vec0[1]) + abs(vec1[1])) / (vec1[0] - vec0[0]));
         int slope2Int = ((abs(vec2[1]) + abs(vec3[1])) / (vec3[0] - vec2[0]));
+
         int yIntercerpt1Int = vec0[1] - slope1Int*vec0[0];
         int yIntercept2Int = vec2[1] - slope2Int*vec2[0];
+        
         int slopeXInt;
         int yInterceptXInt;
+        
         if (slope1Int > slope2Int){
             slopeXInt = slope1Int - slope2Int;
             yInterceptXInt = yIntercept2Int - yIntercerpt1Int;
@@ -192,6 +195,8 @@ class Solution{
         if (outputXInt > vec1[0] || outputXInt < vec0[0] || outputXInt < vec2[0] || outputXInt > vec3[0]){
             return {-1};
         }
+
+        // intersection is in bounds
         if (outputXInt <= vec1[0] || outputXInt >= vec0[0] || outputXInt >= vec2[0] || outputXInt <= vec3[0]){
             return {outputXInt, outputYInt};
         }
@@ -229,16 +234,36 @@ int main(){
     vector<int> vec2 = {3, 8};
     vector<int> vec3 = {0, 0};
     vector<int> vec4 = {3, 6};
-    vector<int> outputVec = solutionX.intersection(vec1, vec2, vec3, vec4);
+    vector<int> outputVec1 = solutionX.intersection(vec1, vec2, vec3, vec4);
     cout << "Output vector 1..." << endl;
-    printVector(outputVec);
+    printVector(outputVec1);
 
     vector<int> vec5 = {5, 5};
     vector<int> vec6 = {10, 10};
     vector<int> vec7 = {0, 0};
     vector<int> vec8 = {4, 4};
-    vector<int> outputVec1 = solutionX.intersection(vec5, vec6, vec7, vec8);
+    vector<int> outputVec2 = solutionX.intersection(vec5, vec6, vec7, vec8);
     cout << "Output vector 2..." << endl;
-    printVector(outputVec1);
+    printVector(outputVec2);
+
+    // case where there is a vertical line ; x = 2?
+    // what is the y = mx + b formula for x = 2? 
+    // 
+    // vector<int> vec9 = {2, 0};
+    // vector<int> vec10 = {2, 12};
+    // vector<int> vec11 = {0, 1};
+    // vector<int> vec12 = {4, 9};
+    // vector<int> outputVec3 = solutionX.intersection(vec9, vec10, vec11, vec12);
+    // cout << "Output vector 3..." << endl;
+    // printVector(outputVec3);
+
+    vector<int> vec13 = {0, 2};
+    vector<int> vec14 = {12, 2};
+    vector<int> vec15 = {0, 1};
+    vector<int> vec16 = {4, 9};
+    vector<int> outputVec4 = solutionX.intersection(vec13, vec14, vec15, vec16);
+    cout << "Output vector 4..." << endl;
+    printVector(outputVec4);
+
     return 0;
 }

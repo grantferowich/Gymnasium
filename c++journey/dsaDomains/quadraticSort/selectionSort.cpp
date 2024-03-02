@@ -48,6 +48,7 @@ vector<int> selection(vector<int> inputVec) {
   }
   return inputVec;
 }
+
 void printVector(const vector<int>& vec){
     cout << "{ ";
     int xInt = 0;

@@ -4,7 +4,7 @@ CTCI 16.19
 
 Started engineering on July 19, 2023. 
 
-july 31 6:30pacific time.
+july 31 6:30 pacific time.
 
 You have an integer matrix representing a plot of land, 
 where the value at that location represents the height
@@ -47,7 +47,7 @@ const pondSizes = (matrix) => {
     let visitedSet = new Set();
     
     const dfs = (rowInt, colInt, heightInt) => {
-        let keyStr = rowInt.toString() + "_" + colInt.toString()
+        let keyStr = rowInt.toString() + "_" + colInt.toString();
         // already visited
         if (visitedSet.has(keyStr)){
             return 0;
@@ -75,11 +75,9 @@ const pondSizes = (matrix) => {
             let downRightInt = dfs(rowInt + 1, colInt + 1, heightInt);
             let downLeftInt = dfs(rowInt + 1, colInt - 1, heightInt);
             let valueInt = upRightInt + upLeftInt + upInt + leftInt + rightInt + downInt + downRightInt + downLeftInt + 1
-            console.log('valueInt', valueInt)
-            return valueInt
+            console.log('valueInt', valueInt);
+            return valueInt;
         }
-        
-       
     }
 
     let iInt = 0;

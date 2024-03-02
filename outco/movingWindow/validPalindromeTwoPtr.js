@@ -2,16 +2,16 @@
 
 const isPalindrome = (s) => {
 
-    s = s.replace(/[^a-zA-Z0-9]/g,'').toLowerCase()
+    s = s.replace(/[^a-zA-Z0-9]/g,'').toLowerCase();
     let l = 0;
     let r = s.length - 1;
     while (l < r){
         if (s[l] !== s[r]){
-            return false
+            return false;
         }
         if (s[l] === s[r]){
-            l++
-            r--
+            l++;
+            r--;
         }
     }
     return true;

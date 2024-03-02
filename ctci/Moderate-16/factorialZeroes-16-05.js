@@ -22,7 +22,7 @@ const factorialZeroes = (int) => {
     let productInt = 1
     const computeIntFactorial = (int) => {
         if (int === 1){
-            return
+            return;
         }
         productInt *= int;
         computeIntFactorial(int - 1);

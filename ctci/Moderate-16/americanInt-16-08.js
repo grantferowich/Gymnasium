@@ -54,20 +54,30 @@ const americanInt = (int) => {
     if (int.toString().includes(".")){
         finalStr += "point";
     }
+
+    console.log('int', int);
     const int2Str = int.toString();
-    const decimalInt = int2Str.split(".")[1];
-    const decimalStr = decimalInt.toString;
-    let decimalArr = [];
-    let xInt = 0;
-    // put the decimal portion in American in an array
+    console.log('int2Str..', int2Str);
+
+    if (int2Str.includes(".")){
+        const decimalInt = int2Str.split(".")[1];
+        console.log('decimalInt..', decimalInt);
+        const decimalStr = decimalInt.toString();
+        let decimalArr = [];
+        let xInt = 0;
+        // put the decimal portion in American in an array
+    }
+    
     while (xInt < decimalStr.length){
         let numStr = decimalStr[xInt];
         let wordStr = map.get(numStr);
-        decimalArr.push(wordStr)
-        xInt++
+        decimalArr.push(wordStr);
+        xInt++;
     }
+
     let intStr = int2Str[0];
     xInt = intStr.length - 1;
+
     while (xInt < intStr.length){
         if (intStr.length < 2){
             let intChar = intStr[xInt];
@@ -83,6 +93,7 @@ const americanInt = (int) => {
 }
 
 /* Test */
+
 const inputInt1 = 1234
 const inputInt2 = 23
 const inputInt3 = 23.11

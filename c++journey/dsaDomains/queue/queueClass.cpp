@@ -301,7 +301,7 @@ class Queue {
         void printQueueInt() {
             ListNode* node = this->linkedList->headNode;
             cout << "Printing out the queue of ints: " << endl;
-            cout << "{";
+            cout << "{ ";
             while (node) {
                 cout << node->valueInt;
                 if (node->nextNode) {
@@ -309,7 +309,7 @@ class Queue {
                 }
                 node = node->nextNode;
             }
-            cout << "}" << endl;
+            cout << " }" << endl;
         }
 
         void printQueueStr(){
@@ -325,6 +325,7 @@ class Queue {
           }
           cout << " }" << endl;
         }
+        
         void printVector(const vector<int>& vec){
             cout << "{ ";
             int xInt = 0;

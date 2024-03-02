@@ -11,11 +11,11 @@ Complexity analysis
 The solution has a time complexity of O(N) and a space complexity of O(1).
 
 
-// start a pointer at the middle index 
-// check if the target input less the  number at the middle index
-// equals a number in the array
-// if the number exists return out
-// if the 
+start a pointer at the middle index 
+check if the target input less the  number at the middle index
+equals a number in the array
+if the number exists return out
+
 
 
 console.log(twoSumII([2,7,11,15], 9)) // [ 1, 2 ]
@@ -32,16 +32,16 @@ var twoSumII = (numbers, target) => {
     while (s < e){
         let sum = numbers[s] + numbers[e];
         if (sum === target){
-            return [ s + 1, e + 1 ]
+            return [ s + 1, e + 1 ];
         }
         if (sum < target) {
-            s++
+            s++;
         }
         if (sum > target){
-            e--
+            e--;
         }
     }
-    return []
+    return [];
 };
 
 console.log(twoSumII([ 2, 7, 11, 15], 9)) // [ 1, 2 ]

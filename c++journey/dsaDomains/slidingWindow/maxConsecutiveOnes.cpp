@@ -39,6 +39,7 @@ int maxConsecutiveOnes(vector<int>& vec){
     }
     return ultimateCountInt;
 }
+
 int main(){
     vector<int> vec1 = { 1, 1, 0, 1, 1, 1 };
     int resultInt1 = maxConsecutiveOnes(vec1);
