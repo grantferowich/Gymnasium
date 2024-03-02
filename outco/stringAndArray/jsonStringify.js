@@ -4,7 +4,7 @@ const stringify = (obj) => {
     // Case 1
     // invalid input
     if (obj === null) {
-        return 'null'
+        return 'null';
     }
 
     //Case 2
@@ -39,7 +39,7 @@ const stringify = (obj) => {
     }
 
     // otherwise return string version
-    return obj.toString()
+    return obj.toString();
 }
 
 let person = { name: 'Thomas Hearn', affiliation: 'Wake Forest', age: 76} // {"name":"Thomas Hearn","affiliation":"Wake Forest","age":76}

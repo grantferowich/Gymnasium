@@ -26,14 +26,16 @@ movingAverage.next(5) // return 6.0 => ((10 + 3 + 5) / 3)
 - perhaps a deque or queue
 - when new data comes in check if the total 
   amount of data is greater than size
-- if the new size exceeds the pre-set capacity, then evict the first item which entered, 
-- this data management policy would be characterized as first in, first out
+- if the new size exceeds the pre-set capacity, 
+ then evict the first item which entered, 
+- this data management policy would be characterized
+ as first in, first out
 */
 
 class ListNode {
     constructor(value){
         this.value = value;
-        this.nIntext = null;
+        this.nIntNext = null;
     }
 }
 
@@ -114,6 +116,16 @@ class LinkedList {
         }
         return false;
     }
+
+    sum(){
+        let current = this.head;
+        let sumInt = 0;
+        while (current){
+            sumInt += current.value;
+            current = current.next;
+        }
+        return sumInt;
+    }
 }
 
 class Queue {
@@ -123,34 +135,79 @@ class Queue {
         this.length = 0;
     }
 
+    // void
+    // input an int
+    // function does not return anything
     enqueue(value){
         this.length++;
         //add element to end of linked list
         this.linkedlist.append(value);
     }
 
+    // has no input
+    // output int 
     dequeue(){
         if (this.length === 0){
-            return
+            return -1;
         }
         this.length--;
-        // remove element from end of linked list
+        // remove element from front of linked list
         let firstElement = this.linkedlist.remove(0).value;
         if (firstElement){
             return firstElement;
         } else {
-            return null;
+            return -1;
         }
-        
     }
 
+    sum(){
+        return this.linkedlist.sum();
+    }
+
+    // no input
+    // returns an int
     peek(){
         return this.linkedlist.head.value;
     }
 }
 
 class MovingAverage { 
-    constructor(capacity){
-        
+    constructor(capacityInt){
+        this.queue = new Queue(); 
+        this.size = 0;
+        this.capacityInt = capacityInt;
+
+    }
+
+    next(int){
+        this.size++;
+        this.queue.enqueue(int);
+        let sumInt = 0;
+        let movingAverageInt = 0;
+        // if there are too many items in the queue
+        // then evict the first item which entered the queue
+        if (this.size > this.capacityInt){
+            this.queue.dequeue();
+            this.size--;
+        }
+        sumInt = this.queue.sum();
+        // a search method for the linkedList
+        // the search method accepts an integer for the index
+        // the search method returns the value at the index
+
+        // find the sum of the elements in the queue
+        // divide by the size
+        // return the average 
+        movingAverageInt = sumInt / this.size;
+        return movingAverageInt;
     }
 }
+
+/* tests */
+
+let movingAverage = new MovingAverage(3);
+console.log(movingAverage.next(1)); // expect 1
+console.log(movingAverage.next(10)); // expect 5.5
+console.log(movingAverage.next(3)); // expect 4.6667
+console.log(movingAverage.next(5)); // expect 6
+

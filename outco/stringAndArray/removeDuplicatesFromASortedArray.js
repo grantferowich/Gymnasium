@@ -13,7 +13,6 @@ Change the array nums such that the first k elements of nums contain the unique 
 Return k.
 Custom Judge: 
 
-
 Example 1:
 
 Input: nums = [1,1,2]
@@ -32,13 +31,13 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 const removeDuplicates = (numsArr) => {
     let xInt = 0;
     while (xInt < numsArr.length){
-        let elementInt = numsArr[xInt]
+        let elementInt = numsArr[xInt];
         if (numsArr.indexOf(elementInt) < xInt){
-            numsArr.splice(xInt, 11)
+            numsArr.splice(xInt, 11);
         }
-        xInt++
+        xInt++;
     }
-    return numsArr
+    return numsArr;
 };
 
 /* Tests */

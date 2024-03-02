@@ -1,19 +1,21 @@
-// Successfully tested the solution 1/4/23
+/* 
+Successfully tested the solution 1/4/23
 
-//given two strings decide if the second string
-// is a permutation of the first string 
+Given two strings decide if the second string
+is a permutation of the first string 
 
-// ("abc", "cba") // true
-// ("xyz", "fgh") // false
-// ("abcc", "cbca") // true
-// ("xyz", "xyyz") //false 
+checkPermutation("abc", "cba") // true
+checkPermutation("xyz", "fgh") // false
+checkPermutation("abcc", "cbca") // true
+checkPermutation("xyz", "xyyz") // false 
 
-// if the strings are different length return false
-// if the strings hold identical characters return true
+If the strings are different length return false
+If the strings hold identical characters return true
 
-// Solution 1: for each character in the second string,
-// check if the first string includes the relevant character 
+Solution 1: for each character in the second string,
+check if the first string includes the relevant character 
 
+*/
 const checkPermutation = (s1, s2) => {
     if (s1.length !== s2.length) { return false }
     let string1CharMap = {};

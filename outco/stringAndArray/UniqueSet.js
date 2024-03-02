@@ -33,14 +33,14 @@ return outputArray
 */
 
 const uniqueSet = (arr) => {
-    let uniqueSet = new Set()
-    let xInt = 0
+    let uniqueSet = new Set();
+    let xInt = 0;
     while (xInt < arr.length){
-        let elementInt = arr[xInt]
-        uniqueSet.add(elementInt)
-        xInt++
+        let elementInt = arr[xInt];
+        uniqueSet.add(elementInt);
+        xInt++;
     }
-    return Array.from(uniqueSet)
+    return Array.from(uniqueSet);
 }
 
 

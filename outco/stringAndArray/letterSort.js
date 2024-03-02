@@ -35,9 +35,9 @@ const letterSort = (str) => {
     
     while (xInt < str.length){
         // let charStr = str[xInt];
-        let charCodeInt = str.charCodeAt(xInt) - 97
-        letterArr[charCodeInt] = letterArr[charCodeInt] + 1 || 1
-        xInt++
+        let charCodeInt = str.charCodeAt(xInt) - 97;
+        letterArr[charCodeInt] = letterArr[charCodeInt] + 1 || 1;
+        xInt++;
     }
 
     xInt = 0
@@ -48,25 +48,25 @@ const letterSort = (str) => {
             outputStr += charStr;
             letterArr[xInt]--;
             if (letterArr[xInt] > 0){
-                xInt--
+                xInt--;
             }
         }
-        xInt++
+        xInt++;
     }
     
-    return outputStr
+    return outputStr;
 }
 
 /* TESTS */
 
-const word1 = 'hello' // --> ehllo
-const result1 = letterSort(word1)
-console.log(`Result 1: ${result1}`)
+const word1 = 'hello'; // --> ehllo
+const result1 = letterSort(word1);
+console.log(`Result 1: ${result1}`);
 
-const word2 = 'whiteboard' // --> abdehiortw
-const result2 = letterSort(word2)
-console.log(`Result 2: ${result2}`)
+const word2 = 'whiteboard'; // --> abdehiortw
+const result2 = letterSort(word2);
+console.log(`Result 2: ${result2}`);
 
-const word3 = 'one' //--> eno
-const result3 = letterSort(word3)
-console.log(`Result 3: ${result3}`)
+const word3 = 'one'; //--> eno
+const result3 = letterSort(word3);
+console.log(`Result 3: ${result3}`);

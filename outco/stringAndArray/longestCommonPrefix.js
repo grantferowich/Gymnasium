@@ -10,7 +10,7 @@ const longestCommonPrefix = ( strings ) => {
         if (strings[0][x] === strings[strings.length-1][x]){
             output += strings[0][x];
         } else {
-            break
+            break;
         }
     }
     return output
