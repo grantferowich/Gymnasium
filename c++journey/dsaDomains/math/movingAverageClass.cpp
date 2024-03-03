@@ -159,7 +159,7 @@ class LinkedList {
       return false;
     }
 
-    int sum(){
+    double sum(){
         ListNode *node = this->headNode;
         int sumInt = 0;
         while (node){
@@ -265,7 +265,7 @@ class Queue {
             return this->lengthInt == 0;
         }
 
-        int sum(){
+        double sum(){
             return this->linkedList->sum();
         }
 
@@ -358,6 +358,9 @@ string printToFToString(bool inputToF){
 /* 
 Moving average from data stream
 
+
+Developed the solution on March 3, 2023. 
+
 Given a stream of integers and a window size, 
 calculate the moving average of all integers in the sliding window.
 
@@ -391,8 +394,8 @@ movingAverage.next(5) // return 6.0 => ((10 + 3 + 5) / 3)
 
 class MovingAverage{
     public: 
-        int sizeInt;
-        int sumInt;
+        double sizeDbl;
+        double sumDbl;
         int capacityInt;
         Queue *queue = new Queue();
 
@@ -400,18 +403,18 @@ class MovingAverage{
         this->capacityInt = capacityInt;
     }   
 
-    int next(int intX){
-        this->sizeInt++;
+    double next(int intX){
+        this->sizeDbl++;
         this->queue->enqueue(intX);
-        sumInt = this->queue->sum();
+        sumDbl = this->queue->sum();
         
-        if (this->sizeInt > this->capacityInt){
+        if (this->sizeDbl > this->capacityInt){
             this->queue->dequeueIntID();
-            this->sizeInt--;
+            this->sizeDbl--;
         }
-        sumInt = this->queue->sum();
-        int movingAverageInt = sumInt / this->sizeInt;
-        return movingAverageInt;
+        sumDbl = this->queue->sum();
+        double movingAverageDbl = sumDbl / this->sizeDbl;
+        return movingAverageDbl;
     }   
 };
 
@@ -426,15 +429,15 @@ int main(){
 
 
     MovingAverage movingAverage(3);
-    int outputInt1 = movingAverage.next(1);
-      cout << "Output Int 1: " << outputInt1 << endl;
+    double outputDbl1 = movingAverage.next(1);
+      cout << "Output Int 1: " << outputDbl1 << endl;
 
-    int outputInt2 = movingAverage.next(10);
-    int outputInt3 = movingAverage.next(3);
-    int outputInt4 = movingAverage.next(5);
+    double outputDbl2 = movingAverage.next(10);
+    double outputDbl3 = movingAverage.next(3);
+    double outputDbl4 = movingAverage.next(5);
   
-    cout << "Output Int 2: " << outputInt2 << endl;
-    cout << "Output Int 3: " << outputInt3 << endl;
-    cout << "Output Int 4: " << outputInt4 << endl;
+    cout << "Output Int 2: " << outputDbl2 << endl;
+    cout << "Output Int 3: " << outputDbl3 << endl;
+    cout << "Output Int 4: " << outputDbl4 << endl;
     return 0;
 }
