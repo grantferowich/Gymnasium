@@ -10,6 +10,8 @@ using namespace std;
 Tic Tac Win
 CTCI 16.04
 
+Finished testing March 3, 2024. 
+
 Design an algorithm to figure out if someone has 
 won a game of Tic Tac Toe or not.
 Runtime: O(1)
