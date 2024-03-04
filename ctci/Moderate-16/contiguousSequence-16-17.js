@@ -2,7 +2,7 @@
 Contiguous Sequence
 CTCI 16.17
 
-This one is done as of March 1, 2024. 
+Dev March 1, 2024. 
 
 You are given an array of integers (both
 positive and negative). Find the 
@@ -19,8 +19,6 @@ const contiguousSum = (arr) => {
 
     let localSumInt = -Infinity;
     let maxSumInt = -Infinity;
-    let startInt = 0;
-    let endInt = 0;
     let xInt = 0;
     while (xInt < arr.length){
         localSumInt = Math.max(arr[xInt], localSumInt + arr[xInt]);

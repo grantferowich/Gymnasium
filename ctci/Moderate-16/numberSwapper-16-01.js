@@ -41,10 +41,23 @@ const numberSwapper = (iInt, jInt) => {
 const binaryNum1 = 101
 const binaryNum2 = 100
 
-let resultArr = numberSwapper(binaryNum1, binaryNum2);
+const resultArr = numberSwapper(binaryNum1, binaryNum2);
 
-console.log('Result 1: ', resultArr) // Expect 100, 101
+const binaryNum3 = 100;
+const binaryNum4 = 101;
 
+const resultArr2 = numberSwapper(binaryNum3, binaryNum4);
+
+const binaryNum5 = 0o10000;
+const binaryNum6 = 0o01011;
+
+const resultArr3 = numberSwapper(binaryNum5, binaryNum6);
+
+console.log('Result 1: ', resultArr); // Expect 100, 101
+console.log('Result 2: ', resultArr2); // Expect 101, 100
+console.log('binaryNum5: ', binaryNum5);
+console.log('binaryNum6: ', binaryNum6);
+console.log('Result 3: ', resultArr3);
 /* Test results 
 Result 1:  [ 100, 101 ]
 */
