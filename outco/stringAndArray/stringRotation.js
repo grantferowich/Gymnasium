@@ -56,12 +56,18 @@ const stringRotation = (string1, string2) =>{
 
 const input1 = 'wake forest';
 const input2 = 'stwake fore';
+console.log('stwake fore is a rotation of wake forest?')
+console.log('(Expect true.)')
 console.log(stringRotation(input1, input2)) // true
 
 const input3 = 'waterbottle';
 const input4 = 'erbottlewat';
+console.log('erbottlewat is a rotation of waterbottle?')
+console.log('(Expect true.)')
 console.log(stringRotation(input3, input4)) // true
 
 const input5 = 'waterbeetle';
 const input6 = 'erbottlewat';
+console.log('erbottlewat is a rotation of waterbeetle?')
+console.log('(Expect false.)')
 console.log(stringRotation(input5, input6)) // false
