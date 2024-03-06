@@ -105,7 +105,6 @@ class LinkedList {
         return result;
     }
 
-
     contains(value){
         let current = this.head;
         while (current){
