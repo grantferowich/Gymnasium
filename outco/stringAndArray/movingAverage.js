@@ -191,13 +191,6 @@ class MovingAverage {
             this.size--;
         }
         sumInt = this.queue.sum();
-        // a search method for the linkedList
-        // the search method accepts an integer for the index
-        // the search method returns the value at the index
-
-        // find the sum of the elements in the queue
-        // divide by the size
-        // return the average 
         movingAverageInt = sumInt / this.size;
         return movingAverageInt;
     }
@@ -211,7 +204,7 @@ console.log(movingAverage.next(10)); // expect 5.5
 console.log(movingAverage.next(3)); // expect 4.6667
 console.log(movingAverage.next(5)); // expect 6
 
-/* Tests 
+/* Test results
 
 1
 5.5

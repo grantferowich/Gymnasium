@@ -1,5 +1,4 @@
 /* 
-
 NEXT GREATER ELEMENT I
 a.k.a. Next Greater Element with Brute Force
 This solution is the quadratic solution.
@@ -48,10 +47,7 @@ const nums1a = [ 4, 1, 2 ]
 const nums2a = [ 1, 3, 4, 2 ]
 const result = nextGreaterElement(nums1a, nums2a)
 console.log('result', result) // [ -1, 3, -1]
-
-
 const nums1b = [1,3,5,2,4];
 const nums2b = [6,5,4,3,2,1,7];
 const result2 = nextGreaterElement(nums1b, nums2b)
 console.log('result 2', result2) // [ 7, 7, 7, 7, 7 ]
-
