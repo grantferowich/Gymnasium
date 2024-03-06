@@ -78,5 +78,4 @@ Second result: 0
 Third result: 0
 Fourth result: -1
 
-
 */

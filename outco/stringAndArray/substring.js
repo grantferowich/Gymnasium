@@ -17,7 +17,7 @@ in the short string. Then, iterate through the long word. At each iteration, che
 whether the letter at the index is the same as the letter in the shortWord.
 */
 
-const substring = (longWord, shortWord) => {
+const substring = (shortWord, longWord) => {
     let startIndex = -1 
     let x = 0;
     while (x < longWord.length){
@@ -37,7 +37,8 @@ const substring = (longWord, shortWord) => {
     }
     return true;
 }
-let longWord1 = 'wake'
-let shortWord1 = 'ak'
-let result1 = substring(longWord1, shortWord1)
-console.log('result', result1)
+let longWord1 = 'wake';
+let shortWord1 = 'ak';
+let result1 = substring(shortWord1, longWord1);
+console.log('"ak" is a substring of "wake?" (Expect true.)')
+console.log('result', result1);
