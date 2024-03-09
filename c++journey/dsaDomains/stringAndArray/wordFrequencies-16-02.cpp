@@ -13,6 +13,7 @@ const str2 = "Sam I am, I am Sam, I am!" {"am"=>3, "i" => 3, "sam" => 2,}
 
 */
 
+#include <cctype>
 #include <unordered_map>
 #include <string>
 #include <iostream>
@@ -21,11 +22,23 @@ using namespace std;
 class Solution{
     public:
     unordered_map<string, int>wordFrequencies(string inputStr){
-        return unordered_map<string, int>
+        // convert entire string to lowercase
+        unordered_map<string, int> outputMap;
+        for (char &xChar: inputStr){
+            xChar = tolower(xChar);
+        }
+        
+        // remove all commas
+        // remove all exclamations
+        for (char *charX: inputStr){
+            if (charX == "," || charX == "!" || charX == "."){
+                charX = "";
+            }
+        }
+
+        return outputMap;
     }
-}
-
-
+};
 
 int main(){
     Solution solutionX;
