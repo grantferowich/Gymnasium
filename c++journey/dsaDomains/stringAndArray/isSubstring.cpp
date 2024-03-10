@@ -1,6 +1,7 @@
 /* 
 
 * is Substring
+* dev March 9, 2024.
 * Write a program to determine whether an input string is a substring of another
 * input string. ( For example, "bat" is a substring of "abate", but not of "beat".) You
 * may use any language you like.
@@ -27,7 +28,8 @@ class Solution{
         int xInt = 0;
         while (xInt < longStr.size()){
             if (longStr[xInt] == shortStr[0]){
-                startInt = xInt;
+                startInt = xInt; 
+                break;
             }
             xInt++;
         }
@@ -71,5 +73,18 @@ int main(){
     bool result2ToF = solutionX.isSubstring(inputStr4, intputStr3);
     string outputStr2 = printToFToString(result2ToF);
     cout << "gr is a substring of wake forest? " << outputStr2 << "." << endl;
+
+    string inputStr5 = "wake forest";
+    string inputStr6 = "x";
+    bool result3ToF = solutionX.isSubstring(inputStr6, inputStr5);
+    string outputStr3 = printToFToString(result3ToF);
+    cout << "x is a substring of wake forest? " << outputStr3 << "." << endl;
+    
+    string inputStr7 = "banana";
+    string inputStr8 = "ana";
+    bool result4ToF = solutionX.isSubstring(inputStr8, inputStr7);
+    string outputStr4 = printToFToString(result4ToF);
+    cout << "ana is a substring of banana? " << outputStr4 << "." << endl;
+
     return 0;
 }
