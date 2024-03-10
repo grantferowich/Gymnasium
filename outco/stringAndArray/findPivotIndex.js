@@ -25,21 +25,21 @@ const pivotIndex = function(numsArr) {
         return -1;
     }
     if (numsArr.length === 1){
-        return 0
+        return 0;
     }
 
-    let xInt = 1
-    let rightSumInt = 0
-    let leftSumInt = 0
+    let xInt = 1;
+    let rightSumInt = 0;
+    let leftSumInt = 0;
     // rightSum initially is the totalSum
     while (xInt < numsArr.length){
         rightSumInt += numsArr[xInt];
-        xInt++
+        xInt++;
     }
-    xInt = 0
+    xInt = 0;
     while (xInt < numsArr.length){
         if (leftSumInt === rightSumInt){
-            return xInt
+            return xInt;
         }
         // at each iteration increment leftSum by the 
         // value starting at index 0
@@ -48,9 +48,9 @@ const pivotIndex = function(numsArr) {
         // value to the right of the current pointer's value
         rightSumInt -= numsArr[xInt + 1];
         // move the ptr
-        xInt++
+        xInt++;
     }
-    return -1
+    return -1;
 };
 
 /* Test */
