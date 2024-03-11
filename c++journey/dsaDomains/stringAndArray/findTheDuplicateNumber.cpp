@@ -35,7 +35,6 @@ Then return the key whose frequency is 2.
 using namespace std;
 
 int findTheDuplicateNumber(vector<int> vec){
-
     unordered_map<int, int> intMap;
     int xInt = 0;
     while (xInt < vec.size()){
@@ -49,7 +48,6 @@ int findTheDuplicateNumber(vector<int> vec){
         }
         xInt++;
     }
-
     for (auto pair: intMap){
         if (pair.second >= 2){
             return pair.first;

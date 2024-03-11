@@ -62,7 +62,7 @@ class Solution{
 }
 };
 
- int main(){
+int main(){
     Solution solutionX;
     string str1 = "pale";
     string str2 = "ple";
@@ -74,4 +74,4 @@ class Solution{
     string str4 = "bales";
     cout << "Result 3: " << solutionX.printOneAway(str1, str4) << ". Expect false." << endl;
     return 0;
- }
+}

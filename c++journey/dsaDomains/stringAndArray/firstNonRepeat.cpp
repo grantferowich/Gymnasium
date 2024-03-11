@@ -1,5 +1,4 @@
-/* 
-
+/*
 First Non-Repeat
 
 Return the first character in the string
@@ -9,12 +8,10 @@ Input 1:
 inputStr1 = "aaaabcdebcdfg"
 output = "e"
 */
-
 #include <iostream>
 #include <string>
 #include <unordered_map>
 using namespace std;
-
 char firstNonRepeat(string inputStr){
     if (inputStr.size() == 0){
         return '-';
@@ -29,7 +26,6 @@ char firstNonRepeat(string inputStr){
             charMap[charX] = 1;
         }
     }
-
     for (char charX: inputStr){
         int frequencyInt = charMap[charX];
         if (frequencyInt == 1){
@@ -38,14 +34,11 @@ char firstNonRepeat(string inputStr){
     }
     return '-';
 }
-
 int main(){
     string inputStr1 = "aaaabcdebcdfg";
     string inputStr2 = "aaaa";
-    
     char char1 = firstNonRepeat(inputStr1);
     char char2 = firstNonRepeat(inputStr2);
-    
     cout << "The first non-repeat character is " << char1 << "." << endl;
     cout << "The second non-repeat character is " << char2 << "." << endl;
     return 0;
