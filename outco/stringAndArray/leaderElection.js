@@ -18,26 +18,23 @@ and elect the server outputting the highest value.
 
 
 const leaderElection = (serverList) => {
-    let randomScores = new Map()
+    let randomScores = new Map();
     const random = () => { 
-        return Math.floor(Math.random() * 10000000) 
+        return Math.floor(Math.random() * 10000000);
     } 
-    let highest = -Infinity
-    let leader = -1 
-
+    let highest = -Infinity;
+    let leader = -1;
     for (let s = 0; s < serverList.length; s++){
-        let r = random()
-        randomScores.set(serverList[s], r)
+        let r = random();
+        randomScores.set(serverList[s], r);
     }
-
     for (let [key, value] of randomScores){        
         if (value >= highest){
-            highest = value
-            leader = key
+            highest = value;
+            leader = key;
         }
     }
-    
-    return leader
+    return leader;
 }
 
 const serverList1 = [1,2,3,4,5,6,7,8,9,10]

@@ -50,14 +50,14 @@ const uniqueHashMap = (arr) => {
 }
 
 /* TESTS */
-const arr1 = [1, 2, 4, 4, 5, 6]  // --> [1, 2, 4, 5, 6]
-const resultArr1 = uniqueHashMap(arr1)
-console.log(`Result 1: ${resultArr1}`)
+const arr1 = [1, 2, 4, 4, 5, 6];  // --> [1, 2, 4, 5, 6]
+const resultArr1 = uniqueHashMap(arr1);
+console.log(`Result 1: ${resultArr1}`);
 
-const arr2 = [1, 1, 2, 2, 3, 3]  // --> [1, 2, 3]
-const resultArr2 = uniqueHashMap(arr2)
-console.log(`Result 2: ${resultArr2}`)
+const arr2 = [1, 1, 2, 2, 3, 3];  // --> [1, 2, 3]
+const resultArr2 = uniqueHashMap(arr2);
+console.log(`Result 2: ${resultArr2}`);
 
-const arr3 = [1, 2, 3, 1, 2] //  --> [1, 2, 3]
-const resultArr3 = uniqueHashMap(arr3)
-console.log(`Result 3: ${resultArr3}`)
+const arr3 = [1, 2, 3, 1, 2]; //  --> [1, 2, 3]
+const resultArr3 = uniqueHashMap(arr3);
+console.log(`Result 3: ${resultArr3}`);

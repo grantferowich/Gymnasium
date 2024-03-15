@@ -1,4 +1,4 @@
-/**
+/*
  * Letter Sort
  * 
  * Given a string of letters, return the letters in sorted order.
@@ -19,16 +19,14 @@
  * `whiteboard --> abdehiortw`
  * `one --> eno`
  * 
- * // approach -> get the charCode of each letter
- * // init a frequencyMap<charStr,frequencyInt>
- * // init a charCodeMap<charStr, charCodeInt>
- * 
- * 
+ * approach -> get the charCode of each letter
+ * init a frequencyMap<charStr,frequencyInt>
+ * init a charCodeMap<charStr, charCodeInt>
  * 
  */
 
 const letterSort = (str) => {
-    str = str.toLowerCase()
+    str = str.toLowerCase();
     let letterArr = new Array(26).fill(0)
     let xInt = 0;
     let outputStr = '';
@@ -40,7 +38,7 @@ const letterSort = (str) => {
         xInt++;
     }
 
-    xInt = 0
+    xInt = 0;
     while (xInt < letterArr.length){
         if (letterArr[xInt] > 0) {
             charCodeInt = xInt + 97;
@@ -53,7 +51,6 @@ const letterSort = (str) => {
         }
         xInt++;
     }
-    
     return outputStr;
 }
 

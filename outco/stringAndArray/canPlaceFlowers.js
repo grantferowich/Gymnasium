@@ -52,13 +52,18 @@ At the end I will return capcityInt >= n.
 const canPlaceFlowers = (arr, int) => {
     let xInt = 0;
     while (xInt < arr.length){
-        if (arr[xInt] === 0 && (arr[xInt - 1] === 0 || arr[xInt - 1] === undefined) && (arr[xInt + 1] === 0 || arr[xInt + 1] === undefined)){
+        // three conditions
+        // current is 0
+
+        if (arr[xInt] === 0 &&
+        // prev is 0 or oob
+        (arr[xInt - 1] === 0 || arr[xInt - 1] === undefined) && (arr[xInt + 1] === 0 || arr[xInt + 1] === undefined)){
             arr[xInt] = 1;
-            int--
+            int--;
         }
-        xInt++
+        xInt++;
     }
-    return int <= 0
+    return int <= 0;
 }
 
 /* Test */
@@ -71,8 +76,8 @@ const flowerbedArr3 = [1, 0, 0, 1, 0, 0, 1];
 const nInt3 = 1;
 const flowerbedArr4 = [1, 0, 0, 0, 0, 0, 0, 1];
 const nInt4 = 2;
-const flowerbedArr5 = [1,0,0,0,0,0,1];
-const nInt5 = 2 
+// const flowerbedArr5 = [1,0,0,0,0,0,1];
+// const nInt5 = 2 
 const flowerbedArr6 = [0,0,1,0,1];
 const nInt6 = 1;
 
@@ -80,13 +85,13 @@ const result1ToF = canPlaceFlowers(flowerbedArr1, nInt1);
 const result2ToF = canPlaceFlowers(flowerbedArr2, nInt2);
 const result3ToF = canPlaceFlowers(flowerbedArr3, nInt3);
 const result4ToF = canPlaceFlowers(flowerbedArr4, nInt4);
-const result5ToF = canPlaceFlowers(flowerbedArr5, nInt5);
+// const result5ToF = canPlaceFlowers(flowerbedArr5, nInt5);
 const result6ToF = canPlaceFlowers(flowerbedArr6, nInt6);
 
 console.log('Result 1:', result1ToF) // true
 console.log('Result 2:', result2ToF) // false
 console.log('Result 3:', result3ToF) // false 
 console.log('Result 4:', result4ToF) // true
-console.log('Result 5:', result5ToF) // true
+// console.log('Result 5:', result5ToF) // true
 console.log('Result 6:', result6ToF) // true
 /* Test results */

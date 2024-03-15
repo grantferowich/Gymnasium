@@ -20,25 +20,25 @@ update the number of consecutive elements
 
 const longestConsecutive = (numsArr) => {
     if (numsArr.length === 0){
-        return 0
+        return 0;
     }
-    let minInt = Infinity
-    let maxInt = -Infinity
-    let xInt = 0
+    let minInt = Infinity;
+    let maxInt = -Infinity;
+    let xInt = 0;
     let maxConsecutive = 1;
     let tempConsecutive = 1;
-    let numsMap = new Map()
+    let numsMap = new Map();
     // get minInt and maxInt of arr
     while (xInt < numsArr.length){
-        minInt = Math.min(minInt, numsArr[xInt])
-        maxInt = Math.max(maxInt, numsArr[xInt])
-        numsMap.set(numsArr[xInt], true)
-        xInt++
+        minInt = Math.min(minInt, numsArr[xInt]);
+        maxInt = Math.max(maxInt, numsArr[xInt]);
+        numsMap.set(numsArr[xInt], true);
+        xInt++;
     }
     // console.log(`minInt ${minInt} maxInt ${maxInt}`)
     // loop from the min to the max 
     xInt = minInt
-    while (xInt < numsArr.length){
+    while (xInt < maxInt){
         
         if (numsMap.has(numsArr[xInt]) && numsMap.has(numsArr[xInt] + 1)){
             tempConsecutive++
@@ -49,9 +49,9 @@ const longestConsecutive = (numsArr) => {
         if (tempConsecutive > maxConsecutive){
             maxConsecutive = tempConsecutive
         }
-        xInt++
+        xInt++;
     }
-    return maxConsecutive
+    return maxConsecutive;
 }
 
 /* TESTS */
@@ -75,7 +75,7 @@ console.log(`Result 4: ${result4}`)
 const numsArr5 = [-1000000000,1,2,3,9,1000000000]
 const result5 = longestConsecutive(numsArr5)
 console.log(`Result 5: ${result5}`)
-
+ 
 
 /* Alternative implementation courtesy ChatGPT */
 const longestConsecutive2 = (nums) => {
@@ -84,6 +84,7 @@ const longestConsecutive2 = (nums) => {
     }
     const numSet = new Set(nums);
     let maxConsecutive = 1;
+    // loop through the numbers
     for (const num of numSet) {
         if (!numSet.has(num - 1)) { // only start counting from the smallest number in a consecutive sequence
             let tempConsecutive = 1;
@@ -97,3 +98,25 @@ const longestConsecutive2 = (nums) => {
     }
     return maxConsecutive;
 };
+
+
+/* 
+const numsArr1 = [100,4,200,1,3,2];
+const result1 = longestConsecutive2(numsArr1)
+console.log(`Result 1: ${result1}`)
+
+const numsArr2 = [0,3,7,2,5,8,4,6,0,1]
+const result2 = longestConsecutive2(numsArr2)
+console.log(`Result 2: ${result2}`)
+
+const numsArr3 = [0,3,7,2,5,8,4,6,0,1]
+const result3 = longestConsecutive2(numsArr3)
+console.log(`Result 3: ${result3}`)
+
+const numsArr4 = [0,1,2,4,8,5,6,7,9,3,55,88,77,99,999999999]
+const result4 = longestConsecutive2(numsArr4)
+console.log(`Result 4: ${result4}`)
+
+const numsArr5 = [-1000000000,1,2,3,9,1000000000]
+const result5 = longestConsecutive2(numsArr5)
+console.log(`Result 5: ${result5}`) */

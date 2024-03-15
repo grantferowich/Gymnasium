@@ -9,11 +9,11 @@ the integers in the range [1, n] that do not
 appear in nums.
 
 Example 1:
-Input: nums = [4,3,2,7,8,2,3,1]
-Output: [5,6]
+Input: nums = [ 4, 3, 2, 7, 8, 2, 3, 1]
+Output: [ 5, 6 ]
 
 Example 2: 
-Input: nums = [1,1]
+Input: nums = [ 1, 1 ]
 Output: [2]
 
 intMap = {1=> true,
@@ -34,10 +34,11 @@ const findNumbersDisappeared = (arr=[]) => {
     if ( arr === null || arr.length === 0){
         return 0;
     }
+
     // state vars
     let xInt = 0;
     let intMap = new Map();
-    let outputArr = []
+    let outputArr = [];
 
     // initialize intMap
     while (xInt < arr.length){
