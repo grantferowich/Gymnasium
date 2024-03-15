@@ -48,17 +48,19 @@ After reaching 3 consecutive 0s, I want to reset the consecutive0s count back to
 At the end I will return capcityInt >= n. 
 
 */
+
 #include <cmath>
 #include <cstddef>
 #include <iostream>
 #include <vector>
 using namespace std;
+
 bool canPlaceFlowers(vector<int> vec, int intX){
     int gInt = 0;
     while (gInt < vec.size()){
         if (vec[gInt] == 0 && 
-        (vec[gInt - 1] == 0 || vec[gInt - 1] == vec.begin())
-        && (vec[gInt + 1] == 0 || vec[gInt + 1] == vec.end())){
+        (vec[gInt - 1] == 0 || gInt - 1 < 0)
+        && (vec[gInt + 1] == 0 || gInt + 1 > vec.size())){
             vec[gInt] = 1;
             intX--;
         }
