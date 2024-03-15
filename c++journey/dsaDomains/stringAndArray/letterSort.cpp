@@ -2,10 +2,6 @@
  * Letter Sort
  * 
  * Given a string of letters, return the letters in sorted order.
- * 
- * 
- * 
- * 
  * Parameters
  * Input: str {String}
  * Output: {String}
