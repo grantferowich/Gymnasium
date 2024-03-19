@@ -57,7 +57,8 @@ const canPlaceFlowers = (arr, int) => {
 
         if (arr[xInt] === 0 &&
         // prev is 0 or oob
-        (arr[xInt - 1] === 0 || arr[xInt - 1] === undefined) && (arr[xInt + 1] === 0 || arr[xInt + 1] === undefined)){
+        (arr[xInt - 1] === 0 || arr[xInt - 1] === undefined)
+        && (arr[xInt + 1] === 0 || arr[xInt + 1] === undefined)){
             arr[xInt] = 1;
             int--;
         }

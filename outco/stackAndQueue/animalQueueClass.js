@@ -156,13 +156,13 @@ class Queue {
         let index = 0;
         while (current !== null){
             if (current.value === 'dog'){
-                this.linkedlist.remove(index)
-                return 'dog'
+                this.linkedlist.remove(index);
+                return 'dog';
             }
-            index++
-            current = current.next
+            index++;
+            current = current.next;
         }
-        return 'No dogs are available in the queue.'
+        return 'No dogs are available in the queue.';
     }
 
     dequeueCat(){
@@ -170,13 +170,13 @@ class Queue {
         let index = 0;
         while (current !== null){
             if (current.value === 'cat'){
-                this.linkedlist.remove(index)
-                return 'cat'
+                this.linkedlist.remove(index);
+                return 'cat';
             }
-            index++
-            current = current.next
+            index++;
+            current = current.next;
         }
-        return 'No cats are available in the queue.'
+        return 'No cats are available in the queue.';
     }
 }
 

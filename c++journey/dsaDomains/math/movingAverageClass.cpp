@@ -407,7 +407,6 @@ class MovingAverage{
         this->sizeDbl++;
         this->queue->enqueue(intX);
         sumDbl = this->queue->sum();
-        
         if (this->sizeDbl > this->capacityInt){
             this->queue->dequeueIntID();
             this->sizeDbl--;
@@ -426,7 +425,6 @@ int main(){
     queueX.enqueue(8);
     currSumInt = queueX.sum();
     cout << "Expect 12: " << currSumInt << endl;
-
 
     MovingAverage movingAverage(3);
     double outputDbl1 = movingAverage.next(1);

@@ -8,7 +8,8 @@
 using namespace std;
 /*  *  Problem 2: Selection Sort
  *
- *  Prompt:    Given an unsorted array/vector of integers, return the array/vector
+ *  Prompt:    Given an unsorted array/vector of integers,
+ *             return the array/vector
  *             sorted using selection sort.
  *
  *  Input:     {Array/vector}

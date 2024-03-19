@@ -75,32 +75,31 @@ class BinarySearchTree{
         
         if (this.sizeInt === 0){
             this.rootInt = insertionNodeInt;
-            this.sizeInt++
-            return
+            this.sizeInt++;
+            return;
         }
 
         const traverse = (nodeInt, insertNodeInt) => {
-
+            // append node on the left
             if (insertNodeInt.valueInt < nodeInt.valueInt && nodeInt.leftInt === null){
                 nodeInt.leftInt = insertNodeInt
                 this.sizeInt++
                 return
             }
-
+            // append node on the right
             if (insertNodeInt.valueInt > nodeInt.valueInt && nodeInt.rightInt === null){
                 nodeInt.rightInt = insertNodeInt;
-                this.sizeInt++
-                return
+                this.sizeInt++;
+                return;
             }
-
+            // traverse left
             if (insertNodeInt.value < nodeInt.valueInt){
                 traverse(nodeInt.leftInt, insertNodeInt);
             }
-
+            // traverse right
             if (insertNodeInt.value > nodeInt.valueInt){
                 traverse(nodeInt.rightInt, insertNodeInt)
             }
-
         }
         traverse(this.rootInt, insertionNodeInt)
     }
@@ -117,7 +116,6 @@ class BinarySearchTree{
             if (!nodeInt.value){
                 return
             }
-            
             if (nodeInt.valueInt < targetInt){
                 return traverse(nodeInt.leftInt, targetInt)
             }

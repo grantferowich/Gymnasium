@@ -45,11 +45,13 @@ Output: 1 hit, 1 psuedohit
 */
 
 const masterMind = (actualStr, guessStr) => {
+    
     let actualMap = new Map();
     let guessMap = new Map();
     let totalHitsInt = 0;
     let hitsInt = 0;
     let xInt = 0;
+
     while (xInt < 4){
         let actualChar = actualStr[xInt];
         let guessChar = guessStr[xInt];
@@ -71,9 +73,9 @@ const masterMind = (actualStr, guessStr) => {
     }
     
     for (const [keyStr, frequencyInt] of guessMap){
-        let matchInt
+        let matchInt;
         if (actualMap.get(keyStr) !== undefined){
-            matchInt = Math.min(frequencyInt, actualMap.get(keyStr))
+            matchInt = Math.min(frequencyInt, actualMap.get(keyStr));
             totalHitsInt += matchInt;
         }
     }
@@ -85,9 +87,10 @@ const masterMind = (actualStr, guessStr) => {
             hitsInt++;
             totalHitsInt--;
         }
-        xInt++
+        xInt++;
     }
-    return [hitsInt, totalHitsInt]
+
+    return [hitsInt, totalHitsInt];
 }
 
 /* Test */

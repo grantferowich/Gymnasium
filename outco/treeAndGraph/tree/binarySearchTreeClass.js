@@ -19,7 +19,7 @@ class TreeNode{
 
 class BinarySearchTree{
     constructor(root=null){
-        this.root = root
+        this.root = root;
         this.size = 0;
     }
     // Time complexity: O(N) where N is the number of nodes if the tree is assumed to be imbalanced
@@ -27,7 +27,7 @@ class BinarySearchTree{
     // input: value
     // output: no return value
     insert(value){
-        let xNode = new TreeNode(value)
+        let xNode = new TreeNode(value);
         if (this.root === null){
             this.root = xNode;
             this.size++;
@@ -43,7 +43,7 @@ class BinarySearchTree{
         // insert leaf
         if (value < parent.value){
             parent.left = xNode;
-        } 
+        }
         if (value > parent.value){
             parent.right = xNode;
         }
@@ -58,11 +58,11 @@ class BinarySearchTree{
         let examinedNode = this.root;
         while (examinedNode){
             if (examinedNode.value === value){
-                return true
+                return true;
             }
-            examinedNode = examinedNode.value > value ? examinedNode.left : examinedNode.right 
+            examinedNode = examinedNode.value > value ? examinedNode.left : examinedNode.right;
         }
-        return false
+        return false;
     }
 }
 

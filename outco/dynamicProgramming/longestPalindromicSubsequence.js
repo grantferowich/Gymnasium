@@ -1,32 +1,32 @@
 /* 
-// Successfully tested the function 1/19/23.
+* Successfully tested the function 1/19/23.
 
-// The solution considers base cases, and also, the solution moves right and left pointers closer to the center
-of the string at each recursive call. 
+* The solution considers base cases, and also, the solution moves right and left pointers closer to the center
+* of the string at each recursive call. 
 
-// Time complexity: O(N^2)
-// Space complexity: O(N^2)
-Input:  "vtvvv"
-Output: 4
+* Time complexity: O(N^2)
+* Space complexity: O(N^2)
+* Input:  "vtvvv"
+* Output: 4
 
-Longest palindromic subsequence here is "vvvv"
-
-
-Input:  "pwnnb"
-Output: 2
-
-Longest palindromic subsequence here is "nn"
+* Longest palindromic subsequence here is "vvvv"
 
 
-Input:  "ttbtctcbt"
-Output: 7
+* Input:  "pwnnb"
+* Output: 2
 
-Longest palindromic subsequence here is "tbtctbt"
+* Longest palindromic subsequence here is "nn"
+
+
+* Input:  "ttbtctcbt"
+* Output: 7
+
+* Longest palindromic subsequence here is "tbtctbt"
 
 input: 'hannah'
 output: 6
-// input: string
-// output: number
+input: string
+output: number
 
 input: "g"
 output: 1
@@ -39,7 +39,7 @@ let the number of chars in the longest palindromic subsequence increase by 1
 then move both pointers toward each other
 
 in the recursive case where the chars are NOT equal
-make one function call on find(left - 1, right) and find(left, right + 1)
+make one function call on find(left + 1, right) and find(left, right - 1)
 
 What is the base case? 
 What are the base cases?
@@ -62,13 +62,13 @@ Another base case could be there are two chars AND the chars are not equal.
 
 const longestPalindromicSubsequence = (string) => {
     // create cache
-    let cache = {}
+    let cache = {};
     let left = 0;
     let right = string.length - 1;
 
     const find = (left, right) => {
         // create key
-        let key = `${left},${right}`
+        let key = `${left},${right}`;
         // check if the key is in the cache
         if (key in cache){
             return cache[key];
@@ -91,7 +91,7 @@ const longestPalindromicSubsequence = (string) => {
         // set cache[key] to 2 plus the result of the recursive call on left+1, right-1
         // when both chars are equal => move both pointers toward eachother
         if (string[left] === string[right]){
-            cache[key] = 2 + find(left + 1, right -1 )
+            cache[key] = 2 + find(left + 1, right -1);
             return cache[key];
         }
         
@@ -99,7 +99,7 @@ const longestPalindromicSubsequence = (string) => {
         // When both chars are not equal, return the greater value of moving JUST the left pointer
         // or JUST the right pointer.
         // Let's move the left pointer up, to check for character equality.
-        // AND Let's move the right pointer back  to check for character equality.
+        // AND Let's move the right pointer back to check for character equality.
         // Let's return the largest value of both searches. 
         // Both calls are searching for character quality in the case 
         // where the two characters being pointed at are different.
@@ -107,10 +107,20 @@ const longestPalindromicSubsequence = (string) => {
         return cache[key];
     }
 
-    return find(left, right)
+    return find(left, right);
 }
 console.log(longestPalindromicSubsequence('hannah')) // 6
 console.log(longestPalindromicSubsequence('vtvvv')) // 4
 console.log(longestPalindromicSubsequence('g')) // 1
 console.log(longestPalindromicSubsequence('gg')) // 2
 console.log(longestPalindromicSubsequence("tbtctbt")) // 7
+
+/* Test results
+
+6
+4
+1
+2
+7
+
+*/
