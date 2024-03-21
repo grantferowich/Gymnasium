@@ -22,7 +22,6 @@
 # [1, 1, 2, 2, 3, 3] --> [1, 2, 3]
 # [1, 2, 3, 1, 2] --> [1, 2, 3]
 
-
 def unique(arr):
     freq = {}
     results = []
@@ -211,7 +210,6 @@ def character_mode(string):
 # 32445 --> 23445
 # 10101 --> 111
 
-
 def sort_digits(n):
     digit_counts = {}
     result = 0
@@ -233,7 +231,8 @@ def sort_digits(n):
 
 # 8. Get Duplicates
 
-# Given an array of values, return only the values that have duplicates in the
+# Given an array of values, return 
+# only the values that have duplicates in the
 # array
 
 # Parameters

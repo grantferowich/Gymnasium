@@ -173,13 +173,13 @@ class Queue {
 class MovingAverage { 
     constructor(capacityInt){
         this.queue = new Queue(); 
-        this.size = 0;
+        this.sizeInt = 0;
         this.capacityInt = capacityInt;
 
     }
 
     next(int){
-        this.size++;
+        this.sizeInt++;
         this.queue.enqueue(int);
         let sumInt = 0;
         let movingAverageInt = 0;
@@ -190,7 +190,7 @@ class MovingAverage {
             this.size--;
         }
         sumInt = this.queue.sum();
-        movingAverageInt = sumInt / this.size;
+        movingAverageInt = sumInt / this.sizeInt;
         return movingAverageInt;
     }
 }

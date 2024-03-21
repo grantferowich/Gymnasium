@@ -27,25 +27,25 @@ output: [1]
 */
 
 const topKMostFrequent = (numsArr, kInt) => {
-    let xInt = 0
-    let charMap = new Map()
-    let outputArr = []
+    let xInt = 0;
+    let charMap = new Map();
+    let outputArr = [];
     // init char map
     while (xInt < numsArr.length){
-        let char = numsArr[xInt]
+        let char = numsArr[xInt];
         if (!charMap.has(char)){
-            charMap.set(char, 1)
+            charMap.set(char, 1);
         } else {
-            let freqInt = charMap.get(char)
-            charMap.set(char, freqInt + 1)
+            let freqInt = charMap.get(char);
+            charMap.set(char, freqInt + 1);
         }
-        xInt++
+        xInt++;
     }
 
-    let valuesArr = Array.from(charMap.values())
-    valuesArr.sort((a,b) => b - a)
-    valuesArr = valuesArr.slice(0, kInt)
-    xInt = 0
+    let valuesArr = Array.from(charMap.values());
+    valuesArr.sort((a,b) => b - a);
+    valuesArr = valuesArr.slice(0, kInt);
+    xInt = 0;
 
     while (xInt < valuesArr.length){
         for (let [key, val] of charMap){
@@ -53,11 +53,8 @@ const topKMostFrequent = (numsArr, kInt) => {
                 outputArr.push(key)
             }
         }
-        xInt++
+        xInt++;
     }
-    
-
-
     return outputArr
 }
 

@@ -151,7 +151,8 @@ def character_mode(string):
 
 # 7. Sort Digits
 
-# Given an integer, soft the digits in ascending order and return the new integer.
+# Given an integer, soft the digits in ascending
+# order and return the new integer.
 # Ignore leading zeros.
 
 # Parameters
@@ -226,11 +227,15 @@ def anagram_pair(string1, string2):
 
 # 10. Anagram Palindrome
 
-# Given a string, determine if the string can be rearranged to form a palindrome.
+# Given a string, determine if the string 
+# can be rearranged to form a palindrome.
 
-# A palindrome is a word that is the same as its reversed. For example: "racecar"
-# and "noon" are palindromes because they match their reversed version
-# respectively. On the other hand, "cat" is not a palindrome because "cat"
+# A palindrome is a word that is the
+# same as its reversed. For example: "racecar"
+# and "noon" are palindromes because 
+# they match their reversed version
+# respectively. On the other hand, 
+# "cat" is not a palindrome because "cat"
 # does not equal "tac".
 
 # Parameters

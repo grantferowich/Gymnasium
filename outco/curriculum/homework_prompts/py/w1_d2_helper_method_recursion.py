@@ -6,15 +6,20 @@
 
 
 # 1a. What is the term when the recursive call invokes itself more than once?
-#
+#  multiple recursion
 
 
 # 1b. List the steps involved to build a Helper Method Recursion algorithm.
-#
+# 1. instantiate the state variables
+# 2. Return the variables
+# 3. Write and tnvoke the helper method
+# 4. Write the base case
+# 5. Write the recursive case
+
 
 
 # 1c. Should the recursive case or base case typically be tackled first?
-#
+# base case
 
 
 # 2a. Print each item in a list in order
@@ -48,7 +53,7 @@ def print_reverse(lst):
     pass
 
 
-# 2c. Reverse a starting
+# 2c. Reverse a string
 #
 # Input:    str {String}
 # Output:   {String}
