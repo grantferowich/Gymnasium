@@ -68,7 +68,7 @@ const longestSubstringWithoutRepeatingChars = (s) => {
 
 
     // 1. Move right 
-    while ( rightPtr < s.length){
+    while (rightPtr < s.length){
         let rChar = s[rightPtr]
         // add to map
         let frequency = charMap.has(rChar) ? charMap.get(rChar) : 0
@@ -89,9 +89,9 @@ const longestSubstringWithoutRepeatingChars = (s) => {
             }
             // update the charMap
             charMap.set(lChar, charMap.get(lChar) -1)
-            if (charMap.get(lChar) === 0){
-                charMap.delete(lChar)
-            }
+            // if (charMap.get(lChar) === 0){
+            //     charMap.delete(lChar)
+            // }
             leftPtr++ 
         }
         // when should we compare with result

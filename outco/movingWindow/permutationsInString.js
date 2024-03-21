@@ -123,3 +123,16 @@ const inputStr12 = 'cccccbabbbaaaa'
 const test6 = containsPermutation(inputStr11, inputStr12)
 console.log('Test 6:', test6)
 // Test 6: true 
+
+/* 
+
+Tests
+
+Test 1: true
+Test 2: false
+Test 3: true
+Test 4: true
+Test 5: false
+Test 6: true
+
+*/
