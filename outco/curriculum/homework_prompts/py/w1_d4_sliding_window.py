@@ -1,4 +1,3 @@
-#
 #  Homework - Dynamic Programming - Moving Window
 #
 #  Problem 1: Max Consecutive Sum

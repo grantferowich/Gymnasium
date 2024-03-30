@@ -17,7 +17,7 @@
  * Loop from 0 to arr.length
  *
  *
- */
+ * */
 
 const maxConsecutiveSum = (arr) => {
     let tempSum = - Infinity;
