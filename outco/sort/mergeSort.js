@@ -7,17 +7,17 @@ function mergeSort(input) {
     const midpoint = parseInt(input.length / 2);
     const left = input.slice(0, midpoint);
     const right = input.slice(midpoint);
-    //helper method
+    // helper method
     const merge = (left, right) => {
-      let output = []
+      let output = [];
       while (left.length && right.length){
         if (left[0] < right[0]){
-          output.push(left.shift())
+          output.push(left.shift());
         } else {
-          output.push(right.shift())
+          output.push(right.shift());
         }
       }
-      return output.concat(left.slice()).concat(right.slice())
+      return output.concat(left.slice()).concat(right.slice());
     }
     return merge(mergeSort(left), mergeSort(right));
 }

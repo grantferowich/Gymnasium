@@ -35,7 +35,7 @@
 #                      Output:    {Boolean}
 #
 #          remove_Edge: Method that accepts two vertex id's and removes the
-#                      directed edge from the first vertex to the second.
+#                      directed edge from the first vertex's list.
 #                      Returns true if success and false if failed.
 #
 #                       Input:    id1 {Integer}

@@ -177,7 +177,7 @@ class Heap {
  // Time Complexity: O(1)
  // Auxiliary Space Complexity: O(1)
  peek() {
-    return this.storageArr[0]
+    return this.storageArr[0];
  }
 
 

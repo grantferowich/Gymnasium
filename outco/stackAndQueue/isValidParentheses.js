@@ -21,7 +21,6 @@ const isValidParentheses = (str) => {
     let xInt = 0
     while (xInt < str.length){
         let parStr = str[xInt];
-
         // only opening parens are pushed to the stack
         if (!parenthesesMap.has(parStr)){
             stackArr.push(parStr);

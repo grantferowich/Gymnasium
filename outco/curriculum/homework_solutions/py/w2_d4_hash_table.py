@@ -126,7 +126,6 @@ class HashTable:
         else:
             self.buckets //= 2
         self.storage = [None] * self.buckets
-
         for bucket in temp:
             if bucket is not None:
                 for pair in bucket:

@@ -26,13 +26,13 @@
 #
 #                insert:   A method that adds a word.
 #
-#                          Input:     word {String}
-#                          Output:    {None}
+#                          Input:     word { String }
+#                          Output:    { None }
 #
 #                isWord:   A method that checks whether a word is in the trie.
 #
-#                          Input:     word {String}
-#                          Output:    {Boolean}
+#                          Input:     word { String }
+#                          Output:    { Boolean }
 #
 #              isPrefix:   A method that checks whether an input is a prefix of
 #                          a word in the string.

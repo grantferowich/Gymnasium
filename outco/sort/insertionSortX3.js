@@ -8,7 +8,7 @@
  * 
  *  Run time: O(N^2) - quadratic
  *  Space: O(1)
- * Completed function development in <10 minutes.
+ *  Completed function development in <10 minutes.
  * 
  *  Prompt:    Given an unsorted array of integers, return the array sorted
  *             using insertion sort.

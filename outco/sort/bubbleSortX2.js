@@ -51,7 +51,7 @@ const bubbleSort = (arr = []) => {
     while (swappedToF){
         swappedToF = false; 
         let ptrInt = 0;
-        let endPtrInt = arr.length;
+        let endPtrInt = arr.length - 1;
         // take n steps through
         while (ptrInt < endPtrInt){
             // at each step, check to swap
@@ -74,9 +74,9 @@ const bubbleSort = (arr = []) => {
 
 /* Tests */
 
-const arr1 = [ 3, 9, 1, 4, 7]
-const arr2 = [ 23, 13, 8, 5]
-const arr3 = [ 34, 55,  36, 2]
+const arr1 = [ 3, 9, 1, 4, 7 ]
+const arr2 = [ 23, 13, 8, 5 ]
+const arr3 = [ 34, 55,  36, 2 ]
 const arr4 = []
 
 const result1Arr = bubbleSort(arr1)
@@ -88,6 +88,7 @@ console.log(`Result 1: ${result1Arr}`);
 console.log(`Result 2: ${result2Arr}`);
 console.log(`Result 3: ${result3Arr}`);
 console.log(`Result 4: ${result4Arr}`)
+
 /* Test results 
 
 Result 1: 1,3,4,7,9

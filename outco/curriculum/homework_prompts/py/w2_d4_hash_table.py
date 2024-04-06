@@ -7,7 +7,7 @@
 #
 #  The HashTable will have the following properties:
 #
-#         storage:  {List} - an list of lists.
+#         storage:  {List} - a list of lists.
 #         buckets:  {Integer} - the maximum number of buckets that your
 #                   storage can contain. Initially set to 8.
 #           size:   {Integer} count of key-value pairs in the storage
@@ -22,7 +22,7 @@
 #                   Input:      buckets {Integer}
 #                   Output:     index {Integer}
 #
-#            put:   Method that adds a key-value pair into the storage. If the
+#           insert: Method that adds a key-value pair into the storage. If the
 #                   key already exists, the value should be updated. Use
 #                   separate chaining to handle collisions.
 #
