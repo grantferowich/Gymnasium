@@ -38,4 +38,5 @@ let input = 'abcccccaaa'
 console.log(stringCompression(input)) // a1b1c5a3.
 let input2 = 'bmwxxxxx' 
 console.log(stringCompression(input2)) // b1m1w1x5
-let input3 = 'a'
+let input3 = 'bbbbbba'
+console.log(stringCompression(input3))
