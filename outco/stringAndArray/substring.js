@@ -18,7 +18,7 @@ whether the letter at the index is the same as the letter in the shortWord.
 */
 
 const substring = (shortWord, longWord) => {
-    let startIndex = -1 
+    let startIndex = -1;
     let x = 0;
     while (x < longWord.length){
         if (longWord[x] === shortWord[0]){

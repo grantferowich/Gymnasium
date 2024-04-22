@@ -33,7 +33,7 @@ const removeDuplicates = (numsArr) => {
     while (xInt < numsArr.length){
         let elementInt = numsArr[xInt];
         if (numsArr.indexOf(elementInt) < xInt){
-            numsArr.splice(xInt, 11);
+            numsArr.splice(xInt, 1);
         }
         xInt++;
     }

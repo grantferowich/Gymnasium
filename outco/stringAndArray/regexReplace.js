@@ -26,13 +26,12 @@ console.log(removeSpaces('saint charles')) // expected output: saintcharles | ac
 // replace all things which are not words (i.e. punctuation) with empty chars
 // ^\w also removes whitespace
 const removePunctuation = (string) => {
-    string = string.replace(/[^\w]/g, ""); 
+    string = string.replace(/[^\w]/g, "");
     return string;
 }
 console.log(removePunctuation('Winston-Salem')) // expected output: WinstonSalem | actual: WinstonSalem
 console.log(removePunctuation('St.Charles')) // expected output: StCharles | actual: StCharles
 console.log(removePunctuation('wake forest university')) // expected output: wakeforestuniversity | actual: wakeforestuniversity
-
 
 // the "opening" for regex and "close" for regex consists in the / and / 
 // the stuff between / and / decides what to replace
