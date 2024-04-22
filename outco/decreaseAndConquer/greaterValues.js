@@ -3,9 +3,11 @@
  *
  * Successfully tested the solution 1/10/23.
  * 
- * *Given an sorted array of integers, and a target value return the number of values greater the target.*
+ ** Given an sorted array of integers, 
+ * and a target value return the number 
+ * of values greater the target. *
  *
- * **Parameters**
+ * ** Parameters **
  * Input: arr {Array of Integers}
  * Input: target {Integer}
  * Output: {Integer}

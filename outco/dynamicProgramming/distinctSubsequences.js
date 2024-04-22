@@ -1,8 +1,9 @@
-/**
+/*
  * 
  * 350 million Americans.
  * 18 million Americans work in tech. 
- * 13.5 million Americans code professionally, assuming 75% of people who work in tech are full-time engineers.
+ * 13.5 million Americans code professionally, 
+ * assuming 75% of people who work in tech are full-time engineers.
  * Approximately 3.8% of Americans code.
  * 
  * Successfully tested the function 1/19/23.
@@ -28,7 +29,7 @@
  * //   s.splice(s.length-index-1, 1)
  * base case: S.splice(S.length - index  - 1, 1) === T
  *  return 1
-*/
+ */
 
 const distinctSubsequences = (stringX, targetY) => {
     let cache = {};

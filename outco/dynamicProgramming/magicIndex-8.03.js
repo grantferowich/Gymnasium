@@ -14,10 +14,10 @@ output: true.
 At index 0, the element value is 0.
 
 input: [0,1,2,3,4]
-output: true
+output: true.
 
 input: [1,4,6]
-output: false
+output: false.
 */
 
 const magicIndex = (numsArray=[]) => {
