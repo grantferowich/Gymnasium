@@ -26,21 +26,16 @@
  */
 
 const bitflip = (arr, flipsInt) => {
-
     let flipBudgetInt = 0;
-    let windowSizeInt = 0; 
+    let windowSizeInt = 0;
     let ultimateInt = 0;
     let leftPtrInt = 0;
     let rightPtrInt = 0;
-
     while (rightPtrInt < arr.length){
-
-        
         // expansion phase 
         if (arr[rightPtrInt] === 0){
             flipBudgetInt++;
         }
-        
         // hunting phase
         while (flipBudgetInt > flipsInt){ 
             if (arr[leftPtrInt] === 0){
@@ -48,14 +43,11 @@ const bitflip = (arr, flipsInt) => {
             }
             leftPtrInt++;
         }
-
         rightPtrInt++;
         windowSizeInt = rightPtrInt - leftPtrInt;
         ultimateInt = Math.max(windowSizeInt, ultimateInt);
-        
     }
-
-    return ultimateInt
+    return ultimateInt;
 }
 
 /* Tests */

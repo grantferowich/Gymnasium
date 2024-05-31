@@ -4,12 +4,14 @@ TARGET SUM
 Dev on March 6, 2024. 
 
 Given an integer x and an unsorted array of integers, describe an algorithm to
-determine whether two of the numbers add up to x.(In this case, say that the
+determine whether two of the numbers add up to x. (In this case, say that the
 interviewer hates hash tables.)
 
 array input = [ 1, 1, 2, 3, 5, 8, 13 ]
 integer input = 21
 output = true
+
+
 first sort the array
 then, initialize two pointers at the front and back of the array
 if the two numbers add up to a number less than the target, move the left pointer
@@ -57,4 +59,4 @@ console.log('result3', result3) // false
 const inputArray4 = [ 13, 1, 8, 3, 5, 2, 1];
 const x4 = 14;
 const result4 = targetSum(inputArray4, x4);
-console.log('result4', result4); // false
+console.log('result4', result4); // true

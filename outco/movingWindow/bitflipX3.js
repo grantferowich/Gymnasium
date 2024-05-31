@@ -32,7 +32,6 @@ const bitflip = (arr, kInt) => {
     let leftPtrInt = 0;
     let maxLengthInt = 0;
     let togglesInt = 0;
-
     while (rightPtrInt < arr.length){
         if (arr[rightPtrInt] === 0) { togglesInt++};
         if (togglesInt > kInt) { 
@@ -45,7 +44,6 @@ const bitflip = (arr, kInt) => {
         maxLengthInt = Math.max(maxLengthInt, rightPtrInt - leftPtrInt);
     }
     return maxLengthInt;
-
 }
 /* Tests */
 const arr1 = [0,1,1,1,0,1,0,1,0,0];

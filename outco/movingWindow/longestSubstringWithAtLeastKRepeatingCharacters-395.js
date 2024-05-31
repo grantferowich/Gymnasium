@@ -59,7 +59,7 @@ Output: 6
  1. Build up frequency map for the whole string called wholeStringMap.
  2. Initialize a map for tracking the frequency of characters in 
  the current window. 
- 3. Expand while the window's right edge is in-bounds. 
+ 3. Expand while the window's right edge is in-bounds.
  4. Check the temporary solution at each move through the string:
     -> Is the value in the whole string map of the current char at least
     kInt?

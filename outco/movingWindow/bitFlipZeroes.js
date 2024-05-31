@@ -29,18 +29,14 @@
 *       input = []
 *
 */
-
 // O(N^2) approach using 2 for loops
-
 const bitFlip = (array) => {
-
     // maxDifferent is the longest sliding window of 1s
     // maxDifferent is calculated by taking the count of 1s less the
     // count of 0s
     let maxDifferent = 0;
     let original0Count = 0;
     let n = array.length;
-
     // for all elements x in the array
     for (let x = 0; x < n; x++){
         if (array[x] == 0){
@@ -48,7 +44,6 @@ const bitFlip = (array) => {
         } 
         let count0 = 0;
         let count1 = 0;
-        
         // for each element x consider the subarray from arr[x] to arr[y]
         // consider all subarrays initializing at index x
         for (let y = x; y < n; y++){
@@ -59,14 +54,10 @@ const bitFlip = (array) => {
                 count0++;
             }
             maxDifferent = Math.max(maxDifferent, count1 - count0)
-            // console.log('maxDifferent', maxDifferent)
         }
     }
     return original0Count + maxDifferent;
 }
-
-
-
 console.log(bitFlip([1, 1, 1, 0, 0, 0, 0, 0, 0, 0])) // 10
 console.log(bitFlip([0, 0, 0, 1, 0, 1])) // 5
 console.log(bitFlip([0,0,0,0])) // 4
