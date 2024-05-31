@@ -1,10 +1,7 @@
 /* 
 Concatenation of Array
-
 Successfully tested the function 03/28/23
 https://leetcode.com/problems/concatenation-of-array/submissions/923604136/
-
-
 */
 
 

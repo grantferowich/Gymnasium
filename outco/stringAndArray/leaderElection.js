@@ -2,7 +2,7 @@
 
 
 Describe a technique to identify a "leader" among a group of 10 identical servers
- that are all connected to every other server. There are no prior distinguishing 
+that are all connected to every other server. There are no prior distinguishing 
 characteristics of any of them and the same program to identify the leader starts 
 running on all of them at the same time. After ananswer is given, ask how much 
 network traffic it requires and, if "ties" are possible, ask how you can break ties.

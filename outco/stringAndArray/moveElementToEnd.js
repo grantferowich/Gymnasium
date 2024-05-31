@@ -40,6 +40,7 @@ const moveElementToEnd = (array, target) => {
 
     let x = 0;
     let n = array.length;
+    
     while (x < n){
         while (x < n && array[n] == target) {n--}
         if (array[x] === target){

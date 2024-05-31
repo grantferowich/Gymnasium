@@ -31,7 +31,7 @@ const removeDups = (list) => {
     while (current !== null){
         let value = current.value;
         counts[value] = counts[value] + 1 || 1;
-        current = current.next
+        current = current.next;
     }
 
     current = list;
@@ -41,7 +41,7 @@ const removeDups = (list) => {
             let data = current.next.value;
             current.value = data;
             current.next = current.next.next;
-            counts[value]--
+            counts[value]--;
         }
         current = current.next
     }
