@@ -57,11 +57,11 @@
 
 
 const houseRobber = (array) => {
-    let maxRobbedTotalInt = 0; 
+    let maxRobbedTotalInt = 0;
     let maxRobbedPreviousInt = 0;
     let xInt = 0;
     while (xInt < array.length){
-        // set the current value to be the greater of of maxTotal, 
+        // set the current value to be the greater of maxTotal,
         // and the maxTotal plus the current house
         const currentRobbedInt = Math.max(array[xInt] + maxRobbedPreviousInt, maxRobbedTotalInt);
         // set the previous total to be the maxTotal

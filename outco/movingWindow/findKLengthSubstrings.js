@@ -1,5 +1,5 @@
 /* 
-1100. Find K-Length Substrings With No Repeated Characters23
+1100. Find K-Length Substrings With No Repeated Characters
 Medium
 Premium
 
